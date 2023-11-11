@@ -1,7 +1,7 @@
 ---
 title: "金融時系列解析"
 author: "林 高樹"
-date: "2023-10-16"
+date: "2023-11-11"
 output:
  git_book:
    lib_idr: "libs"
@@ -28,7 +28,7 @@ classoption: xelatex,ja=standard
 
 title: "金融時系列解析"
 author: "林 高樹"
-date: "2023-10-16"
+date: "2023-11-11"
 site: bookdown::bookdown_site
 output: bookdown::html_document2: default
 documentclass: bxjsbook

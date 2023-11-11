@@ -59,3 +59,11 @@ sarimapdqtimes-pdq_sモデル-周期sとは
 sarimaモデルのパス発生-sarimaパッケージの利用
 sarimaモデルの推定診断
 パッケージforecastの利用-1
+単位根過程と単位根検定
+単位根過程と見せかけの回帰
+単位根過程
+見せかけの回帰
+見せかけの回帰の判定
+主な単位根検定法
+augmented-dicky-fuller-adf-検定の実行例
+adf検定以外の検定法

@@ -40,7 +40,7 @@ attributes(tomorrow) # 出力オブジェクトの属性(attribute)
 
 today <- Sys.Date()
 today
-## [1] "2023-11-30"
+## [1] "2023-11-17"
 ```
 
 
@@ -312,7 +312,7 @@ head(Mizuho_ma5)
 ## 2020-10-06              NA
 ## 2020-10-07              NA
 ## 2020-10-08              NA
-## 2020-10-09     0.002418758
+## 2020-10-09     0.002418779
 #Mizuho_ma21 <- rollapply(Mizuho_ret, width = 21, mean, align = "right")	# zooパッケージ内
 # timestamp is taken from the rightmost value
 

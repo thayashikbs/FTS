@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Page not found | 金融時系列解析</title>
-  <meta name="description" content="Page not found | 金融時系列解析" />
+  <title>7 レジーム・スイッチング・モデル | 金融時系列解析</title>
+  <meta name="description" content="7 レジーム・スイッチング・モデル | 金融時系列解析" />
   <meta name="generator" content="bookdown 0.35 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Page not found | 金融時系列解析" />
+  <meta property="og:title" content="7 レジーム・スイッチング・モデル | 金融時系列解析" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Page not found | 金融時系列解析" />
+  <meta name="twitter:title" content="7 レジーム・スイッチング・モデル | 金融時系列解析" />
   
   
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-
+<link rel="prev" href="長期記憶過程.html"/>
+<link rel="next" href="バブル-生成崩壊-検出.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -285,19 +285,153 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="page-not-found" class="section level1">
-<h1>Page not found</h1>
-<p>The page you requested cannot be found (perhaps it was moved or renamed).</p>
-<p>You may want to try searching to find the page's new location, or use
-the table of contents to find the page you are looking for.</p>
+<div id="レジームスイッチングモデル" class="section level1 hasAnchor" number="7">
+<h1><span class="header-section-number">7</span> レジーム・スイッチング・モデル<a href="レジームスイッチングモデル.html#レジームスイッチングモデル" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="自己相関マルコフスイッチングモデル-msm-ar" class="section level2 hasAnchor" number="7.1">
+<h2><span class="header-section-number">7.1</span> 自己相関マルコフ・スイッチング・モデル (MSM-AR)<a href="レジームスイッチングモデル.html#自己相関マルコフスイッチングモデル-msm-ar" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li>パッケージ<strong>MSwM</strong></li>
+<li>出所: Jose A. Sanchez-Espigares and Alberto Lopez-Moreno (2018). “MSwM examples.”</li>
+<li>サンプルデータ (example): シミュレーションにより生成
+<span class="math display">\[y_{t}=\begin{cases}
+8+2x_{t}+\epsilon_{t}^{(1)} &amp; \epsilon_{t}^{(1)}\sim N(0,1),\quad t=101:150,181:250\\
+1+0.9y_{t-1}+\epsilon_{t}^{(2)} &amp; \epsilon_{t}^{(2)}\sim N(0,0.5),\quad t=1:100,151:180,251:300
+\end{cases}\]</span>
+ここで, <span class="math inline">\(x_t\)</span>は外生変数 (共変量).</li>
+</ul>
+<div class="sourceCode" id="cb401"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb401-1"><a href="レジームスイッチングモデル.html#cb401-1" tabindex="-1"></a><span class="fu">library</span>(MSwM)</span>
+<span id="cb401-2"><a href="レジームスイッチングモデル.html#cb401-2" tabindex="-1"></a><span class="fu">data</span>(example)</span>
+<span id="cb401-3"><a href="レジームスイッチングモデル.html#cb401-3" tabindex="-1"></a><span class="co">#vignette(&quot;examples&quot;) # マニュアル参照</span></span>
+<span id="cb401-4"><a href="レジームスイッチングモデル.html#cb401-4" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">ts</span>(example))</span></code></pre></div>
+<p><img src="060-MRS_files/figure-html/MSwM-1-1.png" width="75%" /></p>
+<div class="sourceCode" id="cb402"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb402-1"><a href="レジームスイッチングモデル.html#cb402-1" tabindex="-1"></a>mod <span class="ot">&lt;-</span> <span class="fu">lm</span>(y <span class="sc">~</span> x, example)</span>
+<span id="cb402-2"><a href="レジームスイッチングモデル.html#cb402-2" tabindex="-1"></a><span class="fu">summary</span>(mod)</span>
+<span id="cb402-3"><a href="レジームスイッチングモデル.html#cb402-3" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb402-4"><a href="レジームスイッチングモデル.html#cb402-4" tabindex="-1"></a><span class="do">## Call:</span></span>
+<span id="cb402-5"><a href="レジームスイッチングモデル.html#cb402-5" tabindex="-1"></a><span class="do">## lm(formula = y ~ x, data = example)</span></span>
+<span id="cb402-6"><a href="レジームスイッチングモデル.html#cb402-6" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb402-7"><a href="レジームスイッチングモデル.html#cb402-7" tabindex="-1"></a><span class="do">## Residuals:</span></span>
+<span id="cb402-8"><a href="レジームスイッチングモデル.html#cb402-8" tabindex="-1"></a><span class="do">##     Min      1Q  Median      3Q     Max </span></span>
+<span id="cb402-9"><a href="レジームスイッチングモデル.html#cb402-9" tabindex="-1"></a><span class="do">## -2.8998 -0.8429 -0.0427  0.7420  4.0337 </span></span>
+<span id="cb402-10"><a href="レジームスイッチングモデル.html#cb402-10" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb402-11"><a href="レジームスイッチングモデル.html#cb402-11" tabindex="-1"></a><span class="do">## Coefficients:</span></span>
+<span id="cb402-12"><a href="レジームスイッチングモデル.html#cb402-12" tabindex="-1"></a><span class="do">##             Estimate Std. Error t value Pr(&gt;|t|)    </span></span>
+<span id="cb402-13"><a href="レジームスイッチングモデル.html#cb402-13" tabindex="-1"></a><span class="do">## (Intercept)   9.0486     0.1398  64.709  &lt; 2e-16 ***</span></span>
+<span id="cb402-14"><a href="レジームスイッチングモデル.html#cb402-14" tabindex="-1"></a><span class="do">## x             0.8235     0.2423   3.398  0.00077 ***</span></span>
+<span id="cb402-15"><a href="レジームスイッチングモデル.html#cb402-15" tabindex="-1"></a><span class="do">## ---</span></span>
+<span id="cb402-16"><a href="レジームスイッチングモデル.html#cb402-16" tabindex="-1"></a><span class="do">## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</span></span>
+<span id="cb402-17"><a href="レジームスイッチングモデル.html#cb402-17" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb402-18"><a href="レジームスイッチングモデル.html#cb402-18" tabindex="-1"></a><span class="do">## Residual standard error: 1.208 on 298 degrees of freedom</span></span>
+<span id="cb402-19"><a href="レジームスイッチングモデル.html#cb402-19" tabindex="-1"></a><span class="do">## Multiple R-squared:  0.03731,    Adjusted R-squared:  0.03408 </span></span>
+<span id="cb402-20"><a href="レジームスイッチングモデル.html#cb402-20" tabindex="-1"></a><span class="do">## F-statistic: 11.55 on 1 and 298 DF,  p-value: 0.0007701</span></span>
+<span id="cb402-21"><a href="レジームスイッチングモデル.html#cb402-21" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>))</span>
+<span id="cb402-22"><a href="レジームスイッチングモデル.html#cb402-22" tabindex="-1"></a><span class="fu">qqnorm</span>(<span class="fu">resid</span>(mod)); <span class="fu">qqline</span>(<span class="fu">resid</span>(mod), <span class="at">col =</span> <span class="dv">2</span>); <span class="fu">acf</span>(<span class="fu">resid</span>(mod))</span></code></pre></div>
+<p><img src="060-MRS_files/figure-html/MSwM-1-2.png" width="75%" /></p>
+<div class="sourceCode" id="cb403"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb403-1"><a href="レジームスイッチングモデル.html#cb403-1" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>))</span>
+<span id="cb403-2"><a href="レジームスイッチングモデル.html#cb403-2" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">resid</span>(mod), <span class="at">type =</span> <span class="st">&quot;l&quot;</span>); <span class="fu">abline</span>(<span class="at">v=</span><span class="fu">c</span>(<span class="dv">100</span>, <span class="dv">150</span>, <span class="dv">180</span>, <span class="dv">250</span>), <span class="at">lty =</span> <span class="st">&quot;dotted&quot;</span>, <span class="at">col =</span> <span class="st">&quot;red&quot;</span>)</span></code></pre></div>
+<p><img src="060-MRS_files/figure-html/MSwM-1-3.png" width="75%" /></p>
+<p>→ 単回帰係数は有意. が, 残差は正規分布から乖離&amp; 有意な自己相関が持続</p>
 </div>
+<div id="msm-arモデルの適合" class="section level2 hasAnchor" number="7.2">
+<h2><span class="header-section-number">7.2</span> MSM-ARモデルの適合<a href="レジームスイッチングモデル.html#msm-arモデルの適合" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<pre><code>- 関数msmFit(): Fitting Markov Switching Models using the EM algorithm
+  - msmFit(object, k, sw, p, data, family, control)
+  - k: numeric, レジーム数
+  - sw: a logical vector, スイッチングする係数の指定
+    ← intercept, sigmaはベクトルの両端に配置
+  - p: integer, AR次数 (デフォルト値=0)
+  - p&gt;0のケース → the last values of sw have to contain the AR coefficients which have switching
+  - family: モデルのクラス (It is only required when the object is a &quot;General linear formula&quot;)</code></pre>
+<ul>
+<li>正しいレジーム数 (<span class="math inline">\(k=2\)</span>), 正しいモデル構造を想定出来たものとして推定した場合:</li>
+</ul>
+<div class="sourceCode" id="cb405"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb405-1"><a href="レジームスイッチングモデル.html#cb405-1" tabindex="-1"></a>mod.mswm <span class="ot">&lt;-</span> <span class="fu">msmFit</span>(mod, <span class="at">k =</span> <span class="dv">2</span>, <span class="at">p =</span> <span class="dv">1</span>, <span class="at">sw =</span> <span class="fu">c</span>(T, T, T, T), <span class="at">control =</span> <span class="fu">list</span>(<span class="at">parallel =</span> F))</span>
+<span id="cb405-2"><a href="レジームスイッチングモデル.html#cb405-2" tabindex="-1"></a><span class="fu">summary</span>(mod.mswm)</span>
+<span id="cb405-3"><a href="レジームスイッチングモデル.html#cb405-3" tabindex="-1"></a><span class="do">## Markov Switching Model</span></span>
+<span id="cb405-4"><a href="レジームスイッチングモデル.html#cb405-4" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb405-5"><a href="レジームスイッチングモデル.html#cb405-5" tabindex="-1"></a><span class="do">## Call: msmFit(object = mod, k = 2, sw = c(T, T, T, T), p = 1, control = list(parallel = F))</span></span>
+<span id="cb405-6"><a href="レジームスイッチングモデル.html#cb405-6" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb405-7"><a href="レジームスイッチングモデル.html#cb405-7" tabindex="-1"></a><span class="do">##        AIC     BIC    logLik</span></span>
+<span id="cb405-8"><a href="レジームスイッチングモデル.html#cb405-8" tabindex="-1"></a><span class="do">##   637.0736 693.479 -312.5368</span></span>
+<span id="cb405-9"><a href="レジームスイッチングモデル.html#cb405-9" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb405-10"><a href="レジームスイッチングモデル.html#cb405-10" tabindex="-1"></a><span class="do">## Coefficients:</span></span>
+<span id="cb405-11"><a href="レジームスイッチングモデル.html#cb405-11" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb405-12"><a href="レジームスイッチングモデル.html#cb405-12" tabindex="-1"></a><span class="do">## Regime 1 </span></span>
+<span id="cb405-13"><a href="レジームスイッチングモデル.html#cb405-13" tabindex="-1"></a><span class="do">## ---------</span></span>
+<span id="cb405-14"><a href="レジームスイッチングモデル.html#cb405-14" tabindex="-1"></a><span class="do">##                Estimate Std. Error t value  Pr(&gt;|t|)    </span></span>
+<span id="cb405-15"><a href="レジームスイッチングモデル.html#cb405-15" tabindex="-1"></a><span class="do">## (Intercept)(S)   0.8417     0.3030  2.7779  0.005471 ** </span></span>
+<span id="cb405-16"><a href="レジームスイッチングモデル.html#cb405-16" tabindex="-1"></a><span class="do">## x(S)            -0.0533     0.1397 -0.3815  0.702832    </span></span>
+<span id="cb405-17"><a href="レジームスイッチングモデル.html#cb405-17" tabindex="-1"></a><span class="do">## y_1(S)           0.9208     0.0306 30.0915 &lt; 2.2e-16 ***</span></span>
+<span id="cb405-18"><a href="レジームスイッチングモデル.html#cb405-18" tabindex="-1"></a><span class="do">## ---</span></span>
+<span id="cb405-19"><a href="レジームスイッチングモデル.html#cb405-19" tabindex="-1"></a><span class="do">## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</span></span>
+<span id="cb405-20"><a href="レジームスイッチングモデル.html#cb405-20" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb405-21"><a href="レジームスイッチングモデル.html#cb405-21" tabindex="-1"></a><span class="do">## Residual standard error: 0.5034675</span></span>
+<span id="cb405-22"><a href="レジームスイッチングモデル.html#cb405-22" tabindex="-1"></a><span class="do">## Multiple R-squared: 0.8375</span></span>
+<span id="cb405-23"><a href="レジームスイッチングモデル.html#cb405-23" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb405-24"><a href="レジームスイッチングモデル.html#cb405-24" tabindex="-1"></a><span class="do">## Standardized Residuals:</span></span>
+<span id="cb405-25"><a href="レジームスイッチングモデル.html#cb405-25" tabindex="-1"></a><span class="do">##           Min            Q1           Med            Q3           Max </span></span>
+<span id="cb405-26"><a href="レジームスイッチングモデル.html#cb405-26" tabindex="-1"></a><span class="do">## -1.5153665614 -0.0906543479  0.0001873641  0.1656717255  1.2020898999 </span></span>
+<span id="cb405-27"><a href="レジームスイッチングモデル.html#cb405-27" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb405-28"><a href="レジームスイッチングモデル.html#cb405-28" tabindex="-1"></a><span class="do">## Regime 2 </span></span>
+<span id="cb405-29"><a href="レジームスイッチングモデル.html#cb405-29" tabindex="-1"></a><span class="do">## ---------</span></span>
+<span id="cb405-30"><a href="レジームスイッチングモデル.html#cb405-30" tabindex="-1"></a><span class="do">##                Estimate Std. Error t value  Pr(&gt;|t|)    </span></span>
+<span id="cb405-31"><a href="レジームスイッチングモデル.html#cb405-31" tabindex="-1"></a><span class="do">## (Intercept)(S)   8.6393     0.7394 11.6842 &lt; 2.2e-16 ***</span></span>
+<span id="cb405-32"><a href="レジームスイッチングモデル.html#cb405-32" tabindex="-1"></a><span class="do">## x(S)             1.8771     0.3108  6.0396 1.545e-09 ***</span></span>
+<span id="cb405-33"><a href="レジームスイッチングモデル.html#cb405-33" tabindex="-1"></a><span class="do">## y_1(S)          -0.0569     0.0815 -0.6982    0.4851    </span></span>
+<span id="cb405-34"><a href="レジームスイッチングモデル.html#cb405-34" tabindex="-1"></a><span class="do">## ---</span></span>
+<span id="cb405-35"><a href="レジームスイッチングモデル.html#cb405-35" tabindex="-1"></a><span class="do">## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</span></span>
+<span id="cb405-36"><a href="レジームスイッチングモデル.html#cb405-36" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb405-37"><a href="レジームスイッチングモデル.html#cb405-37" tabindex="-1"></a><span class="do">## Residual standard error: 0.9339683</span></span>
+<span id="cb405-38"><a href="レジームスイッチングモデル.html#cb405-38" tabindex="-1"></a><span class="do">## Multiple R-squared: 0.2408</span></span>
+<span id="cb405-39"><a href="レジームスイッチングモデル.html#cb405-39" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb405-40"><a href="レジームスイッチングモデル.html#cb405-40" tabindex="-1"></a><span class="do">## Standardized Residuals:</span></span>
+<span id="cb405-41"><a href="レジームスイッチングモデル.html#cb405-41" tabindex="-1"></a><span class="do">##         Min          Q1         Med          Q3         Max </span></span>
+<span id="cb405-42"><a href="レジームスイッチングモデル.html#cb405-42" tabindex="-1"></a><span class="do">## -2.31102193 -0.03317756  0.01034139  0.04509106  2.85245598 </span></span>
+<span id="cb405-43"><a href="レジームスイッチングモデル.html#cb405-43" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb405-44"><a href="レジームスイッチングモデル.html#cb405-44" tabindex="-1"></a><span class="do">## Transition probabilities:</span></span>
+<span id="cb405-45"><a href="レジームスイッチングモデル.html#cb405-45" tabindex="-1"></a><span class="do">##            Regime 1   Regime 2</span></span>
+<span id="cb405-46"><a href="レジームスイッチングモデル.html#cb405-46" tabindex="-1"></a><span class="do">## Regime 1 0.98499728 0.02290885</span></span>
+<span id="cb405-47"><a href="レジームスイッチングモデル.html#cb405-47" tabindex="-1"></a><span class="do">## Regime 2 0.01500272 0.97709115</span></span>
+<span id="cb405-48"><a href="レジームスイッチングモデル.html#cb405-48" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>))</span>
+<span id="cb405-49"><a href="レジームスイッチングモデル.html#cb405-49" tabindex="-1"></a><span class="fu">qqnorm</span>(mod.mswm<span class="sc">@</span>Fit<span class="sc">@</span>error[, <span class="dv">1</span>]); <span class="fu">qqline</span>(mod.mswm<span class="sc">@</span>Fit<span class="sc">@</span>error[, <span class="dv">1</span>], <span class="at">col =</span> <span class="dv">2</span>); </span>
+<span id="cb405-50"><a href="レジームスイッチングモデル.html#cb405-50" tabindex="-1"></a><span class="fu">qqnorm</span>(mod.mswm<span class="sc">@</span>Fit<span class="sc">@</span>error[, <span class="dv">2</span>]); <span class="fu">qqline</span>(mod.mswm<span class="sc">@</span>Fit<span class="sc">@</span>error[, <span class="dv">2</span>],<span class="at">col =</span> <span class="dv">2</span>); </span></code></pre></div>
+<p><img src="060-MRS_files/figure-html/MSwM-2-1.png" width="75%" /></p>
+<div class="sourceCode" id="cb406"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb406-1"><a href="レジームスイッチングモデル.html#cb406-1" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">ts</span>(mod.mswm<span class="sc">@</span>Fit<span class="sc">@</span>error))</span></code></pre></div>
+<p><img src="060-MRS_files/figure-html/MSwM-2-2.png" width="75%" /></p>
+<p>→</p>
+<ul>
+<li><p>モデルは2つのレジームを良く検出: 共変量<span class="math inline">\(x\)</span>が有意なレジーム, 1期前ラグ変数<span class="math inline">\(y_{t-1}\)</span>が有意なレジームを推定.</p></li>
+<li><p>状態推定確率の対角要素(同じレジームに留まる確率)は, いずれも約0.98</p></li>
+<li><p>レジーム#1にある状態確率の推定値 (smoothed/ filtered probabilities)</p></li>
+</ul>
+<div class="sourceCode" id="cb407"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb407-1"><a href="レジームスイッチングモデル.html#cb407-1" tabindex="-1"></a><span class="fu">par</span>(<span class="st">&quot;mar&quot;</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>))</span>
+<span id="cb407-2"><a href="レジームスイッチングモデル.html#cb407-2" tabindex="-1"></a><span class="fu">plotProb</span>(mod.mswm, <span class="at">which =</span> <span class="dv">1</span>)</span></code></pre></div>
+<p><img src="060-MRS_files/figure-html/MSwM-3-1.png" width="75%" /></p>
+<ul>
+<li>レジーム#2にある状態確率の推定値 (平滑化 (smoothed) 確率, フィルター化 (filtered) 確率)</li>
+</ul>
+<div class="sourceCode" id="cb408"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb408-1"><a href="レジームスイッチングモデル.html#cb408-1" tabindex="-1"></a><span class="fu">par</span>(<span class="st">&quot;mar&quot;</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>))</span>
+<span id="cb408-2"><a href="レジームスイッチングモデル.html#cb408-2" tabindex="-1"></a><span class="fu">plotProb</span>(mod.mswm, <span class="at">which =</span> <span class="dv">2</span>)</span></code></pre></div>
+<p><img src="060-MRS_files/figure-html/MSwM-4-1.png" width="75%" /></p>
+<ul>
+<li>指定のレジームにおける, 反応変数, 説明変数, 状態確率の推定値 (平滑化確率) の同時プロット</li>
+</ul>
+<div class="sourceCode" id="cb409"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb409-1"><a href="レジームスイッチングモデル.html#cb409-1" tabindex="-1"></a><span class="fu">par</span>(<span class="st">&quot;mar&quot;</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>))</span>
+<span id="cb409-2"><a href="レジームスイッチングモデル.html#cb409-2" tabindex="-1"></a><span class="fu">plotReg</span>(mod.mswm, <span class="at">expl =</span> <span class="st">&quot;x&quot;</span>)</span></code></pre></div>
+<p><img src="060-MRS_files/figure-html/MSwM-5-1.png" width="75%" /></p>
+
+</div>
+</div>
+
+
+
             </section>
 
           </div>
         </div>
       </div>
-
-
+<a href="長期記憶過程.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="バブル-生成崩壊-検出.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

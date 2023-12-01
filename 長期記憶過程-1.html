@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>B 長期記憶過程 | 金融時系列解析</title>
   <meta name="description" content="B 長期記憶過程 | 金融時系列解析" />
-  <meta name="generator" content="bookdown 0.35 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.36 and GitBook 2.6.7" />
 
   <meta property="og:title" content="B 長期記憶過程 | 金融時系列解析" />
   <meta property="og:type" content="book" />
@@ -31,7 +31,7 @@
   
   
 <link rel="prev" href="バブル-生成崩壊-検出.html"/>
-
+<link rel="next" href="markov-switching-regime-switchingモデル.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -56,7 +56,7 @@
 
 <style type="text/css">
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -243,6 +243,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.1" data-path="レジームスイッチングモデル.html"><a href="レジームスイッチングモデル.html#自己相関マルコフスイッチングモデル-msm-ar"><i class="fa fa-check"></i><b>7.1</b> 自己相関マルコフ・スイッチング・モデル (MSM-AR)</a></li>
 <li class="chapter" data-level="7.2" data-path="レジームスイッチングモデル.html"><a href="レジームスイッチングモデル.html#msm-arモデルの適合"><i class="fa fa-check"></i><b>7.2</b> MSM-ARモデルの適合</a></li>
 </ul></li>
+<li class="chapter" data-level="8" data-path="garchモデル.html"><a href="garchモデル.html"><i class="fa fa-check"></i><b>8</b> GARCHモデル</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="garchモデル.html"><a href="garchモデル.html#garchモデル-1"><i class="fa fa-check"></i><b>8.1</b> GARCHモデル</a>
+<ul>
+<li class="chapter" data-level="8.1.1" data-path="garchモデル.html"><a href="garchモデル.html#garchpqモデルのサンプルパス生成"><i class="fa fa-check"></i><b>8.1.1</b> GARCH(p,q)モデルのサンプルパス生成</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="garchモデル.html"><a href="garchモデル.html#garchモデルの推定"><i class="fa fa-check"></i><b>8.2</b> GARCHモデルの推定</a></li>
+</ul></li>
 <li class="appendix"><span><b>Appendix 参考文献</b></span></li>
 <li class="chapter" data-level="A" data-path="バブル-生成崩壊-検出.html"><a href="バブル-生成崩壊-検出.html"><i class="fa fa-check"></i><b>A</b> バブル (生成・崩壊) 検出</a>
 <ul>
@@ -268,6 +276,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="B.6" data-path="長期記憶過程-1.html"><a href="長期記憶過程-1.html#高頻度データ-ボラティリティ-注文フロー等"><i class="fa fa-check"></i><b>B.6</b> 高頻度データ (ボラティリティ, 注文フロー等)</a></li>
 <li class="chapter" data-level="B.7" data-path="長期記憶過程-1.html"><a href="長期記憶過程-1.html#長期記憶性の発生要因-非長期記憶モデルによる近似"><i class="fa fa-check"></i><b>B.7</b> 長期記憶性の発生要因, 非長期記憶モデルによる近似</a></li>
 </ul></li>
+<li class="chapter" data-level="C" data-path="markov-switching-regime-switchingモデル.html"><a href="markov-switching-regime-switchingモデル.html"><i class="fa fa-check"></i><b>C</b> Markov switching/ regime switchingモデル</a>
+<ul>
+<li class="chapter" data-level="C.1" data-path="markov-switching-regime-switchingモデル.html"><a href="markov-switching-regime-switchingモデル.html#理論概説-1"><i class="fa fa-check"></i><b>C.1</b> 理論・概説</a></li>
+<li class="chapter" data-level="C.2" data-path="markov-switching-regime-switchingモデル.html"><a href="markov-switching-regime-switchingモデル.html#株式市場-1"><i class="fa fa-check"></i><b>C.2</b> 株式市場</a></li>
+<li class="chapter" data-level="C.3" data-path="markov-switching-regime-switchingモデル.html"><a href="markov-switching-regime-switchingモデル.html#金利債券市場"><i class="fa fa-check"></i><b>C.3</b> 金利・債券市場</a></li>
+<li class="chapter" data-level="C.4" data-path="markov-switching-regime-switchingモデル.html"><a href="markov-switching-regime-switchingモデル.html#外国為替市場-1"><i class="fa fa-check"></i><b>C.4</b> 外国為替市場</a></li>
+<li class="chapter" data-level="C.5" data-path="markov-switching-regime-switchingモデル.html"><a href="markov-switching-regime-switchingモデル.html#アセットアロケーション"><i class="fa fa-check"></i><b>C.5</b> アセット・アロケーション</a></li>
+</ul></li>
 </ul>
 
       </nav>
@@ -285,93 +301,75 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="長期記憶過程-1" class="section level1 hasAnchor" number="9">
+<div id="長期記憶過程-1" class="section level1 hasAnchor" number="10">
 <h1><span class="header-section-number">B</span> 長期記憶過程<a href="長期記憶過程-1.html#長期記憶過程-1" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <ul>
 <li><p>2023年11月17日</p></li>
 <li><p>ダウンロード可能なものを中心に紹介します (ワーキングペーパー含む).
 文献多数あり, 重要なものをカバーしている訳ではありません. ここにないものについては, 電子ジャーナル等を通じて適宜入手してください</p></li>
 </ul>
-<div id="理論概説" class="section level2 hasAnchor" number="9.1">
+<div id="理論概説" class="section level2 hasAnchor" number="10.1">
 <h2><span class="header-section-number">B.1</span> 理論・概説<a href="長期記憶過程-1.html#理論概説" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ul>
-<li>Gennady Samorodnitsky (2006). Long Range Dependence. <em>Foundations and Trends in Stochastic Systems</em>, 1(3), 163–257.</li>
-</ul>
+<li><p>Gennady Samorodnitsky (2006). Long Range Dependence. <em>Foundations and Trends in Stochastic Systems</em>, 1(3), 163–257.</p>
 <p><a href="https://people.orie.cornell.edu/gennady/techreports/LRD-NOW.pdf" class="uri">https://people.orie.cornell.edu/gennady/techreports/LRD-NOW.pdf</a></p>
-<p><a href="https://pdfs.semanticscholar.org/f182/3f5bcc8524d73af14ba3e29e7bbdcc50545e.pdf" class="uri">https://pdfs.semanticscholar.org/f182/3f5bcc8524d73af14ba3e29e7bbdcc50545e.pdf</a></p>
-<ul>
-<li>Rama Cont (2005). Long range dependence in financial markets, In: Lévy-Véhel J., Lutton E. (eds) <em>Fractals in Engineering</em>. Springer, London. <a href="https://doi.org/10.1007/1-84628-048-6_11" class="uri">https://doi.org/10.1007/1-84628-048-6_11</a></li>
-</ul>
-<p><a href="https://www.researchgate.net/publication/226697823_Long_range_dependence_in_financial_market" class="uri">https://www.researchgate.net/publication/226697823_Long_range_dependence_in_financial_market</a></p>
-<ul>
-<li>Thomas Mikosch and Ca ̆ta ̆lin Sta ̆rica ̆ (2004). Nonstationarities in Financial Time Series, the Long-range Dependence, and the IGARCH Effects. <em>The Review of Economics and Statistics,</em> 86(1), 378–390.</li>
-</ul>
-<p><a href="https://gec.cr.usgs.gov/outgoing/threshold_articles/Mikosch_Starica2004.pdf" class="uri">https://gec.cr.usgs.gov/outgoing/threshold_articles/Mikosch_Starica2004.pdf</a></p>
-<ul>
-<li>Richard T. Baillie (1996). Long memory processes and fractional integration in econometrics, <em>Journal of Econometrics</em>, 73, 5-59.
-<a href="http://long-memory.com/Baillie1996.pdf" class="uri">http://long-memory.com/Baillie1996.pdf</a></li>
+<p><a href="https://pdfs.semanticscholar.org/f182/3f5bcc8524d73af14ba3e29e7bbdcc50545e.pdf" class="uri">https://pdfs.semanticscholar.org/f182/3f5bcc8524d73af14ba3e29e7bbdcc50545e.pdf</a></p></li>
+<li><p>Rama Cont (2005). Long range dependence in financial markets, In: Lévy-Véhel J., Lutton E. (eds) <em>Fractals in Engineering</em>. Springer, London. <a href="https://doi.org/10.1007/1-84628-048-6_11" class="uri">https://doi.org/10.1007/1-84628-048-6_11</a></p>
+<p><a href="https://www.researchgate.net/publication/226697823_Long_range_dependence_in_financial_market" class="uri">https://www.researchgate.net/publication/226697823_Long_range_dependence_in_financial_market</a></p></li>
+<li><p>Thomas Mikosch and Ca ̆ta ̆lin Sta ̆rica ̆ (2004). Nonstationarities in Financial Time Series, the Long-range Dependence, and the IGARCH Effects. <em>The Review of Economics and Statistics,</em> 86(1), 378–390.</p>
+<p><a href="https://gec.cr.usgs.gov/outgoing/threshold_articles/Mikosch_Starica2004.pdf" class="uri">https://gec.cr.usgs.gov/outgoing/threshold_articles/Mikosch_Starica2004.pdf</a></p></li>
+<li><p>Richard T. Baillie (1996). Long memory processes and fractional integration in econometrics, <em>Journal of Econometrics</em>, 73, 5-59.
+<a href="http://long-memory.com/Baillie1996.pdf" class="uri">http://long-memory.com/Baillie1996.pdf</a></p></li>
 </ul>
 </div>
-<div id="株式市場" class="section level2 hasAnchor" number="9.2">
+<div id="株式市場" class="section level2 hasAnchor" number="10.2">
 <h2><span class="header-section-number">B.2</span> 株式市場<a href="長期記憶過程-1.html#株式市場" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ul>
-<li>Andrew W. Lo (1991). Long term memory in stock market prices, <em>Econometrica</em> <strong>59</strong> 1279–313.</li>
+<li><p>Andrew W. Lo (1991). Long term memory in stock market prices, <em>Econometrica</em> <strong>59</strong> 1279–313.</p>
+<p><a href="https://www.nber.org/system/files/working_papers/w2984/w2984.pdf" class="uri">https://www.nber.org/system/files/working_papers/w2984/w2984.pdf</a></p></li>
+<li><p>Walter Willinger, Murad S. Taqqu, Vadim Teverovsky (1999). Stock market prices and long-range dependence, <em>Finance &amp; Stochastics</em>, 3, 1–13.</p>
+<p><a href="http://www.long-memory.com/returns/WillingerTaqquTeverovsky1999.pdf" class="uri">http://www.long-memory.com/returns/WillingerTaqquTeverovsky1999.pdf</a></p></li>
 </ul>
-<p><a href="https://www.nber.org/system/files/working_papers/w2984/w2984.pdf" class="uri">https://www.nber.org/system/files/working_papers/w2984/w2984.pdf</a></p>
-<ul>
-<li>Walter Willinger, Murad S. Taqqu, Vadim Teverovsky (1999). Stock market prices and long-range dependence, <em>Finance &amp; Stochastics</em>, 3, 1–13.</li>
-</ul>
-<p><a href="http://www.long-memory.com/returns/WillingerTaqquTeverovsky1999.pdf" class="uri">http://www.long-memory.com/returns/WillingerTaqquTeverovsky1999.pdf</a></p>
 </div>
-<div id="外国為替市場" class="section level2 hasAnchor" number="9.3">
+<div id="外国為替市場" class="section level2 hasAnchor" number="10.3">
 <h2><span class="header-section-number">B.3</span> 外国為替市場<a href="長期記憶過程-1.html#外国為替市場" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ul>
-<li>Yin-Wong Cheung (1993). Long Memory in Foreign-Exchange Rates, <em>Journal of Business &amp; Economic Statistics</em>, 11(1), 93-101, DOI: <a href="https://doi.org/10.1080/07350015.1993.10509935">10.1080/07350015.1993.10509935</a>.</li>
+<li><p>Yin-Wong Cheung (1993). Long Memory in Foreign-Exchange Rates, <em>Journal of Business &amp; Economic Statistics</em>, 11(1), 93-101, DOI: <a href="https://doi.org/10.1080/07350015.1993.10509935">10.1080/07350015.1993.10509935</a>.</p>
+<p><a href="https://people.ucsc.edu/~cheung/JBES/LongMemoryFX_JBES1993.pdf" class="uri">https://people.ucsc.edu/~cheung/JBES/LongMemoryFX_JBES1993.pdf</a></p></li>
+<li><p>Richard T. Baillie and Tim Bollerslev(1994). The long memory of the forward premium, <em>Journal of International Money and Finance</em>, 13(5), 565-571.</p>
+<p><a href="https://dukespace.lib.duke.edu/dspace/bitstream/handle/10161/1965/Bollerslev_the_long_memory.pdf?sequence=1" class="uri">https://dukespace.lib.duke.edu/dspace/bitstream/handle/10161/1965/Bollerslev_the_long_memory.pdf?sequence=1</a></p></li>
+<li><p>Dominique M. Guillaume, Michel M. Dacorogna, Rakhal R. Davé, Ulrich A. Müller, Richard B. Olsen &amp; Olivier V. Pictet (1997). From the bird’s eye to the microscope: A survey of new stylized facts of the intra-daily foreign exchange markets. <em>Finance and Stochastics</em>, 1, pages95–129.</p>
+<p><a href="https://link.springer.com/article/10.1007%2Fs007800050018" class="uri">https://link.springer.com/article/10.1007%2Fs007800050018</a></p></li>
 </ul>
-<p><a href="https://people.ucsc.edu/~cheung/JBES/LongMemoryFX_JBES1993.pdf" class="uri">https://people.ucsc.edu/~cheung/JBES/LongMemoryFX_JBES1993.pdf</a></p>
-<ul>
-<li>Richard T. Baillie and Tim Bollerslev(1994). The long memory of the forward premium, <em>Journal of International Money and Finance</em>, 13(5), 565-571.</li>
-</ul>
-<p><a href="https://dukespace.lib.duke.edu/dspace/bitstream/handle/10161/1965/Bollerslev_the_long_memory.pdf?sequence=1" class="uri">https://dukespace.lib.duke.edu/dspace/bitstream/handle/10161/1965/Bollerslev_the_long_memory.pdf?sequence=1</a></p>
-<ul>
-<li>Dominique M. Guillaume, Michel M. Dacorogna, Rakhal R. Davé, Ulrich A. Müller, Richard B. Olsen &amp; Olivier V. Pictet (1997). From the bird’s eye to the microscope: A survey of new stylized facts of the intra-daily foreign exchange markets. <em>Finance and Stochastics</em>, 1, pages95–129.</li>
-</ul>
-<p><a href="https://link.springer.com/article/10.1007%2Fs007800050018" class="uri">https://link.springer.com/article/10.1007%2Fs007800050018</a></p>
 </div>
-<div id="コモディティ暗号資産" class="section level2 hasAnchor" number="9.4">
+<div id="コモディティ暗号資産" class="section level2 hasAnchor" number="10.4">
 <h2><span class="header-section-number">B.4</span> コモディティ・暗号資産<a href="長期記憶過程-1.html#コモディティ暗号資産" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ul>
-<li>Mohamed El Hedi Arouri, Shawkat Hammoudeh, Amine Lahiani, Duc Khuong Nguyen(2012). Long memory and structural breaks in modeling the return and volatility dynamics of precious metals, <em>The Quarterly Review of Economics and Finance</em>, 52-2, 207-218.</li>
+<li><p>Mohamed El Hedi Arouri, Shawkat Hammoudeh, Amine Lahiani, Duc Khuong Nguyen(2012). Long memory and structural breaks in modeling the return and volatility dynamics of precious metals, <em>The Quarterly Review of Economics and Finance</em>, 52-2, 207-218.</p>
+<p><a href="https://hal.archives-ouvertes.fr/file/index/docid/798033/filename/Arouri_et_al_QREF_R3-1.pdf" class="uri">https://hal.archives-ouvertes.fr/file/index/docid/798033/filename/Arouri_et_al_QREF_R3-1.pdf</a></p></li>
+<li><p>Guglielmo Maria Caporale, Luis Gil-Alana, Alex Plastun (2018), Persistence in the cryptocurrency market, <em>Research in International Business and Finance</em>, 46, pp. 141-148.</p>
+<p><a href="https://www.sciencedirect.com/science/article/pii/S0275531917309200" class="uri">https://www.sciencedirect.com/science/article/pii/S0275531917309200</a></p></li>
 </ul>
-<p><a href="https://hal.archives-ouvertes.fr/file/index/docid/798033/filename/Arouri_et_al_QREF_R3-1.pdf" class="uri">https://hal.archives-ouvertes.fr/file/index/docid/798033/filename/Arouri_et_al_QREF_R3-1.pdf</a></p>
-<ul>
-<li>Guglielmo Maria Caporale, Luis Gil-Alana, Alex Plastun (2018), Persistence in the cryptocurrency market, <em>Research in International Business and Finance</em>, 46, pp. 141-148.</li>
-</ul>
-<p><a href="https://www.sciencedirect.com/science/article/pii/S0275531917309200" class="uri">https://www.sciencedirect.com/science/article/pii/S0275531917309200</a></p>
 </div>
-<div id="vix" class="section level2 hasAnchor" number="9.5">
+<div id="vix" class="section level2 hasAnchor" number="10.5">
 <h2><span class="header-section-number">B.5</span> VIX<a href="長期記憶過程-1.html#vix" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ul>
-<li>Guglielmo Maria Caporale, Luis Gil-Alana, Alex Plastun (2018). Is market fear persistent? A long-memory analysis. <em>Finance Research Letters</em>, 27, 140-147. <a href="https://doi.org/10.1016/j.frl.2018.02.007" class="uri">https://doi.org/10.1016/j.frl.2018.02.007</a>.</li>
+<li><p>Guglielmo Maria Caporale, Luis Gil-Alana, Alex Plastun (2018). Is market fear persistent? A long-memory analysis. <em>Finance Research Letters</em>, 27, 140-147. <a href="https://doi.org/10.1016/j.frl.2018.02.007" class="uri">https://doi.org/10.1016/j.frl.2018.02.007</a>.</p>
+<p><a href="https://www.sciencedirect.com/science/article/pii/S1544612317303793" class="uri">https://www.sciencedirect.com/science/article/pii/S1544612317303793</a></p></li>
 </ul>
-<p><a href="https://www.sciencedirect.com/science/article/pii/S1544612317303793" class="uri">https://www.sciencedirect.com/science/article/pii/S1544612317303793</a></p>
 </div>
-<div id="高頻度データ-ボラティリティ-注文フロー等" class="section level2 hasAnchor" number="9.6">
+<div id="高頻度データ-ボラティリティ-注文フロー等" class="section level2 hasAnchor" number="10.6">
 <h2><span class="header-section-number">B.6</span> 高頻度データ (ボラティリティ, 注文フロー等)<a href="長期記憶過程-1.html#高頻度データ-ボラティリティ-注文フロー等" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ul>
-<li>Lillo, F. and Farmer, J. D. (2004). The Long Memory of the Efficient Market, <em>Studies in Nonlinear Dynamics &amp; Econometrics</em>, <em>8</em>(3). doi: <a href="https://doi.org/10.2202/1558-3708.1226" class="uri">https://doi.org/10.2202/1558-3708.1226</a></li>
+<li><p>Lillo, F. and Farmer, J. D. (2004). The Long Memory of the Efficient Market, <em>Studies in Nonlinear Dynamics &amp; Econometrics</em>, <em>8</em>(3). doi: <a href="https://doi.org/10.2202/1558-3708.1226" class="uri">https://doi.org/10.2202/1558-3708.1226</a></p>
+<p><a href="https://arxiv.org/pdf/cond-mat/0311053" class="uri">https://arxiv.org/pdf/cond-mat/0311053</a></p></li>
+<li><p>Torben G Andersen and Tim Bollerslev (1997), Heterogeneous Information Arrivals and Return Volatility Dynamics: Uncovering the Long‐Run in High Frequency Returns. <em>The Journal of Finance</em>, 52, 975-1005. <a href="https://doi.org/10.1111/j.1540-6261.1997.tb02722.x" class="uri">https://doi.org/10.1111/j.1540-6261.1997.tb02722.x</a></p>
+<p><a href="https://www.nber.org/system/files/working_papers/w5752/w5752.pdf" class="uri">https://www.nber.org/system/files/working_papers/w5752/w5752.pdf</a></p></li>
+<li><p>Torben G Andersen, Tim Bollerslev, Francis X Diebold &amp; Paul Labys (2001). The Distribution of Realized Exchange Rate Volatility, <em>Journal of the American Statistical Association</em>, 96, 42-55.</p>
+<p><a href="https://www.nber.org/system/files/working_papers/w6961/w6961.pdf" class="uri">https://www.nber.org/system/files/working_papers/w6961/w6961.pdf</a></p></li>
 </ul>
-<p><a href="https://arxiv.org/pdf/cond-mat/0311053" class="uri">https://arxiv.org/pdf/cond-mat/0311053</a></p>
-<ul>
-<li>Torben G Andersen and Tim Bollerslev (1997), Heterogeneous Information Arrivals and Return Volatility Dynamics: Uncovering the Long‐Run in High Frequency Returns. <em>The Journal of Finance</em>, 52, 975-1005. <a href="https://doi.org/10.1111/j.1540-6261.1997.tb02722.x" class="uri">https://doi.org/10.1111/j.1540-6261.1997.tb02722.x</a></li>
-</ul>
-<p><a href="https://www.nber.org/system/files/working_papers/w5752/w5752.pdf" class="uri">https://www.nber.org/system/files/working_papers/w5752/w5752.pdf</a></p>
-<ul>
-<li>Torben G Andersen, Tim Bollerslev, Francis X Diebold &amp; Paul Labys (2001). The Distribution of Realized Exchange Rate Volatility, <em>Journal of the American Statistical Association</em>, 96, 42-55.</li>
-</ul>
-<p><a href="https://www.nber.org/system/files/working_papers/w6961/w6961.pdf" class="uri">https://www.nber.org/system/files/working_papers/w6961/w6961.pdf</a></p>
 </div>
-<div id="長期記憶性の発生要因-非長期記憶モデルによる近似" class="section level2 hasAnchor" number="9.7">
+<div id="長期記憶性の発生要因-非長期記憶モデルによる近似" class="section level2 hasAnchor" number="10.7">
 <h2><span class="header-section-number">B.7</span> 長期記憶性の発生要因, 非長期記憶モデルによる近似<a href="長期記憶過程-1.html#長期記憶性の発生要因-非長期記憶モデルによる近似" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ul>
 <li><p>Chevillon, G. and Mavroeidis, S. (2018) ‘Perpetual learning and apparent long memory’, Journal of Economic Dynamics and Control, 90, pp. 343–365. Available at: <a href="https://doi.org/10.1016/j.jedc.2018.03.012" class="uri">https://doi.org/10.1016/j.jedc.2018.03.012</a>.</p></li>
@@ -388,8 +386,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-<a href="バブル-生成崩壊-検出.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-
+<a href="バブル-生成崩壊-検出.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="markov-switching-regime-switchingモデル.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>5 単位根過程と単位根検定 | 金融時系列解析</title>
   <meta name="description" content="5 単位根過程と単位根検定 | 金融時系列解析" />
-  <meta name="generator" content="bookdown 0.35 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.36 and GitBook 2.6.7" />
 
   <meta property="og:title" content="5 単位根過程と単位根検定 | 金融時系列解析" />
   <meta property="og:type" content="book" />
@@ -56,7 +56,7 @@
 
 <style type="text/css">
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -243,6 +243,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.1" data-path="レジームスイッチングモデル.html"><a href="レジームスイッチングモデル.html#自己相関マルコフスイッチングモデル-msm-ar"><i class="fa fa-check"></i><b>7.1</b> 自己相関マルコフ・スイッチング・モデル (MSM-AR)</a></li>
 <li class="chapter" data-level="7.2" data-path="レジームスイッチングモデル.html"><a href="レジームスイッチングモデル.html#msm-arモデルの適合"><i class="fa fa-check"></i><b>7.2</b> MSM-ARモデルの適合</a></li>
 </ul></li>
+<li class="chapter" data-level="8" data-path="garchモデル.html"><a href="garchモデル.html"><i class="fa fa-check"></i><b>8</b> GARCHモデル</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="garchモデル.html"><a href="garchモデル.html#garchモデル-1"><i class="fa fa-check"></i><b>8.1</b> GARCHモデル</a>
+<ul>
+<li class="chapter" data-level="8.1.1" data-path="garchモデル.html"><a href="garchモデル.html#garchpqモデルのサンプルパス生成"><i class="fa fa-check"></i><b>8.1.1</b> GARCH(p,q)モデルのサンプルパス生成</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="garchモデル.html"><a href="garchモデル.html#garchモデルの推定"><i class="fa fa-check"></i><b>8.2</b> GARCHモデルの推定</a></li>
+</ul></li>
 <li class="appendix"><span><b>Appendix 参考文献</b></span></li>
 <li class="chapter" data-level="A" data-path="バブル-生成崩壊-検出.html"><a href="バブル-生成崩壊-検出.html"><i class="fa fa-check"></i><b>A</b> バブル (生成・崩壊) 検出</a>
 <ul>
@@ -267,6 +275,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="B.5" data-path="長期記憶過程-1.html"><a href="長期記憶過程-1.html#vix"><i class="fa fa-check"></i><b>B.5</b> VIX</a></li>
 <li class="chapter" data-level="B.6" data-path="長期記憶過程-1.html"><a href="長期記憶過程-1.html#高頻度データ-ボラティリティ-注文フロー等"><i class="fa fa-check"></i><b>B.6</b> 高頻度データ (ボラティリティ, 注文フロー等)</a></li>
 <li class="chapter" data-level="B.7" data-path="長期記憶過程-1.html"><a href="長期記憶過程-1.html#長期記憶性の発生要因-非長期記憶モデルによる近似"><i class="fa fa-check"></i><b>B.7</b> 長期記憶性の発生要因, 非長期記憶モデルによる近似</a></li>
+</ul></li>
+<li class="chapter" data-level="C" data-path="markov-switching-regime-switchingモデル.html"><a href="markov-switching-regime-switchingモデル.html"><i class="fa fa-check"></i><b>C</b> Markov switching/ regime switchingモデル</a>
+<ul>
+<li class="chapter" data-level="C.1" data-path="markov-switching-regime-switchingモデル.html"><a href="markov-switching-regime-switchingモデル.html#理論概説-1"><i class="fa fa-check"></i><b>C.1</b> 理論・概説</a></li>
+<li class="chapter" data-level="C.2" data-path="markov-switching-regime-switchingモデル.html"><a href="markov-switching-regime-switchingモデル.html#株式市場-1"><i class="fa fa-check"></i><b>C.2</b> 株式市場</a></li>
+<li class="chapter" data-level="C.3" data-path="markov-switching-regime-switchingモデル.html"><a href="markov-switching-regime-switchingモデル.html#金利債券市場"><i class="fa fa-check"></i><b>C.3</b> 金利・債券市場</a></li>
+<li class="chapter" data-level="C.4" data-path="markov-switching-regime-switchingモデル.html"><a href="markov-switching-regime-switchingモデル.html#外国為替市場-1"><i class="fa fa-check"></i><b>C.4</b> 外国為替市場</a></li>
+<li class="chapter" data-level="C.5" data-path="markov-switching-regime-switchingモデル.html"><a href="markov-switching-regime-switchingモデル.html#アセットアロケーション"><i class="fa fa-check"></i><b>C.5</b> アセット・アロケーション</a></li>
 </ul></li>
 </ul>
 
@@ -294,27 +310,27 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li>ランダムウォークモデル (I(1))のパス生成</li>
 </ul>
-<div class="sourceCode" id="cb302"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb302-1"><a href="単位根過程と単位根検定.html#cb302-1" tabindex="-1"></a><span class="co">#require(sarima)</span></span>
-<span id="cb302-2"><a href="単位根過程と単位根検定.html#cb302-2" tabindex="-1"></a>Tlen <span class="ot">&lt;-</span> <span class="dv">100</span></span>
-<span id="cb302-3"><a href="単位根過程と単位根検定.html#cb302-3" tabindex="-1"></a>Seedv <span class="ot">&lt;-</span> <span class="dv">1</span></span>
-<span id="cb302-4"><a href="単位根過程と単位根検定.html#cb302-4" tabindex="-1"></a><span class="co">#</span></span>
-<span id="cb302-5"><a href="単位根過程と単位根検定.html#cb302-5" tabindex="-1"></a><span class="fu">set.seed</span>(Seedv)</span>
-<span id="cb302-6"><a href="単位根過程と単位根検定.html#cb302-6" tabindex="-1"></a><span class="co">#x &lt;- sim_sarima(n = Tlen, model = list(iorder = 1, sigma2 = 1)) # (1-B)X_t = e_t (random walk)</span></span>
-<span id="cb302-7"><a href="単位根過程と単位根検定.html#cb302-7" tabindex="-1"></a><span class="co">#y &lt;- sim_sarima(n = Tlen, model = list(iorder = 1, sigma2 = 1))</span></span>
-<span id="cb302-8"><a href="単位根過程と単位根検定.html#cb302-8" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">arima.sim</span>(<span class="at">n =</span> Tlen, <span class="fu">list</span>(<span class="at">order =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>)))</span>
-<span id="cb302-9"><a href="単位根過程と単位根検定.html#cb302-9" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">arima.sim</span>(<span class="at">n =</span> Tlen, <span class="fu">list</span>(<span class="at">order =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>)))</span>
-<span id="cb302-10"><a href="単位根過程と単位根検定.html#cb302-10" tabindex="-1"></a><span class="co">#</span></span>
-<span id="cb302-11"><a href="単位根過程と単位根検定.html#cb302-11" tabindex="-1"></a><span class="co">#par(mfrow=c(1,2))</span></span>
-<span id="cb302-12"><a href="単位根過程と単位根検定.html#cb302-12" tabindex="-1"></a><span class="co">#acf(x)   # 自己相関(ACF)</span></span>
-<span id="cb302-13"><a href="単位根過程と単位根検定.html#cb302-13" tabindex="-1"></a><span class="co">#pacf(x)    # 偏自己相関(PACF)</span></span>
-<span id="cb302-14"><a href="単位根過程と単位根検定.html#cb302-14" tabindex="-1"></a><span class="co">#matplot(cbind(x, y), type = &quot;l&quot;)</span></span>
-<span id="cb302-15"><a href="単位根過程と単位根検定.html#cb302-15" tabindex="-1"></a><span class="fu">ts.plot</span>(<span class="fu">cbind</span>(x, y), <span class="at">lty =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb301"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb301-1"><a href="単位根過程と単位根検定.html#cb301-1" tabindex="-1"></a><span class="co">#require(sarima)</span></span>
+<span id="cb301-2"><a href="単位根過程と単位根検定.html#cb301-2" tabindex="-1"></a>Tlen <span class="ot">&lt;-</span> <span class="dv">100</span></span>
+<span id="cb301-3"><a href="単位根過程と単位根検定.html#cb301-3" tabindex="-1"></a>Seedv <span class="ot">&lt;-</span> <span class="dv">1</span></span>
+<span id="cb301-4"><a href="単位根過程と単位根検定.html#cb301-4" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb301-5"><a href="単位根過程と単位根検定.html#cb301-5" tabindex="-1"></a><span class="fu">set.seed</span>(Seedv)</span>
+<span id="cb301-6"><a href="単位根過程と単位根検定.html#cb301-6" tabindex="-1"></a><span class="co">#x &lt;- sim_sarima(n = Tlen, model = list(iorder = 1, sigma2 = 1)) # (1-B)X_t = e_t (random walk)</span></span>
+<span id="cb301-7"><a href="単位根過程と単位根検定.html#cb301-7" tabindex="-1"></a><span class="co">#y &lt;- sim_sarima(n = Tlen, model = list(iorder = 1, sigma2 = 1))</span></span>
+<span id="cb301-8"><a href="単位根過程と単位根検定.html#cb301-8" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">arima.sim</span>(<span class="at">n =</span> Tlen, <span class="fu">list</span>(<span class="at">order =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>)))</span>
+<span id="cb301-9"><a href="単位根過程と単位根検定.html#cb301-9" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">arima.sim</span>(<span class="at">n =</span> Tlen, <span class="fu">list</span>(<span class="at">order =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>)))</span>
+<span id="cb301-10"><a href="単位根過程と単位根検定.html#cb301-10" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb301-11"><a href="単位根過程と単位根検定.html#cb301-11" tabindex="-1"></a><span class="co">#par(mfrow=c(1,2))</span></span>
+<span id="cb301-12"><a href="単位根過程と単位根検定.html#cb301-12" tabindex="-1"></a><span class="co">#acf(x)   # 自己相関(ACF)</span></span>
+<span id="cb301-13"><a href="単位根過程と単位根検定.html#cb301-13" tabindex="-1"></a><span class="co">#pacf(x)    # 偏自己相関(PACF)</span></span>
+<span id="cb301-14"><a href="単位根過程と単位根検定.html#cb301-14" tabindex="-1"></a><span class="co">#matplot(cbind(x, y), type = &quot;l&quot;)</span></span>
+<span id="cb301-15"><a href="単位根過程と単位根検定.html#cb301-15" tabindex="-1"></a><span class="fu">ts.plot</span>(<span class="fu">cbind</span>(x, y), <span class="at">lty =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>)</span></code></pre></div>
 <p><img src="040-unitroot_files/figure-html/sim_path-1.png" width="672" /></p>
 </div>
 <div id="見せかけの回帰" class="section level3 hasAnchor" number="5.1.2">
 <h3><span class="header-section-number">5.1.2</span> 見せかけの回帰<a href="単位根過程と単位根検定.html#見せかけの回帰" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb303"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb303-1"><a href="単位根過程と単位根検定.html#cb303-1" tabindex="-1"></a>reslm <span class="ot">&lt;-</span> <span class="fu">lm</span>(y <span class="sc">~</span> x)</span>
-<span id="cb303-2"><a href="単位根過程と単位根検定.html#cb303-2" tabindex="-1"></a><span class="fu">summary</span>(reslm)</span></code></pre></div>
+<div class="sourceCode" id="cb302"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb302-1"><a href="単位根過程と単位根検定.html#cb302-1" tabindex="-1"></a>reslm <span class="ot">&lt;-</span> <span class="fu">lm</span>(y <span class="sc">~</span> x)</span>
+<span id="cb302-2"><a href="単位根過程と単位根検定.html#cb302-2" tabindex="-1"></a><span class="fu">summary</span>(reslm)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = y ~ x)
@@ -333,22 +349,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## Residual standard error: 3.752 on 99 degrees of freedom
 ## Multiple R-squared:  0.2131, Adjusted R-squared:  0.2051 
 ## F-statistic: 26.81 on 1 and 99 DF,  p-value: 1.182e-06</code></pre>
-<div class="sourceCode" id="cb305"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb305-1"><a href="単位根過程と単位根検定.html#cb305-1" tabindex="-1"></a><span class="fu">plot</span>(x, y)</span></code></pre></div>
+<div class="sourceCode" id="cb304"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb304-1"><a href="単位根過程と単位根検定.html#cb304-1" tabindex="-1"></a><span class="fu">plot</span>(x, y)</span></code></pre></div>
 <p><img src="040-unitroot_files/figure-html/spur_reg-1.png" width="672" /></p>
-<div class="sourceCode" id="cb306"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb306-1"><a href="単位根過程と単位根検定.html#cb306-1" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">as.numeric</span>(x), <span class="fu">as.numeric</span>(y))</span>
-<span id="cb306-2"><a href="単位根過程と単位根検定.html#cb306-2" tabindex="-1"></a><span class="fu">abline</span>(reslm)</span></code></pre></div>
+<div class="sourceCode" id="cb305"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb305-1"><a href="単位根過程と単位根検定.html#cb305-1" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">as.numeric</span>(x), <span class="fu">as.numeric</span>(y))</span>
+<span id="cb305-2"><a href="単位根過程と単位根検定.html#cb305-2" tabindex="-1"></a><span class="fu">abline</span>(reslm)</span></code></pre></div>
 <p><img src="040-unitroot_files/figure-html/spur_reg-2.png" width="672" /></p>
 </div>
 <div id="見せかけの回帰の判定" class="section level3 hasAnchor" number="5.1.3">
 <h3><span class="header-section-number">5.1.3</span> 見せかけの回帰の判定<a href="単位根過程と単位根検定.html#見せかけの回帰の判定" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb307"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb307-1"><a href="単位根過程と単位根検定.html#cb307-1" tabindex="-1"></a><span class="fu">library</span>(lmtest)</span></code></pre></div>
+<div class="sourceCode" id="cb306"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb306-1"><a href="単位根過程と単位根検定.html#cb306-1" tabindex="-1"></a><span class="fu">library</span>(lmtest)</span></code></pre></div>
 <pre><code>## Loading required package: zoo</code></pre>
 <pre><code>## 
 ## Attaching package: &#39;zoo&#39;</code></pre>
 <pre><code>## The following objects are masked from &#39;package:base&#39;:
 ## 
 ##     as.Date, as.Date.numeric</code></pre>
-<div class="sourceCode" id="cb311"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb311-1"><a href="単位根過程と単位根検定.html#cb311-1" tabindex="-1"></a><span class="fu">dwtest</span>(reslm)</span></code></pre></div>
+<div class="sourceCode" id="cb310"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb310-1"><a href="単位根過程と単位根検定.html#cb310-1" tabindex="-1"></a><span class="fu">dwtest</span>(reslm)</span></code></pre></div>
 <pre><code>## 
 ##  Durbin-Watson test
 ## 
@@ -394,8 +410,8 @@ unitrootTest(): McKinnons(96) のアプローチによる検定統計量の計�
 <ul>
 <li>上記シミュレーションデータに対して, ADF検定を実行</li>
 </ul>
-<div class="sourceCode" id="cb314"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb314-1"><a href="単位根過程と単位根検定.html#cb314-1" tabindex="-1"></a><span class="fu">library</span>(fUnitRoots)</span>
-<span id="cb314-2"><a href="単位根過程と単位根検定.html#cb314-2" tabindex="-1"></a><span class="fu">adfTest</span>(x, <span class="at">type =</span> <span class="st">&quot;nc&quot;</span>, <span class="at">lags =</span> <span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb313"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb313-1"><a href="単位根過程と単位根検定.html#cb313-1" tabindex="-1"></a><span class="fu">library</span>(fUnitRoots)</span>
+<span id="cb313-2"><a href="単位根過程と単位根検定.html#cb313-2" tabindex="-1"></a><span class="fu">adfTest</span>(x, <span class="at">type =</span> <span class="st">&quot;nc&quot;</span>, <span class="at">lags =</span> <span class="dv">1</span>)</span></code></pre></div>
 <pre><code>## 
 ## Title:
 ##  Augmented Dickey-Fuller Test
@@ -409,8 +425,8 @@ unitrootTest(): McKinnons(96) のアプローチによる検定統計量の計�
 ##     0.703 
 ## 
 ## Description:
-##  Thu Nov 30 12:12:23 2023 by user:</code></pre>
-<div class="sourceCode" id="cb316"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb316-1"><a href="単位根過程と単位根検定.html#cb316-1" tabindex="-1"></a><span class="fu">unitrootTest</span>(x, <span class="at">type =</span> <span class="st">&quot;nc&quot;</span>, <span class="at">lags =</span> <span class="dv">1</span>)</span></code></pre></div>
+##  Thu Nov 30 17:14:42 2023 by user:</code></pre>
+<div class="sourceCode" id="cb315"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb315-1"><a href="単位根過程と単位根検定.html#cb315-1" tabindex="-1"></a><span class="fu">unitrootTest</span>(x, <span class="at">type =</span> <span class="st">&quot;nc&quot;</span>, <span class="at">lags =</span> <span class="dv">1</span>)</span></code></pre></div>
 <pre><code>## 
 ## Title:
 ##  Augmented Dickey-Fuller Test
@@ -425,11 +441,11 @@ unitrootTest(): McKinnons(96) のアプローチによる検定統計量の計�
 ##     n: 0.7506 
 ## 
 ## Description:
-##  Thu Nov 30 12:12:23 2023 by user:</code></pre>
+##  Thu Nov 30 17:14:42 2023 by user:</code></pre>
 <ul>
 <li>二つの関数の結果を比較せよ.</li>
 </ul>
-<div class="sourceCode" id="cb318"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb318-1"><a href="単位根過程と単位根検定.html#cb318-1" tabindex="-1"></a><span class="fu">adfTest</span>(y, <span class="at">type =</span> <span class="st">&quot;nc&quot;</span>, <span class="at">lags =</span> <span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb317"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb317-1"><a href="単位根過程と単位根検定.html#cb317-1" tabindex="-1"></a><span class="fu">adfTest</span>(y, <span class="at">type =</span> <span class="st">&quot;nc&quot;</span>, <span class="at">lags =</span> <span class="dv">1</span>)</span></code></pre></div>
 <pre><code>## 
 ## Title:
 ##  Augmented Dickey-Fuller Test
@@ -443,8 +459,8 @@ unitrootTest(): McKinnons(96) のアプローチによる検定統計量の計�
 ##     0.3835 
 ## 
 ## Description:
-##  Thu Nov 30 12:12:23 2023 by user:</code></pre>
-<div class="sourceCode" id="cb320"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb320-1"><a href="単位根過程と単位根検定.html#cb320-1" tabindex="-1"></a><span class="fu">unitrootTest</span>(y, <span class="at">type =</span> <span class="st">&quot;nc&quot;</span>, <span class="at">lags =</span> <span class="dv">1</span>)</span></code></pre></div>
+##  Thu Nov 30 17:14:42 2023 by user:</code></pre>
+<div class="sourceCode" id="cb319"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb319-1"><a href="単位根過程と単位根検定.html#cb319-1" tabindex="-1"></a><span class="fu">unitrootTest</span>(y, <span class="at">type =</span> <span class="st">&quot;nc&quot;</span>, <span class="at">lags =</span> <span class="dv">1</span>)</span></code></pre></div>
 <pre><code>## 
 ## Title:
 ##  Augmented Dickey-Fuller Test
@@ -459,11 +475,11 @@ unitrootTest(): McKinnons(96) のアプローチによる検定統計量の計�
 ##     n: 0.522 
 ## 
 ## Description:
-##  Thu Nov 30 12:12:23 2023 by user:</code></pre>
+##  Thu Nov 30 17:14:42 2023 by user:</code></pre>
 <ul>
 <li>→ いずれも, 帰無仮説(phi_1=1)を棄却せず(単位根有り)</li>
 </ul>
-<div class="sourceCode" id="cb322"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb322-1"><a href="単位根過程と単位根検定.html#cb322-1" tabindex="-1"></a><span class="fu">adfTest</span>(x, <span class="at">type =</span> <span class="st">&quot;c&quot;</span>, <span class="at">lags =</span> <span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb321"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb321-1"><a href="単位根過程と単位根検定.html#cb321-1" tabindex="-1"></a><span class="fu">adfTest</span>(x, <span class="at">type =</span> <span class="st">&quot;c&quot;</span>, <span class="at">lags =</span> <span class="dv">1</span>)</span></code></pre></div>
 <pre><code>## 
 ## Title:
 ##  Augmented Dickey-Fuller Test
@@ -477,9 +493,9 @@ unitrootTest(): McKinnons(96) のアプローチによる検定統計量の計�
 ##     0.5166 
 ## 
 ## Description:
-##  Thu Nov 30 12:12:23 2023 by user:</code></pre>
-<div class="sourceCode" id="cb324"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb324-1"><a href="単位根過程と単位根検定.html#cb324-1" tabindex="-1"></a><span class="co">#unitrootTest(x, type = &quot;c&quot;, lags = 1)</span></span>
-<span id="cb324-2"><a href="単位根過程と単位根検定.html#cb324-2" tabindex="-1"></a><span class="fu">adfTest</span>(y, <span class="at">type =</span> <span class="st">&quot;c&quot;</span>, <span class="at">lags =</span> <span class="dv">1</span>)</span></code></pre></div>
+##  Thu Nov 30 17:14:42 2023 by user:</code></pre>
+<div class="sourceCode" id="cb323"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb323-1"><a href="単位根過程と単位根検定.html#cb323-1" tabindex="-1"></a><span class="co">#unitrootTest(x, type = &quot;c&quot;, lags = 1)</span></span>
+<span id="cb323-2"><a href="単位根過程と単位根検定.html#cb323-2" tabindex="-1"></a><span class="fu">adfTest</span>(y, <span class="at">type =</span> <span class="st">&quot;c&quot;</span>, <span class="at">lags =</span> <span class="dv">1</span>)</span></code></pre></div>
 <pre><code>## 
 ## Title:
 ##  Augmented Dickey-Fuller Test
@@ -493,9 +509,9 @@ unitrootTest(): McKinnons(96) のアプローチによる検定統計量の計�
 ##     0.6617 
 ## 
 ## Description:
-##  Thu Nov 30 12:12:23 2023 by user:</code></pre>
-<div class="sourceCode" id="cb326"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb326-1"><a href="単位根過程と単位根検定.html#cb326-1" tabindex="-1"></a><span class="co">#unitrootTest(y, type = &quot;c&quot;, lags = 1)</span></span></code></pre></div>
-<div class="sourceCode" id="cb327"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb327-1"><a href="単位根過程と単位根検定.html#cb327-1" tabindex="-1"></a><span class="fu">adfTest</span>(x, <span class="at">type =</span> <span class="st">&quot;c&quot;</span>, <span class="at">lags =</span> <span class="dv">1</span>)</span></code></pre></div>
+##  Thu Nov 30 17:14:42 2023 by user:</code></pre>
+<div class="sourceCode" id="cb325"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb325-1"><a href="単位根過程と単位根検定.html#cb325-1" tabindex="-1"></a><span class="co">#unitrootTest(y, type = &quot;c&quot;, lags = 1)</span></span></code></pre></div>
+<div class="sourceCode" id="cb326"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb326-1"><a href="単位根過程と単位根検定.html#cb326-1" tabindex="-1"></a><span class="fu">adfTest</span>(x, <span class="at">type =</span> <span class="st">&quot;c&quot;</span>, <span class="at">lags =</span> <span class="dv">1</span>)</span></code></pre></div>
 <pre><code>## 
 ## Title:
 ##  Augmented Dickey-Fuller Test
@@ -509,9 +525,9 @@ unitrootTest(): McKinnons(96) のアプローチによる検定統計量の計�
 ##     0.5166 
 ## 
 ## Description:
-##  Thu Nov 30 12:12:23 2023 by user:</code></pre>
-<div class="sourceCode" id="cb329"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb329-1"><a href="単位根過程と単位根検定.html#cb329-1" tabindex="-1"></a><span class="co">#unitrootTest(x, type = &quot;ct&quot;, lags = 1)</span></span>
-<span id="cb329-2"><a href="単位根過程と単位根検定.html#cb329-2" tabindex="-1"></a><span class="fu">adfTest</span>(y, <span class="at">type =</span> <span class="st">&quot;c&quot;</span>, <span class="at">lags =</span> <span class="dv">1</span>)</span></code></pre></div>
+##  Thu Nov 30 17:14:42 2023 by user:</code></pre>
+<div class="sourceCode" id="cb328"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb328-1"><a href="単位根過程と単位根検定.html#cb328-1" tabindex="-1"></a><span class="co">#unitrootTest(x, type = &quot;ct&quot;, lags = 1)</span></span>
+<span id="cb328-2"><a href="単位根過程と単位根検定.html#cb328-2" tabindex="-1"></a><span class="fu">adfTest</span>(y, <span class="at">type =</span> <span class="st">&quot;c&quot;</span>, <span class="at">lags =</span> <span class="dv">1</span>)</span></code></pre></div>
 <pre><code>## 
 ## Title:
 ##  Augmented Dickey-Fuller Test
@@ -525,8 +541,8 @@ unitrootTest(): McKinnons(96) のアプローチによる検定統計量の計�
 ##     0.6617 
 ## 
 ## Description:
-##  Thu Nov 30 12:12:23 2023 by user:</code></pre>
-<div class="sourceCode" id="cb331"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb331-1"><a href="単位根過程と単位根検定.html#cb331-1" tabindex="-1"></a><span class="co">#unitrootTest(y, type = &quot;ct&quot;, lags = 1)</span></span></code></pre></div>
+##  Thu Nov 30 17:14:42 2023 by user:</code></pre>
+<div class="sourceCode" id="cb330"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb330-1"><a href="単位根過程と単位根検定.html#cb330-1" tabindex="-1"></a><span class="co">#unitrootTest(y, type = &quot;ct&quot;, lags = 1)</span></span></code></pre></div>
 <ul>
 <li>株価データ(<strong>quantmod</strong>パッケージにより取得)</li>
 <li><strong>tseries</strong>パッケージ内, adf.test()使用</li>
@@ -537,41 +553,41 @@ unitrootTest(): McKinnons(96) のアプローチによる検定統計量の計�
 - default: trunc((length(x)-1)^(1/3)): the suggested upper bound on the rate
 - (to grow with the sample size for the general ARMA(p,q) setup)
 - alternative: &quot;stationary&quot;(デフォルト) or &quot;explosive&quot;   # 対立仮説の指定</code></pre>
-<div class="sourceCode" id="cb333"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb333-1"><a href="単位根過程と単位根検定.html#cb333-1" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&#39;quantmod&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb332"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb332-1"><a href="単位根過程と単位根検定.html#cb332-1" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&#39;quantmod&#39;</span>)</span></code></pre></div>
 <pre><code>## Loading required package: xts</code></pre>
 <pre><code>## Loading required package: TTR</code></pre>
 <pre><code>## Registered S3 method overwritten by &#39;quantmod&#39;:
 ##   method            from
 ##   as.zoo.data.frame zoo</code></pre>
-<div class="sourceCode" id="cb337"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb337-1"><a href="単位根過程と単位根検定.html#cb337-1" tabindex="-1"></a>yj8411 <span class="ot">&lt;-</span> <span class="fu">getSymbols</span>(<span class="st">&#39;8411.T&#39;</span>,<span class="at">from =</span> <span class="st">&#39;2020-10-01&#39;</span>, </span>
-<span id="cb337-2"><a href="単位根過程と単位根検定.html#cb337-2" tabindex="-1"></a>                     <span class="at">to =</span> <span class="st">&#39;2023-09-29&#39;</span>, <span class="at">src =</span> <span class="st">&quot;yahoo&quot;</span>, <span class="at">auto.assign =</span> <span class="cn">FALSE</span>) </span>
-<span id="cb337-3"><a href="単位根過程と単位根検定.html#cb337-3" tabindex="-1"></a><span class="co"># 注) R/RStudioや, guantmodのバージョンによっては, 動かないことがある</span></span>
-<span id="cb337-4"><a href="単位根過程と単位根検定.html#cb337-4" tabindex="-1"></a>p8411 <span class="ot">&lt;-</span> <span class="fu">Ad</span>(yj8411) <span class="co"># 調整後株価</span></span>
-<span id="cb337-5"><a href="単位根過程と単位根検定.html#cb337-5" tabindex="-1"></a><span class="co">#lnp8411 &lt;- log(Ad(yj8411)) # 同対数値 (← 期間が長い場合など)</span></span>
-<span id="cb337-6"><a href="単位根過程と単位根検定.html#cb337-6" tabindex="-1"></a><span class="co">#</span></span>
-<span id="cb337-7"><a href="単位根過程と単位根検定.html#cb337-7" tabindex="-1"></a><span class="fu">plot</span>(p8411)</span></code></pre></div>
+<div class="sourceCode" id="cb336"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb336-1"><a href="単位根過程と単位根検定.html#cb336-1" tabindex="-1"></a>yj8411 <span class="ot">&lt;-</span> <span class="fu">getSymbols</span>(<span class="st">&#39;8411.T&#39;</span>,<span class="at">from =</span> <span class="st">&#39;2020-10-01&#39;</span>, </span>
+<span id="cb336-2"><a href="単位根過程と単位根検定.html#cb336-2" tabindex="-1"></a>                     <span class="at">to =</span> <span class="st">&#39;2023-09-29&#39;</span>, <span class="at">src =</span> <span class="st">&quot;yahoo&quot;</span>, <span class="at">auto.assign =</span> <span class="cn">FALSE</span>) </span>
+<span id="cb336-3"><a href="単位根過程と単位根検定.html#cb336-3" tabindex="-1"></a><span class="co"># 注) R/RStudioや, guantmodのバージョンによっては, 動かないことがある</span></span>
+<span id="cb336-4"><a href="単位根過程と単位根検定.html#cb336-4" tabindex="-1"></a>p8411 <span class="ot">&lt;-</span> <span class="fu">Ad</span>(yj8411) <span class="co"># 調整後株価</span></span>
+<span id="cb336-5"><a href="単位根過程と単位根検定.html#cb336-5" tabindex="-1"></a><span class="co">#lnp8411 &lt;- log(Ad(yj8411)) # 同対数値 (← 期間が長い場合など)</span></span>
+<span id="cb336-6"><a href="単位根過程と単位根検定.html#cb336-6" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb336-7"><a href="単位根過程と単位根検定.html#cb336-7" tabindex="-1"></a><span class="fu">plot</span>(p8411)</span></code></pre></div>
 <p><img src="040-unitroot_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
-<div class="sourceCode" id="cb338"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb338-1"><a href="単位根過程と単位根検定.html#cb338-1" tabindex="-1"></a><span class="co">#plot(lnp8411)</span></span>
-<span id="cb338-2"><a href="単位根過程と単位根検定.html#cb338-2" tabindex="-1"></a><span class="fu">acf</span>(p8411)</span></code></pre></div>
+<div class="sourceCode" id="cb337"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb337-1"><a href="単位根過程と単位根検定.html#cb337-1" tabindex="-1"></a><span class="co">#plot(lnp8411)</span></span>
+<span id="cb337-2"><a href="単位根過程と単位根検定.html#cb337-2" tabindex="-1"></a><span class="fu">acf</span>(p8411)</span></code></pre></div>
 <p><img src="040-unitroot_files/figure-html/unnamed-chunk-3-2.png" width="672" /></p>
-<div class="sourceCode" id="cb339"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb339-1"><a href="単位根過程と単位根検定.html#cb339-1" tabindex="-1"></a><span class="fu">pacf</span>(p8411)</span></code></pre></div>
+<div class="sourceCode" id="cb338"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb338-1"><a href="単位根過程と単位根検定.html#cb338-1" tabindex="-1"></a><span class="fu">pacf</span>(p8411)</span></code></pre></div>
 <p><img src="040-unitroot_files/figure-html/unnamed-chunk-3-3.png" width="672" /></p>
-<div class="sourceCode" id="cb340"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb340-1"><a href="単位根過程と単位根検定.html#cb340-1" tabindex="-1"></a><span class="co">#acf(diff(p8411), na.action = na.omit)</span></span>
-<span id="cb340-2"><a href="単位根過程と単位根検定.html#cb340-2" tabindex="-1"></a><span class="co">#pacf(diff(p8411),na.action = na.omit)</span></span></code></pre></div>
+<div class="sourceCode" id="cb339"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb339-1"><a href="単位根過程と単位根検定.html#cb339-1" tabindex="-1"></a><span class="co">#acf(diff(p8411), na.action = na.omit)</span></span>
+<span id="cb339-2"><a href="単位根過程と単位根検定.html#cb339-2" tabindex="-1"></a><span class="co">#pacf(diff(p8411),na.action = na.omit)</span></span></code></pre></div>
 <ul>
 <li>株価データに対してADF検定を実行</li>
 </ul>
-<div class="sourceCode" id="cb341"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb341-1"><a href="単位根過程と単位根検定.html#cb341-1" tabindex="-1"></a><span class="co"># ADF検定 (Augmentd Dicky-Fuller test)</span></span>
-<span id="cb341-2"><a href="単位根過程と単位根検定.html#cb341-2" tabindex="-1"></a><span class="co"># (H0: x has unit root)</span></span>
-<span id="cb341-3"><a href="単位根過程と単位根検定.html#cb341-3" tabindex="-1"></a><span class="fu">library</span>(tseries)</span>
-<span id="cb341-4"><a href="単位根過程と単位根検定.html#cb341-4" tabindex="-1"></a><span class="fu">adf.test</span>(p8411)</span>
-<span id="cb341-5"><a href="単位根過程と単位根検定.html#cb341-5" tabindex="-1"></a><span class="fu">adf.test</span>(p8411, <span class="at">k =</span> <span class="dv">1</span>)</span>
-<span id="cb341-6"><a href="単位根過程と単位根検定.html#cb341-6" tabindex="-1"></a><span class="co">#</span></span>
-<span id="cb341-7"><a href="単位根過程と単位根検定.html#cb341-7" tabindex="-1"></a><span class="fu">adfTest</span>(p8411, <span class="at">type =</span><span class="st">&quot;ct&quot;</span>, <span class="at">lags =</span> <span class="dv">1</span>)</span>
-<span id="cb341-8"><a href="単位根過程と単位根検定.html#cb341-8" tabindex="-1"></a><span class="co"># → 同一の結果</span></span>
-<span id="cb341-9"><a href="単位根過程と単位根検定.html#cb341-9" tabindex="-1"></a><span class="co">#</span></span>
-<span id="cb341-10"><a href="単位根過程と単位根検定.html#cb341-10" tabindex="-1"></a><span class="fu">adf.test</span>(p8411, <span class="at">k =</span> <span class="dv">1</span>, <span class="at">alternative =</span> <span class="st">&quot;explosive&quot;</span>)</span>
-<span id="cb341-11"><a href="単位根過程と単位根検定.html#cb341-11" tabindex="-1"></a><span class="co"># &lt;-- H0 と H1を入替 (→ 同一のDF値. 上行のp値 = 1-下行のp値)</span></span></code></pre></div>
+<div class="sourceCode" id="cb340"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb340-1"><a href="単位根過程と単位根検定.html#cb340-1" tabindex="-1"></a><span class="co"># ADF検定 (Augmentd Dicky-Fuller test)</span></span>
+<span id="cb340-2"><a href="単位根過程と単位根検定.html#cb340-2" tabindex="-1"></a><span class="co"># (H0: x has unit root)</span></span>
+<span id="cb340-3"><a href="単位根過程と単位根検定.html#cb340-3" tabindex="-1"></a><span class="fu">library</span>(tseries)</span>
+<span id="cb340-4"><a href="単位根過程と単位根検定.html#cb340-4" tabindex="-1"></a><span class="fu">adf.test</span>(p8411)</span>
+<span id="cb340-5"><a href="単位根過程と単位根検定.html#cb340-5" tabindex="-1"></a><span class="fu">adf.test</span>(p8411, <span class="at">k =</span> <span class="dv">1</span>)</span>
+<span id="cb340-6"><a href="単位根過程と単位根検定.html#cb340-6" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb340-7"><a href="単位根過程と単位根検定.html#cb340-7" tabindex="-1"></a><span class="fu">adfTest</span>(p8411, <span class="at">type =</span><span class="st">&quot;ct&quot;</span>, <span class="at">lags =</span> <span class="dv">1</span>)</span>
+<span id="cb340-8"><a href="単位根過程と単位根検定.html#cb340-8" tabindex="-1"></a><span class="co"># → 同一の結果</span></span>
+<span id="cb340-9"><a href="単位根過程と単位根検定.html#cb340-9" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb340-10"><a href="単位根過程と単位根検定.html#cb340-10" tabindex="-1"></a><span class="fu">adf.test</span>(p8411, <span class="at">k =</span> <span class="dv">1</span>, <span class="at">alternative =</span> <span class="st">&quot;explosive&quot;</span>)</span>
+<span id="cb340-11"><a href="単位根過程と単位根検定.html#cb340-11" tabindex="-1"></a><span class="co"># &lt;-- H0 と H1を入替 (→ 同一のDF値. 上行のp値 = 1-下行のp値)</span></span></code></pre></div>
 <pre><code>## 
 ##  Augmented Dickey-Fuller Test
 ## 
@@ -599,8 +615,7 @@ unitrootTest(): McKinnons(96) のアプローチによる検定統計量の計�
 ##     0.954 
 ## 
 ## Description:
-##  Thu Nov 30 12:12:23 2023 by user: 
-## 
+##  Thu Nov 30 17:14:43 2023 by user: 
 ## 
 ##  Augmented Dickey-Fuller Test
 ## 
@@ -613,8 +628,8 @@ unitrootTest(): McKinnons(96) のアプローチによる検定統計量の計�
 <ul>
 <li>Phillips-Perron検定の実行例</li>
 </ul>
-<div class="sourceCode" id="cb343"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb343-1"><a href="単位根過程と単位根検定.html#cb343-1" tabindex="-1"></a><span class="co">#library(tseries)</span></span>
-<span id="cb343-2"><a href="単位根過程と単位根検定.html#cb343-2" tabindex="-1"></a><span class="fu">pp.test</span>(p8411, <span class="at">type =</span> <span class="st">&quot;Z(alpha)&quot;</span>, <span class="at">lshort =</span> T)   <span class="co"># デフォルト</span></span></code></pre></div>
+<div class="sourceCode" id="cb342"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb342-1"><a href="単位根過程と単位根検定.html#cb342-1" tabindex="-1"></a><span class="co">#library(tseries)</span></span>
+<span id="cb342-2"><a href="単位根過程と単位根検定.html#cb342-2" tabindex="-1"></a><span class="fu">pp.test</span>(p8411, <span class="at">type =</span> <span class="st">&quot;Z(alpha)&quot;</span>, <span class="at">lshort =</span> T)   <span class="co"># デフォルト</span></span></code></pre></div>
 <pre><code>## 
 ##  Phillips-Perron Unit Root Test
 ## 
@@ -622,7 +637,7 @@ unitrootTest(): McKinnons(96) のアプローチによる検定統計量の計�
 ## Dickey-Fuller Z(alpha) = -3.5464, Truncation lag parameter = 6, p-value
 ## = 0.9096
 ## alternative hypothesis: stationary</code></pre>
-<div class="sourceCode" id="cb345"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb345-1"><a href="単位根過程と単位根検定.html#cb345-1" tabindex="-1"></a><span class="fu">pp.test</span>(p8411, <span class="at">type =</span> <span class="st">&quot;Z(alpha)&quot;</span>, <span class="at">lshort =</span> F)</span></code></pre></div>
+<div class="sourceCode" id="cb344"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb344-1"><a href="単位根過程と単位根検定.html#cb344-1" tabindex="-1"></a><span class="fu">pp.test</span>(p8411, <span class="at">type =</span> <span class="st">&quot;Z(alpha)&quot;</span>, <span class="at">lshort =</span> F)</span></code></pre></div>
 <pre><code>## 
 ##  Phillips-Perron Unit Root Test
 ## 
@@ -630,7 +645,7 @@ unitrootTest(): McKinnons(96) のアプローチによる検定統計量の計�
 ## Dickey-Fuller Z(alpha) = -2.4057, Truncation lag parameter = 19,
 ## p-value = 0.957
 ## alternative hypothesis: stationary</code></pre>
-<div class="sourceCode" id="cb347"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb347-1"><a href="単位根過程と単位根検定.html#cb347-1" tabindex="-1"></a><span class="fu">pp.test</span>(p8411, <span class="at">type =</span> <span class="st">&quot;Z(t_alpha)&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb346"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb346-1"><a href="単位根過程と単位根検定.html#cb346-1" tabindex="-1"></a><span class="fu">pp.test</span>(p8411, <span class="at">type =</span> <span class="st">&quot;Z(t_alpha)&quot;</span>)</span></code></pre></div>
 <pre><code>## 
 ##  Phillips-Perron Unit Root Test
 ## 
@@ -638,37 +653,37 @@ unitrootTest(): McKinnons(96) のアプローチによる検定統計量の計�
 ## Dickey-Fuller Z(t_alpha) = -0.93464, Truncation lag parameter = 6,
 ## p-value = 0.9493
 ## alternative hypothesis: stationary</code></pre>
-<div class="sourceCode" id="cb349"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb349-1"><a href="単位根過程と単位根検定.html#cb349-1" tabindex="-1"></a><span class="co">#pp.test(p8411, alternative = &quot;explosive&quot;)</span></span></code></pre></div>
-<div class="sourceCode" id="cb350"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb350-1"><a href="単位根過程と単位根検定.html#cb350-1" tabindex="-1"></a><span class="fu">library</span>(urca)</span></code></pre></div>
+<div class="sourceCode" id="cb348"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb348-1"><a href="単位根過程と単位根検定.html#cb348-1" tabindex="-1"></a><span class="co">#pp.test(p8411, alternative = &quot;explosive&quot;)</span></span></code></pre></div>
+<div class="sourceCode" id="cb349"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb349-1"><a href="単位根過程と単位根検定.html#cb349-1" tabindex="-1"></a><span class="fu">library</span>(urca)</span></code></pre></div>
 <pre><code>## 
 ## Attaching package: &#39;urca&#39;</code></pre>
 <pre><code>## The following objects are masked from &#39;package:fUnitRoots&#39;:
 ## 
 ##     punitroot, qunitroot, unitrootTable</code></pre>
-<div class="sourceCode" id="cb353"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb353-1"><a href="単位根過程と単位根検定.html#cb353-1" tabindex="-1"></a><span class="co">#lags: ラグの長さの指定. 4(T/100)^(1/4) or 12(T/100)^(1/4)</span></span>
-<span id="cb353-2"><a href="単位根過程と単位根検定.html#cb353-2" tabindex="-1"></a><span class="co">#model: トレンドを持つ(&quot;trend&quot;), 定数項を持つ(&quot;constant&quot;)</span></span>
-<span id="cb353-3"><a href="単位根過程と単位根検定.html#cb353-3" tabindex="-1"></a><span class="fu">ur.pp</span>(p8411, <span class="at">type =</span> <span class="st">&quot;Z-alpha&quot;</span>, <span class="at">model =</span> <span class="st">&quot;trend&quot;</span>, <span class="at">lags =</span> <span class="st">&quot;short&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb352"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb352-1"><a href="単位根過程と単位根検定.html#cb352-1" tabindex="-1"></a><span class="co">#lags: ラグの長さの指定. 4(T/100)^(1/4) or 12(T/100)^(1/4)</span></span>
+<span id="cb352-2"><a href="単位根過程と単位根検定.html#cb352-2" tabindex="-1"></a><span class="co">#model: トレンドを持つ(&quot;trend&quot;), 定数項を持つ(&quot;constant&quot;)</span></span>
+<span id="cb352-3"><a href="単位根過程と単位根検定.html#cb352-3" tabindex="-1"></a><span class="fu">ur.pp</span>(p8411, <span class="at">type =</span> <span class="st">&quot;Z-alpha&quot;</span>, <span class="at">model =</span> <span class="st">&quot;trend&quot;</span>, <span class="at">lags =</span> <span class="st">&quot;short&quot;</span>)</span></code></pre></div>
 <pre><code>## 
 ## ################################################## 
 ## # Phillips-Perron Unit Root / Cointegration Test # 
 ## ################################################## 
 ## 
 ## The value of the test statistic is: -3.5414</code></pre>
-<div class="sourceCode" id="cb355"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb355-1"><a href="単位根過程と単位根検定.html#cb355-1" tabindex="-1"></a><span class="fu">ur.pp</span>(p8411, <span class="at">type =</span> <span class="st">&quot;Z-alpha&quot;</span>, <span class="at">model =</span> <span class="st">&quot;trend&quot;</span>, <span class="at">lags =</span> <span class="st">&quot;long&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb354"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb354-1"><a href="単位根過程と単位根検定.html#cb354-1" tabindex="-1"></a><span class="fu">ur.pp</span>(p8411, <span class="at">type =</span> <span class="st">&quot;Z-alpha&quot;</span>, <span class="at">model =</span> <span class="st">&quot;trend&quot;</span>, <span class="at">lags =</span> <span class="st">&quot;long&quot;</span>)</span></code></pre></div>
 <pre><code>## 
 ## ################################################## 
 ## # Phillips-Perron Unit Root / Cointegration Test # 
 ## ################################################## 
 ## 
 ## The value of the test statistic is: -2.4118</code></pre>
-<div class="sourceCode" id="cb357"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb357-1"><a href="単位根過程と単位根検定.html#cb357-1" tabindex="-1"></a><span class="fu">ur.pp</span>(p8411, <span class="at">type =</span> <span class="st">&quot;Z-tau&quot;</span>, <span class="at">model =</span> <span class="st">&quot;trend&quot;</span>, <span class="at">lags =</span> <span class="st">&quot;long&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb356"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb356-1"><a href="単位根過程と単位根検定.html#cb356-1" tabindex="-1"></a><span class="fu">ur.pp</span>(p8411, <span class="at">type =</span> <span class="st">&quot;Z-tau&quot;</span>, <span class="at">model =</span> <span class="st">&quot;trend&quot;</span>, <span class="at">lags =</span> <span class="st">&quot;long&quot;</span>)</span></code></pre></div>
 <pre><code>## 
 ## ################################################## 
 ## # Phillips-Perron Unit Root / Cointegration Test # 
 ## ################################################## 
 ## 
 ## The value of the test statistic is: -0.6917</code></pre>
-<div class="sourceCode" id="cb359"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb359-1"><a href="単位根過程と単位根検定.html#cb359-1" tabindex="-1"></a><span class="fu">ur.pp</span>(p8411, <span class="at">type =</span> <span class="st">&quot;Z-tau&quot;</span>, <span class="at">model =</span> <span class="st">&quot;constant&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb358"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb358-1"><a href="単位根過程と単位根検定.html#cb358-1" tabindex="-1"></a><span class="fu">ur.pp</span>(p8411, <span class="at">type =</span> <span class="st">&quot;Z-tau&quot;</span>, <span class="at">model =</span> <span class="st">&quot;constant&quot;</span>)</span></code></pre></div>
 <pre><code>## 
 ## ################################################## 
 ## # Phillips-Perron Unit Root / Cointegration Test # 
@@ -678,14 +693,14 @@ unitrootTest(): McKinnons(96) のアプローチによる検定統計量の計�
 <ul>
 <li>KPSS検定の実行例</li>
 </ul>
-<div class="sourceCode" id="cb361"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb361-1"><a href="単位根過程と単位根検定.html#cb361-1" tabindex="-1"></a><span class="fu">ur.kpss</span>(p8411, <span class="at">type =</span> <span class="st">&quot;mu&quot;</span>, <span class="at">lags =</span> <span class="st">&quot;long&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb360"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb360-1"><a href="単位根過程と単位根検定.html#cb360-1" tabindex="-1"></a><span class="fu">ur.kpss</span>(p8411, <span class="at">type =</span> <span class="st">&quot;mu&quot;</span>, <span class="at">lags =</span> <span class="st">&quot;long&quot;</span>)</span></code></pre></div>
 <pre><code>## 
 ## ####################################### 
 ## # KPSS Unit Root / Cointegration Test # 
 ## ####################################### 
 ## 
 ## The value of the test statistic is: 2.9445</code></pre>
-<div class="sourceCode" id="cb363"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb363-1"><a href="単位根過程と単位根検定.html#cb363-1" tabindex="-1"></a><span class="fu">ur.kpss</span>(p8411, <span class="at">type =</span> <span class="st">&quot;tau&quot;</span>, <span class="at">lags =</span> <span class="st">&quot;long&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb362"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb362-1"><a href="単位根過程と単位根検定.html#cb362-1" tabindex="-1"></a><span class="fu">ur.kpss</span>(p8411, <span class="at">type =</span> <span class="st">&quot;tau&quot;</span>, <span class="at">lags =</span> <span class="st">&quot;long&quot;</span>)</span></code></pre></div>
 <pre><code>## 
 ## ####################################### 
 ## # KPSS Unit Root / Cointegration Test # 

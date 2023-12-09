@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Page not found | 金融時系列解析</title>
   <meta name="description" content="Page not found | 金融時系列解析" />
-  <meta name="generator" content="bookdown 0.36 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.35 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Page not found | 金融時系列解析" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="林 高樹" />
 
 
-<meta name="date" content="2023-11-30" />
+<meta name="date" content="2023-12-09" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -56,7 +56,7 @@
 
 <style type="text/css">
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -250,6 +250,23 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="8.1.1" data-path="garchモデル.html"><a href="garchモデル.html#garchpqモデルのサンプルパス生成"><i class="fa fa-check"></i><b>8.1.1</b> GARCH(p,q)モデルのサンプルパス生成</a></li>
 </ul></li>
 <li class="chapter" data-level="8.2" data-path="garchモデル.html"><a href="garchモデル.html#garchモデルの推定"><i class="fa fa-check"></i><b>8.2</b> GARCHモデルの推定</a></li>
+<li class="chapter" data-level="8.3" data-path="garchモデル.html"><a href="garchモデル.html#garchモデルのバリエーション"><i class="fa fa-check"></i><b>8.3</b> GARCHモデルのバリエーション</a>
+<ul>
+<li class="chapter" data-level="8.3.1" data-path="garchモデル.html"><a href="garchモデル.html#iarch11"><i class="fa fa-check"></i><b>8.3.1</b> IARCH(1,1)</a></li>
+<li class="chapter" data-level="8.3.2" data-path="garchモデル.html"><a href="garchモデル.html#gjr-garch11"><i class="fa fa-check"></i><b>8.3.2</b> GJR-GARCH(1,1)</a></li>
+<li class="chapter" data-level="8.3.3" data-path="garchモデル.html"><a href="garchモデル.html#aparch"><i class="fa fa-check"></i><b>8.3.3</b> APARCH</a></li>
+</ul></li>
+<li class="chapter" data-level="8.4" data-path="garchモデル.html"><a href="garchモデル.html#garchモデル-データ分析例-tsay-ch4"><i class="fa fa-check"></i><b>8.4</b> GARCHモデル: データ分析例 (Tsay, Ch4)</a>
+<ul>
+<li class="chapter" data-level="8.4.1" data-path="garchモデル.html"><a href="garchモデル.html#必要な関数やデータセットの入手"><i class="fa fa-check"></i><b>8.4.1</b> 必要な関数やデータセットの入手</a></li>
+<li class="chapter" data-level="8.4.2" data-path="garchモデル.html"><a href="garchモデル.html#integrated-garch-model"><i class="fa fa-check"></i><b>8.4.2</b> Integrated GARCH Model</a></li>
+<li class="chapter" data-level="8.4.3" data-path="garchモデル.html"><a href="garchモデル.html#garch-m-model"><i class="fa fa-check"></i><b>8.4.3</b> GARCH-M Model</a></li>
+<li class="chapter" data-level="8.4.4" data-path="garchモデル.html"><a href="garchモデル.html#exponential-garch-model"><i class="fa fa-check"></i><b>8.4.4</b> Exponential GARCH Model</a></li>
+<li class="chapter" data-level="8.4.5" data-path="garchモデル.html"><a href="garchモデル.html#threshold-garch-model"><i class="fa fa-check"></i><b>8.4.5</b> Threshold GARCH Model</a></li>
+<li class="chapter" data-level="8.4.6" data-path="garchモデル.html"><a href="garchモデル.html#asymmetric-power-arch-model"><i class="fa fa-check"></i><b>8.4.6</b> Asymmetric Power ARCH Model</a></li>
+<li class="chapter" data-level="8.4.7" data-path="garchモデル.html"><a href="garchモデル.html#nonsymmetric-garch-model"><i class="fa fa-check"></i><b>8.4.7</b> Nonsymmetric GARCH model</a></li>
+<li class="chapter" data-level="8.4.8" data-path="garchモデル.html"><a href="garchモデル.html#alternative-approaches"><i class="fa fa-check"></i><b>8.4.8</b> 4.15 Alternative approaches</a></li>
+</ul></li>
 </ul></li>
 <li class="appendix"><span><b>Appendix 参考文献</b></span></li>
 <li class="chapter" data-level="A" data-path="バブル-生成崩壊-検出.html"><a href="バブル-生成崩壊-検出.html"><i class="fa fa-check"></i><b>A</b> バブル (生成・崩壊) 検出</a>
@@ -283,6 +300,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="C.3" data-path="markov-switching-regime-switchingモデル.html"><a href="markov-switching-regime-switchingモデル.html#金利債券市場"><i class="fa fa-check"></i><b>C.3</b> 金利・債券市場</a></li>
 <li class="chapter" data-level="C.4" data-path="markov-switching-regime-switchingモデル.html"><a href="markov-switching-regime-switchingモデル.html#外国為替市場-1"><i class="fa fa-check"></i><b>C.4</b> 外国為替市場</a></li>
 <li class="chapter" data-level="C.5" data-path="markov-switching-regime-switchingモデル.html"><a href="markov-switching-regime-switchingモデル.html#アセットアロケーション"><i class="fa fa-check"></i><b>C.5</b> アセット・アロケーション</a></li>
+</ul></li>
+<li class="chapter" data-level="D" data-path="archgarchモデル.html"><a href="archgarchモデル.html"><i class="fa fa-check"></i><b>D</b> ARCH/GARCHモデル</a>
+<ul>
+<li class="chapter" data-level="D.1" data-path="archgarchモデル.html"><a href="archgarchモデル.html#概説"><i class="fa fa-check"></i><b>D.1</b> 概説</a></li>
+<li class="chapter" data-level="D.2" data-path="archgarchモデル.html"><a href="archgarchモデル.html#arch-model"><i class="fa fa-check"></i><b>D.2</b> ARCH model</a></li>
+<li class="chapter" data-level="D.3" data-path="archgarchモデル.html"><a href="archgarchモデル.html#garch-model"><i class="fa fa-check"></i><b>D.3</b> GARCH model</a></li>
+<li class="chapter" data-level="D.4" data-path="archgarchモデル.html"><a href="archgarchモデル.html#arch-m-model"><i class="fa fa-check"></i><b>D.4</b> ARCH-M Model</a></li>
+<li class="chapter" data-level="D.5" data-path="archgarchモデル.html"><a href="archgarchモデル.html#gjr-model"><i class="fa fa-check"></i><b>D.5</b> GJR model</a></li>
+<li class="chapter" data-level="D.6" data-path="archgarchモデル.html"><a href="archgarchモデル.html#aparch-model"><i class="fa fa-check"></i><b>D.6</b> APARCH model</a></li>
 </ul></li>
 </ul>
 

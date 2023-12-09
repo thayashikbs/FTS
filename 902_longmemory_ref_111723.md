@@ -11,17 +11,17 @@
 
 - Gennady Samorodnitsky (2006). Long Range Dependence. *Foundations and Trends in Stochastic Systems*, 1(3), 163–257. 
 
-https://people.orie.cornell.edu/gennady/techreports/LRD-NOW.pdf
+  https://people.orie.cornell.edu/gennady/techreports/LRD-NOW.pdf
 
-https://pdfs.semanticscholar.org/f182/3f5bcc8524d73af14ba3e29e7bbdcc50545e.pdf
+  https://pdfs.semanticscholar.org/f182/3f5bcc8524d73af14ba3e29e7bbdcc50545e.pdf
 
 - Rama Cont (2005). Long range dependence in financial markets, In: Lévy-Véhel J., Lutton E. (eds) *Fractals in Engineering*. Springer, London. https://doi.org/10.1007/1-84628-048-6_11
 
-https://www.researchgate.net/publication/226697823_Long_range_dependence_in_financial_market
+  https://www.researchgate.net/publication/226697823_Long_range_dependence_in_financial_market
 
 - Thomas Mikosch and Ca ̆ta ̆lin Sta ̆rica ̆ (2004). Nonstationarities in Financial Time Series, the Long-range Dependence, and the IGARCH Effects. *The Review of Economics and Statistics,* 86(1), 378–390.
 
-https://gec.cr.usgs.gov/outgoing/threshold_articles/Mikosch_Starica2004.pdf
+  https://gec.cr.usgs.gov/outgoing/threshold_articles/Mikosch_Starica2004.pdf
 
 - Richard T. Baillie (1996). Long memory processes and fractional integration in econometrics, *Journal of Econometrics*, 73, 5-59.
 http://long-memory.com/Baillie1996.pdf
@@ -32,11 +32,11 @@ http://long-memory.com/Baillie1996.pdf
 
 - Andrew W. Lo (1991). Long term memory in stock market prices, *Econometrica* **59** 1279–313.
 
-https://www.nber.org/system/files/working_papers/w2984/w2984.pdf
+  https://www.nber.org/system/files/working_papers/w2984/w2984.pdf
 
 - Walter Willinger, Murad S. Taqqu, Vadim Teverovsky (1999). Stock market prices and long-range dependence, *Finance & Stochastics*,  3, 1–13.
 
-http://www.long-memory.com/returns/WillingerTaqquTeverovsky1999.pdf
+  http://www.long-memory.com/returns/WillingerTaqquTeverovsky1999.pdf
 
 
 
@@ -44,15 +44,15 @@ http://www.long-memory.com/returns/WillingerTaqquTeverovsky1999.pdf
 
 - Yin-Wong Cheung (1993). Long Memory in Foreign-Exchange Rates, *Journal of Business & Economic Statistics*, 11(1), 93-101, DOI: [10.1080/07350015.1993.10509935](https://doi.org/10.1080/07350015.1993.10509935).
 
-https://people.ucsc.edu/~cheung/JBES/LongMemoryFX_JBES1993.pdf
+  https://people.ucsc.edu/~cheung/JBES/LongMemoryFX_JBES1993.pdf
 
 - Richard T. Baillie and Tim Bollerslev(1994). The long memory of the forward premium, *Journal of International Money and Finance*, 13(5), 565-571.
 
-https://dukespace.lib.duke.edu/dspace/bitstream/handle/10161/1965/Bollerslev_the_long_memory.pdf?sequence=1
+  https://dukespace.lib.duke.edu/dspace/bitstream/handle/10161/1965/Bollerslev_the_long_memory.pdf?sequence=1
 
 - Dominique M. Guillaume, Michel M. Dacorogna, Rakhal R. Davé, Ulrich A. Müller, Richard B. Olsen & Olivier V. Pictet (1997). From the bird's eye to the microscope: A survey of new stylized facts of the intra-daily foreign exchange markets. *Finance and Stochastics*, 1, pages95–129.
 
-https://link.springer.com/article/10.1007%2Fs007800050018
+  https://link.springer.com/article/10.1007%2Fs007800050018
 
 
 
@@ -60,11 +60,11 @@ https://link.springer.com/article/10.1007%2Fs007800050018
 
 - Mohamed El Hedi Arouri, Shawkat Hammoudeh, Amine Lahiani, Duc Khuong Nguyen(2012). Long memory and structural breaks in modeling the return and volatility dynamics of precious metals, *The Quarterly Review of Economics and Finance*, 52-2, 207-218.
 
-https://hal.archives-ouvertes.fr/file/index/docid/798033/filename/Arouri_et_al_QREF_R3-1.pdf
+  https://hal.archives-ouvertes.fr/file/index/docid/798033/filename/Arouri_et_al_QREF_R3-1.pdf
 
 - Guglielmo Maria Caporale, Luis Gil-Alana, Alex Plastun (2018), Persistence in the cryptocurrency market, *Research in International Business and Finance*, 46, pp. 141-148.
 
-https://www.sciencedirect.com/science/article/pii/S0275531917309200
+  https://www.sciencedirect.com/science/article/pii/S0275531917309200
 
 
 
@@ -72,7 +72,7 @@ https://www.sciencedirect.com/science/article/pii/S0275531917309200
 
 - Guglielmo Maria Caporale, Luis Gil-Alana, Alex Plastun (2018). Is market fear persistent? A long-memory analysis. *Finance Research Letters*, 27, 140-147. https://doi.org/10.1016/j.frl.2018.02.007.
 
-https://www.sciencedirect.com/science/article/pii/S1544612317303793
+  https://www.sciencedirect.com/science/article/pii/S1544612317303793
 
 
 
@@ -80,15 +80,15 @@ https://www.sciencedirect.com/science/article/pii/S1544612317303793
 
 - Lillo, F. and Farmer, J. D. (2004). The Long Memory of the Efficient Market, *Studies in Nonlinear Dynamics & Econometrics*, *8*(3). doi: https://doi.org/10.2202/1558-3708.1226
 
-https://arxiv.org/pdf/cond-mat/0311053
+  https://arxiv.org/pdf/cond-mat/0311053
 
 - Torben G Andersen and Tim Bollerslev (1997), Heterogeneous Information Arrivals and Return Volatility Dynamics: Uncovering the Long‐Run in High Frequency Returns. *The Journal of Finance*, 52, 975-1005. https://doi.org/10.1111/j.1540-6261.1997.tb02722.x
 
-https://www.nber.org/system/files/working_papers/w5752/w5752.pdf
+  https://www.nber.org/system/files/working_papers/w5752/w5752.pdf
 
 - Torben G Andersen, Tim Bollerslev, Francis X Diebold & Paul Labys (2001). The Distribution of Realized Exchange Rate Volatility, *Journal of the American Statistical Association*, 96, 42-55.
 
-https://www.nber.org/system/files/working_papers/w6961/w6961.pdf
+  https://www.nber.org/system/files/working_papers/w6961/w6961.pdf
 
 
 ## 長期記憶性の発生要因, 非長期記憶モデルによる近似

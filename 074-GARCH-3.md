@@ -62,7 +62,7 @@ unlink(tmp)
 ```
 
 
-### Integrated GARCH Model
+### Integrated GARCH モデル
 - Tsay 4.7, pp.211--212
 
 ```
@@ -129,7 +129,7 @@ plot(mm$vola)
 
 <img src="074-GARCH-3_files/figure-html/unnamed-chunk-8-1.png" width="75%" />
 
-### GARCH-M Model
+### GARCH-M モデル
 - Tsay 4.8, pp.213--214
 ```
 garchM(): Estimation of a Gaussian GARCH(1, 1)-M model.
@@ -197,7 +197,7 @@ summary(m2)
 ## 
 ## Mean and Variance Equation:
 ##  data ~ 1 + garch(1, 1)
-## <environment: 0x106542068>
+## <environment: 0x116bc5658>
 ##  [data = sp5]
 ## 
 ## Conditional Distribution:
@@ -223,7 +223,7 @@ summary(m2)
 ##  -1289.671    normalized:  -2.904663 
 ## 
 ## Description:
-##  Sat Dec  9 17:31:14 2023 by user:  
+##  Thu Dec 14 13:50:30 2023 by user:  
 ## 
 ## 
 ## Standardised Residuals Tests:
@@ -361,7 +361,7 @@ Box.test(stresi^2, lag = 20, type = 'Ljung')
 - --> Tsay, "The model fits the data reasonably well."
 
 
-### Threshold GARCH Model
+### Threshold GARCH モデル
 - Tsay 4.10, pp.222--223
 ```
 Tgarch(): Estimation of TGARCH(1, 1) model with Gaussian or Student-t innovations
@@ -443,7 +443,7 @@ plot(resi, xlab = 'year', ylab = 'residuals', type = 'l')
 
 - → 残差プロット, heavy tailの存在?
 
-### Asymmetric Power ARCH Model
+### Asymmetric Power ARCH モデル
 - Tsay 4.11, pp.224--225
 
 ```r
@@ -458,7 +458,7 @@ summary(m1)
 ## 
 ## Mean and Variance Equation:
 ##  data ~ 1 + aparch(1, 1)
-## <environment: 0x137d02078>
+## <environment: 0x104d73ae0>
 ##  [data = eu]
 ## 
 ## Conditional Distribution:
@@ -486,7 +486,7 @@ summary(m1)
 ##  -2731.172    normalized:  -0.9324587 
 ## 
 ## Description:
-##  Sat Dec  9 17:31:19 2023 by user:  
+##  Thu Dec 14 13:50:34 2023 by user:  
 ## 
 ## 
 ## Standardised Residuals Tests:
@@ -514,7 +514,7 @@ m1
 ## 
 ## Mean and Variance Equation:
 ##  data ~ 1 + aparch(1, 1)
-## <environment: 0x137d02078>
+## <environment: 0x104d73ae0>
 ##  [data = eu]
 ## 
 ## Conditional Distribution:
@@ -542,7 +542,7 @@ m1
 ##  -2731.172    normalized:  -0.9324587 
 ## 
 ## Description:
-##  Sat Dec  9 17:31:19 2023 by user:
+##  Thu Dec 14 13:50:34 2023 by user:
 ```
 
 
@@ -574,7 +574,7 @@ summary(m2)
 ## 
 ## Mean and Variance Equation:
 ##  data ~ 1 + aparch(1, 1)
-## <environment: 0x126a493f8>
+## <environment: 0x132c63f68>
 ##  [data = eu]
 ## 
 ## Conditional Distribution:
@@ -601,7 +601,7 @@ summary(m2)
 ##  -2731.85    normalized:  -0.9326902 
 ## 
 ## Description:
-##  Sat Dec  9 17:31:19 2023 by user:  
+##  Thu Dec 14 13:50:34 2023 by user:  
 ## 
 ## 
 ## Standardised Residuals Tests:
@@ -636,7 +636,7 @@ m2
 ## 
 ## Mean and Variance Equation:
 ##  data ~ 1 + aparch(1, 1)
-## <environment: 0x126a493f8>
+## <environment: 0x132c63f68>
 ##  [data = eu]
 ## 
 ## Conditional Distribution:
@@ -663,7 +663,7 @@ m2
 ##  -2731.85    normalized:  -0.9326902 
 ## 
 ## Description:
-##  Sat Dec  9 17:31:19 2023 by user:
+##  Thu Dec 14 13:50:34 2023 by user:
 ```
 
 
@@ -678,7 +678,7 @@ m2
 - --> m1と結果類似
 
 
-### Nonsymmetric GARCH model
+### Nonsymmetric GARCH モデル
 - Tsay 4.12, pp.227--228
 ```
 Ngarch(): Estimation of a non-symmertic GARCH, NGARCH(1, 1), model.
@@ -741,7 +741,7 @@ plot(resi, xlab = 'year', ylab = 'residuals', type = 'l')
 
 - → 両モデルは, 類似のvolatility推定値
 
-### 4.15 Alternative approaches
+### 代替的アプリーチ間の比較
 - Tsay 4.15.1, pp.234--235
 
 #### (日次データから)月次ボラティリティの推定 {-}
@@ -800,7 +800,7 @@ summary(m3)
 ## 
 ## Mean and Variance Equation:
 ##  data ~ 1 + garch(1, 1)
-## <environment: 0x122818898>
+## <environment: 0x107334d60>
 ##  [data = sp5]
 ## 
 ## Conditional Distribution:
@@ -826,7 +826,7 @@ summary(m3)
 ##  899.7817    normalized:  1.717141 
 ## 
 ## Description:
-##  Sat Dec  9 17:31:37 2023 by user:  
+##  Thu Dec 14 13:50:52 2023 by user:  
 ## 
 ## 
 ## Standardised Residuals Tests:

@@ -204,7 +204,7 @@ summary(fit.ARCH)
 ## 
 ## Mean and Variance Equation:
 ##  data ~ garch(5, 0)
-## <environment: 0x10dac8ff8>
+## <environment: 0x11c4d8470>
 ##  [data = x]
 ## 
 ## Conditional Distribution:
@@ -235,7 +235,7 @@ summary(fit.ARCH)
 ##  -1118.366    normalized:  -0.5665483 
 ## 
 ## Description:
-##  Sat Dec  9 17:31:00 2023 by user:  
+##  Thu Dec 14 13:50:16 2023 by user:  
 ## 
 ## 
 ## Standardised Residuals Tests:
@@ -283,7 +283,7 @@ summary(fit.GARCH)
 ## 
 ## Mean and Variance Equation:
 ##  data ~ garch(1, 1)
-## <environment: 0x10ed76710>
+## <environment: 0x11b94c390>
 ##  [data = x]
 ## 
 ## Conditional Distribution:
@@ -309,7 +309,7 @@ summary(fit.GARCH)
 ##  -1106.608    normalized:  -0.5605916 
 ## 
 ## Description:
-##  Sat Dec  9 17:31:00 2023 by user:  
+##  Thu Dec 14 13:50:16 2023 by user:  
 ## 
 ## 
 ## Standardised Residuals Tests:

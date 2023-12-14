@@ -40,7 +40,7 @@ attributes(tomorrow) # 出力オブジェクトの属性(attribute)
 
 today <- Sys.Date()
 today
-## [1] "2023-12-09"
+## [1] "2023-12-14"
 ```
 
 

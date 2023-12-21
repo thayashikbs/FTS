@@ -147,7 +147,7 @@ adfTest(x, type = "nc", lags = 1)
 ##     0.703 
 ## 
 ## Description:
-##  Thu Dec 14 13:50:07 2023 by user:
+##  Thu Dec 21 22:47:08 2023 by user:
 ```
 
 ```r
@@ -169,7 +169,7 @@ unitrootTest(x, type = "nc", lags = 1)
 ##     n: 0.7506 
 ## 
 ## Description:
-##  Thu Dec 14 13:50:07 2023 by user:
+##  Thu Dec 21 22:47:08 2023 by user:
 ```
 - 二つの関数の結果を比較せよ.
 
@@ -192,7 +192,7 @@ adfTest(y, type = "nc", lags = 1)
 ##     0.3835 
 ## 
 ## Description:
-##  Thu Dec 14 13:50:07 2023 by user:
+##  Thu Dec 21 22:47:08 2023 by user:
 ```
 
 ```r
@@ -214,7 +214,7 @@ unitrootTest(y, type = "nc", lags = 1)
 ##     n: 0.522 
 ## 
 ## Description:
-##  Thu Dec 14 13:50:07 2023 by user:
+##  Thu Dec 21 22:47:08 2023 by user:
 ```
 - → いずれも, 帰無仮説(phi_1=1)を棄却せず(単位根有り)
 
@@ -237,7 +237,7 @@ adfTest(x, type = "c", lags = 1)
 ##     0.5166 
 ## 
 ## Description:
-##  Thu Dec 14 13:50:07 2023 by user:
+##  Thu Dec 21 22:47:08 2023 by user:
 ```
 
 ```r
@@ -259,7 +259,7 @@ adfTest(y, type = "c", lags = 1)
 ##     0.6617 
 ## 
 ## Description:
-##  Thu Dec 14 13:50:07 2023 by user:
+##  Thu Dec 21 22:47:08 2023 by user:
 ```
 
 ```r
@@ -285,7 +285,7 @@ adfTest(x, type = "c", lags = 1)
 ##     0.5166 
 ## 
 ## Description:
-##  Thu Dec 14 13:50:07 2023 by user:
+##  Thu Dec 21 22:47:08 2023 by user:
 ```
 
 ```r
@@ -307,7 +307,7 @@ adfTest(y, type = "c", lags = 1)
 ##     0.6617 
 ## 
 ## Description:
-##  Thu Dec 14 13:50:07 2023 by user:
+##  Thu Dec 21 22:47:08 2023 by user:
 ```
 
 ```r
@@ -419,7 +419,7 @@ adf.test(p8411, k = 1, alternative = "explosive")
 ##     0.954 
 ## 
 ## Description:
-##  Thu Dec 14 13:50:07 2023 by user: 
+##  Thu Dec 21 22:47:09 2023 by user: 
 ## 
 ## 
 ## 	Augmented Dickey-Fuller Test

@@ -197,7 +197,7 @@ summary(m2)
 ## 
 ## Mean and Variance Equation:
 ##  data ~ 1 + garch(1, 1)
-## <environment: 0x116bc5658>
+## <environment: 0x11edfa510>
 ##  [data = sp5]
 ## 
 ## Conditional Distribution:
@@ -223,7 +223,7 @@ summary(m2)
 ##  -1289.671    normalized:  -2.904663 
 ## 
 ## Description:
-##  Thu Dec 14 13:50:30 2023 by user:  
+##  Thu Dec 21 22:47:34 2023 by user:  
 ## 
 ## 
 ## Standardised Residuals Tests:
@@ -458,7 +458,7 @@ summary(m1)
 ## 
 ## Mean and Variance Equation:
 ##  data ~ 1 + aparch(1, 1)
-## <environment: 0x104d73ae0>
+## <environment: 0x10f8d28b0>
 ##  [data = eu]
 ## 
 ## Conditional Distribution:
@@ -486,7 +486,7 @@ summary(m1)
 ##  -2731.172    normalized:  -0.9324587 
 ## 
 ## Description:
-##  Thu Dec 14 13:50:34 2023 by user:  
+##  Thu Dec 21 22:47:39 2023 by user:  
 ## 
 ## 
 ## Standardised Residuals Tests:
@@ -514,7 +514,7 @@ m1
 ## 
 ## Mean and Variance Equation:
 ##  data ~ 1 + aparch(1, 1)
-## <environment: 0x104d73ae0>
+## <environment: 0x10f8d28b0>
 ##  [data = eu]
 ## 
 ## Conditional Distribution:
@@ -542,7 +542,7 @@ m1
 ##  -2731.172    normalized:  -0.9324587 
 ## 
 ## Description:
-##  Thu Dec 14 13:50:34 2023 by user:
+##  Thu Dec 21 22:47:39 2023 by user:
 ```
 
 
@@ -574,7 +574,7 @@ summary(m2)
 ## 
 ## Mean and Variance Equation:
 ##  data ~ 1 + aparch(1, 1)
-## <environment: 0x132c63f68>
+## <environment: 0x119d7e768>
 ##  [data = eu]
 ## 
 ## Conditional Distribution:
@@ -601,7 +601,7 @@ summary(m2)
 ##  -2731.85    normalized:  -0.9326902 
 ## 
 ## Description:
-##  Thu Dec 14 13:50:34 2023 by user:  
+##  Thu Dec 21 22:47:39 2023 by user:  
 ## 
 ## 
 ## Standardised Residuals Tests:
@@ -636,7 +636,7 @@ m2
 ## 
 ## Mean and Variance Equation:
 ##  data ~ 1 + aparch(1, 1)
-## <environment: 0x132c63f68>
+## <environment: 0x119d7e768>
 ##  [data = eu]
 ## 
 ## Conditional Distribution:
@@ -663,7 +663,7 @@ m2
 ##  -2731.85    normalized:  -0.9326902 
 ## 
 ## Description:
-##  Thu Dec 14 13:50:34 2023 by user:
+##  Thu Dec 21 22:47:39 2023 by user:
 ```
 
 
@@ -800,7 +800,7 @@ summary(m3)
 ## 
 ## Mean and Variance Equation:
 ##  data ~ 1 + garch(1, 1)
-## <environment: 0x107334d60>
+## <environment: 0x10a6c7070>
 ##  [data = sp5]
 ## 
 ## Conditional Distribution:
@@ -826,7 +826,7 @@ summary(m3)
 ##  899.7817    normalized:  1.717141 
 ## 
 ## Description:
-##  Thu Dec 14 13:50:52 2023 by user:  
+##  Thu Dec 21 22:47:57 2023 by user:  
 ## 
 ## 
 ## Standardised Residuals Tests:

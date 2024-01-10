@@ -133,7 +133,7 @@ fUnitRoots::adfTest(bnd[, 1], lags = 3, type = "c")
 ##     0.425 
 ## 
 ## Description:
-##  Thu Dec 21 22:48:15 2023 by user:
+##  Wed Jan 10 22:07:47 2024 by user:
 ```
 
 ```r
@@ -154,7 +154,7 @@ fUnitRoots::adfTest(bnd[, 2], lags = 2, type = "c")
 ##     0.4544 
 ## 
 ## Description:
-##  Thu Dec 21 22:48:15 2023 by user:
+##  Wed Jan 10 22:07:47 2024 by user:
 ```
 - --> Aaa, Baa系列のADF検定、棄却されない (H0: 単位根非定常)
 
@@ -365,7 +365,7 @@ fUnitRoots::adfTest(wt, lags = 3, type = "c")
 ##     0.01 
 ## 
 ## Description:
-##  Thu Dec 21 22:48:15 2023 by user:
+##  Wed Jan 10 22:07:47 2024 by user:
 ```
 - → $p$値$=0.01$ (単位根無)
 

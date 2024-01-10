@@ -1,0 +1,1026 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>11 多変量ボラティリティ・モデル | 金融時系列解析</title>
+  <meta name="description" content="11 多変量ボラティリティ・モデル | 金融時系列解析" />
+  <meta name="generator" content="bookdown 0.35 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="11 多変量ボラティリティ・モデル | 金融時系列解析" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="11 多変量ボラティリティ・モデル | 金融時系列解析" />
+  
+  
+  
+
+<meta name="author" content="林 高樹" />
+
+
+<meta name="date" content="2024-01-10" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="共和分分析誤差修正モデル.html"/>
+<link rel="next" href="高頻度データ分析.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> はじめに</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#時系列モデリング"><i class="fa fa-check"></i><b>1.1</b> 時系列モデリング</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#金融時系列データの特徴"><i class="fa fa-check"></i><b>1.2</b> 金融時系列データの特徴</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#金融時系列データの特徴-みずほ-8411-株価データの例"><i class="fa fa-check"></i>金融時系列データの特徴: みずほ (8411) 株価データの例</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#シミュレーションによるサンプルパス生成"><i class="fa fa-check"></i><b>1.3</b> シミュレーションによるサンプルパス生成</a></li>
+<li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#rにおける時系列オブジェクトクラスおよび関数の例"><i class="fa fa-check"></i><b>1.4</b> Rにおける時系列オブジェクト・クラスおよび関数の例</a>
+<ul>
+<li class="chapter" data-level="1.4.1" data-path="index.html"><a href="index.html#日付時間データに対するクラス"><i class="fa fa-check"></i><b>1.4.1</b> 日付・時間データに対するクラス</a></li>
+<li class="chapter" data-level="1.4.2" data-path="index.html"><a href="index.html#時系列データに対するクラス1-tsクラス"><i class="fa fa-check"></i><b>1.4.2</b> 時系列データに対するクラス(1): tsクラス</a></li>
+<li class="chapter" data-level="1.4.3" data-path="index.html"><a href="index.html#時系列データに対するクラス2-zooクラスとxtsクラス"><i class="fa fa-check"></i><b>1.4.3</b> 時系列データに対するクラス(2): zooクラスとxtsクラス</a></li>
+</ul></li>
+<li class="chapter" data-level="1.5" data-path="index.html"><a href="index.html#時系列データの分解"><i class="fa fa-check"></i><b>1.5</b> 時系列データの分解</a>
+<ul>
+<li class="chapter" data-level="1.5.1" data-path="index.html"><a href="index.html#トレンド抽出-平滑化smoothing"><i class="fa fa-check"></i><b>1.5.1</b> トレンド抽出, 平滑化(smoothing)</a></li>
+<li class="chapter" data-level="1.5.2" data-path="index.html"><a href="index.html#時系列の分解"><i class="fa fa-check"></i><b>1.5.2</b> 時系列の分解</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="定常性と自己相関関数.html"><a href="定常性と自己相関関数.html"><i class="fa fa-check"></i><b>2</b> 定常性と自己相関関数</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="定常性と自己相関関数.html"><a href="定常性と自己相関関数.html#確率過程の2次特性-平均関数と自己共分散関数"><i class="fa fa-check"></i><b>2.1</b> 確率過程の2次特性: 平均関数と自己共分散関数</a></li>
+<li class="chapter" data-level="2.2" data-path="定常性と自己相関関数.html"><a href="定常性と自己相関関数.html#定常性-stationarity"><i class="fa fa-check"></i><b>2.2</b> 定常性 (stationarity)</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="定常性と自己相関関数.html"><a href="定常性と自己相関関数.html#強定常性"><i class="fa fa-check"></i><b>2.2.1</b> 強定常性</a></li>
+<li class="chapter" data-level="2.2.2" data-path="定常性と自己相関関数.html"><a href="定常性と自己相関関数.html#弱定常性"><i class="fa fa-check"></i><b>2.2.2</b> 弱定常性</a></li>
+<li class="chapter" data-level="2.2.3" data-path="定常性と自己相関関数.html"><a href="定常性と自己相関関数.html#ホワイトノイズ"><i class="fa fa-check"></i><b>2.2.3</b> ホワイトノイズ</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="定常性と自己相関関数.html"><a href="定常性と自己相関関数.html#標本平均と標本自己共分散関数"><i class="fa fa-check"></i><b>2.3</b> 標本平均と標本自己共分散関数</a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="定常性と自己相関関数.html"><a href="定常性と自己相関関数.html#アンサンブル平均-vs-標本平均"><i class="fa fa-check"></i><b>2.3.1</b> アンサンブル平均 vs 標本平均</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="定常性と自己相関関数.html"><a href="定常性と自己相関関数.html#標本自己相関関数"><i class="fa fa-check"></i><b>2.4</b> 標本自己相関関数</a>
+<ul>
+<li class="chapter" data-level="2.4.1" data-path="定常性と自己相関関数.html"><a href="定常性と自己相関関数.html#白色ノイズ"><i class="fa fa-check"></i><b>2.4.1</b> 白色ノイズ</a></li>
+<li class="chapter" data-level="2.4.2" data-path="定常性と自己相関関数.html"><a href="定常性と自己相関関数.html#ランダムウォーク"><i class="fa fa-check"></i><b>2.4.2</b> ランダムウォーク</a></li>
+<li class="chapter" data-level="2.4.3" data-path="定常性と自己相関関数.html"><a href="定常性と自己相関関数.html#非定常成分を含む時系列"><i class="fa fa-check"></i><b>2.4.3</b> 非定常成分を含む時系列</a></li>
+<li class="chapter" data-level="2.4.4" data-path="定常性と自己相関関数.html"><a href="定常性と自己相関関数.html#線形時系列モデル"><i class="fa fa-check"></i><b>2.4.4</b> 線形時系列モデル</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="定常性と自己相関関数.html"><a href="定常性と自己相関関数.html#自己相関関数-標本値-vs-理論値"><i class="fa fa-check"></i><b>2.5</b> 自己相関関数 (標本値 vs 理論値)</a>
+<ul>
+<li class="chapter" data-level="" data-path="定常性と自己相関関数.html"><a href="定常性と自己相関関数.html#ar2-モデル"><i class="fa fa-check"></i>AR(2) モデル</a></li>
+<li class="chapter" data-level="2.5.1" data-path="定常性と自己相関関数.html"><a href="定常性と自己相関関数.html#arma11モデル-1"><i class="fa fa-check"></i><b>2.5.1</b> ARMA(1,1)モデル</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="armapqモデル.html"><a href="armapqモデル.html"><i class="fa fa-check"></i><b>3</b> ARMA<span class="math inline">\((p,q)\)</span>モデル</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="armapqモデル.html"><a href="armapqモデル.html#armapqモデルとは"><i class="fa fa-check"></i><b>3.1</b> ARMA<span class="math inline">\((p,q)\)</span>モデルとは</a>
+<ul>
+<li class="chapter" data-level="" data-path="armapqモデル.html"><a href="armapqモデル.html#因果性と反転可能性"><i class="fa fa-check"></i>因果性と反転可能性</a></li>
+<li class="chapter" data-level="" data-path="armapqモデル.html"><a href="armapqモデル.html#armapqモデルの意義"><i class="fa fa-check"></i>ARMA<span class="math inline">\((p,q)\)</span>モデルの意義</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="armapqモデル.html"><a href="armapqモデル.html#armapqモデルによる予測"><i class="fa fa-check"></i><b>3.2</b> ARMA<span class="math inline">\((p,q)\)</span>モデルによる予測</a></li>
+<li class="chapter" data-level="3.3" data-path="armapqモデル.html"><a href="armapqモデル.html#armapqモデルの推定"><i class="fa fa-check"></i><b>3.3</b> ARMA<span class="math inline">\((p,q)\)</span>モデルの推定</a></li>
+<li class="chapter" data-level="3.4" data-path="armapqモデル.html"><a href="armapqモデル.html#armapqモデルの同定-次数の特定"><i class="fa fa-check"></i><b>3.4</b> ARMA<span class="math inline">\((p,q)\)</span>モデルの同定 (次数の特定)</a></li>
+<li class="chapter" data-level="3.5" data-path="armapqモデル.html"><a href="armapqモデル.html#rによる実行例"><i class="fa fa-check"></i><b>3.5</b> Rによる実行例</a>
+<ul>
+<li class="chapter" data-level="3.5.1" data-path="armapqモデル.html"><a href="armapqモデル.html#armapqモデルの同定-acfpacfeacfの利用"><i class="fa fa-check"></i><b>3.5.1</b> ARMA<span class="math inline">\((p,q)\)</span>モデルの同定 (ACF/PACF/EACFの利用)</a></li>
+<li class="chapter" data-level="3.5.2" data-path="armapqモデル.html"><a href="armapqモデル.html#armapqモデルの推定診断"><i class="fa fa-check"></i><b>3.5.2</b> ARMA<span class="math inline">\((p,q)\)</span>モデルの推定・診断</a></li>
+<li class="chapter" data-level="3.5.3" data-path="armapqモデル.html"><a href="armapqモデル.html#パッケージforecastの利用"><i class="fa fa-check"></i><b>3.5.3</b> パッケージ{forecast}の利用</a></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="armapqモデル.html"><a href="armapqモデル.html#armaモデル-データ分析例-tsay-ch2"><i class="fa fa-check"></i><b>3.6</b> ARMAモデル: データ分析例 (Tsay, Ch2)</a>
+<ul>
+<li class="chapter" data-level="3.6.1" data-path="armapqモデル.html"><a href="armapqモデル.html#標本acf"><i class="fa fa-check"></i><b>3.6.1</b> 標本ACF</a></li>
+<li class="chapter" data-level="3.6.2" data-path="armapqモデル.html"><a href="armapqモデル.html#ar-ma-arma-2.42.6"><i class="fa fa-check"></i><b>3.6.2</b> AR, MA, ARMA (2.4–2.6)</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="arimaモデルsarimaモデル.html"><a href="arimaモデルsarimaモデル.html"><i class="fa fa-check"></i><b>4</b> ARIMAモデル/SARIMAモデル</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="arimaモデルsarimaモデル.html"><a href="arimaモデルsarimaモデル.html#arimapdqモデルとは"><i class="fa fa-check"></i><b>4.1</b> ARIMA<span class="math inline">\((p,d,q)\)</span>モデルとは</a></li>
+<li class="chapter" data-level="4.2" data-path="arimaモデルsarimaモデル.html"><a href="arimaモデルsarimaモデル.html#sarimapdqtimes-pdq_sモデル-周期sとは"><i class="fa fa-check"></i><b>4.2</b> SARIMA<span class="math inline">\((p,d,q)\times (P,D,Q)_s\)</span>モデル (周期<span class="math inline">\(s\)</span>)とは</a></li>
+<li class="chapter" data-level="4.3" data-path="arimaモデルsarimaモデル.html"><a href="arimaモデルsarimaモデル.html#sarimaモデルのパス発生-sarimaパッケージの利用"><i class="fa fa-check"></i><b>4.3</b> SARIMAモデルのパス発生 ({sarima}パッケージの利用)</a></li>
+<li class="chapter" data-level="4.4" data-path="arimaモデルsarimaモデル.html"><a href="arimaモデルsarimaモデル.html#sarimaモデルの推定診断"><i class="fa fa-check"></i><b>4.4</b> SARIMAモデルの推定・診断</a></li>
+<li class="chapter" data-level="4.5" data-path="arimaモデルsarimaモデル.html"><a href="arimaモデルsarimaモデル.html#パッケージforecastの利用-1"><i class="fa fa-check"></i><b>4.5</b> パッケージ{forecast}の利用</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="単位根過程と単位根検定.html"><a href="単位根過程と単位根検定.html"><i class="fa fa-check"></i><b>5</b> 単位根過程と単位根検定</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="単位根過程と単位根検定.html"><a href="単位根過程と単位根検定.html#単位根過程と見せかけの回帰"><i class="fa fa-check"></i><b>5.1</b> 単位根過程と見せかけの回帰</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="単位根過程と単位根検定.html"><a href="単位根過程と単位根検定.html#単位根過程"><i class="fa fa-check"></i><b>5.1.1</b> 単位根過程</a></li>
+<li class="chapter" data-level="5.1.2" data-path="単位根過程と単位根検定.html"><a href="単位根過程と単位根検定.html#見せかけの回帰"><i class="fa fa-check"></i><b>5.1.2</b> 見せかけの回帰</a></li>
+<li class="chapter" data-level="5.1.3" data-path="単位根過程と単位根検定.html"><a href="単位根過程と単位根検定.html#見せかけの回帰の判定"><i class="fa fa-check"></i><b>5.1.3</b> 見せかけの回帰の判定</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="単位根過程と単位根検定.html"><a href="単位根過程と単位根検定.html#主な単位根検定法"><i class="fa fa-check"></i><b>5.2</b> 主な単位根検定法</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="単位根過程と単位根検定.html"><a href="単位根過程と単位根検定.html#augmented-dicky-fuller-adf-検定の実行例"><i class="fa fa-check"></i><b>5.2.1</b> Augmented Dicky-Fuller (ADF) 検定の実行例</a></li>
+<li class="chapter" data-level="5.2.2" data-path="単位根過程と単位根検定.html"><a href="単位根過程と単位根検定.html#adf検定以外の検定法"><i class="fa fa-check"></i><b>5.2.2</b> ADF検定以外の検定法</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="長期記憶過程.html"><a href="長期記憶過程.html"><i class="fa fa-check"></i><b>6</b> 長期記憶過程</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="長期記憶過程.html"><a href="長期記憶過程.html#arfimapdq過程のシミュレーション"><i class="fa fa-check"></i><b>6.1</b> ARFIMA(p,d,q)過程のシミュレーション</a></li>
+<li class="chapter" data-level="6.2" data-path="長期記憶過程.html"><a href="長期記憶過程.html#arfima-fractional-gaussian過程のシミュレーション"><i class="fa fa-check"></i><b>6.2</b> ARFIMA, fractional Gaussian過程のシミュレーション</a></li>
+<li class="chapter" data-level="6.3" data-path="長期記憶過程.html"><a href="長期記憶過程.html#hurst指数の推定"><i class="fa fa-check"></i><b>6.3</b> Hurst指数の推定</a></li>
+<li class="chapter" data-level="6.4" data-path="長期記憶過程.html"><a href="長期記憶過程.html#arfimaモデルの推定"><i class="fa fa-check"></i><b>6.4</b> ARFIMAモデルの推定</a>
+<ul>
+<li class="chapter" data-level="6.4.1" data-path="長期記憶過程.html"><a href="長期記憶過程.html#最尤法"><i class="fa fa-check"></i><b>6.4.1</b> 最尤法</a></li>
+<li class="chapter" data-level="6.4.2" data-path="長期記憶過程.html"><a href="長期記憶過程.html#階差次数dの代替的推定法"><i class="fa fa-check"></i><b>6.4.2</b> 階差次数<span class="math inline">\(d\)</span>の代替的推定法</a></li>
+</ul></li>
+<li class="chapter" data-level="6.5" data-path="長期記憶過程.html"><a href="長期記憶過程.html#arfimaモデル-データ分析例-tsay-2.11-pp.119120"><i class="fa fa-check"></i><b>6.5</b> ARFIMAモデル: データ分析例 (Tsay, 2.11, pp.119–120)</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="レジームスイッチングモデル.html"><a href="レジームスイッチングモデル.html"><i class="fa fa-check"></i><b>7</b> レジーム・スイッチング・モデル</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="レジームスイッチングモデル.html"><a href="レジームスイッチングモデル.html#自己相関マルコフスイッチングモデル-msm-ar"><i class="fa fa-check"></i><b>7.1</b> 自己相関マルコフ・スイッチング・モデル (MSM-AR)</a></li>
+<li class="chapter" data-level="7.2" data-path="レジームスイッチングモデル.html"><a href="レジームスイッチングモデル.html#msm-arモデルの適合"><i class="fa fa-check"></i><b>7.2</b> MSM-ARモデルの適合</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="garchモデル.html"><a href="garchモデル.html"><i class="fa fa-check"></i><b>8</b> GARCHモデル</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="garchモデル.html"><a href="garchモデル.html#garchモデル-1"><i class="fa fa-check"></i><b>8.1</b> GARCHモデル</a>
+<ul>
+<li class="chapter" data-level="8.1.1" data-path="garchモデル.html"><a href="garchモデル.html#garchpqモデルのサンプルパス生成"><i class="fa fa-check"></i><b>8.1.1</b> GARCH(p,q)モデルのサンプルパス生成</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="garchモデル.html"><a href="garchモデル.html#garchモデルの推定"><i class="fa fa-check"></i><b>8.2</b> GARCHモデルの推定</a></li>
+<li class="chapter" data-level="8.3" data-path="garchモデル.html"><a href="garchモデル.html#garchモデルのバリエーション"><i class="fa fa-check"></i><b>8.3</b> GARCHモデルのバリエーション</a>
+<ul>
+<li class="chapter" data-level="8.3.1" data-path="garchモデル.html"><a href="garchモデル.html#iarch11"><i class="fa fa-check"></i><b>8.3.1</b> IARCH(1,1)</a></li>
+<li class="chapter" data-level="8.3.2" data-path="garchモデル.html"><a href="garchモデル.html#gjr-garch11"><i class="fa fa-check"></i><b>8.3.2</b> GJR-GARCH(1,1)</a></li>
+<li class="chapter" data-level="8.3.3" data-path="garchモデル.html"><a href="garchモデル.html#aparch"><i class="fa fa-check"></i><b>8.3.3</b> APARCH</a></li>
+</ul></li>
+<li class="chapter" data-level="8.4" data-path="garchモデル.html"><a href="garchモデル.html#garchモデル-データ分析例-tsay-ch4"><i class="fa fa-check"></i><b>8.4</b> GARCHモデル: データ分析例 (Tsay, Ch4)</a>
+<ul>
+<li class="chapter" data-level="8.4.1" data-path="garchモデル.html"><a href="garchモデル.html#必要な関数やデータセットの入手"><i class="fa fa-check"></i><b>8.4.1</b> 必要な関数やデータセットの入手</a></li>
+<li class="chapter" data-level="8.4.2" data-path="garchモデル.html"><a href="garchモデル.html#integrated-garch-モデル"><i class="fa fa-check"></i><b>8.4.2</b> Integrated GARCH モデル</a></li>
+<li class="chapter" data-level="8.4.3" data-path="garchモデル.html"><a href="garchモデル.html#garch-m-モデル"><i class="fa fa-check"></i><b>8.4.3</b> GARCH-M モデル</a></li>
+<li class="chapter" data-level="8.4.4" data-path="garchモデル.html"><a href="garchモデル.html#exponential-garch-model"><i class="fa fa-check"></i><b>8.4.4</b> Exponential GARCH Model</a></li>
+<li class="chapter" data-level="8.4.5" data-path="garchモデル.html"><a href="garchモデル.html#threshold-garch-モデル"><i class="fa fa-check"></i><b>8.4.5</b> Threshold GARCH モデル</a></li>
+<li class="chapter" data-level="8.4.6" data-path="garchモデル.html"><a href="garchモデル.html#asymmetric-power-arch-モデル"><i class="fa fa-check"></i><b>8.4.6</b> Asymmetric Power ARCH モデル</a></li>
+<li class="chapter" data-level="8.4.7" data-path="garchモデル.html"><a href="garchモデル.html#nonsymmetric-garch-モデル"><i class="fa fa-check"></i><b>8.4.7</b> Nonsymmetric GARCH モデル</a></li>
+<li class="chapter" data-level="8.4.8" data-path="garchモデル.html"><a href="garchモデル.html#代替的アプリーチ間の比較"><i class="fa fa-check"></i><b>8.4.8</b> 代替的アプリーチ間の比較</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="varモデル.html"><a href="varモデル.html"><i class="fa fa-check"></i><b>9</b> VARモデル</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="varモデル.html"><a href="varモデル.html#varモデル-1"><i class="fa fa-check"></i><b>9.1</b> VARモデル</a>
+<ul>
+<li class="chapter" data-level="9.1.1" data-path="varモデル.html"><a href="varモデル.html#varpモデルのシミュレーション"><i class="fa fa-check"></i><b>9.1.1</b> VAR(<span class="math inline">\(p\)</span>)モデルのシミュレーション</a></li>
+<li class="chapter" data-level="9.1.2" data-path="varモデル.html"><a href="varモデル.html#varpモデルの次数同定"><i class="fa fa-check"></i><b>9.1.2</b> VAR(<span class="math inline">\(p\)</span>)モデルの次数同定</a></li>
+<li class="chapter" data-level="9.1.3" data-path="varモデル.html"><a href="varモデル.html#varpモデルの推定"><i class="fa fa-check"></i><b>9.1.3</b> VAR(<span class="math inline">\(p\)</span>)モデルの推定</a></li>
+<li class="chapter" data-level="9.1.4" data-path="varモデル.html"><a href="varモデル.html#varpモデル予測"><i class="fa fa-check"></i><b>9.1.4</b> VAR(<span class="math inline">\(p\)</span>)モデル予測</a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="varモデル.html"><a href="varモデル.html#var解析"><i class="fa fa-check"></i><b>9.2</b> VAR解析</a>
+<ul>
+<li class="chapter" data-level="9.2.1" data-path="varモデル.html"><a href="varモデル.html#varpモデルの推定復習"><i class="fa fa-check"></i><b>9.2.1</b> VAR(<span class="math inline">\(p\)</span>)モデルの推定(復習)</a></li>
+<li class="chapter" data-level="9.2.2" data-path="varモデル.html"><a href="varモデル.html#グレンジャーの因果性検定"><i class="fa fa-check"></i><b>9.2.2</b> グレンジャーの因果性検定</a></li>
+<li class="chapter" data-level="9.2.3" data-path="varモデル.html"><a href="varモデル.html#インパルス応答"><i class="fa fa-check"></i><b>9.2.3</b> インパルス応答</a></li>
+<li class="chapter" data-level="9.2.4" data-path="varモデル.html"><a href="varモデル.html#予測誤差分散分解-forecast-error-variance-decomposition"><i class="fa fa-check"></i><b>9.2.4</b> 予測誤差分散分解 (forecast error variance decomposition)</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="varモデル.html"><a href="varモデル.html#var解析-データ分析例"><i class="fa fa-check"></i><b>9.3</b> VAR解析 (データ分析例)</a>
+<ul>
+<li class="chapter" data-level="" data-path="varモデル.html"><a href="varモデル.html#事例1-ソフトバンク9434-vs-ソフトバンクグループ9984"><i class="fa fa-check"></i>事例1: ソフトバンク(9434) vs ソフトバンクグループ(9984)</a></li>
+<li class="chapter" data-level="" data-path="varモデル.html"><a href="varモデル.html#事例2-米英日3株式市場-sp500-ftse-日経平均"><i class="fa fa-check"></i>事例2: 米英日3株式市場 (S&amp;P500, FTSE, 日経平均)</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="共和分分析誤差修正モデル.html"><a href="共和分分析誤差修正モデル.html"><i class="fa fa-check"></i><b>10</b> 共和分分析・誤差修正モデル</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="共和分分析誤差修正モデル.html"><a href="共和分分析誤差修正モデル.html#見せかけの回帰-1"><i class="fa fa-check"></i><b>10.1</b> 見せかけの回帰</a>
+<ul>
+<li class="chapter" data-level="" data-path="共和分分析誤差修正モデル.html"><a href="共和分分析誤差修正モデル.html#durbin-watson検定"><i class="fa fa-check"></i>Durbin-Watson検定</a></li>
+</ul></li>
+<li class="chapter" data-level="10.2" data-path="共和分分析誤差修正モデル.html"><a href="共和分分析誤差修正モデル.html#共和分検定"><i class="fa fa-check"></i><b>10.2</b> 共和分検定</a>
+<ul>
+<li class="chapter" data-level="10.2.1" data-path="共和分分析誤差修正モデル.html"><a href="共和分分析誤差修正モデル.html#engle-grangerの方法"><i class="fa fa-check"></i><b>10.2.1</b> Engle-Grangerの方法</a></li>
+<li class="chapter" data-level="10.2.2" data-path="共和分分析誤差修正モデル.html"><a href="共和分分析誤差修正モデル.html#johansenの方法"><i class="fa fa-check"></i><b>10.2.2</b> Johansenの方法</a></li>
+</ul></li>
+<li class="chapter" data-level="10.3" data-path="共和分分析誤差修正モデル.html"><a href="共和分分析誤差修正モデル.html#誤差修正モデル-データ分析例-tsay-mts-ch5"><i class="fa fa-check"></i><b>10.3</b> 誤差修正モデル: データ分析例 (Tsay, MTS, Ch5)</a>
+<ul>
+<li class="chapter" data-level="10.3.1" data-path="共和分分析誤差修正モデル.html"><a href="共和分分析誤差修正モデル.html#共和分検定-1"><i class="fa fa-check"></i><b>10.3.1</b> 共和分検定</a></li>
+<li class="chapter" data-level="10.3.2" data-path="共和分分析誤差修正モデル.html"><a href="共和分分析誤差修正モデル.html#johansenの方法-johansen-procedure"><i class="fa fa-check"></i><b>10.3.2</b> Johansenの方法 (Johansen-Procedure)</a></li>
+<li class="chapter" data-level="10.3.3" data-path="共和分分析誤差修正モデル.html"><a href="共和分分析誤差修正モデル.html#誤差修正モデルecmの推定"><i class="fa fa-check"></i><b>10.3.3</b> 誤差修正モデル(ECM)の推定</a></li>
+</ul></li>
+<li class="chapter" data-level="10.4" data-path="共和分分析誤差修正モデル.html"><a href="共和分分析誤差修正モデル.html#補足-分散共分散行列のコレスキー分解"><i class="fa fa-check"></i><b>10.4</b> 補足: 分散共分散行列のコレスキー分解</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="多変量ボラティリティモデル.html"><a href="多変量ボラティリティモデル.html"><i class="fa fa-check"></i><b>11</b> 多変量ボラティリティ・モデル</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="多変量ボラティリティモデル.html"><a href="多変量ボラティリティモデル.html#多変量時系列データの条件付不均一分散性の検定"><i class="fa fa-check"></i><b>11.1</b> 多変量時系列データの条件付不均一分散性の検定</a>
+<ul>
+<li class="chapter" data-level="" data-path="多変量ボラティリティモデル.html"><a href="多変量ボラティリティモデル.html#分析例"><i class="fa fa-check"></i>分析例</a></li>
+</ul></li>
+<li class="chapter" data-level="11.2" data-path="多変量ボラティリティモデル.html"><a href="多変量ボラティリティモデル.html#指数加重移動平均法-ewma"><i class="fa fa-check"></i><b>11.2</b> 指数加重移動平均法 (EWMA)</a></li>
+<li class="chapter" data-level="11.3" data-path="多変量ボラティリティモデル.html"><a href="多変量ボラティリティモデル.html#bekk1-1モデル"><i class="fa fa-check"></i><b>11.3</b> BEKK(1, 1)モデル</a></li>
+<li class="chapter" data-level="11.4" data-path="多変量ボラティリティモデル.html"><a href="多変量ボラティリティモデル.html#cholesky分解を利用したボラティリティ推定"><i class="fa fa-check"></i><b>11.4</b> Cholesky分解を利用したボラティリティ推定</a></li>
+<li class="chapter" data-level="11.5" data-path="多変量ボラティリティモデル.html"><a href="多変量ボラティリティモデル.html#dcc-dynamic-conditional-correlation-モデル"><i class="fa fa-check"></i><b>11.5</b> DCC (Dynamic Conditional Correlation) モデル</a>
+<ul>
+<li class="chapter" data-level="" data-path="多変量ボラティリティモデル.html"><a href="多変量ボラティリティモデル.html#tse-and-tsui-2002-モデル"><i class="fa fa-check"></i>Tse and Tsui (2002) モデル</a></li>
+<li class="chapter" data-level="" data-path="多変量ボラティリティモデル.html"><a href="多変量ボラティリティモデル.html#engle-2002-モデル"><i class="fa fa-check"></i>Engle (2002) モデル</a></li>
+</ul></li>
+<li class="chapter" data-level="11.6" data-path="多変量ボラティリティモデル.html"><a href="多変量ボラティリティモデル.html#go-garchモデル"><i class="fa fa-check"></i><b>11.6</b> Go-GARCHモデル</a></li>
+<li class="chapter" data-level="11.7" data-path="多変量ボラティリティモデル.html"><a href="多変量ボラティリティモデル.html#コピュラに基づくアプローチ"><i class="fa fa-check"></i><b>11.7</b> コピュラに基づくアプローチ</a>
+<ul>
+<li class="chapter" data-level="" data-path="多変量ボラティリティモデル.html"><a href="多変量ボラティリティモデル.html#多変量-t-copula-ボラティリティモデル"><i class="fa fa-check"></i>多変量 t-Copula ボラティリティ・モデル</a></li>
+</ul></li>
+<li class="chapter" data-level="11.8" data-path="多変量ボラティリティモデル.html"><a href="多変量ボラティリティモデル.html#主成分分析に基づくアプローチ-pvc"><i class="fa fa-check"></i><b>11.8</b> 主成分分析に基づくアプローチ (PVC)</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="高頻度データ分析.html"><a href="高頻度データ分析.html"><i class="fa fa-check"></i><b>12</b> 高頻度データ分析</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="高頻度データ分析.html"><a href="高頻度データ分析.html#ボラティリティ推定"><i class="fa fa-check"></i><b>12.1</b> ボラティリティ推定</a>
+<ul>
+<li class="chapter" data-level="" data-path="高頻度データ分析.html"><a href="高頻度データ分析.html#データセット1-topix指数データ"><i class="fa fa-check"></i>データセット1: TOPIX指数データ</a></li>
+<li class="chapter" data-level="" data-path="高頻度データ分析.html"><a href="高頻度データ分析.html#実現ボラティリティの計算"><i class="fa fa-check"></i>実現ボラティリティの計算</a></li>
+<li class="chapter" data-level="" data-path="高頻度データ分析.html"><a href="高頻度データ分析.html#parkionsonボラティリティの計算"><i class="fa fa-check"></i>Parkionsonボラティリティの計算</a></li>
+</ul></li>
+<li class="chapter" data-level="12.2" data-path="高頻度データ分析.html"><a href="高頻度データ分析.html#共分散相関の推定"><i class="fa fa-check"></i><b>12.2</b> 共分散・相関の推定</a>
+<ul>
+<li class="chapter" data-level="12.2.1" data-path="高頻度データ分析.html"><a href="高頻度データ分析.html#データセット2-株価指数先物データ"><i class="fa fa-check"></i><b>12.2.1</b> データセット2: 株価指数先物データ</a></li>
+<li class="chapter" data-level="" data-path="高頻度データ分析.html"><a href="高頻度データ分析.html#共分散相関の推定-1"><i class="fa fa-check"></i>共分散・相関の推定</a></li>
+</ul></li>
+<li class="chapter" data-level="12.3" data-path="高頻度データ分析.html"><a href="高頻度データ分析.html#acdモデル"><i class="fa fa-check"></i><b>12.3</b> ACDモデル</a></li>
+</ul></li>
+<li class="appendix"><span><b>Appendix 参考文献</b></span></li>
+<li class="chapter" data-level="A" data-path="バブル-生成崩壊-検出.html"><a href="バブル-生成崩壊-検出.html"><i class="fa fa-check"></i><b>A</b> バブル (生成・崩壊) 検出</a>
+<ul>
+<li class="chapter" data-level="A.1" data-path="バブル-生成崩壊-検出.html"><a href="バブル-生成崩壊-検出.html#検定法に関する最近のレビュー論文"><i class="fa fa-check"></i><b>A.1</b> 検定法に関する最近のレビュー論文</a></li>
+<li class="chapter" data-level="A.2" data-path="バブル-生成崩壊-検出.html"><a href="バブル-生成崩壊-検出.html#supreme-adf検定sadf-pwy-2011-generalized-supreme-adf-検定gsadf-psy-2015"><i class="fa fa-check"></i><b>A.2</b> Supreme ADF検定/SADF (PWY, 2011), Generalized supreme ADF 検定/GSADF (PSY, 2015)</a>
+<ul>
+<li class="chapter" data-level="A.2.1" data-path="バブル-生成崩壊-検出.html"><a href="バブル-生成崩壊-検出.html#数理ファイナンス-jarrow-protterら"><i class="fa fa-check"></i><b>A.2.1</b> 数理ファイナンス (Jarrow, Protterら)</a></li>
+<li class="chapter" data-level="A.2.2" data-path="バブル-生成崩壊-検出.html"><a href="バブル-生成崩壊-検出.html#経済物理学-sornetteら"><i class="fa fa-check"></i><b>A.2.2</b> 経済物理学 (Sornetteら)</a></li>
+</ul></li>
+<li class="chapter" data-level="A.3" data-path="バブル-生成崩壊-検出.html"><a href="バブル-生成崩壊-検出.html#実証分析"><i class="fa fa-check"></i><b>A.3</b> 実証分析</a>
+<ul>
+<li class="chapter" data-level="" data-path="バブル-生成崩壊-検出.html"><a href="バブル-生成崩壊-検出.html#株式市場の例"><i class="fa fa-check"></i>株式市場の例</a></li>
+<li class="chapter" data-level="" data-path="バブル-生成崩壊-検出.html"><a href="バブル-生成崩壊-検出.html#暗号資産市場の例"><i class="fa fa-check"></i>暗号資産市場の例</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="B" data-path="長期記憶過程-1.html"><a href="長期記憶過程-1.html"><i class="fa fa-check"></i><b>B</b> 長期記憶過程</a>
+<ul>
+<li class="chapter" data-level="B.1" data-path="長期記憶過程-1.html"><a href="長期記憶過程-1.html#理論概説"><i class="fa fa-check"></i><b>B.1</b> 理論・概説</a></li>
+<li class="chapter" data-level="B.2" data-path="長期記憶過程-1.html"><a href="長期記憶過程-1.html#株式市場"><i class="fa fa-check"></i><b>B.2</b> 株式市場</a></li>
+<li class="chapter" data-level="B.3" data-path="長期記憶過程-1.html"><a href="長期記憶過程-1.html#外国為替市場"><i class="fa fa-check"></i><b>B.3</b> 外国為替市場</a></li>
+<li class="chapter" data-level="B.4" data-path="長期記憶過程-1.html"><a href="長期記憶過程-1.html#コモディティ暗号資産"><i class="fa fa-check"></i><b>B.4</b> コモディティ・暗号資産</a></li>
+<li class="chapter" data-level="B.5" data-path="長期記憶過程-1.html"><a href="長期記憶過程-1.html#vix"><i class="fa fa-check"></i><b>B.5</b> VIX</a></li>
+<li class="chapter" data-level="B.6" data-path="長期記憶過程-1.html"><a href="長期記憶過程-1.html#高頻度データ-ボラティリティ-注文フロー等"><i class="fa fa-check"></i><b>B.6</b> 高頻度データ (ボラティリティ, 注文フロー等)</a></li>
+<li class="chapter" data-level="B.7" data-path="長期記憶過程-1.html"><a href="長期記憶過程-1.html#長期記憶性の発生要因-非長期記憶モデルによる近似"><i class="fa fa-check"></i><b>B.7</b> 長期記憶性の発生要因, 非長期記憶モデルによる近似</a></li>
+</ul></li>
+<li class="chapter" data-level="C" data-path="markov-switching-regime-switchingモデル.html"><a href="markov-switching-regime-switchingモデル.html"><i class="fa fa-check"></i><b>C</b> Markov switching/ regime switchingモデル</a>
+<ul>
+<li class="chapter" data-level="C.1" data-path="markov-switching-regime-switchingモデル.html"><a href="markov-switching-regime-switchingモデル.html#理論概説-1"><i class="fa fa-check"></i><b>C.1</b> 理論・概説</a></li>
+<li class="chapter" data-level="C.2" data-path="markov-switching-regime-switchingモデル.html"><a href="markov-switching-regime-switchingモデル.html#株式市場-1"><i class="fa fa-check"></i><b>C.2</b> 株式市場</a></li>
+<li class="chapter" data-level="C.3" data-path="markov-switching-regime-switchingモデル.html"><a href="markov-switching-regime-switchingモデル.html#金利債券市場"><i class="fa fa-check"></i><b>C.3</b> 金利・債券市場</a></li>
+<li class="chapter" data-level="C.4" data-path="markov-switching-regime-switchingモデル.html"><a href="markov-switching-regime-switchingモデル.html#外国為替市場-1"><i class="fa fa-check"></i><b>C.4</b> 外国為替市場</a></li>
+<li class="chapter" data-level="C.5" data-path="markov-switching-regime-switchingモデル.html"><a href="markov-switching-regime-switchingモデル.html#アセットアロケーション"><i class="fa fa-check"></i><b>C.5</b> アセット・アロケーション</a></li>
+</ul></li>
+<li class="chapter" data-level="D" data-path="archgarchモデル.html"><a href="archgarchモデル.html"><i class="fa fa-check"></i><b>D</b> ARCH/GARCHモデル</a>
+<ul>
+<li class="chapter" data-level="D.1" data-path="archgarchモデル.html"><a href="archgarchモデル.html#概説"><i class="fa fa-check"></i><b>D.1</b> 概説</a></li>
+<li class="chapter" data-level="D.2" data-path="archgarchモデル.html"><a href="archgarchモデル.html#arch-model"><i class="fa fa-check"></i><b>D.2</b> ARCH model</a></li>
+<li class="chapter" data-level="D.3" data-path="archgarchモデル.html"><a href="archgarchモデル.html#garch-model"><i class="fa fa-check"></i><b>D.3</b> GARCH model</a></li>
+<li class="chapter" data-level="D.4" data-path="archgarchモデル.html"><a href="archgarchモデル.html#arch-m-model"><i class="fa fa-check"></i><b>D.4</b> ARCH-M Model</a></li>
+<li class="chapter" data-level="D.5" data-path="archgarchモデル.html"><a href="archgarchモデル.html#gjr-model"><i class="fa fa-check"></i><b>D.5</b> GJR model</a></li>
+<li class="chapter" data-level="D.6" data-path="archgarchモデル.html"><a href="archgarchモデル.html#aparch-model"><i class="fa fa-check"></i><b>D.6</b> APARCH model</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">金融時系列解析</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="多変量ボラティリティモデル" class="section level1 hasAnchor" number="11">
+<h1><span class="header-section-number">11</span> 多変量ボラティリティ・モデル<a href="多変量ボラティリティモデル.html#多変量ボラティリティモデル" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<ul>
+<li>出所:
+Tsay, Ch.7 (<a href="http://faculty.chicagobooth.edu/ruey.tsay/teaching/introTS/" class="uri">http://faculty.chicagobooth.edu/ruey.tsay/teaching/introTS/</a>) (一部改変)</li>
+</ul>
+<div id="多変量時系列データの条件付不均一分散性の検定" class="section level2 hasAnchor" number="11.1">
+<h2><span class="header-section-number">11.1</span> 多変量時系列データの条件付不均一分散性の検定<a href="多変量ボラティリティモデル.html#多変量時系列データの条件付不均一分散性の検定" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li><p>Tsay, pp.406–</p></li>
+<li><p>シミュレーション系列の生成</p></li>
+</ul>
+<div class="sourceCode" id="cb810"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb810-1"><a href="多変量ボラティリティモデル.html#cb810-1" tabindex="-1"></a><span class="fu">library</span>(MTS)</span>
+<span id="cb810-2"><a href="多変量ボラティリティモデル.html#cb810-2" tabindex="-1"></a>zt <span class="ot">=</span> <span class="fu">matrix</span>(<span class="fu">rnorm</span>(<span class="dv">2000</span>), <span class="dv">400</span>, <span class="dv">5</span>) <span class="do">### Another set of random noises</span></span></code></pre></div>
+<pre><code>- 複数の検定方法
+ - (1)Ljung-Box検定 (1変量の標準化残差に変換した系列に対して)
+ - Q(m) of squared series(LM test) 
+
+ - (2)順位自己相関 (rank autocorrelation) を用いた検定
+ - Rank-based Test
+
+ - (3)多変量Ljung-Box検定
+ - Q_k(m) of squared series
+
+ - (4)同, 上位5%のデータを刈込み (trim)
+ - Robust Test(5%) </code></pre>
+<pre><code>- MTS::MarchTest</code></pre>
+<div class="sourceCode" id="cb813"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb813-1"><a href="多変量ボラティリティモデル.html#cb813-1" tabindex="-1"></a><span class="fu">MarchTest</span>(zt) <span class="do">#### Multivariate volatility tests</span></span></code></pre></div>
+<pre><code>## Q(m) of squared series(LM test):  
+## Test statistic:  13.81572  p-value:  0.1815644 
+## Rank-based Test:  
+## Test statistic:  8.506661  p-value:  0.5794726 
+## Q_k(m) of squared series:  
+## Test statistic:  226.733  p-value:  0.8519022 
+## Robust Test(5%) :  216.6933  p-value:  0.9371367</code></pre>
+<div id="分析例" class="section level3 unnumbered hasAnchor">
+<h3>分析例<a href="多変量ボラティリティモデル.html#分析例" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>Tsay, pp.415–</li>
+<li>IBM and SP log returns</li>
+</ul>
+<div class="sourceCode" id="cb815"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb815-1"><a href="多変量ボラティリティモデル.html#cb815-1" tabindex="-1"></a>ifl <span class="ot">&lt;-</span> <span class="fu">file.path</span>(dir_MTS, <span class="st">&quot;m-ibmsp-6111.txt&quot;</span>)</span>
+<span id="cb815-2"><a href="多変量ボラティリティモデル.html#cb815-2" tabindex="-1"></a>da <span class="ot">&lt;-</span> <span class="fu">read.table</span>(ifl, <span class="at">header =</span> T)</span>
+<span id="cb815-3"><a href="多変量ボラティリティモデル.html#cb815-3" tabindex="-1"></a>rtn <span class="ot">&lt;-</span> <span class="fu">log</span>(da[, <span class="dv">2</span><span class="sc">:</span><span class="dv">3</span>] <span class="sc">+</span> <span class="dv">1</span>)</span>
+<span id="cb815-4"><a href="多変量ボラティリティモデル.html#cb815-4" tabindex="-1"></a>at <span class="ot">&lt;-</span> <span class="fu">scale</span>(rtn, <span class="at">scale =</span> F) <span class="do">## Remove sample means</span></span>
+<span id="cb815-5"><a href="多変量ボラティリティモデル.html#cb815-5" tabindex="-1"></a></span>
+<span id="cb815-6"><a href="多変量ボラティリティモデル.html#cb815-6" tabindex="-1"></a><span class="fu">MarchTest</span>(at)</span></code></pre></div>
+<pre><code>## Q(m) of squared series(LM test):  
+## Test statistic:  38.06663  p-value:  3.695138e-05 
+## Rank-based Test:  
+## Test statistic:  108.3798  p-value:  0 
+## Q_k(m) of squared series:  
+## Test statistic:  109.4194  p-value:  2.276873e-08 
+## Robust Test(5%) :  118.7134  p-value:  9.894441e-10</code></pre>
+</div>
+</div>
+<div id="指数加重移動平均法-ewma" class="section level2 hasAnchor" number="11.2">
+<h2><span class="header-section-number">11.2</span> 指数加重移動平均法 (EWMA)<a href="多変量ボラティリティモデル.html#指数加重移動平均法-ewma" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li>Exponentially Weighted Moving Average Approach
+<!--- 
+8/26/22: Build Book時, MartchTest内でエラー発生
+--></li>
+</ul>
+<div class="sourceCode" id="cb817"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb817-1"><a href="多変量ボラティリティモデル.html#cb817-1" tabindex="-1"></a>ifl <span class="ot">&lt;-</span> <span class="fu">file.path</span>(dir_MTS, <span class="st">&quot;m-dec125910-6111.txt&quot;</span>)</span>
+<span id="cb817-2"><a href="多変量ボラティリティモデル.html#cb817-2" tabindex="-1"></a>da <span class="ot">&lt;-</span> <span class="fu">read.table</span>(ifl, <span class="at">header =</span> T)</span>
+<span id="cb817-3"><a href="多変量ボラティリティモデル.html#cb817-3" tabindex="-1"></a><span class="co"># CRSP(1, 2, 5, 9, 10十分位ポートフォリオ)の月次対数収益率</span></span>
+<span id="cb817-4"><a href="多変量ボラティリティモデル.html#cb817-4" tabindex="-1"></a><span class="fu">head</span>(da)</span></code></pre></div>
+<pre><code>##       date      dec1      dec2      dec5      dec9     dec10
+## 1 19610131  0.058011  0.067392  0.081767  0.096754  0.087207
+## 2 19610228  0.029241  0.042784  0.055524  0.056564  0.060245
+## 3 19610330  0.025896  0.025474  0.041304  0.060563  0.071875
+## 4 19610428  0.005667  0.001365  0.000780  0.011911  0.023328
+## 5 19610531  0.019208  0.036852  0.049590  0.046248  0.050362
+## 6 19610630 -0.024670 -0.025225 -0.040046 -0.050651 -0.051434</code></pre>
+<div class="sourceCode" id="cb819"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb819-1"><a href="多変量ボラティリティモデル.html#cb819-1" tabindex="-1"></a>rtn <span class="ot">&lt;-</span> <span class="fu">log</span>(da[, <span class="dv">2</span><span class="sc">:</span><span class="dv">4</span>] <span class="sc">+</span> <span class="dv">1</span>)</span>
+<span id="cb819-2"><a href="多変量ボラティリティモデル.html#cb819-2" tabindex="-1"></a>m1 <span class="ot">&lt;-</span> <span class="fu">VAR</span>(rtn, <span class="dv">1</span>) <span class="do">## Fit VAR(1) model to remove serial correlations</span></span></code></pre></div>
+<pre><code>## Constant term: 
+## Estimates:  0.006376978 0.007034631 0.007342962 
+## Std.Error:  0.001759562 0.001950008 0.002237004 
+## AR coefficient matrix 
+## AR( 1 )-matrix 
+##        [,1]  [,2]     [,3]
+## [1,] -0.194 0.224  0.00836
+## [2,] -0.232 0.366 -0.04186
+## [3,] -0.313 0.452  0.00238
+## standard error 
+##       [,1]  [,2]  [,3]
+## [1,] 0.108 0.160 0.101
+## [2,] 0.120 0.177 0.111
+## [3,] 0.138 0.204 0.128
+##   
+## Residuals cov-mtx: 
+##             [,1]        [,2]        [,3]
+## [1,] 0.001814678 0.001859113 0.001962277
+## [2,] 0.001859113 0.002228760 0.002420858
+## [3,] 0.001962277 0.002420858 0.002933081
+##   
+## det(SSE) =  1.712927e-10 
+## AIC =  -22.45809 
+## BIC =  -22.39289 
+## HQ  =  -22.43273</code></pre>
+<div class="sourceCode" id="cb821"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb821-1"><a href="多変量ボラティリティモデル.html#cb821-1" tabindex="-1"></a>at <span class="ot">&lt;-</span> m1<span class="sc">$</span>residuals <span class="do">## ARCH test</span></span>
+<span id="cb821-2"><a href="多変量ボラティリティモデル.html#cb821-2" tabindex="-1"></a><span class="co"># MarchTest(at)</span></span></code></pre></div>
+<pre><code>- MTS::EWMAvol(rtn, lambda = 0.96)      # lambda: 減衰率
+ - lambda = 正値 --&gt; 固定値を指定して実行 (lambdaの推定なし)
+ - lambda = 負値 --&gt; lambda推定</code></pre>
+<!--- 8/26/22: 同様のエラー, EWMAvolにて発生
+--->
+<div class="sourceCode" id="cb823"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb823-1"><a href="多変量ボラティリティモデル.html#cb823-1" tabindex="-1"></a>m2 <span class="ot">=</span> <span class="fu">EWMAvol</span>(at, <span class="at">lambda =</span> <span class="sc">-</span><span class="fl">0.1</span>) <span class="do">### Estimation of decaying rate</span></span>
+<span id="cb823-2"><a href="多変量ボラティリティモデル.html#cb823-2" tabindex="-1"></a>Sigma.t <span class="ot">=</span> m2<span class="sc">$</span>Sigma.t <span class="do">### Volatility matrices</span></span>
+<span id="cb823-3"><a href="多変量ボラティリティモデル.html#cb823-3" tabindex="-1"></a>m3 <span class="ot">=</span> <span class="fu">MCHdiag</span>(at, Sigma.t)       <span class="co"># モデル診断</span></span></code></pre></div>
+<pre><code>- MTS::MCHdiag
+  - Apply four portmanteau test statistics to check the validity of a fitted multivariate volatility model
+    - at:   A T-by-k matrix of residuals for a k-dimensional asset return series
+    - Sigma.t: The fitted volatility matrices. The dimension is T-by-k^2 matrix
+    - m: The number of lags used in the tests. Default is 10.</code></pre>
+<ul>
+<li>※ 以下を挿入:</li>
+</ul>
+<div class="sourceCode" id="cb825"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb825-1"><a href="多変量ボラティリティモデル.html#cb825-1" tabindex="-1"></a>m2_2 <span class="ot">&lt;-</span> <span class="fu">EWMAvol</span>(at, <span class="at">lambda =</span> <span class="fl">0.9</span>) <span class="do">### 減衰率 = 0.9に設定</span></span>
+<span id="cb825-2"><a href="多変量ボラティリティモデル.html#cb825-2" tabindex="-1"></a><span class="fu">matplot</span>(m2<span class="sc">$</span>Sigma.t, <span class="at">type =</span> <span class="st">&quot;l&quot;</span>)</span>
+<span id="cb825-3"><a href="多変量ボラティリティモデル.html#cb825-3" tabindex="-1"></a><span class="fu">matplot</span>(m2_2<span class="sc">$</span>Sigma.t, <span class="at">type =</span> <span class="st">&quot;l&quot;</span>)</span></code></pre></div>
+<ul>
+<li>CRSP(1, 2, 5十分位ポートフォリオ)の月次対数収益率のボラティリティ行列の各要素の時系列プロット</li>
+<li>p.415–</li>
+</ul>
+<div class="sourceCode" id="cb826"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb826-1"><a href="多変量ボラティリティモデル.html#cb826-1" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfcol =</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">2</span>)) <span class="do">### Create Figure 7.3 of the text</span></span>
+<span id="cb826-2"><a href="多変量ボラティリティモデル.html#cb826-2" tabindex="-1"></a>tdx <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2</span><span class="sc">:</span><span class="dv">609</span>)<span class="sc">/</span><span class="dv">12</span><span class="sc">+</span><span class="dv">1961</span></span>
+<span id="cb826-3"><a href="多変量ボラティリティモデル.html#cb826-3" tabindex="-1"></a><span class="fu">plot</span>(tdx, Sigma.t[, <span class="dv">1</span>], <span class="at">xlab =</span> <span class="st">&#39;Year&#39;</span>, <span class="at">ylab =</span> <span class="st">&quot;Variance&quot;</span>, <span class="at">type =</span> <span class="st">&#39;l&#39;</span>)</span>
+<span id="cb826-4"><a href="多変量ボラティリティモデル.html#cb826-4" tabindex="-1"></a><span class="fu">title</span>(<span class="at">main =</span> <span class="st">&quot;(a) Dec 1&quot;</span>)</span>
+<span id="cb826-5"><a href="多変量ボラティリティモデル.html#cb826-5" tabindex="-1"></a><span class="fu">plot</span>(tdx, Sigma.t[, <span class="dv">5</span>], <span class="at">xlab =</span> <span class="st">&#39;Year&#39;</span>, <span class="at">ylab =</span> <span class="st">&quot;Variance&quot;</span>, <span class="at">type =</span> <span class="st">&#39;l&#39;</span>)</span>
+<span id="cb826-6"><a href="多変量ボラティリティモデル.html#cb826-6" tabindex="-1"></a><span class="fu">title</span>(<span class="at">main =</span> <span class="st">&quot;(b) Dec 2&quot;</span>)</span>
+<span id="cb826-7"><a href="多変量ボラティリティモデル.html#cb826-7" tabindex="-1"></a><span class="fu">plot</span>(tdx, Sigma.t[, <span class="dv">9</span>], <span class="at">xlab =</span> <span class="st">&#39;Year&#39;</span>, <span class="at">ylab =</span> <span class="st">&quot;Variance&quot;</span>, <span class="at">type =</span> <span class="st">&#39;l&#39;</span>)</span>
+<span id="cb826-8"><a href="多変量ボラティリティモデル.html#cb826-8" tabindex="-1"></a><span class="fu">title</span>(<span class="at">main =</span> <span class="st">&quot;(c) Dec 5&quot;</span>)</span>
+<span id="cb826-9"><a href="多変量ボラティリティモデル.html#cb826-9" tabindex="-1"></a><span class="fu">plot</span>(tdx, Sigma.t[, <span class="dv">2</span>], <span class="at">xlab =</span> <span class="st">&#39;Year&#39;</span>, <span class="at">ylab =</span> <span class="st">&quot;Covariance&quot;</span>, <span class="at">type =</span> <span class="st">&#39;l&#39;</span>)</span>
+<span id="cb826-10"><a href="多変量ボラティリティモデル.html#cb826-10" tabindex="-1"></a><span class="fu">title</span>(<span class="at">main =</span> <span class="st">&quot;(d) Dec 1 vs Dec 2&quot;</span>)</span>
+<span id="cb826-11"><a href="多変量ボラティリティモデル.html#cb826-11" tabindex="-1"></a><span class="fu">plot</span>(tdx, Sigma.t[, <span class="dv">3</span>], <span class="at">xlab =</span> <span class="st">&#39;Year&#39;</span>, <span class="at">ylab =</span> <span class="st">&quot;Covariance&quot;</span>, <span class="at">type =</span> <span class="st">&#39;l&#39;</span>)</span>
+<span id="cb826-12"><a href="多変量ボラティリティモデル.html#cb826-12" tabindex="-1"></a><span class="fu">title</span>(<span class="at">main =</span> <span class="st">&quot;(e) Dec 1 vs Dec 5&quot;</span>)</span>
+<span id="cb826-13"><a href="多変量ボラティリティモデル.html#cb826-13" tabindex="-1"></a><span class="fu">plot</span>(tdx, Sigma.t[, <span class="dv">6</span>], <span class="at">xlab =</span> <span class="st">&#39;Year&#39;</span>, <span class="at">ylab =</span> <span class="st">&quot;Covariance&quot;</span>, <span class="at">type =</span> <span class="st">&#39;l&#39;</span>)</span>
+<span id="cb826-14"><a href="多変量ボラティリティモデル.html#cb826-14" tabindex="-1"></a><span class="fu">title</span>(<span class="at">main =</span> <span class="st">&quot;(f) Dec 2 vs Dec 5&quot;</span>)</span></code></pre></div>
+</div>
+<div id="bekk1-1モデル" class="section level2 hasAnchor" number="11.3">
+<h2><span class="header-section-number">11.3</span> BEKK(1, 1)モデル<a href="多変量ボラティリティモデル.html#bekk1-1モデル" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li>p.417–</li>
+</ul>
+<pre><code>- MTS::BEKK11
+ - 注) 実行時間を要する (ここでは不実行)</code></pre>
+<div class="sourceCode" id="cb828"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb828-1"><a href="多変量ボラティリティモデル.html#cb828-1" tabindex="-1"></a>ifl <span class="ot">&lt;-</span> <span class="fu">file.path</span>(dir_MTS, <span class="st">&quot;m-ibmsp-6111.txt&quot;</span>)</span>
+<span id="cb828-2"><a href="多変量ボラティリティモデル.html#cb828-2" tabindex="-1"></a>da <span class="ot">&lt;-</span> <span class="fu">read.table</span>(ifl, <span class="at">header =</span> T)</span>
+<span id="cb828-3"><a href="多変量ボラティリティモデル.html#cb828-3" tabindex="-1"></a><span class="co"># IBM株, S&amp;P, 月次収益率, 1961年1月--2011年12月</span></span>
+<span id="cb828-4"><a href="多変量ボラティリティモデル.html#cb828-4" tabindex="-1"></a>rtn <span class="ot">&lt;-</span> <span class="fu">log</span>(da[, <span class="dv">2</span><span class="sc">:</span><span class="dv">3</span>] <span class="sc">+</span> <span class="dv">1</span>)</span>
+<span id="cb828-5"><a href="多変量ボラティリティモデル.html#cb828-5" tabindex="-1"></a>m1a <span class="ot">&lt;-</span> <span class="fu">BEKK11</span>(rtn) <span class="co"># 時間かかる</span></span>
+<span id="cb828-6"><a href="多変量ボラティリティモデル.html#cb828-6" tabindex="-1"></a></span>
+<span id="cb828-7"><a href="多変量ボラティリティモデル.html#cb828-7" tabindex="-1"></a><span class="fu">names</span>(m1a)</span>
+<span id="cb828-8"><a href="多変量ボラティリティモデル.html#cb828-8" tabindex="-1"></a>Sigma_t <span class="ot">&lt;-</span> m1a<span class="sc">$</span>Sigma.t</span>
+<span id="cb828-9"><a href="多変量ボラティリティモデル.html#cb828-9" tabindex="-1"></a>at <span class="ot">&lt;-</span> <span class="fu">cbind</span>(rtn[, <span class="dv">1</span>] <span class="sc">-</span>  <span class="sc">-</span> m1a<span class="sc">$</span>estimates[<span class="dv">1</span>], rtn[, <span class="dv">2</span>] <span class="sc">-</span>  <span class="sc">-</span> m1a<span class="sc">$</span>estimates[<span class="dv">2</span>])</span>
+<span id="cb828-10"><a href="多変量ボラティリティモデル.html#cb828-10" tabindex="-1"></a><span class="fu">MCHdiag</span>(at, Sigma_t)</span></code></pre></div>
+</div>
+<div id="cholesky分解を利用したボラティリティ推定" class="section level2 hasAnchor" number="11.4">
+<h2><span class="header-section-number">11.4</span> Cholesky分解を利用したボラティリティ推定<a href="多変量ボラティリティモデル.html#cholesky分解を利用したボラティリティ推定" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li>Cholesky Decomposition</li>
+<li>Tsay, p.426–</li>
+</ul>
+<div class="sourceCode" id="cb829"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb829-1"><a href="多変量ボラティリティモデル.html#cb829-1" tabindex="-1"></a>ifl <span class="ot">&lt;-</span> <span class="fu">file.path</span>(dir_MTS, <span class="st">&quot;m-ibmspko-6111.txt&quot;</span>)</span>
+<span id="cb829-2"><a href="多変量ボラティリティモデル.html#cb829-2" tabindex="-1"></a>da <span class="ot">&lt;-</span> <span class="fu">read.table</span>(ifl, <span class="at">header =</span> T)</span>
+<span id="cb829-3"><a href="多変量ボラティリティモデル.html#cb829-3" tabindex="-1"></a><span class="co"># IBM株, S&amp;P指数, コカコーラ株</span></span>
+<span id="cb829-4"><a href="多変量ボラティリティモデル.html#cb829-4" tabindex="-1"></a><span class="co"># 月次リターン, 1961年1月--2011年12月</span></span>
+<span id="cb829-5"><a href="多変量ボラティリティモデル.html#cb829-5" tabindex="-1"></a>rtn <span class="ot">&lt;-</span> <span class="fu">log</span>(da[, <span class="dv">2</span><span class="sc">:</span><span class="dv">4</span>] <span class="sc">+</span> <span class="dv">1</span>)</span></code></pre></div>
+<pre><code># 多変量Choleskyボラティリティ・モデル
+- MTS::MCholV
+  - Use recursive least squares to perform the time-varying Cholesky decomposition. The least squares estimates are then smoothed via the exponentially weighted moving-average method with decaying rate 0.96. University GARCH(1, 1) model is used for the innovations of each linear regression.</code></pre>
+<div class="sourceCode" id="cb831"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb831-1"><a href="多変量ボラティリティモデル.html#cb831-1" tabindex="-1"></a><span class="co">#library(fGarch)</span></span>
+<span id="cb831-2"><a href="多変量ボラティリティモデル.html#cb831-2" tabindex="-1"></a>m3 <span class="ot">&lt;-</span> <span class="fu">MCholV</span>(rtn)</span></code></pre></div>
+<pre><code>## Sample means:  0.007728 0.005024 0.010595 
+## Estimation of the first component 
+## Estimate (alpha0, alpha1, beta1):  0.000356 0.117515 0.810288 
+## s.e.                            :  0.000157 0.037004 0.057991 
+## t-value                         :  2.262897 3.175772 13.97261 
+## Component  2  Estimation Results (residual series): 
+## Estimate (alpha0, alpha1, beta1):  6.4e-05 0.099156 0.858354 
+## s.e.                            :  3.1e-05 0.027785 0.037238 
+## t-value                         :  2.034528 3.568616 23.05076 
+## Component  3  Estimation Results (residual series): 
+## Estimate (alpha0, alpha1, beta1):  0.000173 0.117506 0.818722 
+## s.e.                            :  6.2e-05 0.028651 0.038664 
+## t-value                         :  2.808075 4.101297 21.17521</code></pre>
+<div class="sourceCode" id="cb833"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb833-1"><a href="多変量ボラティリティモデル.html#cb833-1" tabindex="-1"></a><span class="fu">names</span>(m3)</span></code></pre></div>
+<pre><code>## [1] &quot;betat&quot;   &quot;bt&quot;      &quot;Vol&quot;     &quot;Sigma.t&quot;</code></pre>
+<div class="sourceCode" id="cb835"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb835-1"><a href="多変量ボラティリティモデル.html#cb835-1" tabindex="-1"></a><span class="co"># betat: Recursive least squares estimates of the linear transformations in Cholesky decomposition</span></span>
+<span id="cb835-2"><a href="多変量ボラティリティモデル.html#cb835-2" tabindex="-1"></a><span class="co"># bt: The transformation residual series</span></span>
+<span id="cb835-3"><a href="多変量ボラティリティモデル.html#cb835-3" tabindex="-1"></a><span class="co"># Vol: The volatility series of individual innovations</span></span>
+<span id="cb835-4"><a href="多変量ボラティリティモデル.html#cb835-4" tabindex="-1"></a><span class="co"># Sigma.t: Volatility matrices</span></span></code></pre></div>
+<div class="sourceCode" id="cb836"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb836-1"><a href="多変量ボラティリティモデル.html#cb836-1" tabindex="-1"></a>at <span class="ot">&lt;-</span> <span class="fu">scale</span>(rtn[<span class="sc">-</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">36</span>), ], <span class="at">center =</span> T, <span class="at">scale =</span> F)</span>
+<span id="cb836-2"><a href="多変量ボラティリティモデル.html#cb836-2" tabindex="-1"></a>Sigma_t <span class="ot">&lt;-</span> m3<span class="sc">$</span>Sigma.t</span>
+<span id="cb836-3"><a href="多変量ボラティリティモデル.html#cb836-3" tabindex="-1"></a></span>
+<span id="cb836-4"><a href="多変量ボラティリティモデル.html#cb836-4" tabindex="-1"></a><span class="fu">MCHdiag</span>(at, Sigma_t)</span></code></pre></div>
+<pre><code>## Test results:  
+## Q(m) of et: 
+## Test and p-value:  15.94978 0.1010791 
+## Rank-based test: 
+## Test and p-value:  21.99727 0.01511849 
+## Qk(m) of epsilon_t: 
+## Test and p-value:  123.7687 0.01057302 
+## Robust Qk(m):  
+## Test and p-value:  95.49626 0.3259654</code></pre>
+<div class="sourceCode" id="cb838"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb838-1"><a href="多変量ボラティリティモデル.html#cb838-1" tabindex="-1"></a><span class="fu">MCHdiag</span>(at, Sigma_t, <span class="at">m =</span> <span class="dv">5</span>)</span></code></pre></div>
+<pre><code>## Test results:  
+## Q(m) of et: 
+## Test and p-value:  5.717035 0.3347333 
+## Rank-based test: 
+## Test and p-value:  5.579834 0.3492711 
+## Qk(m) of epsilon_t: 
+## Test and p-value:  59.837 0.06842123 
+## Robust Qk(m):  
+## Test and p-value:  58.97874 0.07891472</code></pre>
+<div class="sourceCode" id="cb840"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb840-1"><a href="多変量ボラティリティモデル.html#cb840-1" tabindex="-1"></a><span class="fu">matplot</span>(Sigma_t, <span class="at">type =</span> <span class="st">&quot;l&quot;</span>)</span></code></pre></div>
+<p><img src="100-multivola_files/figure-html/chol2-1.png" width="672" /></p>
+<div class="sourceCode" id="cb841"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb841-1"><a href="多変量ボラティリティモデル.html#cb841-1" tabindex="-1"></a><span class="fu">matplot</span>(m3<span class="sc">$</span>Vol, <span class="at">type =</span> <span class="st">&quot;l&quot;</span>)</span></code></pre></div>
+<p><img src="100-multivola_files/figure-html/chol2-2.png" width="672" /></p>
+<div class="sourceCode" id="cb842"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb842-1"><a href="多変量ボラティリティモデル.html#cb842-1" tabindex="-1"></a><span class="fu">matplot</span>(m3<span class="sc">$</span>betat, <span class="at">type =</span> <span class="st">&quot;l&quot;</span>)</span></code></pre></div>
+<p><img src="100-multivola_files/figure-html/chol2-3.png" width="672" /></p>
+<div class="sourceCode" id="cb843"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb843-1"><a href="多変量ボラティリティモデル.html#cb843-1" tabindex="-1"></a><span class="fu">matplot</span>(m3<span class="sc">$</span>bt, <span class="at">type =</span> <span class="st">&quot;l&quot;</span>)</span></code></pre></div>
+<p><img src="100-multivola_files/figure-html/chol2-4.png" width="672" /></p>
+</div>
+<div id="dcc-dynamic-conditional-correlation-モデル" class="section level2 hasAnchor" number="11.5">
+<h2><span class="header-section-number">11.5</span> DCC (Dynamic Conditional Correlation) モデル<a href="多変量ボラティリティモデル.html#dcc-dynamic-conditional-correlation-モデル" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li>MTS, p.432–</li>
+<li>(引き続き) IBM, SP, KO 対数収益率の使用</li>
+</ul>
+<p>** 事前フィッティング**
+- 各成分に単変量GARCHを適合
+- → DCC推定のための標準化残差系列の生成</p>
+<pre><code>- MTS::dccPre
+  - 注) 実行時間ややかかる</code></pre>
+<div class="sourceCode" id="cb845"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb845-1"><a href="多変量ボラティリティモデル.html#cb845-1" tabindex="-1"></a>m1 <span class="ot">&lt;-</span> <span class="fu">dccPre</span>(rtn, <span class="at">include.mean =</span> T, <span class="at">p =</span> <span class="dv">0</span>)</span></code></pre></div>
+<pre><code>## Sample mean of the returns:  0.00772774 0.005023909 0.01059521 
+## Component:  1 
+## Estimates:  0.000419 0.126739 0.788307 
+## se.coef  :  0.000162 0.035405 0.055645 
+## t-value  :  2.593448 3.57973 14.16662 
+## Component:  2 
+## Estimates:  9e-05 0.127725 0.836053 
+## se.coef  :  4.1e-05 0.03084 0.031723 
+## t-value  :  2.20126 4.141592 26.35486 
+## Component:  3 
+## Estimates:  0.000256 0.098705 0.830358 
+## se.coef  :  8.5e-05 0.022361 0.033441 
+## t-value  :  3.015321 4.414112 24.83088</code></pre>
+<div class="sourceCode" id="cb847"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb847-1"><a href="多変量ボラティリティモデル.html#cb847-1" tabindex="-1"></a><span class="fu">names</span>(m1)</span></code></pre></div>
+<pre><code>## [1] &quot;marVol&quot;  &quot;sresi&quot;   &quot;est&quot;     &quot;se.coef&quot;</code></pre>
+<div class="sourceCode" id="cb849"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb849-1"><a href="多変量ボラティリティモデル.html#cb849-1" tabindex="-1"></a>rtn1 <span class="ot">&lt;-</span> m1<span class="sc">$</span>sresi    <span class="co"># 標準化残差系列</span></span>
+<span id="cb849-2"><a href="多変量ボラティリティモデル.html#cb849-2" tabindex="-1"></a>Vol <span class="ot">&lt;-</span> m1<span class="sc">$</span>marVol</span></code></pre></div>
+<div id="tse-and-tsui-2002-モデル" class="section level3 unnumbered hasAnchor">
+<h3>Tse and Tsui (2002) モデル<a href="多変量ボラティリティモデル.html#tse-and-tsui-2002-モデル" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<pre><code>- MTS::docFit (rt, type = &quot;TseTsui&quot;) (デフォルト)
+ - 標準化残差系列に対してDCCモデルを適合</code></pre>
+<div class="sourceCode" id="cb851"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb851-1"><a href="多変量ボラティリティモデル.html#cb851-1" tabindex="-1"></a>m2 <span class="ot">&lt;-</span> <span class="fu">dccFit</span>(rtn1) <span class="do">### Use Tse and Tsui model</span></span></code></pre></div>
+<pre><code>## Estimates:  0.8087994 0.04027416 7.959064 
+## st.errors:  0.1491731 0.02259899 1.135874 
+## t-values:   5.421885 1.782122 7.006998</code></pre>
+<div class="sourceCode" id="cb853"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb853-1"><a href="多変量ボラティリティモデル.html#cb853-1" tabindex="-1"></a><span class="fu">names</span>(m2)</span></code></pre></div>
+<pre><code>## [1] &quot;estimates&quot; &quot;Hessian&quot;   &quot;rho.t&quot;</code></pre>
+<div class="sourceCode" id="cb855"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb855-1"><a href="多変量ボラティリティモデル.html#cb855-1" tabindex="-1"></a>S2_t <span class="ot">&lt;-</span> m2<span class="sc">$</span>rho.t</span></code></pre></div>
+</div>
+<div id="engle-2002-モデル" class="section level3 unnumbered hasAnchor">
+<h3>Engle (2002) モデル<a href="多変量ボラティリティモデル.html#engle-2002-モデル" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<pre><code>- MTS::docFit (rt, type = &quot;Engle&quot;) (デフォルト)
+- 注) 実行時間ややかかる</code></pre>
+<div class="sourceCode" id="cb857"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb857-1"><a href="多変量ボラティリティモデル.html#cb857-1" tabindex="-1"></a>m3 <span class="ot">=</span> <span class="fu">dccFit</span>(rtn1, <span class="at">type =</span> <span class="st">&quot;Engle&quot;</span>) <span class="do">## Use Engle model</span></span></code></pre></div>
+<pre><code>## Estimates:  0.9126534 0.04531519 8.624321 
+## st.errors:  0.02947897 0.01274031 1.332704 
+## t-values:   30.95947 3.556835 6.471295</code></pre>
+<div class="sourceCode" id="cb859"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb859-1"><a href="多変量ボラティリティモデル.html#cb859-1" tabindex="-1"></a>S3_t <span class="ot">=</span> m3<span class="sc">$</span>rho.t</span></code></pre></div>
+<ul>
+<li>以下を追加:</li>
+<li>時点<span class="math inline">\(t\)</span>の相関行列<span class="math inline">\(R_t\)</span> (Tsay本では<span class="math inline">\(\rho_t\)</span>)</li>
+<li>← 3x3 対称行列</li>
+</ul>
+<div class="sourceCode" id="cb860"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb860-1"><a href="多変量ボラティリティモデル.html#cb860-1" tabindex="-1"></a><span class="fu">head</span>(S2_t)</span></code></pre></div>
+<pre><code>##      [,1]      [,2]      [,3]      [,4] [,5]      [,6]      [,7]      [,8] [,9]
+## [1,]    1 0.5842955 0.2772491 0.5842955    1 0.5600389 0.2772491 0.5600389    1
+## [2,]    1 0.5842955 0.2772491 0.5842955    1 0.5600389 0.2772491 0.5600389    1
+## [3,]    1 0.5842955 0.2772491 0.5842955    1 0.5600389 0.2772491 0.5600389    1
+## [4,]    1 0.5842955 0.2772491 0.5842955    1 0.5600389 0.2772491 0.5600389    1
+## [5,]    1 0.5930112 0.2898027 0.5930112    1 0.5485945 0.2898027 0.5485945    1
+## [6,]    1 0.5867309 0.3016936 0.5867309    1 0.5596515 0.3016936 0.5596515    1</code></pre>
+<div class="sourceCode" id="cb862"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb862-1"><a href="多変量ボラティリティモデル.html#cb862-1" tabindex="-1"></a><span class="fu">head</span>(S3_t)</span></code></pre></div>
+<pre><code>##      [,1]      [,2]      [,3]      [,4] [,5]      [,6]      [,7]      [,8] [,9]
+## [1,]    1 0.5842955 0.2772491 0.5842955    1 0.5600389 0.2772491 0.5600389    1
+## [2,]    1 0.6037264 0.2712637 0.6037264    1 0.5383299 0.2712637 0.5383299    1
+## [3,]    1 0.6081221 0.3065183 0.6081221    1 0.5405505 0.3065183 0.5405505    1
+## [4,]    1 0.6095527 0.3048562 0.6095527    1 0.5392283 0.3048562 0.5392283    1
+## [5,]    1 0.6065274 0.2795197 0.6065274    1 0.5274868 0.2795197 0.5274868    1
+## [6,]    1 0.6077643 0.2881606 0.6077643    1 0.5297445 0.2881606 0.5297445    1</code></pre>
+<div class="sourceCode" id="cb864"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb864-1"><a href="多変量ボラティリティモデル.html#cb864-1" tabindex="-1"></a><span class="fu">matplot</span>(S2_t[, <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">6</span>)], <span class="at">type =</span> <span class="st">&quot;l&quot;</span>, <span class="at">main =</span> <span class="st">&quot;Tse and Tsui model&quot;</span>)</span></code></pre></div>
+<p><img src="100-multivola_files/figure-html/dcc4-1.png" width="672" /></p>
+<div class="sourceCode" id="cb865"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb865-1"><a href="多変量ボラティリティモデル.html#cb865-1" tabindex="-1"></a><span class="fu">matplot</span>(S3_t[, <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">6</span>)], <span class="at">type =</span> <span class="st">&quot;l&quot;</span>, <span class="at">main =</span> <span class="st">&quot;Engle model&quot;</span>)</span></code></pre></div>
+<p><img src="100-multivola_files/figure-html/dcc4-2.png" width="672" /></p>
+<div class="sourceCode" id="cb866"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb866-1"><a href="多変量ボラティリティモデル.html#cb866-1" tabindex="-1"></a><span class="fu">MCHdiag</span>(rtn1, S2_t) <span class="do">### Model checking</span></span></code></pre></div>
+<pre><code>## Test results:  
+## Q(m) of et: 
+## Test and p-value:  20.74249 0.02296253 
+## Rank-based test: 
+## Test and p-value:  30.20662 0.0007924436 
+## Qk(m) of epsilon_t: 
+## Test and p-value:  132.4228 0.002425954 
+## Robust Qk(m):  
+## Test and p-value:  109.9671 0.07501572</code></pre>
+<div class="sourceCode" id="cb868"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb868-1"><a href="多変量ボラティリティモデル.html#cb868-1" tabindex="-1"></a><span class="fu">MCHdiag</span>(rtn1, S3_t)</span></code></pre></div>
+<pre><code>## Test results:  
+## Q(m) of et: 
+## Test and p-value:  20.02928 0.02897696 
+## Rank-based test: 
+## Test and p-value:  27.60836 0.002084952 
+## Qk(m) of epsilon_t: 
+## Test and p-value:  131.9812 0.002626131 
+## Robust Qk(m):  
+## Test and p-value:  111.3537 0.06306805</code></pre>
+</div>
+</div>
+<div id="go-garchモデル" class="section level2 hasAnchor" number="11.6">
+<h2><span class="header-section-number">11.6</span> Go-GARCHモデル<a href="多変量ボラティリティモデル.html#go-garchモデル" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<pre><code>- gogarch::gogarch
+ - estby: &quot;ica&quot;(Independent Component Analysis), &quot;mm&quot; (モーメント法), &quot;ml&quot; (最尤法), &quot;nls&quot; (非線形最小二乗法)</code></pre>
+<ul>
+<li>Tsay, p.437–</li>
+</ul>
+<div class="sourceCode" id="cb871"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb871-1"><a href="多変量ボラティリティモデル.html#cb871-1" tabindex="-1"></a><span class="fu">library</span>(gogarch)</span></code></pre></div>
+<pre><code>## Loading required package: fGarch</code></pre>
+<pre><code>## NOTE: Packages &#39;fBasics&#39;, &#39;timeDate&#39;, and &#39;timeSeries&#39; are no longer
+## attached to the search() path when &#39;fGarch&#39; is attached.
+## 
+## If needed attach them yourself in your R script by e.g.,
+##         require(&quot;timeSeries&quot;)</code></pre>
+<pre><code>## Loading required package: fastICA</code></pre>
+<div class="sourceCode" id="cb875"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb875-1"><a href="多変量ボラティリティモデル.html#cb875-1" tabindex="-1"></a>crtn <span class="ot">&lt;-</span> <span class="fu">scale</span>(rtn, <span class="at">center =</span> T, <span class="at">scale =</span> F)</span>
+<span id="cb875-2"><a href="多変量ボラティリティモデル.html#cb875-2" tabindex="-1"></a>m1 <span class="ot">&lt;-</span> gogarch<span class="sc">::</span><span class="fu">gogarch</span>(crtn, <span class="sc">~</span><span class="fu">garch</span>(<span class="dv">1</span>, <span class="dv">1</span>), <span class="at">estby =</span> <span class="st">&quot;ica&quot;</span>)</span>
+<span id="cb875-3"><a href="多変量ボラティリティモデル.html#cb875-3" tabindex="-1"></a><span class="co"># &quot;ica&quot;: Independent Component Analysisx (非正規データの場合)</span></span>
+<span id="cb875-4"><a href="多変量ボラティリティモデル.html#cb875-4" tabindex="-1"></a>m1</span></code></pre></div>
+<pre><code>## 
+## **************** 
+## *** GO-GARCH *** 
+## **************** 
+## 
+## Components estimated by: fast ICA
+## Dimension of data matrix: (612 x 3).
+## Formula for component GARCH models: ~ garch(1, 1) 
+## 
+## Orthogonal Matrix U:
+##            [,1]       [,2]       [,3]
+## [1,]  0.4768226  0.3731952  0.7958427
+## [2,] -0.3313546 -0.7622868  0.5559882
+## [3,]  0.8141525 -0.5288139 -0.2398157
+## 
+## Linear Map Z:
+##             [,1]         [,2]          [,3]
+## [1,] 0.032478029  0.008798645  0.0610619943
+## [2,] 0.006939834 -0.030393013  0.0308030341
+## [3,] 0.047149872 -0.039758234 -0.0006269423
+## 
+## Estimated GARCH coefficients:
+##         omega     alpha1     beta1
+## y1 0.28520667 0.12654031 0.7357619
+## y2 0.23342861 0.09399449 0.8429021
+## y3 0.01561313 0.05648151 0.9305709
+## 
+## Convergence codes of component GARCH models:
+## y1 y2 y3 
+##  1  1  1</code></pre>
+<div class="sourceCode" id="cb877"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb877-1"><a href="多変量ボラティリティモデル.html#cb877-1" tabindex="-1"></a><span class="co"># Convergence codes of component GARCH models:</span></span>
+<span id="cb877-2"><a href="多変量ボラティリティモデル.html#cb877-2" tabindex="-1"></a>Sigma_t <span class="ot">&lt;-</span> <span class="cn">NULL</span> <span class="do">### obtain the volatility matrix</span></span>
+<span id="cb877-3"><a href="多変量ボラティリティモデル.html#cb877-3" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">612</span>){</span>
+<span id="cb877-4"><a href="多変量ボラティリティモデル.html#cb877-4" tabindex="-1"></a>  Sigma_t <span class="ot">&lt;-</span> <span class="fu">rbind</span>(Sigma_t, <span class="fu">c</span>(m1<span class="sc">@</span>H[[i]]))</span>
+<span id="cb877-5"><a href="多変量ボラティリティモデル.html#cb877-5" tabindex="-1"></a>}</span>
+<span id="cb877-6"><a href="多変量ボラティリティモデル.html#cb877-6" tabindex="-1"></a></span>
+<span id="cb877-7"><a href="多変量ボラティリティモデル.html#cb877-7" tabindex="-1"></a><span class="fu">MCHdiag</span>(crtn, Sigma_t) <span class="do">### Model checking</span></span></code></pre></div>
+<pre><code>## Test results:  
+## Q(m) of et: 
+## Test and p-value:  23.75818 0.008268776 
+## Rank-based test: 
+## Test and p-value:  35.43474 0.0001052299 
+## Qk(m) of epsilon_t: 
+## Test and p-value:  179.4905 6.551299e-08 
+## Robust Qk(m):  
+## Test and p-value:  97.4621 0.2772916</code></pre>
+<div class="sourceCode" id="cb879"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb879-1"><a href="多変量ボラティリティモデル.html#cb879-1" tabindex="-1"></a>M <span class="ot">&lt;-</span> m1<span class="sc">@</span>Z</span>
+<span id="cb879-2"><a href="多変量ボラティリティモデル.html#cb879-2" tabindex="-1"></a>Minv <span class="ot">&lt;-</span> <span class="fu">solve</span>(M)        <span class="co"># 逆行列</span></span>
+<span id="cb879-3"><a href="多変量ボラティリティモデル.html#cb879-3" tabindex="-1"></a>bt <span class="ot">&lt;-</span> crtn <span class="sc">%*%</span> <span class="fu">t</span>(Minv)</span>
+<span id="cb879-4"><a href="多変量ボラティリティモデル.html#cb879-4" tabindex="-1"></a><span class="fu">cor</span>(bt<span class="sc">^</span><span class="dv">2</span>)</span></code></pre></div>
+<pre><code>##           [,1]      [,2]      [,3]
+## [1,] 1.0000000 0.1708308 0.1061009
+## [2,] 0.1708308 1.0000000 0.3458836
+## [3,] 0.1061009 0.3458836 1.0000000</code></pre>
+<div class="sourceCode" id="cb881"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb881-1"><a href="多変量ボラティリティモデル.html#cb881-1" tabindex="-1"></a><span class="fu">matplot</span>(Sigma_t[, <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">5</span>, <span class="dv">9</span>)], <span class="at">type =</span> <span class="st">&quot;l&quot;</span>)  <span class="co"># 追加</span></span></code></pre></div>
+<p><img src="100-multivola_files/figure-html/gogarch-1.png" width="672" /></p>
+</div>
+<div id="コピュラに基づくアプローチ" class="section level2 hasAnchor" number="11.7">
+<h2><span class="header-section-number">11.7</span> コピュラに基づくアプローチ<a href="多変量ボラティリティモデル.html#コピュラに基づくアプローチ" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li>Tsay, p.452–</li>
+</ul>
+<div class="sourceCode" id="cb882"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb882-1"><a href="多変量ボラティリティモデル.html#cb882-1" tabindex="-1"></a>ifl <span class="ot">&lt;-</span> <span class="fu">file.path</span>(dir_MTS, <span class="st">&quot;m-ibmspko-6111.txt&quot;</span>)</span>
+<span id="cb882-2"><a href="多変量ボラティリティモデル.html#cb882-2" tabindex="-1"></a>da <span class="ot">=</span> <span class="fu">read.table</span>(ifl, <span class="at">header =</span> T)</span>
+<span id="cb882-3"><a href="多変量ボラティリティモデル.html#cb882-3" tabindex="-1"></a>rtn <span class="ot">&lt;-</span> <span class="fu">log</span>(da[, <span class="sc">-</span><span class="dv">1</span>] <span class="sc">+</span> <span class="dv">1</span>)</span>
+<span id="cb882-4"><a href="多変量ボラティリティモデル.html#cb882-4" tabindex="-1"></a></span>
+<span id="cb882-5"><a href="多変量ボラティリティモデル.html#cb882-5" tabindex="-1"></a>m1 <span class="ot">&lt;-</span> <span class="fu">dccPre</span>(rtn, <span class="at">cond.dist =</span> <span class="st">&quot;std&quot;</span>)</span></code></pre></div>
+<pre><code>## Sample mean of the returns:  0.00772774 0.005023909 0.01059521 
+## Component:  1 
+## Estimates:  0.000388 0.115626 0.805129 9.209269 
+## se.coef  :  0.000177 0.036827 0.059471 3.054817 
+## t-value  :  2.195398 3.139719 13.5382 3.014671 
+## Component:  2 
+## Estimates:  0.00012 0.130898 0.814531 7.274928 
+## se.coef  :  5.7e-05 0.037012 0.046044 1.913333 
+## t-value  :  2.102768 3.536655 17.69028 3.802228 
+## Component:  3 
+## Estimates:  0.000216 0.104706 0.837217 7.077137 
+## se.coef  :  8.9e-05 0.028107 0.037157 1.847525 
+## t-value  :  2.437323 3.725341 22.53208 3.830605</code></pre>
+<div class="sourceCode" id="cb884"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb884-1"><a href="多変量ボラティリティモデル.html#cb884-1" tabindex="-1"></a><span class="fu">names</span>(m1)</span></code></pre></div>
+<pre><code>## [1] &quot;marVol&quot;  &quot;sresi&quot;   &quot;est&quot;     &quot;se.coef&quot;</code></pre>
+<div class="sourceCode" id="cb886"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb886-1"><a href="多変量ボラティリティモデル.html#cb886-1" tabindex="-1"></a>Vol <span class="ot">&lt;-</span> m1<span class="sc">$</span>marVol; eta <span class="ot">=</span> m1<span class="sc">$</span>sresi</span>
+<span id="cb886-2"><a href="多変量ボラティリティモデル.html#cb886-2" tabindex="-1"></a></span>
+<span id="cb886-3"><a href="多変量ボラティリティモデル.html#cb886-3" tabindex="-1"></a><span class="fu">matplot</span>(Vol, <span class="at">type =</span> <span class="st">&quot;l&quot;</span>)    <span class="co"># 追加</span></span></code></pre></div>
+<p><img src="100-multivola_files/figure-html/copula-1.png" width="672" /></p>
+<div id="多変量-t-copula-ボラティリティモデル" class="section level3 unnumbered hasAnchor">
+<h3>多変量 t-Copula ボラティリティ・モデル<a href="多変量ボラティリティモデル.html#多変量-t-copula-ボラティリティモデル" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<pre><code>- MTS::mtCopula
+  - Fits a t-copula to a k-dimensional standardized return series. The correlation matrices are parameterized by angles and the angles evolve over time via a DCC-type equation.
+
+ - 注) 実行時間ややかかる</code></pre>
+<div class="sourceCode" id="cb888"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb888-1"><a href="多変量ボラティリティモデル.html#cb888-1" tabindex="-1"></a>m2 <span class="ot">&lt;-</span> <span class="fu">mtCopula</span>(eta, <span class="at">g1 =</span> <span class="fl">0.8</span>, <span class="at">g2 =</span> <span class="fl">0.04</span>)</span>
+<span id="cb888-2"><a href="多変量ボラティリティモデル.html#cb888-2" tabindex="-1"></a><span class="co"># -&gt; 時間ややかかる</span></span>
+<span id="cb888-3"><a href="多変量ボラティリティモデル.html#cb888-3" tabindex="-1"></a><span class="fu">names</span>(m2)</span>
+<span id="cb888-4"><a href="多変量ボラティリティモデル.html#cb888-4" tabindex="-1"></a></span>
+<span id="cb888-5"><a href="多変量ボラティリティモデル.html#cb888-5" tabindex="-1"></a><span class="fu">MCHdiag</span>(eta, m2<span class="sc">$</span>rho.t)</span>
+<span id="cb888-6"><a href="多変量ボラティリティモデル.html#cb888-6" tabindex="-1"></a></span>
+<span id="cb888-7"><a href="多変量ボラティリティモデル.html#cb888-7" tabindex="-1"></a>m3 <span class="ot">&lt;-</span> <span class="fu">mtCopula</span>(eta, <span class="at">g1 =</span> <span class="fl">0.8</span>, <span class="at">g2 =</span> <span class="fl">0.04</span>, <span class="at">include.th0 =</span> F)</span></code></pre></div>
+<div id="example-7.6" class="section level4 unnumbered hasAnchor">
+<h4>Example 7.6<a href="多変量ボラティリティモデル.html#example-7.6" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div class="sourceCode" id="cb889"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb889-1"><a href="多変量ボラティリティモデル.html#cb889-1" tabindex="-1"></a>ifl <span class="ot">&lt;-</span> <span class="fu">file.path</span>(dir_MTS, <span class="st">&quot;d-xomspaapl.txt&quot;</span>)</span>
+<span id="cb889-2"><a href="多変量ボラティリティモデル.html#cb889-2" tabindex="-1"></a>da <span class="ot">&lt;-</span> <span class="fu">read.table</span>(ifl, <span class="at">header =</span> T)</span>
+<span id="cb889-3"><a href="多変量ボラティリティモデル.html#cb889-3" tabindex="-1"></a><span class="fu">head</span>(da)</span>
+<span id="cb889-4"><a href="多変量ボラティリティモデル.html#cb889-4" tabindex="-1"></a>rtn <span class="ot">&lt;-</span> <span class="fu">log</span>(da[, <span class="sc">-</span><span class="dv">1</span>] <span class="sc">+</span> <span class="dv">1</span>) <span class="sc">*</span> <span class="dv">100</span></span>
+<span id="cb889-5"><a href="多変量ボラティリティモデル.html#cb889-5" tabindex="-1"></a><span class="co"># 日次リターン, 2007.9--2012.9, Exxon Mobil, S&amp;P, Apple</span></span>
+<span id="cb889-6"><a href="多変量ボラティリティモデル.html#cb889-6" tabindex="-1"></a></span>
+<span id="cb889-7"><a href="多変量ボラティリティモデル.html#cb889-7" tabindex="-1"></a>mm1 <span class="ot">&lt;-</span>  <span class="fu">dccPre</span>(rtn, <span class="at">cond.dist =</span> <span class="st">&quot;std&quot;</span>)</span>
+<span id="cb889-8"><a href="多変量ボラティリティモデル.html#cb889-8" tabindex="-1"></a></span>
+<span id="cb889-9"><a href="多変量ボラティリティモデル.html#cb889-9" tabindex="-1"></a>rtn1 <span class="ot">&lt;-</span> mm1<span class="sc">$</span>sresi</span>
+<span id="cb889-10"><a href="多変量ボラティリティモデル.html#cb889-10" tabindex="-1"></a>Vol <span class="ot">&lt;-</span> mm1<span class="sc">$</span>marVol</span>
+<span id="cb889-11"><a href="多変量ボラティリティモデル.html#cb889-11" tabindex="-1"></a><span class="fu">dim</span>(rtn1)</span>
+<span id="cb889-12"><a href="多変量ボラティリティモデル.html#cb889-12" tabindex="-1"></a></span>
+<span id="cb889-13"><a href="多変量ボラティリティモデル.html#cb889-13" tabindex="-1"></a><span class="fu">matplot</span>(Vol, <span class="at">type =</span> <span class="st">&quot;l&quot;</span>)    <span class="co"># 追加</span></span>
+<span id="cb889-14"><a href="多変量ボラティリティモデル.html#cb889-14" tabindex="-1"></a></span>
+<span id="cb889-15"><a href="多変量ボラティリティモデル.html#cb889-15" tabindex="-1"></a>mm2 <span class="ot">&lt;-</span> <span class="fu">mtCopula</span>(rtn1, <span class="fl">0.8</span>, <span class="fl">0.04</span>)</span>
+<span id="cb889-16"><a href="多変量ボラティリティモデル.html#cb889-16" tabindex="-1"></a><span class="co"># -&gt; 時間ややかかる</span></span>
+<span id="cb889-17"><a href="多変量ボラティリティモデル.html#cb889-17" tabindex="-1"></a><span class="fu">MCHdiag</span>(rtn1, mm2<span class="sc">$</span>rho.t)</span></code></pre></div>
+</div>
+</div>
+</div>
+<div id="主成分分析に基づくアプローチ-pvc" class="section level2 hasAnchor" number="11.8">
+<h2><span class="header-section-number">11.8</span> 主成分分析に基づくアプローチ (PVC)<a href="多変量ボラティリティモデル.html#主成分分析に基づくアプローチ-pvc" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li>Tsay, p.460–</li>
+<li>“Principal volatility component analysis” (Hu and Tsay, 2014)</li>
+</ul>
+<pre><code>- MTS::comVol
+ - Compute the principal volatility components based on the residuals of a VAR(p) model.</code></pre>
+<div class="sourceCode" id="cb891"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb891-1"><a href="多変量ボラティリティモデル.html#cb891-1" tabindex="-1"></a>ifl <span class="ot">&lt;-</span> <span class="fu">file.path</span>(dir_MTS, <span class="st">&quot;w-fx7.txt&quot;</span>)</span>
+<span id="cb891-2"><a href="多変量ボラティリティモデル.html#cb891-2" tabindex="-1"></a>da <span class="ot">=</span> <span class="fu">read.table</span>(ifl, <span class="at">header =</span> T)</span>
+<span id="cb891-3"><a href="多変量ボラティリティモデル.html#cb891-3" tabindex="-1"></a><span class="fu">head</span>(da)</span></code></pre></div>
+<pre><code>##   Mon day year  GBPUSD NOKUSD SEKUSD CHFUSD CADUSD SGDUSD AUDUSD
+## 1   3  22 2000 0.63397 8.4066 8.6470 1.6560 1.4691 1.7156 1.6480
+## 2   3  29 2000 0.62935 8.4148 8.6232 1.6595 1.4556 1.7152 1.6354
+## 3   4   5 2000 0.62890 8.4670 8.6555 1.6435 1.4543 1.7160 1.6563
+## 4   4  12 2000 0.63029 8.5327 8.6773 1.6450 1.4659 1.7161 1.6744
+## 5   4  19 2000 0.63290 8.6515 8.7601 1.6646 1.4793 1.6999 1.6837
+## 6   4  26 2000 0.63519 8.8426 8.8844 1.7064 1.4763 1.7047 1.6940</code></pre>
+<div class="sourceCode" id="cb893"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb893-1"><a href="多変量ボラティリティモデル.html#cb893-1" tabindex="-1"></a><span class="fu">dim</span>(da)</span></code></pre></div>
+<pre><code>## [1] 606  10</code></pre>
+<div class="sourceCode" id="cb895"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb895-1"><a href="多変量ボラティリティモデル.html#cb895-1" tabindex="-1"></a>fx <span class="ot">&lt;-</span> <span class="fu">log</span>(da[, <span class="dv">4</span><span class="sc">:</span><span class="dv">10</span>])</span>
+<span id="cb895-2"><a href="多変量ボラティリティモデル.html#cb895-2" tabindex="-1"></a>rtn <span class="ot">&lt;-</span> <span class="fu">diffM</span>(fx)</span>
+<span id="cb895-3"><a href="多変量ボラティリティモデル.html#cb895-3" tabindex="-1"></a><span class="co"># 週次為替データ, 2000.3.2--2011.10.26</span></span>
+<span id="cb895-4"><a href="多変量ボラティリティモデル.html#cb895-4" tabindex="-1"></a><span class="co"># GBPUSD NOKUSD SEKUSD CHFUSD CADUSD SGDUSD AUDUSD</span></span>
+<span id="cb895-5"><a href="多変量ボラティリティモデル.html#cb895-5" tabindex="-1"></a></span>
+<span id="cb895-6"><a href="多変量ボラティリティモデル.html#cb895-6" tabindex="-1"></a>m1 <span class="ot">&lt;-</span> <span class="fu">comVol</span>(rtn, <span class="at">p =</span> <span class="dv">5</span>)</span></code></pre></div>
+<pre><code>## eigen-values:  4.07592 1.906457 1.646785 1.199888 1.081506 0.7761643 0.4490305 
+## proportion:    0.3660211 0.1712015 0.1478827 0.107751 0.09712014 0.06970022 0.04032333 
+## Checking:  
+## Results of individual F-test for ARCH effect 
+## Numbers of lags used: 10, 20, 30 
+## Component,(F-ratio P-val) (F-ratio P-val) (F-ratio P-Val) 
+##      [,1]  [,2]     [,3]   [,4]     [,5]  [,6]     [,7]
+## [1,]    1 21.66 0.00e+00 11.421 0.00e+00 7.725 0.00e+00
+## [2,]    2  5.78 2.54e-08  4.114 8.66e-09 3.169 7.06e-08
+## [3,]    3  7.24 7.95e-11  3.804 7.17e-08 2.659 6.66e-06
+## [4,]    4  4.58 2.76e-06  2.859 3.70e-05 2.279 1.63e-04
+## [5,]    5  1.49 1.38e-01  0.824 6.85e-01 0.776 7.99e-01
+## [6,]    6  2.38 9.18e-03  1.872 1.23e-02 1.271 1.55e-01
+## [7,]    7  1.42 1.68e-01  1.121 3.23e-01 1.126 2.96e-01</code></pre>
+<div class="sourceCode" id="cb897"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb897-1"><a href="多変量ボラティリティモデル.html#cb897-1" tabindex="-1"></a><span class="co"># 使用するラグ本数=10, 20, 30本に対する, (F比, p値)の各ペア</span></span>
+<span id="cb897-2"><a href="多変量ボラティリティモデル.html#cb897-2" tabindex="-1"></a><span class="co"># Compute the principal volatility components based on the residuals of a VAR(p) model.</span></span>
+<span id="cb897-3"><a href="多変量ボラティリティモデル.html#cb897-3" tabindex="-1"></a></span>
+<span id="cb897-4"><a href="多変量ボラティリティモデル.html#cb897-4" tabindex="-1"></a><span class="fu">names</span>(m1)</span></code></pre></div>
+<pre><code>## [1] &quot;residuals&quot; &quot;values&quot;    &quot;vectors&quot;   &quot;M&quot;</code></pre>
+<div class="sourceCode" id="cb899"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb899-1"><a href="多変量ボラティリティモデル.html#cb899-1" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">round</span>(m1<span class="sc">$</span>M, <span class="dv">4</span>))</span></code></pre></div>
+<pre><code>##         [,1]    [,2]    [,3]    [,4]    [,5]    [,6]    [,7]
+## [1,] -0.1965 -0.2139 -0.0020  0.6560  0.1648  0.3660 -0.2319
+## [2,] -0.3089  0.0292 -0.1021  0.1588  0.1776 -0.7538 -0.1865
+## [3,] -0.2351  0.3511 -0.3311 -0.3132 -0.3295  0.5094 -0.2157
+## [4,]  0.6307 -0.1982  0.1428 -0.0160 -0.2357 -0.0725 -0.2187
+## [5,] -0.0375  0.0600  0.6978  0.2937 -0.3994 -0.0540  0.5686
+## [6,]  0.6409  0.8503 -0.0782  0.3649  0.7624  0.1732  0.6629
+## [7,]  0.0279 -0.2534  0.6055 -0.4761  0.1910  0.0124 -0.2332</code></pre>
+<div class="sourceCode" id="cb901"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb901-1"><a href="多変量ボラティリティモデル.html#cb901-1" tabindex="-1"></a>rt <span class="ot">&lt;-</span> m1<span class="sc">$</span>residuals <span class="sc">%*%</span> m1<span class="sc">$</span>M　<span class="co"># obtain PVCs</span></span>
+<span id="cb901-2"><a href="多変量ボラティリティモデル.html#cb901-2" tabindex="-1"></a></span>
+<span id="cb901-3"><a href="多変量ボラティリティモデル.html#cb901-3" tabindex="-1"></a><span class="co"># 追加</span></span>
+<span id="cb901-4"><a href="多変量ボラティリティモデル.html#cb901-4" tabindex="-1"></a><span class="fu">head</span>(rt)</span></code></pre></div>
+<pre><code>##               [,1]         [,2]          [,3]         [,4]          [,5]
+## [1,] -0.0005443728  0.007231997  0.0035809562  0.011902447  0.0013887967
+## [2,] -0.0091648754 -0.001250578 -0.0005656099  0.002735395  0.0065290543
+## [3,] -0.0008562153 -0.003833748  0.0079452277  0.001723361  0.0012852971
+## [4,] -0.0050102372  0.002552756  0.0053976258  0.007384312 -0.0000975068
+## [5,]  0.0057846902 -0.001636014 -0.0007673213 -0.007862622  0.0061655758
+## [6,] -0.0020099186 -0.001653639 -0.0072930663  0.004103353  0.0051016169
+##              [,6]          [,7]
+## [1,] -0.001718935 -0.0017096491
+## [2,]  0.005899341  0.0006295078
+## [3,]  0.004559308 -0.0032395258
+## [4,]  0.004915362  0.0044671253
+## [5,] -0.002378963  0.0068035867
+## [6,]  0.002806629  0.0089839116</code></pre>
+<div class="sourceCode" id="cb903"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb903-1"><a href="多変量ボラティリティモデル.html#cb903-1" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfcol =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">2</span>))</span>
+<span id="cb903-2"><a href="多変量ボラティリティモデル.html#cb903-2" tabindex="-1"></a><span class="fu">plot</span>(rt[, <span class="dv">1</span>], <span class="at">type =</span> <span class="st">&quot;l&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;pvc1&quot;</span>); <span class="fu">plot</span>(rt[, <span class="dv">7</span>], <span class="at">type =</span> <span class="st">&quot;l&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;pvc7&quot;</span>)</span>
+<span id="cb903-3"><a href="多変量ボラティリティモデル.html#cb903-3" tabindex="-1"></a><span class="fu">acf</span>(rt[, <span class="dv">1</span>]<span class="sc">^</span><span class="dv">2</span>, <span class="at">main =</span> <span class="st">&quot;pvc1-square&quot;</span>); <span class="fu">acf</span>(rt[, <span class="dv">7</span>]<span class="sc">^</span><span class="dv">2</span>, <span class="at">main =</span> <span class="st">&quot;pvc7-square&quot;</span>)</span></code></pre></div>
+<p><img src="100-multivola_files/figure-html/pvca-1.png" width="672" /></p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="共和分分析誤差修正モデル.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="高頻度データ分析.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

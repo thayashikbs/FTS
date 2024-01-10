@@ -340,7 +340,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="12.2" data-path="高頻度データ分析.html"><a href="高頻度データ分析.html#共分散相関の推定"><i class="fa fa-check"></i><b>12.2</b> 共分散・相関の推定</a>
 <ul>
-<li class="chapter" data-level="12.2.1" data-path="高頻度データ分析.html"><a href="高頻度データ分析.html#データセット2-株価指数先物データ"><i class="fa fa-check"></i><b>12.2.1</b> データセット2: 株価指数先物データ</a></li>
+<li class="chapter" data-level="" data-path="高頻度データ分析.html"><a href="高頻度データ分析.html#データセット2-株価指数先物データ"><i class="fa fa-check"></i>データセット2: 株価指数先物データ</a></li>
 <li class="chapter" data-level="" data-path="高頻度データ分析.html"><a href="高頻度データ分析.html#共分散相関の推定-1"><i class="fa fa-check"></i>共分散・相関の推定</a></li>
 </ul></li>
 <li class="chapter" data-level="12.3" data-path="高頻度データ分析.html"><a href="高頻度データ分析.html#acdモデル"><i class="fa fa-check"></i><b>12.3</b> ACDモデル</a></li>
@@ -433,12 +433,12 @@ Tsay, Ch.7 (<a href="http://faculty.chicagobooth.edu/ruey.tsay/teaching/introTS/
 <pre><code>- MTS::MarchTest</code></pre>
 <div class="sourceCode" id="cb813"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb813-1"><a href="多変量ボラティリティモデル.html#cb813-1" tabindex="-1"></a><span class="fu">MarchTest</span>(zt) <span class="do">#### Multivariate volatility tests</span></span></code></pre></div>
 <pre><code>## Q(m) of squared series(LM test):  
-## Test statistic:  13.81572  p-value:  0.1815644 
+## Test statistic:  5.579901  p-value:  0.8492377 
 ## Rank-based Test:  
-## Test statistic:  8.506661  p-value:  0.5794726 
+## Test statistic:  7.810757  p-value:  0.6473158 
 ## Q_k(m) of squared series:  
-## Test statistic:  226.733  p-value:  0.8519022 
-## Robust Test(5%) :  216.6933  p-value:  0.9371367</code></pre>
+## Test statistic:  235.6601  p-value:  0.7336934 
+## Robust Test(5%) :  293.216  p-value:  0.03138898</code></pre>
 <div id="分析例" class="section level3 unnumbered hasAnchor">
 <h3>分析例<a href="多変量ボラティリティモデル.html#分析例" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
@@ -758,21 +758,21 @@ Tsay, Ch.7 (<a href="http://faculty.chicagobooth.edu/ruey.tsay/teaching/introTS/
 ## 
 ## Orthogonal Matrix U:
 ##            [,1]       [,2]       [,3]
-## [1,]  0.4768226  0.3731952  0.7958427
-## [2,] -0.3313546 -0.7622868  0.5559882
-## [3,]  0.8141525 -0.5288139 -0.2398157
+## [1,] -0.4516545  0.8105171 -0.3729212
+## [2,]  0.3542032  0.5465251  0.7588480
+## [3,] -0.8188701 -0.2106473  0.5339283
 ## 
 ## Linear Map Z:
-##             [,1]         [,2]          [,3]
-## [1,] 0.032478029  0.008798645  0.0610619943
-## [2,] 0.006939834 -0.030393013  0.0308030341
-## [3,] 0.047149872 -0.039758234 -0.0006269423
+##             [,1]        [,2]         [,3]
+## [1,] -0.03043971 0.062103014 -0.008800316
+## [2,] -0.00572454 0.031103473  0.030340189
+## [3,] -0.04692348 0.001079596  0.040015524
 ## 
 ## Estimated GARCH coefficients:
-##         omega     alpha1     beta1
-## y1 0.28520667 0.12654031 0.7357619
-## y2 0.23342861 0.09399449 0.8429021
-## y3 0.01561313 0.05648151 0.9305709
+##         omega    alpha1     beta1
+## y1 0.06995161 0.1137451 0.7902606
+## y2 0.92721203 0.1177425 0.7549080
+## y3 0.14757653 0.1135935 0.8082723
 ## 
 ## Convergence codes of component GARCH models:
 ## y1 y2 y3 
@@ -786,21 +786,21 @@ Tsay, Ch.7 (<a href="http://faculty.chicagobooth.edu/ruey.tsay/teaching/introTS/
 <span id="cb877-7"><a href="多変量ボラティリティモデル.html#cb877-7" tabindex="-1"></a><span class="fu">MCHdiag</span>(crtn, Sigma_t) <span class="do">### Model checking</span></span></code></pre></div>
 <pre><code>## Test results:  
 ## Q(m) of et: 
-## Test and p-value:  23.75818 0.008268776 
+## Test and p-value:  32.89057 0.0002841619 
 ## Rank-based test: 
-## Test and p-value:  35.43474 0.0001052299 
+## Test and p-value:  22.77381 0.01161299 
 ## Qk(m) of epsilon_t: 
-## Test and p-value:  179.4905 6.551299e-08 
+## Test and p-value:  179.4081 6.693057e-08 
 ## Robust Qk(m):  
-## Test and p-value:  97.4621 0.2772916</code></pre>
+## Test and p-value:  162.5182 4.423408e-06</code></pre>
 <div class="sourceCode" id="cb879"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb879-1"><a href="多変量ボラティリティモデル.html#cb879-1" tabindex="-1"></a>M <span class="ot">&lt;-</span> m1<span class="sc">@</span>Z</span>
 <span id="cb879-2"><a href="多変量ボラティリティモデル.html#cb879-2" tabindex="-1"></a>Minv <span class="ot">&lt;-</span> <span class="fu">solve</span>(M)        <span class="co"># 逆行列</span></span>
 <span id="cb879-3"><a href="多変量ボラティリティモデル.html#cb879-3" tabindex="-1"></a>bt <span class="ot">&lt;-</span> crtn <span class="sc">%*%</span> <span class="fu">t</span>(Minv)</span>
 <span id="cb879-4"><a href="多変量ボラティリティモデル.html#cb879-4" tabindex="-1"></a><span class="fu">cor</span>(bt<span class="sc">^</span><span class="dv">2</span>)</span></code></pre></div>
 <pre><code>##           [,1]      [,2]      [,3]
-## [1,] 1.0000000 0.1708308 0.1061009
-## [2,] 0.1708308 1.0000000 0.3458836
-## [3,] 0.1061009 0.3458836 1.0000000</code></pre>
+## [1,] 1.0000000 0.1066579 0.1652736
+## [2,] 0.1066579 1.0000000 0.3544019
+## [3,] 0.1652736 0.3544019 1.0000000</code></pre>
 <div class="sourceCode" id="cb881"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb881-1"><a href="多変量ボラティリティモデル.html#cb881-1" tabindex="-1"></a><span class="fu">matplot</span>(Sigma_t[, <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">5</span>, <span class="dv">9</span>)], <span class="at">type =</span> <span class="st">&quot;l&quot;</span>)  <span class="co"># 追加</span></span></code></pre></div>
 <p><img src="100-multivola_files/figure-html/gogarch-1.png" width="672" /></p>
 </div>

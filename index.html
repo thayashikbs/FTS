@@ -340,7 +340,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="12.2" data-path="高頻度データ分析.html"><a href="高頻度データ分析.html#共分散相関の推定"><i class="fa fa-check"></i><b>12.2</b> 共分散・相関の推定</a>
 <ul>
-<li class="chapter" data-level="12.2.1" data-path="高頻度データ分析.html"><a href="高頻度データ分析.html#データセット2-株価指数先物データ"><i class="fa fa-check"></i><b>12.2.1</b> データセット2: 株価指数先物データ</a></li>
+<li class="chapter" data-level="" data-path="高頻度データ分析.html"><a href="高頻度データ分析.html#データセット2-株価指数先物データ"><i class="fa fa-check"></i>データセット2: 株価指数先物データ</a></li>
 <li class="chapter" data-level="" data-path="高頻度データ分析.html"><a href="高頻度データ分析.html#共分散相関の推定-1"><i class="fa fa-check"></i>共分散・相関の推定</a></li>
 </ul></li>
 <li class="chapter" data-level="12.3" data-path="高頻度データ分析.html"><a href="高頻度データ分析.html#acdモデル"><i class="fa fa-check"></i><b>12.3</b> ACDモデル</a></li>
@@ -847,7 +847,7 @@ Figure 1.2: …
 <span id="cb24-12"><a href="index.html#cb24-12" tabindex="-1"></a><span class="do">## 2020-10-06              NA</span></span>
 <span id="cb24-13"><a href="index.html#cb24-13" tabindex="-1"></a><span class="do">## 2020-10-07              NA</span></span>
 <span id="cb24-14"><a href="index.html#cb24-14" tabindex="-1"></a><span class="do">## 2020-10-08              NA</span></span>
-<span id="cb24-15"><a href="index.html#cb24-15" tabindex="-1"></a><span class="do">## 2020-10-09     0.002418821</span></span>
+<span id="cb24-15"><a href="index.html#cb24-15" tabindex="-1"></a><span class="do">## 2020-10-09     0.002418779</span></span>
 <span id="cb24-16"><a href="index.html#cb24-16" tabindex="-1"></a><span class="co">#Mizuho_ma21 &lt;- rollapply(Mizuho_ret, width = 21, mean, align = &quot;right&quot;)    # zooパッケージ内</span></span>
 <span id="cb24-17"><a href="index.html#cb24-17" tabindex="-1"></a><span class="co"># timestamp is taken from the rightmost value</span></span>
 <span id="cb24-18"><a href="index.html#cb24-18" tabindex="-1"></a></span>
@@ -1182,12 +1182,12 @@ Finally, the error component is determined by removing trend and seasonal figure
 <span id="cb50-2"><a href="index.html#cb50-2" tabindex="-1"></a>ap_forecast <span class="ot">&lt;-</span> <span class="fu">predict</span>(ap_ppht, dates_ft)</span>
 <span id="cb50-3"><a href="index.html#cb50-3" tabindex="-1"></a><span class="fu">tail</span>(ap_forecast[<span class="fu">c</span>(<span class="st">&#39;ds&#39;</span>, <span class="st">&#39;yhat&#39;</span>, <span class="st">&#39;yhat_lower&#39;</span>, <span class="st">&#39;yhat_upper&#39;</span>)])</span>
 <span id="cb50-4"><a href="index.html#cb50-4" tabindex="-1"></a><span class="do">##             ds     yhat yhat_lower yhat_upper</span></span>
-<span id="cb50-5"><a href="index.html#cb50-5" tabindex="-1"></a><span class="do">## 151 1961-07-01 576.8046   548.1474   606.0123</span></span>
-<span id="cb50-6"><a href="index.html#cb50-6" tabindex="-1"></a><span class="do">## 152 1961-08-01 577.2261   548.7057   607.2050</span></span>
-<span id="cb50-7"><a href="index.html#cb50-7" tabindex="-1"></a><span class="do">## 153 1961-09-01 528.6678   501.4626   560.4224</span></span>
-<span id="cb50-8"><a href="index.html#cb50-8" tabindex="-1"></a><span class="do">## 154 1961-10-01 493.5023   465.3011   523.6786</span></span>
-<span id="cb50-9"><a href="index.html#cb50-9" tabindex="-1"></a><span class="do">## 155 1961-11-01 459.6479   429.9228   486.7298</span></span>
-<span id="cb50-10"><a href="index.html#cb50-10" tabindex="-1"></a><span class="do">## 156 1961-12-01 489.0093   459.2187   515.7210</span></span>
+<span id="cb50-5"><a href="index.html#cb50-5" tabindex="-1"></a><span class="do">## 151 1961-07-01 576.8046   548.9404   605.7109</span></span>
+<span id="cb50-6"><a href="index.html#cb50-6" tabindex="-1"></a><span class="do">## 152 1961-08-01 577.2261   548.4988   605.2499</span></span>
+<span id="cb50-7"><a href="index.html#cb50-7" tabindex="-1"></a><span class="do">## 153 1961-09-01 528.6678   498.8312   558.0409</span></span>
+<span id="cb50-8"><a href="index.html#cb50-8" tabindex="-1"></a><span class="do">## 154 1961-10-01 493.5023   464.6387   521.6533</span></span>
+<span id="cb50-9"><a href="index.html#cb50-9" tabindex="-1"></a><span class="do">## 155 1961-11-01 459.6479   431.9213   489.5722</span></span>
+<span id="cb50-10"><a href="index.html#cb50-10" tabindex="-1"></a><span class="do">## 156 1961-12-01 489.0093   460.4559   518.8251</span></span>
 <span id="cb50-11"><a href="index.html#cb50-11" tabindex="-1"></a><span class="fu">str</span>(ap_forecast)</span>
 <span id="cb50-12"><a href="index.html#cb50-12" tabindex="-1"></a><span class="do">## &#39;data.frame&#39;:    156 obs. of  16 variables:</span></span>
 <span id="cb50-13"><a href="index.html#cb50-13" tabindex="-1"></a><span class="do">##  $ ds                        : POSIXct, format: &quot;1949-01-01&quot; &quot;1949-02-01&quot; ...</span></span>
@@ -1201,8 +1201,8 @@ Finally, the error component is determined by removing trend and seasonal figure
 <span id="cb50-21"><a href="index.html#cb50-21" tabindex="-1"></a><span class="do">##  $ multiplicative_terms      : num  0 0 0 0 0 0 0 0 0 0 ...</span></span>
 <span id="cb50-22"><a href="index.html#cb50-22" tabindex="-1"></a><span class="do">##  $ multiplicative_terms_lower: num  0 0 0 0 0 0 0 0 0 0 ...</span></span>
 <span id="cb50-23"><a href="index.html#cb50-23" tabindex="-1"></a><span class="do">##  $ multiplicative_terms_upper: num  0 0 0 0 0 0 0 0 0 0 ...</span></span>
-<span id="cb50-24"><a href="index.html#cb50-24" tabindex="-1"></a><span class="do">##  $ yhat_lower                : num  57 49 83.2 80.5 84.5 ...</span></span>
-<span id="cb50-25"><a href="index.html#cb50-25" tabindex="-1"></a><span class="do">##  $ yhat_upper                : num  115 108 139 138 141 ...</span></span>
+<span id="cb50-24"><a href="index.html#cb50-24" tabindex="-1"></a><span class="do">##  $ yhat_lower                : num  55.6 50.6 80.1 80.7 85.2 ...</span></span>
+<span id="cb50-25"><a href="index.html#cb50-25" tabindex="-1"></a><span class="do">##  $ yhat_upper                : num  114 108 139 139 142 ...</span></span>
 <span id="cb50-26"><a href="index.html#cb50-26" tabindex="-1"></a><span class="do">##  $ trend_lower               : num  107 109 111 114 116 ...</span></span>
 <span id="cb50-27"><a href="index.html#cb50-27" tabindex="-1"></a><span class="do">##  $ trend_upper               : num  107 109 111 114 116 ...</span></span>
 <span id="cb50-28"><a href="index.html#cb50-28" tabindex="-1"></a><span class="do">##  $ yhat                      : num  85.9 79.4 110.9 108.6 112 ...</span></span>

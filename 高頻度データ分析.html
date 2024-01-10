@@ -340,7 +340,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="12.2" data-path="高頻度データ分析.html"><a href="高頻度データ分析.html#共分散相関の推定"><i class="fa fa-check"></i><b>12.2</b> 共分散・相関の推定</a>
 <ul>
-<li class="chapter" data-level="12.2.1" data-path="高頻度データ分析.html"><a href="高頻度データ分析.html#データセット2-株価指数先物データ"><i class="fa fa-check"></i><b>12.2.1</b> データセット2: 株価指数先物データ</a></li>
+<li class="chapter" data-level="" data-path="高頻度データ分析.html"><a href="高頻度データ分析.html#データセット2-株価指数先物データ"><i class="fa fa-check"></i>データセット2: 株価指数先物データ</a></li>
 <li class="chapter" data-level="" data-path="高頻度データ分析.html"><a href="高頻度データ分析.html#共分散相関の推定-1"><i class="fa fa-check"></i>共分散・相関の推定</a></li>
 </ul></li>
 <li class="chapter" data-level="12.3" data-path="高頻度データ分析.html"><a href="高頻度データ分析.html#acdモデル"><i class="fa fa-check"></i><b>12.3</b> ACDモデル</a></li>
@@ -490,8 +490,8 @@ cce()関数として実装されている (以下の「共分散・相関の推�
 <p>2つの証券の一日内の取引データを使って, 両者の共分散や相関係数を推定したい.
 しかし, 個別取引のデータは等間隔に並んでないことから,
 データが同時観測されていない (非同期) 点を考慮する必要がある.</p>
-<div id="データセット2-株価指数先物データ" class="section level3 hasAnchor" number="12.2.1">
-<h3><span class="header-section-number">12.2.1</span> データセット2: 株価指数先物データ<a href="高頻度データ分析.html#データセット2-株価指数先物データ" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="データセット2-株価指数先物データ" class="section level3 unnumbered hasAnchor">
+<h3>データセット2: 株価指数先物データ<a href="高頻度データ分析.html#データセット2-株価指数先物データ" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>1日分 (2018年2月5日)のTOPIX, 日経平均それぞれの株価指数先物データ (中心限月, ラージサイズ).
 時間解像度は1ミリ秒.
 同時点タイムスタンプを持つ複数レコードが存在する. ここでは, 1タイムスタンプ1レコードに集約. 価格はVWAPを使用.</p>
@@ -594,7 +594,8 @@ calc_RV(topixFTL)
 </div>
 <div id="acdモデル" class="section level2 hasAnchor" number="12.3">
 <h2><span class="header-section-number">12.3</span> ACDモデル<a href="高頻度データ分析.html#acdモデル" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>上で使用した株価指数先物データセット (topixFTL, nk225FTL) をここでも使用.</p>
+<p>ランダムに到着する取引の間隔データに対して, 自己回帰条件付デュレーション (ACD) モデルを仮定し, モデル適合する. ACDモデルは, 自己励起 (self-excitment) を表現することができる.
+上で使用した株価指数先物データセット (topixFTL, nk225FTL) をここでも使用.</p>
 <p><strong>デュレーション (取引間隔) 系列</strong>:</p>
 <div class="sourceCode" id="cb912"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb912-1"><a href="高頻度データ分析.html#cb912-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb912-2"><a href="高頻度データ分析.html#cb912-2" tabindex="-1"></a><span class="fu">library</span>(lubridate)</span>
@@ -626,7 +627,8 @@ calc_RV(topixFTL)
   - model: 条件付平均の特定. &quot;ACD&quot;, &quot;LACD1&quot;, &quot;LACD2&quot;, &quot;AMACD&quot;, &quot;BACD&quot;, &quot;ABACD&quot;, &quot;SNIACD&quot;, &quot;LSNIACD&quot;の中から一つ選択.
   - dist: 誤差項の確率分布. &quot;exponential&quot;, &quot;weibull&quot;, &quot;burr&quot;, &quot;gengamma&quot;, &quot;genf&quot;, &quot;qweibull&quot;, &quot;mixqwe&quot;, &quot;mixqww&quot;, &quot;mixinvgauss&quot;の中から一つ選択. 
   - order: ACDモデルの次数. 例えば, ACD(p, q)ならば, order = c(p, q)を指定.</code></pre>
-<p>以下では, 誤差項の確率分布として指数分布を, モデルとしてACD(1,1), LACD1(1,1), LACD2(1,1)の3つを選択.</p>
+<p>以下では, 誤差項の確率分布として指数分布を, モデルとしてACD(1,1), LACD1(1,1), LACD2(1,1)の3つを選択.
+モデルは定常性を仮定することから, 実際に実証分析を行う際には, “非定常”な時間帯, 具体的には市場のオープン後やクローズ前の一定期間 (５分間, 10分間等) のデータを除いたり, また1日内の非確率的な季節性変動予め除去した系列に対して, これらのモデルの適合が行われる (diurnal adjustmentと呼ばれる).</p>
 <div class="sourceCode" id="cb914"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb914-1"><a href="高頻度データ分析.html#cb914-1" tabindex="-1"></a><span class="fu">library</span>(ACDm)</span>
 <span id="cb914-2"><a href="高頻度データ分析.html#cb914-2" tabindex="-1"></a>distn <span class="ot">&lt;-</span> <span class="st">&quot;exponential&quot;</span></span>
 <span id="cb914-3"><a href="高頻度データ分析.html#cb914-3" tabindex="-1"></a>mod0 <span class="ot">&lt;-</span> <span class="st">&quot;ACD&quot;</span></span>
@@ -677,9 +679,9 @@ calc_RV(topixFTL)
 <span id="cb915-43"><a href="高頻度データ分析.html#cb915-43" tabindex="-1"></a><span class="co">#&gt; </span></span>
 <span id="cb915-44"><a href="高頻度データ分析.html#cb915-44" tabindex="-1"></a><span class="co">#&gt; Number of log-likelihood function evaluations: 193 </span></span>
 <span id="cb915-45"><a href="高頻度データ分析.html#cb915-45" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb915-46"><a href="高頻度データ分析.html#cb915-46" tabindex="-1"></a><span class="co">#&gt; Estimation time: 0.0408 secs </span></span>
+<span id="cb915-46"><a href="高頻度データ分析.html#cb915-46" tabindex="-1"></a><span class="co">#&gt; Estimation time: 0.0421 secs </span></span>
 <span id="cb915-47"><a href="高頻度データ分析.html#cb915-47" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb915-48"><a href="高頻度データ分析.html#cb915-48" tabindex="-1"></a><span class="co">#&gt; Description: Estimated at 2024-01-10 22:08:03 by user takaki</span></span>
+<span id="cb915-48"><a href="高頻度データ分析.html#cb915-48" tabindex="-1"></a><span class="co">#&gt; Description: Estimated at 2024-01-10 22:48:49 by user takaki</span></span>
 <span id="cb915-49"><a href="高頻度データ分析.html#cb915-49" tabindex="-1"></a><span class="co"># LACD1(1,1)</span></span>
 <span id="cb915-50"><a href="高頻度データ分析.html#cb915-50" tabindex="-1"></a>fit_lacd1_tx <span class="ot">&lt;-</span> ACDm<span class="sc">::</span><span class="fu">acdFit</span>(<span class="at">durations =</span> dur_tx, <span class="at">model =</span> mod1, <span class="at">dist =</span> distn, <span class="at">order =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>), <span class="at">output =</span> T)</span>
 <span id="cb915-51"><a href="高頻度データ分析.html#cb915-51" tabindex="-1"></a><span class="co">#&gt; </span></span>
@@ -719,7 +721,7 @@ calc_RV(topixFTL)
 <span id="cb915-85"><a href="高頻度データ分析.html#cb915-85" tabindex="-1"></a><span class="co">#&gt; </span></span>
 <span id="cb915-86"><a href="高頻度データ分析.html#cb915-86" tabindex="-1"></a><span class="co">#&gt; Estimation time: 0.11 secs </span></span>
 <span id="cb915-87"><a href="高頻度データ分析.html#cb915-87" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb915-88"><a href="高頻度データ分析.html#cb915-88" tabindex="-1"></a><span class="co">#&gt; Description: Estimated at 2024-01-10 22:08:03 by user takaki</span></span>
+<span id="cb915-88"><a href="高頻度データ分析.html#cb915-88" tabindex="-1"></a><span class="co">#&gt; Description: Estimated at 2024-01-10 22:48:49 by user takaki</span></span>
 <span id="cb915-89"><a href="高頻度データ分析.html#cb915-89" tabindex="-1"></a><span class="co"># LACD2(1,1)</span></span>
 <span id="cb915-90"><a href="高頻度データ分析.html#cb915-90" tabindex="-1"></a>fit_lacd2_tx <span class="ot">&lt;-</span> ACDm<span class="sc">::</span><span class="fu">acdFit</span>(<span class="at">durations =</span> dur_tx, <span class="at">model =</span> mod2, <span class="at">dist =</span> distn, <span class="at">order =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>), <span class="at">output =</span> T)</span>
 <span id="cb915-91"><a href="高頻度データ分析.html#cb915-91" tabindex="-1"></a><span class="co">#&gt; </span></span>
@@ -757,9 +759,9 @@ calc_RV(topixFTL)
 <span id="cb915-123"><a href="高頻度データ分析.html#cb915-123" tabindex="-1"></a><span class="co">#&gt; </span></span>
 <span id="cb915-124"><a href="高頻度データ分析.html#cb915-124" tabindex="-1"></a><span class="co">#&gt; Number of log-likelihood function evaluations: 192 </span></span>
 <span id="cb915-125"><a href="高頻度データ分析.html#cb915-125" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb915-126"><a href="高頻度データ分析.html#cb915-126" tabindex="-1"></a><span class="co">#&gt; Estimation time: 0.0889 secs </span></span>
+<span id="cb915-126"><a href="高頻度データ分析.html#cb915-126" tabindex="-1"></a><span class="co">#&gt; Estimation time: 0.0893 secs </span></span>
 <span id="cb915-127"><a href="高頻度データ分析.html#cb915-127" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb915-128"><a href="高頻度データ分析.html#cb915-128" tabindex="-1"></a><span class="co">#&gt; Description: Estimated at 2024-01-10 22:08:03 by user takaki</span></span></code></pre></div>
+<span id="cb915-128"><a href="高頻度データ分析.html#cb915-128" tabindex="-1"></a><span class="co">#&gt; Description: Estimated at 2024-01-10 22:48:49 by user takaki</span></span></code></pre></div>
 <div class="sourceCode" id="cb916"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb916-1"><a href="高頻度データ分析.html#cb916-1" tabindex="-1"></a><span class="co"># 日経平均先物</span></span>
 <span id="cb916-2"><a href="高頻度データ分析.html#cb916-2" tabindex="-1"></a><span class="co"># ACD(1,1)</span></span>
 <span id="cb916-3"><a href="高頻度データ分析.html#cb916-3" tabindex="-1"></a>fit_acd_nk <span class="ot">&lt;-</span> ACDm<span class="sc">::</span><span class="fu">acdFit</span>(<span class="at">durations =</span> dur_nk, <span class="at">model =</span> mod0, <span class="at">dist =</span> distn, <span class="at">order =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>), <span class="at">output =</span> T)</span>
@@ -805,9 +807,9 @@ calc_RV(topixFTL)
 <span id="cb916-43"><a href="高頻度データ分析.html#cb916-43" tabindex="-1"></a><span class="co">#&gt; </span></span>
 <span id="cb916-44"><a href="高頻度データ分析.html#cb916-44" tabindex="-1"></a><span class="co">#&gt; Number of log-likelihood function evaluations: 184 </span></span>
 <span id="cb916-45"><a href="高頻度データ分析.html#cb916-45" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb916-46"><a href="高頻度データ分析.html#cb916-46" tabindex="-1"></a><span class="co">#&gt; Estimation time: 0.0254 secs </span></span>
+<span id="cb916-46"><a href="高頻度データ分析.html#cb916-46" tabindex="-1"></a><span class="co">#&gt; Estimation time: 0.0252 secs </span></span>
 <span id="cb916-47"><a href="高頻度データ分析.html#cb916-47" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb916-48"><a href="高頻度データ分析.html#cb916-48" tabindex="-1"></a><span class="co">#&gt; Description: Estimated at 2024-01-10 22:08:03 by user takaki</span></span>
+<span id="cb916-48"><a href="高頻度データ分析.html#cb916-48" tabindex="-1"></a><span class="co">#&gt; Description: Estimated at 2024-01-10 22:48:49 by user takaki</span></span>
 <span id="cb916-49"><a href="高頻度データ分析.html#cb916-49" tabindex="-1"></a><span class="co"># LACD1(1,1)</span></span>
 <span id="cb916-50"><a href="高頻度データ分析.html#cb916-50" tabindex="-1"></a>fit_lacd1_nk <span class="ot">&lt;-</span> ACDm<span class="sc">::</span><span class="fu">acdFit</span>(<span class="at">durations =</span> dur_nk, <span class="at">model =</span> mod1, <span class="at">dist =</span> distn, <span class="at">order =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>), <span class="at">output =</span> T)</span>
 <span id="cb916-51"><a href="高頻度データ分析.html#cb916-51" tabindex="-1"></a><span class="co">#&gt; </span></span>
@@ -845,9 +847,9 @@ calc_RV(topixFTL)
 <span id="cb916-83"><a href="高頻度データ分析.html#cb916-83" tabindex="-1"></a><span class="co">#&gt; </span></span>
 <span id="cb916-84"><a href="高頻度データ分析.html#cb916-84" tabindex="-1"></a><span class="co">#&gt; Number of log-likelihood function evaluations: 182 </span></span>
 <span id="cb916-85"><a href="高頻度データ分析.html#cb916-85" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb916-86"><a href="高頻度データ分析.html#cb916-86" tabindex="-1"></a><span class="co">#&gt; Estimation time: 0.092 secs </span></span>
+<span id="cb916-86"><a href="高頻度データ分析.html#cb916-86" tabindex="-1"></a><span class="co">#&gt; Estimation time: 0.0924 secs </span></span>
 <span id="cb916-87"><a href="高頻度データ分析.html#cb916-87" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb916-88"><a href="高頻度データ分析.html#cb916-88" tabindex="-1"></a><span class="co">#&gt; Description: Estimated at 2024-01-10 22:08:03 by user takaki</span></span>
+<span id="cb916-88"><a href="高頻度データ分析.html#cb916-88" tabindex="-1"></a><span class="co">#&gt; Description: Estimated at 2024-01-10 22:48:49 by user takaki</span></span>
 <span id="cb916-89"><a href="高頻度データ分析.html#cb916-89" tabindex="-1"></a><span class="co"># LACD2(1,1)</span></span>
 <span id="cb916-90"><a href="高頻度データ分析.html#cb916-90" tabindex="-1"></a>fit_lacd2_nk <span class="ot">&lt;-</span> ACDm<span class="sc">::</span><span class="fu">acdFit</span>(<span class="at">durations =</span> dur_nk, <span class="at">model =</span> mod2, <span class="at">dist =</span> distn, <span class="at">order =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>), <span class="at">output =</span> T)</span>
 <span id="cb916-91"><a href="高頻度データ分析.html#cb916-91" tabindex="-1"></a><span class="co">#&gt; </span></span>
@@ -885,9 +887,9 @@ calc_RV(topixFTL)
 <span id="cb916-123"><a href="高頻度データ分析.html#cb916-123" tabindex="-1"></a><span class="co">#&gt; </span></span>
 <span id="cb916-124"><a href="高頻度データ分析.html#cb916-124" tabindex="-1"></a><span class="co">#&gt; Number of log-likelihood function evaluations: 160 </span></span>
 <span id="cb916-125"><a href="高頻度データ分析.html#cb916-125" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb916-126"><a href="高頻度データ分析.html#cb916-126" tabindex="-1"></a><span class="co">#&gt; Estimation time: 0.0545 secs </span></span>
+<span id="cb916-126"><a href="高頻度データ分析.html#cb916-126" tabindex="-1"></a><span class="co">#&gt; Estimation time: 0.0546 secs </span></span>
 <span id="cb916-127"><a href="高頻度データ分析.html#cb916-127" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb916-128"><a href="高頻度データ分析.html#cb916-128" tabindex="-1"></a><span class="co">#&gt; Description: Estimated at 2024-01-10 22:08:04 by user takaki</span></span></code></pre></div>
+<span id="cb916-128"><a href="高頻度データ分析.html#cb916-128" tabindex="-1"></a><span class="co">#&gt; Description: Estimated at 2024-01-10 22:48:49 by user takaki</span></span></code></pre></div>
 <p><strong>推定パラメータ</strong>:</p>
 <div class="sourceCode" id="cb917"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb917-1"><a href="高頻度データ分析.html#cb917-1" tabindex="-1"></a><span class="co"># TOPIX先物</span></span>
 <span id="cb917-2"><a href="高頻度データ分析.html#cb917-2" tabindex="-1"></a><span class="co"># summary(fit_acd_tx)</span></span>

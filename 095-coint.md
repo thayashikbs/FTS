@@ -174,7 +174,7 @@ fUnitRoots::adfTest(y1)
 ##     0.2742 
 ## 
 ## Description:
-##  Wed Jan 10 22:48:32 2024 by user:
+##  Thu Jan 18 13:58:09 2024 by user:
 ```
 
 ```r
@@ -195,7 +195,7 @@ fUnitRoots::adfTest(y2)
 ##     0.4028 
 ## 
 ## Description:
-##  Wed Jan 10 22:48:32 2024 by user:
+##  Thu Jan 18 13:58:09 2024 by user:
 ```
 
 ```r
@@ -216,7 +216,7 @@ fUnitRoots::adfTest(y3)
 ##     0.01647 
 ## 
 ## Description:
-##  Wed Jan 10 22:48:32 2024 by user:
+##  Thu Jan 18 13:58:09 2024 by user:
 ```
 
 ```r
@@ -237,7 +237,7 @@ fUnitRoots::adfTest(y4)
 ##     0.1668 
 ## 
 ## Description:
-##  Wed Jan 10 22:48:32 2024 by user:
+##  Thu Jan 18 13:58:09 2024 by user:
 ```
 
 
@@ -565,7 +565,7 @@ fUnitRoots::adfTest(tmp[, 1])
 ##     0.01 
 ## 
 ## Description:
-##  Wed Jan 10 22:48:32 2024 by user:
+##  Thu Jan 18 13:58:09 2024 by user:
 ```
 
 ```r
@@ -590,7 +590,7 @@ fUnitRoots::adfTest(tmp[, 2])
 ##     0.01 
 ## 
 ## Description:
-##  Wed Jan 10 22:48:32 2024 by user:
+##  Thu Jan 18 13:58:09 2024 by user:
 ```
 
 ```r

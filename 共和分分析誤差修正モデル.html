@@ -23,7 +23,6 @@
 <meta name="author" content="林 高樹" />
 
 
-<meta name="date" content="2024-01-10" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -289,6 +288,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="varモデル.html"><a href="varモデル.html#事例1-ソフトバンク9434-vs-ソフトバンクグループ9984"><i class="fa fa-check"></i>事例1: ソフトバンク(9434) vs ソフトバンクグループ(9984)</a></li>
 <li class="chapter" data-level="" data-path="varモデル.html"><a href="varモデル.html#事例2-米英日3株式市場-sp500-ftse-日経平均"><i class="fa fa-check"></i>事例2: 米英日3株式市場 (S&amp;P500, FTSE, 日経平均)</a></li>
 </ul></li>
+<li class="chapter" data-level="9.4" data-path="varモデル.html"><a href="varモデル.html#補足-分散共分散行列のコレスキー分解"><i class="fa fa-check"></i><b>9.4</b> 補足: 分散共分散行列のコレスキー分解</a></li>
 </ul></li>
 <li class="chapter" data-level="10" data-path="共和分分析誤差修正モデル.html"><a href="共和分分析誤差修正モデル.html"><i class="fa fa-check"></i><b>10</b> 共和分分析・誤差修正モデル</a>
 <ul>
@@ -307,7 +307,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="10.3.2" data-path="共和分分析誤差修正モデル.html"><a href="共和分分析誤差修正モデル.html#johansenの方法-johansen-procedure"><i class="fa fa-check"></i><b>10.3.2</b> Johansenの方法 (Johansen-Procedure)</a></li>
 <li class="chapter" data-level="10.3.3" data-path="共和分分析誤差修正モデル.html"><a href="共和分分析誤差修正モデル.html#誤差修正モデルecmの推定"><i class="fa fa-check"></i><b>10.3.3</b> 誤差修正モデル(ECM)の推定</a></li>
 </ul></li>
-<li class="chapter" data-level="10.4" data-path="共和分分析誤差修正モデル.html"><a href="共和分分析誤差修正モデル.html#補足-分散共分散行列のコレスキー分解"><i class="fa fa-check"></i><b>10.4</b> 補足: 分散共分散行列のコレスキー分解</a></li>
 </ul></li>
 <li class="chapter" data-level="11" data-path="多変量ボラティリティモデル.html"><a href="多変量ボラティリティモデル.html"><i class="fa fa-check"></i><b>11</b> 多変量ボラティリティ・モデル</a>
 <ul>
@@ -337,6 +336,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="高頻度データ分析.html"><a href="高頻度データ分析.html#データセット1-topix指数データ"><i class="fa fa-check"></i>データセット1: TOPIX指数データ</a></li>
 <li class="chapter" data-level="" data-path="高頻度データ分析.html"><a href="高頻度データ分析.html#実現ボラティリティの計算"><i class="fa fa-check"></i>実現ボラティリティの計算</a></li>
 <li class="chapter" data-level="" data-path="高頻度データ分析.html"><a href="高頻度データ分析.html#parkionsonボラティリティの計算"><i class="fa fa-check"></i>Parkionsonボラティリティの計算</a></li>
+<li class="chapter" data-level="" data-path="高頻度データ分析.html"><a href="高頻度データ分析.html#har-rvモデルによる予測"><i class="fa fa-check"></i>HAR-RVモデルによる予測</a></li>
 </ul></li>
 <li class="chapter" data-level="12.2" data-path="高頻度データ分析.html"><a href="高頻度データ分析.html#共分散相関の推定"><i class="fa fa-check"></i><b>12.2</b> 共分散・相関の推定</a>
 <ul>
@@ -344,6 +344,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="高頻度データ分析.html"><a href="高頻度データ分析.html#共分散相関の推定-1"><i class="fa fa-check"></i>共分散・相関の推定</a></li>
 </ul></li>
 <li class="chapter" data-level="12.3" data-path="高頻度データ分析.html"><a href="高頻度データ分析.html#acdモデル"><i class="fa fa-check"></i><b>12.3</b> ACDモデル</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="スペクトル解析.html"><a href="スペクトル解析.html"><i class="fa fa-check"></i><b>13</b> スペクトル解析</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="スペクトル解析.html"><a href="スペクトル解析.html#armaモデルのスペクトル密度"><i class="fa fa-check"></i><b>13.1</b> ARMAモデルのスペクトル密度</a></li>
+<li class="chapter" data-level="13.2" data-path="スペクトル解析.html"><a href="スペクトル解析.html#周期変動時系列のスペクトル密度"><i class="fa fa-check"></i><b>13.2</b> 周期変動時系列のスペクトル密度</a></li>
+<li class="chapter" data-level="13.3" data-path="スペクトル解析.html"><a href="スペクトル解析.html#データ分析例"><i class="fa fa-check"></i><b>13.3</b> データ分析例</a>
+<ul>
+<li class="chapter" data-level="" data-path="スペクトル解析.html"><a href="スペクトル解析.html#データセット1-sunspots"><i class="fa fa-check"></i>データセット1: sunspots</a></li>
+<li class="chapter" data-level="" data-path="スペクトル解析.html"><a href="スペクトル解析.html#データセット2-soi-index"><i class="fa fa-check"></i>データセット2: SOI Index</a></li>
+<li class="chapter" data-level="" data-path="スペクトル解析.html"><a href="スペクトル解析.html#データセット3-bank-loan-rate"><i class="fa fa-check"></i>データセット3: Bank loan rate</a></li>
+</ul></li>
+<li class="chapter" data-level="13.4" data-path="スペクトル解析.html"><a href="スペクトル解析.html#金融時系列データの分析"><i class="fa fa-check"></i><b>13.4</b> 金融時系列データの分析</a>
+<ul>
+<li class="chapter" data-level="" data-path="スペクトル解析.html"><a href="スペクトル解析.html#為替水準に対する分解-スペクトル解析"><i class="fa fa-check"></i>為替水準に対する分解 &amp; スペクトル解析</a></li>
+<li class="chapter" data-level="" data-path="スペクトル解析.html"><a href="スペクトル解析.html#為替リターンに対する分解-スペクトル解析"><i class="fa fa-check"></i>為替リターンに対する分解 &amp; スペクトル解析</a></li>
+</ul></li>
 </ul></li>
 <li class="appendix"><span><b>Appendix 参考文献</b></span></li>
 <li class="chapter" data-level="A" data-path="バブル-生成崩壊-検出.html"><a href="バブル-生成崩壊-検出.html"><i class="fa fa-check"></i><b>A</b> バブル (生成・崩壊) 検出</a>
@@ -387,6 +403,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="D.5" data-path="archgarchモデル.html"><a href="archgarchモデル.html#gjr-model"><i class="fa fa-check"></i><b>D.5</b> GJR model</a></li>
 <li class="chapter" data-level="D.6" data-path="archgarchモデル.html"><a href="archgarchモデル.html#aparch-model"><i class="fa fa-check"></i><b>D.6</b> APARCH model</a></li>
 </ul></li>
+<li class="chapter" data-level="E" data-path="共和分-誤差修正モデルの参考文献.html"><a href="共和分-誤差修正モデルの参考文献.html"><i class="fa fa-check"></i><b>E</b> 共和分/ 誤差修正モデルの参考文献</a>
+<ul>
+<li class="chapter" data-level="E.1" data-path="共和分-誤差修正モデルの参考文献.html"><a href="共和分-誤差修正モデルの参考文献.html#株式市場とマクロ変数-国際株式市場間の分析"><i class="fa fa-check"></i><b>E.1</b> 株式市場とマクロ変数, 国際株式市場間の分析</a></li>
+<li class="chapter" data-level="E.2" data-path="共和分-誤差修正モデルの参考文献.html"><a href="共和分-誤差修正モデルの参考文献.html#個別株式の複数取引所株価間の分析"><i class="fa fa-check"></i><b>E.2</b> 個別株式の複数取引所株価間の分析</a></li>
+<li class="chapter" data-level="E.3" data-path="共和分-誤差修正モデルの参考文献.html"><a href="共和分-誤差修正モデルの参考文献.html#高頻度データ-bidask価格-の分析"><i class="fa fa-check"></i><b>E.3</b> 高頻度データ (bid/ask価格) の分析</a></li>
+<li class="chapter" data-level="E.4" data-path="共和分-誤差修正モデルの参考文献.html"><a href="共和分-誤差修正モデルの参考文献.html#統計的アービトラージ-ペアトレード"><i class="fa fa-check"></i><b>E.4</b> 統計的アービトラージ / ペアトレード</a></li>
+<li class="chapter" data-level="E.5" data-path="共和分-誤差修正モデルの参考文献.html"><a href="共和分-誤差修正モデルの参考文献.html#国際株式市場間のヘッジ"><i class="fa fa-check"></i><b>E.5</b> 国際株式市場間のヘッジ</a></li>
+<li class="chapter" data-level="E.6" data-path="共和分-誤差修正モデルの参考文献.html"><a href="共和分-誤差修正モデルの参考文献.html#クレジットスプレッド-株式-cds-債券-の分析"><i class="fa fa-check"></i><b>E.6</b> クレジット・スプレッド (株式, CDS, 債券) の分析</a></li>
+</ul></li>
 </ul>
 
       </nav>
@@ -412,17 +437,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>単位根検定で扱った内容の再掲</li>
 <li>参考: 福地・伊藤, 10.1</li>
 </ul>
-<div class="sourceCode" id="cb668"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb668-1"><a href="共和分分析誤差修正モデル.html#cb668-1" tabindex="-1"></a>Tlen <span class="ot">&lt;-</span> <span class="dv">300</span></span>
-<span id="cb668-2"><a href="共和分分析誤差修正モデル.html#cb668-2" tabindex="-1"></a>Seedv <span class="ot">&lt;-</span> <span class="dv">1</span></span>
-<span id="cb668-3"><a href="共和分分析誤差修正モデル.html#cb668-3" tabindex="-1"></a><span class="fu">set.seed</span>(Seedv)</span>
-<span id="cb668-4"><a href="共和分分析誤差修正モデル.html#cb668-4" tabindex="-1"></a>w1 <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(Tlen)</span>
-<span id="cb668-5"><a href="共和分分析誤差修正モデル.html#cb668-5" tabindex="-1"></a>w2 <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(Tlen)</span>
-<span id="cb668-6"><a href="共和分分析誤差修正モデル.html#cb668-6" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">cumsum</span>(w1)</span>
-<span id="cb668-7"><a href="共和分分析誤差修正モデル.html#cb668-7" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">cumsum</span>(w2)</span>
-<span id="cb668-8"><a href="共和分分析誤差修正モデル.html#cb668-8" tabindex="-1"></a><span class="fu">matplot</span>(<span class="fu">cbind</span>(x,y), <span class="at">type =</span> <span class="st">&quot;l&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb701"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb701-1"><a href="共和分分析誤差修正モデル.html#cb701-1" tabindex="-1"></a>Tlen <span class="ot">&lt;-</span> <span class="dv">300</span></span>
+<span id="cb701-2"><a href="共和分分析誤差修正モデル.html#cb701-2" tabindex="-1"></a>Seedv <span class="ot">&lt;-</span> <span class="dv">1</span></span>
+<span id="cb701-3"><a href="共和分分析誤差修正モデル.html#cb701-3" tabindex="-1"></a><span class="fu">set.seed</span>(Seedv)</span>
+<span id="cb701-4"><a href="共和分分析誤差修正モデル.html#cb701-4" tabindex="-1"></a>w1 <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(Tlen)</span>
+<span id="cb701-5"><a href="共和分分析誤差修正モデル.html#cb701-5" tabindex="-1"></a>w2 <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(Tlen)</span>
+<span id="cb701-6"><a href="共和分分析誤差修正モデル.html#cb701-6" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">cumsum</span>(w1)</span>
+<span id="cb701-7"><a href="共和分分析誤差修正モデル.html#cb701-7" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">cumsum</span>(w2)</span>
+<span id="cb701-8"><a href="共和分分析誤差修正モデル.html#cb701-8" tabindex="-1"></a><span class="fu">matplot</span>(<span class="fu">cbind</span>(x,y), <span class="at">type =</span> <span class="st">&quot;l&quot;</span>)</span></code></pre></div>
 <p><img src="095-coint_files/figure-html/spur_reg_15-1.png" width="672" /></p>
-<div class="sourceCode" id="cb669"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb669-1"><a href="共和分分析誤差修正モデル.html#cb669-1" tabindex="-1"></a>reslm <span class="ot">&lt;-</span> <span class="fu">lm</span>(y <span class="sc">~</span> x)</span>
-<span id="cb669-2"><a href="共和分分析誤差修正モデル.html#cb669-2" tabindex="-1"></a><span class="fu">summary</span>(reslm)</span></code></pre></div>
+<div class="sourceCode" id="cb702"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb702-1"><a href="共和分分析誤差修正モデル.html#cb702-1" tabindex="-1"></a>reslm <span class="ot">&lt;-</span> <span class="fu">lm</span>(y <span class="sc">~</span> x)</span>
+<span id="cb702-2"><a href="共和分分析誤差修正モデル.html#cb702-2" tabindex="-1"></a><span class="fu">summary</span>(reslm)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = y ~ x)
@@ -441,15 +466,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## Residual standard error: 4.284 on 298 degrees of freedom
 ## Multiple R-squared:  0.02061,    Adjusted R-squared:  0.01733 
 ## F-statistic: 6.272 on 1 and 298 DF,  p-value: 0.0128</code></pre>
-<div class="sourceCode" id="cb671"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb671-1"><a href="共和分分析誤差修正モデル.html#cb671-1" tabindex="-1"></a><span class="fu">plot</span>(x, y); <span class="fu">abline</span>(reslm, <span class="at">col =</span> <span class="st">&quot;red&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb704"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb704-1"><a href="共和分分析誤差修正モデル.html#cb704-1" tabindex="-1"></a><span class="fu">plot</span>(x, y); <span class="fu">abline</span>(reslm, <span class="at">col =</span> <span class="st">&quot;red&quot;</span>)</span></code></pre></div>
 <p><img src="095-coint_files/figure-html/spur_reg_15-2.png" width="672" /></p>
 <ul>
 <li>残差に自己相関が残ることの確認</li>
 </ul>
-<div class="sourceCode" id="cb672"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb672-1"><a href="共和分分析誤差修正モデル.html#cb672-1" tabindex="-1"></a>reslm_resid <span class="ot">=</span> <span class="fu">resid</span>(reslm)</span>
-<span id="cb672-2"><a href="共和分分析誤差修正モデル.html#cb672-2" tabindex="-1"></a><span class="fu">plot</span>(reslm_resid, <span class="at">type =</span> <span class="st">&quot;l&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb705"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb705-1"><a href="共和分分析誤差修正モデル.html#cb705-1" tabindex="-1"></a>reslm_resid <span class="ot">=</span> <span class="fu">resid</span>(reslm)</span>
+<span id="cb705-2"><a href="共和分分析誤差修正モデル.html#cb705-2" tabindex="-1"></a><span class="fu">plot</span>(reslm_resid, <span class="at">type =</span> <span class="st">&quot;l&quot;</span>)</span></code></pre></div>
 <p><img src="095-coint_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
-<div class="sourceCode" id="cb673"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb673-1"><a href="共和分分析誤差修正モデル.html#cb673-1" tabindex="-1"></a><span class="fu">acf</span>(reslm_resid)</span></code></pre></div>
+<div class="sourceCode" id="cb706"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb706-1"><a href="共和分分析誤差修正モデル.html#cb706-1" tabindex="-1"></a><span class="fu">acf</span>(reslm_resid)</span></code></pre></div>
 <p><img src="095-coint_files/figure-html/unnamed-chunk-1-2.png" width="672" /></p>
 <div id="durbin-watson検定" class="section level3 unnumbered hasAnchor">
 <h3>Durbin-Watson検定<a href="共和分分析誤差修正モデル.html#durbin-watson検定" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -460,14 +485,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><span class="math inline">\(0&lt;DW&lt;4\)</span>. 無相関⇔ <span class="math inline">\(DW=2\)</span></li>
 <li>見せかけの回帰の場合. <span class="math inline">\(DW\)</span>が小さい傾向(正の系列相関)</li>
 </ul>
-<div class="sourceCode" id="cb674"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb674-1"><a href="共和分分析誤差修正モデル.html#cb674-1" tabindex="-1"></a><span class="fu">library</span>(lmtest)</span></code></pre></div>
+<div class="sourceCode" id="cb707"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb707-1"><a href="共和分分析誤差修正モデル.html#cb707-1" tabindex="-1"></a><span class="fu">library</span>(lmtest)</span></code></pre></div>
 <pre><code>## Loading required package: zoo</code></pre>
 <pre><code>## 
 ## Attaching package: &#39;zoo&#39;</code></pre>
 <pre><code>## The following objects are masked from &#39;package:base&#39;:
 ## 
 ##     as.Date, as.Date.numeric</code></pre>
-<div class="sourceCode" id="cb678"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb678-1"><a href="共和分分析誤差修正モデル.html#cb678-1" tabindex="-1"></a><span class="fu">dwtest</span>(reslm)</span></code></pre></div>
+<div class="sourceCode" id="cb711"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb711-1"><a href="共和分分析誤差修正モデル.html#cb711-1" tabindex="-1"></a><span class="fu">dwtest</span>(reslm)</span></code></pre></div>
 <pre><code>## 
 ##  Durbin-Watson test
 ## 
@@ -508,29 +533,29 @@ y_{4,t} &amp;= w_{1,t}+ 2 w_{2,t} + u_{4,t}
 それ以外の共和分ベクトルは<span class="math inline">\(\beta_1,\beta_2\)</span>の線形和で表現される.</p></li>
 <li><p>以下では, 全て正規乱数によりサンプルパス生成 (長さ=300)</p></li>
 </ul>
-<div class="sourceCode" id="cb680"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb680-1"><a href="共和分分析誤差修正モデル.html#cb680-1" tabindex="-1"></a>Tlen <span class="ot">&lt;-</span> <span class="dv">300</span></span>
-<span id="cb680-2"><a href="共和分分析誤差修正モデル.html#cb680-2" tabindex="-1"></a>Seedv <span class="ot">&lt;-</span> <span class="dv">1</span></span>
-<span id="cb680-3"><a href="共和分分析誤差修正モデル.html#cb680-3" tabindex="-1"></a><span class="fu">set.seed</span>(Seedv)</span>
-<span id="cb680-4"><a href="共和分分析誤差修正モデル.html#cb680-4" tabindex="-1"></a>w1 <span class="ot">&lt;-</span> <span class="fu">cumsum</span>(<span class="fu">rnorm</span>(Tlen))</span>
-<span id="cb680-5"><a href="共和分分析誤差修正モデル.html#cb680-5" tabindex="-1"></a>w2 <span class="ot">&lt;-</span> <span class="fu">cumsum</span>(<span class="fu">rnorm</span>(Tlen))</span>
-<span id="cb680-6"><a href="共和分分析誤差修正モデル.html#cb680-6" tabindex="-1"></a>u1 <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(Tlen); u2 <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(Tlen)</span>
-<span id="cb680-7"><a href="共和分分析誤差修正モデル.html#cb680-7" tabindex="-1"></a>u3 <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(Tlen); u4 <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(Tlen)</span>
-<span id="cb680-8"><a href="共和分分析誤差修正モデル.html#cb680-8" tabindex="-1"></a><span class="co">#</span></span>
-<span id="cb680-9"><a href="共和分分析誤差修正モデル.html#cb680-9" tabindex="-1"></a>y1 <span class="ot">&lt;-</span> w1 <span class="sc">+</span> u1</span>
-<span id="cb680-10"><a href="共和分分析誤差修正モデル.html#cb680-10" tabindex="-1"></a>y2 <span class="ot">&lt;-</span> <span class="dv">2</span> <span class="sc">*</span> w1 <span class="sc">+</span> u2</span>
-<span id="cb680-11"><a href="共和分分析誤差修正モデル.html#cb680-11" tabindex="-1"></a>y3 <span class="ot">&lt;-</span> w2 <span class="sc">+</span> u3</span>
-<span id="cb680-12"><a href="共和分分析誤差修正モデル.html#cb680-12" tabindex="-1"></a>y4 <span class="ot">&lt;-</span> w1 <span class="sc">+</span> <span class="dv">2</span> <span class="sc">*</span> w2 <span class="sc">+</span> u4</span>
-<span id="cb680-13"><a href="共和分分析誤差修正モデル.html#cb680-13" tabindex="-1"></a><span class="co">#</span></span>
-<span id="cb680-14"><a href="共和分分析誤差修正モデル.html#cb680-14" tabindex="-1"></a><span class="co"># beta1 = (1, -0.5, 0, 0)</span></span>
-<span id="cb680-15"><a href="共和分分析誤差修正モデル.html#cb680-15" tabindex="-1"></a><span class="co"># beta2 = (1, 0, 2, -1)</span></span>
-<span id="cb680-16"><a href="共和分分析誤差修正モデル.html#cb680-16" tabindex="-1"></a><span class="co">#</span></span>
-<span id="cb680-17"><a href="共和分分析誤差修正モデル.html#cb680-17" tabindex="-1"></a>ymat <span class="ot">&lt;-</span> <span class="fu">cbind</span>(y1, y2, y3, y4)</span>
-<span id="cb680-18"><a href="共和分分析誤差修正モデル.html#cb680-18" tabindex="-1"></a><span class="fu">matplot</span>(ymat, <span class="at">type =</span> <span class="st">&quot;l&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb713"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb713-1"><a href="共和分分析誤差修正モデル.html#cb713-1" tabindex="-1"></a>Tlen <span class="ot">&lt;-</span> <span class="dv">300</span></span>
+<span id="cb713-2"><a href="共和分分析誤差修正モデル.html#cb713-2" tabindex="-1"></a>Seedv <span class="ot">&lt;-</span> <span class="dv">1</span></span>
+<span id="cb713-3"><a href="共和分分析誤差修正モデル.html#cb713-3" tabindex="-1"></a><span class="fu">set.seed</span>(Seedv)</span>
+<span id="cb713-4"><a href="共和分分析誤差修正モデル.html#cb713-4" tabindex="-1"></a>w1 <span class="ot">&lt;-</span> <span class="fu">cumsum</span>(<span class="fu">rnorm</span>(Tlen))</span>
+<span id="cb713-5"><a href="共和分分析誤差修正モデル.html#cb713-5" tabindex="-1"></a>w2 <span class="ot">&lt;-</span> <span class="fu">cumsum</span>(<span class="fu">rnorm</span>(Tlen))</span>
+<span id="cb713-6"><a href="共和分分析誤差修正モデル.html#cb713-6" tabindex="-1"></a>u1 <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(Tlen); u2 <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(Tlen)</span>
+<span id="cb713-7"><a href="共和分分析誤差修正モデル.html#cb713-7" tabindex="-1"></a>u3 <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(Tlen); u4 <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(Tlen)</span>
+<span id="cb713-8"><a href="共和分分析誤差修正モデル.html#cb713-8" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb713-9"><a href="共和分分析誤差修正モデル.html#cb713-9" tabindex="-1"></a>y1 <span class="ot">&lt;-</span> w1 <span class="sc">+</span> u1</span>
+<span id="cb713-10"><a href="共和分分析誤差修正モデル.html#cb713-10" tabindex="-1"></a>y2 <span class="ot">&lt;-</span> <span class="dv">2</span> <span class="sc">*</span> w1 <span class="sc">+</span> u2</span>
+<span id="cb713-11"><a href="共和分分析誤差修正モデル.html#cb713-11" tabindex="-1"></a>y3 <span class="ot">&lt;-</span> w2 <span class="sc">+</span> u3</span>
+<span id="cb713-12"><a href="共和分分析誤差修正モデル.html#cb713-12" tabindex="-1"></a>y4 <span class="ot">&lt;-</span> w1 <span class="sc">+</span> <span class="dv">2</span> <span class="sc">*</span> w2 <span class="sc">+</span> u4</span>
+<span id="cb713-13"><a href="共和分分析誤差修正モデル.html#cb713-13" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb713-14"><a href="共和分分析誤差修正モデル.html#cb713-14" tabindex="-1"></a><span class="co"># beta1 = (1, -0.5, 0, 0)</span></span>
+<span id="cb713-15"><a href="共和分分析誤差修正モデル.html#cb713-15" tabindex="-1"></a><span class="co"># beta2 = (1, 0, 2, -1)</span></span>
+<span id="cb713-16"><a href="共和分分析誤差修正モデル.html#cb713-16" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb713-17"><a href="共和分分析誤差修正モデル.html#cb713-17" tabindex="-1"></a>ymat <span class="ot">&lt;-</span> <span class="fu">cbind</span>(y1, y2, y3, y4)</span>
+<span id="cb713-18"><a href="共和分分析誤差修正モデル.html#cb713-18" tabindex="-1"></a><span class="fu">matplot</span>(ymat, <span class="at">type =</span> <span class="st">&quot;l&quot;</span>)</span></code></pre></div>
 <p><img src="095-coint_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
 <ul>
 <li>各成分が単位根過程 <span class="math inline">\(I(1)\)</span> であることを確認</li>
 </ul>
-<div class="sourceCode" id="cb681"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb681-1"><a href="共和分分析誤差修正モデル.html#cb681-1" tabindex="-1"></a>fUnitRoots<span class="sc">::</span><span class="fu">adfTest</span>(y1)</span></code></pre></div>
+<div class="sourceCode" id="cb714"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb714-1"><a href="共和分分析誤差修正モデル.html#cb714-1" tabindex="-1"></a>fUnitRoots<span class="sc">::</span><span class="fu">adfTest</span>(y1)</span></code></pre></div>
 <pre><code>## 
 ## Title:
 ##  Augmented Dickey-Fuller Test
@@ -544,8 +569,8 @@ y_{4,t} &amp;= w_{1,t}+ 2 w_{2,t} + u_{4,t}
 ##     0.2742 
 ## 
 ## Description:
-##  Wed Jan 10 22:48:32 2024 by user:</code></pre>
-<div class="sourceCode" id="cb683"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb683-1"><a href="共和分分析誤差修正モデル.html#cb683-1" tabindex="-1"></a>fUnitRoots<span class="sc">::</span><span class="fu">adfTest</span>(y2)</span></code></pre></div>
+##  Thu Jan 18 13:58:09 2024 by user:</code></pre>
+<div class="sourceCode" id="cb716"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb716-1"><a href="共和分分析誤差修正モデル.html#cb716-1" tabindex="-1"></a>fUnitRoots<span class="sc">::</span><span class="fu">adfTest</span>(y2)</span></code></pre></div>
 <pre><code>## 
 ## Title:
 ##  Augmented Dickey-Fuller Test
@@ -559,8 +584,8 @@ y_{4,t} &amp;= w_{1,t}+ 2 w_{2,t} + u_{4,t}
 ##     0.4028 
 ## 
 ## Description:
-##  Wed Jan 10 22:48:32 2024 by user:</code></pre>
-<div class="sourceCode" id="cb685"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb685-1"><a href="共和分分析誤差修正モデル.html#cb685-1" tabindex="-1"></a>fUnitRoots<span class="sc">::</span><span class="fu">adfTest</span>(y3)</span></code></pre></div>
+##  Thu Jan 18 13:58:09 2024 by user:</code></pre>
+<div class="sourceCode" id="cb718"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb718-1"><a href="共和分分析誤差修正モデル.html#cb718-1" tabindex="-1"></a>fUnitRoots<span class="sc">::</span><span class="fu">adfTest</span>(y3)</span></code></pre></div>
 <pre><code>## 
 ## Title:
 ##  Augmented Dickey-Fuller Test
@@ -574,8 +599,8 @@ y_{4,t} &amp;= w_{1,t}+ 2 w_{2,t} + u_{4,t}
 ##     0.01647 
 ## 
 ## Description:
-##  Wed Jan 10 22:48:32 2024 by user:</code></pre>
-<div class="sourceCode" id="cb687"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb687-1"><a href="共和分分析誤差修正モデル.html#cb687-1" tabindex="-1"></a>fUnitRoots<span class="sc">::</span><span class="fu">adfTest</span>(y4)</span></code></pre></div>
+##  Thu Jan 18 13:58:09 2024 by user:</code></pre>
+<div class="sourceCode" id="cb720"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb720-1"><a href="共和分分析誤差修正モデル.html#cb720-1" tabindex="-1"></a>fUnitRoots<span class="sc">::</span><span class="fu">adfTest</span>(y4)</span></code></pre></div>
 <pre><code>## 
 ## Title:
 ##  Augmented Dickey-Fuller Test
@@ -589,7 +614,7 @@ y_{4,t} &amp;= w_{1,t}+ 2 w_{2,t} + u_{4,t}
 ##     0.1668 
 ## 
 ## Description:
-##  Wed Jan 10 22:48:32 2024 by user:</code></pre>
+##  Thu Jan 18 13:58:09 2024 by user:</code></pre>
 <div id="engle-grangerの方法" class="section level3 hasAnchor" number="10.2.1">
 <h3><span class="header-section-number">10.2.1</span> Engle-Grangerの方法<a href="共和分分析誤差修正モデル.html#engle-grangerの方法" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
@@ -599,9 +624,9 @@ y_{4,t} &amp;= w_{1,t}+ 2 w_{2,t} + u_{4,t}
 <pre><code>- &#39;urca&#39;パッケージ内, ca.po関数
   - demean (使用するランダムウォーク・モデルのトレンドの指定): &quot;none&quot;, &quot;const&quot;(定数項), &quot;trend&quot;(定数項+時間トレンド)
   - type (検定種類): &quot;Pu&quot;(デフォルト), &quot;Pz&quot;</code></pre>
-<div class="sourceCode" id="cb690"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb690-1"><a href="共和分分析誤差修正モデル.html#cb690-1" tabindex="-1"></a><span class="fu">library</span>(urca)</span>
-<span id="cb690-2"><a href="共和分分析誤差修正モデル.html#cb690-2" tabindex="-1"></a>test_po <span class="ot">&lt;-</span> <span class="fu">ca.po</span>(ymat[, <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>], <span class="at">demean =</span> <span class="st">&quot;const&quot;</span>)</span>
-<span id="cb690-3"><a href="共和分分析誤差修正モデル.html#cb690-3" tabindex="-1"></a><span class="fu">summary</span>(test_po)</span></code></pre></div>
+<div class="sourceCode" id="cb723"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb723-1"><a href="共和分分析誤差修正モデル.html#cb723-1" tabindex="-1"></a><span class="fu">library</span>(urca)</span>
+<span id="cb723-2"><a href="共和分分析誤差修正モデル.html#cb723-2" tabindex="-1"></a>test_po <span class="ot">&lt;-</span> <span class="fu">ca.po</span>(ymat[, <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>], <span class="at">demean =</span> <span class="st">&quot;const&quot;</span>)</span>
+<span id="cb723-3"><a href="共和分分析誤差修正モデル.html#cb723-3" tabindex="-1"></a><span class="fu">summary</span>(test_po)</span></code></pre></div>
 <pre><code>## 
 ## ######################################## 
 ## # Phillips and Ouliaris Unit Root Test # 
@@ -638,8 +663,8 @@ y_{4,t} &amp;= w_{1,t}+ 2 w_{2,t} + u_{4,t}
 <ul>
 <li>–&gt; 帰無仮説棄却. y1とy2には共和分関係あり</li>
 </ul>
-<div class="sourceCode" id="cb692"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb692-1"><a href="共和分分析誤差修正モデル.html#cb692-1" tabindex="-1"></a>test_po <span class="ot">&lt;-</span> <span class="fu">ca.po</span>(ymat[, <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>)], <span class="at">demean =</span> <span class="st">&quot;const&quot;</span>)</span>
-<span id="cb692-2"><a href="共和分分析誤差修正モデル.html#cb692-2" tabindex="-1"></a><span class="fu">summary</span>(test_po)</span></code></pre></div>
+<div class="sourceCode" id="cb725"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb725-1"><a href="共和分分析誤差修正モデル.html#cb725-1" tabindex="-1"></a>test_po <span class="ot">&lt;-</span> <span class="fu">ca.po</span>(ymat[, <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>)], <span class="at">demean =</span> <span class="st">&quot;const&quot;</span>)</span>
+<span id="cb725-2"><a href="共和分分析誤差修正モデル.html#cb725-2" tabindex="-1"></a><span class="fu">summary</span>(test_po)</span></code></pre></div>
 <pre><code>## 
 ## ######################################## 
 ## # Phillips and Ouliaris Unit Root Test # 
@@ -696,10 +721,10 @@ y_{4,t} &amp;= w_{1,t}+ 2 w_{2,t} + u_{4,t}
 <ul>
 <li><span class="math inline">\(y_{1,t}\)</span> vs <span class="math inline">\(y_{2,t}\)</span></li>
 </ul>
-<div class="sourceCode" id="cb695"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb695-1"><a href="共和分分析誤差修正モデル.html#cb695-1" tabindex="-1"></a><span class="co"># Y1 vs Y2</span></span>
-<span id="cb695-2"><a href="共和分分析誤差修正モデル.html#cb695-2" tabindex="-1"></a>result_e1 <span class="ot">&lt;-</span> <span class="fu">ca.jo</span>(ymat[, <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>], <span class="at">ecdet =</span> <span class="st">&quot;none&quot;</span>, <span class="at">type =</span> <span class="st">&quot;eigen&quot;</span>, <span class="at">spec =</span> <span class="st">&quot;longrun&quot;</span>)</span>
-<span id="cb695-3"><a href="共和分分析誤差修正モデル.html#cb695-3" tabindex="-1"></a><span class="co"># result_e1 &lt;- ca.jo(ymat[, 1:2], ecdet = &quot;const&quot;, type = &quot;eigen&quot;, spec = &quot;longrun&quot;)</span></span>
-<span id="cb695-4"><a href="共和分分析誤差修正モデル.html#cb695-4" tabindex="-1"></a><span class="fu">summary</span>(result_e1)</span></code></pre></div>
+<div class="sourceCode" id="cb728"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb728-1"><a href="共和分分析誤差修正モデル.html#cb728-1" tabindex="-1"></a><span class="co"># Y1 vs Y2</span></span>
+<span id="cb728-2"><a href="共和分分析誤差修正モデル.html#cb728-2" tabindex="-1"></a>result_e1 <span class="ot">&lt;-</span> <span class="fu">ca.jo</span>(ymat[, <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>], <span class="at">ecdet =</span> <span class="st">&quot;none&quot;</span>, <span class="at">type =</span> <span class="st">&quot;eigen&quot;</span>, <span class="at">spec =</span> <span class="st">&quot;longrun&quot;</span>)</span>
+<span id="cb728-3"><a href="共和分分析誤差修正モデル.html#cb728-3" tabindex="-1"></a><span class="co"># result_e1 &lt;- ca.jo(ymat[, 1:2], ecdet = &quot;const&quot;, type = &quot;eigen&quot;, spec = &quot;longrun&quot;)</span></span>
+<span id="cb728-4"><a href="共和分分析誤差修正モデル.html#cb728-4" tabindex="-1"></a><span class="fu">summary</span>(result_e1)</span></code></pre></div>
 <pre><code>## 
 ## ###################### 
 ## # Johansen-Procedure # 
@@ -729,7 +754,7 @@ y_{4,t} &amp;= w_{1,t}+ 2 w_{2,t} + u_{4,t}
 ##           y1.l2       y2.l2
 ## y1.d -1.0278147 -0.01135393
 ## y2.d  0.2537971 -0.02386878</code></pre>
-<div class="sourceCode" id="cb697"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb697-1"><a href="共和分分析誤差修正モデル.html#cb697-1" tabindex="-1"></a><span class="co"># Test type: maximal eigenvalue statistic (lambda max) , without linear trend and constant in cointegration </span></span></code></pre></div>
+<div class="sourceCode" id="cb730"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb730-1"><a href="共和分分析誤差修正モデル.html#cb730-1" tabindex="-1"></a><span class="co"># Test type: maximal eigenvalue statistic (lambda max) , without linear trend and constant in cointegration </span></span></code></pre></div>
 <ul>
 <li>–&gt; <span class="math inline">\(r=0\)</span>棄却. <span class="math inline">\(r=1\)</span>採択
 <ul>
@@ -738,8 +763,8 @@ y_{4,t} &amp;= w_{1,t}+ 2 w_{2,t} + u_{4,t}
 </ul></li>
 <li><span class="math inline">\(y_{1,t}\)</span> vs <span class="math inline">\(y_{3,t}\)</span></li>
 </ul>
-<div class="sourceCode" id="cb698"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb698-1"><a href="共和分分析誤差修正モデル.html#cb698-1" tabindex="-1"></a>result_e2 <span class="ot">&lt;-</span> <span class="fu">ca.jo</span>(ymat[, <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>)], <span class="at">ecdet =</span> <span class="st">&quot;none&quot;</span>, <span class="at">type =</span> <span class="st">&quot;eigen&quot;</span>, <span class="at">spec =</span> <span class="st">&quot;longrun&quot;</span>)</span>
-<span id="cb698-2"><a href="共和分分析誤差修正モデル.html#cb698-2" tabindex="-1"></a><span class="fu">summary</span>(result_e2)</span></code></pre></div>
+<div class="sourceCode" id="cb731"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb731-1"><a href="共和分分析誤差修正モデル.html#cb731-1" tabindex="-1"></a>result_e2 <span class="ot">&lt;-</span> <span class="fu">ca.jo</span>(ymat[, <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>)], <span class="at">ecdet =</span> <span class="st">&quot;none&quot;</span>, <span class="at">type =</span> <span class="st">&quot;eigen&quot;</span>, <span class="at">spec =</span> <span class="st">&quot;longrun&quot;</span>)</span>
+<span id="cb731-2"><a href="共和分分析誤差修正モデル.html#cb731-2" tabindex="-1"></a><span class="fu">summary</span>(result_e2)</span></code></pre></div>
 <pre><code>## 
 ## ###################### 
 ## # Johansen-Procedure # 
@@ -776,8 +801,8 @@ y_{4,t} &amp;= w_{1,t}+ 2 w_{2,t} + u_{4,t}
 </ul></li>
 <li>全変数</li>
 </ul>
-<div class="sourceCode" id="cb700"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb700-1"><a href="共和分分析誤差修正モデル.html#cb700-1" tabindex="-1"></a>result_e3 <span class="ot">&lt;-</span> <span class="fu">ca.jo</span>(ymat, <span class="at">ecdet =</span> <span class="st">&quot;none&quot;</span>, <span class="at">type =</span> <span class="st">&quot;eigen&quot;</span>, <span class="at">spec =</span> <span class="st">&quot;longrun&quot;</span>)</span>
-<span id="cb700-2"><a href="共和分分析誤差修正モデル.html#cb700-2" tabindex="-1"></a><span class="fu">summary</span>(result_e3)</span></code></pre></div>
+<div class="sourceCode" id="cb733"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb733-1"><a href="共和分分析誤差修正モデル.html#cb733-1" tabindex="-1"></a>result_e3 <span class="ot">&lt;-</span> <span class="fu">ca.jo</span>(ymat, <span class="at">ecdet =</span> <span class="st">&quot;none&quot;</span>, <span class="at">type =</span> <span class="st">&quot;eigen&quot;</span>, <span class="at">spec =</span> <span class="st">&quot;longrun&quot;</span>)</span>
+<span id="cb733-2"><a href="共和分分析誤差修正モデル.html#cb733-2" tabindex="-1"></a><span class="fu">summary</span>(result_e3)</span></code></pre></div>
 <pre><code>## 
 ## ###################### 
 ## # Johansen-Procedure # 
@@ -821,9 +846,9 @@ y_{4,t} &amp;= w_{1,t}+ 2 w_{2,t} + u_{4,t}
 <ul>
 <li><span class="math inline">\(H_0\)</span>: 共和分ランク<span class="math inline">\(=r\)</span>, <span class="math inline">\(H_1\)</span>: 共和分ランク<span class="math inline">\(=m\)</span> (原系列は定常)</li>
 </ul>
-<div class="sourceCode" id="cb702"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb702-1"><a href="共和分分析誤差修正モデル.html#cb702-1" tabindex="-1"></a>result_t1 <span class="ot">&lt;-</span> <span class="fu">ca.jo</span>(ymat, <span class="at">ecdet =</span> <span class="st">&quot;none&quot;</span>, <span class="at">type =</span> <span class="st">&quot;trace&quot;</span>, <span class="at">spec =</span> <span class="st">&quot;longrun&quot;</span>)</span>
-<span id="cb702-2"><a href="共和分分析誤差修正モデル.html#cb702-2" tabindex="-1"></a><span class="co">#result_t1 &lt;- ca.jo(ymat, ecdet = &quot;const&quot;, type = &quot;trace&quot;, spec = &quot;longrun&quot;)</span></span>
-<span id="cb702-3"><a href="共和分分析誤差修正モデル.html#cb702-3" tabindex="-1"></a><span class="fu">summary</span>(result_t1)</span></code></pre></div>
+<div class="sourceCode" id="cb735"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb735-1"><a href="共和分分析誤差修正モデル.html#cb735-1" tabindex="-1"></a>result_t1 <span class="ot">&lt;-</span> <span class="fu">ca.jo</span>(ymat, <span class="at">ecdet =</span> <span class="st">&quot;none&quot;</span>, <span class="at">type =</span> <span class="st">&quot;trace&quot;</span>, <span class="at">spec =</span> <span class="st">&quot;longrun&quot;</span>)</span>
+<span id="cb735-2"><a href="共和分分析誤差修正モデル.html#cb735-2" tabindex="-1"></a><span class="co">#result_t1 &lt;- ca.jo(ymat, ecdet = &quot;const&quot;, type = &quot;trace&quot;, spec = &quot;longrun&quot;)</span></span>
+<span id="cb735-3"><a href="共和分分析誤差修正モデル.html#cb735-3" tabindex="-1"></a><span class="fu">summary</span>(result_t1)</span></code></pre></div>
 <pre><code>## 
 ## ###################### 
 ## # Johansen-Procedure # 
@@ -866,8 +891,8 @@ y_{4,t} &amp;= w_{1,t}+ 2 w_{2,t} + u_{4,t}
 <li>→ 定常性の確認</li>
 </ul></li>
 </ul>
-<div class="sourceCode" id="cb704"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb704-1"><a href="共和分分析誤差修正モデル.html#cb704-1" tabindex="-1"></a>tmp <span class="ot">&lt;-</span> ymat <span class="sc">%*%</span> <span class="fu">summary</span>(result_t1)<span class="sc">@</span>V</span>
-<span id="cb704-2"><a href="共和分分析誤差修正モデル.html#cb704-2" tabindex="-1"></a>fUnitRoots<span class="sc">::</span><span class="fu">adfTest</span>(tmp[, <span class="dv">1</span>])</span></code></pre></div>
+<div class="sourceCode" id="cb737"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb737-1"><a href="共和分分析誤差修正モデル.html#cb737-1" tabindex="-1"></a>tmp <span class="ot">&lt;-</span> ymat <span class="sc">%*%</span> <span class="fu">summary</span>(result_t1)<span class="sc">@</span>V</span>
+<span id="cb737-2"><a href="共和分分析誤差修正モデル.html#cb737-2" tabindex="-1"></a>fUnitRoots<span class="sc">::</span><span class="fu">adfTest</span>(tmp[, <span class="dv">1</span>])</span></code></pre></div>
 <pre><code>## Warning in fUnitRoots::adfTest(tmp[, 1]): p-value smaller than printed p-value</code></pre>
 <pre><code>## 
 ## Title:
@@ -882,8 +907,8 @@ y_{4,t} &amp;= w_{1,t}+ 2 w_{2,t} + u_{4,t}
 ##     0.01 
 ## 
 ## Description:
-##  Wed Jan 10 22:48:32 2024 by user:</code></pre>
-<div class="sourceCode" id="cb707"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb707-1"><a href="共和分分析誤差修正モデル.html#cb707-1" tabindex="-1"></a>fUnitRoots<span class="sc">::</span><span class="fu">adfTest</span>(tmp[, <span class="dv">2</span>])</span></code></pre></div>
+##  Thu Jan 18 13:58:09 2024 by user:</code></pre>
+<div class="sourceCode" id="cb740"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb740-1"><a href="共和分分析誤差修正モデル.html#cb740-1" tabindex="-1"></a>fUnitRoots<span class="sc">::</span><span class="fu">adfTest</span>(tmp[, <span class="dv">2</span>])</span></code></pre></div>
 <pre><code>## Warning in fUnitRoots::adfTest(tmp[, 2]): p-value smaller than printed p-value</code></pre>
 <pre><code>## 
 ## Title:
@@ -898,9 +923,9 @@ y_{4,t} &amp;= w_{1,t}+ 2 w_{2,t} + u_{4,t}
 ##     0.01 
 ## 
 ## Description:
-##  Wed Jan 10 22:48:32 2024 by user:</code></pre>
-<div class="sourceCode" id="cb710"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb710-1"><a href="共和分分析誤差修正モデル.html#cb710-1" tabindex="-1"></a><span class="do">##fUnitRoots::adfTest(tmp[, 3])</span></span>
-<span id="cb710-2"><a href="共和分分析誤差修正モデル.html#cb710-2" tabindex="-1"></a><span class="do">##fUnitRoots::adfTest(tmp[, 4])</span></span></code></pre></div>
+##  Thu Jan 18 13:58:09 2024 by user:</code></pre>
+<div class="sourceCode" id="cb743"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb743-1"><a href="共和分分析誤差修正モデル.html#cb743-1" tabindex="-1"></a><span class="do">##fUnitRoots::adfTest(tmp[, 3])</span></span>
+<span id="cb743-2"><a href="共和分分析誤差修正モデル.html#cb743-2" tabindex="-1"></a><span class="do">##fUnitRoots::adfTest(tmp[, 4])</span></span></code></pre></div>
 
 </div>
 </div>
@@ -919,16 +944,16 @@ y_{4,t} &amp;= w_{1,t}+ 2 w_{2,t} + u_{4,t}
 <ul>
 <li>Tsay, 5.9, pp.310–</li>
 </ul>
-<div class="sourceCode" id="cb711"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb711-1"><a href="共和分分析誤差修正モデル.html#cb711-1" tabindex="-1"></a><span class="fu">require</span>(fUnitRoots) <span class="co"># adfTest</span></span></code></pre></div>
+<div class="sourceCode" id="cb744"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb744-1"><a href="共和分分析誤差修正モデル.html#cb744-1" tabindex="-1"></a><span class="fu">require</span>(fUnitRoots) <span class="co"># adfTest</span></span></code></pre></div>
 <pre><code>## Loading required package: fUnitRoots</code></pre>
-<div class="sourceCode" id="cb713"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb713-1"><a href="共和分分析誤差修正モデル.html#cb713-1" tabindex="-1"></a><span class="fu">require</span>(urca)       <span class="co"># ca.jo</span></span></code></pre></div>
+<div class="sourceCode" id="cb746"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb746-1"><a href="共和分分析誤差修正モデル.html#cb746-1" tabindex="-1"></a><span class="fu">require</span>(urca)       <span class="co"># ca.jo</span></span></code></pre></div>
 <pre><code>## Loading required package: urca</code></pre>
 <pre><code>## 
 ## Attaching package: &#39;urca&#39;</code></pre>
 <pre><code>## The following objects are masked from &#39;package:fUnitRoots&#39;:
 ## 
 ##     punitroot, qunitroot, unitrootTable</code></pre>
-<div class="sourceCode" id="cb717"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb717-1"><a href="共和分分析誤差修正モデル.html#cb717-1" tabindex="-1"></a><span class="fu">require</span>(MTS)        <span class="co"># VARorder()</span></span></code></pre></div>
+<div class="sourceCode" id="cb750"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb750-1"><a href="共和分分析誤差修正モデル.html#cb750-1" tabindex="-1"></a><span class="fu">require</span>(MTS)        <span class="co"># VARorder()</span></span></code></pre></div>
 <pre><code>## Loading required package: MTS</code></pre>
 <div id="分析に使用するデータ" class="section level4 unnumbered hasAnchor">
 <h4>分析に使用するデータ<a href="共和分分析誤差修正モデル.html#分析に使用するデータ" class="anchor-section" aria-label="Anchor link to header"></a></h4>
@@ -937,9 +962,9 @@ y_{4,t} &amp;= w_{1,t}+ 2 w_{2,t} + u_{4,t}
 <li>FRB St. Louisのデータ</li>
 <li>系列(Aaa, Baa)が2変量VAR(<span class="math inline">\(p\)</span>)モデルに従うと仮定し. 次数<span class="math inline">\(p\)</span>を決定:</li>
 </ul>
-<div class="sourceCode" id="cb719"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb719-1"><a href="共和分分析誤差修正モデル.html#cb719-1" tabindex="-1"></a>ifl <span class="ot">&lt;-</span> <span class="fu">file.path</span>(dir_MTS, <span class="st">&quot;m-bnd.txt&quot;</span>)  <span class="co"># dir_MTS: m-bnd.txtを格納しているディレクトリ</span></span>
-<span id="cb719-2"><a href="共和分分析誤差修正モデル.html#cb719-2" tabindex="-1"></a>da <span class="ot">&lt;-</span> <span class="fu">read.table</span>(ifl)</span>
-<span id="cb719-3"><a href="共和分分析誤差修正モデル.html#cb719-3" tabindex="-1"></a><span class="fu">head</span>(da)</span></code></pre></div>
+<div class="sourceCode" id="cb752"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb752-1"><a href="共和分分析誤差修正モデル.html#cb752-1" tabindex="-1"></a>ifl <span class="ot">&lt;-</span> <span class="fu">file.path</span>(dir_MTS, <span class="st">&quot;m-bnd.txt&quot;</span>)  <span class="co"># dir_MTS: m-bnd.txtを格納しているディレクトリ</span></span>
+<span id="cb752-2"><a href="共和分分析誤差修正モデル.html#cb752-2" tabindex="-1"></a>da <span class="ot">&lt;-</span> <span class="fu">read.table</span>(ifl)</span>
+<span id="cb752-3"><a href="共和分分析誤差修正モデル.html#cb752-3" tabindex="-1"></a><span class="fu">head</span>(da)</span></code></pre></div>
 <pre><code>##     V1 V2 V3   V4   V5
 ## 1 1954  7  1 2.89 3.50
 ## 2 1954  8  1 2.87 3.49
@@ -947,9 +972,9 @@ y_{4,t} &amp;= w_{1,t}+ 2 w_{2,t} + u_{4,t}
 ## 4 1954 10  1 2.87 3.46
 ## 5 1954 11  1 2.89 3.45
 ## 6 1954 12  1 2.90 3.45</code></pre>
-<div class="sourceCode" id="cb721"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb721-1"><a href="共和分分析誤差修正モデル.html#cb721-1" tabindex="-1"></a>bnd <span class="ot">&lt;-</span> da[, <span class="dv">4</span><span class="sc">:</span><span class="dv">5</span>]</span>
-<span id="cb721-2"><a href="共和分分析誤差修正モデル.html#cb721-2" tabindex="-1"></a><span class="fu">colnames</span>(bnd) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Aaa&quot;</span>, <span class="st">&quot;Baa&quot;</span>)</span>
-<span id="cb721-3"><a href="共和分分析誤差修正モデル.html#cb721-3" tabindex="-1"></a>m1 <span class="ot">&lt;-</span> MTS<span class="sc">::</span><span class="fu">VARorder</span>(bnd)        <span class="co"># original function, now in &#39;MTS&#39;</span></span></code></pre></div>
+<div class="sourceCode" id="cb754"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb754-1"><a href="共和分分析誤差修正モデル.html#cb754-1" tabindex="-1"></a>bnd <span class="ot">&lt;-</span> da[, <span class="dv">4</span><span class="sc">:</span><span class="dv">5</span>]</span>
+<span id="cb754-2"><a href="共和分分析誤差修正モデル.html#cb754-2" tabindex="-1"></a><span class="fu">colnames</span>(bnd) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Aaa&quot;</span>, <span class="st">&quot;Baa&quot;</span>)</span>
+<span id="cb754-3"><a href="共和分分析誤差修正モデル.html#cb754-3" tabindex="-1"></a>m1 <span class="ot">&lt;-</span> MTS<span class="sc">::</span><span class="fu">VARorder</span>(bnd)        <span class="co"># original function, now in &#39;MTS&#39;</span></span></code></pre></div>
 <pre><code>## selected order: aic =  11 
 ## selected order: bic =  3 
 ## selected order: hq =  3 
@@ -979,15 +1004,15 @@ y_{4,t} &amp;= w_{1,t}+ 2 w_{2,t} + u_{4,t}
 <li><span class="math inline">\(H_0\)</span>: 単位根有り</li>
 </ul></li>
 </ul>
-<div class="sourceCode" id="cb723"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb723-1"><a href="共和分分析誤差修正モデル.html#cb723-1" tabindex="-1"></a><span class="fu">pacf</span>(bnd[, <span class="dv">1</span>])</span></code></pre></div>
+<div class="sourceCode" id="cb756"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb756-1"><a href="共和分分析誤差修正モデル.html#cb756-1" tabindex="-1"></a><span class="fu">pacf</span>(bnd[, <span class="dv">1</span>])</span></code></pre></div>
 <p><img src="097-cointECM_files/figure-html/adf-1.png" width="672" /></p>
-<div class="sourceCode" id="cb724"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb724-1"><a href="共和分分析誤差修正モデル.html#cb724-1" tabindex="-1"></a><span class="fu">pacf</span>(bnd[, <span class="dv">2</span>])</span></code></pre></div>
+<div class="sourceCode" id="cb757"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb757-1"><a href="共和分分析誤差修正モデル.html#cb757-1" tabindex="-1"></a><span class="fu">pacf</span>(bnd[, <span class="dv">2</span>])</span></code></pre></div>
 <p><img src="097-cointECM_files/figure-html/adf-2.png" width="672" /></p>
-<div class="sourceCode" id="cb725"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb725-1"><a href="共和分分析誤差修正モデル.html#cb725-1" tabindex="-1"></a><span class="co"># または,</span></span>
-<span id="cb725-2"><a href="共和分分析誤差修正モデル.html#cb725-2" tabindex="-1"></a><span class="co"># ar(bnd[, 1])      # --&gt; AIC, p = 3</span></span>
-<span id="cb725-3"><a href="共和分分析誤差修正モデル.html#cb725-3" tabindex="-1"></a><span class="co"># ar(bnd[, 2])      # --&gt; AIC, p = 2</span></span>
-<span id="cb725-4"><a href="共和分分析誤差修正モデル.html#cb725-4" tabindex="-1"></a><span class="co">#</span></span>
-<span id="cb725-5"><a href="共和分分析誤差修正モデル.html#cb725-5" tabindex="-1"></a>fUnitRoots<span class="sc">::</span><span class="fu">adfTest</span>(bnd[, <span class="dv">1</span>], <span class="at">lags =</span> <span class="dv">3</span>, <span class="at">type =</span> <span class="st">&quot;c&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb758"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb758-1"><a href="共和分分析誤差修正モデル.html#cb758-1" tabindex="-1"></a><span class="co"># または,</span></span>
+<span id="cb758-2"><a href="共和分分析誤差修正モデル.html#cb758-2" tabindex="-1"></a><span class="co"># ar(bnd[, 1])      # --&gt; AIC, p = 3</span></span>
+<span id="cb758-3"><a href="共和分分析誤差修正モデル.html#cb758-3" tabindex="-1"></a><span class="co"># ar(bnd[, 2])      # --&gt; AIC, p = 2</span></span>
+<span id="cb758-4"><a href="共和分分析誤差修正モデル.html#cb758-4" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb758-5"><a href="共和分分析誤差修正モデル.html#cb758-5" tabindex="-1"></a>fUnitRoots<span class="sc">::</span><span class="fu">adfTest</span>(bnd[, <span class="dv">1</span>], <span class="at">lags =</span> <span class="dv">3</span>, <span class="at">type =</span> <span class="st">&quot;c&quot;</span>)</span></code></pre></div>
 <pre><code>## 
 ## Title:
 ##  Augmented Dickey-Fuller Test
@@ -1001,8 +1026,8 @@ y_{4,t} &amp;= w_{1,t}+ 2 w_{2,t} + u_{4,t}
 ##     0.425 
 ## 
 ## Description:
-##  Wed Jan 10 22:48:33 2024 by user:</code></pre>
-<div class="sourceCode" id="cb727"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb727-1"><a href="共和分分析誤差修正モデル.html#cb727-1" tabindex="-1"></a>fUnitRoots<span class="sc">::</span><span class="fu">adfTest</span>(bnd[, <span class="dv">2</span>], <span class="at">lags =</span> <span class="dv">2</span>, <span class="at">type =</span> <span class="st">&quot;c&quot;</span>)</span></code></pre></div>
+##  Thu Jan 18 13:58:11 2024 by user:</code></pre>
+<div class="sourceCode" id="cb760"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb760-1"><a href="共和分分析誤差修正モデル.html#cb760-1" tabindex="-1"></a>fUnitRoots<span class="sc">::</span><span class="fu">adfTest</span>(bnd[, <span class="dv">2</span>], <span class="at">lags =</span> <span class="dv">2</span>, <span class="at">type =</span> <span class="st">&quot;c&quot;</span>)</span></code></pre></div>
 <pre><code>## 
 ## Title:
 ##  Augmented Dickey-Fuller Test
@@ -1016,18 +1041,18 @@ y_{4,t} &amp;= w_{1,t}+ 2 w_{2,t} + u_{4,t}
 ##     0.4544 
 ## 
 ## Description:
-##  Wed Jan 10 22:48:33 2024 by user:</code></pre>
+##  Thu Jan 18 13:58:11 2024 by user:</code></pre>
 <ul>
 <li>–&gt; Aaa, Baa系列のADF検定、棄却されない (H0: 単位根非定常)</li>
 </ul>
-<div class="sourceCode" id="cb729"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb729-1"><a href="共和分分析誤差修正モデル.html#cb729-1" tabindex="-1"></a><span class="fu">matplot</span>(bnd, <span class="at">type=</span><span class="st">&quot;l&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb762"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb762-1"><a href="共和分分析誤差修正モデル.html#cb762-1" tabindex="-1"></a><span class="fu">matplot</span>(bnd, <span class="at">type=</span><span class="st">&quot;l&quot;</span>)</span></code></pre></div>
 <p><img src="097-cointECM_files/figure-html/adf2-1.png" width="672" /></p>
-<div class="sourceCode" id="cb730"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb730-1"><a href="共和分分析誤差修正モデル.html#cb730-1" tabindex="-1"></a><span class="co"># Tsay本の内容に沿って, 以下を挿入</span></span>
-<span id="cb730-2"><a href="共和分分析誤差修正モデル.html#cb730-2" tabindex="-1"></a><span class="fu">apply</span>(<span class="fu">apply</span>(bnd, <span class="dv">2</span>, diff), <span class="dv">2</span>, mean)<span class="sc">/</span></span>
-<span id="cb730-3"><a href="共和分分析誤差修正モデル.html#cb730-3" tabindex="-1"></a>  <span class="fu">apply</span>(<span class="fu">apply</span>(bnd, <span class="dv">2</span>, diff), <span class="dv">2</span>, sd)</span></code></pre></div>
+<div class="sourceCode" id="cb763"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb763-1"><a href="共和分分析誤差修正モデル.html#cb763-1" tabindex="-1"></a><span class="co"># Tsay本の内容に沿って, 以下を挿入</span></span>
+<span id="cb763-2"><a href="共和分分析誤差修正モデル.html#cb763-2" tabindex="-1"></a><span class="fu">apply</span>(<span class="fu">apply</span>(bnd, <span class="dv">2</span>, diff), <span class="dv">2</span>, mean)<span class="sc">/</span></span>
+<span id="cb763-3"><a href="共和分分析誤差修正モデル.html#cb763-3" tabindex="-1"></a>  <span class="fu">apply</span>(<span class="fu">apply</span>(bnd, <span class="dv">2</span>, diff), <span class="dv">2</span>, sd)</span></code></pre></div>
 <pre><code>##        Aaa        Baa 
 ## 0.01862195 0.02077461</code></pre>
-<div class="sourceCode" id="cb732"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb732-1"><a href="共和分分析誤差修正モデル.html#cb732-1" tabindex="-1"></a><span class="co">#apply(apply(bnd, 2, diff), 2, fBasics::stdev)</span></span></code></pre></div>
+<div class="sourceCode" id="cb765"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb765-1"><a href="共和分分析誤差修正モデル.html#cb765-1" tabindex="-1"></a><span class="co">#apply(apply(bnd, 2, diff), 2, fBasics::stdev)</span></span></code></pre></div>
 <ul>
 <li>階階差列の平均値ベクトルは, ゼロから有意に離れていない → 共和分検定に, 定数項入れない (Tsay, p.310)</li>
 <li>共和分検定におけるトレンドの指定. Tsay, p.304を参照</li>
@@ -1054,8 +1079,8 @@ y_{4,t} &amp;= w_{1,t}+ 2 w_{2,t} + u_{4,t}
   - K: 系列(水準)のVARラグ次数
   - spec: VECMの特定化. &quot;longrun&quot; ($ {\bf Γ}_i , 長期的(累積)インパクト), &quot;transitory&quot; ((${\bf Γ}_i$,  一時的インパクト)
 )</code></pre>
-<div class="sourceCode" id="cb734"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb734-1"><a href="共和分分析誤差修正モデル.html#cb734-1" tabindex="-1"></a>m2 <span class="ot">&lt;-</span> urca<span class="sc">::</span><span class="fu">ca.jo</span>(bnd, <span class="at">K =</span> <span class="dv">2</span>, <span class="at">ecdet =</span> <span class="fu">c</span>(<span class="st">&quot;none&quot;</span>))        <span class="co"># spec = &quot;longrun&quot; (デフォルト)</span></span>
-<span id="cb734-2"><a href="共和分分析誤差修正モデル.html#cb734-2" tabindex="-1"></a><span class="fu">summary</span>(m2)</span></code></pre></div>
+<div class="sourceCode" id="cb767"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb767-1"><a href="共和分分析誤差修正モデル.html#cb767-1" tabindex="-1"></a>m2 <span class="ot">&lt;-</span> urca<span class="sc">::</span><span class="fu">ca.jo</span>(bnd, <span class="at">K =</span> <span class="dv">2</span>, <span class="at">ecdet =</span> <span class="fu">c</span>(<span class="st">&quot;none&quot;</span>))        <span class="co"># spec = &quot;longrun&quot; (デフォルト)</span></span>
+<span id="cb767-2"><a href="共和分分析誤差修正モデル.html#cb767-2" tabindex="-1"></a><span class="fu">summary</span>(m2)</span></code></pre></div>
 <pre><code>## 
 ## ###################### 
 ## # Johansen-Procedure # 
@@ -1089,11 +1114,11 @@ y_{4,t} &amp;= w_{1,t}+ 2 w_{2,t} + u_{4,t}
 <li>→ <span class="math inline">\(r=0\)</span>は棄却. <span class="math inline">\(r=1\)</span>は棄却されず</li>
 <li>→ <span class="math inline">\(r=1\)</span> (共和分有. 共和分ベクトルの個数 (<span class="math inline">\(\Pi\)</span> 行列のランク))</li>
 </ul>
-<div class="sourceCode" id="cb736"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb736-1"><a href="共和分分析誤差修正モデル.html#cb736-1" tabindex="-1"></a><span class="co">#m3 &lt;- urca::ca.jo(bnd, K = 2, ecdet = c(&quot;none&quot;), spec = c(&quot;transitory&quot;))</span></span>
-<span id="cb736-2"><a href="共和分分析誤差修正モデル.html#cb736-2" tabindex="-1"></a><span class="co">#summary(m3)</span></span>
-<span id="cb736-3"><a href="共和分分析誤差修正モデル.html#cb736-3" tabindex="-1"></a><span class="co"># 定数項有のケース</span></span>
-<span id="cb736-4"><a href="共和分分析誤差修正モデル.html#cb736-4" tabindex="-1"></a>m3 <span class="ot">&lt;-</span> urca<span class="sc">::</span><span class="fu">ca.jo</span>(bnd, <span class="at">K =</span> <span class="dv">2</span>, <span class="at">ecdet =</span> <span class="fu">c</span>(<span class="st">&quot;const&quot;</span>), <span class="at">spec =</span> <span class="fu">c</span>(<span class="st">&quot;longrun&quot;</span>))</span>
-<span id="cb736-5"><a href="共和分分析誤差修正モデル.html#cb736-5" tabindex="-1"></a><span class="fu">summary</span>(m3)</span></code></pre></div>
+<div class="sourceCode" id="cb769"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb769-1"><a href="共和分分析誤差修正モデル.html#cb769-1" tabindex="-1"></a><span class="co">#m3 &lt;- urca::ca.jo(bnd, K = 2, ecdet = c(&quot;none&quot;), spec = c(&quot;transitory&quot;))</span></span>
+<span id="cb769-2"><a href="共和分分析誤差修正モデル.html#cb769-2" tabindex="-1"></a><span class="co">#summary(m3)</span></span>
+<span id="cb769-3"><a href="共和分分析誤差修正モデル.html#cb769-3" tabindex="-1"></a><span class="co"># 定数項有のケース</span></span>
+<span id="cb769-4"><a href="共和分分析誤差修正モデル.html#cb769-4" tabindex="-1"></a>m3 <span class="ot">&lt;-</span> urca<span class="sc">::</span><span class="fu">ca.jo</span>(bnd, <span class="at">K =</span> <span class="dv">2</span>, <span class="at">ecdet =</span> <span class="fu">c</span>(<span class="st">&quot;const&quot;</span>), <span class="at">spec =</span> <span class="fu">c</span>(<span class="st">&quot;longrun&quot;</span>))</span>
+<span id="cb769-5"><a href="共和分分析誤差修正モデル.html#cb769-5" tabindex="-1"></a><span class="fu">summary</span>(m3)</span></code></pre></div>
 <pre><code>## 
 ## ###################### 
 ## # Johansen-Procedure # 
@@ -1131,8 +1156,8 @@ y_{4,t} &amp;= w_{1,t}+ 2 w_{2,t} + u_{4,t}
 <li><span class="math inline">\(H_0\)</span>: 多くても<span class="math inline">\(r\)</span>個の共和分関係しか存在しない vs <span class="math inline">\(H_1\)</span>: 全ての変数が定常</li>
 <li>(<span class="math inline">\(H_0\)</span>: 共和分ランク<span class="math inline">\(=r\)</span> vs <span class="math inline">\(H_1\)</span>: 共和分ランク<span class="math inline">\(=m\)</span> (原系列は定常))</li>
 </ul>
-<div class="sourceCode" id="cb738"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb738-1"><a href="共和分分析誤差修正モデル.html#cb738-1" tabindex="-1"></a>m4 <span class="ot">&lt;-</span> urca<span class="sc">::</span><span class="fu">ca.jo</span>(bnd, <span class="at">K =</span> <span class="dv">2</span>, <span class="at">ecdet =</span> <span class="fu">c</span>(<span class="st">&quot;none&quot;</span>), <span class="at">type =</span> <span class="fu">c</span>(<span class="st">&quot;trace&quot;</span>), <span class="at">spec =</span> <span class="fu">c</span>(<span class="st">&quot;transitory&quot;</span>))</span>
-<span id="cb738-2"><a href="共和分分析誤差修正モデル.html#cb738-2" tabindex="-1"></a><span class="fu">summary</span>(m4)</span></code></pre></div>
+<div class="sourceCode" id="cb771"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb771-1"><a href="共和分分析誤差修正モデル.html#cb771-1" tabindex="-1"></a>m4 <span class="ot">&lt;-</span> urca<span class="sc">::</span><span class="fu">ca.jo</span>(bnd, <span class="at">K =</span> <span class="dv">2</span>, <span class="at">ecdet =</span> <span class="fu">c</span>(<span class="st">&quot;none&quot;</span>), <span class="at">type =</span> <span class="fu">c</span>(<span class="st">&quot;trace&quot;</span>), <span class="at">spec =</span> <span class="fu">c</span>(<span class="st">&quot;transitory&quot;</span>))</span>
+<span id="cb771-2"><a href="共和分分析誤差修正モデル.html#cb771-2" tabindex="-1"></a><span class="fu">summary</span>(m4)</span></code></pre></div>
 <pre><code>## 
 ## ###################### 
 ## # Johansen-Procedure # 
@@ -1166,7 +1191,7 @@ y_{4,t} &amp;= w_{1,t}+ 2 w_{2,t} + u_{4,t}
 <li>→ <span class="math inline">\(r=0\)</span>は棄却. <span class="math inline">\(r=1\)</span>は棄却されず</li>
 <li>→ <span class="math inline">\(r=1\)</span> (同)</li>
 </ul>
-<div class="sourceCode" id="cb740"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb740-1"><a href="共和分分析誤差修正モデル.html#cb740-1" tabindex="-1"></a>(coint_vec <span class="ot">&lt;-</span> <span class="fu">summary</span>(m4)<span class="sc">@</span>V)</span></code></pre></div>
+<div class="sourceCode" id="cb773"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb773-1"><a href="共和分分析誤差修正モデル.html#cb773-1" tabindex="-1"></a>(coint_vec <span class="ot">&lt;-</span> <span class="fu">summary</span>(m4)<span class="sc">@</span>V)</span></code></pre></div>
 <pre><code>##            Aaa.l1    Baa.l1
 ## Aaa.l1  1.0000000  1.000000
 ## Baa.l1 -0.8856789 -2.723912</code></pre>
@@ -1174,10 +1199,10 @@ y_{4,t} &amp;= w_{1,t}+ 2 w_{2,t} + u_{4,t}
 <li><p>→ 共和分ベクトル: <span class="math inline">\((1, -0.886)\)</span></p></li>
 <li><p>得られた``cointegration’’系列 <span class="math inline">\(w_t=1 \cdot Aaa_t - 0.886 \cdot Baa_t\)</span>に対して単位根検定</p></li>
 </ul>
-<div class="sourceCode" id="cb742"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb742-1"><a href="共和分分析誤差修正モデル.html#cb742-1" tabindex="-1"></a><span class="co"># wt &lt;- bnd[, 1] - 0.886 * bnd[, 2]</span></span>
-<span id="cb742-2"><a href="共和分分析誤差修正モデル.html#cb742-2" tabindex="-1"></a>wt <span class="ot">&lt;-</span> <span class="fu">as.matrix</span>(bnd) <span class="sc">%*%</span> coint_vec[, <span class="dv">1</span>]</span>
-<span id="cb742-3"><a href="共和分分析誤差修正モデル.html#cb742-3" tabindex="-1"></a><span class="co">#</span></span>
-<span id="cb742-4"><a href="共和分分析誤差修正モデル.html#cb742-4" tabindex="-1"></a>fUnitRoots<span class="sc">::</span><span class="fu">adfTest</span>(wt, <span class="at">lags =</span> <span class="dv">3</span>, <span class="at">type =</span> <span class="st">&quot;c&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb775"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb775-1"><a href="共和分分析誤差修正モデル.html#cb775-1" tabindex="-1"></a><span class="co"># wt &lt;- bnd[, 1] - 0.886 * bnd[, 2]</span></span>
+<span id="cb775-2"><a href="共和分分析誤差修正モデル.html#cb775-2" tabindex="-1"></a>wt <span class="ot">&lt;-</span> <span class="fu">as.matrix</span>(bnd) <span class="sc">%*%</span> coint_vec[, <span class="dv">1</span>]</span>
+<span id="cb775-3"><a href="共和分分析誤差修正モデル.html#cb775-3" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb775-4"><a href="共和分分析誤差修正モデル.html#cb775-4" tabindex="-1"></a>fUnitRoots<span class="sc">::</span><span class="fu">adfTest</span>(wt, <span class="at">lags =</span> <span class="dv">3</span>, <span class="at">type =</span> <span class="st">&quot;c&quot;</span>)</span></code></pre></div>
 <pre><code>## Warning in fUnitRoots::adfTest(wt, lags = 3, type = &quot;c&quot;): p-value smaller than
 ## printed p-value</code></pre>
 <pre><code>## 
@@ -1193,11 +1218,11 @@ y_{4,t} &amp;= w_{1,t}+ 2 w_{2,t} + u_{4,t}
 ##     0.01 
 ## 
 ## Description:
-##  Wed Jan 10 22:48:33 2024 by user:</code></pre>
+##  Thu Jan 18 13:58:11 2024 by user:</code></pre>
 <ul>
 <li>→ <span class="math inline">\(p\)</span>値<span class="math inline">\(=0.01\)</span> (単位根無)</li>
 </ul>
-<div class="sourceCode" id="cb745"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb745-1"><a href="共和分分析誤差修正モデル.html#cb745-1" tabindex="-1"></a><span class="fu">plot</span>(wt, <span class="at">type =</span> <span class="st">&quot;l&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb778"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb778-1"><a href="共和分分析誤差修正モデル.html#cb778-1" tabindex="-1"></a><span class="fu">plot</span>(wt, <span class="at">type =</span> <span class="st">&quot;l&quot;</span>)</span></code></pre></div>
 <p><img src="097-cointECM_files/figure-html/cointvec3-1.png" width="672" /></p>
 <ul>
 <li>→ ``定常時系列の特徴を示す’’</li>
@@ -1221,7 +1246,7 @@ y_{4,t} &amp;= w_{1,t}+ 2 w_{2,t} + u_{4,t}
   - x: (Txk), k次元共和分VAR過程
   - wt: (Txm), m次元共和分過程
   - include.const: 定数項の有無 (デフォルト=F)</code></pre>
-<div class="sourceCode" id="cb747"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb747-1"><a href="共和分分析誤差修正モデル.html#cb747-1" tabindex="-1"></a>m1 <span class="ot">&lt;-</span> MTS<span class="sc">::</span><span class="fu">ECMvar1</span>(bnd, <span class="dv">3</span>, wt) <span class="do">## Given the co-integrated vector</span></span></code></pre></div>
+<div class="sourceCode" id="cb780"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb780-1"><a href="共和分分析誤差修正モデル.html#cb780-1" tabindex="-1"></a>m1 <span class="ot">&lt;-</span> MTS<span class="sc">::</span><span class="fu">ECMvar1</span>(bnd, <span class="dv">3</span>, wt) <span class="do">## Given the co-integrated vector</span></span></code></pre></div>
 <pre><code>## alpha:  
 ##           Aaa    Baa
 ## [1,] -0.00122 0.0634
@@ -1254,21 +1279,21 @@ y_{4,t} &amp;= w_{1,t}+ 2 w_{2,t} + u_{4,t}
 ## det(sse) =  0.0002418953 
 ## AIC =  -8.294165 
 ## BIC =  -8.221721</code></pre>
-<div class="sourceCode" id="cb749"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb749-1"><a href="共和分分析誤差修正モデル.html#cb749-1" tabindex="-1"></a>m1<span class="sc">$</span>coef <span class="co"># 表示の向きに注意 (xmtx調整行列, 左辺の各成分が列方向に, 右辺のARラグ項が行方向に)</span></span></code></pre></div>
+<div class="sourceCode" id="cb782"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb782-1"><a href="共和分分析誤差修正モデル.html#cb782-1" tabindex="-1"></a>m1<span class="sc">$</span>coef <span class="co"># 表示の向きに注意 (xmtx調整行列, 左辺の各成分が列方向に, 右辺のARラグ項が行方向に)</span></span></code></pre></div>
 <pre><code>##               Aaa         Baa
 ## xmtx -0.001217005  0.06339082
 ## Aaa   0.451993390  0.29303941
 ## Baa  -0.001491101  0.20379673
 ## Aaa  -0.299907502 -0.15075817
 ## Baa   0.053499341  0.02742606</code></pre>
-<div class="sourceCode" id="cb751"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb751-1"><a href="共和分分析誤差修正モデル.html#cb751-1" tabindex="-1"></a>m1<span class="sc">$</span>secoef   <span class="co"># 同</span></span></code></pre></div>
+<div class="sourceCode" id="cb784"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb784-1"><a href="共和分分析誤差修正モデル.html#cb784-1" tabindex="-1"></a>m1<span class="sc">$</span>secoef   <span class="co"># 同</span></span></code></pre></div>
 <pre><code>##            [,1]       [,2]
 ## [1,] 0.03471368 0.03055639
 ## [2,] 0.08790257 0.07737541
 ## [3,] 0.10080919 0.08873634
 ## [4,] 0.08600254 0.07570293
 ## [5,] 0.09396739 0.08271391</code></pre>
-<div class="sourceCode" id="cb753"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb753-1"><a href="共和分分析誤差修正モデル.html#cb753-1" tabindex="-1"></a>m1<span class="sc">$</span>coef <span class="sc">/</span> m1<span class="sc">$</span>secoef <span class="co"># 同</span></span></code></pre></div>
+<div class="sourceCode" id="cb786"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb786-1"><a href="共和分分析誤差修正モデル.html#cb786-1" tabindex="-1"></a>m1<span class="sc">$</span>coef <span class="sc">/</span> m1<span class="sc">$</span>secoef <span class="co"># 同</span></span></code></pre></div>
 <pre><code>##              Aaa        Baa
 ## xmtx -0.03505836  2.0745518
 ## Aaa   5.14198170  3.7872419
@@ -1306,7 +1331,7 @@ y_{4,t} &amp;= w_{1,t}+ 2 w_{2,t} + u_{4,t}
   - ECM VAR(p)モデルの制約付きOLS推定 (wtが既知の場合)
   - thres: t-ratioの閾値(デフォルト=1)
   - |t-ratio| &lt; thres の推定係数を0に置き換える</code></pre>
-<div class="sourceCode" id="cb756"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb756-1"><a href="共和分分析誤差修正モデル.html#cb756-1" tabindex="-1"></a>m2 <span class="ot">&lt;-</span> MTS<span class="sc">::</span><span class="fu">refECMvar1</span>(m1) <span class="do">####### Refine the model fit</span></span></code></pre></div>
+<div class="sourceCode" id="cb789"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb789-1"><a href="共和分分析誤差修正モデル.html#cb789-1" tabindex="-1"></a>m2 <span class="ot">&lt;-</span> MTS<span class="sc">::</span><span class="fu">refECMvar1</span>(m1) <span class="do">####### Refine the model fit</span></span></code></pre></div>
 <pre><code>## Equation:  1  npar =  2 
 ## Equation:  2  npar =  4 
 ## alpha:  
@@ -1359,24 +1384,24 @@ y_{4,t} &amp;= w_{1,t}+ 2 w_{2,t} + u_{4,t}
   \end{array} \right]
   \]</span></li>
 </ul>
-<div class="sourceCode" id="cb758"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb758-1"><a href="共和分分析誤差修正モデル.html#cb758-1" tabindex="-1"></a><span class="co"># pacf(m2$residuals)</span></span>
-<span id="cb758-2"><a href="共和分分析誤差修正モデル.html#cb758-2" tabindex="-1"></a><span class="co"># --&gt; model checking, 若干の系列相関, 相互相関有り(教科書の記述と齟齬?)</span></span>
-<span id="cb758-3"><a href="共和分分析誤差修正モデル.html#cb758-3" tabindex="-1"></a><span class="co"># --&gt; alpha(1,1)=0 &lt;-- Aaa系列の1階階差系列は定常</span></span>
-<span id="cb758-4"><a href="共和分分析誤差修正モデル.html#cb758-4" tabindex="-1"></a>m2<span class="sc">$</span>coef</span></code></pre></div>
+<div class="sourceCode" id="cb791"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb791-1"><a href="共和分分析誤差修正モデル.html#cb791-1" tabindex="-1"></a><span class="co"># pacf(m2$residuals)</span></span>
+<span id="cb791-2"><a href="共和分分析誤差修正モデル.html#cb791-2" tabindex="-1"></a><span class="co"># --&gt; model checking, 若干の系列相関, 相互相関有り(教科書の記述と齟齬?)</span></span>
+<span id="cb791-3"><a href="共和分分析誤差修正モデル.html#cb791-3" tabindex="-1"></a><span class="co"># --&gt; alpha(1,1)=0 &lt;-- Aaa系列の1階階差系列は定常</span></span>
+<span id="cb791-4"><a href="共和分分析誤差修正モデル.html#cb791-4" tabindex="-1"></a>m2<span class="sc">$</span>coef</span></code></pre></div>
 <pre><code>##            [,1]        [,2]
 ## [1,]  0.0000000  0.06250339
 ## [2,]  0.4484522  0.28620026
 ## [3,]  0.0000000  0.21172072
 ## [4,] -0.2559947 -0.12908889
 ## [5,]  0.0000000  0.00000000</code></pre>
-<div class="sourceCode" id="cb760"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb760-1"><a href="共和分分析誤差修正モデル.html#cb760-1" tabindex="-1"></a>m2<span class="sc">$</span>secoef</span></code></pre></div>
+<div class="sourceCode" id="cb793"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb793-1"><a href="共和分分析誤差修正モデル.html#cb793-1" tabindex="-1"></a>m2<span class="sc">$</span>secoef</span></code></pre></div>
 <pre><code>##            [,1]       [,2]
 ## [1,] 1.00000000 0.03044171
 ## [2,] 0.03929053 0.07458234
 ## [3,] 1.00000000 0.08546551
 ## [4,] 0.03930742 0.03821387
 ## [5,] 1.00000000 1.00000000</code></pre>
-<div class="sourceCode" id="cb762"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb762-1"><a href="共和分分析誤差修正モデル.html#cb762-1" tabindex="-1"></a>m2<span class="sc">$</span>coef <span class="sc">/</span> m1<span class="sc">$</span>secoef</span></code></pre></div>
+<div class="sourceCode" id="cb795"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb795-1"><a href="共和分分析誤差修正モデル.html#cb795-1" tabindex="-1"></a>m2<span class="sc">$</span>coef <span class="sc">/</span> m1<span class="sc">$</span>secoef</span></code></pre></div>
 <pre><code>##           [,1]      [,2]
 ## [1,]  0.000000  2.045509
 ## [2,]  5.101696  3.698853
@@ -1396,9 +1421,9 @@ y_{4,t} &amp;= w_{1,t}+ 2 w_{2,t} + u_{4,t}
   - ECM VAR(p)モデルのQML推定 (wtが未知の場合)
   - ibeta: co-integrating matrix初期値
   - alpha: alpha行列の初期値 (デフォルト=NULL)</code></pre>
-<div class="sourceCode" id="cb765"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb765-1"><a href="共和分分析誤差修正モデル.html#cb765-1" tabindex="-1"></a><span class="co"># beta &lt;- c(1, -0.886) </span><span class="al">###</span><span class="co"> Initial value of co-integration</span></span>
-<span id="cb765-2"><a href="共和分分析誤差修正モデル.html#cb765-2" tabindex="-1"></a>beta <span class="ot">&lt;-</span> coint_vec[, <span class="dv">1</span>]</span>
-<span id="cb765-3"><a href="共和分分析誤差修正モデル.html#cb765-3" tabindex="-1"></a>m3 <span class="ot">&lt;-</span> MTS<span class="sc">::</span><span class="fu">ECMvar</span>(bnd, <span class="at">p =</span> <span class="dv">3</span>, <span class="at">ibeta =</span> beta, <span class="at">include.const =</span> F) <span class="do">#### Joint estimation</span></span></code></pre></div>
+<div class="sourceCode" id="cb798"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb798-1"><a href="共和分分析誤差修正モデル.html#cb798-1" tabindex="-1"></a><span class="co"># beta &lt;- c(1, -0.886) </span><span class="al">###</span><span class="co"> Initial value of co-integration</span></span>
+<span id="cb798-2"><a href="共和分分析誤差修正モデル.html#cb798-2" tabindex="-1"></a>beta <span class="ot">&lt;-</span> coint_vec[, <span class="dv">1</span>]</span>
+<span id="cb798-3"><a href="共和分分析誤差修正モデル.html#cb798-3" tabindex="-1"></a>m3 <span class="ot">&lt;-</span> MTS<span class="sc">::</span><span class="fu">ECMvar</span>(bnd, <span class="at">p =</span> <span class="dv">3</span>, <span class="at">ibeta =</span> beta, <span class="at">include.const =</span> F) <span class="do">#### Joint estimation</span></span></code></pre></div>
 <pre><code>## Order p:  3  Co-integrating rank:  1 
 ## Number of parameters:  11 
 ## initial estimates:  -0.001217005 0.06339082 -0.8856789 0.4519934 -0.001491101 -0.2999075 0.05349934 0.2930394 0.2037967 -0.1507582 0.02742606 
@@ -1463,24 +1488,24 @@ y_{4,t} &amp;= w_{1,t}+ 2 w_{2,t} + u_{4,t}
 ## det(sse) =  0.0002403005 
 ## AIC =  -8.297496 
 ## BIC =  -8.217807</code></pre>
-<div class="sourceCode" id="cb767"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb767-1"><a href="共和分分析誤差修正モデル.html#cb767-1" tabindex="-1"></a><span class="co">#</span></span>
-<span id="cb767-2"><a href="共和分分析誤差修正モデル.html#cb767-2" tabindex="-1"></a>m3<span class="sc">$</span>ncoint       <span class="co"># 共和分ベクトル数</span></span></code></pre></div>
+<div class="sourceCode" id="cb800"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb800-1"><a href="共和分分析誤差修正モデル.html#cb800-1" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb800-2"><a href="共和分分析誤差修正モデル.html#cb800-2" tabindex="-1"></a>m3<span class="sc">$</span>ncoint       <span class="co"># 共和分ベクトル数</span></span></code></pre></div>
 <pre><code>## [1] 1</code></pre>
-<div class="sourceCode" id="cb769"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb769-1"><a href="共和分分析誤差修正モデル.html#cb769-1" tabindex="-1"></a>m3<span class="sc">$</span>alpha        <span class="co"># 調整行列</span></span></code></pre></div>
+<div class="sourceCode" id="cb802"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb802-1"><a href="共和分分析誤差修正モデル.html#cb802-1" tabindex="-1"></a>m3<span class="sc">$</span>alpha        <span class="co"># 調整行列</span></span></code></pre></div>
 <pre><code>##               [,1]
 ## [1,] -0.0007844935
 ## [2,]  0.0637796425</code></pre>
-<div class="sourceCode" id="cb771"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb771-1"><a href="共和分分析誤差修正モデル.html#cb771-1" tabindex="-1"></a>m3<span class="sc">$</span>beta     <span class="co"># 共和分行列</span></span></code></pre></div>
+<div class="sourceCode" id="cb804"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb804-1"><a href="共和分分析誤差修正モデル.html#cb804-1" tabindex="-1"></a>m3<span class="sc">$</span>beta     <span class="co"># 共和分行列</span></span></code></pre></div>
 <pre><code>##            [,1]
 ## [1,]  1.0000000
 ## [2,] -0.8865271</code></pre>
-<div class="sourceCode" id="cb773"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb773-1"><a href="共和分分析誤差修正モデル.html#cb773-1" tabindex="-1"></a>m3<span class="sc">$</span>Phip</span></code></pre></div>
+<div class="sourceCode" id="cb806"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb806-1"><a href="共和分分析誤差修正モデル.html#cb806-1" tabindex="-1"></a>m3<span class="sc">$</span>Phip</span></code></pre></div>
 <pre><code>##              [,1]        [,2]
 ## [1,]  0.451818972  0.29284885
 ## [2,] -0.001406126  0.20391818
 ## [3,] -0.300097916 -0.15097397
 ## [4,]  0.053594777  0.02759907</code></pre>
-<div class="sourceCode" id="cb775"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb775-1"><a href="共和分分析誤差修正モデル.html#cb775-1" tabindex="-1"></a>m3<span class="sc">$</span>se.Phip</span></code></pre></div>
+<div class="sourceCode" id="cb808"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb808-1"><a href="共和分分析誤差修正モデル.html#cb808-1" tabindex="-1"></a>m3<span class="sc">$</span>se.Phip</span></code></pre></div>
 <pre><code>##            [,1]       [,2]
 ## [1,] 0.08781738 0.07729435
 ## [2,] 0.10227039 0.08974821
@@ -1519,133 +1544,6 @@ y_{4,t} &amp;= w_{1,t}+ 2 w_{2,t} + u_{4,t}
 
 </div>
 </div>
-</div>
-<div id="補足-分散共分散行列のコレスキー分解" class="section level2 hasAnchor" number="10.4">
-<h2><span class="header-section-number">10.4</span> 補足: 分散共分散行列のコレスキー分解<a href="共和分分析誤差修正モデル.html#補足-分散共分散行列のコレスキー分解" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>直交化インパルス応答や予測誤差分散分解では, 事前に外生性の高い順に変数を配置しておく必要がある.
-直交化する際には, VAR(p)モデルの撹乱項の分散共分散行列に対してCholeskey分解が利用される.</p>
-<ul>
-<li>分散共分散行列に対するコレスキー (Choleskey) 分解の計算例
-<ul>
-<li>以下, 簡単のため, VAR(p)モデルは使わない</li>
-</ul></li>
-</ul>
-<!--
-- msci日次収益率データの読み込み
-  - データ入手先: https://www.asakura.co.jp/detail.php?book_code=12792 -->
-<div class="sourceCode" id="cb777"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb777-1"><a href="共和分分析誤差修正モデル.html#cb777-1" tabindex="-1"></a><span class="fu">library</span>(vars)</span></code></pre></div>
-<pre><code>## Loading required package: MASS</code></pre>
-<pre><code>## Loading required package: strucchange</code></pre>
-<pre><code>## Loading required package: zoo</code></pre>
-<pre><code>## 
-## Attaching package: &#39;zoo&#39;</code></pre>
-<pre><code>## The following objects are masked from &#39;package:base&#39;:
-## 
-##     as.Date, as.Date.numeric</code></pre>
-<pre><code>## Loading required package: sandwich</code></pre>
-<pre><code>## Loading required package: urca</code></pre>
-<pre><code>## Loading required package: lmtest</code></pre>
-<div class="sourceCode" id="cb786"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb786-1"><a href="共和分分析誤差修正モデル.html#cb786-1" tabindex="-1"></a><span class="fu">library</span>(quantmod)</span></code></pre></div>
-<pre><code>## Loading required package: xts</code></pre>
-<pre><code>## Loading required package: TTR</code></pre>
-<pre><code>## Registered S3 method overwritten by &#39;quantmod&#39;:
-##   method            from
-##   as.zoo.data.frame zoo</code></pre>
-<div class="sourceCode" id="cb790"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb790-1"><a href="共和分分析誤差修正モデル.html#cb790-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div>
-<pre><code>## ── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
-## ✔ dplyr     1.1.2     ✔ readr     2.1.4
-## ✔ forcats   1.0.0     ✔ stringr   1.5.0
-## ✔ ggplot2   3.4.2     ✔ tibble    3.2.1
-## ✔ lubridate 1.9.2     ✔ tidyr     1.3.0
-## ✔ purrr     1.0.2</code></pre>
-<pre><code>## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
-## ✖ stringr::boundary() masks strucchange::boundary()
-## ✖ dplyr::filter()     masks stats::filter()
-## ✖ dplyr::first()      masks xts::first()
-## ✖ dplyr::lag()        masks stats::lag()
-## ✖ dplyr::last()       masks xts::last()
-## ✖ dplyr::select()     masks MASS::select()
-## ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
-<div class="sourceCode" id="cb793"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb793-1"><a href="共和分分析誤差修正モデル.html#cb793-1" tabindex="-1"></a>gspc <span class="ot">&lt;-</span> <span class="fu">getSymbols</span>(<span class="st">&#39;^GSPC&#39;</span>, <span class="at">periodicity =</span> <span class="st">&quot;monthly&quot;</span>, <span class="at">from =</span> <span class="st">&#39;1999-12-31&#39;</span>, <span class="at">auto.assign =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb793-2"><a href="共和分分析誤差修正モデル.html#cb793-2" tabindex="-1"></a>ftse <span class="ot">&lt;-</span> <span class="fu">getSymbols</span>(<span class="st">&#39;^FTSE&#39;</span>, <span class="at">periodicity =</span> <span class="st">&quot;monthly&quot;</span>, <span class="at">from =</span> <span class="st">&#39;1999-12-31&#39;</span>, <span class="at">auto.assign =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb793-3"><a href="共和分分析誤差修正モデル.html#cb793-3" tabindex="-1"></a>n225 <span class="ot">&lt;-</span> <span class="fu">getSymbols</span>(<span class="st">&#39;^N225&#39;</span>, <span class="at">periodicity =</span> <span class="st">&quot;monthly&quot;</span>, <span class="at">from =</span> <span class="st">&#39;1999-12-31&#39;</span>, <span class="at">auto.assign =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb793-4"><a href="共和分分析誤差修正モデル.html#cb793-4" tabindex="-1"></a></span>
-<span id="cb793-5"><a href="共和分分析誤差修正モデル.html#cb793-5" tabindex="-1"></a>us <span class="ot">&lt;-</span> <span class="fu">diff</span>(<span class="fu">log</span>(gspc<span class="sc">$</span>GSPC.Adjusted))[<span class="sc">-</span><span class="dv">1</span>]</span>
-<span id="cb793-6"><a href="共和分分析誤差修正モデル.html#cb793-6" tabindex="-1"></a>uk <span class="ot">&lt;-</span> <span class="fu">diff</span>(<span class="fu">log</span>(ftse<span class="sc">$</span>FTSE.Adjusted))[<span class="sc">-</span><span class="dv">1</span>]</span>
-<span id="cb793-7"><a href="共和分分析誤差修正モデル.html#cb793-7" tabindex="-1"></a>jp <span class="ot">&lt;-</span> <span class="fu">diff</span>(<span class="fu">log</span>(n225<span class="sc">$</span>N225.Adjusted))[<span class="sc">-</span><span class="dv">1</span>]</span>
-<span id="cb793-8"><a href="共和分分析誤差修正モデル.html#cb793-8" tabindex="-1"></a>mkt <span class="ot">&lt;-</span> <span class="fu">merge.xts</span>(us, uk, jp, <span class="at">all =</span> T)</span>
-<span id="cb793-9"><a href="共和分分析誤差修正モデル.html#cb793-9" tabindex="-1"></a></span>
-<span id="cb793-10"><a href="共和分分析誤差修正モデル.html#cb793-10" tabindex="-1"></a>idx <span class="ot">&lt;-</span> <span class="fu">complete.cases</span>(mkt) <span class="co"># 欠損値(NA)のあるレコードの除去</span></span>
-<span id="cb793-11"><a href="共和分分析誤差修正モデル.html#cb793-11" tabindex="-1"></a>mkt <span class="ot">&lt;-</span> mkt[idx]</span>
-<span id="cb793-12"><a href="共和分分析誤差修正モデル.html#cb793-12" tabindex="-1"></a><span class="fu">colnames</span>(mkt) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;us&quot;</span>, <span class="st">&quot;uk&quot;</span>, <span class="st">&quot;jp&quot;</span>)</span>
-<span id="cb793-13"><a href="共和分分析誤差修正モデル.html#cb793-13" tabindex="-1"></a></span>
-<span id="cb793-14"><a href="共和分分析誤差修正モデル.html#cb793-14" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">cumsum</span>(mkt), <span class="at">type =</span> <span class="st">&quot;l&quot;</span>, <span class="at">col =</span> <span class="fu">c</span>(<span class="st">&quot;black&quot;</span>, <span class="st">&quot;blue&quot;</span>, <span class="st">&quot;red&quot;</span>),</span>
-<span id="cb793-15"><a href="共和分分析誤差修正モデル.html#cb793-15" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">&quot;Market indices: S&amp;P500 (black), FTSE (blue), NK225 (red)&quot;</span>)</span></code></pre></div>
-<p><img src="098_Chol_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
-<ul>
-<li><p>分散共分散行列<span class="math inline">\({\bf \Sigma}\)</span>のCholeskey分解
-<span class="math display">\[ {\bf \Sigma} = {\bf P}{\bf P&#39;} \]</span>
-但し, <span class="math inline">\({\bf P}\)</span>は下三角行列.</p></li>
-<li><p>米英日の日次収益率に対して分散共分散行列を計算 → Choleskey分解</p></li>
-</ul>
-<div class="sourceCode" id="cb794"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb794-1"><a href="共和分分析誤差修正モデル.html#cb794-1" tabindex="-1"></a><span class="co"># アメリカ、イギリス、日本市場</span></span>
-<span id="cb794-2"><a href="共和分分析誤差修正モデル.html#cb794-2" tabindex="-1"></a>usukjp <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(mkt<span class="sc">$</span>us, mkt<span class="sc">$</span>uk, mkt<span class="sc">$</span>jp) </span>
-<span id="cb794-3"><a href="共和分分析誤差修正モデル.html#cb794-3" tabindex="-1"></a><span class="fu">head</span>(usukjp, <span class="dv">5</span>) </span></code></pre></div>
-<pre><code>##                     us           uk          jp
-## 2000-02-01 -0.02031300 -0.005743495  0.02125795
-## 2000-03-01  0.09232375  0.048174179  0.01875144
-## 2000-04-01 -0.03127991 -0.033078382 -0.12354810
-## 2000-05-01 -0.02215875  0.005044624 -0.09575560
-## 2000-06-01  0.02365163 -0.007370510  0.06395117</code></pre>
-<div class="sourceCode" id="cb796"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb796-1"><a href="共和分分析誤差修正モデル.html#cb796-1" tabindex="-1"></a><span class="co"># 分散共分散行列: Sigma</span></span>
-<span id="cb796-2"><a href="共和分分析誤差修正モデル.html#cb796-2" tabindex="-1"></a>cov_usukjp <span class="ot">&lt;-</span> <span class="fu">cov</span>(usukjp) <span class="sc">%&gt;%</span> <span class="fu">print</span>(<span class="at">digits =</span> <span class="dv">4</span>)</span></code></pre></div>
-<pre><code>##          us       uk       jp
-## us 0.002014 0.001396 0.001621
-## uk 0.001396 0.001540 0.001252
-## jp 0.001621 0.001252 0.003003</code></pre>
-<div class="sourceCode" id="cb798"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb798-1"><a href="共和分分析誤差修正モデル.html#cb798-1" tabindex="-1"></a><span class="co"># Choleskey分解: Sigma = PP&#39;</span></span>
-<span id="cb798-2"><a href="共和分分析誤差修正モデル.html#cb798-2" tabindex="-1"></a>P <span class="ot">&lt;-</span> <span class="fu">chol</span>(cov_usukjp) <span class="sc">%&gt;%</span> <span class="fu">t</span>() <span class="sc">%&gt;%</span> <span class="fu">print</span>(<span class="at">digits =</span> <span class="dv">4</span>) <span class="co"># 下三角行列P</span></span></code></pre></div>
-<pre><code>##         us       uk      jp
-## us 0.04487 0.000000 0.00000
-## uk 0.03110 0.023920 0.00000
-## jp 0.03612 0.005348 0.04086</code></pre>
-<div class="sourceCode" id="cb800"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb800-1"><a href="共和分分析誤差修正モデル.html#cb800-1" tabindex="-1"></a><span class="co"># Sigmaの復元 (確認用)</span></span>
-<span id="cb800-2"><a href="共和分分析誤差修正モデル.html#cb800-2" tabindex="-1"></a>P <span class="sc">%*%</span> <span class="fu">t</span>(P) <span class="sc">%&gt;%</span> <span class="fu">print</span>(<span class="at">digits =</span> <span class="dv">4</span>)</span></code></pre></div>
-<pre><code>##          us       uk       jp
-## us 0.002014 0.001396 0.001621
-## uk 0.001396 0.001540 0.001252
-## jp 0.001621 0.001252 0.003003</code></pre>
-<ul>
-<li>米日英の分散共分散行列を計算 → Choleskey分解</li>
-</ul>
-<div class="sourceCode" id="cb802"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb802-1"><a href="共和分分析誤差修正モデル.html#cb802-1" tabindex="-1"></a><span class="co"># アメリカ、日本, 英国市場</span></span>
-<span id="cb802-2"><a href="共和分分析誤差修正モデル.html#cb802-2" tabindex="-1"></a>usjpuk <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(mkt<span class="sc">$</span>us, mkt<span class="sc">$</span>jp, mkt<span class="sc">$</span>uk) </span>
-<span id="cb802-3"><a href="共和分分析誤差修正モデル.html#cb802-3" tabindex="-1"></a><span class="fu">head</span>(usjpuk, <span class="dv">5</span>) </span></code></pre></div>
-<pre><code>##                     us          jp           uk
-## 2000-02-01 -0.02031300  0.02125795 -0.005743495
-## 2000-03-01  0.09232375  0.01875144  0.048174179
-## 2000-04-01 -0.03127991 -0.12354810 -0.033078382
-## 2000-05-01 -0.02215875 -0.09575560  0.005044624
-## 2000-06-01  0.02365163  0.06395117 -0.007370510</code></pre>
-<div class="sourceCode" id="cb804"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb804-1"><a href="共和分分析誤差修正モデル.html#cb804-1" tabindex="-1"></a><span class="co"># 分散共分散行列: Sigma</span></span>
-<span id="cb804-2"><a href="共和分分析誤差修正モデル.html#cb804-2" tabindex="-1"></a>cov_usjpuk <span class="ot">&lt;-</span> <span class="fu">cov</span>(usjpuk) <span class="sc">%&gt;%</span> <span class="fu">print</span>(<span class="at">digits =</span> <span class="dv">4</span>)</span></code></pre></div>
-<pre><code>##          us       jp       uk
-## us 0.002014 0.001621 0.001396
-## jp 0.001621 0.003003 0.001252
-## uk 0.001396 0.001252 0.001540</code></pre>
-<div class="sourceCode" id="cb806"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb806-1"><a href="共和分分析誤差修正モデル.html#cb806-1" tabindex="-1"></a><span class="co"># Choleskey分解: Sigma = PP&#39;</span></span>
-<span id="cb806-2"><a href="共和分分析誤差修正モデル.html#cb806-2" tabindex="-1"></a>P <span class="ot">&lt;-</span> <span class="fu">chol</span>(cov_usjpuk) <span class="sc">%&gt;%</span> <span class="fu">t</span>() <span class="sc">%&gt;%</span> <span class="fu">print</span>(<span class="at">digits =</span> <span class="dv">4</span>) <span class="co"># 下三角行列P</span></span></code></pre></div>
-<pre><code>##         us       jp      uk
-## us 0.04487 0.000000 0.00000
-## jp 0.03612 0.041207 0.00000
-## uk 0.03110 0.003104 0.02372</code></pre>
-<div class="sourceCode" id="cb808"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb808-1"><a href="共和分分析誤差修正モデル.html#cb808-1" tabindex="-1"></a><span class="co"># Sigmaの復元 (確認用)</span></span>
-<span id="cb808-2"><a href="共和分分析誤差修正モデル.html#cb808-2" tabindex="-1"></a>P <span class="sc">%*%</span> <span class="fu">t</span>(P) <span class="sc">%&gt;%</span> <span class="fu">print</span>(<span class="at">digits =</span> <span class="dv">4</span>)</span></code></pre></div>
-<pre><code>##          us       jp       uk
-## us 0.002014 0.001621 0.001396
-## jp 0.001621 0.003003 0.001252
-## uk 0.001396 0.001252 0.001540</code></pre>
-
 </div>
 </div>
             </section>

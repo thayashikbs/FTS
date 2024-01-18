@@ -23,7 +23,6 @@
 <meta name="author" content="林 高樹" />
 
 
-<meta name="date" content="2024-01-10" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -289,6 +288,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="varモデル.html"><a href="varモデル.html#事例1-ソフトバンク9434-vs-ソフトバンクグループ9984"><i class="fa fa-check"></i>事例1: ソフトバンク(9434) vs ソフトバンクグループ(9984)</a></li>
 <li class="chapter" data-level="" data-path="varモデル.html"><a href="varモデル.html#事例2-米英日3株式市場-sp500-ftse-日経平均"><i class="fa fa-check"></i>事例2: 米英日3株式市場 (S&amp;P500, FTSE, 日経平均)</a></li>
 </ul></li>
+<li class="chapter" data-level="9.4" data-path="varモデル.html"><a href="varモデル.html#補足-分散共分散行列のコレスキー分解"><i class="fa fa-check"></i><b>9.4</b> 補足: 分散共分散行列のコレスキー分解</a></li>
 </ul></li>
 <li class="chapter" data-level="10" data-path="共和分分析誤差修正モデル.html"><a href="共和分分析誤差修正モデル.html"><i class="fa fa-check"></i><b>10</b> 共和分分析・誤差修正モデル</a>
 <ul>
@@ -307,7 +307,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="10.3.2" data-path="共和分分析誤差修正モデル.html"><a href="共和分分析誤差修正モデル.html#johansenの方法-johansen-procedure"><i class="fa fa-check"></i><b>10.3.2</b> Johansenの方法 (Johansen-Procedure)</a></li>
 <li class="chapter" data-level="10.3.3" data-path="共和分分析誤差修正モデル.html"><a href="共和分分析誤差修正モデル.html#誤差修正モデルecmの推定"><i class="fa fa-check"></i><b>10.3.3</b> 誤差修正モデル(ECM)の推定</a></li>
 </ul></li>
-<li class="chapter" data-level="10.4" data-path="共和分分析誤差修正モデル.html"><a href="共和分分析誤差修正モデル.html#補足-分散共分散行列のコレスキー分解"><i class="fa fa-check"></i><b>10.4</b> 補足: 分散共分散行列のコレスキー分解</a></li>
 </ul></li>
 <li class="chapter" data-level="11" data-path="多変量ボラティリティモデル.html"><a href="多変量ボラティリティモデル.html"><i class="fa fa-check"></i><b>11</b> 多変量ボラティリティ・モデル</a>
 <ul>
@@ -337,6 +336,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="高頻度データ分析.html"><a href="高頻度データ分析.html#データセット1-topix指数データ"><i class="fa fa-check"></i>データセット1: TOPIX指数データ</a></li>
 <li class="chapter" data-level="" data-path="高頻度データ分析.html"><a href="高頻度データ分析.html#実現ボラティリティの計算"><i class="fa fa-check"></i>実現ボラティリティの計算</a></li>
 <li class="chapter" data-level="" data-path="高頻度データ分析.html"><a href="高頻度データ分析.html#parkionsonボラティリティの計算"><i class="fa fa-check"></i>Parkionsonボラティリティの計算</a></li>
+<li class="chapter" data-level="" data-path="高頻度データ分析.html"><a href="高頻度データ分析.html#har-rvモデルによる予測"><i class="fa fa-check"></i>HAR-RVモデルによる予測</a></li>
 </ul></li>
 <li class="chapter" data-level="12.2" data-path="高頻度データ分析.html"><a href="高頻度データ分析.html#共分散相関の推定"><i class="fa fa-check"></i><b>12.2</b> 共分散・相関の推定</a>
 <ul>
@@ -344,6 +344,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="高頻度データ分析.html"><a href="高頻度データ分析.html#共分散相関の推定-1"><i class="fa fa-check"></i>共分散・相関の推定</a></li>
 </ul></li>
 <li class="chapter" data-level="12.3" data-path="高頻度データ分析.html"><a href="高頻度データ分析.html#acdモデル"><i class="fa fa-check"></i><b>12.3</b> ACDモデル</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="スペクトル解析.html"><a href="スペクトル解析.html"><i class="fa fa-check"></i><b>13</b> スペクトル解析</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="スペクトル解析.html"><a href="スペクトル解析.html#armaモデルのスペクトル密度"><i class="fa fa-check"></i><b>13.1</b> ARMAモデルのスペクトル密度</a></li>
+<li class="chapter" data-level="13.2" data-path="スペクトル解析.html"><a href="スペクトル解析.html#周期変動時系列のスペクトル密度"><i class="fa fa-check"></i><b>13.2</b> 周期変動時系列のスペクトル密度</a></li>
+<li class="chapter" data-level="13.3" data-path="スペクトル解析.html"><a href="スペクトル解析.html#データ分析例"><i class="fa fa-check"></i><b>13.3</b> データ分析例</a>
+<ul>
+<li class="chapter" data-level="" data-path="スペクトル解析.html"><a href="スペクトル解析.html#データセット1-sunspots"><i class="fa fa-check"></i>データセット1: sunspots</a></li>
+<li class="chapter" data-level="" data-path="スペクトル解析.html"><a href="スペクトル解析.html#データセット2-soi-index"><i class="fa fa-check"></i>データセット2: SOI Index</a></li>
+<li class="chapter" data-level="" data-path="スペクトル解析.html"><a href="スペクトル解析.html#データセット3-bank-loan-rate"><i class="fa fa-check"></i>データセット3: Bank loan rate</a></li>
+</ul></li>
+<li class="chapter" data-level="13.4" data-path="スペクトル解析.html"><a href="スペクトル解析.html#金融時系列データの分析"><i class="fa fa-check"></i><b>13.4</b> 金融時系列データの分析</a>
+<ul>
+<li class="chapter" data-level="" data-path="スペクトル解析.html"><a href="スペクトル解析.html#為替水準に対する分解-スペクトル解析"><i class="fa fa-check"></i>為替水準に対する分解 &amp; スペクトル解析</a></li>
+<li class="chapter" data-level="" data-path="スペクトル解析.html"><a href="スペクトル解析.html#為替リターンに対する分解-スペクトル解析"><i class="fa fa-check"></i>為替リターンに対する分解 &amp; スペクトル解析</a></li>
+</ul></li>
 </ul></li>
 <li class="appendix"><span><b>Appendix 参考文献</b></span></li>
 <li class="chapter" data-level="A" data-path="バブル-生成崩壊-検出.html"><a href="バブル-生成崩壊-検出.html"><i class="fa fa-check"></i><b>A</b> バブル (生成・崩壊) 検出</a>
@@ -386,6 +402,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="D.4" data-path="archgarchモデル.html"><a href="archgarchモデル.html#arch-m-model"><i class="fa fa-check"></i><b>D.4</b> ARCH-M Model</a></li>
 <li class="chapter" data-level="D.5" data-path="archgarchモデル.html"><a href="archgarchモデル.html#gjr-model"><i class="fa fa-check"></i><b>D.5</b> GJR model</a></li>
 <li class="chapter" data-level="D.6" data-path="archgarchモデル.html"><a href="archgarchモデル.html#aparch-model"><i class="fa fa-check"></i><b>D.6</b> APARCH model</a></li>
+</ul></li>
+<li class="chapter" data-level="E" data-path="共和分-誤差修正モデルの参考文献.html"><a href="共和分-誤差修正モデルの参考文献.html"><i class="fa fa-check"></i><b>E</b> 共和分/ 誤差修正モデルの参考文献</a>
+<ul>
+<li class="chapter" data-level="E.1" data-path="共和分-誤差修正モデルの参考文献.html"><a href="共和分-誤差修正モデルの参考文献.html#株式市場とマクロ変数-国際株式市場間の分析"><i class="fa fa-check"></i><b>E.1</b> 株式市場とマクロ変数, 国際株式市場間の分析</a></li>
+<li class="chapter" data-level="E.2" data-path="共和分-誤差修正モデルの参考文献.html"><a href="共和分-誤差修正モデルの参考文献.html#個別株式の複数取引所株価間の分析"><i class="fa fa-check"></i><b>E.2</b> 個別株式の複数取引所株価間の分析</a></li>
+<li class="chapter" data-level="E.3" data-path="共和分-誤差修正モデルの参考文献.html"><a href="共和分-誤差修正モデルの参考文献.html#高頻度データ-bidask価格-の分析"><i class="fa fa-check"></i><b>E.3</b> 高頻度データ (bid/ask価格) の分析</a></li>
+<li class="chapter" data-level="E.4" data-path="共和分-誤差修正モデルの参考文献.html"><a href="共和分-誤差修正モデルの参考文献.html#統計的アービトラージ-ペアトレード"><i class="fa fa-check"></i><b>E.4</b> 統計的アービトラージ / ペアトレード</a></li>
+<li class="chapter" data-level="E.5" data-path="共和分-誤差修正モデルの参考文献.html"><a href="共和分-誤差修正モデルの参考文献.html#国際株式市場間のヘッジ"><i class="fa fa-check"></i><b>E.5</b> 国際株式市場間のヘッジ</a></li>
+<li class="chapter" data-level="E.6" data-path="共和分-誤差修正モデルの参考文献.html"><a href="共和分-誤差修正モデルの参考文献.html#クレジットスプレッド-株式-cds-債券-の分析"><i class="fa fa-check"></i><b>E.6</b> クレジット・スプレッド (株式, CDS, 債券) の分析</a></li>
 </ul></li>
 </ul>
 
@@ -433,12 +458,12 @@ Tsay, Ch.7 (<a href="http://faculty.chicagobooth.edu/ruey.tsay/teaching/introTS/
 <pre><code>- MTS::MarchTest</code></pre>
 <div class="sourceCode" id="cb813"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb813-1"><a href="多変量ボラティリティモデル.html#cb813-1" tabindex="-1"></a><span class="fu">MarchTest</span>(zt) <span class="do">#### Multivariate volatility tests</span></span></code></pre></div>
 <pre><code>## Q(m) of squared series(LM test):  
-## Test statistic:  5.579901  p-value:  0.8492377 
+## Test statistic:  6.826281  p-value:  0.741737 
 ## Rank-based Test:  
-## Test statistic:  7.810757  p-value:  0.6473158 
+## Test statistic:  11.84481  p-value:  0.2955771 
 ## Q_k(m) of squared series:  
-## Test statistic:  235.6601  p-value:  0.7336934 
-## Robust Test(5%) :  293.216  p-value:  0.03138898</code></pre>
+## Test statistic:  244.0262  p-value:  0.5946158 
+## Robust Test(5%) :  272.2414  p-value:  0.1595723</code></pre>
 <div id="分析例" class="section level3 unnumbered hasAnchor">
 <h3>分析例<a href="多変量ボラティリティモデル.html#分析例" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
@@ -758,25 +783,25 @@ Tsay, Ch.7 (<a href="http://faculty.chicagobooth.edu/ruey.tsay/teaching/introTS/
 ## 
 ## Orthogonal Matrix U:
 ##            [,1]       [,2]       [,3]
-## [1,] -0.4516545  0.8105171 -0.3729212
-## [2,]  0.3542032  0.5465251  0.7588480
-## [3,] -0.8188701 -0.2106473  0.5339283
+## [1,] -0.4534575  0.3722297  0.8098280
+## [2,]  0.3540761 -0.7586033  0.5469472
+## [3,] -0.8179281 -0.5347580 -0.2121967
 ## 
 ## Linear Map Z:
-##             [,1]        [,2]         [,3]
-## [1,] -0.03043971 0.062103014 -0.008800316
-## [2,] -0.00572454 0.031103473  0.030340189
-## [3,] -0.04692348 0.001079596  0.040015524
+##              [,1]         [,2]        [,3]
+## [1,] -0.030556529  0.008751841 0.062052474
+## [2,] -0.005745581 -0.030354179 0.031085939
+## [3,] -0.046882081 -0.040066373 0.000988435
 ## 
 ## Estimated GARCH coefficients:
-##         omega    alpha1     beta1
-## y1 0.06995161 0.1137451 0.7902606
-## y2 0.92721203 0.1177425 0.7549080
-## y3 0.14757653 0.1135935 0.8082723
+##         omega     alpha1     beta1
+## y1 0.02706141 0.10518768 0.8641966
+## y2 0.11491890 0.09773037 0.8322256
+## y3 0.38618727 0.17005012 0.6787194
 ## 
 ## Convergence codes of component GARCH models:
 ## y1 y2 y3 
-##  1  1  1</code></pre>
+##  0  0  1</code></pre>
 <div class="sourceCode" id="cb877"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb877-1"><a href="多変量ボラティリティモデル.html#cb877-1" tabindex="-1"></a><span class="co"># Convergence codes of component GARCH models:</span></span>
 <span id="cb877-2"><a href="多変量ボラティリティモデル.html#cb877-2" tabindex="-1"></a>Sigma_t <span class="ot">&lt;-</span> <span class="cn">NULL</span> <span class="do">### obtain the volatility matrix</span></span>
 <span id="cb877-3"><a href="多変量ボラティリティモデル.html#cb877-3" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">612</span>){</span>
@@ -786,21 +811,21 @@ Tsay, Ch.7 (<a href="http://faculty.chicagobooth.edu/ruey.tsay/teaching/introTS/
 <span id="cb877-7"><a href="多変量ボラティリティモデル.html#cb877-7" tabindex="-1"></a><span class="fu">MCHdiag</span>(crtn, Sigma_t) <span class="do">### Model checking</span></span></code></pre></div>
 <pre><code>## Test results:  
 ## Q(m) of et: 
-## Test and p-value:  32.89057 0.0002841619 
+## Test and p-value:  18.88785 0.04171045 
 ## Rank-based test: 
-## Test and p-value:  22.77381 0.01161299 
+## Test and p-value:  16.68676 0.08158891 
 ## Qk(m) of epsilon_t: 
-## Test and p-value:  179.4081 6.693057e-08 
+## Test and p-value:  167.828 1.237766e-06 
 ## Robust Qk(m):  
-## Test and p-value:  162.5182 4.423408e-06</code></pre>
+## Test and p-value:  128.289 0.005008534</code></pre>
 <div class="sourceCode" id="cb879"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb879-1"><a href="多変量ボラティリティモデル.html#cb879-1" tabindex="-1"></a>M <span class="ot">&lt;-</span> m1<span class="sc">@</span>Z</span>
 <span id="cb879-2"><a href="多変量ボラティリティモデル.html#cb879-2" tabindex="-1"></a>Minv <span class="ot">&lt;-</span> <span class="fu">solve</span>(M)        <span class="co"># 逆行列</span></span>
 <span id="cb879-3"><a href="多変量ボラティリティモデル.html#cb879-3" tabindex="-1"></a>bt <span class="ot">&lt;-</span> crtn <span class="sc">%*%</span> <span class="fu">t</span>(Minv)</span>
 <span id="cb879-4"><a href="多変量ボラティリティモデル.html#cb879-4" tabindex="-1"></a><span class="fu">cor</span>(bt<span class="sc">^</span><span class="dv">2</span>)</span></code></pre></div>
 <pre><code>##           [,1]      [,2]      [,3]
-## [1,] 1.0000000 0.1066579 0.1652736
-## [2,] 0.1066579 1.0000000 0.3544019
-## [3,] 0.1652736 0.3544019 1.0000000</code></pre>
+## [1,] 1.0000000 0.1664470 0.1067859
+## [2,] 0.1664470 1.0000000 0.3539051
+## [3,] 0.1067859 0.3539051 1.0000000</code></pre>
 <div class="sourceCode" id="cb881"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb881-1"><a href="多変量ボラティリティモデル.html#cb881-1" tabindex="-1"></a><span class="fu">matplot</span>(Sigma_t[, <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">5</span>, <span class="dv">9</span>)], <span class="at">type =</span> <span class="st">&quot;l&quot;</span>)  <span class="co"># 追加</span></span></code></pre></div>
 <p><img src="100-multivola_files/figure-html/gogarch-1.png" width="672" /></p>
 </div>

@@ -23,7 +23,6 @@
 <meta name="author" content="林 高樹" />
 
 
-<meta name="date" content="2024-01-10" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -31,7 +30,7 @@
   
   
 <link rel="prev" href="多変量ボラティリティモデル.html"/>
-<link rel="next" href="バブル-生成崩壊-検出.html"/>
+<link rel="next" href="スペクトル解析.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -289,6 +288,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="varモデル.html"><a href="varモデル.html#事例1-ソフトバンク9434-vs-ソフトバンクグループ9984"><i class="fa fa-check"></i>事例1: ソフトバンク(9434) vs ソフトバンクグループ(9984)</a></li>
 <li class="chapter" data-level="" data-path="varモデル.html"><a href="varモデル.html#事例2-米英日3株式市場-sp500-ftse-日経平均"><i class="fa fa-check"></i>事例2: 米英日3株式市場 (S&amp;P500, FTSE, 日経平均)</a></li>
 </ul></li>
+<li class="chapter" data-level="9.4" data-path="varモデル.html"><a href="varモデル.html#補足-分散共分散行列のコレスキー分解"><i class="fa fa-check"></i><b>9.4</b> 補足: 分散共分散行列のコレスキー分解</a></li>
 </ul></li>
 <li class="chapter" data-level="10" data-path="共和分分析誤差修正モデル.html"><a href="共和分分析誤差修正モデル.html"><i class="fa fa-check"></i><b>10</b> 共和分分析・誤差修正モデル</a>
 <ul>
@@ -307,7 +307,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="10.3.2" data-path="共和分分析誤差修正モデル.html"><a href="共和分分析誤差修正モデル.html#johansenの方法-johansen-procedure"><i class="fa fa-check"></i><b>10.3.2</b> Johansenの方法 (Johansen-Procedure)</a></li>
 <li class="chapter" data-level="10.3.3" data-path="共和分分析誤差修正モデル.html"><a href="共和分分析誤差修正モデル.html#誤差修正モデルecmの推定"><i class="fa fa-check"></i><b>10.3.3</b> 誤差修正モデル(ECM)の推定</a></li>
 </ul></li>
-<li class="chapter" data-level="10.4" data-path="共和分分析誤差修正モデル.html"><a href="共和分分析誤差修正モデル.html#補足-分散共分散行列のコレスキー分解"><i class="fa fa-check"></i><b>10.4</b> 補足: 分散共分散行列のコレスキー分解</a></li>
 </ul></li>
 <li class="chapter" data-level="11" data-path="多変量ボラティリティモデル.html"><a href="多変量ボラティリティモデル.html"><i class="fa fa-check"></i><b>11</b> 多変量ボラティリティ・モデル</a>
 <ul>
@@ -337,6 +336,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="高頻度データ分析.html"><a href="高頻度データ分析.html#データセット1-topix指数データ"><i class="fa fa-check"></i>データセット1: TOPIX指数データ</a></li>
 <li class="chapter" data-level="" data-path="高頻度データ分析.html"><a href="高頻度データ分析.html#実現ボラティリティの計算"><i class="fa fa-check"></i>実現ボラティリティの計算</a></li>
 <li class="chapter" data-level="" data-path="高頻度データ分析.html"><a href="高頻度データ分析.html#parkionsonボラティリティの計算"><i class="fa fa-check"></i>Parkionsonボラティリティの計算</a></li>
+<li class="chapter" data-level="" data-path="高頻度データ分析.html"><a href="高頻度データ分析.html#har-rvモデルによる予測"><i class="fa fa-check"></i>HAR-RVモデルによる予測</a></li>
 </ul></li>
 <li class="chapter" data-level="12.2" data-path="高頻度データ分析.html"><a href="高頻度データ分析.html#共分散相関の推定"><i class="fa fa-check"></i><b>12.2</b> 共分散・相関の推定</a>
 <ul>
@@ -344,6 +344,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="高頻度データ分析.html"><a href="高頻度データ分析.html#共分散相関の推定-1"><i class="fa fa-check"></i>共分散・相関の推定</a></li>
 </ul></li>
 <li class="chapter" data-level="12.3" data-path="高頻度データ分析.html"><a href="高頻度データ分析.html#acdモデル"><i class="fa fa-check"></i><b>12.3</b> ACDモデル</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="スペクトル解析.html"><a href="スペクトル解析.html"><i class="fa fa-check"></i><b>13</b> スペクトル解析</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="スペクトル解析.html"><a href="スペクトル解析.html#armaモデルのスペクトル密度"><i class="fa fa-check"></i><b>13.1</b> ARMAモデルのスペクトル密度</a></li>
+<li class="chapter" data-level="13.2" data-path="スペクトル解析.html"><a href="スペクトル解析.html#周期変動時系列のスペクトル密度"><i class="fa fa-check"></i><b>13.2</b> 周期変動時系列のスペクトル密度</a></li>
+<li class="chapter" data-level="13.3" data-path="スペクトル解析.html"><a href="スペクトル解析.html#データ分析例"><i class="fa fa-check"></i><b>13.3</b> データ分析例</a>
+<ul>
+<li class="chapter" data-level="" data-path="スペクトル解析.html"><a href="スペクトル解析.html#データセット1-sunspots"><i class="fa fa-check"></i>データセット1: sunspots</a></li>
+<li class="chapter" data-level="" data-path="スペクトル解析.html"><a href="スペクトル解析.html#データセット2-soi-index"><i class="fa fa-check"></i>データセット2: SOI Index</a></li>
+<li class="chapter" data-level="" data-path="スペクトル解析.html"><a href="スペクトル解析.html#データセット3-bank-loan-rate"><i class="fa fa-check"></i>データセット3: Bank loan rate</a></li>
+</ul></li>
+<li class="chapter" data-level="13.4" data-path="スペクトル解析.html"><a href="スペクトル解析.html#金融時系列データの分析"><i class="fa fa-check"></i><b>13.4</b> 金融時系列データの分析</a>
+<ul>
+<li class="chapter" data-level="" data-path="スペクトル解析.html"><a href="スペクトル解析.html#為替水準に対する分解-スペクトル解析"><i class="fa fa-check"></i>為替水準に対する分解 &amp; スペクトル解析</a></li>
+<li class="chapter" data-level="" data-path="スペクトル解析.html"><a href="スペクトル解析.html#為替リターンに対する分解-スペクトル解析"><i class="fa fa-check"></i>為替リターンに対する分解 &amp; スペクトル解析</a></li>
+</ul></li>
 </ul></li>
 <li class="appendix"><span><b>Appendix 参考文献</b></span></li>
 <li class="chapter" data-level="A" data-path="バブル-生成崩壊-検出.html"><a href="バブル-生成崩壊-検出.html"><i class="fa fa-check"></i><b>A</b> バブル (生成・崩壊) 検出</a>
@@ -386,6 +402,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="D.4" data-path="archgarchモデル.html"><a href="archgarchモデル.html#arch-m-model"><i class="fa fa-check"></i><b>D.4</b> ARCH-M Model</a></li>
 <li class="chapter" data-level="D.5" data-path="archgarchモデル.html"><a href="archgarchモデル.html#gjr-model"><i class="fa fa-check"></i><b>D.5</b> GJR model</a></li>
 <li class="chapter" data-level="D.6" data-path="archgarchモデル.html"><a href="archgarchモデル.html#aparch-model"><i class="fa fa-check"></i><b>D.6</b> APARCH model</a></li>
+</ul></li>
+<li class="chapter" data-level="E" data-path="共和分-誤差修正モデルの参考文献.html"><a href="共和分-誤差修正モデルの参考文献.html"><i class="fa fa-check"></i><b>E</b> 共和分/ 誤差修正モデルの参考文献</a>
+<ul>
+<li class="chapter" data-level="E.1" data-path="共和分-誤差修正モデルの参考文献.html"><a href="共和分-誤差修正モデルの参考文献.html#株式市場とマクロ変数-国際株式市場間の分析"><i class="fa fa-check"></i><b>E.1</b> 株式市場とマクロ変数, 国際株式市場間の分析</a></li>
+<li class="chapter" data-level="E.2" data-path="共和分-誤差修正モデルの参考文献.html"><a href="共和分-誤差修正モデルの参考文献.html#個別株式の複数取引所株価間の分析"><i class="fa fa-check"></i><b>E.2</b> 個別株式の複数取引所株価間の分析</a></li>
+<li class="chapter" data-level="E.3" data-path="共和分-誤差修正モデルの参考文献.html"><a href="共和分-誤差修正モデルの参考文献.html#高頻度データ-bidask価格-の分析"><i class="fa fa-check"></i><b>E.3</b> 高頻度データ (bid/ask価格) の分析</a></li>
+<li class="chapter" data-level="E.4" data-path="共和分-誤差修正モデルの参考文献.html"><a href="共和分-誤差修正モデルの参考文献.html#統計的アービトラージ-ペアトレード"><i class="fa fa-check"></i><b>E.4</b> 統計的アービトラージ / ペアトレード</a></li>
+<li class="chapter" data-level="E.5" data-path="共和分-誤差修正モデルの参考文献.html"><a href="共和分-誤差修正モデルの参考文献.html#国際株式市場間のヘッジ"><i class="fa fa-check"></i><b>E.5</b> 国際株式市場間のヘッジ</a></li>
+<li class="chapter" data-level="E.6" data-path="共和分-誤差修正モデルの参考文献.html"><a href="共和分-誤差修正モデルの参考文献.html#クレジットスプレッド-株式-cds-債券-の分析"><i class="fa fa-check"></i><b>E.6</b> クレジット・スプレッド (株式, CDS, 債券) の分析</a></li>
 </ul></li>
 </ul>
 
@@ -484,40 +509,120 @@ cce()関数として実装されている (以下の「共分散・相関の推�
 <span id="cb906-16"><a href="高頻度データ分析.html#cb906-16" tabindex="-1"></a><span class="co">#(vPark_1 &lt;- calc_vParkinson(topix1s_1$price))</span></span>
 <span id="cb906-17"><a href="高頻度データ分析.html#cb906-17" tabindex="-1"></a><span class="co">#(vPark_2 &lt;- calc_vParkinson(topix1s_2$price))</span></span></code></pre></div>
 </div>
+<div id="har-rvモデルによる予測" class="section level3 unnumbered hasAnchor">
+<h3>HAR-RVモデルによる予測<a href="高頻度データ分析.html#har-rvモデルによる予測" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>HAR-RVモデルは, 日次RV時系列の示す長期記憶性をうまく近似し, ボラティリティ予測性能が高いとされるモデルである.
+<strong>highfrequency</strong>パッケージの関数HARmodel()により, HARモデルの推定, ボラティリティの予測が可能である. パラメータ指定により,
+HARモデルのバリエーションの指定や,
+説明変数に使う日次・週次・月次の合算日数の変更,
+RV以外の有用な実現測度 (realized measures) の推定・予測も可能である.
+ジャンプ検定も可能である.</p>
+<pre><code>HARmodel(): HARモデルの推定. 過去の高頻度データより1日先のボラティリティ予測
+- usage: HARmodel(
+      data,　# xtsオブジェクト. 日内対数リターン, または計算済の実現測度 (realized measures)
+      periods = c(1, 5, 22), # 実現測度の合算 (集約) 日数のベクトル (1 day, 1 week, 1 monthに対応)
+      periodsJ = c(1, 5, 22), # ジャンプ項の合算日数のベクトル
+      periodsQ = c(1), # 実現4乗量 (quarticity) の合算日数のベクトル
+      leverage = NULL, # 負のリターンを合算する日数のベクトル
+      RVest = c(&quot;rCov&quot;, &quot;rBPCov&quot;, &quot;rQuar&quot;), # 出力の種類: デフォルトは, 日次累積分散 (ジャンプ-robust), 実現bi-power変動, 実現4乗量. それ以外の指定はマニュアルを見よ.
+      inputType = &quot;RM&quot;, # 入力dataの形式]: realized measure (デフォルト). それ以外は, リターン
+      jumpTest = &quot;ABDJumptest&quot;, # ジャンプ検定
+      alpha = 0.05, # ジャンプ検定の有意水準
+      h = 1, # 従属変数を合算する日数
+      transform = NULL, # 従属変数や説明変数を(同時に)変換する関数. 典型例, &quot;log&quot;, &quot;sqrt&quot;
+      externalRegressor = NULL, # 外部説明変数
+      periodsExternal = c(1), # 外部説明変数を合算する日数
+      ...</code></pre>
+<div class="sourceCode" id="cb908"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb908-1"><a href="高頻度データ分析.html#cb908-1" tabindex="-1"></a><span class="fu">library</span>(highfrequency)</span>
+<span id="cb908-2"><a href="高頻度データ分析.html#cb908-2" tabindex="-1"></a><span class="fu">library</span>(xts)</span>
+<span id="cb908-3"><a href="高頻度データ分析.html#cb908-3" tabindex="-1"></a><span class="co">#  Forecasting daily Realized volatility for the S&amp;P 500 using the basic HARmodel: HAR</span></span>
+<span id="cb908-4"><a href="高頻度データ分析.html#cb908-4" tabindex="-1"></a><span class="fu">str</span>(SPYRM) <span class="co"># S&amp;P500 (SPY) ETFの各種実現測度 (１分, 5分)</span></span>
+<span id="cb908-5"><a href="高頻度データ分析.html#cb908-5" tabindex="-1"></a><span class="co">#&gt; Classes &#39;data.table&#39; and &#39;data.frame&#39;:   1495 obs. of  14 variables:</span></span>
+<span id="cb908-6"><a href="高頻度データ分析.html#cb908-6" tabindex="-1"></a><span class="co">#&gt;  $ DT    : Date, format: &quot;2014-01-02&quot; &quot;2014-01-03&quot; ...</span></span>
+<span id="cb908-7"><a href="高頻度データ分析.html#cb908-7" tabindex="-1"></a><span class="co">#&gt;  $ RV1   : num  2.68e-05 1.58e-05 2.72e-05 1.08e-05 3.11e-05 ...</span></span>
+<span id="cb908-8"><a href="高頻度データ分析.html#cb908-8" tabindex="-1"></a><span class="co">#&gt;  $ RV5   : num  2.57e-05 1.78e-05 2.56e-05 9.95e-06 2.68e-05 ...</span></span>
+<span id="cb908-9"><a href="高頻度データ分析.html#cb908-9" tabindex="-1"></a><span class="co">#&gt;  $ BPV1  : num  2.54e-05 1.55e-05 2.18e-05 1.00e-05 2.58e-05 ...</span></span>
+<span id="cb908-10"><a href="高頻度データ分析.html#cb908-10" tabindex="-1"></a><span class="co">#&gt;  $ BPV5  : num  2.37e-05 1.67e-05 1.89e-05 9.75e-06 2.35e-05 ...</span></span>
+<span id="cb908-11"><a href="高頻度データ分析.html#cb908-11" tabindex="-1"></a><span class="co">#&gt;  $ medRV1: num  2.45e-05 1.54e-05 2.24e-05 1.06e-05 2.64e-05 ...</span></span>
+<span id="cb908-12"><a href="高頻度データ分析.html#cb908-12" tabindex="-1"></a><span class="co">#&gt;  $ medRV5: num  1.93e-05 1.63e-05 1.64e-05 9.32e-06 2.32e-05 ...</span></span>
+<span id="cb908-13"><a href="高頻度データ分析.html#cb908-13" tabindex="-1"></a><span class="co">#&gt;  $ RK1   : num  2.59e-05 1.60e-05 3.20e-05 9.42e-06 1.98e-05 ...</span></span>
+<span id="cb908-14"><a href="高頻度データ分析.html#cb908-14" tabindex="-1"></a><span class="co">#&gt;  $ RK5   : num  2.64e-05 1.63e-05 2.59e-05 9.96e-06 1.94e-05 ...</span></span>
+<span id="cb908-15"><a href="高頻度データ分析.html#cb908-15" tabindex="-1"></a><span class="co">#&gt;  $ RQ1   : num  0.0534 0.0302 0.0621 0.0213 0.0889 ...</span></span>
+<span id="cb908-16"><a href="高頻度データ分析.html#cb908-16" tabindex="-1"></a><span class="co">#&gt;  $ RQ5   : num  0.0543 0.0304 0.05 0.017 0.0538 ...</span></span>
+<span id="cb908-17"><a href="高頻度データ分析.html#cb908-17" tabindex="-1"></a><span class="co">#&gt;  $ medRQ1: num  0.0473 0.0296 0.0419 0.0207 0.0823 ...</span></span>
+<span id="cb908-18"><a href="高頻度データ分析.html#cb908-18" tabindex="-1"></a><span class="co">#&gt;  $ medRQ5: num  0.0473 0.0296 0.0419 0.0207 0.0823 ...</span></span>
+<span id="cb908-19"><a href="高頻度データ分析.html#cb908-19" tabindex="-1"></a><span class="co">#&gt;  $ CLOSE : num  183 183 182 183 184 ...</span></span>
+<span id="cb908-20"><a href="高頻度データ分析.html#cb908-20" tabindex="-1"></a><span class="co">#&gt;  - attr(*, &quot;.internal.selfref&quot;)=&lt;externalptr&gt; </span></span>
+<span id="cb908-21"><a href="高頻度データ分析.html#cb908-21" tabindex="-1"></a><span class="co">#&gt;  - attr(*, &quot;sorted&quot;)= chr &quot;DT&quot;</span></span>
+<span id="cb908-22"><a href="高頻度データ分析.html#cb908-22" tabindex="-1"></a>RVSPY <span class="ot">&lt;-</span> <span class="fu">as.xts</span>(SPYRM<span class="sc">$</span>RV5, <span class="at">order.by =</span> SPYRM<span class="sc">$</span>DT)</span>
+<span id="cb908-23"><a href="高頻度データ分析.html#cb908-23" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">HARmodel</span>(<span class="at">data =</span> RVSPY , <span class="at">periods =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">5</span>,<span class="dv">22</span>), <span class="at">RVest =</span> <span class="fu">c</span>(<span class="st">&quot;rCov&quot;</span>),</span>
+<span id="cb908-24"><a href="高頻度データ分析.html#cb908-24" tabindex="-1"></a>                  <span class="at">type =</span> <span class="st">&quot;HAR&quot;</span>, <span class="at">h =</span> <span class="dv">1</span>, <span class="at">transform =</span> <span class="cn">NULL</span>, <span class="at">inputType =</span> <span class="st">&quot;RM&quot;</span>)</span>
+<span id="cb908-25"><a href="高頻度データ分析.html#cb908-25" tabindex="-1"></a><span class="fu">class</span>(x)</span>
+<span id="cb908-26"><a href="高頻度データ分析.html#cb908-26" tabindex="-1"></a><span class="co">#&gt; [1] &quot;HARmodel&quot; &quot;lm&quot;</span></span>
+<span id="cb908-27"><a href="高頻度データ分析.html#cb908-27" tabindex="-1"></a><span class="fu">plot</span>(x)</span></code></pre></div>
+<p><img src="110-HFD_files/figure-html/unnamed-chunk-1-1.png" width="75%" /></p>
+<div class="sourceCode" id="cb909"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb909-1"><a href="高頻度データ分析.html#cb909-1" tabindex="-1"></a><span class="co"># Estimate the HAR model of type HARQ</span></span>
+<span id="cb909-2"><a href="高頻度データ分析.html#cb909-2" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">as.xts</span>(sampleOneMinuteData[, <span class="fu">makeReturns</span>(STOCK), <span class="at">by =</span> <span class="fu">list</span>(<span class="at">DATE =</span> <span class="fu">as.Date</span>(DT))])</span>
+<span id="cb909-3"><a href="高頻度データ分析.html#cb909-3" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">HARmodel</span>(dat, <span class="at">periods =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">5</span>,<span class="dv">10</span>), <span class="at">periodsJ =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">5</span>,<span class="dv">10</span>),</span>
+<span id="cb909-4"><a href="高頻度データ分析.html#cb909-4" tabindex="-1"></a>              <span class="at">periodsQ =</span> <span class="fu">c</span>(<span class="dv">1</span>), <span class="at">RVest =</span> <span class="fu">c</span>(<span class="st">&quot;rCov&quot;</span>, <span class="st">&quot;rQuar&quot;</span>),</span>
+<span id="cb909-5"><a href="高頻度データ分析.html#cb909-5" tabindex="-1"></a>              <span class="at">type=</span><span class="st">&quot;HARQ&quot;</span>, <span class="at">inputType =</span> <span class="st">&quot;returns&quot;</span>)</span>
+<span id="cb909-6"><a href="高頻度データ分析.html#cb909-6" tabindex="-1"></a><span class="fu">class</span>(x)</span>
+<span id="cb909-7"><a href="高頻度データ分析.html#cb909-7" tabindex="-1"></a><span class="co">#&gt; [1] &quot;HARmodel&quot; &quot;lm&quot;</span></span>
+<span id="cb909-8"><a href="高頻度データ分析.html#cb909-8" tabindex="-1"></a>x</span>
+<span id="cb909-9"><a href="高頻度データ分析.html#cb909-9" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb909-10"><a href="高頻度データ分析.html#cb909-10" tabindex="-1"></a><span class="co">#&gt; Model:</span></span>
+<span id="cb909-11"><a href="高頻度データ分析.html#cb909-11" tabindex="-1"></a><span class="co">#&gt; RV1 = beta0  +  beta1 * RV1 +  beta2 * RV5 +  beta3 * RV10 +  beta4 * RQ1</span></span>
+<span id="cb909-12"><a href="高頻度データ分析.html#cb909-12" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb909-13"><a href="高頻度データ分析.html#cb909-13" tabindex="-1"></a><span class="co">#&gt; Coefficients:</span></span>
+<span id="cb909-14"><a href="高頻度データ分析.html#cb909-14" tabindex="-1"></a><span class="co">#&gt;      beta0       beta1       beta2       beta3       beta4  </span></span>
+<span id="cb909-15"><a href="高頻度データ分析.html#cb909-15" tabindex="-1"></a><span class="co">#&gt;  7.046e-05  -1.545e-01   1.686e-01   3.025e-01   1.023e+03  </span></span>
+<span id="cb909-16"><a href="高頻度データ分析.html#cb909-16" tabindex="-1"></a><span class="co">#&gt; Newey-West Standard Errors:</span></span>
+<span id="cb909-17"><a href="高頻度データ分析.html#cb909-17" tabindex="-1"></a><span class="co">#&gt;     beta0      beta1      beta2      beta3      beta4  </span></span>
+<span id="cb909-18"><a href="高頻度データ分析.html#cb909-18" tabindex="-1"></a><span class="co">#&gt; 1.471e-05  9.588e-02  1.061e-01  9.461e-02  2.886e+02  </span></span>
+<span id="cb909-19"><a href="高頻度データ分析.html#cb909-19" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb909-20"><a href="高頻度データ分析.html#cb909-20" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb909-21"><a href="高頻度データ分析.html#cb909-21" tabindex="-1"></a><span class="co">#&gt;     r.squared  adj.r.squared  </span></span>
+<span id="cb909-22"><a href="高頻度データ分析.html#cb909-22" tabindex="-1"></a><span class="co">#&gt;        0.6944         0.5198</span></span>
+<span id="cb909-23"><a href="高頻度データ分析.html#cb909-23" tabindex="-1"></a><span class="fu">plot</span>(x)</span></code></pre></div>
+<p><img src="110-HFD_files/figure-html/unnamed-chunk-2-1.png" width="75%" /></p>
+<div class="sourceCode" id="cb910"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb910-1"><a href="高頻度データ分析.html#cb910-1" tabindex="-1"></a><span class="fu">predict</span>(x)</span>
+<span id="cb910-2"><a href="高頻度データ分析.html#cb910-2" tabindex="-1"></a><span class="co">#&gt; [1] 0.0001071019</span></span></code></pre></div>
+</div>
 </div>
 <div id="共分散相関の推定" class="section level2 hasAnchor" number="12.2">
 <h2><span class="header-section-number">12.2</span> 共分散・相関の推定<a href="高頻度データ分析.html#共分散相関の推定" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>2つの証券の一日内の取引データを使って, 両者の共分散や相関係数を推定したい.
 しかし, 個別取引のデータは等間隔に並んでないことから,
-データが同時観測されていない (非同期) 点を考慮する必要がある.</p>
+データが同時観測されていない (非同期) 点を考慮する必要がある.
+上記, <strong>highfrequency</strong>パッケージの他, <strong>yuima</strong>パッケージも利用可能である.</p>
 <div id="データセット2-株価指数先物データ" class="section level3 unnumbered hasAnchor">
 <h3>データセット2: 株価指数先物データ<a href="高頻度データ分析.html#データセット2-株価指数先物データ" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>1日分 (2018年2月5日)のTOPIX, 日経平均それぞれの株価指数先物データ (中心限月, ラージサイズ).
 時間解像度は1ミリ秒.
 同時点タイムスタンプを持つ複数レコードが存在する. ここでは, 1タイムスタンプ1レコードに集約. 価格はVWAPを使用.</p>
-<div class="sourceCode" id="cb907"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb907-1"><a href="高頻度データ分析.html#cb907-1" tabindex="-1"></a><span class="fu">library</span>(yuima)</span>
-<span id="cb907-2"><a href="高頻度データ分析.html#cb907-2" tabindex="-1"></a>yyyymmdd <span class="ot">&lt;-</span> <span class="dv">20180205</span></span>
-<span id="cb907-3"><a href="高頻度データ分析.html#cb907-3" tabindex="-1"></a>ifl1<span class="fl">.0</span> <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">&quot;TXFTL-&quot;</span>, yyyymmdd, <span class="st">&quot;-D.csv&quot;</span>)</span>
-<span id="cb907-4"><a href="高頻度データ分析.html#cb907-4" tabindex="-1"></a>ifl1 <span class="ot">&lt;-</span> <span class="fu">paste</span>(idir, ifl1<span class="fl">.0</span>, <span class="at">sep =</span> <span class="st">&quot;/&quot;</span>)</span>
-<span id="cb907-5"><a href="高頻度データ分析.html#cb907-5" tabindex="-1"></a>TXFTL <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(ifl1, <span class="at">header =</span> F)</span>
-<span id="cb907-6"><a href="高頻度データ分析.html#cb907-6" tabindex="-1"></a>ifl2<span class="fl">.0</span> <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">&quot;NKFTL-&quot;</span>, yyyymmdd, <span class="st">&quot;-D.csv&quot;</span>)</span>
-<span id="cb907-7"><a href="高頻度データ分析.html#cb907-7" tabindex="-1"></a>ifl2 <span class="ot">&lt;-</span> <span class="fu">paste</span>(idir, ifl2<span class="fl">.0</span>, <span class="at">sep =</span> <span class="st">&quot;/&quot;</span>)</span>
-<span id="cb907-8"><a href="高頻度データ分析.html#cb907-8" tabindex="-1"></a>NKFTL <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(ifl2, <span class="at">header =</span> F)</span>
-<span id="cb907-9"><a href="高頻度データ分析.html#cb907-9" tabindex="-1"></a></span>
-<span id="cb907-10"><a href="高頻度データ分析.html#cb907-10" tabindex="-1"></a>tx_zoo <span class="ot">&lt;-</span> <span class="fu">zoo</span>(TXFTL<span class="sc">$</span>V2, TXFTL<span class="sc">$</span>V1<span class="sc">/</span><span class="dv">1000</span>) <span class="co"># Warning: uniqueでない</span></span>
-<span id="cb907-11"><a href="高頻度データ分析.html#cb907-11" tabindex="-1"></a>nk_zoo <span class="ot">&lt;-</span> <span class="fu">zoo</span>(NKFTL<span class="sc">$</span>V2, NKFTL<span class="sc">$</span>V1<span class="sc">/</span><span class="dv">1000</span>)</span>
-<span id="cb907-12"><a href="高頻度データ分析.html#cb907-12" tabindex="-1"></a></span>
-<span id="cb907-13"><a href="高頻度データ分析.html#cb907-13" tabindex="-1"></a>topixFTL <span class="ot">&lt;-</span> <span class="fu">aggregate</span>(tx_zoo, <span class="fu">index</span>(tx_zoo), mean)  <span class="co"># unique timestamp</span></span>
-<span id="cb907-14"><a href="高頻度データ分析.html#cb907-14" tabindex="-1"></a>nk225FTL <span class="ot">&lt;-</span> <span class="fu">aggregate</span>(nk_zoo, <span class="fu">index</span>(nk_zoo), mean)  <span class="co"># unique timestamp</span></span>
-<span id="cb907-15"><a href="高頻度データ分析.html#cb907-15" tabindex="-1"></a></span>
-<span id="cb907-16"><a href="高頻度データ分析.html#cb907-16" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow=</span><span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">1</span>))</span>
-<span id="cb907-17"><a href="高頻度データ分析.html#cb907-17" tabindex="-1"></a><span class="fu">plot</span>(topixFTL)</span>
-<span id="cb907-18"><a href="高頻度データ分析.html#cb907-18" tabindex="-1"></a><span class="fu">plot</span>(nk225FTL)</span></code></pre></div>
+<div class="sourceCode" id="cb911"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb911-1"><a href="高頻度データ分析.html#cb911-1" tabindex="-1"></a><span class="fu">library</span>(yuima)</span>
+<span id="cb911-2"><a href="高頻度データ分析.html#cb911-2" tabindex="-1"></a>yyyymmdd <span class="ot">&lt;-</span> <span class="dv">20180205</span></span>
+<span id="cb911-3"><a href="高頻度データ分析.html#cb911-3" tabindex="-1"></a>ifl1<span class="fl">.0</span> <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">&quot;TXFTL-&quot;</span>, yyyymmdd, <span class="st">&quot;-D.csv&quot;</span>)</span>
+<span id="cb911-4"><a href="高頻度データ分析.html#cb911-4" tabindex="-1"></a>ifl1 <span class="ot">&lt;-</span> <span class="fu">paste</span>(idir, ifl1<span class="fl">.0</span>, <span class="at">sep =</span> <span class="st">&quot;/&quot;</span>)</span>
+<span id="cb911-5"><a href="高頻度データ分析.html#cb911-5" tabindex="-1"></a>TXFTL <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(ifl1, <span class="at">header =</span> F)</span>
+<span id="cb911-6"><a href="高頻度データ分析.html#cb911-6" tabindex="-1"></a>ifl2<span class="fl">.0</span> <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">&quot;NKFTL-&quot;</span>, yyyymmdd, <span class="st">&quot;-D.csv&quot;</span>)</span>
+<span id="cb911-7"><a href="高頻度データ分析.html#cb911-7" tabindex="-1"></a>ifl2 <span class="ot">&lt;-</span> <span class="fu">paste</span>(idir, ifl2<span class="fl">.0</span>, <span class="at">sep =</span> <span class="st">&quot;/&quot;</span>)</span>
+<span id="cb911-8"><a href="高頻度データ分析.html#cb911-8" tabindex="-1"></a>NKFTL <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(ifl2, <span class="at">header =</span> F)</span>
+<span id="cb911-9"><a href="高頻度データ分析.html#cb911-9" tabindex="-1"></a></span>
+<span id="cb911-10"><a href="高頻度データ分析.html#cb911-10" tabindex="-1"></a>tx_zoo <span class="ot">&lt;-</span> <span class="fu">zoo</span>(TXFTL<span class="sc">$</span>V2, TXFTL<span class="sc">$</span>V1<span class="sc">/</span><span class="dv">1000</span>) <span class="co"># Warning: uniqueでない</span></span>
+<span id="cb911-11"><a href="高頻度データ分析.html#cb911-11" tabindex="-1"></a>nk_zoo <span class="ot">&lt;-</span> <span class="fu">zoo</span>(NKFTL<span class="sc">$</span>V2, NKFTL<span class="sc">$</span>V1<span class="sc">/</span><span class="dv">1000</span>)</span>
+<span id="cb911-12"><a href="高頻度データ分析.html#cb911-12" tabindex="-1"></a></span>
+<span id="cb911-13"><a href="高頻度データ分析.html#cb911-13" tabindex="-1"></a>topixFTL <span class="ot">&lt;-</span> <span class="fu">aggregate</span>(tx_zoo, <span class="fu">index</span>(tx_zoo), mean)  <span class="co"># unique timestamp</span></span>
+<span id="cb911-14"><a href="高頻度データ分析.html#cb911-14" tabindex="-1"></a>nk225FTL <span class="ot">&lt;-</span> <span class="fu">aggregate</span>(nk_zoo, <span class="fu">index</span>(nk_zoo), mean)  <span class="co"># unique timestamp</span></span>
+<span id="cb911-15"><a href="高頻度データ分析.html#cb911-15" tabindex="-1"></a></span>
+<span id="cb911-16"><a href="高頻度データ分析.html#cb911-16" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow=</span><span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">1</span>))</span>
+<span id="cb911-17"><a href="高頻度データ分析.html#cb911-17" tabindex="-1"></a><span class="fu">plot</span>(topixFTL)</span>
+<span id="cb911-18"><a href="高頻度データ分析.html#cb911-18" tabindex="-1"></a><span class="fu">plot</span>(nk225FTL)</span></code></pre></div>
 <p><img src="110-HFD_files/figure-html/HFD_4-1.png" width="75%" /></p>
-<div class="sourceCode" id="cb908"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb908-1"><a href="高頻度データ分析.html#cb908-1" tabindex="-1"></a></span>
-<span id="cb908-2"><a href="高頻度データ分析.html#cb908-2" tabindex="-1"></a>topixFTL_ret <span class="ot">&lt;-</span> <span class="fu">diff</span>(<span class="fu">log</span>(topixFTL))</span>
-<span id="cb908-3"><a href="高頻度データ分析.html#cb908-3" tabindex="-1"></a>nk225FTL_ret <span class="ot">&lt;-</span> <span class="fu">diff</span>(<span class="fu">log</span>(nk225FTL))</span>
-<span id="cb908-4"><a href="高頻度データ分析.html#cb908-4" tabindex="-1"></a><span class="co"># 関数に入力する系列が, 価格か対数リターンかに注意すること</span></span></code></pre></div>
+<div class="sourceCode" id="cb912"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb912-1"><a href="高頻度データ分析.html#cb912-1" tabindex="-1"></a></span>
+<span id="cb912-2"><a href="高頻度データ分析.html#cb912-2" tabindex="-1"></a>topixFTL_ret <span class="ot">&lt;-</span> <span class="fu">diff</span>(<span class="fu">log</span>(topixFTL))</span>
+<span id="cb912-3"><a href="高頻度データ分析.html#cb912-3" tabindex="-1"></a>nk225FTL_ret <span class="ot">&lt;-</span> <span class="fu">diff</span>(<span class="fu">log</span>(nk225FTL))</span>
+<span id="cb912-4"><a href="高頻度データ分析.html#cb912-4" tabindex="-1"></a><span class="co"># 関数に入力する系列が, 価格か対数リターンかに注意すること</span></span></code></pre></div>
 <ul>
 <li>高頻度の価格時系列データの特徴 (stylized facts)
 <ul>
@@ -535,8 +640,31 @@ cce()関数として実装されている (以下の「共分散・相関の推�
 </div>
 <div id="共分散相関の推定-1" class="section level3 unnumbered hasAnchor">
 <h3>共分散・相関の推定<a href="高頻度データ分析.html#共分散相関の推定-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<pre><code>cce: (非同期なタイムスタンプを持つ) 伊藤過程間の共分散を推定
-- 用法: cce(x, method=&quot;HY&quot;, theta, kn, g=function(x)min(x,1-x), refreshing = TRUE,
+<pre><code>highfrequency::rHYCov(): Hayashi-Yoshida共分散推定量の計算
+- 用法:
+   rHYCov(
+      rData,
+      cor = FALSE,
+      period = 1,
+      alignBy = &quot;seconds&quot;,
+      alignPeriod = 1,
+      makeReturns = FALSE,
+      makePsd = TRUE,
+      ...
+    )
+  - rData: (複数日・複数銘柄の) リターンまたは価格系列 (xts, またはdata.frame)
+  - cor: 返す値は, 相関か共分散か
+  - period: サンプル期間
+  - alignBy: alignPeriodの時間スケール. &quot;ticks&quot;, &quot;secs&quot;, &quot;seconds&quot;, &quot;mins&quot;, &quot;minutes&quot;, &quot;hours&quot;
+  - alignPeriod: 合算する期間長. 例えば, alighnPeriod = 5, alighBy = &quot;mins&quot;なら５分間隔に集約
+  - makeReturns: リターンに変換するか. rDataが価格系列ならTを指定のこと. デフォルトはF
+  - makePsd: Tならば, 正定値行列に修正. デフォルトはF </code></pre>
+<p>※ rHYCov()を実行する場合には, あらかじめ異なるタイムスタンプを持つ非同期のxtsオブジェクトを一つ (共通のタイムスタンプを持つ) オブジェクトにマージしておく必要.</p>
+<!-- 使えるようにしたい. 210行目は, aaa <- をしなければOK. assignがうまくいかないらしい
+-->
+<pre><code>yuima::cce: (非同期なタイムスタンプを持つ) 伊藤過程間の共分散を推定
+- 用法: 
+cce(x, method=&quot;HY&quot;, theta, kn, g=function(x)min(x,1-x), refreshing = TRUE,
     cwise = TRUE, delta = 0, adj = TRUE, K, c.two, J = 1, c.multi, kernel, H,
     c.RK, eta = 3/5, m = 2, ftregion = 0, vol.init = NA,
     covol.init = NA, nvar.init = NA, ncov.init = NA, mn, alpha = 0.4,
@@ -544,9 +672,9 @@ cce()関数として実装されている (以下の「共分散・相関の推�
 - 詳細はマニュアル参照のこと 
 - 一変量の時系列データを引数xに指定すれば, ボラティリティを推定することができる.
 # cf. https://cran.r-project.org/web/packages/yuima/yuima.pdf</code></pre>
-<div class="sourceCode" id="cb910"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb910-1"><a href="高頻度データ分析.html#cb910-1" tabindex="-1"></a><span class="co"># yuima class data</span></span>
-<span id="cb910-2"><a href="高頻度データ分析.html#cb910-2" tabindex="-1"></a>ft2 <span class="ot">&lt;-</span> <span class="fu">Quote</span>(yuima<span class="sc">::</span><span class="fu">setData</span>(<span class="fu">list</span>(topixFTL_ret, nk225FTL_ret)))</span>
-<span id="cb910-3"><a href="高頻度データ分析.html#cb910-3" tabindex="-1"></a>yuima<span class="sc">::</span><span class="fu">cce</span>(ft2) <span class="co"># the Hayashi-Yoshida estimator; Hayashi and Yoshida (2005)</span></span></code></pre></div>
+<div class="sourceCode" id="cb915"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb915-1"><a href="高頻度データ分析.html#cb915-1" tabindex="-1"></a><span class="co"># yuima class data</span></span>
+<span id="cb915-2"><a href="高頻度データ分析.html#cb915-2" tabindex="-1"></a>ft2 <span class="ot">&lt;-</span> <span class="fu">Quote</span>(yuima<span class="sc">::</span><span class="fu">setData</span>(<span class="fu">list</span>(topixFTL_ret, nk225FTL_ret)))</span>
+<span id="cb915-3"><a href="高頻度データ分析.html#cb915-3" tabindex="-1"></a>yuima<span class="sc">::</span><span class="fu">cce</span>(ft2) <span class="co"># the Hayashi-Yoshida estimator; Hayashi and Yoshida (2005)</span></span></code></pre></div>
 <ul>
 <li>注) 執筆時点でのsetData()の仕様に基づいたコード (変更される可能性)</li>
 </ul>
@@ -560,63 +688,65 @@ calc_RV(topixFTL)
 どうやら, リターン系列の入力が必要?!
 -->
 <!-- (TH) cce(refreshing = T)となっている. HYにおいては, refreshしても値は多分変わらない?? -->
-<div class="sourceCode" id="cb911"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb911-1"><a href="高頻度データ分析.html#cb911-1" tabindex="-1"></a><span class="co"># the Pre-averaged Hayashi-Yoshida estimator; Christensen et al. (2010)</span></span>
-<span id="cb911-2"><a href="高頻度データ分析.html#cb911-2" tabindex="-1"></a>yuima<span class="sc">::</span><span class="fu">cce</span>(ft2, <span class="at">method =</span> <span class="st">&quot;PHY&quot;</span>)<span class="sc">$</span>cormat</span>
-<span id="cb911-3"><a href="高頻度データ分析.html#cb911-3" tabindex="-1"></a></span>
-<span id="cb911-4"><a href="高頻度データ分析.html#cb911-4" tabindex="-1"></a><span class="co"># Pre-averaged Truncated Hayashi-Yoshida estimator</span></span>
-<span id="cb911-5"><a href="高頻度データ分析.html#cb911-5" tabindex="-1"></a>yuima<span class="sc">::</span><span class="fu">cce</span>(ft2, <span class="at">method =</span> <span class="st">&quot;PTHY&quot;</span>)<span class="sc">$</span>cormat</span>
-<span id="cb911-6"><a href="高頻度データ分析.html#cb911-6" tabindex="-1"></a></span>
-<span id="cb911-7"><a href="高頻度データ分析.html#cb911-7" tabindex="-1"></a><span class="co"># the Modulated Realized Covariance based on refresh time sampling; Christensen et al. (2010)</span></span>
-<span id="cb911-8"><a href="高頻度データ分析.html#cb911-8" tabindex="-1"></a>yuima<span class="sc">::</span><span class="fu">cce</span>(ft2, <span class="at">method =</span> <span class="st">&quot;MRC&quot;</span>)<span class="sc">$</span>cormat</span>
-<span id="cb911-9"><a href="高頻度データ分析.html#cb911-9" tabindex="-1"></a></span>
-<span id="cb911-10"><a href="高頻度データ分析.html#cb911-10" tabindex="-1"></a><span class="co"># Generalized multiscale estimator</span></span>
-<span id="cb911-11"><a href="高頻度データ分析.html#cb911-11" tabindex="-1"></a><span class="co">#yuima::cce(ft2, method = &quot;GME&quot;)$cormat</span></span>
-<span id="cb911-12"><a href="高頻度データ分析.html#cb911-12" tabindex="-1"></a></span>
-<span id="cb911-13"><a href="高頻度データ分析.html#cb911-13" tabindex="-1"></a><span class="co"># Multivariate realized kernel</span></span>
-<span id="cb911-14"><a href="高頻度データ分析.html#cb911-14" tabindex="-1"></a><span class="co">#yuima::cce(ft2, method = &quot;RK&quot;)$cormat</span></span>
-<span id="cb911-15"><a href="高頻度データ分析.html#cb911-15" tabindex="-1"></a></span>
-<span id="cb911-16"><a href="高頻度データ分析.html#cb911-16" tabindex="-1"></a><span class="co"># Method &quot;TSCV&quot; is an implementation of the previous tick Two Scales realized CoVariance based on refresh time sampling; Zhang (2011)</span></span>
-<span id="cb911-17"><a href="高頻度データ分析.html#cb911-17" tabindex="-1"></a><span class="co">#yuima::cce(ft2, method = &quot;TSCV&quot;)$cormat</span></span>
-<span id="cb911-18"><a href="高頻度データ分析.html#cb911-18" tabindex="-1"></a></span>
-<span id="cb911-19"><a href="高頻度データ分析.html#cb911-19" tabindex="-1"></a><span class="co"># the nonparametric Quasi Maximum Likelihood Estimator; Ait-Sahalia et al. (2010)</span></span>
-<span id="cb911-20"><a href="高頻度データ分析.html#cb911-20" tabindex="-1"></a>yuima<span class="sc">::</span><span class="fu">cce</span>(ft2, <span class="at">method =</span> <span class="st">&quot;QMLE&quot;</span>)<span class="sc">$</span>cormat</span>
-<span id="cb911-21"><a href="高頻度データ分析.html#cb911-21" tabindex="-1"></a></span>
-<span id="cb911-22"><a href="高頻度データ分析.html#cb911-22" tabindex="-1"></a><span class="co"># the Separating Information Maximum Likelihood estimator in Kunitomo and Sato (2013), with the basis of refresh time sampling</span></span>
-<span id="cb911-23"><a href="高頻度データ分析.html#cb911-23" tabindex="-1"></a>yuima<span class="sc">::</span><span class="fu">cce</span>(ft2, <span class="at">method =</span> <span class="st">&quot;SIML&quot;</span>)<span class="sc">$</span>cormat</span>
-<span id="cb911-24"><a href="高頻度データ分析.html#cb911-24" tabindex="-1"></a></span>
-<span id="cb911-25"><a href="高頻度データ分析.html#cb911-25" tabindex="-1"></a><span class="co"># the Truncated Hayashi-Yoshida estimator; Mancini and Gobbi (2012)</span></span>
-<span id="cb911-26"><a href="高頻度データ分析.html#cb911-26" tabindex="-1"></a>yuima<span class="sc">::</span><span class="fu">cce</span>(ft2, <span class="at">method =</span> <span class="st">&quot;THY&quot;</span>)<span class="sc">$</span>cormat</span>
-<span id="cb911-27"><a href="高頻度データ分析.html#cb911-27" tabindex="-1"></a></span>
-<span id="cb911-28"><a href="高頻度データ分析.html#cb911-28" tabindex="-1"></a><span class="co"># an implementation of the calendar time Subsampled realized BiPower Covariation</span></span>
-<span id="cb911-29"><a href="高頻度データ分析.html#cb911-29" tabindex="-1"></a><span class="co">#yuima::cce(ft2, method = &quot;SBPC&quot;)$cormat</span></span></code></pre></div>
+<div class="sourceCode" id="cb916"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb916-1"><a href="高頻度データ分析.html#cb916-1" tabindex="-1"></a><span class="co"># the Pre-averaged Hayashi-Yoshida estimator; Christensen et al. (2010)</span></span>
+<span id="cb916-2"><a href="高頻度データ分析.html#cb916-2" tabindex="-1"></a>yuima<span class="sc">::</span><span class="fu">cce</span>(ft2, <span class="at">method =</span> <span class="st">&quot;PHY&quot;</span>)<span class="sc">$</span>cormat</span>
+<span id="cb916-3"><a href="高頻度データ分析.html#cb916-3" tabindex="-1"></a></span>
+<span id="cb916-4"><a href="高頻度データ分析.html#cb916-4" tabindex="-1"></a><span class="co"># Pre-averaged Truncated Hayashi-Yoshida estimator</span></span>
+<span id="cb916-5"><a href="高頻度データ分析.html#cb916-5" tabindex="-1"></a>yuima<span class="sc">::</span><span class="fu">cce</span>(ft2, <span class="at">method =</span> <span class="st">&quot;PTHY&quot;</span>)<span class="sc">$</span>cormat</span>
+<span id="cb916-6"><a href="高頻度データ分析.html#cb916-6" tabindex="-1"></a></span>
+<span id="cb916-7"><a href="高頻度データ分析.html#cb916-7" tabindex="-1"></a><span class="co"># the Modulated Realized Covariance based on refresh time sampling; Christensen et al. (2010)</span></span>
+<span id="cb916-8"><a href="高頻度データ分析.html#cb916-8" tabindex="-1"></a>yuima<span class="sc">::</span><span class="fu">cce</span>(ft2, <span class="at">method =</span> <span class="st">&quot;MRC&quot;</span>)<span class="sc">$</span>cormat</span>
+<span id="cb916-9"><a href="高頻度データ分析.html#cb916-9" tabindex="-1"></a></span>
+<span id="cb916-10"><a href="高頻度データ分析.html#cb916-10" tabindex="-1"></a><span class="co"># Generalized multiscale estimator</span></span>
+<span id="cb916-11"><a href="高頻度データ分析.html#cb916-11" tabindex="-1"></a><span class="co">#yuima::cce(ft2, method = &quot;GME&quot;)$cormat</span></span>
+<span id="cb916-12"><a href="高頻度データ分析.html#cb916-12" tabindex="-1"></a></span>
+<span id="cb916-13"><a href="高頻度データ分析.html#cb916-13" tabindex="-1"></a><span class="co"># Multivariate realized kernel</span></span>
+<span id="cb916-14"><a href="高頻度データ分析.html#cb916-14" tabindex="-1"></a><span class="co">#yuima::cce(ft2, method = &quot;RK&quot;)$cormat</span></span>
+<span id="cb916-15"><a href="高頻度データ分析.html#cb916-15" tabindex="-1"></a></span>
+<span id="cb916-16"><a href="高頻度データ分析.html#cb916-16" tabindex="-1"></a><span class="co"># Method &quot;TSCV&quot; is an implementation of the previous tick Two Scales realized CoVariance based on refresh time sampling; Zhang (2011)</span></span>
+<span id="cb916-17"><a href="高頻度データ分析.html#cb916-17" tabindex="-1"></a><span class="co">#yuima::cce(ft2, method = &quot;TSCV&quot;)$cormat</span></span>
+<span id="cb916-18"><a href="高頻度データ分析.html#cb916-18" tabindex="-1"></a></span>
+<span id="cb916-19"><a href="高頻度データ分析.html#cb916-19" tabindex="-1"></a><span class="co"># the nonparametric Quasi Maximum Likelihood Estimator; Ait-Sahalia et al. (2010)</span></span>
+<span id="cb916-20"><a href="高頻度データ分析.html#cb916-20" tabindex="-1"></a>yuima<span class="sc">::</span><span class="fu">cce</span>(ft2, <span class="at">method =</span> <span class="st">&quot;QMLE&quot;</span>)<span class="sc">$</span>cormat</span>
+<span id="cb916-21"><a href="高頻度データ分析.html#cb916-21" tabindex="-1"></a></span>
+<span id="cb916-22"><a href="高頻度データ分析.html#cb916-22" tabindex="-1"></a><span class="co"># the Separating Information Maximum Likelihood estimator in Kunitomo and Sato (2013), with the basis of refresh time sampling</span></span>
+<span id="cb916-23"><a href="高頻度データ分析.html#cb916-23" tabindex="-1"></a>yuima<span class="sc">::</span><span class="fu">cce</span>(ft2, <span class="at">method =</span> <span class="st">&quot;SIML&quot;</span>)<span class="sc">$</span>cormat</span>
+<span id="cb916-24"><a href="高頻度データ分析.html#cb916-24" tabindex="-1"></a></span>
+<span id="cb916-25"><a href="高頻度データ分析.html#cb916-25" tabindex="-1"></a><span class="co"># the Truncated Hayashi-Yoshida estimator; Mancini and Gobbi (2012)</span></span>
+<span id="cb916-26"><a href="高頻度データ分析.html#cb916-26" tabindex="-1"></a>yuima<span class="sc">::</span><span class="fu">cce</span>(ft2, <span class="at">method =</span> <span class="st">&quot;THY&quot;</span>)<span class="sc">$</span>cormat</span>
+<span id="cb916-27"><a href="高頻度データ分析.html#cb916-27" tabindex="-1"></a></span>
+<span id="cb916-28"><a href="高頻度データ分析.html#cb916-28" tabindex="-1"></a><span class="co"># an implementation of the calendar time Subsampled realized BiPower Covariation</span></span>
+<span id="cb916-29"><a href="高頻度データ分析.html#cb916-29" tabindex="-1"></a><span class="co">#yuima::cce(ft2, method = &quot;SBPC&quot;)$cormat</span></span></code></pre></div>
 <!--- 010623: ACDモデルも加えたい! --->
 </div>
 </div>
 <div id="acdモデル" class="section level2 hasAnchor" number="12.3">
 <h2><span class="header-section-number">12.3</span> ACDモデル<a href="高頻度データ分析.html#acdモデル" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>ランダムに到着する取引の間隔データに対して, 自己回帰条件付デュレーション (ACD) モデルを仮定し, モデル適合する. ACDモデルは, 自己励起 (self-excitment) を表現することができる.
-上で使用した株価指数先物データセット (topixFTL, nk225FTL) をここでも使用.</p>
+<p>ランダムに到着する取引の間隔データの持つ時系列構造を表現するモデルとして, 自己回帰条件付デュレーション (ACD) モデルを取り上げる.
+ここでは, 上で使用した株価指数先物データセット (topixFTL, nk225FTL) を使用する.</p>
 <p><strong>デュレーション (取引間隔) 系列</strong>:</p>
-<div class="sourceCode" id="cb912"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb912-1"><a href="高頻度データ分析.html#cb912-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb912-2"><a href="高頻度データ分析.html#cb912-2" tabindex="-1"></a><span class="fu">library</span>(lubridate)</span>
-<span id="cb912-3"><a href="高頻度データ分析.html#cb912-3" tabindex="-1"></a><span class="fu">library</span>(stringr)</span>
-<span id="cb912-4"><a href="高頻度データ分析.html#cb912-4" tabindex="-1"></a><span class="fu">options</span>(<span class="at">digits =</span> <span class="dv">3</span>)</span>
-<span id="cb912-5"><a href="高頻度データ分析.html#cb912-5" tabindex="-1"></a></span>
-<span id="cb912-6"><a href="高頻度データ分析.html#cb912-6" tabindex="-1"></a><span class="co"># デュレーション (取引間隔)</span></span>
-<span id="cb912-7"><a href="高頻度データ分析.html#cb912-7" tabindex="-1"></a>dur_tx <span class="ot">&lt;-</span> <span class="fu">diff</span>(<span class="fu">index</span>(topixFTL))</span>
-<span id="cb912-8"><a href="高頻度データ分析.html#cb912-8" tabindex="-1"></a>dur_nk <span class="ot">&lt;-</span> <span class="fu">diff</span>(<span class="fu">index</span>(nk225FTL))</span>
-<span id="cb912-9"><a href="高頻度データ分析.html#cb912-9" tabindex="-1"></a></span>
-<span id="cb912-10"><a href="高頻度データ分析.html#cb912-10" tabindex="-1"></a><span class="fu">head</span>(dur_tx)</span>
-<span id="cb912-11"><a href="高頻度データ分析.html#cb912-11" tabindex="-1"></a><span class="co">#&gt; [1] 0.030 0.336 0.001 0.002 0.001 0.003</span></span>
-<span id="cb912-12"><a href="高頻度データ分析.html#cb912-12" tabindex="-1"></a><span class="fu">head</span>(dur_nk)</span>
-<span id="cb912-13"><a href="高頻度データ分析.html#cb912-13" tabindex="-1"></a><span class="co">#&gt; [1] 0.030 0.001 0.001 0.092 0.062 0.019</span></span>
-<span id="cb912-14"><a href="高頻度データ分析.html#cb912-14" tabindex="-1"></a><span class="fu">length</span>(dur_tx)</span>
-<span id="cb912-15"><a href="高頻度データ分析.html#cb912-15" tabindex="-1"></a><span class="co">#&gt; [1] 10899</span></span>
-<span id="cb912-16"><a href="高頻度データ分析.html#cb912-16" tabindex="-1"></a><span class="fu">length</span>(dur_nk)</span>
-<span id="cb912-17"><a href="高頻度データ分析.html#cb912-17" tabindex="-1"></a><span class="co">#&gt; [1] 7501</span></span>
-<span id="cb912-18"><a href="高頻度データ分析.html#cb912-18" tabindex="-1"></a></span>
-<span id="cb912-19"><a href="高頻度データ分析.html#cb912-19" tabindex="-1"></a><span class="fu">plot</span>(dur_tx[<span class="dv">1</span><span class="sc">:</span><span class="dv">300</span>], <span class="at">type =</span> <span class="st">&quot;l&quot;</span>, <span class="at">main =</span> <span class="st">&quot;duration (first 300)&quot;</span>)</span></code></pre></div>
-<p><img src="110-HFD_files/figure-html/unnamed-chunk-3-1.png" width="75%" /></p>
+<div class="sourceCode" id="cb917"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb917-1"><a href="高頻度データ分析.html#cb917-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb917-2"><a href="高頻度データ分析.html#cb917-2" tabindex="-1"></a><span class="fu">library</span>(lubridate)</span>
+<span id="cb917-3"><a href="高頻度データ分析.html#cb917-3" tabindex="-1"></a><span class="fu">library</span>(stringr)</span>
+<span id="cb917-4"><a href="高頻度データ分析.html#cb917-4" tabindex="-1"></a><span class="fu">options</span>(<span class="at">digits =</span> <span class="dv">3</span>)</span>
+<span id="cb917-5"><a href="高頻度データ分析.html#cb917-5" tabindex="-1"></a></span>
+<span id="cb917-6"><a href="高頻度データ分析.html#cb917-6" tabindex="-1"></a><span class="co"># デュレーション (取引間隔)</span></span>
+<span id="cb917-7"><a href="高頻度データ分析.html#cb917-7" tabindex="-1"></a>dur_tx <span class="ot">&lt;-</span> <span class="fu">diff</span>(<span class="fu">index</span>(topixFTL))</span>
+<span id="cb917-8"><a href="高頻度データ分析.html#cb917-8" tabindex="-1"></a>dur_nk <span class="ot">&lt;-</span> <span class="fu">diff</span>(<span class="fu">index</span>(nk225FTL))</span>
+<span id="cb917-9"><a href="高頻度データ分析.html#cb917-9" tabindex="-1"></a></span>
+<span id="cb917-10"><a href="高頻度データ分析.html#cb917-10" tabindex="-1"></a><span class="fu">head</span>(dur_tx)</span>
+<span id="cb917-11"><a href="高頻度データ分析.html#cb917-11" tabindex="-1"></a><span class="co">#&gt; [1] 0.030 0.336 0.001 0.002 0.001 0.003</span></span>
+<span id="cb917-12"><a href="高頻度データ分析.html#cb917-12" tabindex="-1"></a><span class="fu">head</span>(dur_nk)</span>
+<span id="cb917-13"><a href="高頻度データ分析.html#cb917-13" tabindex="-1"></a><span class="co">#&gt; [1] 0.030 0.001 0.001 0.092 0.062 0.019</span></span>
+<span id="cb917-14"><a href="高頻度データ分析.html#cb917-14" tabindex="-1"></a><span class="fu">length</span>(dur_tx)</span>
+<span id="cb917-15"><a href="高頻度データ分析.html#cb917-15" tabindex="-1"></a><span class="co">#&gt; [1] 10899</span></span>
+<span id="cb917-16"><a href="高頻度データ分析.html#cb917-16" tabindex="-1"></a><span class="fu">length</span>(dur_nk)</span>
+<span id="cb917-17"><a href="高頻度データ分析.html#cb917-17" tabindex="-1"></a><span class="co">#&gt; [1] 7501</span></span>
+<span id="cb917-18"><a href="高頻度データ分析.html#cb917-18" tabindex="-1"></a></span>
+<span id="cb917-19"><a href="高頻度データ分析.html#cb917-19" tabindex="-1"></a><span class="fu">plot</span>(dur_tx[<span class="dv">1</span><span class="sc">:</span><span class="dv">300</span>], <span class="at">type =</span> <span class="st">&quot;l&quot;</span>, <span class="at">main =</span> <span class="st">&quot;duration (first 300)&quot;</span>)</span></code></pre></div>
+<p><img src="110-HFD_files/figure-html/unnamed-chunk-7-1.png" width="75%" /></p>
+<p>ランダムに到着する取引の間隔データにおいても, クラスタリング現象が観察される.
+これを表現するためのモデルが自己回帰条件付デュレーション (ACD) モデルである. ACDモデルやそのバリエーションは, 取引が活発 (取引間隔が短く) なると, さらにそれがあらたな取引を呼び込むといった, 自己励起 (self-excitment) の現象を表現することができる.</p>
 <p><strong>モデルの適合</strong>:</p>
 <pre><code>acdFit: ACDモデルの適合
 - 用法: acdFit(durations = NULL, model = &quot;ACD&quot;, dist = &quot;exponential&quot;, 
@@ -629,304 +759,301 @@ calc_RV(topixFTL)
   - order: ACDモデルの次数. 例えば, ACD(p, q)ならば, order = c(p, q)を指定.</code></pre>
 <p>以下では, 誤差項の確率分布として指数分布を, モデルとしてACD(1,1), LACD1(1,1), LACD2(1,1)の3つを選択.
 モデルは定常性を仮定することから, 実際に実証分析を行う際には, “非定常”な時間帯, 具体的には市場のオープン後やクローズ前の一定期間 (５分間, 10分間等) のデータを除いたり, また1日内の非確率的な季節性変動予め除去した系列に対して, これらのモデルの適合が行われる (diurnal adjustmentと呼ばれる).</p>
-<div class="sourceCode" id="cb914"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb914-1"><a href="高頻度データ分析.html#cb914-1" tabindex="-1"></a><span class="fu">library</span>(ACDm)</span>
-<span id="cb914-2"><a href="高頻度データ分析.html#cb914-2" tabindex="-1"></a>distn <span class="ot">&lt;-</span> <span class="st">&quot;exponential&quot;</span></span>
-<span id="cb914-3"><a href="高頻度データ分析.html#cb914-3" tabindex="-1"></a>mod0 <span class="ot">&lt;-</span> <span class="st">&quot;ACD&quot;</span></span>
-<span id="cb914-4"><a href="高頻度データ分析.html#cb914-4" tabindex="-1"></a>mod1 <span class="ot">&lt;-</span> <span class="st">&quot;LACD1&quot;</span></span>
-<span id="cb914-5"><a href="高頻度データ分析.html#cb914-5" tabindex="-1"></a>mod2 <span class="ot">&lt;-</span> <span class="st">&quot;LACD2&quot;</span></span></code></pre></div>
-<div class="sourceCode" id="cb915"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb915-1"><a href="高頻度データ分析.html#cb915-1" tabindex="-1"></a><span class="co"># TOPIX先物</span></span>
-<span id="cb915-2"><a href="高頻度データ分析.html#cb915-2" tabindex="-1"></a><span class="co"># ACD(1,1)</span></span>
-<span id="cb915-3"><a href="高頻度データ分析.html#cb915-3" tabindex="-1"></a>fit_acd_tx <span class="ot">&lt;-</span> ACDm<span class="sc">::</span><span class="fu">acdFit</span>(<span class="at">durations =</span> dur_tx, <span class="at">model =</span> mod0, <span class="at">dist =</span> distn, <span class="at">order =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>), <span class="at">output =</span> T)</span>
-<span id="cb915-4"><a href="高頻度データ分析.html#cb915-4" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb915-5"><a href="高頻度データ分析.html#cb915-5" tabindex="-1"></a><span class="co">#&gt; ACD model estimation by (Quasi) Maximum Likelihood </span></span>
-<span id="cb915-6"><a href="高頻度データ分析.html#cb915-6" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb915-7"><a href="高頻度データ分析.html#cb915-7" tabindex="-1"></a><span class="co">#&gt; Call:</span></span>
-<span id="cb915-8"><a href="高頻度データ分析.html#cb915-8" tabindex="-1"></a><span class="co">#&gt;   ACDm::acdFit(durations = dur_tx, model = mod0, dist = distn,      order = c(1, 1), output = T) </span></span>
-<span id="cb915-9"><a href="高頻度データ分析.html#cb915-9" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb915-10"><a href="高頻度データ分析.html#cb915-10" tabindex="-1"></a><span class="co">#&gt; Model:</span></span>
-<span id="cb915-11"><a href="高頻度データ分析.html#cb915-11" tabindex="-1"></a><span class="co">#&gt;   ACD(1, 1)</span></span>
-<span id="cb915-12"><a href="高頻度データ分析.html#cb915-12" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb915-13"><a href="高頻度データ分析.html#cb915-13" tabindex="-1"></a><span class="co">#&gt; Distribution:</span></span>
-<span id="cb915-14"><a href="高頻度データ分析.html#cb915-14" tabindex="-1"></a><span class="co">#&gt;   exponential</span></span>
-<span id="cb915-15"><a href="高頻度データ分析.html#cb915-15" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb915-16"><a href="高頻度データ分析.html#cb915-16" tabindex="-1"></a><span class="co">#&gt; N: 10899</span></span>
-<span id="cb915-17"><a href="高頻度データ分析.html#cb915-17" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb915-18"><a href="高頻度データ分析.html#cb915-18" tabindex="-1"></a><span class="co">#&gt; Parameter estimate:</span></span>
-<span id="cb915-19"><a href="高頻度データ分析.html#cb915-19" tabindex="-1"></a><span class="co">#&gt;          Coef     SE PV robustSE</span></span>
-<span id="cb915-20"><a href="高頻度データ分析.html#cb915-20" tabindex="-1"></a><span class="co">#&gt; omega  1.4904 0.0523  0    0.373</span></span>
-<span id="cb915-21"><a href="高頻度データ分析.html#cb915-21" tabindex="-1"></a><span class="co">#&gt; alpha1 0.6144 0.0334  0    0.281</span></span>
-<span id="cb915-22"><a href="高頻度データ分析.html#cb915-22" tabindex="-1"></a><span class="co">#&gt; beta1  0.0871 0.0222  0    0.067</span></span>
-<span id="cb915-23"><a href="高頻度データ分析.html#cb915-23" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb915-24"><a href="高頻度データ分析.html#cb915-24" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb915-25"><a href="高頻度データ分析.html#cb915-25" tabindex="-1"></a><span class="co">#&gt; The fixed/unfree mean distribution parameter: </span></span>
-<span id="cb915-26"><a href="高頻度データ分析.html#cb915-26" tabindex="-1"></a><span class="co">#&gt;  lambda: 1</span></span>
-<span id="cb915-27"><a href="高頻度データ分析.html#cb915-27" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb915-28"><a href="高頻度データ分析.html#cb915-28" tabindex="-1"></a><span class="co">#&gt; QML robust correlations:</span></span>
-<span id="cb915-29"><a href="高頻度データ分析.html#cb915-29" tabindex="-1"></a><span class="co">#&gt;         omega alpha1  beta1</span></span>
-<span id="cb915-30"><a href="高頻度データ分析.html#cb915-30" tabindex="-1"></a><span class="co">#&gt; omega   1.000 -0.217 -0.387</span></span>
-<span id="cb915-31"><a href="高頻度データ分析.html#cb915-31" tabindex="-1"></a><span class="co">#&gt; alpha1 -0.217  1.000 -0.313</span></span>
-<span id="cb915-32"><a href="高頻度データ分析.html#cb915-32" tabindex="-1"></a><span class="co">#&gt; beta1  -0.387 -0.313  1.000</span></span>
-<span id="cb915-33"><a href="高頻度データ分析.html#cb915-33" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb915-34"><a href="高頻度データ分析.html#cb915-34" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb915-35"><a href="高頻度データ分析.html#cb915-35" tabindex="-1"></a><span class="co">#&gt; Goodness of fit:</span></span>
-<span id="cb915-36"><a href="高頻度データ分析.html#cb915-36" tabindex="-1"></a><span class="co">#&gt;                value</span></span>
-<span id="cb915-37"><a href="高頻度データ分析.html#cb915-37" tabindex="-1"></a><span class="co">#&gt; LogLikelihood -19293</span></span>
-<span id="cb915-38"><a href="高頻度データ分析.html#cb915-38" tabindex="-1"></a><span class="co">#&gt; AIC            38592</span></span>
-<span id="cb915-39"><a href="高頻度データ分析.html#cb915-39" tabindex="-1"></a><span class="co">#&gt; BIC            38614</span></span>
-<span id="cb915-40"><a href="高頻度データ分析.html#cb915-40" tabindex="-1"></a><span class="co">#&gt; MSE             1895</span></span>
-<span id="cb915-41"><a href="高頻度データ分析.html#cb915-41" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb915-42"><a href="高頻度データ分析.html#cb915-42" tabindex="-1"></a><span class="co">#&gt; Convergence: 0 </span></span>
-<span id="cb915-43"><a href="高頻度データ分析.html#cb915-43" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb915-44"><a href="高頻度データ分析.html#cb915-44" tabindex="-1"></a><span class="co">#&gt; Number of log-likelihood function evaluations: 193 </span></span>
-<span id="cb915-45"><a href="高頻度データ分析.html#cb915-45" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb915-46"><a href="高頻度データ分析.html#cb915-46" tabindex="-1"></a><span class="co">#&gt; Estimation time: 0.0421 secs </span></span>
-<span id="cb915-47"><a href="高頻度データ分析.html#cb915-47" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb915-48"><a href="高頻度データ分析.html#cb915-48" tabindex="-1"></a><span class="co">#&gt; Description: Estimated at 2024-01-10 22:48:49 by user takaki</span></span>
-<span id="cb915-49"><a href="高頻度データ分析.html#cb915-49" tabindex="-1"></a><span class="co"># LACD1(1,1)</span></span>
-<span id="cb915-50"><a href="高頻度データ分析.html#cb915-50" tabindex="-1"></a>fit_lacd1_tx <span class="ot">&lt;-</span> ACDm<span class="sc">::</span><span class="fu">acdFit</span>(<span class="at">durations =</span> dur_tx, <span class="at">model =</span> mod1, <span class="at">dist =</span> distn, <span class="at">order =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>), <span class="at">output =</span> T)</span>
-<span id="cb915-51"><a href="高頻度データ分析.html#cb915-51" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb915-52"><a href="高頻度データ分析.html#cb915-52" tabindex="-1"></a><span class="co">#&gt; ACD model estimation by (Quasi) Maximum Likelihood </span></span>
-<span id="cb915-53"><a href="高頻度データ分析.html#cb915-53" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb915-54"><a href="高頻度データ分析.html#cb915-54" tabindex="-1"></a><span class="co">#&gt; Call:</span></span>
-<span id="cb915-55"><a href="高頻度データ分析.html#cb915-55" tabindex="-1"></a><span class="co">#&gt;   ACDm::acdFit(durations = dur_tx, model = mod1, dist = distn,      order = c(1, 1), output = T) </span></span>
-<span id="cb915-56"><a href="高頻度データ分析.html#cb915-56" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb915-57"><a href="高頻度データ分析.html#cb915-57" tabindex="-1"></a><span class="co">#&gt; Model:</span></span>
-<span id="cb915-58"><a href="高頻度データ分析.html#cb915-58" tabindex="-1"></a><span class="co">#&gt;   LACD1(1, 1)</span></span>
-<span id="cb915-59"><a href="高頻度データ分析.html#cb915-59" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb915-60"><a href="高頻度データ分析.html#cb915-60" tabindex="-1"></a><span class="co">#&gt; Distribution:</span></span>
-<span id="cb915-61"><a href="高頻度データ分析.html#cb915-61" tabindex="-1"></a><span class="co">#&gt;   exponential</span></span>
-<span id="cb915-62"><a href="高頻度データ分析.html#cb915-62" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb915-63"><a href="高頻度データ分析.html#cb915-63" tabindex="-1"></a><span class="co">#&gt; N: 10899</span></span>
-<span id="cb915-64"><a href="高頻度データ分析.html#cb915-64" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb915-65"><a href="高頻度データ分析.html#cb915-65" tabindex="-1"></a><span class="co">#&gt; Parameter estimate:</span></span>
-<span id="cb915-66"><a href="高頻度データ分析.html#cb915-66" tabindex="-1"></a><span class="co">#&gt;         Coef      SE PV</span></span>
-<span id="cb915-67"><a href="高頻度データ分析.html#cb915-67" tabindex="-1"></a><span class="co">#&gt; omega  0.940 0.02007  0</span></span>
-<span id="cb915-68"><a href="高頻度データ分析.html#cb915-68" tabindex="-1"></a><span class="co">#&gt; alpha1 0.161 0.00371  0</span></span>
-<span id="cb915-69"><a href="高頻度データ分析.html#cb915-69" tabindex="-1"></a><span class="co">#&gt; beta1  0.349 0.01807  0</span></span>
-<span id="cb915-70"><a href="高頻度データ分析.html#cb915-70" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb915-71"><a href="高頻度データ分析.html#cb915-71" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb915-72"><a href="高頻度データ分析.html#cb915-72" tabindex="-1"></a><span class="co">#&gt; The fixed/unfree mean distribution parameter: </span></span>
-<span id="cb915-73"><a href="高頻度データ分析.html#cb915-73" tabindex="-1"></a><span class="co">#&gt;  lambda: 1</span></span>
-<span id="cb915-74"><a href="高頻度データ分析.html#cb915-74" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb915-75"><a href="高頻度データ分析.html#cb915-75" tabindex="-1"></a><span class="co">#&gt; Goodness of fit:</span></span>
-<span id="cb915-76"><a href="高頻度データ分析.html#cb915-76" tabindex="-1"></a><span class="co">#&gt;                value</span></span>
-<span id="cb915-77"><a href="高頻度データ分析.html#cb915-77" tabindex="-1"></a><span class="co">#&gt; LogLikelihood -18491</span></span>
-<span id="cb915-78"><a href="高頻度データ分析.html#cb915-78" tabindex="-1"></a><span class="co">#&gt; AIC            36987</span></span>
-<span id="cb915-79"><a href="高頻度データ分析.html#cb915-79" tabindex="-1"></a><span class="co">#&gt; BIC            37009</span></span>
-<span id="cb915-80"><a href="高頻度データ分析.html#cb915-80" tabindex="-1"></a><span class="co">#&gt; MSE             1373</span></span>
-<span id="cb915-81"><a href="高頻度データ分析.html#cb915-81" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb915-82"><a href="高頻度データ分析.html#cb915-82" tabindex="-1"></a><span class="co">#&gt; Convergence: 0 </span></span>
-<span id="cb915-83"><a href="高頻度データ分析.html#cb915-83" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb915-84"><a href="高頻度データ分析.html#cb915-84" tabindex="-1"></a><span class="co">#&gt; Number of log-likelihood function evaluations: 140 </span></span>
-<span id="cb915-85"><a href="高頻度データ分析.html#cb915-85" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb915-86"><a href="高頻度データ分析.html#cb915-86" tabindex="-1"></a><span class="co">#&gt; Estimation time: 0.11 secs </span></span>
-<span id="cb915-87"><a href="高頻度データ分析.html#cb915-87" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb915-88"><a href="高頻度データ分析.html#cb915-88" tabindex="-1"></a><span class="co">#&gt; Description: Estimated at 2024-01-10 22:48:49 by user takaki</span></span>
-<span id="cb915-89"><a href="高頻度データ分析.html#cb915-89" tabindex="-1"></a><span class="co"># LACD2(1,1)</span></span>
-<span id="cb915-90"><a href="高頻度データ分析.html#cb915-90" tabindex="-1"></a>fit_lacd2_tx <span class="ot">&lt;-</span> ACDm<span class="sc">::</span><span class="fu">acdFit</span>(<span class="at">durations =</span> dur_tx, <span class="at">model =</span> mod2, <span class="at">dist =</span> distn, <span class="at">order =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>), <span class="at">output =</span> T)</span>
-<span id="cb915-91"><a href="高頻度データ分析.html#cb915-91" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb915-92"><a href="高頻度データ分析.html#cb915-92" tabindex="-1"></a><span class="co">#&gt; ACD model estimation by (Quasi) Maximum Likelihood </span></span>
-<span id="cb915-93"><a href="高頻度データ分析.html#cb915-93" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb915-94"><a href="高頻度データ分析.html#cb915-94" tabindex="-1"></a><span class="co">#&gt; Call:</span></span>
-<span id="cb915-95"><a href="高頻度データ分析.html#cb915-95" tabindex="-1"></a><span class="co">#&gt;   ACDm::acdFit(durations = dur_tx, model = mod2, dist = distn,      order = c(1, 1), output = T) </span></span>
-<span id="cb915-96"><a href="高頻度データ分析.html#cb915-96" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb915-97"><a href="高頻度データ分析.html#cb915-97" tabindex="-1"></a><span class="co">#&gt; Model:</span></span>
-<span id="cb915-98"><a href="高頻度データ分析.html#cb915-98" tabindex="-1"></a><span class="co">#&gt;   LACD2(1, 1)</span></span>
-<span id="cb915-99"><a href="高頻度データ分析.html#cb915-99" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb915-100"><a href="高頻度データ分析.html#cb915-100" tabindex="-1"></a><span class="co">#&gt; Distribution:</span></span>
-<span id="cb915-101"><a href="高頻度データ分析.html#cb915-101" tabindex="-1"></a><span class="co">#&gt;   exponential</span></span>
-<span id="cb915-102"><a href="高頻度データ分析.html#cb915-102" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb915-103"><a href="高頻度データ分析.html#cb915-103" tabindex="-1"></a><span class="co">#&gt; N: 10899</span></span>
-<span id="cb915-104"><a href="高頻度データ分析.html#cb915-104" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb915-105"><a href="高頻度データ分析.html#cb915-105" tabindex="-1"></a><span class="co">#&gt; Parameter estimate:</span></span>
-<span id="cb915-106"><a href="高頻度データ分析.html#cb915-106" tabindex="-1"></a><span class="co">#&gt;           Coef       SE PV</span></span>
-<span id="cb915-107"><a href="高頻度データ分析.html#cb915-107" tabindex="-1"></a><span class="co">#&gt; omega   0.0832 0.012233  0</span></span>
-<span id="cb915-108"><a href="高頻度データ分析.html#cb915-108" tabindex="-1"></a><span class="co">#&gt; alpha1 -0.0019 0.000276  0</span></span>
-<span id="cb915-109"><a href="高頻度データ分析.html#cb915-109" tabindex="-1"></a><span class="co">#&gt; beta1   0.8975 0.015240  0</span></span>
-<span id="cb915-110"><a href="高頻度データ分析.html#cb915-110" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb915-111"><a href="高頻度データ分析.html#cb915-111" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb915-112"><a href="高頻度データ分析.html#cb915-112" tabindex="-1"></a><span class="co">#&gt; The fixed/unfree mean distribution parameter: </span></span>
-<span id="cb915-113"><a href="高頻度データ分析.html#cb915-113" tabindex="-1"></a><span class="co">#&gt;  lambda: 1</span></span>
-<span id="cb915-114"><a href="高頻度データ分析.html#cb915-114" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb915-115"><a href="高頻度データ分析.html#cb915-115" tabindex="-1"></a><span class="co">#&gt; Goodness of fit:</span></span>
-<span id="cb915-116"><a href="高頻度データ分析.html#cb915-116" tabindex="-1"></a><span class="co">#&gt;                value</span></span>
-<span id="cb915-117"><a href="高頻度データ分析.html#cb915-117" tabindex="-1"></a><span class="co">#&gt; LogLikelihood -19540</span></span>
-<span id="cb915-118"><a href="高頻度データ分析.html#cb915-118" tabindex="-1"></a><span class="co">#&gt; AIC            39085</span></span>
-<span id="cb915-119"><a href="高頻度データ分析.html#cb915-119" tabindex="-1"></a><span class="co">#&gt; BIC            39107</span></span>
-<span id="cb915-120"><a href="高頻度データ分析.html#cb915-120" tabindex="-1"></a><span class="co">#&gt; MSE             1373</span></span>
-<span id="cb915-121"><a href="高頻度データ分析.html#cb915-121" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb915-122"><a href="高頻度データ分析.html#cb915-122" tabindex="-1"></a><span class="co">#&gt; Convergence: 0 </span></span>
-<span id="cb915-123"><a href="高頻度データ分析.html#cb915-123" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb915-124"><a href="高頻度データ分析.html#cb915-124" tabindex="-1"></a><span class="co">#&gt; Number of log-likelihood function evaluations: 192 </span></span>
-<span id="cb915-125"><a href="高頻度データ分析.html#cb915-125" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb915-126"><a href="高頻度データ分析.html#cb915-126" tabindex="-1"></a><span class="co">#&gt; Estimation time: 0.0893 secs </span></span>
-<span id="cb915-127"><a href="高頻度データ分析.html#cb915-127" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb915-128"><a href="高頻度データ分析.html#cb915-128" tabindex="-1"></a><span class="co">#&gt; Description: Estimated at 2024-01-10 22:48:49 by user takaki</span></span></code></pre></div>
-<div class="sourceCode" id="cb916"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb916-1"><a href="高頻度データ分析.html#cb916-1" tabindex="-1"></a><span class="co"># 日経平均先物</span></span>
-<span id="cb916-2"><a href="高頻度データ分析.html#cb916-2" tabindex="-1"></a><span class="co"># ACD(1,1)</span></span>
-<span id="cb916-3"><a href="高頻度データ分析.html#cb916-3" tabindex="-1"></a>fit_acd_nk <span class="ot">&lt;-</span> ACDm<span class="sc">::</span><span class="fu">acdFit</span>(<span class="at">durations =</span> dur_nk, <span class="at">model =</span> mod0, <span class="at">dist =</span> distn, <span class="at">order =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>), <span class="at">output =</span> T)</span>
-<span id="cb916-4"><a href="高頻度データ分析.html#cb916-4" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb916-5"><a href="高頻度データ分析.html#cb916-5" tabindex="-1"></a><span class="co">#&gt; ACD model estimation by (Quasi) Maximum Likelihood </span></span>
-<span id="cb916-6"><a href="高頻度データ分析.html#cb916-6" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb916-7"><a href="高頻度データ分析.html#cb916-7" tabindex="-1"></a><span class="co">#&gt; Call:</span></span>
-<span id="cb916-8"><a href="高頻度データ分析.html#cb916-8" tabindex="-1"></a><span class="co">#&gt;   ACDm::acdFit(durations = dur_nk, model = mod0, dist = distn,      order = c(1, 1), output = T) </span></span>
-<span id="cb916-9"><a href="高頻度データ分析.html#cb916-9" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb916-10"><a href="高頻度データ分析.html#cb916-10" tabindex="-1"></a><span class="co">#&gt; Model:</span></span>
-<span id="cb916-11"><a href="高頻度データ分析.html#cb916-11" tabindex="-1"></a><span class="co">#&gt;   ACD(1, 1)</span></span>
-<span id="cb916-12"><a href="高頻度データ分析.html#cb916-12" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb916-13"><a href="高頻度データ分析.html#cb916-13" tabindex="-1"></a><span class="co">#&gt; Distribution:</span></span>
-<span id="cb916-14"><a href="高頻度データ分析.html#cb916-14" tabindex="-1"></a><span class="co">#&gt;   exponential</span></span>
-<span id="cb916-15"><a href="高頻度データ分析.html#cb916-15" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb916-16"><a href="高頻度データ分析.html#cb916-16" tabindex="-1"></a><span class="co">#&gt; N: 7501</span></span>
-<span id="cb916-17"><a href="高頻度データ分析.html#cb916-17" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb916-18"><a href="高頻度データ分析.html#cb916-18" tabindex="-1"></a><span class="co">#&gt; Parameter estimate:</span></span>
-<span id="cb916-19"><a href="高頻度データ分析.html#cb916-19" tabindex="-1"></a><span class="co">#&gt;           Coef      SE PV robustSE</span></span>
-<span id="cb916-20"><a href="高頻度データ分析.html#cb916-20" tabindex="-1"></a><span class="co">#&gt; omega  0.00734 0.00153  0  0.00612</span></span>
-<span id="cb916-21"><a href="高頻度データ分析.html#cb916-21" tabindex="-1"></a><span class="co">#&gt; alpha1 0.14555 0.00761  0  0.02283</span></span>
-<span id="cb916-22"><a href="高頻度データ分析.html#cb916-22" tabindex="-1"></a><span class="co">#&gt; beta1  0.91804 0.00310  0  0.00858</span></span>
-<span id="cb916-23"><a href="高頻度データ分析.html#cb916-23" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb916-24"><a href="高頻度データ分析.html#cb916-24" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb916-25"><a href="高頻度データ分析.html#cb916-25" tabindex="-1"></a><span class="co">#&gt; The fixed/unfree mean distribution parameter: </span></span>
-<span id="cb916-26"><a href="高頻度データ分析.html#cb916-26" tabindex="-1"></a><span class="co">#&gt;  lambda: 1</span></span>
-<span id="cb916-27"><a href="高頻度データ分析.html#cb916-27" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb916-28"><a href="高頻度データ分析.html#cb916-28" tabindex="-1"></a><span class="co">#&gt; QML robust correlations:</span></span>
-<span id="cb916-29"><a href="高頻度データ分析.html#cb916-29" tabindex="-1"></a><span class="co">#&gt;         omega alpha1  beta1</span></span>
-<span id="cb916-30"><a href="高頻度データ分析.html#cb916-30" tabindex="-1"></a><span class="co">#&gt; omega   1.000 -0.410 -0.692</span></span>
-<span id="cb916-31"><a href="高頻度データ分析.html#cb916-31" tabindex="-1"></a><span class="co">#&gt; alpha1 -0.410  1.000 -0.137</span></span>
-<span id="cb916-32"><a href="高頻度データ分析.html#cb916-32" tabindex="-1"></a><span class="co">#&gt; beta1  -0.692 -0.137  1.000</span></span>
-<span id="cb916-33"><a href="高頻度データ分析.html#cb916-33" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb916-34"><a href="高頻度データ分析.html#cb916-34" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb916-35"><a href="高頻度データ分析.html#cb916-35" tabindex="-1"></a><span class="co">#&gt; Goodness of fit:</span></span>
-<span id="cb916-36"><a href="高頻度データ分析.html#cb916-36" tabindex="-1"></a><span class="co">#&gt;                value</span></span>
-<span id="cb916-37"><a href="高頻度データ分析.html#cb916-37" tabindex="-1"></a><span class="co">#&gt; LogLikelihood -14762</span></span>
-<span id="cb916-38"><a href="高頻度データ分析.html#cb916-38" tabindex="-1"></a><span class="co">#&gt; AIC            29531</span></span>
-<span id="cb916-39"><a href="高頻度データ分析.html#cb916-39" tabindex="-1"></a><span class="co">#&gt; BIC            29552</span></span>
-<span id="cb916-40"><a href="高頻度データ分析.html#cb916-40" tabindex="-1"></a><span class="co">#&gt; MSE             2277</span></span>
-<span id="cb916-41"><a href="高頻度データ分析.html#cb916-41" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb916-42"><a href="高頻度データ分析.html#cb916-42" tabindex="-1"></a><span class="co">#&gt; Convergence: 0 </span></span>
-<span id="cb916-43"><a href="高頻度データ分析.html#cb916-43" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb916-44"><a href="高頻度データ分析.html#cb916-44" tabindex="-1"></a><span class="co">#&gt; Number of log-likelihood function evaluations: 184 </span></span>
-<span id="cb916-45"><a href="高頻度データ分析.html#cb916-45" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb916-46"><a href="高頻度データ分析.html#cb916-46" tabindex="-1"></a><span class="co">#&gt; Estimation time: 0.0252 secs </span></span>
-<span id="cb916-47"><a href="高頻度データ分析.html#cb916-47" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb916-48"><a href="高頻度データ分析.html#cb916-48" tabindex="-1"></a><span class="co">#&gt; Description: Estimated at 2024-01-10 22:48:49 by user takaki</span></span>
-<span id="cb916-49"><a href="高頻度データ分析.html#cb916-49" tabindex="-1"></a><span class="co"># LACD1(1,1)</span></span>
-<span id="cb916-50"><a href="高頻度データ分析.html#cb916-50" tabindex="-1"></a>fit_lacd1_nk <span class="ot">&lt;-</span> ACDm<span class="sc">::</span><span class="fu">acdFit</span>(<span class="at">durations =</span> dur_nk, <span class="at">model =</span> mod1, <span class="at">dist =</span> distn, <span class="at">order =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>), <span class="at">output =</span> T)</span>
-<span id="cb916-51"><a href="高頻度データ分析.html#cb916-51" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb916-52"><a href="高頻度データ分析.html#cb916-52" tabindex="-1"></a><span class="co">#&gt; ACD model estimation by (Quasi) Maximum Likelihood </span></span>
-<span id="cb916-53"><a href="高頻度データ分析.html#cb916-53" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb916-54"><a href="高頻度データ分析.html#cb916-54" tabindex="-1"></a><span class="co">#&gt; Call:</span></span>
-<span id="cb916-55"><a href="高頻度データ分析.html#cb916-55" tabindex="-1"></a><span class="co">#&gt;   ACDm::acdFit(durations = dur_nk, model = mod1, dist = distn,      order = c(1, 1), output = T) </span></span>
-<span id="cb916-56"><a href="高頻度データ分析.html#cb916-56" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb916-57"><a href="高頻度データ分析.html#cb916-57" tabindex="-1"></a><span class="co">#&gt; Model:</span></span>
-<span id="cb916-58"><a href="高頻度データ分析.html#cb916-58" tabindex="-1"></a><span class="co">#&gt;   LACD1(1, 1)</span></span>
-<span id="cb916-59"><a href="高頻度データ分析.html#cb916-59" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb916-60"><a href="高頻度データ分析.html#cb916-60" tabindex="-1"></a><span class="co">#&gt; Distribution:</span></span>
-<span id="cb916-61"><a href="高頻度データ分析.html#cb916-61" tabindex="-1"></a><span class="co">#&gt;   exponential</span></span>
-<span id="cb916-62"><a href="高頻度データ分析.html#cb916-62" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb916-63"><a href="高頻度データ分析.html#cb916-63" tabindex="-1"></a><span class="co">#&gt; N: 7501</span></span>
-<span id="cb916-64"><a href="高頻度データ分析.html#cb916-64" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb916-65"><a href="高頻度データ分析.html#cb916-65" tabindex="-1"></a><span class="co">#&gt; Parameter estimate:</span></span>
-<span id="cb916-66"><a href="高頻度データ分析.html#cb916-66" tabindex="-1"></a><span class="co">#&gt;          Coef       SE PV</span></span>
-<span id="cb916-67"><a href="高頻度データ分析.html#cb916-67" tabindex="-1"></a><span class="co">#&gt; omega  0.1423 0.004049  0</span></span>
-<span id="cb916-68"><a href="高頻度データ分析.html#cb916-68" tabindex="-1"></a><span class="co">#&gt; alpha1 0.0508 0.001426  0</span></span>
-<span id="cb916-69"><a href="高頻度データ分析.html#cb916-69" tabindex="-1"></a><span class="co">#&gt; beta1  1.0041 0.000623  0</span></span>
-<span id="cb916-70"><a href="高頻度データ分析.html#cb916-70" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb916-71"><a href="高頻度データ分析.html#cb916-71" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb916-72"><a href="高頻度データ分析.html#cb916-72" tabindex="-1"></a><span class="co">#&gt; The fixed/unfree mean distribution parameter: </span></span>
-<span id="cb916-73"><a href="高頻度データ分析.html#cb916-73" tabindex="-1"></a><span class="co">#&gt;  lambda: 1</span></span>
-<span id="cb916-74"><a href="高頻度データ分析.html#cb916-74" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb916-75"><a href="高頻度データ分析.html#cb916-75" tabindex="-1"></a><span class="co">#&gt; Goodness of fit:</span></span>
-<span id="cb916-76"><a href="高頻度データ分析.html#cb916-76" tabindex="-1"></a><span class="co">#&gt;                value</span></span>
-<span id="cb916-77"><a href="高頻度データ分析.html#cb916-77" tabindex="-1"></a><span class="co">#&gt; LogLikelihood -13235</span></span>
-<span id="cb916-78"><a href="高頻度データ分析.html#cb916-78" tabindex="-1"></a><span class="co">#&gt; AIC            26476</span></span>
-<span id="cb916-79"><a href="高頻度データ分析.html#cb916-79" tabindex="-1"></a><span class="co">#&gt; BIC            26496</span></span>
-<span id="cb916-80"><a href="高頻度データ分析.html#cb916-80" tabindex="-1"></a><span class="co">#&gt; MSE             2001</span></span>
-<span id="cb916-81"><a href="高頻度データ分析.html#cb916-81" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb916-82"><a href="高頻度データ分析.html#cb916-82" tabindex="-1"></a><span class="co">#&gt; Convergence: 0 </span></span>
-<span id="cb916-83"><a href="高頻度データ分析.html#cb916-83" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb916-84"><a href="高頻度データ分析.html#cb916-84" tabindex="-1"></a><span class="co">#&gt; Number of log-likelihood function evaluations: 182 </span></span>
-<span id="cb916-85"><a href="高頻度データ分析.html#cb916-85" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb916-86"><a href="高頻度データ分析.html#cb916-86" tabindex="-1"></a><span class="co">#&gt; Estimation time: 0.0924 secs </span></span>
-<span id="cb916-87"><a href="高頻度データ分析.html#cb916-87" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb916-88"><a href="高頻度データ分析.html#cb916-88" tabindex="-1"></a><span class="co">#&gt; Description: Estimated at 2024-01-10 22:48:49 by user takaki</span></span>
-<span id="cb916-89"><a href="高頻度データ分析.html#cb916-89" tabindex="-1"></a><span class="co"># LACD2(1,1)</span></span>
-<span id="cb916-90"><a href="高頻度データ分析.html#cb916-90" tabindex="-1"></a>fit_lacd2_nk <span class="ot">&lt;-</span> ACDm<span class="sc">::</span><span class="fu">acdFit</span>(<span class="at">durations =</span> dur_nk, <span class="at">model =</span> mod2, <span class="at">dist =</span> distn, <span class="at">order =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>), <span class="at">output =</span> T)</span>
-<span id="cb916-91"><a href="高頻度データ分析.html#cb916-91" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb916-92"><a href="高頻度データ分析.html#cb916-92" tabindex="-1"></a><span class="co">#&gt; ACD model estimation by (Quasi) Maximum Likelihood </span></span>
-<span id="cb916-93"><a href="高頻度データ分析.html#cb916-93" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb916-94"><a href="高頻度データ分析.html#cb916-94" tabindex="-1"></a><span class="co">#&gt; Call:</span></span>
-<span id="cb916-95"><a href="高頻度データ分析.html#cb916-95" tabindex="-1"></a><span class="co">#&gt;   ACDm::acdFit(durations = dur_nk, model = mod2, dist = distn,      order = c(1, 1), output = T) </span></span>
-<span id="cb916-96"><a href="高頻度データ分析.html#cb916-96" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb916-97"><a href="高頻度データ分析.html#cb916-97" tabindex="-1"></a><span class="co">#&gt; Model:</span></span>
-<span id="cb916-98"><a href="高頻度データ分析.html#cb916-98" tabindex="-1"></a><span class="co">#&gt;   LACD2(1, 1)</span></span>
-<span id="cb916-99"><a href="高頻度データ分析.html#cb916-99" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb916-100"><a href="高頻度データ分析.html#cb916-100" tabindex="-1"></a><span class="co">#&gt; Distribution:</span></span>
-<span id="cb916-101"><a href="高頻度データ分析.html#cb916-101" tabindex="-1"></a><span class="co">#&gt;   exponential</span></span>
-<span id="cb916-102"><a href="高頻度データ分析.html#cb916-102" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb916-103"><a href="高頻度データ分析.html#cb916-103" tabindex="-1"></a><span class="co">#&gt; N: 7501</span></span>
-<span id="cb916-104"><a href="高頻度データ分析.html#cb916-104" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb916-105"><a href="高頻度データ分析.html#cb916-105" tabindex="-1"></a><span class="co">#&gt; Parameter estimate:</span></span>
-<span id="cb916-106"><a href="高頻度データ分析.html#cb916-106" tabindex="-1"></a><span class="co">#&gt;          Coef       SE PV</span></span>
-<span id="cb916-107"><a href="高頻度データ分析.html#cb916-107" tabindex="-1"></a><span class="co">#&gt; omega  0.0229 0.001847  0</span></span>
-<span id="cb916-108"><a href="高頻度データ分析.html#cb916-108" tabindex="-1"></a><span class="co">#&gt; alpha1 0.0028 0.000278  0</span></span>
-<span id="cb916-109"><a href="高頻度データ分析.html#cb916-109" tabindex="-1"></a><span class="co">#&gt; beta1  0.9779 0.001666  0</span></span>
-<span id="cb916-110"><a href="高頻度データ分析.html#cb916-110" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb916-111"><a href="高頻度データ分析.html#cb916-111" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb916-112"><a href="高頻度データ分析.html#cb916-112" tabindex="-1"></a><span class="co">#&gt; The fixed/unfree mean distribution parameter: </span></span>
-<span id="cb916-113"><a href="高頻度データ分析.html#cb916-113" tabindex="-1"></a><span class="co">#&gt;  lambda: 1</span></span>
-<span id="cb916-114"><a href="高頻度データ分析.html#cb916-114" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb916-115"><a href="高頻度データ分析.html#cb916-115" tabindex="-1"></a><span class="co">#&gt; Goodness of fit:</span></span>
-<span id="cb916-116"><a href="高頻度データ分析.html#cb916-116" tabindex="-1"></a><span class="co">#&gt;                value</span></span>
-<span id="cb916-117"><a href="高頻度データ分析.html#cb916-117" tabindex="-1"></a><span class="co">#&gt; LogLikelihood -16185</span></span>
-<span id="cb916-118"><a href="高頻度データ分析.html#cb916-118" tabindex="-1"></a><span class="co">#&gt; AIC            32377</span></span>
-<span id="cb916-119"><a href="高頻度データ分析.html#cb916-119" tabindex="-1"></a><span class="co">#&gt; BIC            32398</span></span>
-<span id="cb916-120"><a href="高頻度データ分析.html#cb916-120" tabindex="-1"></a><span class="co">#&gt; MSE             2003</span></span>
-<span id="cb916-121"><a href="高頻度データ分析.html#cb916-121" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb916-122"><a href="高頻度データ分析.html#cb916-122" tabindex="-1"></a><span class="co">#&gt; Convergence: 0 </span></span>
-<span id="cb916-123"><a href="高頻度データ分析.html#cb916-123" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb916-124"><a href="高頻度データ分析.html#cb916-124" tabindex="-1"></a><span class="co">#&gt; Number of log-likelihood function evaluations: 160 </span></span>
-<span id="cb916-125"><a href="高頻度データ分析.html#cb916-125" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb916-126"><a href="高頻度データ分析.html#cb916-126" tabindex="-1"></a><span class="co">#&gt; Estimation time: 0.0546 secs </span></span>
-<span id="cb916-127"><a href="高頻度データ分析.html#cb916-127" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb916-128"><a href="高頻度データ分析.html#cb916-128" tabindex="-1"></a><span class="co">#&gt; Description: Estimated at 2024-01-10 22:48:49 by user takaki</span></span></code></pre></div>
+<div class="sourceCode" id="cb919"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb919-1"><a href="高頻度データ分析.html#cb919-1" tabindex="-1"></a><span class="fu">library</span>(ACDm)</span>
+<span id="cb919-2"><a href="高頻度データ分析.html#cb919-2" tabindex="-1"></a>distn <span class="ot">&lt;-</span> <span class="st">&quot;exponential&quot;</span></span>
+<span id="cb919-3"><a href="高頻度データ分析.html#cb919-3" tabindex="-1"></a>mod0 <span class="ot">&lt;-</span> <span class="st">&quot;ACD&quot;</span></span>
+<span id="cb919-4"><a href="高頻度データ分析.html#cb919-4" tabindex="-1"></a>mod1 <span class="ot">&lt;-</span> <span class="st">&quot;LACD1&quot;</span></span>
+<span id="cb919-5"><a href="高頻度データ分析.html#cb919-5" tabindex="-1"></a>mod2 <span class="ot">&lt;-</span> <span class="st">&quot;LACD2&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb920"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb920-1"><a href="高頻度データ分析.html#cb920-1" tabindex="-1"></a><span class="co"># TOPIX先物</span></span>
+<span id="cb920-2"><a href="高頻度データ分析.html#cb920-2" tabindex="-1"></a><span class="co"># ACD(1,1)</span></span>
+<span id="cb920-3"><a href="高頻度データ分析.html#cb920-3" tabindex="-1"></a>fit_acd_tx <span class="ot">&lt;-</span> ACDm<span class="sc">::</span><span class="fu">acdFit</span>(<span class="at">durations =</span> dur_tx, <span class="at">model =</span> mod0, <span class="at">dist =</span> distn, <span class="at">order =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>), <span class="at">output =</span> T)</span>
+<span id="cb920-4"><a href="高頻度データ分析.html#cb920-4" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb920-5"><a href="高頻度データ分析.html#cb920-5" tabindex="-1"></a><span class="co">#&gt; ACD model estimation by (Quasi) Maximum Likelihood </span></span>
+<span id="cb920-6"><a href="高頻度データ分析.html#cb920-6" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb920-7"><a href="高頻度データ分析.html#cb920-7" tabindex="-1"></a><span class="co">#&gt; Call:</span></span>
+<span id="cb920-8"><a href="高頻度データ分析.html#cb920-8" tabindex="-1"></a><span class="co">#&gt;   ACDm::acdFit(durations = dur_tx, model = mod0, dist = distn,      order = c(1, 1), output = T) </span></span>
+<span id="cb920-9"><a href="高頻度データ分析.html#cb920-9" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb920-10"><a href="高頻度データ分析.html#cb920-10" tabindex="-1"></a><span class="co">#&gt; Model:</span></span>
+<span id="cb920-11"><a href="高頻度データ分析.html#cb920-11" tabindex="-1"></a><span class="co">#&gt;   ACD(1, 1)</span></span>
+<span id="cb920-12"><a href="高頻度データ分析.html#cb920-12" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb920-13"><a href="高頻度データ分析.html#cb920-13" tabindex="-1"></a><span class="co">#&gt; Distribution:</span></span>
+<span id="cb920-14"><a href="高頻度データ分析.html#cb920-14" tabindex="-1"></a><span class="co">#&gt;   exponential</span></span>
+<span id="cb920-15"><a href="高頻度データ分析.html#cb920-15" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb920-16"><a href="高頻度データ分析.html#cb920-16" tabindex="-1"></a><span class="co">#&gt; N: 10899</span></span>
+<span id="cb920-17"><a href="高頻度データ分析.html#cb920-17" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb920-18"><a href="高頻度データ分析.html#cb920-18" tabindex="-1"></a><span class="co">#&gt; Parameter estimate:</span></span>
+<span id="cb920-19"><a href="高頻度データ分析.html#cb920-19" tabindex="-1"></a><span class="co">#&gt;          Coef     SE PV robustSE</span></span>
+<span id="cb920-20"><a href="高頻度データ分析.html#cb920-20" tabindex="-1"></a><span class="co">#&gt; omega  1.4904 0.0523  0    0.373</span></span>
+<span id="cb920-21"><a href="高頻度データ分析.html#cb920-21" tabindex="-1"></a><span class="co">#&gt; alpha1 0.6144 0.0334  0    0.281</span></span>
+<span id="cb920-22"><a href="高頻度データ分析.html#cb920-22" tabindex="-1"></a><span class="co">#&gt; beta1  0.0871 0.0222  0    0.067</span></span>
+<span id="cb920-23"><a href="高頻度データ分析.html#cb920-23" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb920-24"><a href="高頻度データ分析.html#cb920-24" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb920-25"><a href="高頻度データ分析.html#cb920-25" tabindex="-1"></a><span class="co">#&gt; The fixed/unfree mean distribution parameter: </span></span>
+<span id="cb920-26"><a href="高頻度データ分析.html#cb920-26" tabindex="-1"></a><span class="co">#&gt;  lambda: 1</span></span>
+<span id="cb920-27"><a href="高頻度データ分析.html#cb920-27" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb920-28"><a href="高頻度データ分析.html#cb920-28" tabindex="-1"></a><span class="co">#&gt; QML robust correlations:</span></span>
+<span id="cb920-29"><a href="高頻度データ分析.html#cb920-29" tabindex="-1"></a><span class="co">#&gt;         omega alpha1  beta1</span></span>
+<span id="cb920-30"><a href="高頻度データ分析.html#cb920-30" tabindex="-1"></a><span class="co">#&gt; omega   1.000 -0.217 -0.387</span></span>
+<span id="cb920-31"><a href="高頻度データ分析.html#cb920-31" tabindex="-1"></a><span class="co">#&gt; alpha1 -0.217  1.000 -0.313</span></span>
+<span id="cb920-32"><a href="高頻度データ分析.html#cb920-32" tabindex="-1"></a><span class="co">#&gt; beta1  -0.387 -0.313  1.000</span></span>
+<span id="cb920-33"><a href="高頻度データ分析.html#cb920-33" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb920-34"><a href="高頻度データ分析.html#cb920-34" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb920-35"><a href="高頻度データ分析.html#cb920-35" tabindex="-1"></a><span class="co">#&gt; Goodness of fit:</span></span>
+<span id="cb920-36"><a href="高頻度データ分析.html#cb920-36" tabindex="-1"></a><span class="co">#&gt;                value</span></span>
+<span id="cb920-37"><a href="高頻度データ分析.html#cb920-37" tabindex="-1"></a><span class="co">#&gt; LogLikelihood -19293</span></span>
+<span id="cb920-38"><a href="高頻度データ分析.html#cb920-38" tabindex="-1"></a><span class="co">#&gt; AIC            38592</span></span>
+<span id="cb920-39"><a href="高頻度データ分析.html#cb920-39" tabindex="-1"></a><span class="co">#&gt; BIC            38614</span></span>
+<span id="cb920-40"><a href="高頻度データ分析.html#cb920-40" tabindex="-1"></a><span class="co">#&gt; MSE             1895</span></span>
+<span id="cb920-41"><a href="高頻度データ分析.html#cb920-41" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb920-42"><a href="高頻度データ分析.html#cb920-42" tabindex="-1"></a><span class="co">#&gt; Convergence: 0 </span></span>
+<span id="cb920-43"><a href="高頻度データ分析.html#cb920-43" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb920-44"><a href="高頻度データ分析.html#cb920-44" tabindex="-1"></a><span class="co">#&gt; Number of log-likelihood function evaluations: 193 </span></span>
+<span id="cb920-45"><a href="高頻度データ分析.html#cb920-45" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb920-46"><a href="高頻度データ分析.html#cb920-46" tabindex="-1"></a><span class="co">#&gt; Estimation time: 0.0394 secs </span></span>
+<span id="cb920-47"><a href="高頻度データ分析.html#cb920-47" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb920-48"><a href="高頻度データ分析.html#cb920-48" tabindex="-1"></a><span class="co">#&gt; Description: Estimated at 2024-01-18 13:58:25 by user takaki</span></span>
+<span id="cb920-49"><a href="高頻度データ分析.html#cb920-49" tabindex="-1"></a><span class="co"># LACD1(1,1)</span></span>
+<span id="cb920-50"><a href="高頻度データ分析.html#cb920-50" tabindex="-1"></a>fit_lacd1_tx <span class="ot">&lt;-</span> ACDm<span class="sc">::</span><span class="fu">acdFit</span>(<span class="at">durations =</span> dur_tx, <span class="at">model =</span> mod1, <span class="at">dist =</span> distn, <span class="at">order =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>), <span class="at">output =</span> T)</span>
+<span id="cb920-51"><a href="高頻度データ分析.html#cb920-51" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb920-52"><a href="高頻度データ分析.html#cb920-52" tabindex="-1"></a><span class="co">#&gt; ACD model estimation by (Quasi) Maximum Likelihood </span></span>
+<span id="cb920-53"><a href="高頻度データ分析.html#cb920-53" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb920-54"><a href="高頻度データ分析.html#cb920-54" tabindex="-1"></a><span class="co">#&gt; Call:</span></span>
+<span id="cb920-55"><a href="高頻度データ分析.html#cb920-55" tabindex="-1"></a><span class="co">#&gt;   ACDm::acdFit(durations = dur_tx, model = mod1, dist = distn,      order = c(1, 1), output = T) </span></span>
+<span id="cb920-56"><a href="高頻度データ分析.html#cb920-56" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb920-57"><a href="高頻度データ分析.html#cb920-57" tabindex="-1"></a><span class="co">#&gt; Model:</span></span>
+<span id="cb920-58"><a href="高頻度データ分析.html#cb920-58" tabindex="-1"></a><span class="co">#&gt;   LACD1(1, 1)</span></span>
+<span id="cb920-59"><a href="高頻度データ分析.html#cb920-59" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb920-60"><a href="高頻度データ分析.html#cb920-60" tabindex="-1"></a><span class="co">#&gt; Distribution:</span></span>
+<span id="cb920-61"><a href="高頻度データ分析.html#cb920-61" tabindex="-1"></a><span class="co">#&gt;   exponential</span></span>
+<span id="cb920-62"><a href="高頻度データ分析.html#cb920-62" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb920-63"><a href="高頻度データ分析.html#cb920-63" tabindex="-1"></a><span class="co">#&gt; N: 10899</span></span>
+<span id="cb920-64"><a href="高頻度データ分析.html#cb920-64" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb920-65"><a href="高頻度データ分析.html#cb920-65" tabindex="-1"></a><span class="co">#&gt; Parameter estimate:</span></span>
+<span id="cb920-66"><a href="高頻度データ分析.html#cb920-66" tabindex="-1"></a><span class="co">#&gt;         Coef      SE PV</span></span>
+<span id="cb920-67"><a href="高頻度データ分析.html#cb920-67" tabindex="-1"></a><span class="co">#&gt; omega  0.940 0.02007  0</span></span>
+<span id="cb920-68"><a href="高頻度データ分析.html#cb920-68" tabindex="-1"></a><span class="co">#&gt; alpha1 0.161 0.00371  0</span></span>
+<span id="cb920-69"><a href="高頻度データ分析.html#cb920-69" tabindex="-1"></a><span class="co">#&gt; beta1  0.349 0.01807  0</span></span>
+<span id="cb920-70"><a href="高頻度データ分析.html#cb920-70" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb920-71"><a href="高頻度データ分析.html#cb920-71" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb920-72"><a href="高頻度データ分析.html#cb920-72" tabindex="-1"></a><span class="co">#&gt; The fixed/unfree mean distribution parameter: </span></span>
+<span id="cb920-73"><a href="高頻度データ分析.html#cb920-73" tabindex="-1"></a><span class="co">#&gt;  lambda: 1</span></span>
+<span id="cb920-74"><a href="高頻度データ分析.html#cb920-74" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb920-75"><a href="高頻度データ分析.html#cb920-75" tabindex="-1"></a><span class="co">#&gt; Goodness of fit:</span></span>
+<span id="cb920-76"><a href="高頻度データ分析.html#cb920-76" tabindex="-1"></a><span class="co">#&gt;                value</span></span>
+<span id="cb920-77"><a href="高頻度データ分析.html#cb920-77" tabindex="-1"></a><span class="co">#&gt; LogLikelihood -18491</span></span>
+<span id="cb920-78"><a href="高頻度データ分析.html#cb920-78" tabindex="-1"></a><span class="co">#&gt; AIC            36987</span></span>
+<span id="cb920-79"><a href="高頻度データ分析.html#cb920-79" tabindex="-1"></a><span class="co">#&gt; BIC            37009</span></span>
+<span id="cb920-80"><a href="高頻度データ分析.html#cb920-80" tabindex="-1"></a><span class="co">#&gt; MSE             1373</span></span>
+<span id="cb920-81"><a href="高頻度データ分析.html#cb920-81" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb920-82"><a href="高頻度データ分析.html#cb920-82" tabindex="-1"></a><span class="co">#&gt; Convergence: 0 </span></span>
+<span id="cb920-83"><a href="高頻度データ分析.html#cb920-83" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb920-84"><a href="高頻度データ分析.html#cb920-84" tabindex="-1"></a><span class="co">#&gt; Number of log-likelihood function evaluations: 140 </span></span>
+<span id="cb920-85"><a href="高頻度データ分析.html#cb920-85" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb920-86"><a href="高頻度データ分析.html#cb920-86" tabindex="-1"></a><span class="co">#&gt; Estimation time: 0.11 secs </span></span>
+<span id="cb920-87"><a href="高頻度データ分析.html#cb920-87" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb920-88"><a href="高頻度データ分析.html#cb920-88" tabindex="-1"></a><span class="co">#&gt; Description: Estimated at 2024-01-18 13:58:25 by user takaki</span></span>
+<span id="cb920-89"><a href="高頻度データ分析.html#cb920-89" tabindex="-1"></a><span class="co"># LACD2(1,1)</span></span>
+<span id="cb920-90"><a href="高頻度データ分析.html#cb920-90" tabindex="-1"></a>fit_lacd2_tx <span class="ot">&lt;-</span> ACDm<span class="sc">::</span><span class="fu">acdFit</span>(<span class="at">durations =</span> dur_tx, <span class="at">model =</span> mod2, <span class="at">dist =</span> distn, <span class="at">order =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>), <span class="at">output =</span> T)</span>
+<span id="cb920-91"><a href="高頻度データ分析.html#cb920-91" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb920-92"><a href="高頻度データ分析.html#cb920-92" tabindex="-1"></a><span class="co">#&gt; ACD model estimation by (Quasi) Maximum Likelihood </span></span>
+<span id="cb920-93"><a href="高頻度データ分析.html#cb920-93" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb920-94"><a href="高頻度データ分析.html#cb920-94" tabindex="-1"></a><span class="co">#&gt; Call:</span></span>
+<span id="cb920-95"><a href="高頻度データ分析.html#cb920-95" tabindex="-1"></a><span class="co">#&gt;   ACDm::acdFit(durations = dur_tx, model = mod2, dist = distn,      order = c(1, 1), output = T) </span></span>
+<span id="cb920-96"><a href="高頻度データ分析.html#cb920-96" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb920-97"><a href="高頻度データ分析.html#cb920-97" tabindex="-1"></a><span class="co">#&gt; Model:</span></span>
+<span id="cb920-98"><a href="高頻度データ分析.html#cb920-98" tabindex="-1"></a><span class="co">#&gt;   LACD2(1, 1)</span></span>
+<span id="cb920-99"><a href="高頻度データ分析.html#cb920-99" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb920-100"><a href="高頻度データ分析.html#cb920-100" tabindex="-1"></a><span class="co">#&gt; Distribution:</span></span>
+<span id="cb920-101"><a href="高頻度データ分析.html#cb920-101" tabindex="-1"></a><span class="co">#&gt;   exponential</span></span>
+<span id="cb920-102"><a href="高頻度データ分析.html#cb920-102" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb920-103"><a href="高頻度データ分析.html#cb920-103" tabindex="-1"></a><span class="co">#&gt; N: 10899</span></span>
+<span id="cb920-104"><a href="高頻度データ分析.html#cb920-104" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb920-105"><a href="高頻度データ分析.html#cb920-105" tabindex="-1"></a><span class="co">#&gt; Parameter estimate:</span></span>
+<span id="cb920-106"><a href="高頻度データ分析.html#cb920-106" tabindex="-1"></a><span class="co">#&gt;           Coef       SE PV</span></span>
+<span id="cb920-107"><a href="高頻度データ分析.html#cb920-107" tabindex="-1"></a><span class="co">#&gt; omega   0.0832 0.012233  0</span></span>
+<span id="cb920-108"><a href="高頻度データ分析.html#cb920-108" tabindex="-1"></a><span class="co">#&gt; alpha1 -0.0019 0.000276  0</span></span>
+<span id="cb920-109"><a href="高頻度データ分析.html#cb920-109" tabindex="-1"></a><span class="co">#&gt; beta1   0.8975 0.015240  0</span></span>
+<span id="cb920-110"><a href="高頻度データ分析.html#cb920-110" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb920-111"><a href="高頻度データ分析.html#cb920-111" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb920-112"><a href="高頻度データ分析.html#cb920-112" tabindex="-1"></a><span class="co">#&gt; The fixed/unfree mean distribution parameter: </span></span>
+<span id="cb920-113"><a href="高頻度データ分析.html#cb920-113" tabindex="-1"></a><span class="co">#&gt;  lambda: 1</span></span>
+<span id="cb920-114"><a href="高頻度データ分析.html#cb920-114" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb920-115"><a href="高頻度データ分析.html#cb920-115" tabindex="-1"></a><span class="co">#&gt; Goodness of fit:</span></span>
+<span id="cb920-116"><a href="高頻度データ分析.html#cb920-116" tabindex="-1"></a><span class="co">#&gt;                value</span></span>
+<span id="cb920-117"><a href="高頻度データ分析.html#cb920-117" tabindex="-1"></a><span class="co">#&gt; LogLikelihood -19540</span></span>
+<span id="cb920-118"><a href="高頻度データ分析.html#cb920-118" tabindex="-1"></a><span class="co">#&gt; AIC            39085</span></span>
+<span id="cb920-119"><a href="高頻度データ分析.html#cb920-119" tabindex="-1"></a><span class="co">#&gt; BIC            39107</span></span>
+<span id="cb920-120"><a href="高頻度データ分析.html#cb920-120" tabindex="-1"></a><span class="co">#&gt; MSE             1373</span></span>
+<span id="cb920-121"><a href="高頻度データ分析.html#cb920-121" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb920-122"><a href="高頻度データ分析.html#cb920-122" tabindex="-1"></a><span class="co">#&gt; Convergence: 0 </span></span>
+<span id="cb920-123"><a href="高頻度データ分析.html#cb920-123" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb920-124"><a href="高頻度データ分析.html#cb920-124" tabindex="-1"></a><span class="co">#&gt; Number of log-likelihood function evaluations: 192 </span></span>
+<span id="cb920-125"><a href="高頻度データ分析.html#cb920-125" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb920-126"><a href="高頻度データ分析.html#cb920-126" tabindex="-1"></a><span class="co">#&gt; Estimation time: 0.0898 secs </span></span>
+<span id="cb920-127"><a href="高頻度データ分析.html#cb920-127" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb920-128"><a href="高頻度データ分析.html#cb920-128" tabindex="-1"></a><span class="co">#&gt; Description: Estimated at 2024-01-18 13:58:25 by user takaki</span></span></code></pre></div>
+<div class="sourceCode" id="cb921"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb921-1"><a href="高頻度データ分析.html#cb921-1" tabindex="-1"></a><span class="co"># 日経平均先物</span></span>
+<span id="cb921-2"><a href="高頻度データ分析.html#cb921-2" tabindex="-1"></a><span class="co"># ACD(1,1)</span></span>
+<span id="cb921-3"><a href="高頻度データ分析.html#cb921-3" tabindex="-1"></a>fit_acd_nk <span class="ot">&lt;-</span> ACDm<span class="sc">::</span><span class="fu">acdFit</span>(<span class="at">durations =</span> dur_nk, <span class="at">model =</span> mod0, <span class="at">dist =</span> distn, <span class="at">order =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>), <span class="at">output =</span> T)</span>
+<span id="cb921-4"><a href="高頻度データ分析.html#cb921-4" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb921-5"><a href="高頻度データ分析.html#cb921-5" tabindex="-1"></a><span class="co">#&gt; ACD model estimation by (Quasi) Maximum Likelihood </span></span>
+<span id="cb921-6"><a href="高頻度データ分析.html#cb921-6" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb921-7"><a href="高頻度データ分析.html#cb921-7" tabindex="-1"></a><span class="co">#&gt; Call:</span></span>
+<span id="cb921-8"><a href="高頻度データ分析.html#cb921-8" tabindex="-1"></a><span class="co">#&gt;   ACDm::acdFit(durations = dur_nk, model = mod0, dist = distn,      order = c(1, 1), output = T) </span></span>
+<span id="cb921-9"><a href="高頻度データ分析.html#cb921-9" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb921-10"><a href="高頻度データ分析.html#cb921-10" tabindex="-1"></a><span class="co">#&gt; Model:</span></span>
+<span id="cb921-11"><a href="高頻度データ分析.html#cb921-11" tabindex="-1"></a><span class="co">#&gt;   ACD(1, 1)</span></span>
+<span id="cb921-12"><a href="高頻度データ分析.html#cb921-12" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb921-13"><a href="高頻度データ分析.html#cb921-13" tabindex="-1"></a><span class="co">#&gt; Distribution:</span></span>
+<span id="cb921-14"><a href="高頻度データ分析.html#cb921-14" tabindex="-1"></a><span class="co">#&gt;   exponential</span></span>
+<span id="cb921-15"><a href="高頻度データ分析.html#cb921-15" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb921-16"><a href="高頻度データ分析.html#cb921-16" tabindex="-1"></a><span class="co">#&gt; N: 7501</span></span>
+<span id="cb921-17"><a href="高頻度データ分析.html#cb921-17" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb921-18"><a href="高頻度データ分析.html#cb921-18" tabindex="-1"></a><span class="co">#&gt; Parameter estimate:</span></span>
+<span id="cb921-19"><a href="高頻度データ分析.html#cb921-19" tabindex="-1"></a><span class="co">#&gt;           Coef      SE PV robustSE</span></span>
+<span id="cb921-20"><a href="高頻度データ分析.html#cb921-20" tabindex="-1"></a><span class="co">#&gt; omega  0.00734 0.00153  0  0.00612</span></span>
+<span id="cb921-21"><a href="高頻度データ分析.html#cb921-21" tabindex="-1"></a><span class="co">#&gt; alpha1 0.14555 0.00761  0  0.02283</span></span>
+<span id="cb921-22"><a href="高頻度データ分析.html#cb921-22" tabindex="-1"></a><span class="co">#&gt; beta1  0.91804 0.00310  0  0.00858</span></span>
+<span id="cb921-23"><a href="高頻度データ分析.html#cb921-23" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb921-24"><a href="高頻度データ分析.html#cb921-24" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb921-25"><a href="高頻度データ分析.html#cb921-25" tabindex="-1"></a><span class="co">#&gt; The fixed/unfree mean distribution parameter: </span></span>
+<span id="cb921-26"><a href="高頻度データ分析.html#cb921-26" tabindex="-1"></a><span class="co">#&gt;  lambda: 1</span></span>
+<span id="cb921-27"><a href="高頻度データ分析.html#cb921-27" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb921-28"><a href="高頻度データ分析.html#cb921-28" tabindex="-1"></a><span class="co">#&gt; QML robust correlations:</span></span>
+<span id="cb921-29"><a href="高頻度データ分析.html#cb921-29" tabindex="-1"></a><span class="co">#&gt;         omega alpha1  beta1</span></span>
+<span id="cb921-30"><a href="高頻度データ分析.html#cb921-30" tabindex="-1"></a><span class="co">#&gt; omega   1.000 -0.410 -0.692</span></span>
+<span id="cb921-31"><a href="高頻度データ分析.html#cb921-31" tabindex="-1"></a><span class="co">#&gt; alpha1 -0.410  1.000 -0.137</span></span>
+<span id="cb921-32"><a href="高頻度データ分析.html#cb921-32" tabindex="-1"></a><span class="co">#&gt; beta1  -0.692 -0.137  1.000</span></span>
+<span id="cb921-33"><a href="高頻度データ分析.html#cb921-33" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb921-34"><a href="高頻度データ分析.html#cb921-34" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb921-35"><a href="高頻度データ分析.html#cb921-35" tabindex="-1"></a><span class="co">#&gt; Goodness of fit:</span></span>
+<span id="cb921-36"><a href="高頻度データ分析.html#cb921-36" tabindex="-1"></a><span class="co">#&gt;                value</span></span>
+<span id="cb921-37"><a href="高頻度データ分析.html#cb921-37" tabindex="-1"></a><span class="co">#&gt; LogLikelihood -14762</span></span>
+<span id="cb921-38"><a href="高頻度データ分析.html#cb921-38" tabindex="-1"></a><span class="co">#&gt; AIC            29531</span></span>
+<span id="cb921-39"><a href="高頻度データ分析.html#cb921-39" tabindex="-1"></a><span class="co">#&gt; BIC            29552</span></span>
+<span id="cb921-40"><a href="高頻度データ分析.html#cb921-40" tabindex="-1"></a><span class="co">#&gt; MSE             2277</span></span>
+<span id="cb921-41"><a href="高頻度データ分析.html#cb921-41" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb921-42"><a href="高頻度データ分析.html#cb921-42" tabindex="-1"></a><span class="co">#&gt; Convergence: 0 </span></span>
+<span id="cb921-43"><a href="高頻度データ分析.html#cb921-43" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb921-44"><a href="高頻度データ分析.html#cb921-44" tabindex="-1"></a><span class="co">#&gt; Number of log-likelihood function evaluations: 184 </span></span>
+<span id="cb921-45"><a href="高頻度データ分析.html#cb921-45" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb921-46"><a href="高頻度データ分析.html#cb921-46" tabindex="-1"></a><span class="co">#&gt; Estimation time: 0.0218 secs </span></span>
+<span id="cb921-47"><a href="高頻度データ分析.html#cb921-47" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb921-48"><a href="高頻度データ分析.html#cb921-48" tabindex="-1"></a><span class="co">#&gt; Description: Estimated at 2024-01-18 13:58:25 by user takaki</span></span>
+<span id="cb921-49"><a href="高頻度データ分析.html#cb921-49" tabindex="-1"></a><span class="co"># LACD1(1,1)</span></span>
+<span id="cb921-50"><a href="高頻度データ分析.html#cb921-50" tabindex="-1"></a>fit_lacd1_nk <span class="ot">&lt;-</span> ACDm<span class="sc">::</span><span class="fu">acdFit</span>(<span class="at">durations =</span> dur_nk, <span class="at">model =</span> mod1, <span class="at">dist =</span> distn, <span class="at">order =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>), <span class="at">output =</span> T)</span>
+<span id="cb921-51"><a href="高頻度データ分析.html#cb921-51" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb921-52"><a href="高頻度データ分析.html#cb921-52" tabindex="-1"></a><span class="co">#&gt; ACD model estimation by (Quasi) Maximum Likelihood </span></span>
+<span id="cb921-53"><a href="高頻度データ分析.html#cb921-53" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb921-54"><a href="高頻度データ分析.html#cb921-54" tabindex="-1"></a><span class="co">#&gt; Call:</span></span>
+<span id="cb921-55"><a href="高頻度データ分析.html#cb921-55" tabindex="-1"></a><span class="co">#&gt;   ACDm::acdFit(durations = dur_nk, model = mod1, dist = distn,      order = c(1, 1), output = T) </span></span>
+<span id="cb921-56"><a href="高頻度データ分析.html#cb921-56" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb921-57"><a href="高頻度データ分析.html#cb921-57" tabindex="-1"></a><span class="co">#&gt; Model:</span></span>
+<span id="cb921-58"><a href="高頻度データ分析.html#cb921-58" tabindex="-1"></a><span class="co">#&gt;   LACD1(1, 1)</span></span>
+<span id="cb921-59"><a href="高頻度データ分析.html#cb921-59" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb921-60"><a href="高頻度データ分析.html#cb921-60" tabindex="-1"></a><span class="co">#&gt; Distribution:</span></span>
+<span id="cb921-61"><a href="高頻度データ分析.html#cb921-61" tabindex="-1"></a><span class="co">#&gt;   exponential</span></span>
+<span id="cb921-62"><a href="高頻度データ分析.html#cb921-62" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb921-63"><a href="高頻度データ分析.html#cb921-63" tabindex="-1"></a><span class="co">#&gt; N: 7501</span></span>
+<span id="cb921-64"><a href="高頻度データ分析.html#cb921-64" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb921-65"><a href="高頻度データ分析.html#cb921-65" tabindex="-1"></a><span class="co">#&gt; Parameter estimate:</span></span>
+<span id="cb921-66"><a href="高頻度データ分析.html#cb921-66" tabindex="-1"></a><span class="co">#&gt;          Coef       SE PV</span></span>
+<span id="cb921-67"><a href="高頻度データ分析.html#cb921-67" tabindex="-1"></a><span class="co">#&gt; omega  0.1423 0.004049  0</span></span>
+<span id="cb921-68"><a href="高頻度データ分析.html#cb921-68" tabindex="-1"></a><span class="co">#&gt; alpha1 0.0508 0.001426  0</span></span>
+<span id="cb921-69"><a href="高頻度データ分析.html#cb921-69" tabindex="-1"></a><span class="co">#&gt; beta1  1.0041 0.000623  0</span></span>
+<span id="cb921-70"><a href="高頻度データ分析.html#cb921-70" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb921-71"><a href="高頻度データ分析.html#cb921-71" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb921-72"><a href="高頻度データ分析.html#cb921-72" tabindex="-1"></a><span class="co">#&gt; The fixed/unfree mean distribution parameter: </span></span>
+<span id="cb921-73"><a href="高頻度データ分析.html#cb921-73" tabindex="-1"></a><span class="co">#&gt;  lambda: 1</span></span>
+<span id="cb921-74"><a href="高頻度データ分析.html#cb921-74" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb921-75"><a href="高頻度データ分析.html#cb921-75" tabindex="-1"></a><span class="co">#&gt; Goodness of fit:</span></span>
+<span id="cb921-76"><a href="高頻度データ分析.html#cb921-76" tabindex="-1"></a><span class="co">#&gt;                value</span></span>
+<span id="cb921-77"><a href="高頻度データ分析.html#cb921-77" tabindex="-1"></a><span class="co">#&gt; LogLikelihood -13235</span></span>
+<span id="cb921-78"><a href="高頻度データ分析.html#cb921-78" tabindex="-1"></a><span class="co">#&gt; AIC            26476</span></span>
+<span id="cb921-79"><a href="高頻度データ分析.html#cb921-79" tabindex="-1"></a><span class="co">#&gt; BIC            26496</span></span>
+<span id="cb921-80"><a href="高頻度データ分析.html#cb921-80" tabindex="-1"></a><span class="co">#&gt; MSE             2001</span></span>
+<span id="cb921-81"><a href="高頻度データ分析.html#cb921-81" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb921-82"><a href="高頻度データ分析.html#cb921-82" tabindex="-1"></a><span class="co">#&gt; Convergence: 0 </span></span>
+<span id="cb921-83"><a href="高頻度データ分析.html#cb921-83" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb921-84"><a href="高頻度データ分析.html#cb921-84" tabindex="-1"></a><span class="co">#&gt; Number of log-likelihood function evaluations: 182 </span></span>
+<span id="cb921-85"><a href="高頻度データ分析.html#cb921-85" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb921-86"><a href="高頻度データ分析.html#cb921-86" tabindex="-1"></a><span class="co">#&gt; Estimation time: 0.0925 secs </span></span>
+<span id="cb921-87"><a href="高頻度データ分析.html#cb921-87" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb921-88"><a href="高頻度データ分析.html#cb921-88" tabindex="-1"></a><span class="co">#&gt; Description: Estimated at 2024-01-18 13:58:25 by user takaki</span></span>
+<span id="cb921-89"><a href="高頻度データ分析.html#cb921-89" tabindex="-1"></a><span class="co"># LACD2(1,1)</span></span>
+<span id="cb921-90"><a href="高頻度データ分析.html#cb921-90" tabindex="-1"></a>fit_lacd2_nk <span class="ot">&lt;-</span> ACDm<span class="sc">::</span><span class="fu">acdFit</span>(<span class="at">durations =</span> dur_nk, <span class="at">model =</span> mod2, <span class="at">dist =</span> distn, <span class="at">order =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>), <span class="at">output =</span> T)</span>
+<span id="cb921-91"><a href="高頻度データ分析.html#cb921-91" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb921-92"><a href="高頻度データ分析.html#cb921-92" tabindex="-1"></a><span class="co">#&gt; ACD model estimation by (Quasi) Maximum Likelihood </span></span>
+<span id="cb921-93"><a href="高頻度データ分析.html#cb921-93" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb921-94"><a href="高頻度データ分析.html#cb921-94" tabindex="-1"></a><span class="co">#&gt; Call:</span></span>
+<span id="cb921-95"><a href="高頻度データ分析.html#cb921-95" tabindex="-1"></a><span class="co">#&gt;   ACDm::acdFit(durations = dur_nk, model = mod2, dist = distn,      order = c(1, 1), output = T) </span></span>
+<span id="cb921-96"><a href="高頻度データ分析.html#cb921-96" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb921-97"><a href="高頻度データ分析.html#cb921-97" tabindex="-1"></a><span class="co">#&gt; Model:</span></span>
+<span id="cb921-98"><a href="高頻度データ分析.html#cb921-98" tabindex="-1"></a><span class="co">#&gt;   LACD2(1, 1)</span></span>
+<span id="cb921-99"><a href="高頻度データ分析.html#cb921-99" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb921-100"><a href="高頻度データ分析.html#cb921-100" tabindex="-1"></a><span class="co">#&gt; Distribution:</span></span>
+<span id="cb921-101"><a href="高頻度データ分析.html#cb921-101" tabindex="-1"></a><span class="co">#&gt;   exponential</span></span>
+<span id="cb921-102"><a href="高頻度データ分析.html#cb921-102" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb921-103"><a href="高頻度データ分析.html#cb921-103" tabindex="-1"></a><span class="co">#&gt; N: 7501</span></span>
+<span id="cb921-104"><a href="高頻度データ分析.html#cb921-104" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb921-105"><a href="高頻度データ分析.html#cb921-105" tabindex="-1"></a><span class="co">#&gt; Parameter estimate:</span></span>
+<span id="cb921-106"><a href="高頻度データ分析.html#cb921-106" tabindex="-1"></a><span class="co">#&gt;          Coef       SE PV</span></span>
+<span id="cb921-107"><a href="高頻度データ分析.html#cb921-107" tabindex="-1"></a><span class="co">#&gt; omega  0.0229 0.001847  0</span></span>
+<span id="cb921-108"><a href="高頻度データ分析.html#cb921-108" tabindex="-1"></a><span class="co">#&gt; alpha1 0.0028 0.000278  0</span></span>
+<span id="cb921-109"><a href="高頻度データ分析.html#cb921-109" tabindex="-1"></a><span class="co">#&gt; beta1  0.9779 0.001666  0</span></span>
+<span id="cb921-110"><a href="高頻度データ分析.html#cb921-110" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb921-111"><a href="高頻度データ分析.html#cb921-111" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb921-112"><a href="高頻度データ分析.html#cb921-112" tabindex="-1"></a><span class="co">#&gt; The fixed/unfree mean distribution parameter: </span></span>
+<span id="cb921-113"><a href="高頻度データ分析.html#cb921-113" tabindex="-1"></a><span class="co">#&gt;  lambda: 1</span></span>
+<span id="cb921-114"><a href="高頻度データ分析.html#cb921-114" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb921-115"><a href="高頻度データ分析.html#cb921-115" tabindex="-1"></a><span class="co">#&gt; Goodness of fit:</span></span>
+<span id="cb921-116"><a href="高頻度データ分析.html#cb921-116" tabindex="-1"></a><span class="co">#&gt;                value</span></span>
+<span id="cb921-117"><a href="高頻度データ分析.html#cb921-117" tabindex="-1"></a><span class="co">#&gt; LogLikelihood -16185</span></span>
+<span id="cb921-118"><a href="高頻度データ分析.html#cb921-118" tabindex="-1"></a><span class="co">#&gt; AIC            32377</span></span>
+<span id="cb921-119"><a href="高頻度データ分析.html#cb921-119" tabindex="-1"></a><span class="co">#&gt; BIC            32398</span></span>
+<span id="cb921-120"><a href="高頻度データ分析.html#cb921-120" tabindex="-1"></a><span class="co">#&gt; MSE             2003</span></span>
+<span id="cb921-121"><a href="高頻度データ分析.html#cb921-121" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb921-122"><a href="高頻度データ分析.html#cb921-122" tabindex="-1"></a><span class="co">#&gt; Convergence: 0 </span></span>
+<span id="cb921-123"><a href="高頻度データ分析.html#cb921-123" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb921-124"><a href="高頻度データ分析.html#cb921-124" tabindex="-1"></a><span class="co">#&gt; Number of log-likelihood function evaluations: 160 </span></span>
+<span id="cb921-125"><a href="高頻度データ分析.html#cb921-125" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb921-126"><a href="高頻度データ分析.html#cb921-126" tabindex="-1"></a><span class="co">#&gt; Estimation time: 0.0549 secs </span></span>
+<span id="cb921-127"><a href="高頻度データ分析.html#cb921-127" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb921-128"><a href="高頻度データ分析.html#cb921-128" tabindex="-1"></a><span class="co">#&gt; Description: Estimated at 2024-01-18 13:58:25 by user takaki</span></span></code></pre></div>
 <p><strong>推定パラメータ</strong>:</p>
-<div class="sourceCode" id="cb917"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb917-1"><a href="高頻度データ分析.html#cb917-1" tabindex="-1"></a><span class="co"># TOPIX先物</span></span>
-<span id="cb917-2"><a href="高頻度データ分析.html#cb917-2" tabindex="-1"></a><span class="co"># summary(fit_acd_tx)</span></span>
-<span id="cb917-3"><a href="高頻度データ分析.html#cb917-3" tabindex="-1"></a><span class="co"># summary(fit_lacd1_tx)</span></span>
-<span id="cb917-4"><a href="高頻度データ分析.html#cb917-4" tabindex="-1"></a><span class="co"># summary(fit_lacd2_tx)</span></span>
-<span id="cb917-5"><a href="高頻度データ分析.html#cb917-5" tabindex="-1"></a>fit_acd_tx<span class="sc">$</span>mPara</span>
-<span id="cb917-6"><a href="高頻度データ分析.html#cb917-6" tabindex="-1"></a><span class="co">#&gt;  omega alpha1  beta1 </span></span>
-<span id="cb917-7"><a href="高頻度データ分析.html#cb917-7" tabindex="-1"></a><span class="co">#&gt; 1.4904 0.6144 0.0871</span></span>
-<span id="cb917-8"><a href="高頻度データ分析.html#cb917-8" tabindex="-1"></a>fit_lacd1_tx<span class="sc">$</span>mPara</span>
-<span id="cb917-9"><a href="高頻度データ分析.html#cb917-9" tabindex="-1"></a><span class="co">#&gt;  omega alpha1  beta1 </span></span>
-<span id="cb917-10"><a href="高頻度データ分析.html#cb917-10" tabindex="-1"></a><span class="co">#&gt;  0.940  0.161  0.349</span></span>
-<span id="cb917-11"><a href="高頻度データ分析.html#cb917-11" tabindex="-1"></a>fit_lacd2_tx<span class="sc">$</span>mPara</span>
-<span id="cb917-12"><a href="高頻度データ分析.html#cb917-12" tabindex="-1"></a><span class="co">#&gt;   omega  alpha1   beta1 </span></span>
-<span id="cb917-13"><a href="高頻度データ分析.html#cb917-13" tabindex="-1"></a><span class="co">#&gt;  0.0832 -0.0019  0.8975</span></span>
-<span id="cb917-14"><a href="高頻度データ分析.html#cb917-14" tabindex="-1"></a><span class="co"># 日経平均先物</span></span>
-<span id="cb917-15"><a href="高頻度データ分析.html#cb917-15" tabindex="-1"></a>fit_acd_nk<span class="sc">$</span>mPara</span>
-<span id="cb917-16"><a href="高頻度データ分析.html#cb917-16" tabindex="-1"></a><span class="co">#&gt;   omega  alpha1   beta1 </span></span>
-<span id="cb917-17"><a href="高頻度データ分析.html#cb917-17" tabindex="-1"></a><span class="co">#&gt; 0.00734 0.14555 0.91804</span></span>
-<span id="cb917-18"><a href="高頻度データ分析.html#cb917-18" tabindex="-1"></a>fit_lacd1_nk<span class="sc">$</span>mPara</span>
-<span id="cb917-19"><a href="高頻度データ分析.html#cb917-19" tabindex="-1"></a><span class="co">#&gt;  omega alpha1  beta1 </span></span>
-<span id="cb917-20"><a href="高頻度データ分析.html#cb917-20" tabindex="-1"></a><span class="co">#&gt; 0.1423 0.0508 1.0041</span></span>
-<span id="cb917-21"><a href="高頻度データ分析.html#cb917-21" tabindex="-1"></a>fit_lacd2_nk<span class="sc">$</span>mPara</span>
-<span id="cb917-22"><a href="高頻度データ分析.html#cb917-22" tabindex="-1"></a><span class="co">#&gt;  omega alpha1  beta1 </span></span>
-<span id="cb917-23"><a href="高頻度データ分析.html#cb917-23" tabindex="-1"></a><span class="co">#&gt; 0.0229 0.0028 0.9779</span></span></code></pre></div>
+<div class="sourceCode" id="cb922"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb922-1"><a href="高頻度データ分析.html#cb922-1" tabindex="-1"></a><span class="co"># TOPIX先物</span></span>
+<span id="cb922-2"><a href="高頻度データ分析.html#cb922-2" tabindex="-1"></a><span class="co"># summary(fit_acd_tx)</span></span>
+<span id="cb922-3"><a href="高頻度データ分析.html#cb922-3" tabindex="-1"></a><span class="co"># summary(fit_lacd1_tx)</span></span>
+<span id="cb922-4"><a href="高頻度データ分析.html#cb922-4" tabindex="-1"></a><span class="co"># summary(fit_lacd2_tx)</span></span>
+<span id="cb922-5"><a href="高頻度データ分析.html#cb922-5" tabindex="-1"></a>fit_acd_tx<span class="sc">$</span>mPara</span>
+<span id="cb922-6"><a href="高頻度データ分析.html#cb922-6" tabindex="-1"></a><span class="co">#&gt;  omega alpha1  beta1 </span></span>
+<span id="cb922-7"><a href="高頻度データ分析.html#cb922-7" tabindex="-1"></a><span class="co">#&gt; 1.4904 0.6144 0.0871</span></span>
+<span id="cb922-8"><a href="高頻度データ分析.html#cb922-8" tabindex="-1"></a>fit_lacd1_tx<span class="sc">$</span>mPara</span>
+<span id="cb922-9"><a href="高頻度データ分析.html#cb922-9" tabindex="-1"></a><span class="co">#&gt;  omega alpha1  beta1 </span></span>
+<span id="cb922-10"><a href="高頻度データ分析.html#cb922-10" tabindex="-1"></a><span class="co">#&gt;  0.940  0.161  0.349</span></span>
+<span id="cb922-11"><a href="高頻度データ分析.html#cb922-11" tabindex="-1"></a>fit_lacd2_tx<span class="sc">$</span>mPara</span>
+<span id="cb922-12"><a href="高頻度データ分析.html#cb922-12" tabindex="-1"></a><span class="co">#&gt;   omega  alpha1   beta1 </span></span>
+<span id="cb922-13"><a href="高頻度データ分析.html#cb922-13" tabindex="-1"></a><span class="co">#&gt;  0.0832 -0.0019  0.8975</span></span>
+<span id="cb922-14"><a href="高頻度データ分析.html#cb922-14" tabindex="-1"></a><span class="co"># 日経平均先物</span></span>
+<span id="cb922-15"><a href="高頻度データ分析.html#cb922-15" tabindex="-1"></a>fit_acd_nk<span class="sc">$</span>mPara</span>
+<span id="cb922-16"><a href="高頻度データ分析.html#cb922-16" tabindex="-1"></a><span class="co">#&gt;   omega  alpha1   beta1 </span></span>
+<span id="cb922-17"><a href="高頻度データ分析.html#cb922-17" tabindex="-1"></a><span class="co">#&gt; 0.00734 0.14555 0.91804</span></span>
+<span id="cb922-18"><a href="高頻度データ分析.html#cb922-18" tabindex="-1"></a>fit_lacd1_nk<span class="sc">$</span>mPara</span>
+<span id="cb922-19"><a href="高頻度データ分析.html#cb922-19" tabindex="-1"></a><span class="co">#&gt;  omega alpha1  beta1 </span></span>
+<span id="cb922-20"><a href="高頻度データ分析.html#cb922-20" tabindex="-1"></a><span class="co">#&gt; 0.1423 0.0508 1.0041</span></span>
+<span id="cb922-21"><a href="高頻度データ分析.html#cb922-21" tabindex="-1"></a>fit_lacd2_nk<span class="sc">$</span>mPara</span>
+<span id="cb922-22"><a href="高頻度データ分析.html#cb922-22" tabindex="-1"></a><span class="co">#&gt;  omega alpha1  beta1 </span></span>
+<span id="cb922-23"><a href="高頻度データ分析.html#cb922-23" tabindex="-1"></a><span class="co">#&gt; 0.0229 0.0028 0.9779</span></span></code></pre></div>
 
 </div>
 </div>
-
-
-
             </section>
 
           </div>
         </div>
       </div>
 <a href="多変量ボラティリティモデル.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="バブル-生成崩壊-検出.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="スペクトル解析.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

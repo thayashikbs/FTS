@@ -335,7 +335,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="" data-path="高頻度データ分析.html"><a href="高頻度データ分析.html#データセット1-topix指数データ"><i class="fa fa-check"></i>データセット1: TOPIX指数データ</a></li>
 <li class="chapter" data-level="" data-path="高頻度データ分析.html"><a href="高頻度データ分析.html#実現ボラティリティの計算"><i class="fa fa-check"></i>実現ボラティリティの計算</a></li>
-<li class="chapter" data-level="" data-path="高頻度データ分析.html"><a href="高頻度データ分析.html#parkionsonボラティリティの計算"><i class="fa fa-check"></i>Parkionsonボラティリティの計算</a></li>
+<li class="chapter" data-level="" data-path="高頻度データ分析.html"><a href="高頻度データ分析.html#parkinsonボラティリティの計算"><i class="fa fa-check"></i>Parkinsonボラティリティの計算</a></li>
 <li class="chapter" data-level="" data-path="高頻度データ分析.html"><a href="高頻度データ分析.html#har-rvモデルによる予測"><i class="fa fa-check"></i>HAR-RVモデルによる予測</a></li>
 </ul></li>
 <li class="chapter" data-level="12.2" data-path="高頻度データ分析.html"><a href="高頻度データ分析.html#共分散相関の推定"><i class="fa fa-check"></i><b>12.2</b> 共分散・相関の推定</a>
@@ -360,6 +360,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="" data-path="スペクトル解析.html"><a href="スペクトル解析.html#為替水準に対する分解-スペクトル解析"><i class="fa fa-check"></i>為替水準に対する分解 &amp; スペクトル解析</a></li>
 <li class="chapter" data-level="" data-path="スペクトル解析.html"><a href="スペクトル解析.html#為替リターンに対する分解-スペクトル解析"><i class="fa fa-check"></i>為替リターンに対する分解 &amp; スペクトル解析</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="動的線形モデル.html"><a href="動的線形モデル.html"><i class="fa fa-check"></i><b>14</b> 動的線形モデル</a>
+<ul>
+<li class="chapter" data-level="14.1" data-path="動的線形モデル.html"><a href="動的線形モデル.html#パッケージdlm"><i class="fa fa-check"></i><b>14.1</b> パッケージ<strong>dlm</strong></a>
+<ul>
+<li class="chapter" data-level="" data-path="動的線形モデル.html"><a href="動的線形モデル.html#local-levelモデル"><i class="fa fa-check"></i>local levelモデル</a></li>
+<li class="chapter" data-level="" data-path="動的線形モデル.html"><a href="動的線形モデル.html#local-level-plus-seasonal-componentモデル"><i class="fa fa-check"></i>local level plus seasonal componentモデル</a></li>
+</ul></li>
+<li class="chapter" data-level="14.2" data-path="動的線形モデル.html"><a href="動的線形モデル.html#パッケージstatespacer"><i class="fa fa-check"></i><b>14.2</b> パッケージ<strong>statespacer</strong></a>
+<ul>
+<li class="chapter" data-level="" data-path="動的線形モデル.html"><a href="動的線形モデル.html#local-levelモデル-1"><i class="fa fa-check"></i>local levelモデル</a></li>
+<li class="chapter" data-level="" data-path="動的線形モデル.html"><a href="動的線形モデル.html#季節性への対応説明変数の追加従属変数が複数ある場合への対応"><i class="fa fa-check"></i>季節性への対応・説明変数の追加・従属変数が複数ある場合への対応</a></li>
+</ul></li>
+<li class="chapter" data-level="14.3" data-path="動的線形モデル.html"><a href="動的線形モデル.html#パッケージbssm"><i class="fa fa-check"></i><b>14.3</b> パッケージ<strong>bssm</strong></a>
+<ul>
+<li class="chapter" data-level="" data-path="動的線形モデル.html"><a href="動的線形モデル.html#local-levelモデル-2"><i class="fa fa-check"></i>local levelモデル</a></li>
+<li class="chapter" data-level="" data-path="動的線形モデル.html"><a href="動的線形モデル.html#確率的季節性成分を持つドリフト有りランダムウォークモデル"><i class="fa fa-check"></i>確率的季節性成分を持つドリフト有りランダムウォーク・モデル</a></li>
 </ul></li>
 </ul></li>
 <li class="appendix"><span><b>Appendix 参考文献</b></span></li>
@@ -554,7 +572,7 @@ unitrootTest(): McKinnons(96) のアプローチによる検定統計量の計�
 ##     0.703 
 ## 
 ## Description:
-##  Wed Jan 24 15:05:23 2024 by user:</code></pre>
+##  Wed Feb  7 22:58:26 2024 by user:</code></pre>
 <div class="sourceCode" id="cb316"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb316-1"><a href="単位根過程と単位根検定.html#cb316-1" tabindex="-1"></a><span class="fu">unitrootTest</span>(x, <span class="at">type =</span> <span class="st">&quot;nc&quot;</span>, <span class="at">lags =</span> <span class="dv">1</span>)</span></code></pre></div>
 <pre><code>## 
 ## Title:
@@ -570,7 +588,7 @@ unitrootTest(): McKinnons(96) のアプローチによる検定統計量の計�
 ##     n: 0.7506 
 ## 
 ## Description:
-##  Wed Jan 24 15:05:23 2024 by user:</code></pre>
+##  Wed Feb  7 22:58:26 2024 by user:</code></pre>
 <ul>
 <li>二つの関数の結果を比較せよ.</li>
 </ul>
@@ -588,7 +606,7 @@ unitrootTest(): McKinnons(96) のアプローチによる検定統計量の計�
 ##     0.3835 
 ## 
 ## Description:
-##  Wed Jan 24 15:05:23 2024 by user:</code></pre>
+##  Wed Feb  7 22:58:26 2024 by user:</code></pre>
 <div class="sourceCode" id="cb320"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb320-1"><a href="単位根過程と単位根検定.html#cb320-1" tabindex="-1"></a><span class="fu">unitrootTest</span>(y, <span class="at">type =</span> <span class="st">&quot;nc&quot;</span>, <span class="at">lags =</span> <span class="dv">1</span>)</span></code></pre></div>
 <pre><code>## 
 ## Title:
@@ -604,7 +622,7 @@ unitrootTest(): McKinnons(96) のアプローチによる検定統計量の計�
 ##     n: 0.522 
 ## 
 ## Description:
-##  Wed Jan 24 15:05:23 2024 by user:</code></pre>
+##  Wed Feb  7 22:58:26 2024 by user:</code></pre>
 <ul>
 <li>→ いずれも, 帰無仮説(phi_1=1)を棄却せず(単位根有り)</li>
 </ul>
@@ -622,7 +640,7 @@ unitrootTest(): McKinnons(96) のアプローチによる検定統計量の計�
 ##     0.5166 
 ## 
 ## Description:
-##  Wed Jan 24 15:05:23 2024 by user:</code></pre>
+##  Wed Feb  7 22:58:26 2024 by user:</code></pre>
 <div class="sourceCode" id="cb324"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb324-1"><a href="単位根過程と単位根検定.html#cb324-1" tabindex="-1"></a><span class="co">#unitrootTest(x, type = &quot;c&quot;, lags = 1)</span></span>
 <span id="cb324-2"><a href="単位根過程と単位根検定.html#cb324-2" tabindex="-1"></a><span class="fu">adfTest</span>(y, <span class="at">type =</span> <span class="st">&quot;c&quot;</span>, <span class="at">lags =</span> <span class="dv">1</span>)</span></code></pre></div>
 <pre><code>## 
@@ -638,7 +656,7 @@ unitrootTest(): McKinnons(96) のアプローチによる検定統計量の計�
 ##     0.6617 
 ## 
 ## Description:
-##  Wed Jan 24 15:05:23 2024 by user:</code></pre>
+##  Wed Feb  7 22:58:26 2024 by user:</code></pre>
 <div class="sourceCode" id="cb326"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb326-1"><a href="単位根過程と単位根検定.html#cb326-1" tabindex="-1"></a><span class="co">#unitrootTest(y, type = &quot;c&quot;, lags = 1)</span></span></code></pre></div>
 <div class="sourceCode" id="cb327"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb327-1"><a href="単位根過程と単位根検定.html#cb327-1" tabindex="-1"></a><span class="fu">adfTest</span>(x, <span class="at">type =</span> <span class="st">&quot;c&quot;</span>, <span class="at">lags =</span> <span class="dv">1</span>)</span></code></pre></div>
 <pre><code>## 
@@ -654,7 +672,7 @@ unitrootTest(): McKinnons(96) のアプローチによる検定統計量の計�
 ##     0.5166 
 ## 
 ## Description:
-##  Wed Jan 24 15:05:23 2024 by user:</code></pre>
+##  Wed Feb  7 22:58:26 2024 by user:</code></pre>
 <div class="sourceCode" id="cb329"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb329-1"><a href="単位根過程と単位根検定.html#cb329-1" tabindex="-1"></a><span class="co">#unitrootTest(x, type = &quot;ct&quot;, lags = 1)</span></span>
 <span id="cb329-2"><a href="単位根過程と単位根検定.html#cb329-2" tabindex="-1"></a><span class="fu">adfTest</span>(y, <span class="at">type =</span> <span class="st">&quot;c&quot;</span>, <span class="at">lags =</span> <span class="dv">1</span>)</span></code></pre></div>
 <pre><code>## 
@@ -670,7 +688,7 @@ unitrootTest(): McKinnons(96) のアプローチによる検定統計量の計�
 ##     0.6617 
 ## 
 ## Description:
-##  Wed Jan 24 15:05:23 2024 by user:</code></pre>
+##  Wed Feb  7 22:58:26 2024 by user:</code></pre>
 <div class="sourceCode" id="cb331"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb331-1"><a href="単位根過程と単位根検定.html#cb331-1" tabindex="-1"></a><span class="co">#unitrootTest(y, type = &quot;ct&quot;, lags = 1)</span></span></code></pre></div>
 <ul>
 <li>株価データ(<strong>quantmod</strong>パッケージにより取得)</li>
@@ -744,7 +762,7 @@ unitrootTest(): McKinnons(96) のアプローチによる検定統計量の計�
 ##     0.954 
 ## 
 ## Description:
-##  Wed Jan 24 15:05:24 2024 by user: 
+##  Wed Feb  7 22:58:26 2024 by user: 
 ## 
 ## 
 ##  Augmented Dickey-Fuller Test

@@ -335,7 +335,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="" data-path="高頻度データ分析.html"><a href="高頻度データ分析.html#データセット1-topix指数データ"><i class="fa fa-check"></i>データセット1: TOPIX指数データ</a></li>
 <li class="chapter" data-level="" data-path="高頻度データ分析.html"><a href="高頻度データ分析.html#実現ボラティリティの計算"><i class="fa fa-check"></i>実現ボラティリティの計算</a></li>
-<li class="chapter" data-level="" data-path="高頻度データ分析.html"><a href="高頻度データ分析.html#parkionsonボラティリティの計算"><i class="fa fa-check"></i>Parkionsonボラティリティの計算</a></li>
+<li class="chapter" data-level="" data-path="高頻度データ分析.html"><a href="高頻度データ分析.html#parkinsonボラティリティの計算"><i class="fa fa-check"></i>Parkinsonボラティリティの計算</a></li>
 <li class="chapter" data-level="" data-path="高頻度データ分析.html"><a href="高頻度データ分析.html#har-rvモデルによる予測"><i class="fa fa-check"></i>HAR-RVモデルによる予測</a></li>
 </ul></li>
 <li class="chapter" data-level="12.2" data-path="高頻度データ分析.html"><a href="高頻度データ分析.html#共分散相関の推定"><i class="fa fa-check"></i><b>12.2</b> 共分散・相関の推定</a>
@@ -360,6 +360,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="" data-path="スペクトル解析.html"><a href="スペクトル解析.html#為替水準に対する分解-スペクトル解析"><i class="fa fa-check"></i>為替水準に対する分解 &amp; スペクトル解析</a></li>
 <li class="chapter" data-level="" data-path="スペクトル解析.html"><a href="スペクトル解析.html#為替リターンに対する分解-スペクトル解析"><i class="fa fa-check"></i>為替リターンに対する分解 &amp; スペクトル解析</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="動的線形モデル.html"><a href="動的線形モデル.html"><i class="fa fa-check"></i><b>14</b> 動的線形モデル</a>
+<ul>
+<li class="chapter" data-level="14.1" data-path="動的線形モデル.html"><a href="動的線形モデル.html#パッケージdlm"><i class="fa fa-check"></i><b>14.1</b> パッケージ<strong>dlm</strong></a>
+<ul>
+<li class="chapter" data-level="" data-path="動的線形モデル.html"><a href="動的線形モデル.html#local-levelモデル"><i class="fa fa-check"></i>local levelモデル</a></li>
+<li class="chapter" data-level="" data-path="動的線形モデル.html"><a href="動的線形モデル.html#local-level-plus-seasonal-componentモデル"><i class="fa fa-check"></i>local level plus seasonal componentモデル</a></li>
+</ul></li>
+<li class="chapter" data-level="14.2" data-path="動的線形モデル.html"><a href="動的線形モデル.html#パッケージstatespacer"><i class="fa fa-check"></i><b>14.2</b> パッケージ<strong>statespacer</strong></a>
+<ul>
+<li class="chapter" data-level="" data-path="動的線形モデル.html"><a href="動的線形モデル.html#local-levelモデル-1"><i class="fa fa-check"></i>local levelモデル</a></li>
+<li class="chapter" data-level="" data-path="動的線形モデル.html"><a href="動的線形モデル.html#季節性への対応説明変数の追加従属変数が複数ある場合への対応"><i class="fa fa-check"></i>季節性への対応・説明変数の追加・従属変数が複数ある場合への対応</a></li>
+</ul></li>
+<li class="chapter" data-level="14.3" data-path="動的線形モデル.html"><a href="動的線形モデル.html#パッケージbssm"><i class="fa fa-check"></i><b>14.3</b> パッケージ<strong>bssm</strong></a>
+<ul>
+<li class="chapter" data-level="" data-path="動的線形モデル.html"><a href="動的線形モデル.html#local-levelモデル-2"><i class="fa fa-check"></i>local levelモデル</a></li>
+<li class="chapter" data-level="" data-path="動的線形モデル.html"><a href="動的線形モデル.html#確率的季節性成分を持つドリフト有りランダムウォークモデル"><i class="fa fa-check"></i>確率的季節性成分を持つドリフト有りランダムウォーク・モデル</a></li>
 </ul></li>
 </ul></li>
 <li class="appendix"><span><b>Appendix 参考文献</b></span></li>
@@ -1099,13 +1117,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##   PARAMETER:
 ##     Lag Order: 1
 ##   STATISTIC:
-##     DF: -23.9952
+##     DF: -24.1008
 ##   P VALUE:
 ##     t: &lt; 2.2e-16 
-##     n: 0.004194 
+##     n: 0.004085 
 ## 
 ## Description:
-##  Wed Jan 24 15:06:16 2024 by user:</code></pre>
+##  Wed Feb  7 22:59:21 2024 by user:</code></pre>
 <div class="sourceCode" id="cb581"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb581-1"><a href="varモデル.html#cb581-1" tabindex="-1"></a><span class="fu">unitrootTest</span>(s9434ret, <span class="at">type =</span> <span class="st">&quot;c&quot;</span>, <span class="at">lags =</span> <span class="dv">1</span>)</span></code></pre></div>
 <pre><code>## 
 ## Title:
@@ -1115,13 +1133,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##   PARAMETER:
 ##     Lag Order: 1
 ##   STATISTIC:
-##     DF: -26.5847
+##     DF: -26.6856
 ##   P VALUE:
 ##     t: &lt; 2.2e-16 
-##     n: 0.002188 
+##     n: 0.002134 
 ## 
 ## Description:
-##  Wed Jan 24 15:06:16 2024 by user:</code></pre>
+##  Wed Feb  7 22:59:21 2024 by user:</code></pre>
 <ul>
 <li><p>–&gt; 帰無仮説(<span class="math inline">\(\phi_1 = 1\)</span>)を棄却 (単位根なし)</p></li>
 <li><p>標本自己共分散行列</p></li>
@@ -1152,10 +1170,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 
 ## $criteria
 ##                    1             2             3             4             5
-## AIC(n) -1.643993e+01 -1.644100e+01 -1.644368e+01 -1.643966e+01 -1.643500e+01
-## HQ(n)  -1.643058e+01 -1.642541e+01 -1.642185e+01 -1.641160e+01 -1.640070e+01
-## SC(n)  -1.641506e+01 -1.639955e+01 -1.638565e+01 -1.636506e+01 -1.634382e+01
-## FPE(n)  7.248179e-08  7.240443e-08  7.221057e-08  7.250131e-08  7.283981e-08</code></pre>
+## AIC(n) -1.644835e+01 -1.644921e+01 -1.645205e+01 -1.644791e+01 -1.644334e+01
+## HQ(n)  -1.643906e+01 -1.643372e+01 -1.643037e+01 -1.642004e+01 -1.640928e+01
+## SC(n)  -1.642364e+01 -1.640803e+01 -1.639440e+01 -1.637379e+01 -1.635275e+01
+## FPE(n)  7.187424e-08  7.181252e-08  7.160867e-08  7.190565e-08  7.223479e-08</code></pre>
 <ul>
 <li><p>–&gt; AIC, FPEでは3, HQ, SCでは1が最適</p></li>
 <li><p>VAR(1)モデルの推定 (OLS推定)</p></li>
@@ -1167,10 +1185,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## ========================= 
 ## Endogenous variables: s9984, s9434 
 ## Deterministic variables: const 
-## Sample size: 1239 
-## Log Likelihood: 6664.491 
+## Sample size: 1249 
+## Log Likelihood: 6723.54 
 ## Roots of the characteristic polynomial:
-## 0.05632 0.03435
+## 0.05769 0.03579
 ## Call:
 ## vars::VAR(y = sb, p = 1, type = &quot;const&quot;)
 ## 
@@ -1180,16 +1198,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## s9984 = s9984.l1 + s9434.l1 + const 
 ## 
 ##            Estimate Std. Error t value Pr(&gt;|t|)    
-## s9984.l1  0.0443309  0.0288383   1.537 0.124495    
-## s9434.l1 -0.2614193  0.0773761  -3.379 0.000751 ***
-## const     0.0006039  0.0007726   0.782 0.434547    
+## s9984.l1  0.0445226  0.0287238   1.550 0.121390    
+## s9434.l1 -0.2589303  0.0769241  -3.366 0.000786 ***
+## const     0.0005830  0.0007671   0.760 0.447401    
 ## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 ## 
 ## 
-## Residual standard error: 0.02715 on 1236 degrees of freedom
-## Multiple R-Squared: 0.009774,    Adjusted R-squared: 0.008172 
-## F-statistic:   6.1 on 2 and 1236 DF,  p-value: 0.002311 
+## Residual standard error: 0.02707 on 1246 degrees of freedom
+## Multiple R-Squared: 0.009653,    Adjusted R-squared: 0.008063 
+## F-statistic: 6.072 on 2 and 1246 DF,  p-value: 0.002375 
 ## 
 ## 
 ## Estimation results for equation s9434: 
@@ -1197,23 +1215,23 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## s9434 = s9984.l1 + s9434.l1 + const 
 ## 
 ##            Estimate Std. Error t value Pr(&gt;|t|)  
-## s9984.l1 -0.0036095  0.0108093  -0.334   0.7385  
-## s9434.l1 -0.0223569  0.0290025  -0.771   0.4409  
-## const     0.0005887  0.0002896   2.033   0.0423 *
+## s9984.l1 -0.0040838  0.0107845  -0.379   0.7050  
+## s9434.l1 -0.0226214  0.0288815  -0.783   0.4336  
+## const     0.0005719  0.0002880   1.986   0.0473 *
 ## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 ## 
 ## 
-## Residual standard error: 0.01018 on 1236 degrees of freedom
-## Multiple R-Squared: 0.0006796,   Adjusted R-squared: -0.0009375 
-## F-statistic: 0.4203 on 2 and 1236 DF,  p-value: 0.657 
+## Residual standard error: 0.01016 on 1246 degrees of freedom
+## Multiple R-Squared: 0.0007296,   Adjusted R-squared: -0.0008744 
+## F-statistic: 0.4548 on 2 and 1246 DF,  p-value: 0.6346 
 ## 
 ## 
 ## 
 ## Covariance matrix of residuals:
 ##           s9984     s9434
-## s9984 7.370e-04 5.494e-05
-## s9434 5.494e-05 1.035e-04
+## s9984 7.327e-04 5.471e-05
+## s9434 5.471e-05 1.033e-04
 ## 
 ## Correlation matrix of residuals:
 ##        s9984  s9434
@@ -1244,34 +1262,34 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## Impulse response coefficients
 ## $s9434
 ##              s9984         s9434
-## [1,]  0.000000e+00  9.972457e-03
-## [2,] -2.606993e-03 -2.229534e-04
-## [3,] -5.728599e-05  1.439456e-05
-## [4,] -6.302555e-06 -1.150428e-07
-## [5,] -2.493235e-07  2.532124e-08
-## [6,] -1.767219e-08  3.338347e-10
+## [1,]  0.000000e+00  9.959743e-03
+## [2,] -2.578879e-03 -2.253029e-04
+## [3,] -5.648076e-05  1.562841e-05
+## [4,] -6.561341e-06 -1.228770e-07
+## [5,] -2.603117e-07  2.957517e-08
+## [6,] -1.924767e-08  3.940429e-10
 ## 
 ## 
 ## Lower Band, CI= 0.95 
 ## $s9434
 ##              s9984         s9434
-## [1,]  0.000000e+00  9.243667e-03
-## [2,] -4.227766e-03 -7.673726e-04
-## [3,] -2.805856e-04 -5.345490e-05
-## [4,] -3.198609e-05 -5.805057e-06
-## [5,] -3.063645e-06 -1.404994e-08
-## [6,] -3.187921e-07 -4.140550e-08
+## [1,]  0.000000e+00  9.195168e-03
+## [2,] -3.862123e-03 -7.671116e-04
+## [3,] -2.518896e-04 -4.579809e-05
+## [4,] -4.141056e-05 -8.359736e-06
+## [5,] -3.633750e-06 -7.318367e-08
+## [6,] -7.493430e-07 -1.024927e-07
 ## 
 ## 
 ## Upper Band, CI= 0.95 
 ## $s9434
 ##              s9984        s9434
-## [1,]  0.000000e+00 1.068002e-02
-## [2,] -1.490320e-03 2.790879e-04
-## [3,]  1.344442e-04 7.718438e-05
-## [4,]  1.688873e-05 2.274211e-06
-## [5,]  1.567731e-06 5.591217e-07
-## [6,]  7.704557e-09 3.968955e-08</code></pre>
+## [1,]  0.000000e+00 1.046187e-02
+## [2,] -1.350242e-03 2.683767e-04
+## [3,]  1.589462e-04 1.118660e-04
+## [4,]  8.115778e-06 3.157516e-06
+## [5,]  1.646520e-06 1.599627e-06
+## [6,]  3.819990e-09 4.257215e-08</code></pre>
 <div class="sourceCode" id="cb599"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb599-1"><a href="varモデル.html#cb599-1" tabindex="-1"></a>ip_2 <span class="ot">&lt;-</span> vars<span class="sc">::</span><span class="fu">irf</span>(var1, <span class="at">impulse =</span> <span class="fu">c</span>(<span class="st">&quot;s9984&quot;</span>), <span class="at">response =</span> <span class="fu">c</span>(<span class="st">&quot;s9984&quot;</span>, <span class="st">&quot;s9434&quot;</span>),</span>
 <span id="cb599-2"><a href="varモデル.html#cb599-2" tabindex="-1"></a>                <span class="at">n.ahead =</span> <span class="dv">5</span>, <span class="at">boot =</span> <span class="cn">TRUE</span>)</span>
 <span id="cb599-3"><a href="varモデル.html#cb599-3" tabindex="-1"></a><span class="fu">plot</span>(ip_2)</span></code></pre></div>
@@ -1281,34 +1299,34 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## Impulse response coefficients
 ## $s9984
 ##             s9984         s9434
-## [1,] 2.714801e-02  2.023894e-03
-## [2,] 6.744104e-04 -1.432395e-04
-## [3,] 6.734278e-05  7.680919e-07
-## [4,] 2.784572e-06 -2.602477e-07
-## [5,] 1.914763e-07 -4.232647e-09
-## [6,] 9.594812e-09 -5.965099e-10
+## [1,] 2.706789e-02  2.021251e-03
+## [2,] 6.817710e-04 -1.562646e-04
+## [3,] 7.081589e-05  7.506687e-07
+## [4,] 2.958540e-06 -3.061826e-07
+## [5,] 2.110019e-07 -5.155964e-09
+## [6,] 1.072940e-08 -7.450651e-10
 ## 
 ## 
 ## Lower Band, CI= 0.95 
 ## $s9984
 ##              s9984         s9434
-## [1,]  2.487956e-02  1.067471e-03
-## [2,] -6.948885e-04 -6.488540e-04
-## [3,] -3.605268e-05 -2.302991e-05
-## [4,] -4.962006e-06 -6.702312e-06
-## [5,] -9.443443e-08 -4.111642e-07
-## [6,] -4.211789e-08 -8.066740e-08
+## [1,]  2.500652e-02  1.139883e-03
+## [2,] -5.994346e-04 -7.467393e-04
+## [3,] -2.534664e-05 -3.054358e-05
+## [4,] -6.182272e-06 -7.999734e-06
+## [5,] -5.074521e-08 -3.841177e-07
+## [6,] -5.107003e-08 -9.131493e-08
 ## 
 ## 
 ## Upper Band, CI= 0.95 
 ## $s9984
 ##             s9984        s9434
-## [1,] 2.896762e-02 3.126276e-03
-## [2,] 2.366696e-03 3.427981e-04
-## [3,] 2.919094e-04 2.875552e-05
-## [4,] 2.707422e-05 1.243103e-06
-## [5,] 3.105368e-06 2.985240e-07
-## [6,] 3.269606e-07 4.607903e-09</code></pre>
+## [1,] 2.906186e-02 3.007968e-03
+## [2,] 2.081405e-03 3.606398e-04
+## [3,] 3.018306e-04 3.233929e-05
+## [4,] 2.651233e-05 5.616044e-07
+## [5,] 3.611818e-06 2.721787e-07
+## [6,] 3.861412e-07 4.619905e-09</code></pre>
 <ul>
 <li><strong>非直交化インパルス応答</strong></li>
 </ul>
@@ -1322,33 +1340,33 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## $s9434
 ##              s9984         s9434
 ## [1,]  0.000000e+00  1.000000e+00
-## [2,] -2.614193e-01 -2.235692e-02
-## [3,] -5.744421e-03  1.443432e-03
-## [4,] -6.319962e-04 -1.153605e-05
-## [5,] -2.500121e-05  2.539118e-06
-## [6,] -1.772100e-06  3.347568e-08
+## [2,] -2.589303e-01 -2.262136e-02
+## [3,] -5.670905e-03  1.569158e-03
+## [4,] -6.587862e-04 -1.233737e-05
+## [5,] -2.613638e-05  2.969471e-06
+## [6,] -1.932547e-06  3.956357e-08
 ## 
 ## 
 ## Lower Band, CI= 0.95 
 ## $s9434
 ##              s9984         s9434
 ## [1,]  0.000000e+00  1.000000e+00
-## [2,] -4.014397e-01 -7.290235e-02
-## [3,] -2.165063e-02 -3.129532e-03
-## [4,] -3.489975e-03 -5.430288e-04
-## [5,] -3.245231e-04 -2.100079e-06
-## [6,] -4.601457e-05 -3.934762e-06
+## [2,] -4.230562e-01 -8.312124e-02
+## [3,] -2.490343e-02 -4.130539e-03
+## [4,] -3.720548e-03 -6.507766e-04
+## [5,] -2.392391e-04 -1.936494e-06
+## [6,] -3.947696e-05 -5.656278e-06
 ## 
 ## 
 ## Upper Band, CI= 0.95 
 ## $s9434
 ##              s9984        s9434
 ## [1,]  0.000000e+00 1.000000e+00
-## [2,] -8.731931e-02 3.596301e-02
-## [3,]  1.444289e-02 7.403383e-03
-## [4,]  2.409562e-04 3.542840e-04
-## [5,]  1.110974e-04 7.310673e-05
-## [6,]  9.599467e-07 4.465115e-06</code></pre>
+## [2,] -9.911942e-02 1.693376e-02
+## [3,]  1.319404e-02 9.467700e-03
+## [4,]  9.732246e-04 4.372576e-04
+## [5,]  9.401273e-05 9.376404e-05
+## [6,]  1.358480e-06 3.873509e-06</code></pre>
 <ul>
 <li><strong>累積インパルス応答</strong></li>
 </ul>
@@ -1365,7 +1383,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  Granger causality H0: s9434 do not Granger-cause s9984
 ## 
 ## data:  VAR object var1
-## F-Test = 11.415, df1 = 1, df2 = 2472, p-value = 0.00074
+## F-Test = 11.33, df1 = 1, df2 = 2492, p-value = 0.0007741
 ## 
 ## 
 ## $Instant
@@ -1373,7 +1391,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  H0: No instantaneous causality between: s9434 and s9984
 ## 
 ## data:  VAR object var1
-## Chi-squared = 47.148, df = 1, p-value = 6.582e-12</code></pre>
+## Chi-squared = 47.526, df = 1, p-value = 5.428e-12</code></pre>
 <ul>
 <li>–&gt; 帰無仮説(因果性なし)棄却　→　9434をcauseとするGranger因果性の存在を示唆</li>
 </ul>
@@ -1383,7 +1401,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  Granger causality H0: s9984 do not Granger-cause s9434
 ## 
 ## data:  VAR object var1
-## F-Test = 0.11151, df1 = 1, df2 = 2472, p-value = 0.7385
+## F-Test = 0.1434, df1 = 1, df2 = 2492, p-value = 0.705
 ## 
 ## 
 ## $Instant
@@ -1391,7 +1409,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  H0: No instantaneous causality between: s9984 and s9434
 ## 
 ## data:  VAR object var1
-## Chi-squared = 47.148, df = 1, p-value = 6.582e-12</code></pre>
+## Chi-squared = 47.526, df = 1, p-value = 5.428e-12</code></pre>
 <ul>
 <li>–&gt; 帰無仮説(因果性なし)棄却できず　→　9984をcauseとするGranger因果性存在せず</li>
 <li>一方、Grangerの瞬時因果性, 9984, 9434, いずれの方向も棄却できず → 存在を示唆</li>
@@ -1440,56 +1458,56 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb613-4"><a href="varモデル.html#cb613-4" tabindex="-1"></a><span class="co"># 係数推定値 (値のみ）</span></span>
 <span id="cb613-5"><a href="varモデル.html#cb613-5" tabindex="-1"></a><span class="fu">coef</span>(var2usukjp)</span></code></pre></div>
 <pre><code>## $us
-##           Estimate  Std. Error    t value   Pr(&gt;|t|)
-## us.l1 -0.090898543 0.107051771 -0.8491083 0.39654902
-## uk.l1  0.048142559 0.114018990  0.4222328 0.67318028
-## jp.l1  0.105020652 0.065226815  1.6100840 0.10851031
-## us.l2 -0.125850056 0.107286278 -1.1730303 0.24178416
-## uk.l2  0.015732819 0.114018248  0.1379851 0.89035173
-## jp.l2  0.048699966 0.065099587  0.7480841 0.45503954
-## const  0.004709118 0.002706083  1.7401970 0.08292705
+##           Estimate Std. Error    t value   Pr(&gt;|t|)
+## us.l1 -0.091004089 0.10686281 -0.8515974 0.39516534
+## uk.l1  0.045422305 0.11357030  0.3999488 0.68949916
+## jp.l1  0.107656508 0.06478062  1.6618630 0.09765936
+## us.l2 -0.125377891 0.10700861 -1.1716617 0.24232893
+## uk.l2  0.017106980 0.11381596  0.1503039 0.88063309
+## jp.l2  0.047351866 0.06489962  0.7296171 0.46623421
+## const  0.004747396 0.00269826  1.7594286 0.07959683
 ## 
 ## $uk
-##            Estimate  Std. Error    t value  Pr(&gt;|t|)
-## us.l1  0.0881558061 0.093377188  0.9440829 0.3459441
-## uk.l1 -0.1472273908 0.099454428 -1.4803503 0.1399081
-## jp.l1  0.0742588876 0.056894869  1.3051948 0.1929019
-## us.l2 -0.1643953417 0.093581740 -1.7567032 0.0800654
-## uk.l2  0.1045477753 0.099453781  1.0512197 0.2940673
-## jp.l2 -0.0090419378 0.056783893 -0.1592342 0.8735996
-## const  0.0006994127 0.002360413  0.2963094 0.7672142
+##            Estimate  Std. Error    t value   Pr(&gt;|t|)
+## us.l1  0.0904659284 0.093166557  0.9710129 0.33237991
+## uk.l1 -0.1469422303 0.099014367 -1.4840496 0.13892057
+## jp.l1  0.0726740450 0.056477898  1.2867696 0.19923740
+## us.l2 -0.1590040440 0.093293672 -1.7043390 0.08942709
+## uk.l2  0.0998815712 0.099228542  1.0065811 0.31500521
+## jp.l2 -0.0082553669 0.056581646 -0.1459019 0.88410385
+## const  0.0007371794 0.002352433  0.3133690 0.75423368
 ## 
 ## $jp
 ##           Estimate  Std. Error    t value  Pr(&gt;|t|)
-## us.l1 -0.030818755 0.131883978 -0.2336808 0.8154042
-## uk.l1  0.128181701 0.140467345  0.9125374 0.3622737
-## jp.l1  0.065935469 0.080357118  0.8205305 0.4126142
-## us.l2 -0.180271383 0.132172883 -1.3639060 0.1736965
-## uk.l2  0.066675615 0.140466430  0.4746730 0.6353914
-## jp.l2  0.083532106 0.080200378  1.0415426 0.2985255
-## const  0.002515688 0.003333798  0.7546012 0.4511248</code></pre>
+## us.l1 -0.031670354 0.131558759 -0.2407316 0.8099393
+## uk.l1  0.128725452 0.139816342  0.9206753 0.3580125
+## jp.l1  0.065905292 0.079751387  0.8263843 0.4092898
+## us.l2 -0.182431028 0.131738256 -1.3847992 0.1672163
+## uk.l2  0.068117493 0.140118775  0.4861411 0.6272474
+## jp.l2  0.083556647 0.079897888  1.0457929 0.2965586
+## const  0.002492178 0.003321827  0.7502431 0.4537382</code></pre>
 <div class="sourceCode" id="cb615"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb615-1"><a href="varモデル.html#cb615-1" tabindex="-1"></a><span class="co"># 係数推定値の行列表示 (t値や標準誤差は非表示)</span></span>
 <span id="cb615-2"><a href="varモデル.html#cb615-2" tabindex="-1"></a>vars<span class="sc">::</span><span class="fu">Acoef</span>(var2usukjp)     <span class="co"># as a list of matrices</span></span></code></pre></div>
 <pre><code>## [[1]]
-##          us.l1       uk.l1      jp.l1
-## us -0.09089854  0.04814256 0.10502065
-## uk  0.08815581 -0.14722739 0.07425889
-## jp -0.03081875  0.12818170 0.06593547
+##          us.l1      uk.l1      jp.l1
+## us -0.09100409  0.0454223 0.10765651
+## uk  0.09046593 -0.1469422 0.07267405
+## jp -0.03167035  0.1287255 0.06590529
 ## 
 ## [[2]]
 ##         us.l2      uk.l2        jp.l2
-## us -0.1258501 0.01573282  0.048699966
-## uk -0.1643953 0.10454778 -0.009041938
-## jp -0.1802714 0.06667562  0.083532106</code></pre>
+## us -0.1253779 0.01710698  0.047351866
+## uk -0.1590040 0.09988157 -0.008255367
+## jp -0.1824310 0.06811749  0.083556647</code></pre>
 <div class="sourceCode" id="cb617"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb617-1"><a href="varモデル.html#cb617-1" tabindex="-1"></a>vars<span class="sc">::</span><span class="fu">Bcoef</span>(var2usukjp)     <span class="co"># as a matrix</span></span></code></pre></div>
-<pre><code>##          us.l1       uk.l1      jp.l1      us.l2      uk.l2        jp.l2
-## us -0.09089854  0.04814256 0.10502065 -0.1258501 0.01573282  0.048699966
-## uk  0.08815581 -0.14722739 0.07425889 -0.1643953 0.10454778 -0.009041938
-## jp -0.03081875  0.12818170 0.06593547 -0.1802714 0.06667562  0.083532106
+<pre><code>##          us.l1      uk.l1      jp.l1      us.l2      uk.l2        jp.l2
+## us -0.09100409  0.0454223 0.10765651 -0.1253779 0.01710698  0.047351866
+## uk  0.09046593 -0.1469422 0.07267405 -0.1590040 0.09988157 -0.008255367
+## jp -0.03167035  0.1287255 0.06590529 -0.1824310 0.06811749  0.083556647
 ##           const
-## us 0.0047091176
-## uk 0.0006994127
-## jp 0.0025156881</code></pre>
+## us 0.0047473959
+## uk 0.0007371794
+## jp 0.0024921777</code></pre>
 <ul>
 <li>次数<span class="math inline">\(p\)</span>を選択する場合</li>
 <li>VAR()関数によって, 情報量規準により最適な次数を選択
@@ -1504,10 +1522,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## ========================= 
 ## Endogenous variables: us, uk, jp 
 ## Deterministic variables: const 
-## Sample size: 287 
-## Log Likelihood: 1665.015 
+## Sample size: 288 
+## Log Likelihood: 1673.772 
 ## Roots of the characteristic polynomial:
-## 0.2013  0.11 0.1057
+## 0.1952 0.1104 0.1095
 ## Call:
 ## vars::VAR(y = usukjp, type = &quot;const&quot;, lag.max = 5, ic = &quot;AIC&quot;)
 ## 
@@ -1517,17 +1535,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## us = us.l1 + uk.l1 + jp.l1 + const 
 ## 
 ##        Estimate Std. Error t value Pr(&gt;|t|)  
-## us.l1 -0.085667   0.105734  -0.810   0.4185  
-## uk.l1  0.040732   0.111816   0.364   0.7159  
-## jp.l1  0.103941   0.064906   1.601   0.1104  
-## const  0.004567   0.002676   1.706   0.0891 .
+## us.l1 -0.085847   0.105546  -0.813   0.4167  
+## uk.l1  0.038614   0.111365   0.347   0.7291  
+## jp.l1  0.105929   0.064420   1.644   0.1012  
+## const  0.004590   0.002668   1.720   0.0865 .
 ## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 ## 
 ## 
-## Residual standard error: 0.04493 on 283 degrees of freedom
-## Multiple R-Squared: 0.01082, Adjusted R-squared: 0.0003306 
-## F-statistic: 1.032 on 3 and 283 DF,  p-value: 0.379 
+## Residual standard error: 0.04485 on 284 degrees of freedom
+## Multiple R-Squared: 0.01118, Adjusted R-squared: 0.0007319 
+## F-statistic:  1.07 on 3 and 284 DF,  p-value: 0.3621 
 ## 
 ## 
 ## Estimation results for equation uk: 
@@ -1535,17 +1553,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## uk = us.l1 + uk.l1 + jp.l1 + const 
 ## 
 ##         Estimate Std. Error t value Pr(&gt;|t|)  
-## us.l1  0.1049431  0.0923054   1.137   0.2565  
-## uk.l1 -0.1734125  0.0976148  -1.776   0.0767 .
-## jp.l1  0.0716409  0.0566630   1.264   0.2072  
-## const  0.0001812  0.0023366   0.078   0.9382  
+## us.l1  0.1064035  0.0920563   1.156   0.2487  
+## uk.l1 -0.1714839  0.0971314  -1.765   0.0786 .
+## jp.l1  0.0696927  0.0561859   1.240   0.2159  
+## const  0.0002326  0.0023268   0.100   0.9204  
 ## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 ## 
 ## 
-## Residual standard error: 0.03922 on 283 degrees of freedom
-## Multiple R-Squared: 0.01708, Adjusted R-squared: 0.006664 
-## F-statistic:  1.64 on 3 and 283 DF,  p-value: 0.1804 
+## Residual standard error: 0.03912 on 284 degrees of freedom
+## Multiple R-Squared: 0.01697, Adjusted R-squared: 0.006588 
+## F-statistic: 1.634 on 3 and 284 DF,  p-value: 0.1816 
 ## 
 ## 
 ## Estimation results for equation jp: 
@@ -1553,29 +1571,29 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## jp = us.l1 + uk.l1 + jp.l1 + const 
 ## 
 ##        Estimate Std. Error t value Pr(&gt;|t|)
-## us.l1 -0.005737   0.129477  -0.044    0.965
-## uk.l1  0.105721   0.136924   0.772    0.441
-## jp.l1  0.062151   0.079481   0.782    0.435
-## const  0.001936   0.003277   0.591    0.555
+## us.l1 -0.006333   0.129178  -0.049    0.961
+## uk.l1  0.106754   0.136299   0.783    0.434
+## jp.l1  0.061253   0.078843   0.777    0.438
+## const  0.001886   0.003265   0.578    0.564
 ## 
 ## 
-## Residual standard error: 0.05502 on 283 degrees of freedom
-## Multiple R-Squared: 0.01403, Adjusted R-squared: 0.003578 
-## F-statistic: 1.342 on 3 and 283 DF,  p-value: 0.2608 
+## Residual standard error: 0.05489 on 284 degrees of freedom
+## Multiple R-Squared: 0.01394, Adjusted R-squared: 0.003525 
+## F-statistic: 1.338 on 3 and 284 DF,  p-value: 0.2621 
 ## 
 ## 
 ## 
 ## Covariance matrix of residuals:
 ##          us       uk       jp
-## us 0.002018 0.001404 0.001628
-## uk 0.001404 0.001538 0.001253
-## jp 0.001628 0.001253 0.003027
+## us 0.002011 0.001400 0.001621
+## uk 0.001400 0.001530 0.001254
+## jp 0.001621 0.001254 0.003013
 ## 
 ## Correlation matrix of residuals:
 ##        us     uk     jp
-## us 1.0000 0.7967 0.6588
-## uk 0.7967 1.0000 0.5806
-## jp 0.6588 0.5806 1.0000</code></pre>
+## us 1.0000 0.7982 0.6585
+## uk 0.7982 1.0000 0.5842
+## jp 0.6585 0.5842 1.0000</code></pre>
 <div class="sourceCode" id="cb621"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb621-1"><a href="varモデル.html#cb621-1" tabindex="-1"></a><span class="co"># ic = AIC, HQ, SC, FPE</span></span>
 <span id="cb621-2"><a href="varモデル.html#cb621-2" tabindex="-1"></a><span class="co"># HQ: Hannan-Quinn 情報量規準,  FPE: forecast prediction error 規準</span></span></code></pre></div>
 <ul>
@@ -1585,42 +1603,42 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb622"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb622-1"><a href="varモデル.html#cb622-1" tabindex="-1"></a><span class="fu">predict</span>(var2usukjp, <span class="at">n.ahead =</span> <span class="dv">10</span>, <span class="at">ci =</span> <span class="fl">0.95</span>)    <span class="co"># 95%区間予測を 10期先まで</span></span></code></pre></div>
 <pre><code>## $us
 ##              fcst       lower      upper         CI
-##  [1,] 0.005624242 -0.08215517 0.09340366 0.08777941
-##  [2,] 0.005765066 -0.08251720 0.09404734 0.08828227
-##  [3,] 0.003707104 -0.08485395 0.09226816 0.08856106
-##  [4,] 0.004038195 -0.08452427 0.09260066 0.08856247
-##  [5,] 0.004105117 -0.08445804 0.09266828 0.08856316
-##  [6,] 0.004151971 -0.08441119 0.09271514 0.08856317
-##  [7,] 0.004149753 -0.08441342 0.09271292 0.08856317
-##  [8,] 0.004153929 -0.08440924 0.09271710 0.08856317
-##  [9,] 0.004153838 -0.08440933 0.09271701 0.08856317
-## [10,] 0.004154085 -0.08440909 0.09271726 0.08856317
+##  [1,] 0.004283708 -0.08334490 0.09191232 0.08762861
+##  [2,] 0.001971262 -0.08617748 0.09012001 0.08814874
+##  [3,] 0.004027108 -0.08439295 0.09244716 0.08842005
+##  [4,] 0.004221420 -0.08419990 0.09264274 0.08842132
+##  [5,] 0.004180766 -0.08424120 0.09260273 0.08842196
+##  [6,] 0.004178701 -0.08424327 0.09260067 0.08842197
+##  [7,] 0.004187336 -0.08423464 0.09260931 0.08842197
+##  [8,] 0.004187333 -0.08423464 0.09260930 0.08842197
+##  [9,] 0.004186814 -0.08423516 0.09260879 0.08842197
+## [10,] 0.004186730 -0.08423524 0.09260870 0.08842197
 ## 
 ## $uk
 ##                fcst       lower      upper         CI
-##  [1,]  0.0104454686 -0.06612117 0.08701211 0.07656664
-##  [2,] -0.0079088771 -0.08505656 0.06923881 0.07714768
-##  [3,]  0.0029379784 -0.07492723 0.08080319 0.07786521
-##  [4,] -0.0011392941 -0.07902626 0.07674767 0.07788696
-##  [5,]  0.0010377552 -0.07685767 0.07893318 0.07789542
-##  [6,]  0.0002574244 -0.07763901 0.07815386 0.07789643
-##  [7,]  0.0005911920 -0.07730543 0.07848781 0.07789662
-##  [8,]  0.0004565438 -0.07744010 0.07835319 0.07789665
-##  [9,]  0.0005105076 -0.07738615 0.07840716 0.07789665
-## [10,]  0.0004885750 -0.07740808 0.07838523 0.07789665
+##  [1,] -2.988449e-03 -0.07938599 0.07340909 0.07639754
+##  [2,] -8.819335e-04 -0.07784972 0.07608585 0.07696778
+##  [3,] -9.222877e-05 -0.07773260 0.07754814 0.07764037
+##  [4,]  8.483785e-04 -0.07681086 0.07850762 0.07765924
+##  [5,]  4.700775e-04 -0.07719607 0.07813623 0.07766615
+##  [6,]  5.888875e-04 -0.07707806 0.07825583 0.07766695
+##  [7,]  5.397063e-04 -0.07712738 0.07820679 0.07766708
+##  [8,]  5.601542e-04 -0.07710695 0.07822726 0.07766710
+##  [9,]  5.510225e-04 -0.07711608 0.07821813 0.07766711
+## [10,]  5.542092e-04 -0.07711290 0.07822132 0.07766711
 ## 
 ## $jp
 ##               fcst      lower     upper        CI
-##  [1,] -0.001907871 -0.1100490 0.1062332 0.1081411
-##  [2,]  0.005133879 -0.1037812 0.1140489 0.1089151
-##  [3,]  0.001185947 -0.1081508 0.1105227 0.1093368
-##  [4,]  0.001718469 -0.1076218 0.1110588 0.1093403
-##  [5,]  0.001985179 -0.1073555 0.1113259 0.1093407
-##  [6,]  0.001992702 -0.1073480 0.1113334 0.1093407
-##  [7,]  0.002047100 -0.1072937 0.1113879 0.1093408
-##  [8,]  0.002033691 -0.1073071 0.1113744 0.1093408
-##  [9,]  0.002042617 -0.1072981 0.1113834 0.1093408
-## [10,]  0.002039275 -0.1073015 0.1113800 0.1093408</code></pre>
+##  [1,]  0.005387687 -0.1024919 0.1132672 0.1078795
+##  [2,] -0.001558167 -0.1102093 0.1070930 0.1086511
+##  [3,]  0.001678659 -0.1073990 0.1107563 0.1090777
+##  [4,]  0.001913508 -0.1071676 0.1109946 0.1090811
+##  [5,]  0.001993113 -0.1070884 0.1110746 0.1090815
+##  [6,]  0.001999197 -0.1070823 0.1110807 0.1090815
+##  [7,]  0.002003256 -0.1070783 0.1110848 0.1090815
+##  [8,]  0.002005897 -0.1070756 0.1110874 0.1090815
+##  [9,]  0.002004118 -0.1070774 0.1110856 0.1090815
+## [10,]  0.002004455 -0.1070771 0.1110860 0.1090815</code></pre>
 </div>
 <div id="granger因果性の検定" class="section level4 unnumbered hasAnchor">
 <h4>Granger因果性の検定<a href="varモデル.html#granger因果性の検定" class="anchor-section" aria-label="Anchor link to header"></a></h4>
@@ -1642,7 +1660,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  Granger causality H0: jp do not Granger-cause us uk
 ## 
 ## data:  VAR object var3usukjp
-## F-Test = 0.77736, df1 = 6, df2 = 825, p-value = 0.5878
+## F-Test = 0.77973, df1 = 6, df2 = 828, p-value = 0.5859
 ## 
 ## 
 ## $Instant
@@ -1650,7 +1668,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  H0: No instantaneous causality between: jp and us uk
 ## 
 ## data:  VAR object var3usukjp
-## Chi-squared = 87.091, df = 2, p-value &lt; 2.2e-16</code></pre>
+## Chi-squared = 87.459, df = 2, p-value &lt; 2.2e-16</code></pre>
 <ul>
 <li><p>–&gt; Gragnerの意味での因果性なし. 同時因果性あり</p></li>
 <li><p>日英をcauseとする因果性</p></li>
@@ -1661,7 +1679,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  Granger causality H0: uk jp do not Granger-cause us
 ## 
 ## data:  VAR object var3usukjp
-## F-Test = 0.60679, df1 = 6, df2 = 825, p-value = 0.7251
+## F-Test = 0.62118, df1 = 6, df2 = 828, p-value = 0.7135
 ## 
 ## 
 ## $Instant
@@ -1669,7 +1687,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  H0: No instantaneous causality between: uk jp and us
 ## 
 ## data:  VAR object var3usukjp
-## Chi-squared = 116.62, df = 2, p-value &lt; 2.2e-16</code></pre>
+## Chi-squared = 117.03, df = 2, p-value &lt; 2.2e-16</code></pre>
 <ul>
 <li>–&gt; Grangerの意味での因果性なし. 同時因果性あり</li>
 </ul>
@@ -1698,14 +1716,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb632"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb632-1"><a href="varモデル.html#cb632-1" tabindex="-1"></a>usjpuk <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(mkt<span class="sc">$</span>us, mkt<span class="sc">$</span>jp, mkt<span class="sc">$</span>uk)</span>
 <span id="cb632-2"><a href="varモデル.html#cb632-2" tabindex="-1"></a><span class="fu">cov</span>(usukjp)</span></code></pre></div>
 <pre><code>##             us          uk          jp
-## us 0.002014229 0.001393846 0.001625483
-## uk 0.001393846 0.001543390 0.001241609
-## jp 0.001625483 0.001241609 0.003028308</code></pre>
+## us 0.002007973 0.001390582 0.001618086
+## uk 0.001390582 0.001535010 0.001243160
+## jp 0.001618086 0.001243160 0.003014291</code></pre>
 <div class="sourceCode" id="cb634"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb634-1"><a href="varモデル.html#cb634-1" tabindex="-1"></a><span class="fu">cov</span>(usjpuk)</span></code></pre></div>
 <pre><code>##             us          jp          uk
-## us 0.002014229 0.001625483 0.001393846
-## jp 0.001625483 0.003028308 0.001241609
-## uk 0.001393846 0.001241609 0.001543390</code></pre>
+## us 0.002007973 0.001618086 0.001390582
+## jp 0.001618086 0.003014291 0.001243160
+## uk 0.001390582 0.001243160 0.001535010</code></pre>
 <div class="sourceCode" id="cb636"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb636-1"><a href="varモデル.html#cb636-1" tabindex="-1"></a>var3usjpuk <span class="ot">&lt;-</span> vars<span class="sc">::</span><span class="fu">VAR</span>(usjpuk, <span class="at">p =</span> <span class="dv">3</span>, <span class="at">type =</span> <span class="st">&quot;const&quot;</span>)</span>
 <span id="cb636-2"><a href="varモデル.html#cb636-2" tabindex="-1"></a>var3_fevd_2 <span class="ot">&lt;-</span> vars<span class="sc">::</span><span class="fu">fevd</span>(var3usjpuk, <span class="at">n.ahead =</span> <span class="dv">10</span>)     <span class="co"># 10期先まで評価する</span></span>
 <span id="cb636-3"><a href="varモデル.html#cb636-3" tabindex="-1"></a><span class="fu">plot</span>(var3_fevd_2)</span></code></pre></div>
@@ -1748,15 +1766,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb641-2"><a href="varモデル.html#cb641-2" tabindex="-1"></a><span class="co"># (us, uk, jp)</span></span>
 <span id="cb641-3"><a href="varモデル.html#cb641-3" tabindex="-1"></a><span class="fu">t</span>(<span class="fu">chol</span>(<span class="fu">cov</span>(usukjp)))    <span class="co"># 下三角行列P&#39;</span></span></code></pre></div>
 <pre><code>##            us          uk         jp
-## us 0.04488016 0.000000000 0.00000000
-## uk 0.03105707 0.024059264 0.00000000
-## jp 0.03621830 0.004853605 0.04114589</code></pre>
+## us 0.04481041 0.000000000 0.00000000
+## uk 0.03103256 0.023916319 0.00000000
+## jp 0.03610960 0.005125639 0.04103798</code></pre>
 <div class="sourceCode" id="cb643"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb643-1"><a href="varモデル.html#cb643-1" tabindex="-1"></a><span class="co"># (us, jp, uk)</span></span>
 <span id="cb643-2"><a href="varモデル.html#cb643-2" tabindex="-1"></a><span class="fu">t</span>(<span class="fu">chol</span>(<span class="fu">cov</span>(usjpuk)))    <span class="co"># 下三角行列P&#39;</span></span></code></pre></div>
-<pre><code>##            us         jp        uk
-## us 0.04488016 0.00000000 0.0000000
-## jp 0.03621830 0.04143117 0.0000000
-## uk 0.03105707 0.00281851 0.0238936</code></pre>
+<pre><code>##            us          jp         uk
+## us 0.04481041 0.000000000 0.00000000
+## jp 0.03610960 0.041356842 0.00000000
+## uk 0.03103256 0.002964115 0.02373193</code></pre>
 <ul>
 <li>(参考) Tsay氏作成パッケージMTS</li>
 </ul>
@@ -1968,21 +1986,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb687"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb687-1"><a href="varモデル.html#cb687-1" tabindex="-1"></a><span class="co"># 分散共分散行列: Sigma</span></span>
 <span id="cb687-2"><a href="varモデル.html#cb687-2" tabindex="-1"></a>cov_usukjp <span class="ot">&lt;-</span> <span class="fu">cov</span>(usukjp) <span class="sc">%&gt;%</span> <span class="fu">print</span>(<span class="at">digits =</span> <span class="dv">4</span>)</span></code></pre></div>
 <pre><code>##          us       uk       jp
-## us 0.002014 0.001394 0.001625
-## uk 0.001394 0.001543 0.001242
-## jp 0.001625 0.001242 0.003028</code></pre>
+## us 0.002008 0.001391 0.001618
+## uk 0.001391 0.001535 0.001243
+## jp 0.001618 0.001243 0.003014</code></pre>
 <div class="sourceCode" id="cb689"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb689-1"><a href="varモデル.html#cb689-1" tabindex="-1"></a><span class="co"># Choleskey分解: Sigma = PP&#39;</span></span>
 <span id="cb689-2"><a href="varモデル.html#cb689-2" tabindex="-1"></a>P <span class="ot">&lt;-</span> <span class="fu">chol</span>(cov_usukjp) <span class="sc">%&gt;%</span> <span class="fu">t</span>() <span class="sc">%&gt;%</span> <span class="fu">print</span>(<span class="at">digits =</span> <span class="dv">4</span>) <span class="co"># 下三角行列P</span></span></code></pre></div>
 <pre><code>##         us       uk      jp
-## us 0.04488 0.000000 0.00000
-## uk 0.03106 0.024059 0.00000
-## jp 0.03622 0.004854 0.04115</code></pre>
+## us 0.04481 0.000000 0.00000
+## uk 0.03103 0.023916 0.00000
+## jp 0.03611 0.005126 0.04104</code></pre>
 <div class="sourceCode" id="cb691"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb691-1"><a href="varモデル.html#cb691-1" tabindex="-1"></a><span class="co"># Sigmaの復元 (確認用)</span></span>
 <span id="cb691-2"><a href="varモデル.html#cb691-2" tabindex="-1"></a>P <span class="sc">%*%</span> <span class="fu">t</span>(P) <span class="sc">%&gt;%</span> <span class="fu">print</span>(<span class="at">digits =</span> <span class="dv">4</span>)</span></code></pre></div>
 <pre><code>##          us       uk       jp
-## us 0.002014 0.001394 0.001625
-## uk 0.001394 0.001543 0.001242
-## jp 0.001625 0.001242 0.003028</code></pre>
+## us 0.002008 0.001391 0.001618
+## uk 0.001391 0.001535 0.001243
+## jp 0.001618 0.001243 0.003014</code></pre>
 <ul>
 <li>米日英の分散共分散行列を計算 → Choleskey分解</li>
 </ul>
@@ -1998,21 +2016,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb695"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb695-1"><a href="varモデル.html#cb695-1" tabindex="-1"></a><span class="co"># 分散共分散行列: Sigma</span></span>
 <span id="cb695-2"><a href="varモデル.html#cb695-2" tabindex="-1"></a>cov_usjpuk <span class="ot">&lt;-</span> <span class="fu">cov</span>(usjpuk) <span class="sc">%&gt;%</span> <span class="fu">print</span>(<span class="at">digits =</span> <span class="dv">4</span>)</span></code></pre></div>
 <pre><code>##          us       jp       uk
-## us 0.002014 0.001625 0.001394
-## jp 0.001625 0.003028 0.001242
-## uk 0.001394 0.001242 0.001543</code></pre>
+## us 0.002008 0.001618 0.001391
+## jp 0.001618 0.003014 0.001243
+## uk 0.001391 0.001243 0.001535</code></pre>
 <div class="sourceCode" id="cb697"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb697-1"><a href="varモデル.html#cb697-1" tabindex="-1"></a><span class="co"># Choleskey分解: Sigma = PP&#39;</span></span>
 <span id="cb697-2"><a href="varモデル.html#cb697-2" tabindex="-1"></a>P <span class="ot">&lt;-</span> <span class="fu">chol</span>(cov_usjpuk) <span class="sc">%&gt;%</span> <span class="fu">t</span>() <span class="sc">%&gt;%</span> <span class="fu">print</span>(<span class="at">digits =</span> <span class="dv">4</span>) <span class="co"># 下三角行列P</span></span></code></pre></div>
 <pre><code>##         us       jp      uk
-## us 0.04488 0.000000 0.00000
-## jp 0.03622 0.041431 0.00000
-## uk 0.03106 0.002819 0.02389</code></pre>
+## us 0.04481 0.000000 0.00000
+## jp 0.03611 0.041357 0.00000
+## uk 0.03103 0.002964 0.02373</code></pre>
 <div class="sourceCode" id="cb699"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb699-1"><a href="varモデル.html#cb699-1" tabindex="-1"></a><span class="co"># Sigmaの復元 (確認用)</span></span>
 <span id="cb699-2"><a href="varモデル.html#cb699-2" tabindex="-1"></a>P <span class="sc">%*%</span> <span class="fu">t</span>(P) <span class="sc">%&gt;%</span> <span class="fu">print</span>(<span class="at">digits =</span> <span class="dv">4</span>)</span></code></pre></div>
 <pre><code>##          us       jp       uk
-## us 0.002014 0.001625 0.001394
-## jp 0.001625 0.003028 0.001242
-## uk 0.001394 0.001242 0.001543</code></pre>
+## us 0.002008 0.001618 0.001391
+## jp 0.001618 0.003014 0.001243
+## uk 0.001391 0.001243 0.001535</code></pre>
 
 </div>
 </div>

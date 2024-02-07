@@ -335,7 +335,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="" data-path="高頻度データ分析.html"><a href="高頻度データ分析.html#データセット1-topix指数データ"><i class="fa fa-check"></i>データセット1: TOPIX指数データ</a></li>
 <li class="chapter" data-level="" data-path="高頻度データ分析.html"><a href="高頻度データ分析.html#実現ボラティリティの計算"><i class="fa fa-check"></i>実現ボラティリティの計算</a></li>
-<li class="chapter" data-level="" data-path="高頻度データ分析.html"><a href="高頻度データ分析.html#parkionsonボラティリティの計算"><i class="fa fa-check"></i>Parkionsonボラティリティの計算</a></li>
+<li class="chapter" data-level="" data-path="高頻度データ分析.html"><a href="高頻度データ分析.html#parkinsonボラティリティの計算"><i class="fa fa-check"></i>Parkinsonボラティリティの計算</a></li>
 <li class="chapter" data-level="" data-path="高頻度データ分析.html"><a href="高頻度データ分析.html#har-rvモデルによる予測"><i class="fa fa-check"></i>HAR-RVモデルによる予測</a></li>
 </ul></li>
 <li class="chapter" data-level="12.2" data-path="高頻度データ分析.html"><a href="高頻度データ分析.html#共分散相関の推定"><i class="fa fa-check"></i><b>12.2</b> 共分散・相関の推定</a>
@@ -360,6 +360,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="" data-path="スペクトル解析.html"><a href="スペクトル解析.html#為替水準に対する分解-スペクトル解析"><i class="fa fa-check"></i>為替水準に対する分解 &amp; スペクトル解析</a></li>
 <li class="chapter" data-level="" data-path="スペクトル解析.html"><a href="スペクトル解析.html#為替リターンに対する分解-スペクトル解析"><i class="fa fa-check"></i>為替リターンに対する分解 &amp; スペクトル解析</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="動的線形モデル.html"><a href="動的線形モデル.html"><i class="fa fa-check"></i><b>14</b> 動的線形モデル</a>
+<ul>
+<li class="chapter" data-level="14.1" data-path="動的線形モデル.html"><a href="動的線形モデル.html#パッケージdlm"><i class="fa fa-check"></i><b>14.1</b> パッケージ<strong>dlm</strong></a>
+<ul>
+<li class="chapter" data-level="" data-path="動的線形モデル.html"><a href="動的線形モデル.html#local-levelモデル"><i class="fa fa-check"></i>local levelモデル</a></li>
+<li class="chapter" data-level="" data-path="動的線形モデル.html"><a href="動的線形モデル.html#local-level-plus-seasonal-componentモデル"><i class="fa fa-check"></i>local level plus seasonal componentモデル</a></li>
+</ul></li>
+<li class="chapter" data-level="14.2" data-path="動的線形モデル.html"><a href="動的線形モデル.html#パッケージstatespacer"><i class="fa fa-check"></i><b>14.2</b> パッケージ<strong>statespacer</strong></a>
+<ul>
+<li class="chapter" data-level="" data-path="動的線形モデル.html"><a href="動的線形モデル.html#local-levelモデル-1"><i class="fa fa-check"></i>local levelモデル</a></li>
+<li class="chapter" data-level="" data-path="動的線形モデル.html"><a href="動的線形モデル.html#季節性への対応説明変数の追加従属変数が複数ある場合への対応"><i class="fa fa-check"></i>季節性への対応・説明変数の追加・従属変数が複数ある場合への対応</a></li>
+</ul></li>
+<li class="chapter" data-level="14.3" data-path="動的線形モデル.html"><a href="動的線形モデル.html#パッケージbssm"><i class="fa fa-check"></i><b>14.3</b> パッケージ<strong>bssm</strong></a>
+<ul>
+<li class="chapter" data-level="" data-path="動的線形モデル.html"><a href="動的線形モデル.html#local-levelモデル-2"><i class="fa fa-check"></i>local levelモデル</a></li>
+<li class="chapter" data-level="" data-path="動的線形モデル.html"><a href="動的線形モデル.html#確率的季節性成分を持つドリフト有りランダムウォークモデル"><i class="fa fa-check"></i>確率的季節性成分を持つドリフト有りランダムウォーク・モデル</a></li>
 </ul></li>
 </ul></li>
 <li class="appendix"><span><b>Appendix 参考文献</b></span></li>
@@ -433,7 +451,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="header">
 <h1 class="title">金融時系列解析</h1>
 <p class="author"><em>林 高樹</em></p>
-<p class="date"><em>2024-01-24 (内容は随時更新します)</em></p>
+<p class="date"><em>2024-02-07 (内容は随時更新します)</em></p>
 </div>
 <div id="はじめに" class="section level1 hasAnchor" number="1">
 <h1><span class="header-section-number">1</span> はじめに<a href="index.html#はじめに" class="anchor-section" aria-label="Anchor link to header"></a></h1>
@@ -453,7 +471,7 @@ classoption: xelatex,ja=standard
 
 title: "金融時系列解析"
 author: "林 高樹"
-date: "2024-01-24"
+date: "2024-02-07"
 site: bookdown::bookdown_site
 output: bookdown::html_document2: default
 documentclass: bxjsbook
@@ -653,7 +671,7 @@ Figure 1.2: …
 <span id="cb9-10"><a href="index.html#cb9-10" tabindex="-1"></a></span>
 <span id="cb9-11"><a href="index.html#cb9-11" tabindex="-1"></a>today <span class="ot">&lt;-</span> <span class="fu">Sys.Date</span>()</span>
 <span id="cb9-12"><a href="index.html#cb9-12" tabindex="-1"></a>today</span>
-<span id="cb9-13"><a href="index.html#cb9-13" tabindex="-1"></a><span class="do">## [1] &quot;2024-01-24&quot;</span></span></code></pre></div>
+<span id="cb9-13"><a href="index.html#cb9-13" tabindex="-1"></a><span class="do">## [1] &quot;2024-02-07&quot;</span></span></code></pre></div>
 </div>
 <div id="posixctクラス" class="section level4 hasAnchor" number="1.4.1.2">
 <h4><span class="header-section-number">1.4.1.2</span> POSIXctクラス<a href="index.html#posixctクラス" class="anchor-section" aria-label="Anchor link to header"></a></h4>
@@ -1208,12 +1226,12 @@ Finally, the error component is determined by removing trend and seasonal figure
 <span id="cb50-2"><a href="index.html#cb50-2" tabindex="-1"></a>ap_forecast <span class="ot">&lt;-</span> <span class="fu">predict</span>(ap_ppht, dates_ft)</span>
 <span id="cb50-3"><a href="index.html#cb50-3" tabindex="-1"></a><span class="fu">tail</span>(ap_forecast[<span class="fu">c</span>(<span class="st">&#39;ds&#39;</span>, <span class="st">&#39;yhat&#39;</span>, <span class="st">&#39;yhat_lower&#39;</span>, <span class="st">&#39;yhat_upper&#39;</span>)])</span>
 <span id="cb50-4"><a href="index.html#cb50-4" tabindex="-1"></a><span class="do">##             ds     yhat yhat_lower yhat_upper</span></span>
-<span id="cb50-5"><a href="index.html#cb50-5" tabindex="-1"></a><span class="do">## 151 1961-07-01 576.8046   547.4414   602.8519</span></span>
-<span id="cb50-6"><a href="index.html#cb50-6" tabindex="-1"></a><span class="do">## 152 1961-08-01 577.2261   548.6616   606.7420</span></span>
-<span id="cb50-7"><a href="index.html#cb50-7" tabindex="-1"></a><span class="do">## 153 1961-09-01 528.6678   501.2907   557.8658</span></span>
-<span id="cb50-8"><a href="index.html#cb50-8" tabindex="-1"></a><span class="do">## 154 1961-10-01 493.5023   463.7207   518.9636</span></span>
-<span id="cb50-9"><a href="index.html#cb50-9" tabindex="-1"></a><span class="do">## 155 1961-11-01 459.6479   431.3337   487.5179</span></span>
-<span id="cb50-10"><a href="index.html#cb50-10" tabindex="-1"></a><span class="do">## 156 1961-12-01 489.0093   458.3182   518.8285</span></span>
+<span id="cb50-5"><a href="index.html#cb50-5" tabindex="-1"></a><span class="do">## 151 1961-07-01 576.8046   549.5589   606.3353</span></span>
+<span id="cb50-6"><a href="index.html#cb50-6" tabindex="-1"></a><span class="do">## 152 1961-08-01 577.2261   549.5789   607.1599</span></span>
+<span id="cb50-7"><a href="index.html#cb50-7" tabindex="-1"></a><span class="do">## 153 1961-09-01 528.6678   500.3206   557.1560</span></span>
+<span id="cb50-8"><a href="index.html#cb50-8" tabindex="-1"></a><span class="do">## 154 1961-10-01 493.5023   463.1923   519.2032</span></span>
+<span id="cb50-9"><a href="index.html#cb50-9" tabindex="-1"></a><span class="do">## 155 1961-11-01 459.6479   431.3022   488.4853</span></span>
+<span id="cb50-10"><a href="index.html#cb50-10" tabindex="-1"></a><span class="do">## 156 1961-12-01 489.0093   460.5719   518.3801</span></span>
 <span id="cb50-11"><a href="index.html#cb50-11" tabindex="-1"></a><span class="fu">str</span>(ap_forecast)</span>
 <span id="cb50-12"><a href="index.html#cb50-12" tabindex="-1"></a><span class="do">## &#39;data.frame&#39;:    156 obs. of  16 variables:</span></span>
 <span id="cb50-13"><a href="index.html#cb50-13" tabindex="-1"></a><span class="do">##  $ ds                        : POSIXct, format: &quot;1949-01-01&quot; &quot;1949-02-01&quot; ...</span></span>
@@ -1227,8 +1245,8 @@ Finally, the error component is determined by removing trend and seasonal figure
 <span id="cb50-21"><a href="index.html#cb50-21" tabindex="-1"></a><span class="do">##  $ multiplicative_terms      : num  0 0 0 0 0 0 0 0 0 0 ...</span></span>
 <span id="cb50-22"><a href="index.html#cb50-22" tabindex="-1"></a><span class="do">##  $ multiplicative_terms_lower: num  0 0 0 0 0 0 0 0 0 0 ...</span></span>
 <span id="cb50-23"><a href="index.html#cb50-23" tabindex="-1"></a><span class="do">##  $ multiplicative_terms_upper: num  0 0 0 0 0 0 0 0 0 0 ...</span></span>
-<span id="cb50-24"><a href="index.html#cb50-24" tabindex="-1"></a><span class="do">##  $ yhat_lower                : num  57.8 51.2 83.1 80.7 83 ...</span></span>
-<span id="cb50-25"><a href="index.html#cb50-25" tabindex="-1"></a><span class="do">##  $ yhat_upper                : num  114 109 138 139 143 ...</span></span>
+<span id="cb50-24"><a href="index.html#cb50-24" tabindex="-1"></a><span class="do">##  $ yhat_lower                : num  56.6 49.1 83.3 79.5 82.3 ...</span></span>
+<span id="cb50-25"><a href="index.html#cb50-25" tabindex="-1"></a><span class="do">##  $ yhat_upper                : num  115 107 139 140 140 ...</span></span>
 <span id="cb50-26"><a href="index.html#cb50-26" tabindex="-1"></a><span class="do">##  $ trend_lower               : num  107 109 111 114 116 ...</span></span>
 <span id="cb50-27"><a href="index.html#cb50-27" tabindex="-1"></a><span class="do">##  $ trend_upper               : num  107 109 111 114 116 ...</span></span>
 <span id="cb50-28"><a href="index.html#cb50-28" tabindex="-1"></a><span class="do">##  $ yhat                      : num  85.9 79.4 110.9 108.6 112 ...</span></span>

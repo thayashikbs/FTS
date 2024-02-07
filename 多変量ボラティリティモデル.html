@@ -335,7 +335,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="" data-path="高頻度データ分析.html"><a href="高頻度データ分析.html#データセット1-topix指数データ"><i class="fa fa-check"></i>データセット1: TOPIX指数データ</a></li>
 <li class="chapter" data-level="" data-path="高頻度データ分析.html"><a href="高頻度データ分析.html#実現ボラティリティの計算"><i class="fa fa-check"></i>実現ボラティリティの計算</a></li>
-<li class="chapter" data-level="" data-path="高頻度データ分析.html"><a href="高頻度データ分析.html#parkionsonボラティリティの計算"><i class="fa fa-check"></i>Parkionsonボラティリティの計算</a></li>
+<li class="chapter" data-level="" data-path="高頻度データ分析.html"><a href="高頻度データ分析.html#parkinsonボラティリティの計算"><i class="fa fa-check"></i>Parkinsonボラティリティの計算</a></li>
 <li class="chapter" data-level="" data-path="高頻度データ分析.html"><a href="高頻度データ分析.html#har-rvモデルによる予測"><i class="fa fa-check"></i>HAR-RVモデルによる予測</a></li>
 </ul></li>
 <li class="chapter" data-level="12.2" data-path="高頻度データ分析.html"><a href="高頻度データ分析.html#共分散相関の推定"><i class="fa fa-check"></i><b>12.2</b> 共分散・相関の推定</a>
@@ -360,6 +360,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="" data-path="スペクトル解析.html"><a href="スペクトル解析.html#為替水準に対する分解-スペクトル解析"><i class="fa fa-check"></i>為替水準に対する分解 &amp; スペクトル解析</a></li>
 <li class="chapter" data-level="" data-path="スペクトル解析.html"><a href="スペクトル解析.html#為替リターンに対する分解-スペクトル解析"><i class="fa fa-check"></i>為替リターンに対する分解 &amp; スペクトル解析</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="動的線形モデル.html"><a href="動的線形モデル.html"><i class="fa fa-check"></i><b>14</b> 動的線形モデル</a>
+<ul>
+<li class="chapter" data-level="14.1" data-path="動的線形モデル.html"><a href="動的線形モデル.html#パッケージdlm"><i class="fa fa-check"></i><b>14.1</b> パッケージ<strong>dlm</strong></a>
+<ul>
+<li class="chapter" data-level="" data-path="動的線形モデル.html"><a href="動的線形モデル.html#local-levelモデル"><i class="fa fa-check"></i>local levelモデル</a></li>
+<li class="chapter" data-level="" data-path="動的線形モデル.html"><a href="動的線形モデル.html#local-level-plus-seasonal-componentモデル"><i class="fa fa-check"></i>local level plus seasonal componentモデル</a></li>
+</ul></li>
+<li class="chapter" data-level="14.2" data-path="動的線形モデル.html"><a href="動的線形モデル.html#パッケージstatespacer"><i class="fa fa-check"></i><b>14.2</b> パッケージ<strong>statespacer</strong></a>
+<ul>
+<li class="chapter" data-level="" data-path="動的線形モデル.html"><a href="動的線形モデル.html#local-levelモデル-1"><i class="fa fa-check"></i>local levelモデル</a></li>
+<li class="chapter" data-level="" data-path="動的線形モデル.html"><a href="動的線形モデル.html#季節性への対応説明変数の追加従属変数が複数ある場合への対応"><i class="fa fa-check"></i>季節性への対応・説明変数の追加・従属変数が複数ある場合への対応</a></li>
+</ul></li>
+<li class="chapter" data-level="14.3" data-path="動的線形モデル.html"><a href="動的線形モデル.html#パッケージbssm"><i class="fa fa-check"></i><b>14.3</b> パッケージ<strong>bssm</strong></a>
+<ul>
+<li class="chapter" data-level="" data-path="動的線形モデル.html"><a href="動的線形モデル.html#local-levelモデル-2"><i class="fa fa-check"></i>local levelモデル</a></li>
+<li class="chapter" data-level="" data-path="動的線形モデル.html"><a href="動的線形モデル.html#確率的季節性成分を持つドリフト有りランダムウォークモデル"><i class="fa fa-check"></i>確率的季節性成分を持つドリフト有りランダムウォーク・モデル</a></li>
 </ul></li>
 </ul></li>
 <li class="appendix"><span><b>Appendix 参考文献</b></span></li>
@@ -459,12 +477,12 @@ Tsay, Ch.7 (<a href="http://faculty.chicagobooth.edu/ruey.tsay/teaching/introTS/
 <pre><code>- MTS::MarchTest</code></pre>
 <div class="sourceCode" id="cb808"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb808-1"><a href="多変量ボラティリティモデル.html#cb808-1" tabindex="-1"></a><span class="fu">MarchTest</span>(zt) <span class="do">#### Multivariate volatility tests</span></span></code></pre></div>
 <pre><code>## Q(m) of squared series(LM test):  
-## Test statistic:  5.847342  p-value:  0.8279216 
+## Test statistic:  11.89604  p-value:  0.2920746 
 ## Rank-based Test:  
-## Test statistic:  6.382063  p-value:  0.7822079 
+## Test statistic:  7.072398  p-value:  0.7185929 
 ## Q_k(m) of squared series:  
-## Test statistic:  255.4595  p-value:  0.3927473 
-## Robust Test(5%) :  248.0683  p-value:  0.5226376</code></pre>
+## Test statistic:  243.1077  p-value:  0.6107311 
+## Robust Test(5%) :  238.7983  p-value:  0.6839271</code></pre>
 <div id="分析例" class="section level3 unnumbered hasAnchor">
 <h3>分析例<a href="多変量ボラティリティモデル.html#分析例" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
@@ -784,21 +802,21 @@ Tsay, Ch.7 (<a href="http://faculty.chicagobooth.edu/ruey.tsay/teaching/introTS/
 ## 
 ## Orthogonal Matrix U:
 ##            [,1]       [,2]       [,3]
-## [1,]  0.3722846  0.7912211  0.4851528
-## [2,] -0.7625577  0.5587343 -0.3260702
-## [3,] -0.5290652 -0.2485661  0.8113599
+## [1,] -0.4860338 -0.7906636 -0.3723200
+## [2,]  0.3252259 -0.5590630  0.7626773
+## [3,] -0.8111715  0.2495989  0.5288678
 ## 
 ## Linear Map Z:
-##              [,1]         [,2]        [,3]
-## [1,]  0.008731047  0.060733394 0.033106334
-## [2,] -0.030421912  0.030705765 0.007237869
-## [3,] -0.039783590 -0.001141793 0.047118818
+##             [,1]         [,2]         [,3]
+## [1,] -0.03317825 -0.060693873 -0.008732868
+## [2,] -0.00728177 -0.030694260  0.030423045
+## [3,] -0.04712600  0.001202581  0.039773296
 ## 
 ## Estimated GARCH coefficients:
-##         omega    alpha1     beta1
-## y1 0.31269042 0.1310694 0.7256658
-## y2 0.38751983 0.1368456 0.7531969
-## y3 0.03796812 0.1180459 0.8375854
+##         omega     alpha1     beta1
+## y1 0.27021401 0.11818866 0.7546605
+## y2 0.33995856 0.11407568 0.7824478
+## y3 0.01267415 0.05012348 0.9373412
 ## 
 ## Convergence codes of component GARCH models:
 ## y1 y2 y3 
@@ -812,21 +830,21 @@ Tsay, Ch.7 (<a href="http://faculty.chicagobooth.edu/ruey.tsay/teaching/introTS/
 <span id="cb872-7"><a href="多変量ボラティリティモデル.html#cb872-7" tabindex="-1"></a><span class="fu">MCHdiag</span>(crtn, Sigma_t) <span class="do">### Model checking</span></span></code></pre></div>
 <pre><code>## Test results:  
 ## Q(m) of et: 
-## Test and p-value:  22.85542 0.011293 
+## Test and p-value:  39.11733 2.421506e-05 
 ## Rank-based test: 
-## Test and p-value:  15.01487 0.1315205 
+## Test and p-value:  49.19905 3.744997e-07 
 ## Qk(m) of epsilon_t: 
-## Test and p-value:  173.5019 3.032694e-07 
+## Test and p-value:  228.3181 5.428991e-14 
 ## Robust Qk(m):  
-## Test and p-value:  134.7513 0.001585922</code></pre>
+## Test and p-value:  170.2647 6.803793e-07</code></pre>
 <div class="sourceCode" id="cb874"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb874-1"><a href="多変量ボラティリティモデル.html#cb874-1" tabindex="-1"></a>M <span class="ot">&lt;-</span> m1<span class="sc">@</span>Z</span>
 <span id="cb874-2"><a href="多変量ボラティリティモデル.html#cb874-2" tabindex="-1"></a>Minv <span class="ot">&lt;-</span> <span class="fu">solve</span>(M)        <span class="co"># 逆行列</span></span>
 <span id="cb874-3"><a href="多変量ボラティリティモデル.html#cb874-3" tabindex="-1"></a>bt <span class="ot">&lt;-</span> crtn <span class="sc">%*%</span> <span class="fu">t</span>(Minv)</span>
 <span id="cb874-4"><a href="多変量ボラティリティモデル.html#cb874-4" tabindex="-1"></a><span class="fu">cor</span>(bt<span class="sc">^</span><span class="dv">2</span>)</span></code></pre></div>
 <pre><code>##           [,1]      [,2]      [,3]
-## [1,] 1.0000000 0.3431368 0.1740402
-## [2,] 0.3431368 1.0000000 0.1063773
-## [3,] 0.1740402 0.1063773 1.0000000</code></pre>
+## [1,] 1.0000000 0.1063766 0.1742358
+## [2,] 0.1063766 1.0000000 0.3428244
+## [3,] 0.1742358 0.3428244 1.0000000</code></pre>
 <div class="sourceCode" id="cb876"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb876-1"><a href="多変量ボラティリティモデル.html#cb876-1" tabindex="-1"></a><span class="fu">matplot</span>(Sigma_t[, <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">5</span>, <span class="dv">9</span>)], <span class="at">type =</span> <span class="st">&quot;l&quot;</span>)  <span class="co"># 追加</span></span></code></pre></div>
 <p><img src="100-multivola_files/figure-html/gogarch-1.png" width="672" /></p>
 </div>

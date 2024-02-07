@@ -139,6 +139,10 @@ armaモデルのスペクトル密度
 周期変動時系列のスペクトル密度
 データ分析例-1
 データ分析例-2
+動的線形モデル
+パッケージdlm
+パッケージstatespacer
+パッケージbssm
 バブル-生成崩壊-検出
 検定法に関する最近のレビュー論文
 supreme-adf検定sadf-pwy-2011-generalized-supreme-adf-検定gsadf-psy-2015

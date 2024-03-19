@@ -431,6 +431,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="E.5" data-path="共和分-誤差修正モデル.html"><a href="共和分-誤差修正モデル.html#国際株式市場間のヘッジ"><i class="fa fa-check"></i><b>E.5</b> 国際株式市場間のヘッジ</a></li>
 <li class="chapter" data-level="E.6" data-path="共和分-誤差修正モデル.html"><a href="共和分-誤差修正モデル.html#クレジットスプレッド-株式-cds-債券-の分析"><i class="fa fa-check"></i><b>E.6</b> クレジット・スプレッド (株式, CDS, 債券) の分析</a></li>
 </ul></li>
+<li class="chapter" data-level="F" data-path="今後の学習のために.html"><a href="今後の学習のために.html"><i class="fa fa-check"></i><b>F</b> 今後の学習のために</a>
+<ul>
+<li class="chapter" data-level="F.1" data-path="今後の学習のために.html"><a href="今後の学習のために.html#ai機械学習と時系列解析"><i class="fa fa-check"></i><b>F.1</b> AI/機械学習と時系列解析</a></li>
+<li class="chapter" data-level="F.2" data-path="今後の学習のために.html"><a href="今後の学習のために.html#カテゴリーデータや整数値データ等に対する時系列解析"><i class="fa fa-check"></i><b>F.2</b> カテゴリーデータや整数値データ等に対する時系列解析</a></li>
+<li class="chapter" data-level="F.3" data-path="今後の学習のために.html"><a href="今後の学習のために.html#状態空間モデル動的線形モデル"><i class="fa fa-check"></i><b>F.3</b> 状態空間モデル・動的線形モデル</a></li>
+<li class="chapter" data-level="F.4" data-path="今後の学習のために.html"><a href="今後の学習のために.html#その他"><i class="fa fa-check"></i><b>F.4</b> その他</a></li>
+</ul></li>
 </ul>
 
       </nav>
@@ -572,7 +579,7 @@ unitrootTest(): McKinnons(96) のアプローチによる検定統計量の計�
 ##     0.703 
 ## 
 ## Description:
-##  Wed Feb  7 22:58:26 2024 by user:</code></pre>
+##  Tue Mar 19 13:23:32 2024 by user:</code></pre>
 <div class="sourceCode" id="cb316"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb316-1"><a href="単位根過程と単位根検定.html#cb316-1" tabindex="-1"></a><span class="fu">unitrootTest</span>(x, <span class="at">type =</span> <span class="st">&quot;nc&quot;</span>, <span class="at">lags =</span> <span class="dv">1</span>)</span></code></pre></div>
 <pre><code>## 
 ## Title:
@@ -588,7 +595,7 @@ unitrootTest(): McKinnons(96) のアプローチによる検定統計量の計�
 ##     n: 0.7506 
 ## 
 ## Description:
-##  Wed Feb  7 22:58:26 2024 by user:</code></pre>
+##  Tue Mar 19 13:23:32 2024 by user:</code></pre>
 <ul>
 <li>二つの関数の結果を比較せよ.</li>
 </ul>
@@ -606,7 +613,7 @@ unitrootTest(): McKinnons(96) のアプローチによる検定統計量の計�
 ##     0.3835 
 ## 
 ## Description:
-##  Wed Feb  7 22:58:26 2024 by user:</code></pre>
+##  Tue Mar 19 13:23:32 2024 by user:</code></pre>
 <div class="sourceCode" id="cb320"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb320-1"><a href="単位根過程と単位根検定.html#cb320-1" tabindex="-1"></a><span class="fu">unitrootTest</span>(y, <span class="at">type =</span> <span class="st">&quot;nc&quot;</span>, <span class="at">lags =</span> <span class="dv">1</span>)</span></code></pre></div>
 <pre><code>## 
 ## Title:
@@ -622,7 +629,7 @@ unitrootTest(): McKinnons(96) のアプローチによる検定統計量の計�
 ##     n: 0.522 
 ## 
 ## Description:
-##  Wed Feb  7 22:58:26 2024 by user:</code></pre>
+##  Tue Mar 19 13:23:32 2024 by user:</code></pre>
 <ul>
 <li>→ いずれも, 帰無仮説(phi_1=1)を棄却せず(単位根有り)</li>
 </ul>
@@ -640,7 +647,7 @@ unitrootTest(): McKinnons(96) のアプローチによる検定統計量の計�
 ##     0.5166 
 ## 
 ## Description:
-##  Wed Feb  7 22:58:26 2024 by user:</code></pre>
+##  Tue Mar 19 13:23:32 2024 by user:</code></pre>
 <div class="sourceCode" id="cb324"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb324-1"><a href="単位根過程と単位根検定.html#cb324-1" tabindex="-1"></a><span class="co">#unitrootTest(x, type = &quot;c&quot;, lags = 1)</span></span>
 <span id="cb324-2"><a href="単位根過程と単位根検定.html#cb324-2" tabindex="-1"></a><span class="fu">adfTest</span>(y, <span class="at">type =</span> <span class="st">&quot;c&quot;</span>, <span class="at">lags =</span> <span class="dv">1</span>)</span></code></pre></div>
 <pre><code>## 
@@ -656,7 +663,7 @@ unitrootTest(): McKinnons(96) のアプローチによる検定統計量の計�
 ##     0.6617 
 ## 
 ## Description:
-##  Wed Feb  7 22:58:26 2024 by user:</code></pre>
+##  Tue Mar 19 13:23:32 2024 by user:</code></pre>
 <div class="sourceCode" id="cb326"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb326-1"><a href="単位根過程と単位根検定.html#cb326-1" tabindex="-1"></a><span class="co">#unitrootTest(y, type = &quot;c&quot;, lags = 1)</span></span></code></pre></div>
 <div class="sourceCode" id="cb327"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb327-1"><a href="単位根過程と単位根検定.html#cb327-1" tabindex="-1"></a><span class="fu">adfTest</span>(x, <span class="at">type =</span> <span class="st">&quot;c&quot;</span>, <span class="at">lags =</span> <span class="dv">1</span>)</span></code></pre></div>
 <pre><code>## 
@@ -672,7 +679,7 @@ unitrootTest(): McKinnons(96) のアプローチによる検定統計量の計�
 ##     0.5166 
 ## 
 ## Description:
-##  Wed Feb  7 22:58:26 2024 by user:</code></pre>
+##  Tue Mar 19 13:23:32 2024 by user:</code></pre>
 <div class="sourceCode" id="cb329"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb329-1"><a href="単位根過程と単位根検定.html#cb329-1" tabindex="-1"></a><span class="co">#unitrootTest(x, type = &quot;ct&quot;, lags = 1)</span></span>
 <span id="cb329-2"><a href="単位根過程と単位根検定.html#cb329-2" tabindex="-1"></a><span class="fu">adfTest</span>(y, <span class="at">type =</span> <span class="st">&quot;c&quot;</span>, <span class="at">lags =</span> <span class="dv">1</span>)</span></code></pre></div>
 <pre><code>## 
@@ -688,7 +695,7 @@ unitrootTest(): McKinnons(96) のアプローチによる検定統計量の計�
 ##     0.6617 
 ## 
 ## Description:
-##  Wed Feb  7 22:58:26 2024 by user:</code></pre>
+##  Tue Mar 19 13:23:32 2024 by user:</code></pre>
 <div class="sourceCode" id="cb331"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb331-1"><a href="単位根過程と単位根検定.html#cb331-1" tabindex="-1"></a><span class="co">#unitrootTest(y, type = &quot;ct&quot;, lags = 1)</span></span></code></pre></div>
 <ul>
 <li>株価データ(<strong>quantmod</strong>パッケージにより取得)</li>
@@ -739,14 +746,14 @@ unitrootTest(): McKinnons(96) のアプローチによる検定統計量の計�
 ##  Augmented Dickey-Fuller Test
 ## 
 ## data:  p8411
-## Dickey-Fuller = -0.72097, Lag order = 9, p-value = 0.9687
+## Dickey-Fuller = -0.7077, Lag order = 9, p-value = 0.9698
 ## alternative hypothesis: stationary
 ## 
 ## 
 ##  Augmented Dickey-Fuller Test
 ## 
 ## data:  p8411
-## Dickey-Fuller = -0.88565, Lag order = 1, p-value = 0.954
+## Dickey-Fuller = -0.87317, Lag order = 1, p-value = 0.9551
 ## alternative hypothesis: stationary
 ## 
 ## 
@@ -757,18 +764,18 @@ unitrootTest(): McKinnons(96) のアプローチによる検定統計量の計�
 ##   PARAMETER:
 ##     Lag Order: 1
 ##   STATISTIC:
-##     Dickey-Fuller: -0.8856
+##     Dickey-Fuller: -0.8732
 ##   P VALUE:
-##     0.954 
+##     0.9551 
 ## 
 ## Description:
-##  Wed Feb  7 22:58:26 2024 by user: 
+##  Tue Mar 19 13:23:33 2024 by user: 
 ## 
 ## 
 ##  Augmented Dickey-Fuller Test
 ## 
 ## data:  p8411
-## Dickey-Fuller = -0.88565, Lag order = 1, p-value = 0.04604
+## Dickey-Fuller = -0.87317, Lag order = 1, p-value = 0.04492
 ## alternative hypothesis: explosive</code></pre>
 </div>
 <div id="adf検定以外の検定法" class="section level3 hasAnchor" number="5.2.2">
@@ -782,24 +789,24 @@ unitrootTest(): McKinnons(96) のアプローチによる検定統計量の計�
 ##  Phillips-Perron Unit Root Test
 ## 
 ## data:  p8411
-## Dickey-Fuller Z(alpha) = -3.5464, Truncation lag parameter = 6, p-value
-## = 0.9096
+## Dickey-Fuller Z(alpha) = -3.4966, Truncation lag parameter = 6, p-value
+## = 0.9119
 ## alternative hypothesis: stationary</code></pre>
 <div class="sourceCode" id="cb345"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb345-1"><a href="単位根過程と単位根検定.html#cb345-1" tabindex="-1"></a><span class="fu">pp.test</span>(p8411, <span class="at">type =</span> <span class="st">&quot;Z(alpha)&quot;</span>, <span class="at">lshort =</span> F)</span></code></pre></div>
 <pre><code>## 
 ##  Phillips-Perron Unit Root Test
 ## 
 ## data:  p8411
-## Dickey-Fuller Z(alpha) = -2.4057, Truncation lag parameter = 19,
-## p-value = 0.957
+## Dickey-Fuller Z(alpha) = -2.3572, Truncation lag parameter = 19,
+## p-value = 0.9584
 ## alternative hypothesis: stationary</code></pre>
 <div class="sourceCode" id="cb347"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb347-1"><a href="単位根過程と単位根検定.html#cb347-1" tabindex="-1"></a><span class="fu">pp.test</span>(p8411, <span class="at">type =</span> <span class="st">&quot;Z(t_alpha)&quot;</span>)</span></code></pre></div>
 <pre><code>## 
 ##  Phillips-Perron Unit Root Test
 ## 
 ## data:  p8411
-## Dickey-Fuller Z(t_alpha) = -0.93464, Truncation lag parameter = 6,
-## p-value = 0.9493
+## Dickey-Fuller Z(t_alpha) = -0.92218, Truncation lag parameter = 6,
+## p-value = 0.9507
 ## alternative hypothesis: stationary</code></pre>
 <div class="sourceCode" id="cb349"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb349-1"><a href="単位根過程と単位根検定.html#cb349-1" tabindex="-1"></a><span class="co">#pp.test(p8411, alternative = &quot;explosive&quot;)</span></span></code></pre></div>
 <div class="sourceCode" id="cb350"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb350-1"><a href="単位根過程と単位根検定.html#cb350-1" tabindex="-1"></a><span class="fu">library</span>(urca)</span></code></pre></div>
@@ -816,28 +823,28 @@ unitrootTest(): McKinnons(96) のアプローチによる検定統計量の計�
 ## # Phillips-Perron Unit Root / Cointegration Test # 
 ## ################################################## 
 ## 
-## The value of the test statistic is: -3.5414</code></pre>
+## The value of the test statistic is: -3.4916</code></pre>
 <div class="sourceCode" id="cb355"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb355-1"><a href="単位根過程と単位根検定.html#cb355-1" tabindex="-1"></a><span class="fu">ur.pp</span>(p8411, <span class="at">type =</span> <span class="st">&quot;Z-alpha&quot;</span>, <span class="at">model =</span> <span class="st">&quot;trend&quot;</span>, <span class="at">lags =</span> <span class="st">&quot;long&quot;</span>)</span></code></pre></div>
 <pre><code>## 
 ## ################################################## 
 ## # Phillips-Perron Unit Root / Cointegration Test # 
 ## ################################################## 
 ## 
-## The value of the test statistic is: -2.4118</code></pre>
+## The value of the test statistic is: -2.3635</code></pre>
 <div class="sourceCode" id="cb357"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb357-1"><a href="単位根過程と単位根検定.html#cb357-1" tabindex="-1"></a><span class="fu">ur.pp</span>(p8411, <span class="at">type =</span> <span class="st">&quot;Z-tau&quot;</span>, <span class="at">model =</span> <span class="st">&quot;trend&quot;</span>, <span class="at">lags =</span> <span class="st">&quot;long&quot;</span>)</span></code></pre></div>
 <pre><code>## 
 ## ################################################## 
 ## # Phillips-Perron Unit Root / Cointegration Test # 
 ## ################################################## 
 ## 
-## The value of the test statistic is: -0.6917</code></pre>
+## The value of the test statistic is: -0.6783</code></pre>
 <div class="sourceCode" id="cb359"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb359-1"><a href="単位根過程と単位根検定.html#cb359-1" tabindex="-1"></a><span class="fu">ur.pp</span>(p8411, <span class="at">type =</span> <span class="st">&quot;Z-tau&quot;</span>, <span class="at">model =</span> <span class="st">&quot;constant&quot;</span>)</span></code></pre></div>
 <pre><code>## 
 ## ################################################## 
 ## # Phillips-Perron Unit Root / Cointegration Test # 
 ## ################################################## 
 ## 
-## The value of the test statistic is: 0.8101</code></pre>
+## The value of the test statistic is: 0.823</code></pre>
 <ul>
 <li>KPSS検定の実行例</li>
 </ul>

@@ -431,6 +431,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="E.5" data-path="共和分-誤差修正モデル.html"><a href="共和分-誤差修正モデル.html#国際株式市場間のヘッジ"><i class="fa fa-check"></i><b>E.5</b> 国際株式市場間のヘッジ</a></li>
 <li class="chapter" data-level="E.6" data-path="共和分-誤差修正モデル.html"><a href="共和分-誤差修正モデル.html#クレジットスプレッド-株式-cds-債券-の分析"><i class="fa fa-check"></i><b>E.6</b> クレジット・スプレッド (株式, CDS, 債券) の分析</a></li>
 </ul></li>
+<li class="chapter" data-level="F" data-path="今後の学習のために.html"><a href="今後の学習のために.html"><i class="fa fa-check"></i><b>F</b> 今後の学習のために</a>
+<ul>
+<li class="chapter" data-level="F.1" data-path="今後の学習のために.html"><a href="今後の学習のために.html#ai機械学習と時系列解析"><i class="fa fa-check"></i><b>F.1</b> AI/機械学習と時系列解析</a></li>
+<li class="chapter" data-level="F.2" data-path="今後の学習のために.html"><a href="今後の学習のために.html#カテゴリーデータや整数値データ等に対する時系列解析"><i class="fa fa-check"></i><b>F.2</b> カテゴリーデータや整数値データ等に対する時系列解析</a></li>
+<li class="chapter" data-level="F.3" data-path="今後の学習のために.html"><a href="今後の学習のために.html#状態空間モデル動的線形モデル"><i class="fa fa-check"></i><b>F.3</b> 状態空間モデル・動的線形モデル</a></li>
+<li class="chapter" data-level="F.4" data-path="今後の学習のために.html"><a href="今後の学習のために.html#その他"><i class="fa fa-check"></i><b>F.4</b> その他</a></li>
+</ul></li>
 </ul>
 
       </nav>
@@ -588,7 +595,7 @@ y_{4,t} &amp;= w_{1,t}+ 2 w_{2,t} + u_{4,t}
 ##     0.5756 
 ## 
 ## Description:
-##  Wed Feb  7 22:59:31 2024 by user:</code></pre>
+##  Tue Mar 19 13:24:36 2024 by user:</code></pre>
 <div class="sourceCode" id="cb716"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb716-1"><a href="共和分分析誤差修正モデル.html#cb716-1" tabindex="-1"></a>fUnitRoots<span class="sc">::</span><span class="fu">adfTest</span>(y2)</span></code></pre></div>
 <pre><code>## 
 ## Title:
@@ -603,7 +610,7 @@ y_{4,t} &amp;= w_{1,t}+ 2 w_{2,t} + u_{4,t}
 ##     0.6497 
 ## 
 ## Description:
-##  Wed Feb  7 22:59:31 2024 by user:</code></pre>
+##  Tue Mar 19 13:24:36 2024 by user:</code></pre>
 <div class="sourceCode" id="cb718"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb718-1"><a href="共和分分析誤差修正モデル.html#cb718-1" tabindex="-1"></a>fUnitRoots<span class="sc">::</span><span class="fu">adfTest</span>(y3)</span></code></pre></div>
 <pre><code>## 
 ## Title:
@@ -618,7 +625,7 @@ y_{4,t} &amp;= w_{1,t}+ 2 w_{2,t} + u_{4,t}
 ##     0.5766 
 ## 
 ## Description:
-##  Wed Feb  7 22:59:31 2024 by user:</code></pre>
+##  Tue Mar 19 13:24:36 2024 by user:</code></pre>
 <div class="sourceCode" id="cb720"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb720-1"><a href="共和分分析誤差修正モデル.html#cb720-1" tabindex="-1"></a>fUnitRoots<span class="sc">::</span><span class="fu">adfTest</span>(y4)</span></code></pre></div>
 <pre><code>## 
 ## Title:
@@ -633,7 +640,7 @@ y_{4,t} &amp;= w_{1,t}+ 2 w_{2,t} + u_{4,t}
 ##     0.3768 
 ## 
 ## Description:
-##  Wed Feb  7 22:59:31 2024 by user:</code></pre>
+##  Tue Mar 19 13:24:36 2024 by user:</code></pre>
 <div id="engle-grangerの方法" class="section level3 hasAnchor" number="10.2.1">
 <h3><span class="header-section-number">10.2.1</span> Engle-Grangerの方法<a href="共和分分析誤差修正モデル.html#engle-grangerの方法" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
@@ -867,7 +874,7 @@ y_{4,t} &amp;= w_{1,t}+ 2 w_{2,t} + u_{4,t}
 ##     0.01 
 ## 
 ## Description:
-##  Wed Feb  7 22:59:31 2024 by user:</code></pre>
+##  Tue Mar 19 13:24:36 2024 by user:</code></pre>
 <div class="sourceCode" id="cb735"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb735-1"><a href="共和分分析誤差修正モデル.html#cb735-1" tabindex="-1"></a>fUnitRoots<span class="sc">::</span><span class="fu">adfTest</span>(ts_new[, <span class="dv">2</span>])</span></code></pre></div>
 <pre><code>## Warning in fUnitRoots::adfTest(ts_new[, 2]): p-value smaller than printed
 ## p-value</code></pre>
@@ -884,7 +891,7 @@ y_{4,t} &amp;= w_{1,t}+ 2 w_{2,t} + u_{4,t}
 ##     0.01 
 ## 
 ## Description:
-##  Wed Feb  7 22:59:31 2024 by user:</code></pre>
+##  Tue Mar 19 13:24:36 2024 by user:</code></pre>
 <div class="sourceCode" id="cb738"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb738-1"><a href="共和分分析誤差修正モデル.html#cb738-1" tabindex="-1"></a><span class="do">##fUnitRoots::adfTest(ts_new[, 3])</span></span>
 <span id="cb738-2"><a href="共和分分析誤差修正モデル.html#cb738-2" tabindex="-1"></a><span class="do">##fUnitRoots::adfTest(ts_new[, 4])</span></span></code></pre></div>
 
@@ -987,7 +994,7 @@ y_{4,t} &amp;= w_{1,t}+ 2 w_{2,t} + u_{4,t}
 ##     0.425 
 ## 
 ## Description:
-##  Wed Feb  7 22:59:33 2024 by user:</code></pre>
+##  Tue Mar 19 13:24:38 2024 by user:</code></pre>
 <div class="sourceCode" id="cb755"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb755-1"><a href="共和分分析誤差修正モデル.html#cb755-1" tabindex="-1"></a>fUnitRoots<span class="sc">::</span><span class="fu">adfTest</span>(bnd[, <span class="dv">2</span>], <span class="at">lags =</span> <span class="dv">2</span>, <span class="at">type =</span> <span class="st">&quot;c&quot;</span>)</span></code></pre></div>
 <pre><code>## 
 ## Title:
@@ -1002,7 +1009,7 @@ y_{4,t} &amp;= w_{1,t}+ 2 w_{2,t} + u_{4,t}
 ##     0.4544 
 ## 
 ## Description:
-##  Wed Feb  7 22:59:33 2024 by user:</code></pre>
+##  Tue Mar 19 13:24:38 2024 by user:</code></pre>
 <ul>
 <li>–&gt; Aaa, Baa系列のADF検定、棄却されない (H0: 単位根非定常)</li>
 </ul>
@@ -1179,7 +1186,7 @@ y_{4,t} &amp;= w_{1,t}+ 2 w_{2,t} + u_{4,t}
 ##     0.01 
 ## 
 ## Description:
-##  Wed Feb  7 22:59:33 2024 by user:</code></pre>
+##  Tue Mar 19 13:24:38 2024 by user:</code></pre>
 <ul>
 <li>→ <span class="math inline">\(p\)</span>値<span class="math inline">\(=0.01\)</span> (単位根無)</li>
 </ul>

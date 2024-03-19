@@ -431,6 +431,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="E.5" data-path="共和分-誤差修正モデル.html"><a href="共和分-誤差修正モデル.html#国際株式市場間のヘッジ"><i class="fa fa-check"></i><b>E.5</b> 国際株式市場間のヘッジ</a></li>
 <li class="chapter" data-level="E.6" data-path="共和分-誤差修正モデル.html"><a href="共和分-誤差修正モデル.html#クレジットスプレッド-株式-cds-債券-の分析"><i class="fa fa-check"></i><b>E.6</b> クレジット・スプレッド (株式, CDS, 債券) の分析</a></li>
 </ul></li>
+<li class="chapter" data-level="F" data-path="今後の学習のために.html"><a href="今後の学習のために.html"><i class="fa fa-check"></i><b>F</b> 今後の学習のために</a>
+<ul>
+<li class="chapter" data-level="F.1" data-path="今後の学習のために.html"><a href="今後の学習のために.html#ai機械学習と時系列解析"><i class="fa fa-check"></i><b>F.1</b> AI/機械学習と時系列解析</a></li>
+<li class="chapter" data-level="F.2" data-path="今後の学習のために.html"><a href="今後の学習のために.html#カテゴリーデータや整数値データ等に対する時系列解析"><i class="fa fa-check"></i><b>F.2</b> カテゴリーデータや整数値データ等に対する時系列解析</a></li>
+<li class="chapter" data-level="F.3" data-path="今後の学習のために.html"><a href="今後の学習のために.html#状態空間モデル動的線形モデル"><i class="fa fa-check"></i><b>F.3</b> 状態空間モデル・動的線形モデル</a></li>
+<li class="chapter" data-level="F.4" data-path="今後の学習のために.html"><a href="今後の学習のために.html#その他"><i class="fa fa-check"></i><b>F.4</b> その他</a></li>
+</ul></li>
 </ul>
 
       </nav>
@@ -516,9 +523,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb982-29"><a href="動的線形モデル.html#cb982-29" tabindex="-1"></a><span class="do">## [1,]    0    1    2</span></span>
 <span id="cb982-30"><a href="動的線形モデル.html#cb982-30" tabindex="-1"></a><span class="do">## </span></span>
 <span id="cb982-31"><a href="動的線形モデル.html#cb982-31" tabindex="-1"></a><span class="do">## $X</span></span>
-<span id="cb982-32"><a href="動的線形モデル.html#cb982-32" tabindex="-1"></a><span class="do">##      [,1]    [,2]  </span></span>
-<span id="cb982-33"><a href="動的線形モデル.html#cb982-33" tabindex="-1"></a><span class="do">## [1,] -0.5481 -1.404</span></span>
-<span id="cb982-34"><a href="動的線形モデル.html#cb982-34" tabindex="-1"></a><span class="do">## [2,] -2.454  0.8061</span></span>
+<span id="cb982-32"><a href="動的線形モデル.html#cb982-32" tabindex="-1"></a><span class="do">##      [,1]   [,2]   </span></span>
+<span id="cb982-33"><a href="動的線形モデル.html#cb982-33" tabindex="-1"></a><span class="do">## [1,] 0.2349 -0.5491</span></span>
+<span id="cb982-34"><a href="動的線形モデル.html#cb982-34" tabindex="-1"></a><span class="do">## [2,] -2.06  -1.161 </span></span>
 <span id="cb982-35"><a href="動的線形モデル.html#cb982-35" tabindex="-1"></a><span class="do">## [3,] ...           </span></span>
 <span id="cb982-36"><a href="動的線形モデル.html#cb982-36" tabindex="-1"></a><span class="do">## </span></span>
 <span id="cb982-37"><a href="動的線形モデル.html#cb982-37" tabindex="-1"></a><span class="do">## $m0</span></span>
@@ -1279,14 +1286,14 @@ run_mcmcの出力は, as.data.frame, as_draws, expand_sample, summaryメソッ�
 <span id="cb1029-7"><a href="動的線形モデル.html#cb1029-7" tabindex="-1"></a><span class="co"># Some diagnostics checks:</span></span>
 <span id="cb1029-8"><a href="動的線形モデル.html#cb1029-8" tabindex="-1"></a><span class="fu">check_diagnostics</span>(fit)</span>
 <span id="cb1029-9"><a href="動的線形モデル.html#cb1029-9" tabindex="-1"></a><span class="do">## </span></span>
-<span id="cb1029-10"><a href="動的線形モデル.html#cb1029-10" tabindex="-1"></a><span class="do">## Acceptance rate after the burn-in period:  0.225</span></span>
+<span id="cb1029-10"><a href="動的線形モデル.html#cb1029-10" tabindex="-1"></a><span class="do">## Acceptance rate after the burn-in period:  0.234</span></span>
 <span id="cb1029-11"><a href="動的線形モデル.html#cb1029-11" tabindex="-1"></a><span class="do">## </span></span>
 <span id="cb1029-12"><a href="動的線形モデル.html#cb1029-12" tabindex="-1"></a><span class="do">## Run time (wall-clock):</span></span>
 <span id="cb1029-13"><a href="動的線形モデル.html#cb1029-13" tabindex="-1"></a><span class="do">## 0.03 seconds.</span></span>
 <span id="cb1029-14"><a href="動的線形モデル.html#cb1029-14" tabindex="-1"></a><span class="do">## </span></span>
-<span id="cb1029-15"><a href="動的線形モデル.html#cb1029-15" tabindex="-1"></a><span class="do">## Smallest bulk-ESS: 33 (level[14])</span></span>
-<span id="cb1029-16"><a href="動的線形モデル.html#cb1029-16" tabindex="-1"></a><span class="do">## Smallest tail-ESS: 38 (level[70])</span></span>
-<span id="cb1029-17"><a href="動的線形モデル.html#cb1029-17" tabindex="-1"></a><span class="do">## Largest Rhat: 1.09 (level[101])</span></span></code></pre></div>
+<span id="cb1029-15"><a href="動的線形モデル.html#cb1029-15" tabindex="-1"></a><span class="do">## Smallest bulk-ESS: 68 (level[90])</span></span>
+<span id="cb1029-16"><a href="動的線形モデル.html#cb1029-16" tabindex="-1"></a><span class="do">## Smallest tail-ESS: 22 (level[91])</span></span>
+<span id="cb1029-17"><a href="動的線形モデル.html#cb1029-17" tabindex="-1"></a><span class="do">## Largest Rhat: 1.045 (level[58])</span></span></code></pre></div>
 <div class="sourceCode" id="cb1030"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1030-1"><a href="動的線形モデル.html#cb1030-1" tabindex="-1"></a><span class="co"># print some summary information:</span></span>
 <span id="cb1030-2"><a href="動的線形モデル.html#cb1030-2" tabindex="-1"></a>fit</span>
 <span id="cb1030-3"><a href="動的線形モデル.html#cb1030-3" tabindex="-1"></a><span class="do">## </span></span>
@@ -1295,24 +1302,24 @@ run_mcmcの出力は, as.data.frame, as_draws, expand_sample, summaryメソッ�
 <span id="cb1030-6"><a href="動的線形モデル.html#cb1030-6" tabindex="-1"></a><span class="do">## </span></span>
 <span id="cb1030-7"><a href="動的線形モデル.html#cb1030-7" tabindex="-1"></a><span class="do">## Iterations = 1001:2000</span></span>
 <span id="cb1030-8"><a href="動的線形モデル.html#cb1030-8" tabindex="-1"></a><span class="do">## Thinning interval = 1</span></span>
-<span id="cb1030-9"><a href="動的線形モデル.html#cb1030-9" tabindex="-1"></a><span class="do">## Length of the final jump chain = 225</span></span>
+<span id="cb1030-9"><a href="動的線形モデル.html#cb1030-9" tabindex="-1"></a><span class="do">## Length of the final jump chain = 235</span></span>
 <span id="cb1030-10"><a href="動的線形モデル.html#cb1030-10" tabindex="-1"></a><span class="do">## </span></span>
-<span id="cb1030-11"><a href="動的線形モデル.html#cb1030-11" tabindex="-1"></a><span class="do">## Acceptance rate after the burn-in period:  0.225</span></span>
+<span id="cb1030-11"><a href="動的線形モデル.html#cb1030-11" tabindex="-1"></a><span class="do">## Acceptance rate after the burn-in period:  0.234</span></span>
 <span id="cb1030-12"><a href="動的線形モデル.html#cb1030-12" tabindex="-1"></a><span class="do">## </span></span>
 <span id="cb1030-13"><a href="動的線形モデル.html#cb1030-13" tabindex="-1"></a><span class="do">## Summary for theta:</span></span>
 <span id="cb1030-14"><a href="動的線形モデル.html#cb1030-14" tabindex="-1"></a><span class="do">## </span></span>
-<span id="cb1030-15"><a href="動的線形モデル.html#cb1030-15" tabindex="-1"></a><span class="do">##  variable      Mean        SE       SD     2.5%     97.5% ESS</span></span>
-<span id="cb1030-16"><a href="動的線形モデル.html#cb1030-16" tabindex="-1"></a><span class="do">##  sd_level  43.25887 1.2334842 14.79613 20.70898  80.90257 144</span></span>
-<span id="cb1030-17"><a href="動的線形モデル.html#cb1030-17" tabindex="-1"></a><span class="do">##      sd_y 121.76882 0.8486263 11.60289 96.75382 141.92031 187</span></span>
+<span id="cb1030-15"><a href="動的線形モデル.html#cb1030-15" tabindex="-1"></a><span class="do">##  variable      Mean       SE       SD     2.5%     97.5% ESS</span></span>
+<span id="cb1030-16"><a href="動的線形モデル.html#cb1030-16" tabindex="-1"></a><span class="do">##  sd_level  44.36092 1.795784 16.97667 17.43660  77.52529  89</span></span>
+<span id="cb1030-17"><a href="動的線形モデル.html#cb1030-17" tabindex="-1"></a><span class="do">##      sd_y 122.13758 1.114178 12.71891 98.71335 145.00349 130</span></span>
 <span id="cb1030-18"><a href="動的線形モデル.html#cb1030-18" tabindex="-1"></a><span class="do">## </span></span>
 <span id="cb1030-19"><a href="動的線形モデル.html#cb1030-19" tabindex="-1"></a><span class="do">## Summary for alpha_101:</span></span>
 <span id="cb1030-20"><a href="動的線形モデル.html#cb1030-20" tabindex="-1"></a><span class="do">## </span></span>
 <span id="cb1030-21"><a href="動的線形モデル.html#cb1030-21" tabindex="-1"></a><span class="do">##  variable time     Mean       SE       SD     2.5%    97.5% ESS</span></span>
-<span id="cb1030-22"><a href="動的線形モデル.html#cb1030-22" tabindex="-1"></a><span class="do">##     level 1971 798.3094 6.164615 73.72651 650.3031 953.1651 143</span></span>
+<span id="cb1030-22"><a href="動的線形モデル.html#cb1030-22" tabindex="-1"></a><span class="do">##     level 1971 775.6908 7.828845 84.59991 613.8982 926.1021 117</span></span>
 <span id="cb1030-23"><a href="動的線形モデル.html#cb1030-23" tabindex="-1"></a><span class="do">## </span></span>
 <span id="cb1030-24"><a href="動的線形モデル.html#cb1030-24" tabindex="-1"></a><span class="do">## Run time:</span></span>
 <span id="cb1030-25"><a href="動的線形モデル.html#cb1030-25" tabindex="-1"></a><span class="do">##    user  system elapsed </span></span>
-<span id="cb1030-26"><a href="動的線形モデル.html#cb1030-26" tabindex="-1"></a><span class="do">##   0.029   0.000   0.030</span></span>
+<span id="cb1030-26"><a href="動的線形モデル.html#cb1030-26" tabindex="-1"></a><span class="do">##   0.030   0.001   0.030</span></span>
 <span id="cb1030-27"><a href="動的線形モデル.html#cb1030-27" tabindex="-1"></a></span>
 <span id="cb1030-28"><a href="動的線形モデル.html#cb1030-28" tabindex="-1"></a><span class="co"># traceplots:</span></span>
 <span id="cb1030-29"><a href="動的線形モデル.html#cb1030-29" tabindex="-1"></a><span class="fu">plot</span>(fit)</span></code></pre></div>
@@ -1411,7 +1418,7 @@ run_mcmcの出力は, as.data.frame, as_draws, expand_sample, summaryメソッ�
 <span id="cb1034-42"><a href="動的線形モデル.html#cb1034-42" tabindex="-1"></a><span class="do">## </span></span>
 <span id="cb1034-43"><a href="動的線形モデル.html#cb1034-43" tabindex="-1"></a><span class="do">## Run time:</span></span>
 <span id="cb1034-44"><a href="動的線形モデル.html#cb1034-44" tabindex="-1"></a><span class="do">##    user  system elapsed </span></span>
-<span id="cb1034-45"><a href="動的線形モデル.html#cb1034-45" tabindex="-1"></a><span class="do">##   5.730   0.020   5.792</span></span></code></pre></div>
+<span id="cb1034-45"><a href="動的線形モデル.html#cb1034-45" tabindex="-1"></a><span class="do">##   5.778   0.016   5.810</span></span></code></pre></div>
 <div class="sourceCode" id="cb1035"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1035-1"><a href="動的線形モデル.html#cb1035-1" tabindex="-1"></a><span class="fu">suppressMessages</span>(<span class="fu">library</span>(<span class="st">&quot;ggplot2&quot;</span>))</span></code></pre></div>
 <div class="sourceCode" id="cb1036"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1036-1"><a href="動的線形モデル.html#cb1036-1" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(mcmc_bsm, <span class="at">variable =</span> <span class="st">&quot;theta&quot;</span>)</span>
 <span id="cb1036-2"><a href="動的線形モデル.html#cb1036-2" tabindex="-1"></a><span class="fu">ggplot</span>(d, <span class="fu">aes</span>(<span class="at">x =</span> value)) <span class="sc">+</span> </span>

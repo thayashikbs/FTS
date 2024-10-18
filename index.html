@@ -177,6 +177,28 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="2.5" data-path="定常性と自己相関関数.html"><a href="定常性と自己相関関数.html#母acf-vs-標本acf"><i class="fa fa-check"></i><b>2.5</b> 母ACF vs 標本ACF</a></li>
 </ul></li>
+<li class="chapter" data-level="3" data-path="armapqモデル.html"><a href="armapqモデル.html"><i class="fa fa-check"></i><b>3</b> ARMA<span class="math inline">\((p,q)\)</span>モデル</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="armapqモデル.html"><a href="armapqモデル.html#armapqモデルとは"><i class="fa fa-check"></i><b>3.1</b> ARMA<span class="math inline">\((p,q)\)</span>モデルとは</a>
+<ul>
+<li class="chapter" data-level="" data-path="armapqモデル.html"><a href="armapqモデル.html#因果性と反転可能性"><i class="fa fa-check"></i>因果性と反転可能性</a></li>
+<li class="chapter" data-level="" data-path="armapqモデル.html"><a href="armapqモデル.html#armapqモデルの意義"><i class="fa fa-check"></i>ARMA<span class="math inline">\((p,q)\)</span>モデルの意義</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="armapqモデル.html"><a href="armapqモデル.html#armapqモデルによる予測"><i class="fa fa-check"></i><b>3.2</b> ARMA<span class="math inline">\((p,q)\)</span>モデルによる予測</a></li>
+<li class="chapter" data-level="3.3" data-path="armapqモデル.html"><a href="armapqモデル.html#armapqモデルの推定"><i class="fa fa-check"></i><b>3.3</b> ARMA<span class="math inline">\((p,q)\)</span>モデルの推定</a></li>
+<li class="chapter" data-level="3.4" data-path="armapqモデル.html"><a href="armapqモデル.html#armapqモデルの同定-次数の特定"><i class="fa fa-check"></i><b>3.4</b> ARMA<span class="math inline">\((p,q)\)</span>モデルの同定 (次数の特定)</a></li>
+<li class="chapter" data-level="3.5" data-path="armapqモデル.html"><a href="armapqモデル.html#r操作"><i class="fa fa-check"></i><b>3.5</b> R操作</a>
+<ul>
+<li class="chapter" data-level="" data-path="armapqモデル.html"><a href="armapqモデル.html#armapqモデルの同定-acfpacfeacfの利用"><i class="fa fa-check"></i>ARMA<span class="math inline">\((p,q)\)</span>モデルの同定 (ACF/PACF/EACFの利用)</a></li>
+<li class="chapter" data-level="" data-path="armapqモデル.html"><a href="armapqモデル.html#armapqモデルの推定診断"><i class="fa fa-check"></i>ARMA<span class="math inline">\((p,q)\)</span>モデルの推定・診断</a></li>
+<li class="chapter" data-level="" data-path="armapqモデル.html"><a href="armapqモデル.html#パッケージforecastの利用"><i class="fa fa-check"></i>パッケージ{forecast}の利用</a></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="armapqモデル.html"><a href="armapqモデル.html#データ分析例-tsay-ch2より"><i class="fa fa-check"></i><b>3.6</b> データ分析例 (Tsay, Ch2より)</a>
+<ul>
+<li class="chapter" data-level="" data-path="armapqモデル.html"><a href="armapqモデル.html#標本acf"><i class="fa fa-check"></i>標本ACF</a></li>
+<li class="chapter" data-level="" data-path="armapqモデル.html"><a href="armapqモデル.html#ar-ma-arma-2.42.6"><i class="fa fa-check"></i>AR, MA, ARMA (2.4–2.6)</a></li>
+</ul></li>
+</ul></li>
 </ul>
 
       </nav>
@@ -197,7 +219,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="header">
 <h1 class="title">金融時系列解析</h1>
 <p class="author"><em>林 高樹</em></p>
-<p class="date"><em>2024-10-11 (内容は随時更新します)</em></p>
+<p class="date"><em>2024-10-18 (内容は随時更新します)</em></p>
 </div>
 <div id="はじめに" class="section level1 hasAnchor" number="1">
 <h1><span class="header-section-number">1</span> はじめに<a href="index.html#はじめに" class="anchor-section" aria-label="Anchor link to header"></a></h1>
@@ -217,7 +239,7 @@ classoption: xelatex,ja=standard
 
 title: "金融時系列解析"
 author: "林 高樹"
-date: "2024-10-11"
+date: "2024-10-18"
 site: bookdown::bookdown_site
 output: bookdown::html_document2: default
 documentclass: bxjsbook
@@ -410,16 +432,16 @@ Figure 1.2: …
 <div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="index.html#cb9-1" tabindex="-1"></a><span class="co"># as.Date(): 日付を表す文字列をDate型に変更する</span></span>
 <span id="cb9-2"><a href="index.html#cb9-2" tabindex="-1"></a>tomorrow <span class="ot">&lt;-</span> <span class="fu">as.Date</span>(<span class="st">&quot;2023-10-04&quot;</span>)</span>
 <span id="cb9-3"><a href="index.html#cb9-3" tabindex="-1"></a>tomorrow</span>
-<span id="cb9-4"><a href="index.html#cb9-4" tabindex="-1"></a><span class="do">## [1] &quot;2023-10-04&quot;</span></span>
+<span id="cb9-4"><a href="index.html#cb9-4" tabindex="-1"></a><span class="co">#&gt; [1] &quot;2023-10-04&quot;</span></span>
 <span id="cb9-5"><a href="index.html#cb9-5" tabindex="-1"></a><span class="fu">attributes</span>(tomorrow) <span class="co"># 出力オブジェクトの属性(attribute)</span></span>
-<span id="cb9-6"><a href="index.html#cb9-6" tabindex="-1"></a><span class="do">## $class</span></span>
-<span id="cb9-7"><a href="index.html#cb9-7" tabindex="-1"></a><span class="do">## [1] &quot;Date&quot;</span></span>
+<span id="cb9-6"><a href="index.html#cb9-6" tabindex="-1"></a><span class="co">#&gt; $class</span></span>
+<span id="cb9-7"><a href="index.html#cb9-7" tabindex="-1"></a><span class="co">#&gt; [1] &quot;Date&quot;</span></span>
 <span id="cb9-8"><a href="index.html#cb9-8" tabindex="-1"></a><span class="co"># typeof(tomorrow) # 出力オブジェクトの型(type)</span></span>
 <span id="cb9-9"><a href="index.html#cb9-9" tabindex="-1"></a><span class="co"># typeof(&quot;2023-10-23&quot;) # 入力オブジェクトの型(type)</span></span>
 <span id="cb9-10"><a href="index.html#cb9-10" tabindex="-1"></a></span>
 <span id="cb9-11"><a href="index.html#cb9-11" tabindex="-1"></a>today <span class="ot">&lt;-</span> <span class="fu">Sys.Date</span>()</span>
 <span id="cb9-12"><a href="index.html#cb9-12" tabindex="-1"></a>today</span>
-<span id="cb9-13"><a href="index.html#cb9-13" tabindex="-1"></a><span class="do">## [1] &quot;2024-10-11&quot;</span></span></code></pre></div>
+<span id="cb9-13"><a href="index.html#cb9-13" tabindex="-1"></a><span class="co">#&gt; [1] &quot;2024-10-18&quot;</span></span></code></pre></div>
 </div>
 <div id="posixctクラス" class="section level4 hasAnchor" number="1.4.1.2">
 <h4><span class="header-section-number">1.4.1.2</span> POSIXctクラス<a href="index.html#posixctクラス" class="anchor-section" aria-label="Anchor link to header"></a></h4>
@@ -431,24 +453,24 @@ Figure 1.2: …
 </ul>
 <div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="index.html#cb10-1" tabindex="-1"></a>now_ct <span class="ot">&lt;-</span> <span class="fu">as.POSIXct</span>(<span class="st">&quot;2023-10-05 19:00&quot;</span>, <span class="at">tz =</span> <span class="st">&quot;UTC&quot;</span>)</span>
 <span id="cb10-2"><a href="index.html#cb10-2" tabindex="-1"></a>now_ct</span>
-<span id="cb10-3"><a href="index.html#cb10-3" tabindex="-1"></a><span class="do">## [1] &quot;2023-10-05 19:00:00 UTC&quot;</span></span>
+<span id="cb10-3"><a href="index.html#cb10-3" tabindex="-1"></a><span class="co">#&gt; [1] &quot;2023-10-05 19:00:00 UTC&quot;</span></span>
 <span id="cb10-4"><a href="index.html#cb10-4" tabindex="-1"></a><span class="fu">attributes</span>(now_ct)</span>
-<span id="cb10-5"><a href="index.html#cb10-5" tabindex="-1"></a><span class="do">## $class</span></span>
-<span id="cb10-6"><a href="index.html#cb10-6" tabindex="-1"></a><span class="do">## [1] &quot;POSIXct&quot; &quot;POSIXt&quot; </span></span>
-<span id="cb10-7"><a href="index.html#cb10-7" tabindex="-1"></a><span class="do">## </span></span>
-<span id="cb10-8"><a href="index.html#cb10-8" tabindex="-1"></a><span class="do">## $tzone</span></span>
-<span id="cb10-9"><a href="index.html#cb10-9" tabindex="-1"></a><span class="do">## [1] &quot;UTC&quot;</span></span>
+<span id="cb10-5"><a href="index.html#cb10-5" tabindex="-1"></a><span class="co">#&gt; $class</span></span>
+<span id="cb10-6"><a href="index.html#cb10-6" tabindex="-1"></a><span class="co">#&gt; [1] &quot;POSIXct&quot; &quot;POSIXt&quot; </span></span>
+<span id="cb10-7"><a href="index.html#cb10-7" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb10-8"><a href="index.html#cb10-8" tabindex="-1"></a><span class="co">#&gt; $tzone</span></span>
+<span id="cb10-9"><a href="index.html#cb10-9" tabindex="-1"></a><span class="co">#&gt; [1] &quot;UTC&quot;</span></span>
 <span id="cb10-10"><a href="index.html#cb10-10" tabindex="-1"></a></span>
 <span id="cb10-11"><a href="index.html#cb10-11" tabindex="-1"></a>tomorrow_ct <span class="ot">&lt;-</span> <span class="fu">as.POSIXct</span>(<span class="st">&quot;2023-10-06 20:00&quot;</span>, <span class="at">tz =</span> <span class="st">&quot;UTC&quot;</span>)</span>
 <span id="cb10-12"><a href="index.html#cb10-12" tabindex="-1"></a></span>
 <span id="cb10-13"><a href="index.html#cb10-13" tabindex="-1"></a>tomorrow_ct <span class="sc">-</span> now_ct <span class="co"># 時間差(1日当たり)</span></span>
-<span id="cb10-14"><a href="index.html#cb10-14" tabindex="-1"></a><span class="do">## Time difference of 1.041667 days</span></span>
+<span id="cb10-14"><a href="index.html#cb10-14" tabindex="-1"></a><span class="co">#&gt; Time difference of 1.041667 days</span></span>
 <span id="cb10-15"><a href="index.html#cb10-15" tabindex="-1"></a><span class="fu">attributes</span>(tomorrow_ct <span class="sc">-</span> now_ct)</span>
-<span id="cb10-16"><a href="index.html#cb10-16" tabindex="-1"></a><span class="do">## $class</span></span>
-<span id="cb10-17"><a href="index.html#cb10-17" tabindex="-1"></a><span class="do">## [1] &quot;difftime&quot;</span></span>
-<span id="cb10-18"><a href="index.html#cb10-18" tabindex="-1"></a><span class="do">## </span></span>
-<span id="cb10-19"><a href="index.html#cb10-19" tabindex="-1"></a><span class="do">## $units</span></span>
-<span id="cb10-20"><a href="index.html#cb10-20" tabindex="-1"></a><span class="do">## [1] &quot;days&quot;</span></span></code></pre></div>
+<span id="cb10-16"><a href="index.html#cb10-16" tabindex="-1"></a><span class="co">#&gt; $class</span></span>
+<span id="cb10-17"><a href="index.html#cb10-17" tabindex="-1"></a><span class="co">#&gt; [1] &quot;difftime&quot;</span></span>
+<span id="cb10-18"><a href="index.html#cb10-18" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb10-19"><a href="index.html#cb10-19" tabindex="-1"></a><span class="co">#&gt; $units</span></span>
+<span id="cb10-20"><a href="index.html#cb10-20" tabindex="-1"></a><span class="co">#&gt; [1] &quot;days&quot;</span></span></code></pre></div>
 </div>
 <div id="difftimeクラス" class="section level4 hasAnchor" number="1.4.1.3">
 <h4><span class="header-section-number">1.4.1.3</span> difftimeクラス<a href="index.html#difftimeクラス" class="anchor-section" aria-label="Anchor link to header"></a></h4>
@@ -458,19 +480,19 @@ Figure 1.2: …
 </ul>
 <div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="index.html#cb11-1" tabindex="-1"></a>onewk_1 <span class="ot">&lt;-</span> <span class="fu">as.difftime</span>(<span class="dv">1</span>, <span class="at">units =</span> <span class="st">&quot;weeks&quot;</span>)</span>
 <span id="cb11-2"><a href="index.html#cb11-2" tabindex="-1"></a>onewk_1</span>
-<span id="cb11-3"><a href="index.html#cb11-3" tabindex="-1"></a><span class="do">## Time difference of 1 weeks</span></span>
+<span id="cb11-3"><a href="index.html#cb11-3" tabindex="-1"></a><span class="co">#&gt; Time difference of 1 weeks</span></span>
 <span id="cb11-4"><a href="index.html#cb11-4" tabindex="-1"></a><span class="fu">typeof</span>(onewk_1)</span>
-<span id="cb11-5"><a href="index.html#cb11-5" tabindex="-1"></a><span class="do">## [1] &quot;double&quot;</span></span>
+<span id="cb11-5"><a href="index.html#cb11-5" tabindex="-1"></a><span class="co">#&gt; [1] &quot;double&quot;</span></span>
 <span id="cb11-6"><a href="index.html#cb11-6" tabindex="-1"></a><span class="fu">attributes</span>(onewk_1)</span>
-<span id="cb11-7"><a href="index.html#cb11-7" tabindex="-1"></a><span class="do">## $class</span></span>
-<span id="cb11-8"><a href="index.html#cb11-8" tabindex="-1"></a><span class="do">## [1] &quot;difftime&quot;</span></span>
-<span id="cb11-9"><a href="index.html#cb11-9" tabindex="-1"></a><span class="do">## </span></span>
-<span id="cb11-10"><a href="index.html#cb11-10" tabindex="-1"></a><span class="do">## $units</span></span>
-<span id="cb11-11"><a href="index.html#cb11-11" tabindex="-1"></a><span class="do">## [1] &quot;weeks&quot;</span></span>
+<span id="cb11-7"><a href="index.html#cb11-7" tabindex="-1"></a><span class="co">#&gt; $class</span></span>
+<span id="cb11-8"><a href="index.html#cb11-8" tabindex="-1"></a><span class="co">#&gt; [1] &quot;difftime&quot;</span></span>
+<span id="cb11-9"><a href="index.html#cb11-9" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb11-10"><a href="index.html#cb11-10" tabindex="-1"></a><span class="co">#&gt; $units</span></span>
+<span id="cb11-11"><a href="index.html#cb11-11" tabindex="-1"></a><span class="co">#&gt; [1] &quot;weeks&quot;</span></span>
 <span id="cb11-12"><a href="index.html#cb11-12" tabindex="-1"></a></span>
 <span id="cb11-13"><a href="index.html#cb11-13" tabindex="-1"></a>onewk_2 <span class="ot">&lt;-</span> <span class="fu">as.difftime</span>(<span class="dv">7</span>, <span class="at">units =</span> <span class="st">&quot;days&quot;</span>)</span>
 <span id="cb11-14"><a href="index.html#cb11-14" tabindex="-1"></a>onewk_2</span>
-<span id="cb11-15"><a href="index.html#cb11-15" tabindex="-1"></a><span class="do">## Time difference of 7 days</span></span></code></pre></div>
+<span id="cb11-15"><a href="index.html#cb11-15" tabindex="-1"></a><span class="co">#&gt; Time difference of 7 days</span></span></code></pre></div>
 </div>
 <div id="よりモダンかつ柔軟な日付や時間の操作" class="section level4 hasAnchor" number="1.4.1.4">
 <h4><span class="header-section-number">1.4.1.4</span> よりモダンかつ柔軟な日付や時間の操作<a href="index.html#よりモダンかつ柔軟な日付や時間の操作" class="anchor-section" aria-label="Anchor link to header"></a></h4>
@@ -491,45 +513,45 @@ Figure 1.2: …
 <span id="cb12-4"><a href="index.html#cb12-4" tabindex="-1"></a><span class="fu">data</span>(AirPassengers)</span>
 <span id="cb12-5"><a href="index.html#cb12-5" tabindex="-1"></a>ap <span class="ot">&lt;-</span> AirPassengers</span>
 <span id="cb12-6"><a href="index.html#cb12-6" tabindex="-1"></a>ap</span>
-<span id="cb12-7"><a href="index.html#cb12-7" tabindex="-1"></a><span class="do">##      Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec</span></span>
-<span id="cb12-8"><a href="index.html#cb12-8" tabindex="-1"></a><span class="do">## 1949 112 118 132 129 121 135 148 148 136 119 104 118</span></span>
-<span id="cb12-9"><a href="index.html#cb12-9" tabindex="-1"></a><span class="do">## 1950 115 126 141 135 125 149 170 170 158 133 114 140</span></span>
-<span id="cb12-10"><a href="index.html#cb12-10" tabindex="-1"></a><span class="do">## 1951 145 150 178 163 172 178 199 199 184 162 146 166</span></span>
-<span id="cb12-11"><a href="index.html#cb12-11" tabindex="-1"></a><span class="do">## 1952 171 180 193 181 183 218 230 242 209 191 172 194</span></span>
-<span id="cb12-12"><a href="index.html#cb12-12" tabindex="-1"></a><span class="do">## 1953 196 196 236 235 229 243 264 272 237 211 180 201</span></span>
-<span id="cb12-13"><a href="index.html#cb12-13" tabindex="-1"></a><span class="do">## 1954 204 188 235 227 234 264 302 293 259 229 203 229</span></span>
-<span id="cb12-14"><a href="index.html#cb12-14" tabindex="-1"></a><span class="do">## 1955 242 233 267 269 270 315 364 347 312 274 237 278</span></span>
-<span id="cb12-15"><a href="index.html#cb12-15" tabindex="-1"></a><span class="do">## 1956 284 277 317 313 318 374 413 405 355 306 271 306</span></span>
-<span id="cb12-16"><a href="index.html#cb12-16" tabindex="-1"></a><span class="do">## 1957 315 301 356 348 355 422 465 467 404 347 305 336</span></span>
-<span id="cb12-17"><a href="index.html#cb12-17" tabindex="-1"></a><span class="do">## 1958 340 318 362 348 363 435 491 505 404 359 310 337</span></span>
-<span id="cb12-18"><a href="index.html#cb12-18" tabindex="-1"></a><span class="do">## 1959 360 342 406 396 420 472 548 559 463 407 362 405</span></span>
-<span id="cb12-19"><a href="index.html#cb12-19" tabindex="-1"></a><span class="do">## 1960 417 391 419 461 472 535 622 606 508 461 390 432</span></span>
+<span id="cb12-7"><a href="index.html#cb12-7" tabindex="-1"></a><span class="co">#&gt;      Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec</span></span>
+<span id="cb12-8"><a href="index.html#cb12-8" tabindex="-1"></a><span class="co">#&gt; 1949 112 118 132 129 121 135 148 148 136 119 104 118</span></span>
+<span id="cb12-9"><a href="index.html#cb12-9" tabindex="-1"></a><span class="co">#&gt; 1950 115 126 141 135 125 149 170 170 158 133 114 140</span></span>
+<span id="cb12-10"><a href="index.html#cb12-10" tabindex="-1"></a><span class="co">#&gt; 1951 145 150 178 163 172 178 199 199 184 162 146 166</span></span>
+<span id="cb12-11"><a href="index.html#cb12-11" tabindex="-1"></a><span class="co">#&gt; 1952 171 180 193 181 183 218 230 242 209 191 172 194</span></span>
+<span id="cb12-12"><a href="index.html#cb12-12" tabindex="-1"></a><span class="co">#&gt; 1953 196 196 236 235 229 243 264 272 237 211 180 201</span></span>
+<span id="cb12-13"><a href="index.html#cb12-13" tabindex="-1"></a><span class="co">#&gt; 1954 204 188 235 227 234 264 302 293 259 229 203 229</span></span>
+<span id="cb12-14"><a href="index.html#cb12-14" tabindex="-1"></a><span class="co">#&gt; 1955 242 233 267 269 270 315 364 347 312 274 237 278</span></span>
+<span id="cb12-15"><a href="index.html#cb12-15" tabindex="-1"></a><span class="co">#&gt; 1956 284 277 317 313 318 374 413 405 355 306 271 306</span></span>
+<span id="cb12-16"><a href="index.html#cb12-16" tabindex="-1"></a><span class="co">#&gt; 1957 315 301 356 348 355 422 465 467 404 347 305 336</span></span>
+<span id="cb12-17"><a href="index.html#cb12-17" tabindex="-1"></a><span class="co">#&gt; 1958 340 318 362 348 363 435 491 505 404 359 310 337</span></span>
+<span id="cb12-18"><a href="index.html#cb12-18" tabindex="-1"></a><span class="co">#&gt; 1959 360 342 406 396 420 472 548 559 463 407 362 405</span></span>
+<span id="cb12-19"><a href="index.html#cb12-19" tabindex="-1"></a><span class="co">#&gt; 1960 417 391 419 461 472 535 622 606 508 461 390 432</span></span>
 <span id="cb12-20"><a href="index.html#cb12-20" tabindex="-1"></a><span class="co">#is.ts(ap); is.vector(ap)</span></span>
 <span id="cb12-21"><a href="index.html#cb12-21" tabindex="-1"></a><span class="co">#attributes(ap)</span></span>
 <span id="cb12-22"><a href="index.html#cb12-22" tabindex="-1"></a><span class="fu">class</span>(ap)       <span class="co"># tsクラス</span></span>
-<span id="cb12-23"><a href="index.html#cb12-23" tabindex="-1"></a><span class="do">## [1] &quot;ts&quot;</span></span>
+<span id="cb12-23"><a href="index.html#cb12-23" tabindex="-1"></a><span class="co">#&gt; [1] &quot;ts&quot;</span></span>
 <span id="cb12-24"><a href="index.html#cb12-24" tabindex="-1"></a><span class="fu">start</span>(ap); <span class="fu">end</span>(ap); <span class="fu">frequency</span>(ap)</span>
-<span id="cb12-25"><a href="index.html#cb12-25" tabindex="-1"></a><span class="do">## [1] 1949    1</span></span>
-<span id="cb12-26"><a href="index.html#cb12-26" tabindex="-1"></a><span class="do">## [1] 1960   12</span></span>
-<span id="cb12-27"><a href="index.html#cb12-27" tabindex="-1"></a><span class="do">## [1] 12</span></span>
+<span id="cb12-25"><a href="index.html#cb12-25" tabindex="-1"></a><span class="co">#&gt; [1] 1949    1</span></span>
+<span id="cb12-26"><a href="index.html#cb12-26" tabindex="-1"></a><span class="co">#&gt; [1] 1960   12</span></span>
+<span id="cb12-27"><a href="index.html#cb12-27" tabindex="-1"></a><span class="co">#&gt; [1] 12</span></span>
 <span id="cb12-28"><a href="index.html#cb12-28" tabindex="-1"></a><span class="fu">plot</span>(ap, <span class="at">ylab =</span> <span class="st">&quot;Passengers (1000&#39;s)&quot;</span>)</span></code></pre></div>
 <p><img src="012-tsobjects_files/figure-html/unnamed-chunk-9-1.png" width="75%" /></p>
 <div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="index.html#cb13-1" tabindex="-1"></a><span class="fu">layout</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>)</span>
 <span id="cb13-2"><a href="index.html#cb13-2" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">aggregate</span>(ap))     <span class="co"># annual levelに累計, seasonal effectsの除去、trend</span></span>
 <span id="cb13-3"><a href="index.html#cb13-3" tabindex="-1"></a><span class="fu">cycle</span>(ap)                   <span class="co"># データ内各アイテムのシーズン抽出</span></span>
-<span id="cb13-4"><a href="index.html#cb13-4" tabindex="-1"></a><span class="do">##      Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec</span></span>
-<span id="cb13-5"><a href="index.html#cb13-5" tabindex="-1"></a><span class="do">## 1949   1   2   3   4   5   6   7   8   9  10  11  12</span></span>
-<span id="cb13-6"><a href="index.html#cb13-6" tabindex="-1"></a><span class="do">## 1950   1   2   3   4   5   6   7   8   9  10  11  12</span></span>
-<span id="cb13-7"><a href="index.html#cb13-7" tabindex="-1"></a><span class="do">## 1951   1   2   3   4   5   6   7   8   9  10  11  12</span></span>
-<span id="cb13-8"><a href="index.html#cb13-8" tabindex="-1"></a><span class="do">## 1952   1   2   3   4   5   6   7   8   9  10  11  12</span></span>
-<span id="cb13-9"><a href="index.html#cb13-9" tabindex="-1"></a><span class="do">## 1953   1   2   3   4   5   6   7   8   9  10  11  12</span></span>
-<span id="cb13-10"><a href="index.html#cb13-10" tabindex="-1"></a><span class="do">## 1954   1   2   3   4   5   6   7   8   9  10  11  12</span></span>
-<span id="cb13-11"><a href="index.html#cb13-11" tabindex="-1"></a><span class="do">## 1955   1   2   3   4   5   6   7   8   9  10  11  12</span></span>
-<span id="cb13-12"><a href="index.html#cb13-12" tabindex="-1"></a><span class="do">## 1956   1   2   3   4   5   6   7   8   9  10  11  12</span></span>
-<span id="cb13-13"><a href="index.html#cb13-13" tabindex="-1"></a><span class="do">## 1957   1   2   3   4   5   6   7   8   9  10  11  12</span></span>
-<span id="cb13-14"><a href="index.html#cb13-14" tabindex="-1"></a><span class="do">## 1958   1   2   3   4   5   6   7   8   9  10  11  12</span></span>
-<span id="cb13-15"><a href="index.html#cb13-15" tabindex="-1"></a><span class="do">## 1959   1   2   3   4   5   6   7   8   9  10  11  12</span></span>
-<span id="cb13-16"><a href="index.html#cb13-16" tabindex="-1"></a><span class="do">## 1960   1   2   3   4   5   6   7   8   9  10  11  12</span></span>
+<span id="cb13-4"><a href="index.html#cb13-4" tabindex="-1"></a><span class="co">#&gt;      Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec</span></span>
+<span id="cb13-5"><a href="index.html#cb13-5" tabindex="-1"></a><span class="co">#&gt; 1949   1   2   3   4   5   6   7   8   9  10  11  12</span></span>
+<span id="cb13-6"><a href="index.html#cb13-6" tabindex="-1"></a><span class="co">#&gt; 1950   1   2   3   4   5   6   7   8   9  10  11  12</span></span>
+<span id="cb13-7"><a href="index.html#cb13-7" tabindex="-1"></a><span class="co">#&gt; 1951   1   2   3   4   5   6   7   8   9  10  11  12</span></span>
+<span id="cb13-8"><a href="index.html#cb13-8" tabindex="-1"></a><span class="co">#&gt; 1952   1   2   3   4   5   6   7   8   9  10  11  12</span></span>
+<span id="cb13-9"><a href="index.html#cb13-9" tabindex="-1"></a><span class="co">#&gt; 1953   1   2   3   4   5   6   7   8   9  10  11  12</span></span>
+<span id="cb13-10"><a href="index.html#cb13-10" tabindex="-1"></a><span class="co">#&gt; 1954   1   2   3   4   5   6   7   8   9  10  11  12</span></span>
+<span id="cb13-11"><a href="index.html#cb13-11" tabindex="-1"></a><span class="co">#&gt; 1955   1   2   3   4   5   6   7   8   9  10  11  12</span></span>
+<span id="cb13-12"><a href="index.html#cb13-12" tabindex="-1"></a><span class="co">#&gt; 1956   1   2   3   4   5   6   7   8   9  10  11  12</span></span>
+<span id="cb13-13"><a href="index.html#cb13-13" tabindex="-1"></a><span class="co">#&gt; 1957   1   2   3   4   5   6   7   8   9  10  11  12</span></span>
+<span id="cb13-14"><a href="index.html#cb13-14" tabindex="-1"></a><span class="co">#&gt; 1958   1   2   3   4   5   6   7   8   9  10  11  12</span></span>
+<span id="cb13-15"><a href="index.html#cb13-15" tabindex="-1"></a><span class="co">#&gt; 1959   1   2   3   4   5   6   7   8   9  10  11  12</span></span>
+<span id="cb13-16"><a href="index.html#cb13-16" tabindex="-1"></a><span class="co">#&gt; 1960   1   2   3   4   5   6   7   8   9  10  11  12</span></span>
 <span id="cb13-17"><a href="index.html#cb13-17" tabindex="-1"></a><span class="fu">boxplot</span>(ap <span class="sc">~</span> <span class="fu">cycle</span>(ap))     <span class="co"># seasonal effects</span></span></code></pre></div>
 <p><img src="012-tsobjects_files/figure-html/unnamed-chunk-9-2.png" width="75%" /></p>
 </div>
@@ -564,46 +586,46 @@ Figure 1.2: …
 <span id="cb16-4"><a href="index.html#cb16-4" tabindex="-1"></a>seconds <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">32400.014</span>, <span class="fl">32400.020</span>, <span class="fl">32400.035</span>, <span class="fl">32400.036</span>) <span class="co"># タイムスタンプ (秒)</span></span>
 <span id="cb16-5"><a href="index.html#cb16-5" tabindex="-1"></a>nkft_sec <span class="ot">&lt;-</span> <span class="fu">zoo</span>(prices, seconds)</span>
 <span id="cb16-6"><a href="index.html#cb16-6" tabindex="-1"></a><span class="fu">print</span>(nkft_sec)</span>
-<span id="cb16-7"><a href="index.html#cb16-7" tabindex="-1"></a><span class="do">## 32400.014  32400.02 32400.035 32400.036 </span></span>
-<span id="cb16-8"><a href="index.html#cb16-8" tabindex="-1"></a><span class="do">##     22790     22800     22790     22790</span></span>
+<span id="cb16-7"><a href="index.html#cb16-7" tabindex="-1"></a><span class="co">#&gt; 32400.014  32400.02 32400.035 32400.036 </span></span>
+<span id="cb16-8"><a href="index.html#cb16-8" tabindex="-1"></a><span class="co">#&gt;     22790     22800     22790     22790</span></span>
 <span id="cb16-9"><a href="index.html#cb16-9" tabindex="-1"></a></span>
 <span id="cb16-10"><a href="index.html#cb16-10" tabindex="-1"></a><span class="co"># 同, 2023年9月25日〜9月29日(5営業日)</span></span>
 <span id="cb16-11"><a href="index.html#cb16-11" tabindex="-1"></a>prices <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">32480</span>, <span class="dv">32080</span>, <span class="dv">32150</span>, <span class="dv">31850</span>, <span class="dv">32020</span>)</span>
 <span id="cb16-12"><a href="index.html#cb16-12" tabindex="-1"></a>dates <span class="ot">&lt;-</span> <span class="fu">as.Date</span>(<span class="fu">c</span>(<span class="st">&quot;2023-09-25&quot;</span>, <span class="st">&quot;2023-09-26&quot;</span>, <span class="st">&quot;2023-09-27&quot;</span>, <span class="st">&quot;2023-09-28&quot;</span>, <span class="st">&quot;2023-09-29&quot;</span>)) <span class="co"># 日付</span></span>
 <span id="cb16-13"><a href="index.html#cb16-13" tabindex="-1"></a>nkft_daily <span class="ot">&lt;-</span> <span class="fu">zoo</span>(prices, dates)</span>
 <span id="cb16-14"><a href="index.html#cb16-14" tabindex="-1"></a><span class="fu">print</span>(nkft_daily)</span>
-<span id="cb16-15"><a href="index.html#cb16-15" tabindex="-1"></a><span class="do">## 2023-09-25 2023-09-26 2023-09-27 2023-09-28 2023-09-29 </span></span>
-<span id="cb16-16"><a href="index.html#cb16-16" tabindex="-1"></a><span class="do">##      32480      32080      32150      31850      32020</span></span>
+<span id="cb16-15"><a href="index.html#cb16-15" tabindex="-1"></a><span class="co">#&gt; 2023-09-25 2023-09-26 2023-09-27 2023-09-28 2023-09-29 </span></span>
+<span id="cb16-16"><a href="index.html#cb16-16" tabindex="-1"></a><span class="co">#&gt;      32480      32080      32150      31850      32020</span></span>
 <span id="cb16-17"><a href="index.html#cb16-17" tabindex="-1"></a></span>
 <span id="cb16-18"><a href="index.html#cb16-18" tabindex="-1"></a></span>
 <span id="cb16-19"><a href="index.html#cb16-19" tabindex="-1"></a><span class="fu">coredata</span>(nkft_daily) <span class="co"># 株価の取り出し</span></span>
-<span id="cb16-20"><a href="index.html#cb16-20" tabindex="-1"></a><span class="do">## [1] 32480 32080 32150 31850 32020</span></span>
+<span id="cb16-20"><a href="index.html#cb16-20" tabindex="-1"></a><span class="co">#&gt; [1] 32480 32080 32150 31850 32020</span></span>
 <span id="cb16-21"><a href="index.html#cb16-21" tabindex="-1"></a><span class="fu">index</span>(nkft_daily) <span class="co"># 時間の取り出し</span></span>
-<span id="cb16-22"><a href="index.html#cb16-22" tabindex="-1"></a><span class="do">## [1] &quot;2023-09-25&quot; &quot;2023-09-26&quot; &quot;2023-09-27&quot; &quot;2023-09-28&quot; &quot;2023-09-29&quot;</span></span>
+<span id="cb16-22"><a href="index.html#cb16-22" tabindex="-1"></a><span class="co">#&gt; [1] &quot;2023-09-25&quot; &quot;2023-09-26&quot; &quot;2023-09-27&quot; &quot;2023-09-28&quot; &quot;2023-09-29&quot;</span></span>
 <span id="cb16-23"><a href="index.html#cb16-23" tabindex="-1"></a><span class="fu">coredata</span>(nkft_sec)</span>
-<span id="cb16-24"><a href="index.html#cb16-24" tabindex="-1"></a><span class="do">## [1] 22790 22800 22790 22790</span></span>
+<span id="cb16-24"><a href="index.html#cb16-24" tabindex="-1"></a><span class="co">#&gt; [1] 22790 22800 22790 22790</span></span>
 <span id="cb16-25"><a href="index.html#cb16-25" tabindex="-1"></a><span class="fu">index</span>(nkft_sec)</span>
-<span id="cb16-26"><a href="index.html#cb16-26" tabindex="-1"></a><span class="do">## [1] 32400.01 32400.02 32400.03 32400.04</span></span></code></pre></div>
+<span id="cb16-26"><a href="index.html#cb16-26" tabindex="-1"></a><span class="co">#&gt; [1] 32400.01 32400.02 32400.03 32400.04</span></span></code></pre></div>
 <div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="index.html#cb17-1" tabindex="-1"></a>nkft_daily[<span class="dv">2</span><span class="sc">:</span><span class="dv">4</span>]</span>
-<span id="cb17-2"><a href="index.html#cb17-2" tabindex="-1"></a><span class="do">## 2023-09-26 2023-09-27 2023-09-28 </span></span>
-<span id="cb17-3"><a href="index.html#cb17-3" tabindex="-1"></a><span class="do">##      32080      32150      31850</span></span>
+<span id="cb17-2"><a href="index.html#cb17-2" tabindex="-1"></a><span class="co">#&gt; 2023-09-26 2023-09-27 2023-09-28 </span></span>
+<span id="cb17-3"><a href="index.html#cb17-3" tabindex="-1"></a><span class="co">#&gt;      32080      32150      31850</span></span>
 <span id="cb17-4"><a href="index.html#cb17-4" tabindex="-1"></a>nkft_daily[<span class="fu">as.Date</span>(<span class="st">&quot;2023-09-26&quot;</span>)]</span>
-<span id="cb17-5"><a href="index.html#cb17-5" tabindex="-1"></a><span class="do">## 2023-09-26 </span></span>
-<span id="cb17-6"><a href="index.html#cb17-6" tabindex="-1"></a><span class="do">##      32080</span></span>
+<span id="cb17-5"><a href="index.html#cb17-5" tabindex="-1"></a><span class="co">#&gt; 2023-09-26 </span></span>
+<span id="cb17-6"><a href="index.html#cb17-6" tabindex="-1"></a><span class="co">#&gt;      32080</span></span>
 <span id="cb17-7"><a href="index.html#cb17-7" tabindex="-1"></a>nkft_daily[<span class="st">&quot;2023-09-26&quot;</span>]        <span class="co"># &lt;-- NO</span></span>
-<span id="cb17-8"><a href="index.html#cb17-8" tabindex="-1"></a><span class="do">## 2023-09-26 </span></span>
-<span id="cb17-9"><a href="index.html#cb17-9" tabindex="-1"></a><span class="do">##      32080</span></span>
+<span id="cb17-8"><a href="index.html#cb17-8" tabindex="-1"></a><span class="co">#&gt; 2023-09-26 </span></span>
+<span id="cb17-9"><a href="index.html#cb17-9" tabindex="-1"></a><span class="co">#&gt;      32080</span></span>
 <span id="cb17-10"><a href="index.html#cb17-10" tabindex="-1"></a><span class="fu">window</span>(nkft_daily, <span class="at">start =</span> <span class="fu">as.Date</span>(<span class="st">&#39;2023-09-26&#39;</span>), <span class="at">end =</span> <span class="fu">as.Date</span>(<span class="st">&#39;2023-09-28&#39;</span>))</span>
-<span id="cb17-11"><a href="index.html#cb17-11" tabindex="-1"></a><span class="do">## 2023-09-26 2023-09-27 2023-09-28 </span></span>
-<span id="cb17-12"><a href="index.html#cb17-12" tabindex="-1"></a><span class="do">##      32080      32150      31850</span></span>
+<span id="cb17-11"><a href="index.html#cb17-11" tabindex="-1"></a><span class="co">#&gt; 2023-09-26 2023-09-27 2023-09-28 </span></span>
+<span id="cb17-12"><a href="index.html#cb17-12" tabindex="-1"></a><span class="co">#&gt;      32080      32150      31850</span></span>
 <span id="cb17-13"><a href="index.html#cb17-13" tabindex="-1"></a></span>
 <span id="cb17-14"><a href="index.html#cb17-14" tabindex="-1"></a><span class="fu">library</span>(xts)</span>
 <span id="cb17-15"><a href="index.html#cb17-15" tabindex="-1"></a><span class="fu">first</span>(nkft_sec) <span class="co"># 最初のデータ</span></span>
-<span id="cb17-16"><a href="index.html#cb17-16" tabindex="-1"></a><span class="do">## 32400.014 </span></span>
-<span id="cb17-17"><a href="index.html#cb17-17" tabindex="-1"></a><span class="do">##     22790</span></span>
+<span id="cb17-16"><a href="index.html#cb17-16" tabindex="-1"></a><span class="co">#&gt; 32400.014 </span></span>
+<span id="cb17-17"><a href="index.html#cb17-17" tabindex="-1"></a><span class="co">#&gt;     22790</span></span>
 <span id="cb17-18"><a href="index.html#cb17-18" tabindex="-1"></a><span class="fu">last</span>(nkft_sec) <span class="co"># 最後のデータ</span></span>
-<span id="cb17-19"><a href="index.html#cb17-19" tabindex="-1"></a><span class="do">## 32400.036 </span></span>
-<span id="cb17-20"><a href="index.html#cb17-20" tabindex="-1"></a><span class="do">##     22790</span></span></code></pre></div>
+<span id="cb17-19"><a href="index.html#cb17-19" tabindex="-1"></a><span class="co">#&gt; 32400.036 </span></span>
+<span id="cb17-20"><a href="index.html#cb17-20" tabindex="-1"></a><span class="co">#&gt;     22790</span></span></code></pre></div>
 <div id="quantmodパッケージの利用による株価取得-チャート作成" class="section level4 hasAnchor" number="1.4.3.1">
 <h4><span class="header-section-number">1.4.3.1</span> quantmodパッケージの利用による株価取得 &amp; チャート作成<a href="index.html#quantmodパッケージの利用による株価取得-チャート作成" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="index.html#cb18-1" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&#39;quantmod&#39;</span>)</span>
@@ -624,7 +646,7 @@ Figure 1.2: …
 <div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="index.html#cb22-1" tabindex="-1"></a><span class="fu">chartSeries</span>(Mizuho_ret)</span></code></pre></div>
 <p><img src="012-tsobjects_files/figure-html/unnamed-chunk-13-5.png" width="75%" /></p>
 <div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="index.html#cb23-1" tabindex="-1"></a><span class="fu">class</span>(Mizuho_ret)</span>
-<span id="cb23-2"><a href="index.html#cb23-2" tabindex="-1"></a><span class="do">## [1] &quot;xts&quot; &quot;zoo&quot;</span></span></code></pre></div>
+<span id="cb23-2"><a href="index.html#cb23-2" tabindex="-1"></a><span class="co">#&gt; [1] &quot;xts&quot; &quot;zoo&quot;</span></span></code></pre></div>
 <div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="index.html#cb24-1" tabindex="-1"></a><span class="co"># 便利な関数の例</span></span>
 <span id="cb24-2"><a href="index.html#cb24-2" tabindex="-1"></a>Mizuho_m <span class="ot">&lt;-</span> <span class="fu">apply.monthly</span>(Mizuho_ret, mean, <span class="at">na.rm =</span> T)      <span class="co"># xts</span></span>
 <span id="cb24-3"><a href="index.html#cb24-3" tabindex="-1"></a>Mizuho_w <span class="ot">&lt;-</span> <span class="fu">apply.weekly</span>(Mizuho_ret, mean, <span class="at">na.rm =</span> T)           <span class="co"># xts</span></span>
@@ -633,13 +655,13 @@ Figure 1.2: …
 <span id="cb24-6"><a href="index.html#cb24-6" tabindex="-1"></a></span>
 <span id="cb24-7"><a href="index.html#cb24-7" tabindex="-1"></a>Mizuho_ma5 <span class="ot">&lt;-</span> <span class="fu">rollapply</span>(Mizuho_ret, <span class="at">width =</span> <span class="dv">5</span>, mean, <span class="at">align =</span> <span class="st">&quot;right&quot;</span>)   <span class="co"># zooパッケージ内</span></span>
 <span id="cb24-8"><a href="index.html#cb24-8" tabindex="-1"></a><span class="fu">head</span>(Mizuho_ma5)</span>
-<span id="cb24-9"><a href="index.html#cb24-9" tabindex="-1"></a><span class="do">##            8411.T.Adjusted</span></span>
-<span id="cb24-10"><a href="index.html#cb24-10" tabindex="-1"></a><span class="do">## 2020-10-02              NA</span></span>
-<span id="cb24-11"><a href="index.html#cb24-11" tabindex="-1"></a><span class="do">## 2020-10-05              NA</span></span>
-<span id="cb24-12"><a href="index.html#cb24-12" tabindex="-1"></a><span class="do">## 2020-10-06              NA</span></span>
-<span id="cb24-13"><a href="index.html#cb24-13" tabindex="-1"></a><span class="do">## 2020-10-07              NA</span></span>
-<span id="cb24-14"><a href="index.html#cb24-14" tabindex="-1"></a><span class="do">## 2020-10-08              NA</span></span>
-<span id="cb24-15"><a href="index.html#cb24-15" tabindex="-1"></a><span class="do">## 2020-10-09     0.002418777</span></span>
+<span id="cb24-9"><a href="index.html#cb24-9" tabindex="-1"></a><span class="co">#&gt;            8411.T.Adjusted</span></span>
+<span id="cb24-10"><a href="index.html#cb24-10" tabindex="-1"></a><span class="co">#&gt; 2020-10-02              NA</span></span>
+<span id="cb24-11"><a href="index.html#cb24-11" tabindex="-1"></a><span class="co">#&gt; 2020-10-05              NA</span></span>
+<span id="cb24-12"><a href="index.html#cb24-12" tabindex="-1"></a><span class="co">#&gt; 2020-10-06              NA</span></span>
+<span id="cb24-13"><a href="index.html#cb24-13" tabindex="-1"></a><span class="co">#&gt; 2020-10-07              NA</span></span>
+<span id="cb24-14"><a href="index.html#cb24-14" tabindex="-1"></a><span class="co">#&gt; 2020-10-08              NA</span></span>
+<span id="cb24-15"><a href="index.html#cb24-15" tabindex="-1"></a><span class="co">#&gt; 2020-10-09     0.002418777</span></span>
 <span id="cb24-16"><a href="index.html#cb24-16" tabindex="-1"></a><span class="co">#Mizuho_ma21 &lt;- rollapply(Mizuho_ret, width = 21, mean, align = &quot;right&quot;)    # zooパッケージ内</span></span>
 <span id="cb24-17"><a href="index.html#cb24-17" tabindex="-1"></a><span class="co"># timestamp is taken from the rightmost value</span></span>
 <span id="cb24-18"><a href="index.html#cb24-18" tabindex="-1"></a></span>
@@ -658,45 +680,45 @@ Figure 1.2: …
 <div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="index.html#cb27-1" tabindex="-1"></a><span class="fu">data</span>(AirPassengers)</span>
 <span id="cb27-2"><a href="index.html#cb27-2" tabindex="-1"></a>ap <span class="ot">&lt;-</span> AirPassengers</span>
 <span id="cb27-3"><a href="index.html#cb27-3" tabindex="-1"></a>ap</span>
-<span id="cb27-4"><a href="index.html#cb27-4" tabindex="-1"></a><span class="do">##      Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec</span></span>
-<span id="cb27-5"><a href="index.html#cb27-5" tabindex="-1"></a><span class="do">## 1949 112 118 132 129 121 135 148 148 136 119 104 118</span></span>
-<span id="cb27-6"><a href="index.html#cb27-6" tabindex="-1"></a><span class="do">## 1950 115 126 141 135 125 149 170 170 158 133 114 140</span></span>
-<span id="cb27-7"><a href="index.html#cb27-7" tabindex="-1"></a><span class="do">## 1951 145 150 178 163 172 178 199 199 184 162 146 166</span></span>
-<span id="cb27-8"><a href="index.html#cb27-8" tabindex="-1"></a><span class="do">## 1952 171 180 193 181 183 218 230 242 209 191 172 194</span></span>
-<span id="cb27-9"><a href="index.html#cb27-9" tabindex="-1"></a><span class="do">## 1953 196 196 236 235 229 243 264 272 237 211 180 201</span></span>
-<span id="cb27-10"><a href="index.html#cb27-10" tabindex="-1"></a><span class="do">## 1954 204 188 235 227 234 264 302 293 259 229 203 229</span></span>
-<span id="cb27-11"><a href="index.html#cb27-11" tabindex="-1"></a><span class="do">## 1955 242 233 267 269 270 315 364 347 312 274 237 278</span></span>
-<span id="cb27-12"><a href="index.html#cb27-12" tabindex="-1"></a><span class="do">## 1956 284 277 317 313 318 374 413 405 355 306 271 306</span></span>
-<span id="cb27-13"><a href="index.html#cb27-13" tabindex="-1"></a><span class="do">## 1957 315 301 356 348 355 422 465 467 404 347 305 336</span></span>
-<span id="cb27-14"><a href="index.html#cb27-14" tabindex="-1"></a><span class="do">## 1958 340 318 362 348 363 435 491 505 404 359 310 337</span></span>
-<span id="cb27-15"><a href="index.html#cb27-15" tabindex="-1"></a><span class="do">## 1959 360 342 406 396 420 472 548 559 463 407 362 405</span></span>
-<span id="cb27-16"><a href="index.html#cb27-16" tabindex="-1"></a><span class="do">## 1960 417 391 419 461 472 535 622 606 508 461 390 432</span></span>
-<span id="cb27-17"><a href="index.html#cb27-17" tabindex="-1"></a><span class="co">#is.ts(ap); is.vector(ap)</span></span>
-<span id="cb27-18"><a href="index.html#cb27-18" tabindex="-1"></a><span class="co">#attributes(ap)</span></span>
+<span id="cb27-4"><a href="index.html#cb27-4" tabindex="-1"></a><span class="co">#&gt;      Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec</span></span>
+<span id="cb27-5"><a href="index.html#cb27-5" tabindex="-1"></a><span class="co">#&gt; 1949 112 118 132 129 121 135 148 148 136 119 104 118</span></span>
+<span id="cb27-6"><a href="index.html#cb27-6" tabindex="-1"></a><span class="co">#&gt; 1950 115 126 141 135 125 149 170 170 158 133 114 140</span></span>
+<span id="cb27-7"><a href="index.html#cb27-7" tabindex="-1"></a><span class="co">#&gt; 1951 145 150 178 163 172 178 199 199 184 162 146 166</span></span>
+<span id="cb27-8"><a href="index.html#cb27-8" tabindex="-1"></a><span class="co">#&gt; 1952 171 180 193 181 183 218 230 242 209 191 172 194</span></span>
+<span id="cb27-9"><a href="index.html#cb27-9" tabindex="-1"></a><span class="co">#&gt; 1953 196 196 236 235 229 243 264 272 237 211 180 201</span></span>
+<span id="cb27-10"><a href="index.html#cb27-10" tabindex="-1"></a><span class="co">#&gt; 1954 204 188 235 227 234 264 302 293 259 229 203 229</span></span>
+<span id="cb27-11"><a href="index.html#cb27-11" tabindex="-1"></a><span class="co">#&gt; 1955 242 233 267 269 270 315 364 347 312 274 237 278</span></span>
+<span id="cb27-12"><a href="index.html#cb27-12" tabindex="-1"></a><span class="co">#&gt; 1956 284 277 317 313 318 374 413 405 355 306 271 306</span></span>
+<span id="cb27-13"><a href="index.html#cb27-13" tabindex="-1"></a><span class="co">#&gt; 1957 315 301 356 348 355 422 465 467 404 347 305 336</span></span>
+<span id="cb27-14"><a href="index.html#cb27-14" tabindex="-1"></a><span class="co">#&gt; 1958 340 318 362 348 363 435 491 505 404 359 310 337</span></span>
+<span id="cb27-15"><a href="index.html#cb27-15" tabindex="-1"></a><span class="co">#&gt; 1959 360 342 406 396 420 472 548 559 463 407 362 405</span></span>
+<span id="cb27-16"><a href="index.html#cb27-16" tabindex="-1"></a><span class="co">#&gt; 1960 417 391 419 461 472 535 622 606 508 461 390 432</span></span>
+<span id="cb27-17"><a href="index.html#cb27-17" tabindex="-1"></a><span class="co"># is.ts(ap); is.vector(ap)</span></span>
+<span id="cb27-18"><a href="index.html#cb27-18" tabindex="-1"></a><span class="co"># attributes(ap)</span></span>
 <span id="cb27-19"><a href="index.html#cb27-19" tabindex="-1"></a><span class="fu">class</span>(ap)       <span class="co"># tsクラス</span></span>
-<span id="cb27-20"><a href="index.html#cb27-20" tabindex="-1"></a><span class="do">## [1] &quot;ts&quot;</span></span>
+<span id="cb27-20"><a href="index.html#cb27-20" tabindex="-1"></a><span class="co">#&gt; [1] &quot;ts&quot;</span></span>
 <span id="cb27-21"><a href="index.html#cb27-21" tabindex="-1"></a><span class="fu">start</span>(ap); <span class="fu">end</span>(ap); <span class="fu">frequency</span>(ap)</span>
-<span id="cb27-22"><a href="index.html#cb27-22" tabindex="-1"></a><span class="do">## [1] 1949    1</span></span>
-<span id="cb27-23"><a href="index.html#cb27-23" tabindex="-1"></a><span class="do">## [1] 1960   12</span></span>
-<span id="cb27-24"><a href="index.html#cb27-24" tabindex="-1"></a><span class="do">## [1] 12</span></span>
+<span id="cb27-22"><a href="index.html#cb27-22" tabindex="-1"></a><span class="co">#&gt; [1] 1949    1</span></span>
+<span id="cb27-23"><a href="index.html#cb27-23" tabindex="-1"></a><span class="co">#&gt; [1] 1960   12</span></span>
+<span id="cb27-24"><a href="index.html#cb27-24" tabindex="-1"></a><span class="co">#&gt; [1] 12</span></span>
 <span id="cb27-25"><a href="index.html#cb27-25" tabindex="-1"></a><span class="fu">plot</span>(ap, <span class="at">ylab =</span> <span class="st">&quot;Passengers (1000&#39;s)&quot;</span>)</span></code></pre></div>
 <p><img src="016-decomp_files/figure-html/unnamed-chunk-1-1.png" width="75%" /></p>
 <div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="index.html#cb28-1" tabindex="-1"></a><span class="fu">layout</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>)</span>
 <span id="cb28-2"><a href="index.html#cb28-2" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">aggregate</span>(ap))     <span class="co"># annual levelに累計, seasonal effectsの除去、trend</span></span>
 <span id="cb28-3"><a href="index.html#cb28-3" tabindex="-1"></a><span class="fu">cycle</span>(ap)                   <span class="co"># データ内各アイテムのシーズン抽出</span></span>
-<span id="cb28-4"><a href="index.html#cb28-4" tabindex="-1"></a><span class="do">##      Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec</span></span>
-<span id="cb28-5"><a href="index.html#cb28-5" tabindex="-1"></a><span class="do">## 1949   1   2   3   4   5   6   7   8   9  10  11  12</span></span>
-<span id="cb28-6"><a href="index.html#cb28-6" tabindex="-1"></a><span class="do">## 1950   1   2   3   4   5   6   7   8   9  10  11  12</span></span>
-<span id="cb28-7"><a href="index.html#cb28-7" tabindex="-1"></a><span class="do">## 1951   1   2   3   4   5   6   7   8   9  10  11  12</span></span>
-<span id="cb28-8"><a href="index.html#cb28-8" tabindex="-1"></a><span class="do">## 1952   1   2   3   4   5   6   7   8   9  10  11  12</span></span>
-<span id="cb28-9"><a href="index.html#cb28-9" tabindex="-1"></a><span class="do">## 1953   1   2   3   4   5   6   7   8   9  10  11  12</span></span>
-<span id="cb28-10"><a href="index.html#cb28-10" tabindex="-1"></a><span class="do">## 1954   1   2   3   4   5   6   7   8   9  10  11  12</span></span>
-<span id="cb28-11"><a href="index.html#cb28-11" tabindex="-1"></a><span class="do">## 1955   1   2   3   4   5   6   7   8   9  10  11  12</span></span>
-<span id="cb28-12"><a href="index.html#cb28-12" tabindex="-1"></a><span class="do">## 1956   1   2   3   4   5   6   7   8   9  10  11  12</span></span>
-<span id="cb28-13"><a href="index.html#cb28-13" tabindex="-1"></a><span class="do">## 1957   1   2   3   4   5   6   7   8   9  10  11  12</span></span>
-<span id="cb28-14"><a href="index.html#cb28-14" tabindex="-1"></a><span class="do">## 1958   1   2   3   4   5   6   7   8   9  10  11  12</span></span>
-<span id="cb28-15"><a href="index.html#cb28-15" tabindex="-1"></a><span class="do">## 1959   1   2   3   4   5   6   7   8   9  10  11  12</span></span>
-<span id="cb28-16"><a href="index.html#cb28-16" tabindex="-1"></a><span class="do">## 1960   1   2   3   4   5   6   7   8   9  10  11  12</span></span>
+<span id="cb28-4"><a href="index.html#cb28-4" tabindex="-1"></a><span class="co">#&gt;      Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec</span></span>
+<span id="cb28-5"><a href="index.html#cb28-5" tabindex="-1"></a><span class="co">#&gt; 1949   1   2   3   4   5   6   7   8   9  10  11  12</span></span>
+<span id="cb28-6"><a href="index.html#cb28-6" tabindex="-1"></a><span class="co">#&gt; 1950   1   2   3   4   5   6   7   8   9  10  11  12</span></span>
+<span id="cb28-7"><a href="index.html#cb28-7" tabindex="-1"></a><span class="co">#&gt; 1951   1   2   3   4   5   6   7   8   9  10  11  12</span></span>
+<span id="cb28-8"><a href="index.html#cb28-8" tabindex="-1"></a><span class="co">#&gt; 1952   1   2   3   4   5   6   7   8   9  10  11  12</span></span>
+<span id="cb28-9"><a href="index.html#cb28-9" tabindex="-1"></a><span class="co">#&gt; 1953   1   2   3   4   5   6   7   8   9  10  11  12</span></span>
+<span id="cb28-10"><a href="index.html#cb28-10" tabindex="-1"></a><span class="co">#&gt; 1954   1   2   3   4   5   6   7   8   9  10  11  12</span></span>
+<span id="cb28-11"><a href="index.html#cb28-11" tabindex="-1"></a><span class="co">#&gt; 1955   1   2   3   4   5   6   7   8   9  10  11  12</span></span>
+<span id="cb28-12"><a href="index.html#cb28-12" tabindex="-1"></a><span class="co">#&gt; 1956   1   2   3   4   5   6   7   8   9  10  11  12</span></span>
+<span id="cb28-13"><a href="index.html#cb28-13" tabindex="-1"></a><span class="co">#&gt; 1957   1   2   3   4   5   6   7   8   9  10  11  12</span></span>
+<span id="cb28-14"><a href="index.html#cb28-14" tabindex="-1"></a><span class="co">#&gt; 1958   1   2   3   4   5   6   7   8   9  10  11  12</span></span>
+<span id="cb28-15"><a href="index.html#cb28-15" tabindex="-1"></a><span class="co">#&gt; 1959   1   2   3   4   5   6   7   8   9  10  11  12</span></span>
+<span id="cb28-16"><a href="index.html#cb28-16" tabindex="-1"></a><span class="co">#&gt; 1960   1   2   3   4   5   6   7   8   9  10  11  12</span></span>
 <span id="cb28-17"><a href="index.html#cb28-17" tabindex="-1"></a><span class="fu">boxplot</span>(ap <span class="sc">~</span> <span class="fu">cycle</span>(ap))     <span class="co"># seasonal effects</span></span></code></pre></div>
 <p><img src="016-decomp_files/figure-html/unnamed-chunk-1-2.png" width="75%" /></p>
 <div id="トレンド抽出-平滑化-smoothing" class="section level3 hasAnchor" number="1.5.1">
@@ -707,23 +729,23 @@ Figure 1.2: …
 <div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="index.html#cb29-1" tabindex="-1"></a><span class="co"># filter()関数の使用</span></span>
 <span id="cb29-2"><a href="index.html#cb29-2" tabindex="-1"></a>f12 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span> <span class="sc">/</span> <span class="dv">24</span>, <span class="fu">rep</span>(<span class="dv">1</span> <span class="sc">/</span> <span class="dv">12</span>, <span class="dv">11</span>), <span class="dv">1</span> <span class="sc">/</span> <span class="dv">24</span>)</span>
 <span id="cb29-3"><a href="index.html#cb29-3" tabindex="-1"></a>f12</span>
-<span id="cb29-4"><a href="index.html#cb29-4" tabindex="-1"></a><span class="do">##  [1] 0.04166667 0.08333333 0.08333333 0.08333333 0.08333333 0.08333333</span></span>
-<span id="cb29-5"><a href="index.html#cb29-5" tabindex="-1"></a><span class="do">##  [7] 0.08333333 0.08333333 0.08333333 0.08333333 0.08333333 0.08333333</span></span>
-<span id="cb29-6"><a href="index.html#cb29-6" tabindex="-1"></a><span class="do">## [13] 0.04166667</span></span>
+<span id="cb29-4"><a href="index.html#cb29-4" tabindex="-1"></a><span class="co">#&gt;  [1] 0.04166667 0.08333333 0.08333333 0.08333333 0.08333333 0.08333333</span></span>
+<span id="cb29-5"><a href="index.html#cb29-5" tabindex="-1"></a><span class="co">#&gt;  [7] 0.08333333 0.08333333 0.08333333 0.08333333 0.08333333 0.08333333</span></span>
+<span id="cb29-6"><a href="index.html#cb29-6" tabindex="-1"></a><span class="co">#&gt; [13] 0.04166667</span></span>
 <span id="cb29-7"><a href="index.html#cb29-7" tabindex="-1"></a></span>
 <span id="cb29-8"><a href="index.html#cb29-8" tabindex="-1"></a>ap_m <span class="ot">&lt;-</span> stats<span class="sc">::</span><span class="fu">filter</span>(<span class="fu">as.vector</span>(ap), f12, <span class="at">sides =</span> <span class="dv">2</span>)    <span class="co"># vectorとして入力 --&gt; 年情報が欠落</span></span>
 <span id="cb29-9"><a href="index.html#cb29-9" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">cbind</span>(<span class="fu">as.vector</span>(ap), ap_m))        <span class="co"># --&gt; 年情報が欠落</span></span></code></pre></div>
 <p><img src="016-decomp_files/figure-html/unnamed-chunk-2-1.png" width="75%" /></p>
 <div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="index.html#cb30-1" tabindex="-1"></a></span>
-<span id="cb30-2"><a href="index.html#cb30-2" tabindex="-1"></a><span class="co">#ap_m2 &lt;- filter(ap, f12, sides = 2)    # tsとして入力</span></span>
-<span id="cb30-3"><a href="index.html#cb30-3" tabindex="-1"></a><span class="co">#plot(cbind(ap, ap_m2))</span></span>
+<span id="cb30-2"><a href="index.html#cb30-2" tabindex="-1"></a><span class="co"># ap_m2 &lt;- filter(ap, f12, sides = 2)   # tsとして入力</span></span>
+<span id="cb30-3"><a href="index.html#cb30-3" tabindex="-1"></a><span class="co"># plot(cbind(ap, ap_m2))</span></span>
 <span id="cb30-4"><a href="index.html#cb30-4" tabindex="-1"></a></span>
-<span id="cb30-5"><a href="index.html#cb30-5" tabindex="-1"></a><span class="co">#または</span></span>
+<span id="cb30-5"><a href="index.html#cb30-5" tabindex="-1"></a><span class="co"># または</span></span>
 <span id="cb30-6"><a href="index.html#cb30-6" tabindex="-1"></a>ap_m <span class="ot">&lt;-</span> <span class="fu">ts</span>(ap_m, <span class="at">start =</span> <span class="fu">c</span>(<span class="dv">1949</span>, <span class="dv">1</span>), <span class="at">frequency =</span> <span class="dv">12</span>)        <span class="co"># &lt;-- 年情報を戻す</span></span>
-<span id="cb30-7"><a href="index.html#cb30-7" tabindex="-1"></a><span class="co">#plot(cbind(ap, ap_m))</span></span>
+<span id="cb30-7"><a href="index.html#cb30-7" tabindex="-1"></a><span class="co"># plot(cbind(ap, ap_m))</span></span>
 <span id="cb30-8"><a href="index.html#cb30-8" tabindex="-1"></a></span>
-<span id="cb30-9"><a href="index.html#cb30-9" tabindex="-1"></a><span class="co">#grid()</span></span>
-<span id="cb30-10"><a href="index.html#cb30-10" tabindex="-1"></a><span class="co">#lines(1:length(ap_m), ap_m, col=&quot;blue&quot;)</span></span>
+<span id="cb30-9"><a href="index.html#cb30-9" tabindex="-1"></a><span class="co"># grid()</span></span>
+<span id="cb30-10"><a href="index.html#cb30-10" tabindex="-1"></a><span class="co"># lines(1:length(ap_m), ap_m, col=&quot;blue&quot;)</span></span>
 <span id="cb30-11"><a href="index.html#cb30-11" tabindex="-1"></a></span>
 <span id="cb30-12"><a href="index.html#cb30-12" tabindex="-1"></a><span class="co"># トレンド除去済データ</span></span>
 <span id="cb30-13"><a href="index.html#cb30-13" tabindex="-1"></a>ap_s <span class="ot">&lt;-</span> ap <span class="sc">-</span> ap_m       <span class="co"># 上のts()を使った式によるap_mの生成が必要</span></span>
@@ -751,114 +773,114 @@ Finally, the error component is determined by removing trend and seasonal figure
 <li><strong>加法モデル</strong> (デフォルト)</li>
 </ul>
 <div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="index.html#cb32-1" tabindex="-1"></a><span class="fu">decompose</span>(ap)</span>
-<span id="cb32-2"><a href="index.html#cb32-2" tabindex="-1"></a><span class="do">## $x</span></span>
-<span id="cb32-3"><a href="index.html#cb32-3" tabindex="-1"></a><span class="do">##      Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec</span></span>
-<span id="cb32-4"><a href="index.html#cb32-4" tabindex="-1"></a><span class="do">## 1949 112 118 132 129 121 135 148 148 136 119 104 118</span></span>
-<span id="cb32-5"><a href="index.html#cb32-5" tabindex="-1"></a><span class="do">## 1950 115 126 141 135 125 149 170 170 158 133 114 140</span></span>
-<span id="cb32-6"><a href="index.html#cb32-6" tabindex="-1"></a><span class="do">## 1951 145 150 178 163 172 178 199 199 184 162 146 166</span></span>
-<span id="cb32-7"><a href="index.html#cb32-7" tabindex="-1"></a><span class="do">## 1952 171 180 193 181 183 218 230 242 209 191 172 194</span></span>
-<span id="cb32-8"><a href="index.html#cb32-8" tabindex="-1"></a><span class="do">## 1953 196 196 236 235 229 243 264 272 237 211 180 201</span></span>
-<span id="cb32-9"><a href="index.html#cb32-9" tabindex="-1"></a><span class="do">## 1954 204 188 235 227 234 264 302 293 259 229 203 229</span></span>
-<span id="cb32-10"><a href="index.html#cb32-10" tabindex="-1"></a><span class="do">## 1955 242 233 267 269 270 315 364 347 312 274 237 278</span></span>
-<span id="cb32-11"><a href="index.html#cb32-11" tabindex="-1"></a><span class="do">## 1956 284 277 317 313 318 374 413 405 355 306 271 306</span></span>
-<span id="cb32-12"><a href="index.html#cb32-12" tabindex="-1"></a><span class="do">## 1957 315 301 356 348 355 422 465 467 404 347 305 336</span></span>
-<span id="cb32-13"><a href="index.html#cb32-13" tabindex="-1"></a><span class="do">## 1958 340 318 362 348 363 435 491 505 404 359 310 337</span></span>
-<span id="cb32-14"><a href="index.html#cb32-14" tabindex="-1"></a><span class="do">## 1959 360 342 406 396 420 472 548 559 463 407 362 405</span></span>
-<span id="cb32-15"><a href="index.html#cb32-15" tabindex="-1"></a><span class="do">## 1960 417 391 419 461 472 535 622 606 508 461 390 432</span></span>
-<span id="cb32-16"><a href="index.html#cb32-16" tabindex="-1"></a><span class="do">## </span></span>
-<span id="cb32-17"><a href="index.html#cb32-17" tabindex="-1"></a><span class="do">## $seasonal</span></span>
-<span id="cb32-18"><a href="index.html#cb32-18" tabindex="-1"></a><span class="do">##             Jan        Feb        Mar        Apr        May        Jun</span></span>
-<span id="cb32-19"><a href="index.html#cb32-19" tabindex="-1"></a><span class="do">## 1949 -24.748737 -36.188131  -2.241162  -8.036616  -4.506313  35.402778</span></span>
-<span id="cb32-20"><a href="index.html#cb32-20" tabindex="-1"></a><span class="do">## 1950 -24.748737 -36.188131  -2.241162  -8.036616  -4.506313  35.402778</span></span>
-<span id="cb32-21"><a href="index.html#cb32-21" tabindex="-1"></a><span class="do">## 1951 -24.748737 -36.188131  -2.241162  -8.036616  -4.506313  35.402778</span></span>
-<span id="cb32-22"><a href="index.html#cb32-22" tabindex="-1"></a><span class="do">## 1952 -24.748737 -36.188131  -2.241162  -8.036616  -4.506313  35.402778</span></span>
-<span id="cb32-23"><a href="index.html#cb32-23" tabindex="-1"></a><span class="do">## 1953 -24.748737 -36.188131  -2.241162  -8.036616  -4.506313  35.402778</span></span>
-<span id="cb32-24"><a href="index.html#cb32-24" tabindex="-1"></a><span class="do">## 1954 -24.748737 -36.188131  -2.241162  -8.036616  -4.506313  35.402778</span></span>
-<span id="cb32-25"><a href="index.html#cb32-25" tabindex="-1"></a><span class="do">## 1955 -24.748737 -36.188131  -2.241162  -8.036616  -4.506313  35.402778</span></span>
-<span id="cb32-26"><a href="index.html#cb32-26" tabindex="-1"></a><span class="do">## 1956 -24.748737 -36.188131  -2.241162  -8.036616  -4.506313  35.402778</span></span>
-<span id="cb32-27"><a href="index.html#cb32-27" tabindex="-1"></a><span class="do">## 1957 -24.748737 -36.188131  -2.241162  -8.036616  -4.506313  35.402778</span></span>
-<span id="cb32-28"><a href="index.html#cb32-28" tabindex="-1"></a><span class="do">## 1958 -24.748737 -36.188131  -2.241162  -8.036616  -4.506313  35.402778</span></span>
-<span id="cb32-29"><a href="index.html#cb32-29" tabindex="-1"></a><span class="do">## 1959 -24.748737 -36.188131  -2.241162  -8.036616  -4.506313  35.402778</span></span>
-<span id="cb32-30"><a href="index.html#cb32-30" tabindex="-1"></a><span class="do">## 1960 -24.748737 -36.188131  -2.241162  -8.036616  -4.506313  35.402778</span></span>
-<span id="cb32-31"><a href="index.html#cb32-31" tabindex="-1"></a><span class="do">##             Jul        Aug        Sep        Oct        Nov        Dec</span></span>
-<span id="cb32-32"><a href="index.html#cb32-32" tabindex="-1"></a><span class="do">## 1949  63.830808  62.823232  16.520202 -20.642677 -53.593434 -28.619949</span></span>
-<span id="cb32-33"><a href="index.html#cb32-33" tabindex="-1"></a><span class="do">## 1950  63.830808  62.823232  16.520202 -20.642677 -53.593434 -28.619949</span></span>
-<span id="cb32-34"><a href="index.html#cb32-34" tabindex="-1"></a><span class="do">## 1951  63.830808  62.823232  16.520202 -20.642677 -53.593434 -28.619949</span></span>
-<span id="cb32-35"><a href="index.html#cb32-35" tabindex="-1"></a><span class="do">## 1952  63.830808  62.823232  16.520202 -20.642677 -53.593434 -28.619949</span></span>
-<span id="cb32-36"><a href="index.html#cb32-36" tabindex="-1"></a><span class="do">## 1953  63.830808  62.823232  16.520202 -20.642677 -53.593434 -28.619949</span></span>
-<span id="cb32-37"><a href="index.html#cb32-37" tabindex="-1"></a><span class="do">## 1954  63.830808  62.823232  16.520202 -20.642677 -53.593434 -28.619949</span></span>
-<span id="cb32-38"><a href="index.html#cb32-38" tabindex="-1"></a><span class="do">## 1955  63.830808  62.823232  16.520202 -20.642677 -53.593434 -28.619949</span></span>
-<span id="cb32-39"><a href="index.html#cb32-39" tabindex="-1"></a><span class="do">## 1956  63.830808  62.823232  16.520202 -20.642677 -53.593434 -28.619949</span></span>
-<span id="cb32-40"><a href="index.html#cb32-40" tabindex="-1"></a><span class="do">## 1957  63.830808  62.823232  16.520202 -20.642677 -53.593434 -28.619949</span></span>
-<span id="cb32-41"><a href="index.html#cb32-41" tabindex="-1"></a><span class="do">## 1958  63.830808  62.823232  16.520202 -20.642677 -53.593434 -28.619949</span></span>
-<span id="cb32-42"><a href="index.html#cb32-42" tabindex="-1"></a><span class="do">## 1959  63.830808  62.823232  16.520202 -20.642677 -53.593434 -28.619949</span></span>
-<span id="cb32-43"><a href="index.html#cb32-43" tabindex="-1"></a><span class="do">## 1960  63.830808  62.823232  16.520202 -20.642677 -53.593434 -28.619949</span></span>
-<span id="cb32-44"><a href="index.html#cb32-44" tabindex="-1"></a><span class="do">## </span></span>
-<span id="cb32-45"><a href="index.html#cb32-45" tabindex="-1"></a><span class="do">## $trend</span></span>
-<span id="cb32-46"><a href="index.html#cb32-46" tabindex="-1"></a><span class="do">##           Jan      Feb      Mar      Apr      May      Jun      Jul      Aug</span></span>
-<span id="cb32-47"><a href="index.html#cb32-47" tabindex="-1"></a><span class="do">## 1949       NA       NA       NA       NA       NA       NA 126.7917 127.2500</span></span>
-<span id="cb32-48"><a href="index.html#cb32-48" tabindex="-1"></a><span class="do">## 1950 131.2500 133.0833 134.9167 136.4167 137.4167 138.7500 140.9167 143.1667</span></span>
-<span id="cb32-49"><a href="index.html#cb32-49" tabindex="-1"></a><span class="do">## 1951 157.1250 159.5417 161.8333 164.1250 166.6667 169.0833 171.2500 173.5833</span></span>
-<span id="cb32-50"><a href="index.html#cb32-50" tabindex="-1"></a><span class="do">## 1952 183.1250 186.2083 189.0417 191.2917 193.5833 195.8333 198.0417 199.7500</span></span>
-<span id="cb32-51"><a href="index.html#cb32-51" tabindex="-1"></a><span class="do">## 1953 215.8333 218.5000 220.9167 222.9167 224.0833 224.7083 225.3333 225.3333</span></span>
-<span id="cb32-52"><a href="index.html#cb32-52" tabindex="-1"></a><span class="do">## 1954 228.0000 230.4583 232.2500 233.9167 235.6250 237.7500 240.5000 243.9583</span></span>
-<span id="cb32-53"><a href="index.html#cb32-53" tabindex="-1"></a><span class="do">## 1955 261.8333 266.6667 271.1250 275.2083 278.5000 281.9583 285.7500 289.3333</span></span>
-<span id="cb32-54"><a href="index.html#cb32-54" tabindex="-1"></a><span class="do">## 1956 309.9583 314.4167 318.6250 321.7500 324.5000 327.0833 329.5417 331.8333</span></span>
-<span id="cb32-55"><a href="index.html#cb32-55" tabindex="-1"></a><span class="do">## 1957 348.2500 353.0000 357.6250 361.3750 364.5000 367.1667 369.4583 371.2083</span></span>
-<span id="cb32-56"><a href="index.html#cb32-56" tabindex="-1"></a><span class="do">## 1958 375.2500 377.9167 379.5000 380.0000 380.7083 380.9583 381.8333 383.6667</span></span>
-<span id="cb32-57"><a href="index.html#cb32-57" tabindex="-1"></a><span class="do">## 1959 402.5417 407.1667 411.8750 416.3333 420.5000 425.5000 430.7083 435.1250</span></span>
-<span id="cb32-58"><a href="index.html#cb32-58" tabindex="-1"></a><span class="do">## 1960 456.3333 461.3750 465.2083 469.3333 472.7500 475.0417       NA       NA</span></span>
-<span id="cb32-59"><a href="index.html#cb32-59" tabindex="-1"></a><span class="do">##           Sep      Oct      Nov      Dec</span></span>
-<span id="cb32-60"><a href="index.html#cb32-60" tabindex="-1"></a><span class="do">## 1949 127.9583 128.5833 129.0000 129.7500</span></span>
-<span id="cb32-61"><a href="index.html#cb32-61" tabindex="-1"></a><span class="do">## 1950 145.7083 148.4167 151.5417 154.7083</span></span>
-<span id="cb32-62"><a href="index.html#cb32-62" tabindex="-1"></a><span class="do">## 1951 175.4583 176.8333 178.0417 180.1667</span></span>
-<span id="cb32-63"><a href="index.html#cb32-63" tabindex="-1"></a><span class="do">## 1952 202.2083 206.2500 210.4167 213.3750</span></span>
-<span id="cb32-64"><a href="index.html#cb32-64" tabindex="-1"></a><span class="do">## 1953 224.9583 224.5833 224.4583 225.5417</span></span>
-<span id="cb32-65"><a href="index.html#cb32-65" tabindex="-1"></a><span class="do">## 1954 247.1667 250.2500 253.5000 257.1250</span></span>
-<span id="cb32-66"><a href="index.html#cb32-66" tabindex="-1"></a><span class="do">## 1955 293.2500 297.1667 301.0000 305.4583</span></span>
-<span id="cb32-67"><a href="index.html#cb32-67" tabindex="-1"></a><span class="do">## 1956 334.4583 337.5417 340.5417 344.0833</span></span>
-<span id="cb32-68"><a href="index.html#cb32-68" tabindex="-1"></a><span class="do">## 1957 372.1667 372.4167 372.7500 373.6250</span></span>
-<span id="cb32-69"><a href="index.html#cb32-69" tabindex="-1"></a><span class="do">## 1958 386.5000 390.3333 394.7083 398.6250</span></span>
-<span id="cb32-70"><a href="index.html#cb32-70" tabindex="-1"></a><span class="do">## 1959 437.7083 440.9583 445.8333 450.6250</span></span>
-<span id="cb32-71"><a href="index.html#cb32-71" tabindex="-1"></a><span class="do">## 1960       NA       NA       NA       NA</span></span>
-<span id="cb32-72"><a href="index.html#cb32-72" tabindex="-1"></a><span class="do">## </span></span>
-<span id="cb32-73"><a href="index.html#cb32-73" tabindex="-1"></a><span class="do">## $random</span></span>
-<span id="cb32-74"><a href="index.html#cb32-74" tabindex="-1"></a><span class="do">##              Jan         Feb         Mar         Apr         May         Jun</span></span>
-<span id="cb32-75"><a href="index.html#cb32-75" tabindex="-1"></a><span class="do">## 1949          NA          NA          NA          NA          NA          NA</span></span>
-<span id="cb32-76"><a href="index.html#cb32-76" tabindex="-1"></a><span class="do">## 1950   8.4987374  29.1047980   8.3244949   6.6199495  -7.9103535 -25.1527778</span></span>
-<span id="cb32-77"><a href="index.html#cb32-77" tabindex="-1"></a><span class="do">## 1951  12.6237374  26.6464646  18.4078283   6.9116162   9.8396465 -26.4861111</span></span>
-<span id="cb32-78"><a href="index.html#cb32-78" tabindex="-1"></a><span class="do">## 1952  12.6237374  29.9797980   6.1994949  -2.2550505  -6.0770202 -13.2361111</span></span>
-<span id="cb32-79"><a href="index.html#cb32-79" tabindex="-1"></a><span class="do">## 1953   4.9154040  13.6881313  17.3244949  20.1199495   9.4229798 -17.1111111</span></span>
-<span id="cb32-80"><a href="index.html#cb32-80" tabindex="-1"></a><span class="do">## 1954   0.7487374  -6.2702020   4.9911616   1.1199495   2.8813131  -9.1527778</span></span>
-<span id="cb32-81"><a href="index.html#cb32-81" tabindex="-1"></a><span class="do">## 1955   4.9154040   2.5214646  -1.8838384   1.8282828  -3.9936869  -2.3611111</span></span>
-<span id="cb32-82"><a href="index.html#cb32-82" tabindex="-1"></a><span class="do">## 1956  -1.2095960  -1.2285354   0.6161616  -0.7133838  -1.9936869  11.5138889</span></span>
-<span id="cb32-83"><a href="index.html#cb32-83" tabindex="-1"></a><span class="do">## 1957  -8.5012626 -15.8118687   0.6161616  -5.3383838  -4.9936869  19.4305556</span></span>
-<span id="cb32-84"><a href="index.html#cb32-84" tabindex="-1"></a><span class="do">## 1958 -10.5012626 -23.7285354 -15.2588384 -23.9633838 -13.2020202  18.6388889</span></span>
-<span id="cb32-85"><a href="index.html#cb32-85" tabindex="-1"></a><span class="do">## 1959 -17.7929293 -28.9785354  -3.6338384 -12.2967172   4.0063131  11.0972222</span></span>
-<span id="cb32-86"><a href="index.html#cb32-86" tabindex="-1"></a><span class="do">## 1960 -14.5845960 -34.1868687 -43.9671717  -0.2967172   3.7563131  24.5555556</span></span>
-<span id="cb32-87"><a href="index.html#cb32-87" tabindex="-1"></a><span class="do">##              Jul         Aug         Sep         Oct         Nov         Dec</span></span>
-<span id="cb32-88"><a href="index.html#cb32-88" tabindex="-1"></a><span class="do">## 1949 -42.6224747 -42.0732323  -8.4785354  11.0593434  28.5934343  16.8699495</span></span>
-<span id="cb32-89"><a href="index.html#cb32-89" tabindex="-1"></a><span class="do">## 1950 -34.7474747 -35.9898990  -4.2285354   5.2260101  16.0517677  13.9116162</span></span>
-<span id="cb32-90"><a href="index.html#cb32-90" tabindex="-1"></a><span class="do">## 1951 -36.0808081 -37.4065657  -7.9785354   5.8093434  21.5517677  14.4532828</span></span>
-<span id="cb32-91"><a href="index.html#cb32-91" tabindex="-1"></a><span class="do">## 1952 -31.8724747 -20.5732323  -9.7285354   5.3926768  15.1767677   9.2449495</span></span>
-<span id="cb32-92"><a href="index.html#cb32-92" tabindex="-1"></a><span class="do">## 1953 -25.1641414 -16.1565657  -4.4785354   7.0593434   9.1351010   4.0782828</span></span>
-<span id="cb32-93"><a href="index.html#cb32-93" tabindex="-1"></a><span class="do">## 1954  -2.3308081 -13.7815657  -4.6868687  -0.6073232   3.0934343   0.4949495</span></span>
-<span id="cb32-94"><a href="index.html#cb32-94" tabindex="-1"></a><span class="do">## 1955  14.4191919  -5.1565657   2.2297980  -2.5239899 -10.4065657   1.1616162</span></span>
-<span id="cb32-95"><a href="index.html#cb32-95" tabindex="-1"></a><span class="do">## 1956  19.6275253  10.3434343   4.0214646 -10.8989899 -15.9482323  -9.4633838</span></span>
-<span id="cb32-96"><a href="index.html#cb32-96" tabindex="-1"></a><span class="do">## 1957  31.7108586  32.9684343  15.3131313  -4.7739899 -14.1565657  -9.0050505</span></span>
-<span id="cb32-97"><a href="index.html#cb32-97" tabindex="-1"></a><span class="do">## 1958  45.3358586  58.5101010   0.9797980 -10.6906566 -31.1148990 -33.0050505</span></span>
-<span id="cb32-98"><a href="index.html#cb32-98" tabindex="-1"></a><span class="do">## 1959  53.4608586  61.0517677   8.7714646 -13.3156566 -30.2398990 -17.0050505</span></span>
-<span id="cb32-99"><a href="index.html#cb32-99" tabindex="-1"></a><span class="do">## 1960          NA          NA          NA          NA          NA          NA</span></span>
-<span id="cb32-100"><a href="index.html#cb32-100" tabindex="-1"></a><span class="do">## </span></span>
-<span id="cb32-101"><a href="index.html#cb32-101" tabindex="-1"></a><span class="do">## $figure</span></span>
-<span id="cb32-102"><a href="index.html#cb32-102" tabindex="-1"></a><span class="do">##  [1] -24.748737 -36.188131  -2.241162  -8.036616  -4.506313  35.402778</span></span>
-<span id="cb32-103"><a href="index.html#cb32-103" tabindex="-1"></a><span class="do">##  [7]  63.830808  62.823232  16.520202 -20.642677 -53.593434 -28.619949</span></span>
-<span id="cb32-104"><a href="index.html#cb32-104" tabindex="-1"></a><span class="do">## </span></span>
-<span id="cb32-105"><a href="index.html#cb32-105" tabindex="-1"></a><span class="do">## $type</span></span>
-<span id="cb32-106"><a href="index.html#cb32-106" tabindex="-1"></a><span class="do">## [1] &quot;additive&quot;</span></span>
-<span id="cb32-107"><a href="index.html#cb32-107" tabindex="-1"></a><span class="do">## </span></span>
-<span id="cb32-108"><a href="index.html#cb32-108" tabindex="-1"></a><span class="do">## attr(,&quot;class&quot;)</span></span>
-<span id="cb32-109"><a href="index.html#cb32-109" tabindex="-1"></a><span class="do">## [1] &quot;decomposed.ts&quot;</span></span>
+<span id="cb32-2"><a href="index.html#cb32-2" tabindex="-1"></a><span class="co">#&gt; $x</span></span>
+<span id="cb32-3"><a href="index.html#cb32-3" tabindex="-1"></a><span class="co">#&gt;      Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec</span></span>
+<span id="cb32-4"><a href="index.html#cb32-4" tabindex="-1"></a><span class="co">#&gt; 1949 112 118 132 129 121 135 148 148 136 119 104 118</span></span>
+<span id="cb32-5"><a href="index.html#cb32-5" tabindex="-1"></a><span class="co">#&gt; 1950 115 126 141 135 125 149 170 170 158 133 114 140</span></span>
+<span id="cb32-6"><a href="index.html#cb32-6" tabindex="-1"></a><span class="co">#&gt; 1951 145 150 178 163 172 178 199 199 184 162 146 166</span></span>
+<span id="cb32-7"><a href="index.html#cb32-7" tabindex="-1"></a><span class="co">#&gt; 1952 171 180 193 181 183 218 230 242 209 191 172 194</span></span>
+<span id="cb32-8"><a href="index.html#cb32-8" tabindex="-1"></a><span class="co">#&gt; 1953 196 196 236 235 229 243 264 272 237 211 180 201</span></span>
+<span id="cb32-9"><a href="index.html#cb32-9" tabindex="-1"></a><span class="co">#&gt; 1954 204 188 235 227 234 264 302 293 259 229 203 229</span></span>
+<span id="cb32-10"><a href="index.html#cb32-10" tabindex="-1"></a><span class="co">#&gt; 1955 242 233 267 269 270 315 364 347 312 274 237 278</span></span>
+<span id="cb32-11"><a href="index.html#cb32-11" tabindex="-1"></a><span class="co">#&gt; 1956 284 277 317 313 318 374 413 405 355 306 271 306</span></span>
+<span id="cb32-12"><a href="index.html#cb32-12" tabindex="-1"></a><span class="co">#&gt; 1957 315 301 356 348 355 422 465 467 404 347 305 336</span></span>
+<span id="cb32-13"><a href="index.html#cb32-13" tabindex="-1"></a><span class="co">#&gt; 1958 340 318 362 348 363 435 491 505 404 359 310 337</span></span>
+<span id="cb32-14"><a href="index.html#cb32-14" tabindex="-1"></a><span class="co">#&gt; 1959 360 342 406 396 420 472 548 559 463 407 362 405</span></span>
+<span id="cb32-15"><a href="index.html#cb32-15" tabindex="-1"></a><span class="co">#&gt; 1960 417 391 419 461 472 535 622 606 508 461 390 432</span></span>
+<span id="cb32-16"><a href="index.html#cb32-16" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb32-17"><a href="index.html#cb32-17" tabindex="-1"></a><span class="co">#&gt; $seasonal</span></span>
+<span id="cb32-18"><a href="index.html#cb32-18" tabindex="-1"></a><span class="co">#&gt;             Jan        Feb        Mar        Apr        May        Jun</span></span>
+<span id="cb32-19"><a href="index.html#cb32-19" tabindex="-1"></a><span class="co">#&gt; 1949 -24.748737 -36.188131  -2.241162  -8.036616  -4.506313  35.402778</span></span>
+<span id="cb32-20"><a href="index.html#cb32-20" tabindex="-1"></a><span class="co">#&gt; 1950 -24.748737 -36.188131  -2.241162  -8.036616  -4.506313  35.402778</span></span>
+<span id="cb32-21"><a href="index.html#cb32-21" tabindex="-1"></a><span class="co">#&gt; 1951 -24.748737 -36.188131  -2.241162  -8.036616  -4.506313  35.402778</span></span>
+<span id="cb32-22"><a href="index.html#cb32-22" tabindex="-1"></a><span class="co">#&gt; 1952 -24.748737 -36.188131  -2.241162  -8.036616  -4.506313  35.402778</span></span>
+<span id="cb32-23"><a href="index.html#cb32-23" tabindex="-1"></a><span class="co">#&gt; 1953 -24.748737 -36.188131  -2.241162  -8.036616  -4.506313  35.402778</span></span>
+<span id="cb32-24"><a href="index.html#cb32-24" tabindex="-1"></a><span class="co">#&gt; 1954 -24.748737 -36.188131  -2.241162  -8.036616  -4.506313  35.402778</span></span>
+<span id="cb32-25"><a href="index.html#cb32-25" tabindex="-1"></a><span class="co">#&gt; 1955 -24.748737 -36.188131  -2.241162  -8.036616  -4.506313  35.402778</span></span>
+<span id="cb32-26"><a href="index.html#cb32-26" tabindex="-1"></a><span class="co">#&gt; 1956 -24.748737 -36.188131  -2.241162  -8.036616  -4.506313  35.402778</span></span>
+<span id="cb32-27"><a href="index.html#cb32-27" tabindex="-1"></a><span class="co">#&gt; 1957 -24.748737 -36.188131  -2.241162  -8.036616  -4.506313  35.402778</span></span>
+<span id="cb32-28"><a href="index.html#cb32-28" tabindex="-1"></a><span class="co">#&gt; 1958 -24.748737 -36.188131  -2.241162  -8.036616  -4.506313  35.402778</span></span>
+<span id="cb32-29"><a href="index.html#cb32-29" tabindex="-1"></a><span class="co">#&gt; 1959 -24.748737 -36.188131  -2.241162  -8.036616  -4.506313  35.402778</span></span>
+<span id="cb32-30"><a href="index.html#cb32-30" tabindex="-1"></a><span class="co">#&gt; 1960 -24.748737 -36.188131  -2.241162  -8.036616  -4.506313  35.402778</span></span>
+<span id="cb32-31"><a href="index.html#cb32-31" tabindex="-1"></a><span class="co">#&gt;             Jul        Aug        Sep        Oct        Nov        Dec</span></span>
+<span id="cb32-32"><a href="index.html#cb32-32" tabindex="-1"></a><span class="co">#&gt; 1949  63.830808  62.823232  16.520202 -20.642677 -53.593434 -28.619949</span></span>
+<span id="cb32-33"><a href="index.html#cb32-33" tabindex="-1"></a><span class="co">#&gt; 1950  63.830808  62.823232  16.520202 -20.642677 -53.593434 -28.619949</span></span>
+<span id="cb32-34"><a href="index.html#cb32-34" tabindex="-1"></a><span class="co">#&gt; 1951  63.830808  62.823232  16.520202 -20.642677 -53.593434 -28.619949</span></span>
+<span id="cb32-35"><a href="index.html#cb32-35" tabindex="-1"></a><span class="co">#&gt; 1952  63.830808  62.823232  16.520202 -20.642677 -53.593434 -28.619949</span></span>
+<span id="cb32-36"><a href="index.html#cb32-36" tabindex="-1"></a><span class="co">#&gt; 1953  63.830808  62.823232  16.520202 -20.642677 -53.593434 -28.619949</span></span>
+<span id="cb32-37"><a href="index.html#cb32-37" tabindex="-1"></a><span class="co">#&gt; 1954  63.830808  62.823232  16.520202 -20.642677 -53.593434 -28.619949</span></span>
+<span id="cb32-38"><a href="index.html#cb32-38" tabindex="-1"></a><span class="co">#&gt; 1955  63.830808  62.823232  16.520202 -20.642677 -53.593434 -28.619949</span></span>
+<span id="cb32-39"><a href="index.html#cb32-39" tabindex="-1"></a><span class="co">#&gt; 1956  63.830808  62.823232  16.520202 -20.642677 -53.593434 -28.619949</span></span>
+<span id="cb32-40"><a href="index.html#cb32-40" tabindex="-1"></a><span class="co">#&gt; 1957  63.830808  62.823232  16.520202 -20.642677 -53.593434 -28.619949</span></span>
+<span id="cb32-41"><a href="index.html#cb32-41" tabindex="-1"></a><span class="co">#&gt; 1958  63.830808  62.823232  16.520202 -20.642677 -53.593434 -28.619949</span></span>
+<span id="cb32-42"><a href="index.html#cb32-42" tabindex="-1"></a><span class="co">#&gt; 1959  63.830808  62.823232  16.520202 -20.642677 -53.593434 -28.619949</span></span>
+<span id="cb32-43"><a href="index.html#cb32-43" tabindex="-1"></a><span class="co">#&gt; 1960  63.830808  62.823232  16.520202 -20.642677 -53.593434 -28.619949</span></span>
+<span id="cb32-44"><a href="index.html#cb32-44" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb32-45"><a href="index.html#cb32-45" tabindex="-1"></a><span class="co">#&gt; $trend</span></span>
+<span id="cb32-46"><a href="index.html#cb32-46" tabindex="-1"></a><span class="co">#&gt;           Jan      Feb      Mar      Apr      May      Jun      Jul      Aug</span></span>
+<span id="cb32-47"><a href="index.html#cb32-47" tabindex="-1"></a><span class="co">#&gt; 1949       NA       NA       NA       NA       NA       NA 126.7917 127.2500</span></span>
+<span id="cb32-48"><a href="index.html#cb32-48" tabindex="-1"></a><span class="co">#&gt; 1950 131.2500 133.0833 134.9167 136.4167 137.4167 138.7500 140.9167 143.1667</span></span>
+<span id="cb32-49"><a href="index.html#cb32-49" tabindex="-1"></a><span class="co">#&gt; 1951 157.1250 159.5417 161.8333 164.1250 166.6667 169.0833 171.2500 173.5833</span></span>
+<span id="cb32-50"><a href="index.html#cb32-50" tabindex="-1"></a><span class="co">#&gt; 1952 183.1250 186.2083 189.0417 191.2917 193.5833 195.8333 198.0417 199.7500</span></span>
+<span id="cb32-51"><a href="index.html#cb32-51" tabindex="-1"></a><span class="co">#&gt; 1953 215.8333 218.5000 220.9167 222.9167 224.0833 224.7083 225.3333 225.3333</span></span>
+<span id="cb32-52"><a href="index.html#cb32-52" tabindex="-1"></a><span class="co">#&gt; 1954 228.0000 230.4583 232.2500 233.9167 235.6250 237.7500 240.5000 243.9583</span></span>
+<span id="cb32-53"><a href="index.html#cb32-53" tabindex="-1"></a><span class="co">#&gt; 1955 261.8333 266.6667 271.1250 275.2083 278.5000 281.9583 285.7500 289.3333</span></span>
+<span id="cb32-54"><a href="index.html#cb32-54" tabindex="-1"></a><span class="co">#&gt; 1956 309.9583 314.4167 318.6250 321.7500 324.5000 327.0833 329.5417 331.8333</span></span>
+<span id="cb32-55"><a href="index.html#cb32-55" tabindex="-1"></a><span class="co">#&gt; 1957 348.2500 353.0000 357.6250 361.3750 364.5000 367.1667 369.4583 371.2083</span></span>
+<span id="cb32-56"><a href="index.html#cb32-56" tabindex="-1"></a><span class="co">#&gt; 1958 375.2500 377.9167 379.5000 380.0000 380.7083 380.9583 381.8333 383.6667</span></span>
+<span id="cb32-57"><a href="index.html#cb32-57" tabindex="-1"></a><span class="co">#&gt; 1959 402.5417 407.1667 411.8750 416.3333 420.5000 425.5000 430.7083 435.1250</span></span>
+<span id="cb32-58"><a href="index.html#cb32-58" tabindex="-1"></a><span class="co">#&gt; 1960 456.3333 461.3750 465.2083 469.3333 472.7500 475.0417       NA       NA</span></span>
+<span id="cb32-59"><a href="index.html#cb32-59" tabindex="-1"></a><span class="co">#&gt;           Sep      Oct      Nov      Dec</span></span>
+<span id="cb32-60"><a href="index.html#cb32-60" tabindex="-1"></a><span class="co">#&gt; 1949 127.9583 128.5833 129.0000 129.7500</span></span>
+<span id="cb32-61"><a href="index.html#cb32-61" tabindex="-1"></a><span class="co">#&gt; 1950 145.7083 148.4167 151.5417 154.7083</span></span>
+<span id="cb32-62"><a href="index.html#cb32-62" tabindex="-1"></a><span class="co">#&gt; 1951 175.4583 176.8333 178.0417 180.1667</span></span>
+<span id="cb32-63"><a href="index.html#cb32-63" tabindex="-1"></a><span class="co">#&gt; 1952 202.2083 206.2500 210.4167 213.3750</span></span>
+<span id="cb32-64"><a href="index.html#cb32-64" tabindex="-1"></a><span class="co">#&gt; 1953 224.9583 224.5833 224.4583 225.5417</span></span>
+<span id="cb32-65"><a href="index.html#cb32-65" tabindex="-1"></a><span class="co">#&gt; 1954 247.1667 250.2500 253.5000 257.1250</span></span>
+<span id="cb32-66"><a href="index.html#cb32-66" tabindex="-1"></a><span class="co">#&gt; 1955 293.2500 297.1667 301.0000 305.4583</span></span>
+<span id="cb32-67"><a href="index.html#cb32-67" tabindex="-1"></a><span class="co">#&gt; 1956 334.4583 337.5417 340.5417 344.0833</span></span>
+<span id="cb32-68"><a href="index.html#cb32-68" tabindex="-1"></a><span class="co">#&gt; 1957 372.1667 372.4167 372.7500 373.6250</span></span>
+<span id="cb32-69"><a href="index.html#cb32-69" tabindex="-1"></a><span class="co">#&gt; 1958 386.5000 390.3333 394.7083 398.6250</span></span>
+<span id="cb32-70"><a href="index.html#cb32-70" tabindex="-1"></a><span class="co">#&gt; 1959 437.7083 440.9583 445.8333 450.6250</span></span>
+<span id="cb32-71"><a href="index.html#cb32-71" tabindex="-1"></a><span class="co">#&gt; 1960       NA       NA       NA       NA</span></span>
+<span id="cb32-72"><a href="index.html#cb32-72" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb32-73"><a href="index.html#cb32-73" tabindex="-1"></a><span class="co">#&gt; $random</span></span>
+<span id="cb32-74"><a href="index.html#cb32-74" tabindex="-1"></a><span class="co">#&gt;              Jan         Feb         Mar         Apr         May         Jun</span></span>
+<span id="cb32-75"><a href="index.html#cb32-75" tabindex="-1"></a><span class="co">#&gt; 1949          NA          NA          NA          NA          NA          NA</span></span>
+<span id="cb32-76"><a href="index.html#cb32-76" tabindex="-1"></a><span class="co">#&gt; 1950   8.4987374  29.1047980   8.3244949   6.6199495  -7.9103535 -25.1527778</span></span>
+<span id="cb32-77"><a href="index.html#cb32-77" tabindex="-1"></a><span class="co">#&gt; 1951  12.6237374  26.6464646  18.4078283   6.9116162   9.8396465 -26.4861111</span></span>
+<span id="cb32-78"><a href="index.html#cb32-78" tabindex="-1"></a><span class="co">#&gt; 1952  12.6237374  29.9797980   6.1994949  -2.2550505  -6.0770202 -13.2361111</span></span>
+<span id="cb32-79"><a href="index.html#cb32-79" tabindex="-1"></a><span class="co">#&gt; 1953   4.9154040  13.6881313  17.3244949  20.1199495   9.4229798 -17.1111111</span></span>
+<span id="cb32-80"><a href="index.html#cb32-80" tabindex="-1"></a><span class="co">#&gt; 1954   0.7487374  -6.2702020   4.9911616   1.1199495   2.8813131  -9.1527778</span></span>
+<span id="cb32-81"><a href="index.html#cb32-81" tabindex="-1"></a><span class="co">#&gt; 1955   4.9154040   2.5214646  -1.8838384   1.8282828  -3.9936869  -2.3611111</span></span>
+<span id="cb32-82"><a href="index.html#cb32-82" tabindex="-1"></a><span class="co">#&gt; 1956  -1.2095960  -1.2285354   0.6161616  -0.7133838  -1.9936869  11.5138889</span></span>
+<span id="cb32-83"><a href="index.html#cb32-83" tabindex="-1"></a><span class="co">#&gt; 1957  -8.5012626 -15.8118687   0.6161616  -5.3383838  -4.9936869  19.4305556</span></span>
+<span id="cb32-84"><a href="index.html#cb32-84" tabindex="-1"></a><span class="co">#&gt; 1958 -10.5012626 -23.7285354 -15.2588384 -23.9633838 -13.2020202  18.6388889</span></span>
+<span id="cb32-85"><a href="index.html#cb32-85" tabindex="-1"></a><span class="co">#&gt; 1959 -17.7929293 -28.9785354  -3.6338384 -12.2967172   4.0063131  11.0972222</span></span>
+<span id="cb32-86"><a href="index.html#cb32-86" tabindex="-1"></a><span class="co">#&gt; 1960 -14.5845960 -34.1868687 -43.9671717  -0.2967172   3.7563131  24.5555556</span></span>
+<span id="cb32-87"><a href="index.html#cb32-87" tabindex="-1"></a><span class="co">#&gt;              Jul         Aug         Sep         Oct         Nov         Dec</span></span>
+<span id="cb32-88"><a href="index.html#cb32-88" tabindex="-1"></a><span class="co">#&gt; 1949 -42.6224747 -42.0732323  -8.4785354  11.0593434  28.5934343  16.8699495</span></span>
+<span id="cb32-89"><a href="index.html#cb32-89" tabindex="-1"></a><span class="co">#&gt; 1950 -34.7474747 -35.9898990  -4.2285354   5.2260101  16.0517677  13.9116162</span></span>
+<span id="cb32-90"><a href="index.html#cb32-90" tabindex="-1"></a><span class="co">#&gt; 1951 -36.0808081 -37.4065657  -7.9785354   5.8093434  21.5517677  14.4532828</span></span>
+<span id="cb32-91"><a href="index.html#cb32-91" tabindex="-1"></a><span class="co">#&gt; 1952 -31.8724747 -20.5732323  -9.7285354   5.3926768  15.1767677   9.2449495</span></span>
+<span id="cb32-92"><a href="index.html#cb32-92" tabindex="-1"></a><span class="co">#&gt; 1953 -25.1641414 -16.1565657  -4.4785354   7.0593434   9.1351010   4.0782828</span></span>
+<span id="cb32-93"><a href="index.html#cb32-93" tabindex="-1"></a><span class="co">#&gt; 1954  -2.3308081 -13.7815657  -4.6868687  -0.6073232   3.0934343   0.4949495</span></span>
+<span id="cb32-94"><a href="index.html#cb32-94" tabindex="-1"></a><span class="co">#&gt; 1955  14.4191919  -5.1565657   2.2297980  -2.5239899 -10.4065657   1.1616162</span></span>
+<span id="cb32-95"><a href="index.html#cb32-95" tabindex="-1"></a><span class="co">#&gt; 1956  19.6275253  10.3434343   4.0214646 -10.8989899 -15.9482323  -9.4633838</span></span>
+<span id="cb32-96"><a href="index.html#cb32-96" tabindex="-1"></a><span class="co">#&gt; 1957  31.7108586  32.9684343  15.3131313  -4.7739899 -14.1565657  -9.0050505</span></span>
+<span id="cb32-97"><a href="index.html#cb32-97" tabindex="-1"></a><span class="co">#&gt; 1958  45.3358586  58.5101010   0.9797980 -10.6906566 -31.1148990 -33.0050505</span></span>
+<span id="cb32-98"><a href="index.html#cb32-98" tabindex="-1"></a><span class="co">#&gt; 1959  53.4608586  61.0517677   8.7714646 -13.3156566 -30.2398990 -17.0050505</span></span>
+<span id="cb32-99"><a href="index.html#cb32-99" tabindex="-1"></a><span class="co">#&gt; 1960          NA          NA          NA          NA          NA          NA</span></span>
+<span id="cb32-100"><a href="index.html#cb32-100" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb32-101"><a href="index.html#cb32-101" tabindex="-1"></a><span class="co">#&gt; $figure</span></span>
+<span id="cb32-102"><a href="index.html#cb32-102" tabindex="-1"></a><span class="co">#&gt;  [1] -24.748737 -36.188131  -2.241162  -8.036616  -4.506313  35.402778</span></span>
+<span id="cb32-103"><a href="index.html#cb32-103" tabindex="-1"></a><span class="co">#&gt;  [7]  63.830808  62.823232  16.520202 -20.642677 -53.593434 -28.619949</span></span>
+<span id="cb32-104"><a href="index.html#cb32-104" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb32-105"><a href="index.html#cb32-105" tabindex="-1"></a><span class="co">#&gt; $type</span></span>
+<span id="cb32-106"><a href="index.html#cb32-106" tabindex="-1"></a><span class="co">#&gt; [1] &quot;additive&quot;</span></span>
+<span id="cb32-107"><a href="index.html#cb32-107" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb32-108"><a href="index.html#cb32-108" tabindex="-1"></a><span class="co">#&gt; attr(,&quot;class&quot;)</span></span>
+<span id="cb32-109"><a href="index.html#cb32-109" tabindex="-1"></a><span class="co">#&gt; [1] &quot;decomposed.ts&quot;</span></span>
 <span id="cb32-110"><a href="index.html#cb32-110" tabindex="-1"></a>ap_decom <span class="ot">&lt;-</span> <span class="fu">decompose</span>(ap)       <span class="co"># additive (デフォルト)</span></span>
 <span id="cb32-111"><a href="index.html#cb32-111" tabindex="-1"></a><span class="fu">plot</span>(ap_decom)</span></code></pre></div>
 <p><img src="016-decomp_files/figure-html/unnamed-chunk-4-1.png" width="75%" /></p>
@@ -933,13 +955,13 @@ Y_t = m_t + s_t + \epsilon_t
 <span id="cb40-10"><a href="index.html#cb40-10" tabindex="-1"></a>z <span class="ot">&lt;-</span> <span class="fu">decomp</span>(Blsallfood, <span class="at">year =</span> <span class="dv">1973</span>)</span></code></pre></div>
 <p><img src="016-decomp_files/figure-html/unnamed-chunk-9-1.png" width="75%" /></p>
 <div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="index.html#cb41-1" tabindex="-1"></a>z<span class="sc">$</span>aic; z<span class="sc">$</span>lkhd</span>
-<span id="cb41-2"><a href="index.html#cb41-2" tabindex="-1"></a><span class="do">## [1] 1505.477</span></span>
-<span id="cb41-3"><a href="index.html#cb41-3" tabindex="-1"></a><span class="do">## [1] -743.7385</span></span>
+<span id="cb41-2"><a href="index.html#cb41-2" tabindex="-1"></a><span class="co">#&gt; [1] 1505.477</span></span>
+<span id="cb41-3"><a href="index.html#cb41-3" tabindex="-1"></a><span class="co">#&gt; [1] -743.7385</span></span>
 <span id="cb41-4"><a href="index.html#cb41-4" tabindex="-1"></a>z<span class="sc">$</span>sigma2; z<span class="sc">$</span>tau1; z<span class="sc">$</span>tau2; z<span class="sc">$</span>tau3</span>
-<span id="cb41-5"><a href="index.html#cb41-5" tabindex="-1"></a><span class="do">## [1] 209.0874</span></span>
-<span id="cb41-6"><a href="index.html#cb41-6" tabindex="-1"></a><span class="do">## [1] 0.0004305741</span></span>
-<span id="cb41-7"><a href="index.html#cb41-7" tabindex="-1"></a><span class="do">## [1] 1.0001</span></span>
-<span id="cb41-8"><a href="index.html#cb41-8" tabindex="-1"></a><span class="do">## NULL</span></span>
+<span id="cb41-5"><a href="index.html#cb41-5" tabindex="-1"></a><span class="co">#&gt; [1] 209.0874</span></span>
+<span id="cb41-6"><a href="index.html#cb41-6" tabindex="-1"></a><span class="co">#&gt; [1] 0.0004305741</span></span>
+<span id="cb41-7"><a href="index.html#cb41-7" tabindex="-1"></a><span class="co">#&gt; [1] 1.0001</span></span>
+<span id="cb41-8"><a href="index.html#cb41-8" tabindex="-1"></a><span class="co">#&gt; NULL</span></span>
 <span id="cb41-9"><a href="index.html#cb41-9" tabindex="-1"></a></span>
 <span id="cb41-10"><a href="index.html#cb41-10" tabindex="-1"></a>z <span class="ot">&lt;-</span> <span class="fu">decomp</span>(Blsallfood, <span class="at">trade =</span> <span class="cn">TRUE</span>, <span class="at">year =</span> <span class="dv">1973</span>)</span></code></pre></div>
 <p><img src="016-decomp_files/figure-html/unnamed-chunk-9-2.png" width="75%" /></p>
@@ -973,7 +995,7 @@ Y_t = m_t + s_t + \epsilon_t
 - daily.seasonality (週次季節性への適合): 同上
 - holidays (休日の指定): なし(デフォルト
 - seasonality.mode (季節性の入り方): &quot;additive&quot;(加法的)(デフォルト), &quot;multiplictive&quot;(乗法的)</code></pre>
-<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="index.html#cb46-1" tabindex="-1"></a><span class="co">#install.packages(&quot;prophet&quot;)</span></span>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="index.html#cb46-1" tabindex="-1"></a><span class="co"># install.packages(&quot;prophet&quot;)</span></span>
 <span id="cb46-2"><a href="index.html#cb46-2" tabindex="-1"></a><span class="fu">library</span>(prophet)</span>
 <span id="cb46-3"><a href="index.html#cb46-3" tabindex="-1"></a><span class="fu">library</span>(zoo) <span class="co"># index, yearmon</span></span>
 <span id="cb46-4"><a href="index.html#cb46-4" tabindex="-1"></a></span>
@@ -990,44 +1012,44 @@ Y_t = m_t + s_t + \epsilon_t
 <div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="index.html#cb48-1" tabindex="-1"></a><span class="co"># 予測年月の生成</span></span>
 <span id="cb48-2"><a href="index.html#cb48-2" tabindex="-1"></a>dates_ft <span class="ot">&lt;-</span> <span class="fu">make_future_dataframe</span>(ap_ppht, <span class="at">periods =</span> <span class="dv">12</span>, <span class="at">freq =</span> <span class="st">&quot;month&quot;</span>)</span>
 <span id="cb48-3"><a href="index.html#cb48-3" tabindex="-1"></a><span class="fu">tail</span>(dates_ft)</span>
-<span id="cb48-4"><a href="index.html#cb48-4" tabindex="-1"></a><span class="do">##             ds</span></span>
-<span id="cb48-5"><a href="index.html#cb48-5" tabindex="-1"></a><span class="do">## 151 1961-07-01</span></span>
-<span id="cb48-6"><a href="index.html#cb48-6" tabindex="-1"></a><span class="do">## 152 1961-08-01</span></span>
-<span id="cb48-7"><a href="index.html#cb48-7" tabindex="-1"></a><span class="do">## 153 1961-09-01</span></span>
-<span id="cb48-8"><a href="index.html#cb48-8" tabindex="-1"></a><span class="do">## 154 1961-10-01</span></span>
-<span id="cb48-9"><a href="index.html#cb48-9" tabindex="-1"></a><span class="do">## 155 1961-11-01</span></span>
-<span id="cb48-10"><a href="index.html#cb48-10" tabindex="-1"></a><span class="do">## 156 1961-12-01</span></span></code></pre></div>
+<span id="cb48-4"><a href="index.html#cb48-4" tabindex="-1"></a><span class="co">#&gt;             ds</span></span>
+<span id="cb48-5"><a href="index.html#cb48-5" tabindex="-1"></a><span class="co">#&gt; 151 1961-07-01</span></span>
+<span id="cb48-6"><a href="index.html#cb48-6" tabindex="-1"></a><span class="co">#&gt; 152 1961-08-01</span></span>
+<span id="cb48-7"><a href="index.html#cb48-7" tabindex="-1"></a><span class="co">#&gt; 153 1961-09-01</span></span>
+<span id="cb48-8"><a href="index.html#cb48-8" tabindex="-1"></a><span class="co">#&gt; 154 1961-10-01</span></span>
+<span id="cb48-9"><a href="index.html#cb48-9" tabindex="-1"></a><span class="co">#&gt; 155 1961-11-01</span></span>
+<span id="cb48-10"><a href="index.html#cb48-10" tabindex="-1"></a><span class="co">#&gt; 156 1961-12-01</span></span></code></pre></div>
 <ul>
 <li>適合モデルによる予測</li>
 </ul>
 <div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="index.html#cb49-1" tabindex="-1"></a><span class="co"># 予測値の生成</span></span>
 <span id="cb49-2"><a href="index.html#cb49-2" tabindex="-1"></a>ap_forecast <span class="ot">&lt;-</span> <span class="fu">predict</span>(ap_ppht, dates_ft)</span>
 <span id="cb49-3"><a href="index.html#cb49-3" tabindex="-1"></a><span class="fu">tail</span>(ap_forecast[<span class="fu">c</span>(<span class="st">&#39;ds&#39;</span>, <span class="st">&#39;yhat&#39;</span>, <span class="st">&#39;yhat_lower&#39;</span>, <span class="st">&#39;yhat_upper&#39;</span>)])</span>
-<span id="cb49-4"><a href="index.html#cb49-4" tabindex="-1"></a><span class="do">##             ds     yhat yhat_lower yhat_upper</span></span>
-<span id="cb49-5"><a href="index.html#cb49-5" tabindex="-1"></a><span class="do">## 151 1961-07-01 576.3980   545.9585   604.4861</span></span>
-<span id="cb49-6"><a href="index.html#cb49-6" tabindex="-1"></a><span class="do">## 152 1961-08-01 576.8090   547.3587   605.1096</span></span>
-<span id="cb49-7"><a href="index.html#cb49-7" tabindex="-1"></a><span class="do">## 153 1961-09-01 528.3037   498.2390   555.7411</span></span>
-<span id="cb49-8"><a href="index.html#cb49-8" tabindex="-1"></a><span class="do">## 154 1961-10-01 493.0463   463.9730   523.9524</span></span>
-<span id="cb49-9"><a href="index.html#cb49-9" tabindex="-1"></a><span class="do">## 155 1961-11-01 459.2066   431.7883   487.9275</span></span>
-<span id="cb49-10"><a href="index.html#cb49-10" tabindex="-1"></a><span class="do">## 156 1961-12-01 488.5528   460.9262   517.3077</span></span>
+<span id="cb49-4"><a href="index.html#cb49-4" tabindex="-1"></a><span class="co">#&gt;             ds     yhat yhat_lower yhat_upper</span></span>
+<span id="cb49-5"><a href="index.html#cb49-5" tabindex="-1"></a><span class="co">#&gt; 151 1961-07-01 576.3980   545.9123   606.5364</span></span>
+<span id="cb49-6"><a href="index.html#cb49-6" tabindex="-1"></a><span class="co">#&gt; 152 1961-08-01 576.8090   547.4291   606.5018</span></span>
+<span id="cb49-7"><a href="index.html#cb49-7" tabindex="-1"></a><span class="co">#&gt; 153 1961-09-01 528.3037   501.6921   556.3042</span></span>
+<span id="cb49-8"><a href="index.html#cb49-8" tabindex="-1"></a><span class="co">#&gt; 154 1961-10-01 493.0463   462.8157   521.5726</span></span>
+<span id="cb49-9"><a href="index.html#cb49-9" tabindex="-1"></a><span class="co">#&gt; 155 1961-11-01 459.2066   431.0569   484.3780</span></span>
+<span id="cb49-10"><a href="index.html#cb49-10" tabindex="-1"></a><span class="co">#&gt; 156 1961-12-01 488.5528   460.5670   516.9158</span></span>
 <span id="cb49-11"><a href="index.html#cb49-11" tabindex="-1"></a><span class="fu">str</span>(ap_forecast)</span>
-<span id="cb49-12"><a href="index.html#cb49-12" tabindex="-1"></a><span class="do">## &#39;data.frame&#39;:    156 obs. of  16 variables:</span></span>
-<span id="cb49-13"><a href="index.html#cb49-13" tabindex="-1"></a><span class="do">##  $ ds                        : POSIXct, format: &quot;1949-01-01&quot; &quot;1949-02-01&quot; ...</span></span>
-<span id="cb49-14"><a href="index.html#cb49-14" tabindex="-1"></a><span class="do">##  $ trend                     : num  106 108 110 113 115 ...</span></span>
-<span id="cb49-15"><a href="index.html#cb49-15" tabindex="-1"></a><span class="do">##  $ additive_terms            : num  -21.951 -30.725 -0.498 -5.184 -3.774 ...</span></span>
-<span id="cb49-16"><a href="index.html#cb49-16" tabindex="-1"></a><span class="do">##  $ additive_terms_lower      : num  -21.951 -30.725 -0.498 -5.184 -3.774 ...</span></span>
-<span id="cb49-17"><a href="index.html#cb49-17" tabindex="-1"></a><span class="do">##  $ additive_terms_upper      : num  -21.951 -30.725 -0.498 -5.184 -3.774 ...</span></span>
-<span id="cb49-18"><a href="index.html#cb49-18" tabindex="-1"></a><span class="do">##  $ yearly                    : num  -21.951 -30.725 -0.498 -5.184 -3.774 ...</span></span>
-<span id="cb49-19"><a href="index.html#cb49-19" tabindex="-1"></a><span class="do">##  $ yearly_lower              : num  -21.951 -30.725 -0.498 -5.184 -3.774 ...</span></span>
-<span id="cb49-20"><a href="index.html#cb49-20" tabindex="-1"></a><span class="do">##  $ yearly_upper              : num  -21.951 -30.725 -0.498 -5.184 -3.774 ...</span></span>
-<span id="cb49-21"><a href="index.html#cb49-21" tabindex="-1"></a><span class="do">##  $ multiplicative_terms      : num  0 0 0 0 0 0 0 0 0 0 ...</span></span>
-<span id="cb49-22"><a href="index.html#cb49-22" tabindex="-1"></a><span class="do">##  $ multiplicative_terms_lower: num  0 0 0 0 0 0 0 0 0 0 ...</span></span>
-<span id="cb49-23"><a href="index.html#cb49-23" tabindex="-1"></a><span class="do">##  $ multiplicative_terms_upper: num  0 0 0 0 0 0 0 0 0 0 ...</span></span>
-<span id="cb49-24"><a href="index.html#cb49-24" tabindex="-1"></a><span class="do">##  $ yhat_lower                : num  56.4 49.7 80.1 80.3 81 ...</span></span>
-<span id="cb49-25"><a href="index.html#cb49-25" tabindex="-1"></a><span class="do">##  $ yhat_upper                : num  112 109 140 137 141 ...</span></span>
-<span id="cb49-26"><a href="index.html#cb49-26" tabindex="-1"></a><span class="do">##  $ trend_lower               : num  106 108 110 113 115 ...</span></span>
-<span id="cb49-27"><a href="index.html#cb49-27" tabindex="-1"></a><span class="do">##  $ trend_upper               : num  106 108 110 113 115 ...</span></span>
-<span id="cb49-28"><a href="index.html#cb49-28" tabindex="-1"></a><span class="do">##  $ yhat                      : num  84.3 77.7 109.9 107.4 110.9 ...</span></span>
+<span id="cb49-12"><a href="index.html#cb49-12" tabindex="-1"></a><span class="co">#&gt; &#39;data.frame&#39;:    156 obs. of  16 variables:</span></span>
+<span id="cb49-13"><a href="index.html#cb49-13" tabindex="-1"></a><span class="co">#&gt;  $ ds                        : POSIXct, format: &quot;1949-01-01&quot; &quot;1949-02-01&quot; ...</span></span>
+<span id="cb49-14"><a href="index.html#cb49-14" tabindex="-1"></a><span class="co">#&gt;  $ trend                     : num  106 108 110 113 115 ...</span></span>
+<span id="cb49-15"><a href="index.html#cb49-15" tabindex="-1"></a><span class="co">#&gt;  $ additive_terms            : num  -21.951 -30.725 -0.498 -5.184 -3.774 ...</span></span>
+<span id="cb49-16"><a href="index.html#cb49-16" tabindex="-1"></a><span class="co">#&gt;  $ additive_terms_lower      : num  -21.951 -30.725 -0.498 -5.184 -3.774 ...</span></span>
+<span id="cb49-17"><a href="index.html#cb49-17" tabindex="-1"></a><span class="co">#&gt;  $ additive_terms_upper      : num  -21.951 -30.725 -0.498 -5.184 -3.774 ...</span></span>
+<span id="cb49-18"><a href="index.html#cb49-18" tabindex="-1"></a><span class="co">#&gt;  $ yearly                    : num  -21.951 -30.725 -0.498 -5.184 -3.774 ...</span></span>
+<span id="cb49-19"><a href="index.html#cb49-19" tabindex="-1"></a><span class="co">#&gt;  $ yearly_lower              : num  -21.951 -30.725 -0.498 -5.184 -3.774 ...</span></span>
+<span id="cb49-20"><a href="index.html#cb49-20" tabindex="-1"></a><span class="co">#&gt;  $ yearly_upper              : num  -21.951 -30.725 -0.498 -5.184 -3.774 ...</span></span>
+<span id="cb49-21"><a href="index.html#cb49-21" tabindex="-1"></a><span class="co">#&gt;  $ multiplicative_terms      : num  0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb49-22"><a href="index.html#cb49-22" tabindex="-1"></a><span class="co">#&gt;  $ multiplicative_terms_lower: num  0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb49-23"><a href="index.html#cb49-23" tabindex="-1"></a><span class="co">#&gt;  $ multiplicative_terms_upper: num  0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb49-24"><a href="index.html#cb49-24" tabindex="-1"></a><span class="co">#&gt;  $ yhat_lower                : num  57.1 48.7 81.4 77.9 83 ...</span></span>
+<span id="cb49-25"><a href="index.html#cb49-25" tabindex="-1"></a><span class="co">#&gt;  $ yhat_upper                : num  112 107 138 135 140 ...</span></span>
+<span id="cb49-26"><a href="index.html#cb49-26" tabindex="-1"></a><span class="co">#&gt;  $ trend_lower               : num  106 108 110 113 115 ...</span></span>
+<span id="cb49-27"><a href="index.html#cb49-27" tabindex="-1"></a><span class="co">#&gt;  $ trend_upper               : num  106 108 110 113 115 ...</span></span>
+<span id="cb49-28"><a href="index.html#cb49-28" tabindex="-1"></a><span class="co">#&gt;  $ yhat                      : num  84.3 77.7 109.9 107.4 110.9 ...</span></span>
 <span id="cb49-29"><a href="index.html#cb49-29" tabindex="-1"></a></span>
 <span id="cb49-30"><a href="index.html#cb49-30" tabindex="-1"></a><span class="fu">plot</span>(ap_ppht, ap_forecast)</span></code></pre></div>
 <p><img src="016-decomp_files/figure-html/unnamed-chunk-15-1.png" width="75%" /></p>
@@ -1069,12 +1091,12 @@ HoltWinters(x, alpha = NULL, beta = NULL, gamma = NULL,
 </ul></li>
 </ul>
 <div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="index.html#cb53-1" tabindex="-1"></a>ap_hw<span class="sc">$</span>coef</span>
-<span id="cb53-2"><a href="index.html#cb53-2" tabindex="-1"></a><span class="do">##           a           b          s1          s2          s3          s4 </span></span>
-<span id="cb53-3"><a href="index.html#cb53-3" tabindex="-1"></a><span class="do">## 469.3232206   3.0215391   0.9464611   0.8829239   0.9717369   1.0304825 </span></span>
-<span id="cb53-4"><a href="index.html#cb53-4" tabindex="-1"></a><span class="do">##          s5          s6          s7          s8          s9         s10 </span></span>
-<span id="cb53-5"><a href="index.html#cb53-5" tabindex="-1"></a><span class="do">##   1.0476884   1.1805272   1.3590778   1.3331706   1.1083381   0.9868813 </span></span>
-<span id="cb53-6"><a href="index.html#cb53-6" tabindex="-1"></a><span class="do">##         s11         s12 </span></span>
-<span id="cb53-7"><a href="index.html#cb53-7" tabindex="-1"></a><span class="do">##   0.8361333   0.9209877</span></span></code></pre></div>
+<span id="cb53-2"><a href="index.html#cb53-2" tabindex="-1"></a><span class="co">#&gt;           a           b          s1          s2          s3          s4 </span></span>
+<span id="cb53-3"><a href="index.html#cb53-3" tabindex="-1"></a><span class="co">#&gt; 469.3232206   3.0215391   0.9464611   0.8829239   0.9717369   1.0304825 </span></span>
+<span id="cb53-4"><a href="index.html#cb53-4" tabindex="-1"></a><span class="co">#&gt;          s5          s6          s7          s8          s9         s10 </span></span>
+<span id="cb53-5"><a href="index.html#cb53-5" tabindex="-1"></a><span class="co">#&gt;   1.0476884   1.1805272   1.3590778   1.3331706   1.1083381   0.9868813 </span></span>
+<span id="cb53-6"><a href="index.html#cb53-6" tabindex="-1"></a><span class="co">#&gt;         s11         s12 </span></span>
+<span id="cb53-7"><a href="index.html#cb53-7" tabindex="-1"></a><span class="co">#&gt;   0.8361333   0.9209877</span></span></code></pre></div>
 <ul>
 <li>平滑化パラメータの各推定値
 (デフォルト: 1期先予測の平方誤差を最小化)
@@ -1084,12 +1106,12 @@ HoltWinters(x, alpha = NULL, beta = NULL, gamma = NULL,
 </ul></li>
 </ul>
 <div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="index.html#cb54-1" tabindex="-1"></a>ap_hw<span class="sc">$</span>alpha; ap_hw<span class="sc">$</span>beta; ap_hw<span class="sc">$</span>gamma</span>
-<span id="cb54-2"><a href="index.html#cb54-2" tabindex="-1"></a><span class="do">##     alpha </span></span>
-<span id="cb54-3"><a href="index.html#cb54-3" tabindex="-1"></a><span class="do">## 0.2755925</span></span>
-<span id="cb54-4"><a href="index.html#cb54-4" tabindex="-1"></a><span class="do">##       beta </span></span>
-<span id="cb54-5"><a href="index.html#cb54-5" tabindex="-1"></a><span class="do">## 0.03269295</span></span>
-<span id="cb54-6"><a href="index.html#cb54-6" tabindex="-1"></a><span class="do">##     gamma </span></span>
-<span id="cb54-7"><a href="index.html#cb54-7" tabindex="-1"></a><span class="do">## 0.8707292</span></span>
+<span id="cb54-2"><a href="index.html#cb54-2" tabindex="-1"></a><span class="co">#&gt;     alpha </span></span>
+<span id="cb54-3"><a href="index.html#cb54-3" tabindex="-1"></a><span class="co">#&gt; 0.2755925</span></span>
+<span id="cb54-4"><a href="index.html#cb54-4" tabindex="-1"></a><span class="co">#&gt;       beta </span></span>
+<span id="cb54-5"><a href="index.html#cb54-5" tabindex="-1"></a><span class="co">#&gt; 0.03269295</span></span>
+<span id="cb54-6"><a href="index.html#cb54-6" tabindex="-1"></a><span class="co">#&gt;     gamma </span></span>
+<span id="cb54-7"><a href="index.html#cb54-7" tabindex="-1"></a><span class="co">#&gt; 0.8707292</span></span>
 <span id="cb54-8"><a href="index.html#cb54-8" tabindex="-1"></a><span class="co"># ap_hw$seasonal</span></span></code></pre></div>
 <ul>
 <li><p>→ 季節性成分 (<span class="math inline">\(\hat{\gamma}=0.87\)</span>) は適応性が高く, 傾き成分 (<span class="math inline">\(\hat{\beta}=0.03\)</span>) は持続性が高い</p></li>
@@ -1097,13 +1119,13 @@ HoltWinters(x, alpha = NULL, beta = NULL, gamma = NULL,
 </ul>
 <div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="index.html#cb55-1" tabindex="-1"></a><span class="co"># 誤差平方和</span></span>
 <span id="cb55-2"><a href="index.html#cb55-2" tabindex="-1"></a>ap_hw<span class="sc">$</span>SSE</span>
-<span id="cb55-3"><a href="index.html#cb55-3" tabindex="-1"></a><span class="do">## [1] 16570.78</span></span>
+<span id="cb55-3"><a href="index.html#cb55-3" tabindex="-1"></a><span class="co">#&gt; [1] 16570.78</span></span>
 <span id="cb55-4"><a href="index.html#cb55-4" tabindex="-1"></a><span class="co"># RMSE</span></span>
 <span id="cb55-5"><a href="index.html#cb55-5" tabindex="-1"></a><span class="fu">sqrt</span>(ap_hw<span class="sc">$</span>SSE <span class="sc">/</span> <span class="fu">length</span>(ap))</span>
-<span id="cb55-6"><a href="index.html#cb55-6" tabindex="-1"></a><span class="do">## [1] 10.72729</span></span>
+<span id="cb55-6"><a href="index.html#cb55-6" tabindex="-1"></a><span class="co">#&gt; [1] 10.72729</span></span>
 <span id="cb55-7"><a href="index.html#cb55-7" tabindex="-1"></a><span class="co"># 原系列の標準偏差</span></span>
 <span id="cb55-8"><a href="index.html#cb55-8" tabindex="-1"></a><span class="fu">sd</span>(ap)</span>
-<span id="cb55-9"><a href="index.html#cb55-9" tabindex="-1"></a><span class="do">## [1] 119.9663</span></span></code></pre></div>
+<span id="cb55-9"><a href="index.html#cb55-9" tabindex="-1"></a><span class="co">#&gt; [1] 119.9663</span></span></code></pre></div>
 <ul>
 <li>成分ごとの各時点<span class="math inline">\(t\)</span>におけるフィルタ値と残差</li>
 </ul>
@@ -1112,42 +1134,42 @@ HoltWinters(x, alpha = NULL, beta = NULL, gamma = NULL,
 <p><img src="016-decomp_files/figure-html/unnamed-chunk-21-1.png" width="75%" /></p>
 <div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="index.html#cb57-1" tabindex="-1"></a><span class="co"># 残差</span></span>
 <span id="cb57-2"><a href="index.html#cb57-2" tabindex="-1"></a><span class="fu">residuals</span>(ap_hw)</span>
-<span id="cb57-3"><a href="index.html#cb57-3" tabindex="-1"></a><span class="do">##                Jan           Feb           Mar           Apr           May</span></span>
-<span id="cb57-4"><a href="index.html#cb57-4" tabindex="-1"></a><span class="do">## 1950   3.918191291   3.668547859   3.560987430   2.676619655   1.520319537</span></span>
-<span id="cb57-5"><a href="index.html#cb57-5" tabindex="-1"></a><span class="do">## 1951  10.169631710   0.294856559  11.459174000   1.250271622  22.242492007</span></span>
-<span id="cb57-6"><a href="index.html#cb57-6" tabindex="-1"></a><span class="do">## 1952   0.639058465   2.561809528 -13.247937478  -4.960743337  -1.798362274</span></span>
-<span id="cb57-7"><a href="index.html#cb57-7" tabindex="-1"></a><span class="do">## 1953  -2.309951793 -10.984490575  11.807034404  20.934576164   6.324760310</span></span>
-<span id="cb57-8"><a href="index.html#cb57-8" tabindex="-1"></a><span class="do">## 1954  -7.884606924 -25.278507451  -6.844292266  -4.126648634  11.152422735</span></span>
-<span id="cb57-9"><a href="index.html#cb57-9" tabindex="-1"></a><span class="do">## 1955   9.492307599   6.844512503 -17.984109810  -2.954044415  -4.414349879</span></span>
-<span id="cb57-10"><a href="index.html#cb57-10" tabindex="-1"></a><span class="do">## 1956   2.366074092   7.032754109  -3.174999872  -8.276899149  -4.045741326</span></span>
-<span id="cb57-11"><a href="index.html#cb57-11" tabindex="-1"></a><span class="do">## 1957  -0.103179026  -3.405357956   6.941798182  -1.292551022  -0.073176743</span></span>
-<span id="cb57-12"><a href="index.html#cb57-12" tabindex="-1"></a><span class="do">## 1958 -12.616294292 -16.810889595 -24.941371144 -24.190854481  -9.090123850</span></span>
-<span id="cb57-13"><a href="index.html#cb57-13" tabindex="-1"></a><span class="do">## 1959   9.356931169   7.005413487  15.314121160   9.501136587  12.869260335</span></span>
-<span id="cb57-14"><a href="index.html#cb57-14" tabindex="-1"></a><span class="do">## 1960   3.083235437  -1.451160572 -41.170501367  25.578209728   6.904887268</span></span>
-<span id="cb57-15"><a href="index.html#cb57-15" tabindex="-1"></a><span class="do">##                Jun           Jul           Aug           Sep           Oct</span></span>
-<span id="cb57-16"><a href="index.html#cb57-16" tabindex="-1"></a><span class="do">## 1950   1.332711685   7.556756288   4.470410387   4.112287706  -3.318641449</span></span>
-<span id="cb57-17"><a href="index.html#cb57-17" tabindex="-1"></a><span class="do">## 1951  -7.647723596  -7.262153619  -4.180886326  -2.419252204   3.852200863</span></span>
-<span id="cb57-18"><a href="index.html#cb57-18" tabindex="-1"></a><span class="do">## 1952  22.315604495   2.501602281  12.995228211  -6.630984243   4.713402630</span></span>
-<span id="cb57-19"><a href="index.html#cb57-19" tabindex="-1"></a><span class="do">## 1953 -13.737994926  -4.358000825  -3.595138563  -3.950054519  -5.418708751</span></span>
-<span id="cb57-20"><a href="index.html#cb57-20" tabindex="-1"></a><span class="do">## 1954  19.596410444  31.074569878   4.536718996   5.674435479   0.542766289</span></span>
-<span id="cb57-21"><a href="index.html#cb57-21" tabindex="-1"></a><span class="do">## 1955  13.889124087  26.518519783  11.014466838  14.163333928   6.699554535</span></span>
-<span id="cb57-22"><a href="index.html#cb57-22" tabindex="-1"></a><span class="do">## 1956   6.048821526  -4.203225397  10.393752287   2.693344663  -2.449808881</span></span>
-<span id="cb57-23"><a href="index.html#cb57-23" tabindex="-1"></a><span class="do">## 1957   7.639077734   2.908853356  18.020294032   6.364989620   1.549021882</span></span>
-<span id="cb57-24"><a href="index.html#cb57-24" tabindex="-1"></a><span class="do">## 1958  -0.498537076  12.581616475  28.702263571 -13.219138602   4.563093559</span></span>
-<span id="cb57-25"><a href="index.html#cb57-25" tabindex="-1"></a><span class="do">## 1959 -19.604975309   4.219977680   9.064706000  13.361230112   7.086972733</span></span>
-<span id="cb57-26"><a href="index.html#cb57-26" tabindex="-1"></a><span class="do">## 1960   0.647289130   5.264644362 -21.551048083  -2.133147349  14.837197056</span></span>
-<span id="cb57-27"><a href="index.html#cb57-27" tabindex="-1"></a><span class="do">##                Nov           Dec</span></span>
-<span id="cb57-28"><a href="index.html#cb57-28" tabindex="-1"></a><span class="do">## 1950  -5.090610790   6.011280050</span></span>
-<span id="cb57-29"><a href="index.html#cb57-29" tabindex="-1"></a><span class="do">## 1951   7.631271802  -3.141340932</span></span>
-<span id="cb57-30"><a href="index.html#cb57-30" tabindex="-1"></a><span class="do">## 1952   5.962357239   1.157482330</span></span>
-<span id="cb57-31"><a href="index.html#cb57-31" tabindex="-1"></a><span class="do">## 1953 -11.302349202 -11.165209087</span></span>
-<span id="cb57-32"><a href="index.html#cb57-32" tabindex="-1"></a><span class="do">## 1954   4.233276856   2.674631856</span></span>
-<span id="cb57-33"><a href="index.html#cb57-33" tabindex="-1"></a><span class="do">## 1955   0.007456865  11.099310837</span></span>
-<span id="cb57-34"><a href="index.html#cb57-34" tabindex="-1"></a><span class="do">## 1956   4.303662198  -3.394161373</span></span>
-<span id="cb57-35"><a href="index.html#cb57-35" tabindex="-1"></a><span class="do">## 1957   0.756961385  -9.615242815</span></span>
-<span id="cb57-36"><a href="index.html#cb57-36" tabindex="-1"></a><span class="do">## 1958  -1.876474530  -8.975126182</span></span>
-<span id="cb57-37"><a href="index.html#cb57-37" tabindex="-1"></a><span class="do">## 1959  13.602784883  18.347906089</span></span>
-<span id="cb57-38"><a href="index.html#cb57-38" tabindex="-1"></a><span class="do">## 1960  -5.452817647  -2.572462781</span></span></code></pre></div>
+<span id="cb57-3"><a href="index.html#cb57-3" tabindex="-1"></a><span class="co">#&gt;                Jan           Feb           Mar           Apr           May</span></span>
+<span id="cb57-4"><a href="index.html#cb57-4" tabindex="-1"></a><span class="co">#&gt; 1950   3.918191291   3.668547859   3.560987430   2.676619655   1.520319537</span></span>
+<span id="cb57-5"><a href="index.html#cb57-5" tabindex="-1"></a><span class="co">#&gt; 1951  10.169631710   0.294856559  11.459174000   1.250271622  22.242492007</span></span>
+<span id="cb57-6"><a href="index.html#cb57-6" tabindex="-1"></a><span class="co">#&gt; 1952   0.639058465   2.561809528 -13.247937478  -4.960743337  -1.798362274</span></span>
+<span id="cb57-7"><a href="index.html#cb57-7" tabindex="-1"></a><span class="co">#&gt; 1953  -2.309951793 -10.984490575  11.807034404  20.934576164   6.324760310</span></span>
+<span id="cb57-8"><a href="index.html#cb57-8" tabindex="-1"></a><span class="co">#&gt; 1954  -7.884606924 -25.278507451  -6.844292266  -4.126648634  11.152422735</span></span>
+<span id="cb57-9"><a href="index.html#cb57-9" tabindex="-1"></a><span class="co">#&gt; 1955   9.492307599   6.844512503 -17.984109810  -2.954044415  -4.414349879</span></span>
+<span id="cb57-10"><a href="index.html#cb57-10" tabindex="-1"></a><span class="co">#&gt; 1956   2.366074092   7.032754109  -3.174999872  -8.276899149  -4.045741326</span></span>
+<span id="cb57-11"><a href="index.html#cb57-11" tabindex="-1"></a><span class="co">#&gt; 1957  -0.103179026  -3.405357956   6.941798182  -1.292551022  -0.073176743</span></span>
+<span id="cb57-12"><a href="index.html#cb57-12" tabindex="-1"></a><span class="co">#&gt; 1958 -12.616294292 -16.810889595 -24.941371144 -24.190854481  -9.090123850</span></span>
+<span id="cb57-13"><a href="index.html#cb57-13" tabindex="-1"></a><span class="co">#&gt; 1959   9.356931169   7.005413487  15.314121160   9.501136587  12.869260335</span></span>
+<span id="cb57-14"><a href="index.html#cb57-14" tabindex="-1"></a><span class="co">#&gt; 1960   3.083235437  -1.451160572 -41.170501367  25.578209728   6.904887268</span></span>
+<span id="cb57-15"><a href="index.html#cb57-15" tabindex="-1"></a><span class="co">#&gt;                Jun           Jul           Aug           Sep           Oct</span></span>
+<span id="cb57-16"><a href="index.html#cb57-16" tabindex="-1"></a><span class="co">#&gt; 1950   1.332711685   7.556756288   4.470410387   4.112287706  -3.318641449</span></span>
+<span id="cb57-17"><a href="index.html#cb57-17" tabindex="-1"></a><span class="co">#&gt; 1951  -7.647723596  -7.262153619  -4.180886326  -2.419252204   3.852200863</span></span>
+<span id="cb57-18"><a href="index.html#cb57-18" tabindex="-1"></a><span class="co">#&gt; 1952  22.315604495   2.501602281  12.995228211  -6.630984243   4.713402630</span></span>
+<span id="cb57-19"><a href="index.html#cb57-19" tabindex="-1"></a><span class="co">#&gt; 1953 -13.737994926  -4.358000825  -3.595138563  -3.950054519  -5.418708751</span></span>
+<span id="cb57-20"><a href="index.html#cb57-20" tabindex="-1"></a><span class="co">#&gt; 1954  19.596410444  31.074569878   4.536718996   5.674435479   0.542766289</span></span>
+<span id="cb57-21"><a href="index.html#cb57-21" tabindex="-1"></a><span class="co">#&gt; 1955  13.889124087  26.518519783  11.014466838  14.163333928   6.699554535</span></span>
+<span id="cb57-22"><a href="index.html#cb57-22" tabindex="-1"></a><span class="co">#&gt; 1956   6.048821526  -4.203225397  10.393752287   2.693344663  -2.449808881</span></span>
+<span id="cb57-23"><a href="index.html#cb57-23" tabindex="-1"></a><span class="co">#&gt; 1957   7.639077734   2.908853356  18.020294032   6.364989620   1.549021882</span></span>
+<span id="cb57-24"><a href="index.html#cb57-24" tabindex="-1"></a><span class="co">#&gt; 1958  -0.498537076  12.581616475  28.702263571 -13.219138602   4.563093559</span></span>
+<span id="cb57-25"><a href="index.html#cb57-25" tabindex="-1"></a><span class="co">#&gt; 1959 -19.604975309   4.219977680   9.064706000  13.361230112   7.086972733</span></span>
+<span id="cb57-26"><a href="index.html#cb57-26" tabindex="-1"></a><span class="co">#&gt; 1960   0.647289130   5.264644362 -21.551048083  -2.133147349  14.837197056</span></span>
+<span id="cb57-27"><a href="index.html#cb57-27" tabindex="-1"></a><span class="co">#&gt;                Nov           Dec</span></span>
+<span id="cb57-28"><a href="index.html#cb57-28" tabindex="-1"></a><span class="co">#&gt; 1950  -5.090610790   6.011280050</span></span>
+<span id="cb57-29"><a href="index.html#cb57-29" tabindex="-1"></a><span class="co">#&gt; 1951   7.631271802  -3.141340932</span></span>
+<span id="cb57-30"><a href="index.html#cb57-30" tabindex="-1"></a><span class="co">#&gt; 1952   5.962357239   1.157482330</span></span>
+<span id="cb57-31"><a href="index.html#cb57-31" tabindex="-1"></a><span class="co">#&gt; 1953 -11.302349202 -11.165209087</span></span>
+<span id="cb57-32"><a href="index.html#cb57-32" tabindex="-1"></a><span class="co">#&gt; 1954   4.233276856   2.674631856</span></span>
+<span id="cb57-33"><a href="index.html#cb57-33" tabindex="-1"></a><span class="co">#&gt; 1955   0.007456865  11.099310837</span></span>
+<span id="cb57-34"><a href="index.html#cb57-34" tabindex="-1"></a><span class="co">#&gt; 1956   4.303662198  -3.394161373</span></span>
+<span id="cb57-35"><a href="index.html#cb57-35" tabindex="-1"></a><span class="co">#&gt; 1957   0.756961385  -9.615242815</span></span>
+<span id="cb57-36"><a href="index.html#cb57-36" tabindex="-1"></a><span class="co">#&gt; 1958  -1.876474530  -8.975126182</span></span>
+<span id="cb57-37"><a href="index.html#cb57-37" tabindex="-1"></a><span class="co">#&gt; 1959  13.602784883  18.347906089</span></span>
+<span id="cb57-38"><a href="index.html#cb57-38" tabindex="-1"></a><span class="co">#&gt; 1960  -5.452817647  -2.572462781</span></span></code></pre></div>
 <p>先述の諸手法との比較のため, 原系列を”トレンド”と季節性, “ノイズ”に分解 (水準と傾き → “トレンド”に統合)</p>
 <div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="index.html#cb58-1" tabindex="-1"></a>ap_hw_decomp <span class="ot">&lt;-</span> <span class="fu">ts.union</span>(<span class="at">y =</span> ap_hw<span class="sc">$</span>x,</span>
 <span id="cb58-2"><a href="index.html#cb58-2" tabindex="-1"></a>                         <span class="at">trend =</span> ap_hw<span class="sc">$</span>fitted[, <span class="st">&quot;level&quot;</span>] <span class="sc">+</span> ap_hw<span class="sc">$</span>fitted[, <span class="st">&quot;trend&quot;</span>],</span>

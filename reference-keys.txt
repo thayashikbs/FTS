@@ -39,3 +39,10 @@ ma1ar1モデル
 シミュレーションによるパス生成
 arma11モデル
 母acf-vs-標本acf
+armapqモデル
+armapqモデルとは
+armapqモデルによる予測
+armapqモデルの推定
+armapqモデルの同定-次数の特定
+r操作
+データ分析例-tsay-ch2より

@@ -46,3 +46,10 @@ armapqモデルの推定
 armapqモデルの同定-次数の特定
 r操作
 データ分析例-tsay-ch2より
+arimasarimaモデル
+arimapdqモデルとは
+sarimapdqtimes-pdq_sモデル-周期sとは
+sarimaモデルのパス生成-パッケージsarimaの利用
+sarimaモデルの推定診断
+データ分析例
+外生的トレンドがあるケース

@@ -281,11 +281,49 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="長期記憶過程" class="section level1 hasAnchor" number="6">
 <h1><span class="header-section-number">6</span> 長期記憶過程<a href="長期記憶過程.html#長期記憶過程" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>本章では, 前章までで学んだARIMA(<span class="math inline">\(p,d,q\)</span>)モデルにおいて,
+定常になるまでの差分の回数を表す<span class="math inline">\(d\)</span>を, 非負の整数<span class="math inline">\(d\)</span>から小数へと拡張したモデルである
+<strong>自己回帰非整数平均過程 (Autoregressive Fractionally
+Integrated Moving Average) モデル</strong>,
+ARFIMA(<span class="math inline">\(p,d,q\)</span>) を扱う.</p>
+<p>差分の回数<span class="math inline">\(d\)</span>を<span class="math inline">\(-0.5&lt;d&lt;0.5\)</span>の範囲内の小数に拡張することで,
+ARFIMA(<span class="math inline">\(p,d,q\)</span>)モデルは, 定常過程でありながら,
+<strong>長期記憶性 (long memory)</strong> (または, 長期依存性 (long-range dependence)) を有しており, 時系列解析分野において重要な (離散時間) 確率過程のクラスである.</p>
+<p><span class="math display">\[ \phi(B)(1-B)^d X_t = \theta(B) Z_t \tag{2}, \quad -0.5&lt;d&lt;0.5\]</span>
+ただし, 前章までと同様に,</p>
+<ul>
+<li>Backward shift operator <span class="math inline">\(B\)</span></li>
+<li>AR多項式 <span class="math inline">\(\phi(z)=1 - \phi_1 z - \cdots - \phi_p z^p\)</span></li>
+<li>MA多項式 <span class="math inline">\(\theta(z)=1 + \theta_1 z + \cdots + \theta_q z^q\)</span></li>
+</ul>
+<p>本章ではまた, 長期記憶性を持つ, 連続時間の確率過程のクラス
+として重要な<strong>非整数ブラウン運動</strong> fBM (fractional Brownian motion) についても簡単に触れる.</p>
+<p><strong>ハースト指数<span class="math inline">\(H\)</span></strong>は, 時系列データの長期記憶性を示す
+指標の一つであり, 理論的には, fBMの増分過程 (非整数ガウスノイズ, fGN) に対する長期記憶性を表現する
+パラメータとして導入される.</p>
+<p>具体的には, <span class="math inline">\(H\)</span>の大きさにより,</p>
+<ul>
+<li><span class="math inline">\(1/2 &lt; H &lt; 1\)</span>: 増分間に長期記憶性
+<ul>
+<li>→ fBMは持続的な (persistent) サンプルパス</li>
+</ul></li>
+<li><span class="math inline">\(0 \le H &lt; 1/2\)</span>: 増分間に短期記憶性
+<ul>
+<li>→ fBMは反持続的な (anti-persistent) サンプルパス</li>
+</ul></li>
+<li><span class="math inline">\(H = 1/2\)</span>: 増分間は無相関 (独立)
+<ul>
+<li>→ fBMは通常のブラウン運動. 過去のサンプルパスと未来のサンプルパスは独立
+となる.</li>
+</ul></li>
+</ul>
+<p>この<span class="math inline">\(H\)</span>と<span class="math inline">\(d\)</span>の間には, <span class="math inline">\(H = d + 1/2\)</span>なる関係が成立する.</p>
+<p>本章では, Rを使用した, 所与の時系列データに対する<span class="math inline">\(H\)</span>の推定方法についても紹介する.</p>
+<div id="長期記憶過程のシミュレーション" class="section level2 hasAnchor" number="6.1">
+<h2><span class="header-section-number">6.1</span> 長期記憶過程のシミュレーション<a href="長期記憶過程.html#長期記憶過程のシミュレーション" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>まず, Rパッケージを用い,
 長期記憶性を持つ確率過程のサンプルパスを生成し,
 視覚的に特徴を捉えてみよう.</p>
-<div id="長期記憶過程のシミュレーション" class="section level2 hasAnchor" number="6.1">
-<h2><span class="header-section-number">6.1</span> 長期記憶過程のシミュレーション<a href="長期記憶過程.html#長期記憶過程のシミュレーション" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div id="パッケージfracdiffの利用" class="section level3 unnumbered hasAnchor">
 <h3>パッケージ<strong>fracdiff</strong>の利用<a href="長期記憶過程.html#パッケージfracdiffの利用" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div id="arfimapdq過程のシミュレーション" class="section level4 unnumbered hasAnchor">
@@ -853,7 +891,7 @@ Geweke and Porter-Hudak(83), Reisen(94)の代替的な<span class="math inline">
 <h2><span class="header-section-number">6.5</span> ARFIMAモデル: データ分析例 (2)<a href="長期記憶過程.html#arfimaモデル-データ分析例-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>日次ボラティリティ系列には,
 長期記憶性があることが多くの実証分析で報告されている
-(stylezed factsの一つ).
+(stylized factsの一つ).
 ここでは, 実現ボラティリティ (RV) の日次系列に対して
 ARFIMAモデルの推定を試みる.</p>
 <p>データセットして, パッケージ<strong>highfrequency</strong>に収納されている

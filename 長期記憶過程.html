@@ -281,14 +281,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="長期記憶過程" class="section level1 hasAnchor" number="6">
 <h1><span class="header-section-number">6</span> 長期記憶過程<a href="長期記憶過程.html#長期記憶過程" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>本章では, 前章までで学んだARIMA(<span class="math inline">\(p,d,q\)</span>)モデルにおいて,
-定常になるまでの差分の回数を表す<span class="math inline">\(d\)</span>を, 非負の整数<span class="math inline">\(d\)</span>から小数へと拡張したモデルである
-<strong>自己回帰非整数平均過程 (Autoregressive Fractionally
-Integrated Moving Average) モデル</strong>,
-ARFIMA(<span class="math inline">\(p,d,q\)</span>) を扱う.</p>
-<p>差分の回数<span class="math inline">\(d\)</span>を<span class="math inline">\(-0.5&lt;d&lt;0.5\)</span>の範囲内の小数に拡張することで,
+<p>本章は, <strong>長期記憶性 (long memory)</strong> (または, 長期依存性 (long-range dependence)) を扱う.
+長期記憶性は, 為替レート, 為替フォワード・プレミアム, 金利スプレッド, 株式の出来高, オーダー・フロー, ボラティリティなど, 様々な金融時系列において報告されている.</p>
+<p>離散時間の時系列解析において中心的役割を担うのは, 前章までで学んだARIMA(<span class="math inline">\(p,d,q\)</span>)モデルにおいて,
+定常になるまでの差分の回数を表す<span class="math inline">\(d\)</span>を, 非負の整数<span class="math inline">\(d\)</span>から小数へと拡張したモデル,
+<strong>自己回帰非整数平均過程 (Auto-Regressive Fractionally
+Integrated Moving Average) モデル</strong>, 略して,
+ARFIMA(<span class="math inline">\(p,d,q\)</span>) モデルである.</p>
+<p>差分の回数<span class="math inline">\(d\)</span>が<span class="math inline">\(-0.5&lt;d&lt;0.5\)</span>の範囲内の小数の値を持つ
 ARFIMA(<span class="math inline">\(p,d,q\)</span>)モデルは, 定常過程でありながら,
-<strong>長期記憶性 (long memory)</strong> (または, 長期依存性 (long-range dependence)) を有しており, 時系列解析分野において重要な (離散時間) 確率過程のクラスである.</p>
+長期記憶性を有する.</p>
+<!--時系列解析分野において重要な (離散時間) 確率過程のクラスである.-->
 <p><span class="math display">\[ \phi(B)(1-B)^d X_t = \theta(B) Z_t \tag{2}, \quad -0.5&lt;d&lt;0.5\]</span>
 ただし, 前章までと同様に,</p>
 <ul>
@@ -328,6 +331,13 @@ ARFIMA(<span class="math inline">\(p,d,q\)</span>)モデルは, 定常過程で�
 <h3>パッケージ<strong>fracdiff</strong>の利用<a href="長期記憶過程.html#パッケージfracdiffの利用" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div id="arfimapdq過程のシミュレーション" class="section level4 unnumbered hasAnchor">
 <h4>ARFIMA(<span class="math inline">\(p,d,q\)</span>)過程のシミュレーション<a href="長期記憶過程.html#arfimapdq過程のシミュレーション" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>パッケージ<strong>fracdiff</strong>に含まれる関数<code>fracdiff.sim()</code>を
+使うことで, ARFIMA(<span class="math inline">\(p,d,q\)</span>)過程のサンプルパスを生成することができる.</p>
+<p>ここで, <strong>fracdiff</strong>におけるAR/MA多項式は,
+<span class="math inline">\(\phi(z) = 1 - \phi_1 z - \cdots - \phi_p z^p\)</span>,
+<span class="math inline">\(\theta(z) = 1 - \theta_1 z - \cdots - \theta_q z^q\)</span>
+である. すなわち, MA多項式の各項の符号が講義内の表記と
+反対になっていることに注意しよう.</p>
 <ul>
 <li>サンプルパス生成(1): p = 2, d = 0.49, q = 0
 <ul>
@@ -473,6 +483,13 @@ ARFIMA(<span class="math inline">\(p,d,q\)</span>)モデルは, 定常過程で�
   - He - empirical Hurst exponent
   - Hal - corrected empirical Hurst exponent
   - Ht - theoretical Hurst exponent</code></pre>
+<p>長期持続性, 系列無相関 (独立),
+反持続性の3つの場合について,
+<span class="math inline">\(H = 0.72, 0.50, 0.43\)</span> と設定された場合の
+サンプルパスを使う.
+<code>x72</code>は<strong>pracma</strong>に収録されている予め生成された
+サンプルパスである. <code>xlm</code>の生成手順は, <strong>pracma</strong>の
+マニュアルに従う.</p>
 <div class="sourceCode" id="cb441"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb441-1"><a href="長期記憶過程.html#cb441-1" tabindex="-1"></a><span class="fu">library</span>(pracma)</span>
 <span id="cb441-2"><a href="長期記憶過程.html#cb441-2" tabindex="-1"></a><span class="fu">data</span>(brown72)</span>
 <span id="cb441-3"><a href="長期記憶過程.html#cb441-3" tabindex="-1"></a>x72 <span class="ot">&lt;-</span> brown72                          <span class="co">#  H = 0.72</span></span>
@@ -480,43 +497,62 @@ ARFIMA(<span class="math inline">\(p,d,q\)</span>)モデルは, 定常過程で�
 <span id="cb441-5"><a href="長期記憶過程.html#cb441-5" tabindex="-1"></a>xlm <span class="ot">&lt;-</span> <span class="fu">numeric</span>(<span class="dv">1024</span>); xlm[<span class="dv">1</span>] <span class="ot">&lt;-</span> <span class="fl">0.1</span>     <span class="co">#  H = 0.43</span></span>
 <span id="cb441-6"><a href="長期記憶過程.html#cb441-6" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">2</span><span class="sc">:</span><span class="dv">1024</span>) {</span>
 <span id="cb441-7"><a href="長期記憶過程.html#cb441-7" tabindex="-1"></a>  xlm[i] <span class="ot">&lt;-</span> <span class="dv">4</span> <span class="sc">*</span> xlm[i <span class="sc">-</span> <span class="dv">1</span>] <span class="sc">*</span> (<span class="dv">1</span> <span class="sc">-</span> xlm[i <span class="sc">-</span> <span class="dv">1</span>])</span>
-<span id="cb441-8"><a href="長期記憶過程.html#cb441-8" tabindex="-1"></a>}</span>
-<span id="cb441-9"><a href="長期記憶過程.html#cb441-9" tabindex="-1"></a><span class="fu">plot</span>(x72, <span class="at">type =</span> <span class="st">&quot;l&quot;</span>)</span></code></pre></div>
-<p><img src="050-longmemory_files/figure-html/unnamed-chunk-8-1.png" width="75%" /></p>
-<div class="sourceCode" id="cb442"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb442-1"><a href="長期記憶過程.html#cb442-1" tabindex="-1"></a><span class="fu">plot</span>(xgn, <span class="at">type =</span> <span class="st">&quot;l&quot;</span>)</span></code></pre></div>
-<p><img src="050-longmemory_files/figure-html/unnamed-chunk-8-2.png" width="75%" /></p>
-<div class="sourceCode" id="cb443"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb443-1"><a href="長期記憶過程.html#cb443-1" tabindex="-1"></a><span class="fu">plot</span>(xlm, <span class="at">type =</span> <span class="st">&quot;l&quot;</span>)</span></code></pre></div>
-<p><img src="050-longmemory_files/figure-html/unnamed-chunk-8-3.png" width="75%" /></p>
-<div class="sourceCode" id="cb444"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb444-1"><a href="長期記憶過程.html#cb444-1" tabindex="-1"></a></span>
-<span id="cb444-2"><a href="長期記憶過程.html#cb444-2" tabindex="-1"></a><span class="fu">hurstexp</span>(brown72) <span class="co"># d: smallest box size (default = 50)</span></span>
-<span id="cb444-3"><a href="長期記憶過程.html#cb444-3" tabindex="-1"></a><span class="co">#&gt; Simple R/S Hurst estimation:         0.6628842 </span></span>
-<span id="cb444-4"><a href="長期記憶過程.html#cb444-4" tabindex="-1"></a><span class="co">#&gt; Corrected R over S Hurst exponent:   0.7378703 </span></span>
-<span id="cb444-5"><a href="長期記憶過程.html#cb444-5" tabindex="-1"></a><span class="co">#&gt; Empirical Hurst exponent:            0.6920439 </span></span>
-<span id="cb444-6"><a href="長期記憶過程.html#cb444-6" tabindex="-1"></a><span class="co">#&gt; Corrected empirical Hurst exponent:  0.6577233 </span></span>
-<span id="cb444-7"><a href="長期記憶過程.html#cb444-7" tabindex="-1"></a><span class="co">#&gt; Theoretical Hurst exponent:          0.5404756</span></span>
-<span id="cb444-8"><a href="長期記憶過程.html#cb444-8" tabindex="-1"></a><span class="fu">hurstexp</span>(xgn)</span>
-<span id="cb444-9"><a href="長期記憶過程.html#cb444-9" tabindex="-1"></a><span class="co">#&gt; Simple R/S Hurst estimation:         0.4784489 </span></span>
-<span id="cb444-10"><a href="長期記憶過程.html#cb444-10" tabindex="-1"></a><span class="co">#&gt; Corrected R over S Hurst exponent:   0.4898617 </span></span>
-<span id="cb444-11"><a href="長期記憶過程.html#cb444-11" tabindex="-1"></a><span class="co">#&gt; Empirical Hurst exponent:            0.5041802 </span></span>
-<span id="cb444-12"><a href="長期記憶過程.html#cb444-12" tabindex="-1"></a><span class="co">#&gt; Corrected empirical Hurst exponent:  0.4636032 </span></span>
-<span id="cb444-13"><a href="長期記憶過程.html#cb444-13" tabindex="-1"></a><span class="co">#&gt; Theoretical Hurst exponent:          0.5404756</span></span>
-<span id="cb444-14"><a href="長期記憶過程.html#cb444-14" tabindex="-1"></a><span class="fu">hurstexp</span>(xlm)</span>
-<span id="cb444-15"><a href="長期記憶過程.html#cb444-15" tabindex="-1"></a><span class="co">#&gt; Simple R/S Hurst estimation:         0.4762169 </span></span>
-<span id="cb444-16"><a href="長期記憶過程.html#cb444-16" tabindex="-1"></a><span class="co">#&gt; Corrected R over S Hurst exponent:   0.4722421 </span></span>
-<span id="cb444-17"><a href="長期記憶過程.html#cb444-17" tabindex="-1"></a><span class="co">#&gt; Empirical Hurst exponent:            0.4872281 </span></span>
-<span id="cb444-18"><a href="長期記憶過程.html#cb444-18" tabindex="-1"></a><span class="co">#&gt; Corrected empirical Hurst exponent:  0.4460807 </span></span>
-<span id="cb444-19"><a href="長期記憶過程.html#cb444-19" tabindex="-1"></a><span class="co">#&gt; Theoretical Hurst exponent:          0.5404756</span></span></code></pre></div>
+<span id="cb441-8"><a href="長期記憶過程.html#cb441-8" tabindex="-1"></a>}</span></code></pre></div>
+<ul>
+<li>長期持続性のケース (<span class="math inline">\(H = 0.72\)</span>)</li>
+</ul>
+<p>ここで, <code>x72</code>は平均が正の値を持っているため, 累積してfBMのパスを生成する際に
+平均値を差し引いて (線形トレンドを除いてから) から可視化する.</p>
+<div class="sourceCode" id="cb442"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb442-1"><a href="長期記憶過程.html#cb442-1" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">1</span>))</span>
+<span id="cb442-2"><a href="長期記憶過程.html#cb442-2" tabindex="-1"></a><span class="fu">plot</span>(x72, <span class="at">type =</span> <span class="st">&quot;l&quot;</span>)</span>
+<span id="cb442-3"><a href="長期記憶過程.html#cb442-3" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">cumsum</span>(x72 <span class="sc">-</span> <span class="fu">mean</span>(x72)), <span class="at">type =</span> <span class="st">&quot;l&quot;</span>)</span></code></pre></div>
+<p><img src="050-longmemory_files/figure-html/unnamed-chunk-9-1.png" width="75%" /></p>
+<ul>
+<li>ブラウン運動のケース (<span class="math inline">\(H = 0.50\)</span>)</li>
+</ul>
+<div class="sourceCode" id="cb443"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb443-1"><a href="長期記憶過程.html#cb443-1" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">1</span>))</span>
+<span id="cb443-2"><a href="長期記憶過程.html#cb443-2" tabindex="-1"></a><span class="fu">plot</span>(xgn, <span class="at">type =</span> <span class="st">&quot;l&quot;</span>)</span>
+<span id="cb443-3"><a href="長期記憶過程.html#cb443-3" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">cumsum</span>(xgn), <span class="at">type =</span> <span class="st">&quot;l&quot;</span>)</span></code></pre></div>
+<p><img src="050-longmemory_files/figure-html/unnamed-chunk-10-1.png" width="75%" /></p>
+<ul>
+<li>反持続性のケース (<span class="math inline">\(H = 0.43\)</span>)
+<code>xlm</code>はやはり平均値が正のため, fBMのパスを生成する際に
+平均値を差し引いてから可視化する.</li>
+</ul>
+<div class="sourceCode" id="cb444"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb444-1"><a href="長期記憶過程.html#cb444-1" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">1</span>))</span>
+<span id="cb444-2"><a href="長期記憶過程.html#cb444-2" tabindex="-1"></a><span class="fu">plot</span>(xlm, <span class="at">type =</span> <span class="st">&quot;l&quot;</span>)</span>
+<span id="cb444-3"><a href="長期記憶過程.html#cb444-3" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">cumsum</span>(xlm <span class="sc">-</span> <span class="fu">mean</span>(xlm)), <span class="at">type =</span> <span class="st">&quot;l&quot;</span>)</span></code></pre></div>
+<p><img src="050-longmemory_files/figure-html/unnamed-chunk-11-1.png" width="75%" /></p>
+<p>各々のパスから推定されるハースト指数は以下の通りである.</p>
+<div class="sourceCode" id="cb445"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb445-1"><a href="長期記憶過程.html#cb445-1" tabindex="-1"></a><span class="fu">hurstexp</span>(brown72) <span class="co"># d: smallest box size (default = 50)</span></span>
+<span id="cb445-2"><a href="長期記憶過程.html#cb445-2" tabindex="-1"></a><span class="co">#&gt; Simple R/S Hurst estimation:         0.6628842 </span></span>
+<span id="cb445-3"><a href="長期記憶過程.html#cb445-3" tabindex="-1"></a><span class="co">#&gt; Corrected R over S Hurst exponent:   0.7378703 </span></span>
+<span id="cb445-4"><a href="長期記憶過程.html#cb445-4" tabindex="-1"></a><span class="co">#&gt; Empirical Hurst exponent:            0.6920439 </span></span>
+<span id="cb445-5"><a href="長期記憶過程.html#cb445-5" tabindex="-1"></a><span class="co">#&gt; Corrected empirical Hurst exponent:  0.6577233 </span></span>
+<span id="cb445-6"><a href="長期記憶過程.html#cb445-6" tabindex="-1"></a><span class="co">#&gt; Theoretical Hurst exponent:          0.5404756</span></span>
+<span id="cb445-7"><a href="長期記憶過程.html#cb445-7" tabindex="-1"></a><span class="fu">hurstexp</span>(xgn)</span>
+<span id="cb445-8"><a href="長期記憶過程.html#cb445-8" tabindex="-1"></a><span class="co">#&gt; Simple R/S Hurst estimation:         0.4784489 </span></span>
+<span id="cb445-9"><a href="長期記憶過程.html#cb445-9" tabindex="-1"></a><span class="co">#&gt; Corrected R over S Hurst exponent:   0.4898617 </span></span>
+<span id="cb445-10"><a href="長期記憶過程.html#cb445-10" tabindex="-1"></a><span class="co">#&gt; Empirical Hurst exponent:            0.5041802 </span></span>
+<span id="cb445-11"><a href="長期記憶過程.html#cb445-11" tabindex="-1"></a><span class="co">#&gt; Corrected empirical Hurst exponent:  0.4636032 </span></span>
+<span id="cb445-12"><a href="長期記憶過程.html#cb445-12" tabindex="-1"></a><span class="co">#&gt; Theoretical Hurst exponent:          0.5404756</span></span>
+<span id="cb445-13"><a href="長期記憶過程.html#cb445-13" tabindex="-1"></a><span class="fu">hurstexp</span>(xlm)</span>
+<span id="cb445-14"><a href="長期記憶過程.html#cb445-14" tabindex="-1"></a><span class="co">#&gt; Simple R/S Hurst estimation:         0.4762169 </span></span>
+<span id="cb445-15"><a href="長期記憶過程.html#cb445-15" tabindex="-1"></a><span class="co">#&gt; Corrected R over S Hurst exponent:   0.4722421 </span></span>
+<span id="cb445-16"><a href="長期記憶過程.html#cb445-16" tabindex="-1"></a><span class="co">#&gt; Empirical Hurst exponent:            0.4872281 </span></span>
+<span id="cb445-17"><a href="長期記憶過程.html#cb445-17" tabindex="-1"></a><span class="co">#&gt; Corrected empirical Hurst exponent:  0.4460807 </span></span>
+<span id="cb445-18"><a href="長期記憶過程.html#cb445-18" tabindex="-1"></a><span class="co">#&gt; Theoretical Hurst exponent:          0.5404756</span></span></code></pre></div>
 </div>
 <div id="パッケージfractalの利用" class="section level3 unnumbered hasAnchor">
 <h3>パッケージ<strong>fractal</strong>の利用<a href="長期記憶過程.html#パッケージfractalの利用" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb445"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb445-1"><a href="長期記憶過程.html#cb445-1" tabindex="-1"></a><span class="fu">library</span>(fractal)</span>
-<span id="cb445-2"><a href="長期記憶過程.html#cb445-2" tabindex="-1"></a>x <span class="ot">&lt;-</span> x72</span>
-<span id="cb445-3"><a href="長期記憶過程.html#cb445-3" tabindex="-1"></a><span class="fu">hurstSpec</span>(x)</span>
-<span id="cb445-4"><a href="長期記憶過程.html#cb445-4" tabindex="-1"></a><span class="fu">RoverS</span>(x)</span>
-<span id="cb445-5"><a href="長期記憶過程.html#cb445-5" tabindex="-1"></a><span class="fu">hurstBlock</span>(x, <span class="at">method=</span><span class="st">&quot;aggAbs&quot;</span>)</span>
-<span id="cb445-6"><a href="長期記憶過程.html#cb445-6" tabindex="-1"></a><span class="fu">hurstBlock</span>(x, <span class="at">method=</span><span class="st">&quot;aggVar&quot;</span>)</span>
-<span id="cb445-7"><a href="長期記憶過程.html#cb445-7" tabindex="-1"></a><span class="fu">hurstBlock</span>(x, <span class="at">method=</span><span class="st">&quot;diffvar&quot;</span>)</span>
-<span id="cb445-8"><a href="長期記憶過程.html#cb445-8" tabindex="-1"></a><span class="fu">hurstBlock</span>(x, <span class="at">method=</span><span class="st">&quot;higuchi&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb446"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb446-1"><a href="長期記憶過程.html#cb446-1" tabindex="-1"></a><span class="fu">library</span>(fractal)</span>
+<span id="cb446-2"><a href="長期記憶過程.html#cb446-2" tabindex="-1"></a>x <span class="ot">&lt;-</span> x72</span>
+<span id="cb446-3"><a href="長期記憶過程.html#cb446-3" tabindex="-1"></a><span class="fu">hurstSpec</span>(x)</span>
+<span id="cb446-4"><a href="長期記憶過程.html#cb446-4" tabindex="-1"></a><span class="fu">RoverS</span>(x)</span>
+<span id="cb446-5"><a href="長期記憶過程.html#cb446-5" tabindex="-1"></a><span class="fu">hurstBlock</span>(x, <span class="at">method=</span><span class="st">&quot;aggAbs&quot;</span>)</span>
+<span id="cb446-6"><a href="長期記憶過程.html#cb446-6" tabindex="-1"></a><span class="fu">hurstBlock</span>(x, <span class="at">method=</span><span class="st">&quot;aggVar&quot;</span>)</span>
+<span id="cb446-7"><a href="長期記憶過程.html#cb446-7" tabindex="-1"></a><span class="fu">hurstBlock</span>(x, <span class="at">method=</span><span class="st">&quot;diffvar&quot;</span>)</span>
+<span id="cb446-8"><a href="長期記憶過程.html#cb446-8" tabindex="-1"></a><span class="fu">hurstBlock</span>(x, <span class="at">method=</span><span class="st">&quot;higuchi&quot;</span>)</span></code></pre></div>
 </div>
 </div>
 <div id="arfimaモデルの推定" class="section level2 hasAnchor" number="6.3">
@@ -525,41 +561,41 @@ ARFIMA(<span class="math inline">\(p,d,q\)</span>)モデルは, 定常過程で�
 <h3>パッケージ<strong>fracdiff</strong>の利用<a href="長期記憶過程.html#パッケージfracdiffの利用-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>真の確率過程がARFIMA(<span class="math inline">\(2,d,0\)</span>) (<span class="math inline">\(d=-0.49\)</span>) にも拘らず,
 誤ってARモデルを選択し, <code>ar()</code>により推定した場合.</p>
-<div class="sourceCode" id="cb446"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb446-1"><a href="長期記憶過程.html#cb446-1" tabindex="-1"></a><span class="co"># library(fracdiff)</span></span>
-<span id="cb446-2"><a href="長期記憶過程.html#cb446-2" tabindex="-1"></a><span class="fu">set.seed</span>(seedv)</span>
-<span id="cb446-3"><a href="長期記憶過程.html#cb446-3" tabindex="-1"></a>fds_sim <span class="ot">&lt;-</span> <span class="fu">fracdiff.sim</span>(tlen, <span class="at">ar =</span> <span class="fu">c</span>(<span class="fl">0.7</span>, <span class="sc">-</span><span class="fl">0.2</span>), <span class="at">d =</span> <span class="sc">-</span><span class="fl">0.49</span>)</span>
-<span id="cb446-4"><a href="長期記憶過程.html#cb446-4" tabindex="-1"></a>x <span class="ot">&lt;-</span> fds_sim<span class="sc">$</span>series             <span class="co"># 長期記憶系列</span></span>
-<span id="cb446-5"><a href="長期記憶過程.html#cb446-5" tabindex="-1"></a><span class="co">#</span></span>
-<span id="cb446-6"><a href="長期記憶過程.html#cb446-6" tabindex="-1"></a>(ar_fit <span class="ot">&lt;-</span> <span class="fu">ar</span>(x, <span class="at">method =</span> <span class="st">&quot;mle&quot;</span>)) <span class="co"># 最尤法</span></span>
-<span id="cb446-7"><a href="長期記憶過程.html#cb446-7" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb446-8"><a href="長期記憶過程.html#cb446-8" tabindex="-1"></a><span class="co">#&gt; Call:</span></span>
-<span id="cb446-9"><a href="長期記憶過程.html#cb446-9" tabindex="-1"></a><span class="co">#&gt; ar(x = x, method = &quot;mle&quot;)</span></span>
-<span id="cb446-10"><a href="長期記憶過程.html#cb446-10" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb446-11"><a href="長期記憶過程.html#cb446-11" tabindex="-1"></a><span class="co">#&gt; Coefficients:</span></span>
-<span id="cb446-12"><a href="長期記憶過程.html#cb446-12" tabindex="-1"></a><span class="co">#&gt;       1        2        3        4        5        6  </span></span>
-<span id="cb446-13"><a href="長期記憶過程.html#cb446-13" tabindex="-1"></a><span class="co">#&gt;  0.2060  -0.2321  -0.2082  -0.1717  -0.1534  -0.1875  </span></span>
-<span id="cb446-14"><a href="長期記憶過程.html#cb446-14" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb446-15"><a href="長期記憶過程.html#cb446-15" tabindex="-1"></a><span class="co">#&gt; Order selected 6  sigma^2 estimated as  0.7814</span></span></code></pre></div>
+<div class="sourceCode" id="cb447"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb447-1"><a href="長期記憶過程.html#cb447-1" tabindex="-1"></a><span class="co"># library(fracdiff)</span></span>
+<span id="cb447-2"><a href="長期記憶過程.html#cb447-2" tabindex="-1"></a><span class="fu">set.seed</span>(seedv)</span>
+<span id="cb447-3"><a href="長期記憶過程.html#cb447-3" tabindex="-1"></a>fds_sim <span class="ot">&lt;-</span> <span class="fu">fracdiff.sim</span>(tlen, <span class="at">ar =</span> <span class="fu">c</span>(<span class="fl">0.7</span>, <span class="sc">-</span><span class="fl">0.2</span>), <span class="at">d =</span> <span class="sc">-</span><span class="fl">0.49</span>)</span>
+<span id="cb447-4"><a href="長期記憶過程.html#cb447-4" tabindex="-1"></a>x <span class="ot">&lt;-</span> fds_sim<span class="sc">$</span>series             <span class="co"># 長期記憶系列</span></span>
+<span id="cb447-5"><a href="長期記憶過程.html#cb447-5" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb447-6"><a href="長期記憶過程.html#cb447-6" tabindex="-1"></a>(ar_fit <span class="ot">&lt;-</span> <span class="fu">ar</span>(x, <span class="at">method =</span> <span class="st">&quot;mle&quot;</span>)) <span class="co"># 最尤法</span></span>
+<span id="cb447-7"><a href="長期記憶過程.html#cb447-7" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb447-8"><a href="長期記憶過程.html#cb447-8" tabindex="-1"></a><span class="co">#&gt; Call:</span></span>
+<span id="cb447-9"><a href="長期記憶過程.html#cb447-9" tabindex="-1"></a><span class="co">#&gt; ar(x = x, method = &quot;mle&quot;)</span></span>
+<span id="cb447-10"><a href="長期記憶過程.html#cb447-10" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb447-11"><a href="長期記憶過程.html#cb447-11" tabindex="-1"></a><span class="co">#&gt; Coefficients:</span></span>
+<span id="cb447-12"><a href="長期記憶過程.html#cb447-12" tabindex="-1"></a><span class="co">#&gt;       1        2        3        4        5        6  </span></span>
+<span id="cb447-13"><a href="長期記憶過程.html#cb447-13" tabindex="-1"></a><span class="co">#&gt;  0.2060  -0.2321  -0.2082  -0.1717  -0.1534  -0.1875  </span></span>
+<span id="cb447-14"><a href="長期記憶過程.html#cb447-14" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb447-15"><a href="長期記憶過程.html#cb447-15" tabindex="-1"></a><span class="co">#&gt; Order selected 6  sigma^2 estimated as  0.7814</span></span></code></pre></div>
 <ul>
 <li>→ 大きい<span class="math inline">\(p\)</span>を選択</li>
 </ul>
 <p>パッケージ**fracdiff*内の関数<code>fracdiff()</code>により, AR係数, MA係数, 階差次数<span class="math inline">\(d\)</span>を最尤推定する (以下, <span class="math inline">\(p=2\)</span>を正しくしていたと仮定).</p>
-<div class="sourceCode" id="cb447"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb447-1"><a href="長期記憶過程.html#cb447-1" tabindex="-1"></a><span class="co"># nar, nma # AR, MAパラメーター数</span></span>
-<span id="cb447-2"><a href="長期記憶過程.html#cb447-2" tabindex="-1"></a>(fds_fit <span class="ot">&lt;-</span> <span class="fu">fracdiff</span>(x, <span class="at">nar =</span> <span class="dv">2</span>))</span>
-<span id="cb447-3"><a href="長期記憶過程.html#cb447-3" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb447-4"><a href="長期記憶過程.html#cb447-4" tabindex="-1"></a><span class="co">#&gt; Call:</span></span>
-<span id="cb447-5"><a href="長期記憶過程.html#cb447-5" tabindex="-1"></a><span class="co">#&gt;   fracdiff(x = x, nar = 2) </span></span>
-<span id="cb447-6"><a href="長期記憶過程.html#cb447-6" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb447-7"><a href="長期記憶過程.html#cb447-7" tabindex="-1"></a><span class="co">#&gt; Coefficients:</span></span>
-<span id="cb447-8"><a href="長期記憶過程.html#cb447-8" tabindex="-1"></a><span class="co">#&gt;             d           ar1           ar2 </span></span>
-<span id="cb447-9"><a href="長期記憶過程.html#cb447-9" tabindex="-1"></a><span class="co">#&gt;  4.583013e-05  3.478729e-01 -2.143891e-01 </span></span>
-<span id="cb447-10"><a href="長期記憶過程.html#cb447-10" tabindex="-1"></a><span class="co">#&gt; sigma[eps] = 0.9577181 </span></span>
-<span id="cb447-11"><a href="長期記憶過程.html#cb447-11" tabindex="-1"></a><span class="co">#&gt; a list with components:</span></span>
-<span id="cb447-12"><a href="長期記憶過程.html#cb447-12" tabindex="-1"></a><span class="co">#&gt;  [1] &quot;log.likelihood&quot;  &quot;n&quot;               &quot;msg&quot;             &quot;d&quot;              </span></span>
-<span id="cb447-13"><a href="長期記憶過程.html#cb447-13" tabindex="-1"></a><span class="co">#&gt;  [5] &quot;ar&quot;              &quot;ma&quot;              &quot;covariance.dpq&quot;  &quot;fnormMin&quot;       </span></span>
-<span id="cb447-14"><a href="長期記憶過程.html#cb447-14" tabindex="-1"></a><span class="co">#&gt;  [9] &quot;sigma&quot;           &quot;stderror.dpq&quot;    &quot;correlation.dpq&quot; &quot;h&quot;              </span></span>
-<span id="cb447-15"><a href="長期記憶過程.html#cb447-15" tabindex="-1"></a><span class="co">#&gt; [13] &quot;d.tol&quot;           &quot;M&quot;               &quot;hessian.dpq&quot;     &quot;length.w&quot;       </span></span>
-<span id="cb447-16"><a href="長期記憶過程.html#cb447-16" tabindex="-1"></a><span class="co">#&gt; [17] &quot;residuals&quot;       &quot;fitted&quot;          &quot;call&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb448"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb448-1"><a href="長期記憶過程.html#cb448-1" tabindex="-1"></a><span class="co"># nar, nma # AR, MAパラメーター数</span></span>
+<span id="cb448-2"><a href="長期記憶過程.html#cb448-2" tabindex="-1"></a>(fds_fit <span class="ot">&lt;-</span> <span class="fu">fracdiff</span>(x, <span class="at">nar =</span> <span class="dv">2</span>))</span>
+<span id="cb448-3"><a href="長期記憶過程.html#cb448-3" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb448-4"><a href="長期記憶過程.html#cb448-4" tabindex="-1"></a><span class="co">#&gt; Call:</span></span>
+<span id="cb448-5"><a href="長期記憶過程.html#cb448-5" tabindex="-1"></a><span class="co">#&gt;   fracdiff(x = x, nar = 2) </span></span>
+<span id="cb448-6"><a href="長期記憶過程.html#cb448-6" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb448-7"><a href="長期記憶過程.html#cb448-7" tabindex="-1"></a><span class="co">#&gt; Coefficients:</span></span>
+<span id="cb448-8"><a href="長期記憶過程.html#cb448-8" tabindex="-1"></a><span class="co">#&gt;             d           ar1           ar2 </span></span>
+<span id="cb448-9"><a href="長期記憶過程.html#cb448-9" tabindex="-1"></a><span class="co">#&gt;  4.583013e-05  3.478729e-01 -2.143891e-01 </span></span>
+<span id="cb448-10"><a href="長期記憶過程.html#cb448-10" tabindex="-1"></a><span class="co">#&gt; sigma[eps] = 0.9577181 </span></span>
+<span id="cb448-11"><a href="長期記憶過程.html#cb448-11" tabindex="-1"></a><span class="co">#&gt; a list with components:</span></span>
+<span id="cb448-12"><a href="長期記憶過程.html#cb448-12" tabindex="-1"></a><span class="co">#&gt;  [1] &quot;log.likelihood&quot;  &quot;n&quot;               &quot;msg&quot;             &quot;d&quot;              </span></span>
+<span id="cb448-13"><a href="長期記憶過程.html#cb448-13" tabindex="-1"></a><span class="co">#&gt;  [5] &quot;ar&quot;              &quot;ma&quot;              &quot;covariance.dpq&quot;  &quot;fnormMin&quot;       </span></span>
+<span id="cb448-14"><a href="長期記憶過程.html#cb448-14" tabindex="-1"></a><span class="co">#&gt;  [9] &quot;sigma&quot;           &quot;stderror.dpq&quot;    &quot;correlation.dpq&quot; &quot;h&quot;              </span></span>
+<span id="cb448-15"><a href="長期記憶過程.html#cb448-15" tabindex="-1"></a><span class="co">#&gt; [13] &quot;d.tol&quot;           &quot;M&quot;               &quot;hessian.dpq&quot;     &quot;length.w&quot;       </span></span>
+<span id="cb448-16"><a href="長期記憶過程.html#cb448-16" tabindex="-1"></a><span class="co">#&gt; [17] &quot;residuals&quot;       &quot;fitted&quot;          &quot;call&quot;</span></span></code></pre></div>
 <ul>
 <li>→ 通常は<span class="math inline">\(p,q\)</span>は未知　→　引数nar, nmaは複数の候補を試すべき</li>
 </ul>
@@ -567,67 +603,67 @@ ARFIMA(<span class="math inline">\(p,d,q\)</span>)モデルは, 定常過程で�
 <div id="パッケージnsarfimaの利用" class="section level3 unnumbered hasAnchor">
 <h3>パッケージ<strong>nsarfima</strong>の利用<a href="長期記憶過程.html#パッケージnsarfimaの利用" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>パッケージ<strong>nsarfima</strong>内の関数<code>mle.arfima()</code>により, AR係数, MA係数, 階差次数<span class="math inline">\(d\)</span>を最尤推定する.</p>
-<div class="sourceCode" id="cb448"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb448-1"><a href="長期記憶過程.html#cb448-1" tabindex="-1"></a><span class="fu">library</span>(nsarfima)</span>
-<span id="cb448-2"><a href="長期記憶過程.html#cb448-2" tabindex="-1"></a><span class="co"># p, q # AR, MAパラメーター数</span></span>
-<span id="cb448-3"><a href="長期記憶過程.html#cb448-3" tabindex="-1"></a>(arfima_fit <span class="ot">&lt;-</span> <span class="fu">mle.arfima</span>(x, <span class="at">p =</span> <span class="dv">2</span>))</span>
-<span id="cb448-4"><a href="長期記憶過程.html#cb448-4" tabindex="-1"></a><span class="co">#&gt; $pars</span></span>
-<span id="cb448-5"><a href="長期記憶過程.html#cb448-5" tabindex="-1"></a><span class="co">#&gt;            mu          sig2             d          ar.1          ar.2 </span></span>
-<span id="cb448-6"><a href="長期記憶過程.html#cb448-6" tabindex="-1"></a><span class="co">#&gt; -1.267263e-02  9.022758e-01  5.522776e-08  3.414323e-01 -2.625068e-01 </span></span>
-<span id="cb448-7"><a href="長期記憶過程.html#cb448-7" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb448-8"><a href="長期記憶過程.html#cb448-8" tabindex="-1"></a><span class="co">#&gt; $std.errs</span></span>
-<span id="cb448-9"><a href="長期記憶過程.html#cb448-9" tabindex="-1"></a><span class="co">#&gt;        mu      sig2         d      ar.1      ar.2 </span></span>
-<span id="cb448-10"><a href="長期記憶過程.html#cb448-10" tabindex="-1"></a><span class="co">#&gt; 0.1016556 0.1395288 0.1733823 0.2163811 0.1612114 </span></span>
-<span id="cb448-11"><a href="長期記憶過程.html#cb448-11" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb448-12"><a href="長期記憶過程.html#cb448-12" tabindex="-1"></a><span class="co">#&gt; $cov.mat</span></span>
-<span id="cb448-13"><a href="長期記憶過程.html#cb448-13" tabindex="-1"></a><span class="co">#&gt;              sig2           d        ar.1         ar.2</span></span>
-<span id="cb448-14"><a href="長期記憶過程.html#cb448-14" tabindex="-1"></a><span class="co">#&gt; sig2  0.019468294  0.00740705 -0.01170439 -0.004266261</span></span>
-<span id="cb448-15"><a href="長期記憶過程.html#cb448-15" tabindex="-1"></a><span class="co">#&gt; d     0.007407050  0.03006142 -0.03229578 -0.021628130</span></span>
-<span id="cb448-16"><a href="長期記憶過程.html#cb448-16" tabindex="-1"></a><span class="co">#&gt; ar.1 -0.011704389 -0.03229578  0.04682076  0.024479505</span></span>
-<span id="cb448-17"><a href="長期記憶過程.html#cb448-17" tabindex="-1"></a><span class="co">#&gt; ar.2 -0.004266261 -0.02162813  0.02447951  0.025989126</span></span>
-<span id="cb448-18"><a href="長期記憶過程.html#cb448-18" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb448-19"><a href="長期記憶過程.html#cb448-19" tabindex="-1"></a><span class="co">#&gt; $fit.obj</span></span>
-<span id="cb448-20"><a href="長期記憶過程.html#cb448-20" tabindex="-1"></a><span class="co">#&gt; $fit.obj$par</span></span>
-<span id="cb448-21"><a href="長期記憶過程.html#cb448-21" tabindex="-1"></a><span class="co">#&gt;             d          ar.1          ar.2 </span></span>
-<span id="cb448-22"><a href="長期記憶過程.html#cb448-22" tabindex="-1"></a><span class="co">#&gt;  5.522776e-08  3.414323e-01 -2.625068e-01 </span></span>
-<span id="cb448-23"><a href="長期記憶過程.html#cb448-23" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb448-24"><a href="長期記憶過程.html#cb448-24" tabindex="-1"></a><span class="co">#&gt; $fit.obj$value</span></span>
-<span id="cb448-25"><a href="長期記憶過程.html#cb448-25" tabindex="-1"></a><span class="co">#&gt; [1] 89.3253</span></span>
-<span id="cb448-26"><a href="長期記憶過程.html#cb448-26" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb448-27"><a href="長期記憶過程.html#cb448-27" tabindex="-1"></a><span class="co">#&gt; $fit.obj$counts</span></span>
-<span id="cb448-28"><a href="長期記憶過程.html#cb448-28" tabindex="-1"></a><span class="co">#&gt; function gradient </span></span>
-<span id="cb448-29"><a href="長期記憶過程.html#cb448-29" tabindex="-1"></a><span class="co">#&gt;      208       NA </span></span>
-<span id="cb448-30"><a href="長期記憶過程.html#cb448-30" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb448-31"><a href="長期記憶過程.html#cb448-31" tabindex="-1"></a><span class="co">#&gt; $fit.obj$convergence</span></span>
-<span id="cb448-32"><a href="長期記憶過程.html#cb448-32" tabindex="-1"></a><span class="co">#&gt; [1] 0</span></span>
-<span id="cb448-33"><a href="長期記憶過程.html#cb448-33" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb448-34"><a href="長期記憶過程.html#cb448-34" tabindex="-1"></a><span class="co">#&gt; $fit.obj$message</span></span>
-<span id="cb448-35"><a href="長期記憶過程.html#cb448-35" tabindex="-1"></a><span class="co">#&gt; NULL</span></span>
-<span id="cb448-36"><a href="長期記憶過程.html#cb448-36" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb448-37"><a href="長期記憶過程.html#cb448-37" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb448-38"><a href="長期記憶過程.html#cb448-38" tabindex="-1"></a><span class="co">#&gt; $p.val</span></span>
-<span id="cb448-39"><a href="長期記憶過程.html#cb448-39" tabindex="-1"></a><span class="co">#&gt; [1] 0.8912225</span></span>
-<span id="cb448-40"><a href="長期記憶過程.html#cb448-40" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb448-41"><a href="長期記憶過程.html#cb448-41" tabindex="-1"></a><span class="co">#&gt; $residuals</span></span>
-<span id="cb448-42"><a href="長期記憶過程.html#cb448-42" tabindex="-1"></a><span class="co">#&gt;   [1] -0.6764961052 -0.2968632520 -1.2310910722  1.4561378726 -0.0388534504</span></span>
-<span id="cb448-43"><a href="長期記憶過程.html#cb448-43" tabindex="-1"></a><span class="co">#&gt;   [6] -0.8423204011  0.4686722844  0.4643382756  0.4107973532 -0.4309650411</span></span>
-<span id="cb448-44"><a href="長期記憶過程.html#cb448-44" tabindex="-1"></a><span class="co">#&gt;  [11]  1.4299789135 -0.0006787575 -0.7857763053 -2.3890626204  1.1014635252</span></span>
-<span id="cb448-45"><a href="長期記憶過程.html#cb448-45" tabindex="-1"></a><span class="co">#&gt;  [16] -0.3966402031  0.1652482404  1.0616568645  0.7446050471  0.5154245086</span></span>
-<span id="cb448-46"><a href="長期記憶過程.html#cb448-46" tabindex="-1"></a><span class="co">#&gt;  [21]  0.7564241338  0.4668174692 -0.2693729499 -2.3064083881  0.5227350640</span></span>
-<span id="cb448-47"><a href="長期記憶過程.html#cb448-47" tabindex="-1"></a><span class="co">#&gt;  [26] -0.4642720829 -0.1309552624 -1.4100725427 -0.2774497899  0.4650877267</span></span>
-<span id="cb448-48"><a href="長期記憶過程.html#cb448-48" tabindex="-1"></a><span class="co">#&gt;  [31]  1.4649891568 -0.0290343810  0.5782727746 -0.1757284573 -1.4912805335</span></span>
-<span id="cb448-49"><a href="長期記憶過程.html#cb448-49" tabindex="-1"></a><span class="co">#&gt;  [36] -0.3789621380 -0.4655630075  0.0738483187  1.2914770769  0.8336925539</span></span>
-<span id="cb448-50"><a href="長期記憶過程.html#cb448-50" tabindex="-1"></a><span class="co">#&gt;  [41] -0.0737873115 -0.2251819617  0.5774490180  0.3286308280 -0.8047251630</span></span>
-<span id="cb448-51"><a href="長期記憶過程.html#cb448-51" tabindex="-1"></a><span class="co">#&gt;  [46] -0.6986673145  0.2958393665  0.6510135686 -0.1339248247  0.9675384987</span></span>
-<span id="cb448-52"><a href="長期記憶過程.html#cb448-52" tabindex="-1"></a><span class="co">#&gt;  [51]  0.2259759735 -0.7281405491  0.2716268869 -1.3784731074  1.4943394505</span></span>
-<span id="cb448-53"><a href="長期記憶過程.html#cb448-53" tabindex="-1"></a><span class="co">#&gt;  [56]  1.7164276897 -0.5272803532 -1.0201592423  0.3729804733 -0.5359889283</span></span>
-<span id="cb448-54"><a href="長期記憶過程.html#cb448-54" tabindex="-1"></a><span class="co">#&gt;  [61]  2.3350415888 -0.4086512940  0.6924717331 -0.3606512486 -1.0759283895</span></span>
-<span id="cb448-55"><a href="長期記憶過程.html#cb448-55" tabindex="-1"></a><span class="co">#&gt;  [66] -0.0506511539 -2.1101132511  1.5976097508 -0.1172982949  2.3325016401</span></span>
-<span id="cb448-56"><a href="長期記憶過程.html#cb448-56" tabindex="-1"></a><span class="co">#&gt;  [71]  0.2254993256 -0.8129057325  0.3788283790 -1.4331970583 -1.3747001462</span></span>
-<span id="cb448-57"><a href="長期記憶過程.html#cb448-57" tabindex="-1"></a><span class="co">#&gt;  [76]  0.2411732472 -0.5537230862  0.2049218798  0.2004499504 -0.4766722677</span></span>
-<span id="cb448-58"><a href="長期記憶過程.html#cb448-58" tabindex="-1"></a><span class="co">#&gt;  [81] -0.4042575452 -0.0270582246  1.2728679869 -1.5304518129  0.9624356049</span></span>
-<span id="cb448-59"><a href="長期記憶過程.html#cb448-59" tabindex="-1"></a><span class="co">#&gt;  [86]  0.2186716228  1.1235112273 -0.3688834767  0.4233844401  0.0726586865</span></span>
-<span id="cb448-60"><a href="長期記憶過程.html#cb448-60" tabindex="-1"></a><span class="co">#&gt;  [91] -0.6954346528  1.1689570269  0.8808727109  0.5369119812  1.3879840390</span></span>
-<span id="cb448-61"><a href="長期記憶過程.html#cb448-61" tabindex="-1"></a><span class="co">#&gt;  [96]  0.0879308998 -1.6719344153 -0.8630402713 -1.6381541198 -0.5431240556</span></span></code></pre></div>
+<div class="sourceCode" id="cb449"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb449-1"><a href="長期記憶過程.html#cb449-1" tabindex="-1"></a><span class="fu">library</span>(nsarfima)</span>
+<span id="cb449-2"><a href="長期記憶過程.html#cb449-2" tabindex="-1"></a><span class="co"># p, q # AR, MAパラメーター数</span></span>
+<span id="cb449-3"><a href="長期記憶過程.html#cb449-3" tabindex="-1"></a>(arfima_fit <span class="ot">&lt;-</span> <span class="fu">mle.arfima</span>(x, <span class="at">p =</span> <span class="dv">2</span>))</span>
+<span id="cb449-4"><a href="長期記憶過程.html#cb449-4" tabindex="-1"></a><span class="co">#&gt; $pars</span></span>
+<span id="cb449-5"><a href="長期記憶過程.html#cb449-5" tabindex="-1"></a><span class="co">#&gt;            mu          sig2             d          ar.1          ar.2 </span></span>
+<span id="cb449-6"><a href="長期記憶過程.html#cb449-6" tabindex="-1"></a><span class="co">#&gt; -1.267263e-02  9.022758e-01  5.522776e-08  3.414323e-01 -2.625068e-01 </span></span>
+<span id="cb449-7"><a href="長期記憶過程.html#cb449-7" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb449-8"><a href="長期記憶過程.html#cb449-8" tabindex="-1"></a><span class="co">#&gt; $std.errs</span></span>
+<span id="cb449-9"><a href="長期記憶過程.html#cb449-9" tabindex="-1"></a><span class="co">#&gt;        mu      sig2         d      ar.1      ar.2 </span></span>
+<span id="cb449-10"><a href="長期記憶過程.html#cb449-10" tabindex="-1"></a><span class="co">#&gt; 0.1016556 0.1395288 0.1733823 0.2163811 0.1612114 </span></span>
+<span id="cb449-11"><a href="長期記憶過程.html#cb449-11" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb449-12"><a href="長期記憶過程.html#cb449-12" tabindex="-1"></a><span class="co">#&gt; $cov.mat</span></span>
+<span id="cb449-13"><a href="長期記憶過程.html#cb449-13" tabindex="-1"></a><span class="co">#&gt;              sig2           d        ar.1         ar.2</span></span>
+<span id="cb449-14"><a href="長期記憶過程.html#cb449-14" tabindex="-1"></a><span class="co">#&gt; sig2  0.019468294  0.00740705 -0.01170439 -0.004266261</span></span>
+<span id="cb449-15"><a href="長期記憶過程.html#cb449-15" tabindex="-1"></a><span class="co">#&gt; d     0.007407050  0.03006142 -0.03229578 -0.021628130</span></span>
+<span id="cb449-16"><a href="長期記憶過程.html#cb449-16" tabindex="-1"></a><span class="co">#&gt; ar.1 -0.011704389 -0.03229578  0.04682076  0.024479505</span></span>
+<span id="cb449-17"><a href="長期記憶過程.html#cb449-17" tabindex="-1"></a><span class="co">#&gt; ar.2 -0.004266261 -0.02162813  0.02447951  0.025989126</span></span>
+<span id="cb449-18"><a href="長期記憶過程.html#cb449-18" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb449-19"><a href="長期記憶過程.html#cb449-19" tabindex="-1"></a><span class="co">#&gt; $fit.obj</span></span>
+<span id="cb449-20"><a href="長期記憶過程.html#cb449-20" tabindex="-1"></a><span class="co">#&gt; $fit.obj$par</span></span>
+<span id="cb449-21"><a href="長期記憶過程.html#cb449-21" tabindex="-1"></a><span class="co">#&gt;             d          ar.1          ar.2 </span></span>
+<span id="cb449-22"><a href="長期記憶過程.html#cb449-22" tabindex="-1"></a><span class="co">#&gt;  5.522776e-08  3.414323e-01 -2.625068e-01 </span></span>
+<span id="cb449-23"><a href="長期記憶過程.html#cb449-23" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb449-24"><a href="長期記憶過程.html#cb449-24" tabindex="-1"></a><span class="co">#&gt; $fit.obj$value</span></span>
+<span id="cb449-25"><a href="長期記憶過程.html#cb449-25" tabindex="-1"></a><span class="co">#&gt; [1] 89.3253</span></span>
+<span id="cb449-26"><a href="長期記憶過程.html#cb449-26" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb449-27"><a href="長期記憶過程.html#cb449-27" tabindex="-1"></a><span class="co">#&gt; $fit.obj$counts</span></span>
+<span id="cb449-28"><a href="長期記憶過程.html#cb449-28" tabindex="-1"></a><span class="co">#&gt; function gradient </span></span>
+<span id="cb449-29"><a href="長期記憶過程.html#cb449-29" tabindex="-1"></a><span class="co">#&gt;      208       NA </span></span>
+<span id="cb449-30"><a href="長期記憶過程.html#cb449-30" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb449-31"><a href="長期記憶過程.html#cb449-31" tabindex="-1"></a><span class="co">#&gt; $fit.obj$convergence</span></span>
+<span id="cb449-32"><a href="長期記憶過程.html#cb449-32" tabindex="-1"></a><span class="co">#&gt; [1] 0</span></span>
+<span id="cb449-33"><a href="長期記憶過程.html#cb449-33" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb449-34"><a href="長期記憶過程.html#cb449-34" tabindex="-1"></a><span class="co">#&gt; $fit.obj$message</span></span>
+<span id="cb449-35"><a href="長期記憶過程.html#cb449-35" tabindex="-1"></a><span class="co">#&gt; NULL</span></span>
+<span id="cb449-36"><a href="長期記憶過程.html#cb449-36" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb449-37"><a href="長期記憶過程.html#cb449-37" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb449-38"><a href="長期記憶過程.html#cb449-38" tabindex="-1"></a><span class="co">#&gt; $p.val</span></span>
+<span id="cb449-39"><a href="長期記憶過程.html#cb449-39" tabindex="-1"></a><span class="co">#&gt; [1] 0.8912225</span></span>
+<span id="cb449-40"><a href="長期記憶過程.html#cb449-40" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb449-41"><a href="長期記憶過程.html#cb449-41" tabindex="-1"></a><span class="co">#&gt; $residuals</span></span>
+<span id="cb449-42"><a href="長期記憶過程.html#cb449-42" tabindex="-1"></a><span class="co">#&gt;   [1] -0.6764961052 -0.2968632520 -1.2310910722  1.4561378726 -0.0388534504</span></span>
+<span id="cb449-43"><a href="長期記憶過程.html#cb449-43" tabindex="-1"></a><span class="co">#&gt;   [6] -0.8423204011  0.4686722844  0.4643382756  0.4107973532 -0.4309650411</span></span>
+<span id="cb449-44"><a href="長期記憶過程.html#cb449-44" tabindex="-1"></a><span class="co">#&gt;  [11]  1.4299789135 -0.0006787575 -0.7857763053 -2.3890626204  1.1014635252</span></span>
+<span id="cb449-45"><a href="長期記憶過程.html#cb449-45" tabindex="-1"></a><span class="co">#&gt;  [16] -0.3966402031  0.1652482404  1.0616568645  0.7446050471  0.5154245086</span></span>
+<span id="cb449-46"><a href="長期記憶過程.html#cb449-46" tabindex="-1"></a><span class="co">#&gt;  [21]  0.7564241338  0.4668174692 -0.2693729499 -2.3064083881  0.5227350640</span></span>
+<span id="cb449-47"><a href="長期記憶過程.html#cb449-47" tabindex="-1"></a><span class="co">#&gt;  [26] -0.4642720829 -0.1309552624 -1.4100725427 -0.2774497899  0.4650877267</span></span>
+<span id="cb449-48"><a href="長期記憶過程.html#cb449-48" tabindex="-1"></a><span class="co">#&gt;  [31]  1.4649891568 -0.0290343810  0.5782727746 -0.1757284573 -1.4912805335</span></span>
+<span id="cb449-49"><a href="長期記憶過程.html#cb449-49" tabindex="-1"></a><span class="co">#&gt;  [36] -0.3789621380 -0.4655630075  0.0738483187  1.2914770769  0.8336925539</span></span>
+<span id="cb449-50"><a href="長期記憶過程.html#cb449-50" tabindex="-1"></a><span class="co">#&gt;  [41] -0.0737873115 -0.2251819617  0.5774490180  0.3286308280 -0.8047251630</span></span>
+<span id="cb449-51"><a href="長期記憶過程.html#cb449-51" tabindex="-1"></a><span class="co">#&gt;  [46] -0.6986673145  0.2958393665  0.6510135686 -0.1339248247  0.9675384987</span></span>
+<span id="cb449-52"><a href="長期記憶過程.html#cb449-52" tabindex="-1"></a><span class="co">#&gt;  [51]  0.2259759735 -0.7281405491  0.2716268869 -1.3784731074  1.4943394505</span></span>
+<span id="cb449-53"><a href="長期記憶過程.html#cb449-53" tabindex="-1"></a><span class="co">#&gt;  [56]  1.7164276897 -0.5272803532 -1.0201592423  0.3729804733 -0.5359889283</span></span>
+<span id="cb449-54"><a href="長期記憶過程.html#cb449-54" tabindex="-1"></a><span class="co">#&gt;  [61]  2.3350415888 -0.4086512940  0.6924717331 -0.3606512486 -1.0759283895</span></span>
+<span id="cb449-55"><a href="長期記憶過程.html#cb449-55" tabindex="-1"></a><span class="co">#&gt;  [66] -0.0506511539 -2.1101132511  1.5976097508 -0.1172982949  2.3325016401</span></span>
+<span id="cb449-56"><a href="長期記憶過程.html#cb449-56" tabindex="-1"></a><span class="co">#&gt;  [71]  0.2254993256 -0.8129057325  0.3788283790 -1.4331970583 -1.3747001462</span></span>
+<span id="cb449-57"><a href="長期記憶過程.html#cb449-57" tabindex="-1"></a><span class="co">#&gt;  [76]  0.2411732472 -0.5537230862  0.2049218798  0.2004499504 -0.4766722677</span></span>
+<span id="cb449-58"><a href="長期記憶過程.html#cb449-58" tabindex="-1"></a><span class="co">#&gt;  [81] -0.4042575452 -0.0270582246  1.2728679869 -1.5304518129  0.9624356049</span></span>
+<span id="cb449-59"><a href="長期記憶過程.html#cb449-59" tabindex="-1"></a><span class="co">#&gt;  [86]  0.2186716228  1.1235112273 -0.3688834767  0.4233844401  0.0726586865</span></span>
+<span id="cb449-60"><a href="長期記憶過程.html#cb449-60" tabindex="-1"></a><span class="co">#&gt;  [91] -0.6954346528  1.1689570269  0.8808727109  0.5369119812  1.3879840390</span></span>
+<span id="cb449-61"><a href="長期記憶過程.html#cb449-61" tabindex="-1"></a><span class="co">#&gt;  [96]  0.0879308998 -1.6719344153 -0.8630402713 -1.6381541198 -0.5431240556</span></span></code></pre></div>
 <div id="arfimaモデルのdを-再帰的に-推定する方法" class="section level4 unnumbered hasAnchor">
 <h4>ARFIMAモデルの<span class="math inline">\(d\)</span>を (再帰的に) 推定する方法<a href="長期記憶過程.html#arfimaモデルのdを-再帰的に-推定する方法" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>(ARFIMA(<span class="math inline">\(p,d,g\)</span>)過程から生成された) 時系列データ<span class="math inline">\(\{x_t\}\)</span>が与えられた時に, 以下の手順に従うことで
@@ -641,60 +677,60 @@ ARFIMA(<span class="math inline">\(p,d,q\)</span>)モデルは, 定常過程で�
 <li>※ 参考: Cowpertwait and Metcalfe(2009), Ch.8</li>
 </ul>
 <p>長期記憶過程xより非整数階差系列yを生成する自作関数:</p>
-<div class="sourceCode" id="cb449"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb449-1"><a href="長期記憶過程.html#cb449-1" tabindex="-1"></a>get_fracdiff_ts <span class="ot">&lt;-</span> <span class="cf">function</span>(x, d, <span class="at">l =</span> <span class="dv">30</span>) {</span>
-<span id="cb449-2"><a href="長期記憶過程.html#cb449-2" tabindex="-1"></a>  <span class="co"># l: 項の打ち切り数</span></span>
-<span id="cb449-3"><a href="長期記憶過程.html#cb449-3" tabindex="-1"></a>  n <span class="ot">&lt;-</span> <span class="fu">length</span>(x)</span>
-<span id="cb449-4"><a href="長期記憶過程.html#cb449-4" tabindex="-1"></a></span>
-<span id="cb449-5"><a href="長期記憶過程.html#cb449-5" tabindex="-1"></a>  <span class="co"># 1. fdc: (1-B)^d の2項展開係数ベクトルを生成</span></span>
-<span id="cb449-6"><a href="長期記憶過程.html#cb449-6" tabindex="-1"></a>  frac_diff_coeffs <span class="ot">&lt;-</span> <span class="fu">numeric</span>(l)</span>
-<span id="cb449-7"><a href="長期記憶過程.html#cb449-7" tabindex="-1"></a>  frac_diff_coeffs[<span class="dv">1</span>] <span class="ot">&lt;-</span> d</span>
-<span id="cb449-8"><a href="長期記憶過程.html#cb449-8" tabindex="-1"></a>  <span class="cf">for</span> (k <span class="cf">in</span> <span class="dv">2</span><span class="sc">:</span>l) {</span>
-<span id="cb449-9"><a href="長期記憶過程.html#cb449-9" tabindex="-1"></a>    frac_diff_coeffs[k] <span class="ot">&lt;-</span> frac_diff_coeffs[k <span class="sc">-</span> <span class="dv">1</span>] <span class="sc">*</span> (d <span class="sc">+</span> <span class="dv">1</span> <span class="sc">-</span> k) <span class="sc">/</span> k</span>
-<span id="cb449-10"><a href="長期記憶過程.html#cb449-10" tabindex="-1"></a>  }</span>
-<span id="cb449-11"><a href="長期記憶過程.html#cb449-11" tabindex="-1"></a></span>
-<span id="cb449-12"><a href="長期記憶過程.html#cb449-12" tabindex="-1"></a>  <span class="co"># 2. y: 非整数階差分系列 (fractionally differenced series) を生成</span></span>
-<span id="cb449-13"><a href="長期記憶過程.html#cb449-13" tabindex="-1"></a>  frac_diff_series <span class="ot">&lt;-</span> <span class="fu">numeric</span>(n)</span>
-<span id="cb449-14"><a href="長期記憶過程.html#cb449-14" tabindex="-1"></a>  <span class="cf">for</span> (i <span class="cf">in</span> (l <span class="sc">+</span> <span class="dv">1</span>)<span class="sc">:</span>n) {</span>
-<span id="cb449-15"><a href="長期記憶過程.html#cb449-15" tabindex="-1"></a>    current_sum <span class="ot">&lt;-</span> x[i]  <span class="co"># 原系列 x</span></span>
-<span id="cb449-16"><a href="長期記憶過程.html#cb449-16" tabindex="-1"></a></span>
-<span id="cb449-17"><a href="長期記憶過程.html#cb449-17" tabindex="-1"></a>    <span class="cf">for</span> (j <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>l) {</span>
-<span id="cb449-18"><a href="長期記憶過程.html#cb449-18" tabindex="-1"></a>      current_sum <span class="ot">&lt;-</span> current_sum <span class="sc">+</span> ((<span class="sc">-</span><span class="dv">1</span>) <span class="sc">^</span> j) <span class="sc">*</span> frac_diff_coeffs[j] <span class="sc">*</span> x[i <span class="sc">-</span> j]</span>
-<span id="cb449-19"><a href="長期記憶過程.html#cb449-19" tabindex="-1"></a>    }</span>
-<span id="cb449-20"><a href="長期記憶過程.html#cb449-20" tabindex="-1"></a>    frac_diff_series[i] <span class="ot">&lt;-</span> current_sum</span>
-<span id="cb449-21"><a href="長期記憶過程.html#cb449-21" tabindex="-1"></a>  }</span>
-<span id="cb449-22"><a href="長期記憶過程.html#cb449-22" tabindex="-1"></a></span>
-<span id="cb449-23"><a href="長期記憶過程.html#cb449-23" tabindex="-1"></a>  <span class="co"># 3. l+1 以降の系列を返す</span></span>
-<span id="cb449-24"><a href="長期記憶過程.html#cb449-24" tabindex="-1"></a>  frac_diff_series <span class="ot">&lt;-</span> frac_diff_series[(l <span class="sc">+</span> <span class="dv">1</span>)<span class="sc">:</span>n]</span>
-<span id="cb449-25"><a href="長期記憶過程.html#cb449-25" tabindex="-1"></a>  <span class="fu">return</span>(frac_diff_series)</span>
-<span id="cb449-26"><a href="長期記憶過程.html#cb449-26" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb450"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb450-1"><a href="長期記憶過程.html#cb450-1" tabindex="-1"></a>get_fracdiff_ts <span class="ot">&lt;-</span> <span class="cf">function</span>(x, d, <span class="at">l =</span> <span class="dv">30</span>) {</span>
+<span id="cb450-2"><a href="長期記憶過程.html#cb450-2" tabindex="-1"></a>  <span class="co"># l: 項の打ち切り数</span></span>
+<span id="cb450-3"><a href="長期記憶過程.html#cb450-3" tabindex="-1"></a>  n <span class="ot">&lt;-</span> <span class="fu">length</span>(x)</span>
+<span id="cb450-4"><a href="長期記憶過程.html#cb450-4" tabindex="-1"></a></span>
+<span id="cb450-5"><a href="長期記憶過程.html#cb450-5" tabindex="-1"></a>  <span class="co"># 1. fdc: (1-B)^d の2項展開係数ベクトルを生成</span></span>
+<span id="cb450-6"><a href="長期記憶過程.html#cb450-6" tabindex="-1"></a>  frac_diff_coeffs <span class="ot">&lt;-</span> <span class="fu">numeric</span>(l)</span>
+<span id="cb450-7"><a href="長期記憶過程.html#cb450-7" tabindex="-1"></a>  frac_diff_coeffs[<span class="dv">1</span>] <span class="ot">&lt;-</span> d</span>
+<span id="cb450-8"><a href="長期記憶過程.html#cb450-8" tabindex="-1"></a>  <span class="cf">for</span> (k <span class="cf">in</span> <span class="dv">2</span><span class="sc">:</span>l) {</span>
+<span id="cb450-9"><a href="長期記憶過程.html#cb450-9" tabindex="-1"></a>    frac_diff_coeffs[k] <span class="ot">&lt;-</span> frac_diff_coeffs[k <span class="sc">-</span> <span class="dv">1</span>] <span class="sc">*</span> (d <span class="sc">+</span> <span class="dv">1</span> <span class="sc">-</span> k) <span class="sc">/</span> k</span>
+<span id="cb450-10"><a href="長期記憶過程.html#cb450-10" tabindex="-1"></a>  }</span>
+<span id="cb450-11"><a href="長期記憶過程.html#cb450-11" tabindex="-1"></a></span>
+<span id="cb450-12"><a href="長期記憶過程.html#cb450-12" tabindex="-1"></a>  <span class="co"># 2. y: 非整数階差分系列 (fractionally differenced series) を生成</span></span>
+<span id="cb450-13"><a href="長期記憶過程.html#cb450-13" tabindex="-1"></a>  frac_diff_series <span class="ot">&lt;-</span> <span class="fu">numeric</span>(n)</span>
+<span id="cb450-14"><a href="長期記憶過程.html#cb450-14" tabindex="-1"></a>  <span class="cf">for</span> (i <span class="cf">in</span> (l <span class="sc">+</span> <span class="dv">1</span>)<span class="sc">:</span>n) {</span>
+<span id="cb450-15"><a href="長期記憶過程.html#cb450-15" tabindex="-1"></a>    current_sum <span class="ot">&lt;-</span> x[i]  <span class="co"># 原系列 x</span></span>
+<span id="cb450-16"><a href="長期記憶過程.html#cb450-16" tabindex="-1"></a></span>
+<span id="cb450-17"><a href="長期記憶過程.html#cb450-17" tabindex="-1"></a>    <span class="cf">for</span> (j <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>l) {</span>
+<span id="cb450-18"><a href="長期記憶過程.html#cb450-18" tabindex="-1"></a>      current_sum <span class="ot">&lt;-</span> current_sum <span class="sc">+</span> ((<span class="sc">-</span><span class="dv">1</span>) <span class="sc">^</span> j) <span class="sc">*</span> frac_diff_coeffs[j] <span class="sc">*</span> x[i <span class="sc">-</span> j]</span>
+<span id="cb450-19"><a href="長期記憶過程.html#cb450-19" tabindex="-1"></a>    }</span>
+<span id="cb450-20"><a href="長期記憶過程.html#cb450-20" tabindex="-1"></a>    frac_diff_series[i] <span class="ot">&lt;-</span> current_sum</span>
+<span id="cb450-21"><a href="長期記憶過程.html#cb450-21" tabindex="-1"></a>  }</span>
+<span id="cb450-22"><a href="長期記憶過程.html#cb450-22" tabindex="-1"></a></span>
+<span id="cb450-23"><a href="長期記憶過程.html#cb450-23" tabindex="-1"></a>  <span class="co"># 3. l+1 以降の系列を返す</span></span>
+<span id="cb450-24"><a href="長期記憶過程.html#cb450-24" tabindex="-1"></a>  frac_diff_series <span class="ot">&lt;-</span> frac_diff_series[(l <span class="sc">+</span> <span class="dv">1</span>)<span class="sc">:</span>n]</span>
+<span id="cb450-25"><a href="長期記憶過程.html#cb450-25" tabindex="-1"></a>  <span class="fu">return</span>(frac_diff_series)</span>
+<span id="cb450-26"><a href="長期記憶過程.html#cb450-26" tabindex="-1"></a>}</span></code></pre></div>
 <!-- 111524: # 参考: Cowpertwait and Metcalfe(2009), Ch.8
 をGPT-4oで書き換え -->
 <p>ここでは, (例示のため) AR(p)モデルに限定. 以下, 上で生成したパス<span class="math inline">\(x_t\)</span>を所与, 得られた<span class="math inline">\(d\)</span>の推定値を初期値として使用. (注: <span class="math inline">\(x_t\)</span>は上で,
 ARFIMA(<span class="math inline">\(2,d,0\)</span>), <span class="math inline">\(d=-0.49\)</span>により生成されていた)</p>
-<div class="sourceCode" id="cb450"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb450-1"><a href="長期記憶過程.html#cb450-1" tabindex="-1"></a><span class="co"># 先に得られたx, fds_fitをそのまま使用</span></span>
-<span id="cb450-2"><a href="長期記憶過程.html#cb450-2" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">get_fracdiff_ts</span>(x, fds_fit<span class="sc">$</span>d)  <span class="co"># {x_t}より非整数階差系列{y_t}を生成</span></span>
-<span id="cb450-3"><a href="長期記憶過程.html#cb450-3" tabindex="-1"></a>(z_ar <span class="ot">&lt;-</span> <span class="fu">ar</span>(y))     <span class="co"># ARモデルを適合</span></span>
-<span id="cb450-4"><a href="長期記憶過程.html#cb450-4" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb450-5"><a href="長期記憶過程.html#cb450-5" tabindex="-1"></a><span class="co">#&gt; Call:</span></span>
-<span id="cb450-6"><a href="長期記憶過程.html#cb450-6" tabindex="-1"></a><span class="co">#&gt; ar(x = y)</span></span>
-<span id="cb450-7"><a href="長期記憶過程.html#cb450-7" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb450-8"><a href="長期記憶過程.html#cb450-8" tabindex="-1"></a><span class="co">#&gt; Coefficients:</span></span>
-<span id="cb450-9"><a href="長期記憶過程.html#cb450-9" tabindex="-1"></a><span class="co">#&gt;       1        2        3        4  </span></span>
-<span id="cb450-10"><a href="長期記憶過程.html#cb450-10" tabindex="-1"></a><span class="co">#&gt;  0.2598  -0.0943  -0.1637  -0.2469  </span></span>
-<span id="cb450-11"><a href="長期記憶過程.html#cb450-11" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb450-12"><a href="長期記憶過程.html#cb450-12" tabindex="-1"></a><span class="co">#&gt; Order selected 4  sigma^2 estimated as  0.8692</span></span>
-<span id="cb450-13"><a href="長期記憶過程.html#cb450-13" tabindex="-1"></a>ns <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">+</span> z_ar<span class="sc">$</span>order</span>
-<span id="cb450-14"><a href="長期記憶過程.html#cb450-14" tabindex="-1"></a>z <span class="ot">&lt;-</span> z_ar<span class="sc">$</span>res [ns<span class="sc">:</span><span class="fu">length</span>(y)]  <span class="co"># z_ar$resの最初のns個は欠損</span></span>
-<span id="cb450-15"><a href="長期記憶過程.html#cb450-15" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfcol =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">2</span>))</span>
-<span id="cb450-16"><a href="長期記憶過程.html#cb450-16" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">as.ts</span>(x), <span class="at">ylab =</span> <span class="st">&quot;x&quot;</span>)</span>
-<span id="cb450-17"><a href="長期記憶過程.html#cb450-17" tabindex="-1"></a><span class="fu">acf</span>(x) ; <span class="fu">acf</span>(y) ; <span class="fu">acf</span>(z)</span></code></pre></div>
-<p><img src="050-longmemory_files/figure-html/arfima_res-1.png" width="75%" /></p>
-<div class="sourceCode" id="cb451"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb451-1"><a href="長期記憶過程.html#cb451-1" tabindex="-1"></a><span class="fu">Box.test</span>(z, <span class="at">lag =</span> <span class="dv">30</span>, <span class="at">type =</span> <span class="st">&quot;Ljung&quot;</span>)</span>
-<span id="cb451-2"><a href="長期記憶過程.html#cb451-2" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb451-3"><a href="長期記憶過程.html#cb451-3" tabindex="-1"></a><span class="co">#&gt;  Box-Ljung test</span></span>
+<div class="sourceCode" id="cb451"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb451-1"><a href="長期記憶過程.html#cb451-1" tabindex="-1"></a><span class="co"># 先に得られたx, fds_fitをそのまま使用</span></span>
+<span id="cb451-2"><a href="長期記憶過程.html#cb451-2" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">get_fracdiff_ts</span>(x, fds_fit<span class="sc">$</span>d)  <span class="co"># {x_t}より非整数階差系列{y_t}を生成</span></span>
+<span id="cb451-3"><a href="長期記憶過程.html#cb451-3" tabindex="-1"></a>(z_ar <span class="ot">&lt;-</span> <span class="fu">ar</span>(y))     <span class="co"># ARモデルを適合</span></span>
 <span id="cb451-4"><a href="長期記憶過程.html#cb451-4" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb451-5"><a href="長期記憶過程.html#cb451-5" tabindex="-1"></a><span class="co">#&gt; data:  z</span></span>
-<span id="cb451-6"><a href="長期記憶過程.html#cb451-6" tabindex="-1"></a><span class="co">#&gt; X-squared = 29.658, df = 30, p-value = 0.4833</span></span></code></pre></div>
+<span id="cb451-5"><a href="長期記憶過程.html#cb451-5" tabindex="-1"></a><span class="co">#&gt; Call:</span></span>
+<span id="cb451-6"><a href="長期記憶過程.html#cb451-6" tabindex="-1"></a><span class="co">#&gt; ar(x = y)</span></span>
+<span id="cb451-7"><a href="長期記憶過程.html#cb451-7" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb451-8"><a href="長期記憶過程.html#cb451-8" tabindex="-1"></a><span class="co">#&gt; Coefficients:</span></span>
+<span id="cb451-9"><a href="長期記憶過程.html#cb451-9" tabindex="-1"></a><span class="co">#&gt;       1        2        3        4  </span></span>
+<span id="cb451-10"><a href="長期記憶過程.html#cb451-10" tabindex="-1"></a><span class="co">#&gt;  0.2598  -0.0943  -0.1637  -0.2469  </span></span>
+<span id="cb451-11"><a href="長期記憶過程.html#cb451-11" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb451-12"><a href="長期記憶過程.html#cb451-12" tabindex="-1"></a><span class="co">#&gt; Order selected 4  sigma^2 estimated as  0.8692</span></span>
+<span id="cb451-13"><a href="長期記憶過程.html#cb451-13" tabindex="-1"></a>ns <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">+</span> z_ar<span class="sc">$</span>order</span>
+<span id="cb451-14"><a href="長期記憶過程.html#cb451-14" tabindex="-1"></a>z <span class="ot">&lt;-</span> z_ar<span class="sc">$</span>res [ns<span class="sc">:</span><span class="fu">length</span>(y)]  <span class="co"># z_ar$resの最初のns個は欠損</span></span>
+<span id="cb451-15"><a href="長期記憶過程.html#cb451-15" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfcol =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">2</span>))</span>
+<span id="cb451-16"><a href="長期記憶過程.html#cb451-16" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">as.ts</span>(x), <span class="at">ylab =</span> <span class="st">&quot;x&quot;</span>)</span>
+<span id="cb451-17"><a href="長期記憶過程.html#cb451-17" tabindex="-1"></a><span class="fu">acf</span>(x) ; <span class="fu">acf</span>(y) ; <span class="fu">acf</span>(z)</span></code></pre></div>
+<p><img src="050-longmemory_files/figure-html/arfima_res-1.png" width="75%" /></p>
+<div class="sourceCode" id="cb452"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb452-1"><a href="長期記憶過程.html#cb452-1" tabindex="-1"></a><span class="fu">Box.test</span>(z, <span class="at">lag =</span> <span class="dv">30</span>, <span class="at">type =</span> <span class="st">&quot;Ljung&quot;</span>)</span>
+<span id="cb452-2"><a href="長期記憶過程.html#cb452-2" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb452-3"><a href="長期記憶過程.html#cb452-3" tabindex="-1"></a><span class="co">#&gt;  Box-Ljung test</span></span>
+<span id="cb452-4"><a href="長期記憶過程.html#cb452-4" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb452-5"><a href="長期記憶過程.html#cb452-5" tabindex="-1"></a><span class="co">#&gt; data:  z</span></span>
+<span id="cb452-6"><a href="長期記憶過程.html#cb452-6" tabindex="-1"></a><span class="co">#&gt; X-squared = 29.658, df = 30, p-value = 0.4833</span></span></code></pre></div>
 </div>
 </div>
 <div id="階差次数dの代替的推定法" class="section level3 unnumbered hasAnchor">
@@ -703,58 +739,58 @@ ARFIMA(<span class="math inline">\(2,d,0\)</span>), <span class="math inline">\(
 Geweke and Porter-Hudak(83), Reisen(94)の代替的な<span class="math inline">\(d\)</span>の推定を行うことができる.
 これらは, 時系列データのperidogram (スペクトル密度の推定値)
 をベースにした方法である.</p>
-<div class="sourceCode" id="cb452"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb452-1"><a href="長期記憶過程.html#cb452-1" tabindex="-1"></a><span class="co"># library(fracdiff)</span></span>
-<span id="cb452-2"><a href="長期記憶過程.html#cb452-2" tabindex="-1"></a><span class="co"># Geweke and Porter-Hudak(83)の方法</span></span>
-<span id="cb452-3"><a href="長期記憶過程.html#cb452-3" tabindex="-1"></a>(d_GPH <span class="ot">&lt;-</span> <span class="fu">fdGPH</span>(x))</span>
-<span id="cb452-4"><a href="長期記憶過程.html#cb452-4" tabindex="-1"></a><span class="co">#&gt; $d</span></span>
-<span id="cb452-5"><a href="長期記憶過程.html#cb452-5" tabindex="-1"></a><span class="co">#&gt; [1] -0.7167363</span></span>
-<span id="cb452-6"><a href="長期記憶過程.html#cb452-6" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb452-7"><a href="長期記憶過程.html#cb452-7" tabindex="-1"></a><span class="co">#&gt; $sd.as</span></span>
-<span id="cb452-8"><a href="長期記憶過程.html#cb452-8" tabindex="-1"></a><span class="co">#&gt; [1] 0.2935592</span></span>
-<span id="cb452-9"><a href="長期記憶過程.html#cb452-9" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb452-10"><a href="長期記憶過程.html#cb452-10" tabindex="-1"></a><span class="co">#&gt; $sd.reg</span></span>
-<span id="cb452-11"><a href="長期記憶過程.html#cb452-11" tabindex="-1"></a><span class="co">#&gt; [1] 0.2232167</span></span>
-<span id="cb452-12"><a href="長期記憶過程.html#cb452-12" tabindex="-1"></a><span class="co"># Reisen(94)の方法</span></span>
-<span id="cb452-13"><a href="長期記憶過程.html#cb452-13" tabindex="-1"></a>(d_Sper <span class="ot">&lt;-</span> <span class="fu">fdSperio</span>(x))</span>
-<span id="cb452-14"><a href="長期記憶過程.html#cb452-14" tabindex="-1"></a><span class="co">#&gt; $d</span></span>
-<span id="cb452-15"><a href="長期記憶過程.html#cb452-15" tabindex="-1"></a><span class="co">#&gt; [1] -0.6491031</span></span>
-<span id="cb452-16"><a href="長期記憶過程.html#cb452-16" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb452-17"><a href="長期記憶過程.html#cb452-17" tabindex="-1"></a><span class="co">#&gt; $sd.as</span></span>
-<span id="cb452-18"><a href="長期記憶過程.html#cb452-18" tabindex="-1"></a><span class="co">#&gt; [1] 0.1334138</span></span>
-<span id="cb452-19"><a href="長期記憶過程.html#cb452-19" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb452-20"><a href="長期記憶過程.html#cb452-20" tabindex="-1"></a><span class="co">#&gt; $sd.reg</span></span>
-<span id="cb452-21"><a href="長期記憶過程.html#cb452-21" tabindex="-1"></a><span class="co">#&gt; [1] 0.08329104</span></span></code></pre></div>
+<div class="sourceCode" id="cb453"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb453-1"><a href="長期記憶過程.html#cb453-1" tabindex="-1"></a><span class="co"># library(fracdiff)</span></span>
+<span id="cb453-2"><a href="長期記憶過程.html#cb453-2" tabindex="-1"></a><span class="co"># Geweke and Porter-Hudak(83)の方法</span></span>
+<span id="cb453-3"><a href="長期記憶過程.html#cb453-3" tabindex="-1"></a>(d_GPH <span class="ot">&lt;-</span> <span class="fu">fdGPH</span>(x))</span>
+<span id="cb453-4"><a href="長期記憶過程.html#cb453-4" tabindex="-1"></a><span class="co">#&gt; $d</span></span>
+<span id="cb453-5"><a href="長期記憶過程.html#cb453-5" tabindex="-1"></a><span class="co">#&gt; [1] -0.7167363</span></span>
+<span id="cb453-6"><a href="長期記憶過程.html#cb453-6" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb453-7"><a href="長期記憶過程.html#cb453-7" tabindex="-1"></a><span class="co">#&gt; $sd.as</span></span>
+<span id="cb453-8"><a href="長期記憶過程.html#cb453-8" tabindex="-1"></a><span class="co">#&gt; [1] 0.2935592</span></span>
+<span id="cb453-9"><a href="長期記憶過程.html#cb453-9" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb453-10"><a href="長期記憶過程.html#cb453-10" tabindex="-1"></a><span class="co">#&gt; $sd.reg</span></span>
+<span id="cb453-11"><a href="長期記憶過程.html#cb453-11" tabindex="-1"></a><span class="co">#&gt; [1] 0.2232167</span></span>
+<span id="cb453-12"><a href="長期記憶過程.html#cb453-12" tabindex="-1"></a><span class="co"># Reisen(94)の方法</span></span>
+<span id="cb453-13"><a href="長期記憶過程.html#cb453-13" tabindex="-1"></a>(d_Sper <span class="ot">&lt;-</span> <span class="fu">fdSperio</span>(x))</span>
+<span id="cb453-14"><a href="長期記憶過程.html#cb453-14" tabindex="-1"></a><span class="co">#&gt; $d</span></span>
+<span id="cb453-15"><a href="長期記憶過程.html#cb453-15" tabindex="-1"></a><span class="co">#&gt; [1] -0.6491031</span></span>
+<span id="cb453-16"><a href="長期記憶過程.html#cb453-16" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb453-17"><a href="長期記憶過程.html#cb453-17" tabindex="-1"></a><span class="co">#&gt; $sd.as</span></span>
+<span id="cb453-18"><a href="長期記憶過程.html#cb453-18" tabindex="-1"></a><span class="co">#&gt; [1] 0.1334138</span></span>
+<span id="cb453-19"><a href="長期記憶過程.html#cb453-19" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb453-20"><a href="長期記憶過程.html#cb453-20" tabindex="-1"></a><span class="co">#&gt; $sd.reg</span></span>
+<span id="cb453-21"><a href="長期記憶過程.html#cb453-21" tabindex="-1"></a><span class="co">#&gt; [1] 0.08329104</span></span></code></pre></div>
 <p>先の<code>get_fracdiff_ts()</code>を使い<span class="math inline">\(\{y_t\}\)</span>を生成し,
 これが白色ノイズになるかを確認する.</p>
-<div class="sourceCode" id="cb453"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb453-1"><a href="長期記憶過程.html#cb453-1" tabindex="-1"></a><span class="co"># GPH推定値の使用</span></span>
-<span id="cb453-2"><a href="長期記憶過程.html#cb453-2" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">get_fracdiff_ts</span>(x, d_GPH<span class="sc">$</span>d) <span class="co"># {x_t}より非整数階差系列{y_t}を生成</span></span>
-<span id="cb453-3"><a href="長期記憶過程.html#cb453-3" tabindex="-1"></a><span class="co"># ARMAモデルの適合に, パッケージforecastのauto.arima()関数使用</span></span>
-<span id="cb453-4"><a href="長期記憶過程.html#cb453-4" tabindex="-1"></a><span class="fu">library</span>(forecast)</span>
-<span id="cb453-5"><a href="長期記憶過程.html#cb453-5" tabindex="-1"></a>(y_fit <span class="ot">&lt;-</span> <span class="fu">auto.arima</span>(y))        <span class="co"># ARモデルをフィット</span></span>
-<span id="cb453-6"><a href="長期記憶過程.html#cb453-6" tabindex="-1"></a><span class="co">#&gt; Series: y </span></span>
-<span id="cb453-7"><a href="長期記憶過程.html#cb453-7" tabindex="-1"></a><span class="co">#&gt; ARIMA(0,0,3) with zero mean </span></span>
-<span id="cb453-8"><a href="長期記憶過程.html#cb453-8" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb453-9"><a href="長期記憶過程.html#cb453-9" tabindex="-1"></a><span class="co">#&gt; Coefficients:</span></span>
-<span id="cb453-10"><a href="長期記憶過程.html#cb453-10" tabindex="-1"></a><span class="co">#&gt;          ma1     ma2     ma3</span></span>
-<span id="cb453-11"><a href="長期記憶過程.html#cb453-11" tabindex="-1"></a><span class="co">#&gt;       0.8403  0.5521  0.2549</span></span>
-<span id="cb453-12"><a href="長期記憶過程.html#cb453-12" tabindex="-1"></a><span class="co">#&gt; s.e.  0.1171  0.1411  0.1297</span></span>
-<span id="cb453-13"><a href="長期記憶過程.html#cb453-13" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb453-14"><a href="長期記憶過程.html#cb453-14" tabindex="-1"></a><span class="co">#&gt; sigma^2 = 0.8098:  log likelihood = -90.83</span></span>
-<span id="cb453-15"><a href="長期記憶過程.html#cb453-15" tabindex="-1"></a><span class="co">#&gt; AIC=189.66   AICc=190.27   BIC=198.65</span></span>
-<span id="cb453-16"><a href="長期記憶過程.html#cb453-16" tabindex="-1"></a><span class="co"># y_resid &lt;- y_fit$res</span></span>
-<span id="cb453-17"><a href="長期記憶過程.html#cb453-17" tabindex="-1"></a><span class="co"># par(mfcol = c(1, 2))</span></span>
-<span id="cb453-18"><a href="長期記憶過程.html#cb453-18" tabindex="-1"></a><span class="co"># acf(y_resid); pacf(y_resid)</span></span>
-<span id="cb453-19"><a href="長期記憶過程.html#cb453-19" tabindex="-1"></a><span class="co"># Box.test(y_resid, lag = 30, type = &quot;Ljung&quot;)</span></span>
-<span id="cb453-20"><a href="長期記憶過程.html#cb453-20" tabindex="-1"></a><span class="fu">tsdiag</span>(y_fit)</span></code></pre></div>
+<div class="sourceCode" id="cb454"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb454-1"><a href="長期記憶過程.html#cb454-1" tabindex="-1"></a><span class="co"># GPH推定値の使用</span></span>
+<span id="cb454-2"><a href="長期記憶過程.html#cb454-2" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">get_fracdiff_ts</span>(x, d_GPH<span class="sc">$</span>d) <span class="co"># {x_t}より非整数階差系列{y_t}を生成</span></span>
+<span id="cb454-3"><a href="長期記憶過程.html#cb454-3" tabindex="-1"></a><span class="co"># ARMAモデルの適合に, パッケージforecastのauto.arima()関数使用</span></span>
+<span id="cb454-4"><a href="長期記憶過程.html#cb454-4" tabindex="-1"></a><span class="fu">library</span>(forecast)</span>
+<span id="cb454-5"><a href="長期記憶過程.html#cb454-5" tabindex="-1"></a>(y_fit <span class="ot">&lt;-</span> <span class="fu">auto.arima</span>(y))        <span class="co"># ARモデルをフィット</span></span>
+<span id="cb454-6"><a href="長期記憶過程.html#cb454-6" tabindex="-1"></a><span class="co">#&gt; Series: y </span></span>
+<span id="cb454-7"><a href="長期記憶過程.html#cb454-7" tabindex="-1"></a><span class="co">#&gt; ARIMA(0,0,3) with zero mean </span></span>
+<span id="cb454-8"><a href="長期記憶過程.html#cb454-8" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb454-9"><a href="長期記憶過程.html#cb454-9" tabindex="-1"></a><span class="co">#&gt; Coefficients:</span></span>
+<span id="cb454-10"><a href="長期記憶過程.html#cb454-10" tabindex="-1"></a><span class="co">#&gt;          ma1     ma2     ma3</span></span>
+<span id="cb454-11"><a href="長期記憶過程.html#cb454-11" tabindex="-1"></a><span class="co">#&gt;       0.8403  0.5521  0.2549</span></span>
+<span id="cb454-12"><a href="長期記憶過程.html#cb454-12" tabindex="-1"></a><span class="co">#&gt; s.e.  0.1171  0.1411  0.1297</span></span>
+<span id="cb454-13"><a href="長期記憶過程.html#cb454-13" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb454-14"><a href="長期記憶過程.html#cb454-14" tabindex="-1"></a><span class="co">#&gt; sigma^2 = 0.8098:  log likelihood = -90.83</span></span>
+<span id="cb454-15"><a href="長期記憶過程.html#cb454-15" tabindex="-1"></a><span class="co">#&gt; AIC=189.66   AICc=190.27   BIC=198.65</span></span>
+<span id="cb454-16"><a href="長期記憶過程.html#cb454-16" tabindex="-1"></a><span class="co"># y_resid &lt;- y_fit$res</span></span>
+<span id="cb454-17"><a href="長期記憶過程.html#cb454-17" tabindex="-1"></a><span class="co"># par(mfcol = c(1, 2))</span></span>
+<span id="cb454-18"><a href="長期記憶過程.html#cb454-18" tabindex="-1"></a><span class="co"># acf(y_resid); pacf(y_resid)</span></span>
+<span id="cb454-19"><a href="長期記憶過程.html#cb454-19" tabindex="-1"></a><span class="co"># Box.test(y_resid, lag = 30, type = &quot;Ljung&quot;)</span></span>
+<span id="cb454-20"><a href="長期記憶過程.html#cb454-20" tabindex="-1"></a><span class="fu">tsdiag</span>(y_fit)</span></code></pre></div>
 <p><img src="050-longmemory_files/figure-html/arfima_res2-1.png" width="75%" /></p>
-<div class="sourceCode" id="cb454"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb454-1"><a href="長期記憶過程.html#cb454-1" tabindex="-1"></a></span>
-<span id="cb454-2"><a href="長期記憶過程.html#cb454-2" tabindex="-1"></a><span class="co"># または</span></span>
-<span id="cb454-3"><a href="長期記憶過程.html#cb454-3" tabindex="-1"></a><span class="fu">accuracy</span>(y_fit)</span>
-<span id="cb454-4"><a href="長期記憶過程.html#cb454-4" tabindex="-1"></a><span class="co">#&gt;                     ME      RMSE       MAE     MPE     MAPE      MASE</span></span>
-<span id="cb454-5"><a href="長期記憶過程.html#cb454-5" tabindex="-1"></a><span class="co">#&gt; Training set 0.1063931 0.8803915 0.7113902 4.33671 171.6947 0.9058205</span></span>
-<span id="cb454-6"><a href="長期記憶過程.html#cb454-6" tabindex="-1"></a><span class="co">#&gt;                     ACF1</span></span>
-<span id="cb454-7"><a href="長期記憶過程.html#cb454-7" tabindex="-1"></a><span class="co">#&gt; Training set -0.01454969</span></span>
-<span id="cb454-8"><a href="長期記憶過程.html#cb454-8" tabindex="-1"></a><span class="fu">checkresiduals</span>(y_fit)</span></code></pre></div>
+<div class="sourceCode" id="cb455"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb455-1"><a href="長期記憶過程.html#cb455-1" tabindex="-1"></a></span>
+<span id="cb455-2"><a href="長期記憶過程.html#cb455-2" tabindex="-1"></a><span class="co"># または</span></span>
+<span id="cb455-3"><a href="長期記憶過程.html#cb455-3" tabindex="-1"></a><span class="fu">accuracy</span>(y_fit)</span>
+<span id="cb455-4"><a href="長期記憶過程.html#cb455-4" tabindex="-1"></a><span class="co">#&gt;                     ME      RMSE       MAE     MPE     MAPE      MASE</span></span>
+<span id="cb455-5"><a href="長期記憶過程.html#cb455-5" tabindex="-1"></a><span class="co">#&gt; Training set 0.1063931 0.8803915 0.7113902 4.33671 171.6947 0.9058205</span></span>
+<span id="cb455-6"><a href="長期記憶過程.html#cb455-6" tabindex="-1"></a><span class="co">#&gt;                     ACF1</span></span>
+<span id="cb455-7"><a href="長期記憶過程.html#cb455-7" tabindex="-1"></a><span class="co">#&gt; Training set -0.01454969</span></span>
+<span id="cb455-8"><a href="長期記憶過程.html#cb455-8" tabindex="-1"></a><span class="fu">checkresiduals</span>(y_fit)</span></code></pre></div>
 <p><img src="050-longmemory_files/figure-html/arfima_res2-2.png" width="75%" /></p>
 <pre><code>#&gt; 
 #&gt;  Ljung-Box test
@@ -773,74 +809,74 @@ Geweke and Porter-Hudak(83), Reisen(94)の代替的な<span class="math inline">
 <li>データ&amp;コードの出所: <a href="https://sites.google.com/site/econometricsr/home/rcode" class="uri">https://sites.google.com/site/econometricsr/home/rcode</a></li>
 <li>コードは一部改</li>
 </ul>
-<div class="sourceCode" id="cb456"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb456-1"><a href="長期記憶過程.html#cb456-1" tabindex="-1"></a><span class="co"># library(fracdiff)</span></span>
-<span id="cb456-2"><a href="長期記憶過程.html#cb456-2" tabindex="-1"></a>ifl <span class="ot">&lt;-</span> <span class="fu">file.path</span>(dir_introTS, <span class="st">&quot;d-ibm3dx7008.txt&quot;</span>)</span>
-<span id="cb456-3"><a href="長期記憶過程.html#cb456-3" tabindex="-1"></a>da <span class="ot">&lt;-</span> <span class="fu">read.table</span>(ifl, <span class="at">header =</span> T)</span>
-<span id="cb456-4"><a href="長期記憶過程.html#cb456-4" tabindex="-1"></a><span class="fu">head</span>(da)</span>
-<span id="cb456-5"><a href="長期記憶過程.html#cb456-5" tabindex="-1"></a><span class="co">#&gt;       Date       rtn    vwretd    ewretd    sprtrn</span></span>
-<span id="cb456-6"><a href="長期記憶過程.html#cb456-6" tabindex="-1"></a><span class="co">#&gt; 1 19700102  0.000686  0.012137  0.033450  0.010211</span></span>
-<span id="cb456-7"><a href="長期記憶過程.html#cb456-7" tabindex="-1"></a><span class="co">#&gt; 2 19700105  0.009596  0.006375  0.018947  0.004946</span></span>
-<span id="cb456-8"><a href="長期記憶過程.html#cb456-8" tabindex="-1"></a><span class="co">#&gt; 3 19700106  0.000679 -0.007233 -0.005776 -0.006848</span></span>
-<span id="cb456-9"><a href="長期記憶過程.html#cb456-9" tabindex="-1"></a><span class="co">#&gt; 4 19700107  0.000678 -0.001272  0.003559 -0.002047</span></span>
-<span id="cb456-10"><a href="長期記憶過程.html#cb456-10" tabindex="-1"></a><span class="co">#&gt; 5 19700108  0.002034  0.000564  0.002890  0.000540</span></span>
-<span id="cb456-11"><a href="長期記憶過程.html#cb456-11" tabindex="-1"></a><span class="co">#&gt; 6 19700109 -0.001353 -0.002797 -0.002923 -0.003021</span></span>
-<span id="cb456-12"><a href="長期記憶過程.html#cb456-12" tabindex="-1"></a>ew <span class="ot">&lt;-</span> <span class="fu">abs</span>(da<span class="sc">$</span>vwretd)        <span class="co"># daily abs ret&#39;s of value-weighted CRSP, 1970--2008</span></span>
-<span id="cb456-13"><a href="長期記憶過程.html#cb456-13" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">as.ts</span>(ew))</span></code></pre></div>
-<p><img src="050-longmemory_files/figure-html/unnamed-chunk-10-1.png" width="75%" /></p>
+<div class="sourceCode" id="cb457"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb457-1"><a href="長期記憶過程.html#cb457-1" tabindex="-1"></a><span class="co"># library(fracdiff)</span></span>
+<span id="cb457-2"><a href="長期記憶過程.html#cb457-2" tabindex="-1"></a>ifl <span class="ot">&lt;-</span> <span class="fu">file.path</span>(dir_introTS, <span class="st">&quot;d-ibm3dx7008.txt&quot;</span>)</span>
+<span id="cb457-3"><a href="長期記憶過程.html#cb457-3" tabindex="-1"></a>da <span class="ot">&lt;-</span> <span class="fu">read.table</span>(ifl, <span class="at">header =</span> T)</span>
+<span id="cb457-4"><a href="長期記憶過程.html#cb457-4" tabindex="-1"></a><span class="fu">head</span>(da)</span>
+<span id="cb457-5"><a href="長期記憶過程.html#cb457-5" tabindex="-1"></a><span class="co">#&gt;       Date       rtn    vwretd    ewretd    sprtrn</span></span>
+<span id="cb457-6"><a href="長期記憶過程.html#cb457-6" tabindex="-1"></a><span class="co">#&gt; 1 19700102  0.000686  0.012137  0.033450  0.010211</span></span>
+<span id="cb457-7"><a href="長期記憶過程.html#cb457-7" tabindex="-1"></a><span class="co">#&gt; 2 19700105  0.009596  0.006375  0.018947  0.004946</span></span>
+<span id="cb457-8"><a href="長期記憶過程.html#cb457-8" tabindex="-1"></a><span class="co">#&gt; 3 19700106  0.000679 -0.007233 -0.005776 -0.006848</span></span>
+<span id="cb457-9"><a href="長期記憶過程.html#cb457-9" tabindex="-1"></a><span class="co">#&gt; 4 19700107  0.000678 -0.001272  0.003559 -0.002047</span></span>
+<span id="cb457-10"><a href="長期記憶過程.html#cb457-10" tabindex="-1"></a><span class="co">#&gt; 5 19700108  0.002034  0.000564  0.002890  0.000540</span></span>
+<span id="cb457-11"><a href="長期記憶過程.html#cb457-11" tabindex="-1"></a><span class="co">#&gt; 6 19700109 -0.001353 -0.002797 -0.002923 -0.003021</span></span>
+<span id="cb457-12"><a href="長期記憶過程.html#cb457-12" tabindex="-1"></a>ew <span class="ot">&lt;-</span> <span class="fu">abs</span>(da<span class="sc">$</span>vwretd)        <span class="co"># daily abs ret&#39;s of value-weighted CRSP, 1970--2008</span></span>
+<span id="cb457-13"><a href="長期記憶過程.html#cb457-13" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">as.ts</span>(ew))</span></code></pre></div>
+<p><img src="050-longmemory_files/figure-html/unnamed-chunk-14-1.png" width="75%" /></p>
 <ul>
 <li>次数dの推定</li>
 </ul>
-<div class="sourceCode" id="cb457"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb457-1"><a href="長期記憶過程.html#cb457-1" tabindex="-1"></a><span class="co"># pure fractionally differenced modelに対して(p=0, q=0)</span></span>
-<span id="cb457-2"><a href="長期記憶過程.html#cb457-2" tabindex="-1"></a><span class="co"># Geweke-Porter-Hudak(83) estimate</span></span>
-<span id="cb457-3"><a href="長期記憶過程.html#cb457-3" tabindex="-1"></a><span class="co"># (m3 &lt;- fdGPH(da$vwretd))      # d=0.05282</span></span>
-<span id="cb457-4"><a href="長期記憶過程.html#cb457-4" tabindex="-1"></a>(m3 <span class="ot">&lt;-</span> <span class="fu">fdGPH</span>(ew))</span>
-<span id="cb457-5"><a href="長期記憶過程.html#cb457-5" tabindex="-1"></a><span class="co">#&gt; $d</span></span>
-<span id="cb457-6"><a href="長期記憶過程.html#cb457-6" tabindex="-1"></a><span class="co">#&gt; [1] 0.372226</span></span>
-<span id="cb457-7"><a href="長期記憶過程.html#cb457-7" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb457-8"><a href="長期記憶過程.html#cb457-8" tabindex="-1"></a><span class="co">#&gt; $sd.as</span></span>
-<span id="cb457-9"><a href="長期記憶過程.html#cb457-9" tabindex="-1"></a><span class="co">#&gt; [1] 0.0698385</span></span>
-<span id="cb457-10"><a href="長期記憶過程.html#cb457-10" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb457-11"><a href="長期記憶過程.html#cb457-11" tabindex="-1"></a><span class="co">#&gt; $sd.reg</span></span>
-<span id="cb457-12"><a href="長期記憶過程.html#cb457-12" tabindex="-1"></a><span class="co">#&gt; [1] 0.06868857</span></span></code></pre></div>
+<div class="sourceCode" id="cb458"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb458-1"><a href="長期記憶過程.html#cb458-1" tabindex="-1"></a><span class="co"># pure fractionally differenced modelに対して(p=0, q=0)</span></span>
+<span id="cb458-2"><a href="長期記憶過程.html#cb458-2" tabindex="-1"></a><span class="co"># Geweke-Porter-Hudak(83) estimate</span></span>
+<span id="cb458-3"><a href="長期記憶過程.html#cb458-3" tabindex="-1"></a><span class="co"># (m3 &lt;- fdGPH(da$vwretd))      # d=0.05282</span></span>
+<span id="cb458-4"><a href="長期記憶過程.html#cb458-4" tabindex="-1"></a>(m3 <span class="ot">&lt;-</span> <span class="fu">fdGPH</span>(ew))</span>
+<span id="cb458-5"><a href="長期記憶過程.html#cb458-5" tabindex="-1"></a><span class="co">#&gt; $d</span></span>
+<span id="cb458-6"><a href="長期記憶過程.html#cb458-6" tabindex="-1"></a><span class="co">#&gt; [1] 0.372226</span></span>
+<span id="cb458-7"><a href="長期記憶過程.html#cb458-7" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb458-8"><a href="長期記憶過程.html#cb458-8" tabindex="-1"></a><span class="co">#&gt; $sd.as</span></span>
+<span id="cb458-9"><a href="長期記憶過程.html#cb458-9" tabindex="-1"></a><span class="co">#&gt; [1] 0.0698385</span></span>
+<span id="cb458-10"><a href="長期記憶過程.html#cb458-10" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb458-11"><a href="長期記憶過程.html#cb458-11" tabindex="-1"></a><span class="co">#&gt; $sd.reg</span></span>
+<span id="cb458-12"><a href="長期記憶過程.html#cb458-12" tabindex="-1"></a><span class="co">#&gt; [1] 0.06868857</span></span></code></pre></div>
 <ul>
 <li>→ <span class="math inline">\(0&lt;d&lt;0.5\)</span>　∴ 定常, かつ反転可能 (invertible)</li>
 </ul>
-<div class="sourceCode" id="cb458"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb458-1"><a href="長期記憶過程.html#cb458-1" tabindex="-1"></a><span class="co"># Reisen (94) estimate</span></span>
-<span id="cb458-2"><a href="長期記憶過程.html#cb458-2" tabindex="-1"></a><span class="co"># (m3.2 &lt;- fdSperio(ew))        # 0.3784656</span></span></code></pre></div>
-<div class="sourceCode" id="cb459"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb459-1"><a href="長期記憶過程.html#cb459-1" tabindex="-1"></a><span class="co"># 最尤法 (nar, nmaの指定必要)</span></span>
-<span id="cb459-2"><a href="長期記憶過程.html#cb459-2" tabindex="-1"></a><span class="co"># m3.0 &lt;- fracdiff(ew, nar = 0, nma = 0)        # デフォルト: nar = 0, nma = 0</span></span>
-<span id="cb459-3"><a href="長期記憶過程.html#cb459-3" tabindex="-1"></a><span class="co"># summary(m3.0)</span></span>
-<span id="cb459-4"><a href="長期記憶過程.html#cb459-4" tabindex="-1"></a></span>
-<span id="cb459-5"><a href="長期記憶過程.html#cb459-5" tabindex="-1"></a><span class="co"># ARFIMA(1,d,1)の最尤推定</span></span>
-<span id="cb459-6"><a href="長期記憶過程.html#cb459-6" tabindex="-1"></a>m2 <span class="ot">&lt;-</span> <span class="fu">fracdiff</span>(ew, <span class="at">nar =</span> <span class="dv">1</span>, <span class="at">nma =</span> <span class="dv">1</span>)</span>
-<span id="cb459-7"><a href="長期記憶過程.html#cb459-7" tabindex="-1"></a><span class="fu">summary</span>(m2)</span>
-<span id="cb459-8"><a href="長期記憶過程.html#cb459-8" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb459-9"><a href="長期記憶過程.html#cb459-9" tabindex="-1"></a><span class="co">#&gt; Call:</span></span>
-<span id="cb459-10"><a href="長期記憶過程.html#cb459-10" tabindex="-1"></a><span class="co">#&gt;   fracdiff(x = ew, nar = 1, nma = 1) </span></span>
-<span id="cb459-11"><a href="長期記憶過程.html#cb459-11" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb459-12"><a href="長期記憶過程.html#cb459-12" tabindex="-1"></a><span class="co">#&gt; Coefficients:</span></span>
-<span id="cb459-13"><a href="長期記憶過程.html#cb459-13" tabindex="-1"></a><span class="co">#&gt;    Estimate Std. Error z value Pr(&gt;|z|)    </span></span>
-<span id="cb459-14"><a href="長期記憶過程.html#cb459-14" tabindex="-1"></a><span class="co">#&gt; d  0.490938   0.007997   61.39   &lt;2e-16 ***</span></span>
-<span id="cb459-15"><a href="長期記憶過程.html#cb459-15" tabindex="-1"></a><span class="co">#&gt; ar 0.113389   0.005988   18.94   &lt;2e-16 ***</span></span>
-<span id="cb459-16"><a href="長期記憶過程.html#cb459-16" tabindex="-1"></a><span class="co">#&gt; ma 0.575895   0.005946   96.85   &lt;2e-16 ***</span></span>
-<span id="cb459-17"><a href="長期記憶過程.html#cb459-17" tabindex="-1"></a><span class="co">#&gt; ---</span></span>
-<span id="cb459-18"><a href="長期記憶過程.html#cb459-18" tabindex="-1"></a><span class="co">#&gt; Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</span></span>
-<span id="cb459-19"><a href="長期記憶過程.html#cb459-19" tabindex="-1"></a><span class="co">#&gt; sigma[eps] = 0.0065619 </span></span>
-<span id="cb459-20"><a href="長期記憶過程.html#cb459-20" tabindex="-1"></a><span class="co">#&gt; [d.tol = 0.0001221, M = 100, h = 0.0003742]</span></span>
-<span id="cb459-21"><a href="長期記憶過程.html#cb459-21" tabindex="-1"></a><span class="co">#&gt; Log likelihood: 3.551e+04 ==&gt; AIC = -71021.02 [4 deg.freedom]</span></span>
-<span id="cb459-22"><a href="長期記憶過程.html#cb459-22" tabindex="-1"></a><span class="fu">coef</span>(m2)</span>
-<span id="cb459-23"><a href="長期記憶過程.html#cb459-23" tabindex="-1"></a><span class="co">#&gt;         d        ar        ma </span></span>
-<span id="cb459-24"><a href="長期記憶過程.html#cb459-24" tabindex="-1"></a><span class="co">#&gt; 0.4909382 0.1133893 0.5758949</span></span>
-<span id="cb459-25"><a href="長期記憶過程.html#cb459-25" tabindex="-1"></a><span class="fu">confint</span>(m2)</span>
-<span id="cb459-26"><a href="長期記憶過程.html#cb459-26" tabindex="-1"></a><span class="co">#&gt;        2.5 %    97.5 %</span></span>
-<span id="cb459-27"><a href="長期記憶過程.html#cb459-27" tabindex="-1"></a><span class="co">#&gt; d  0.4752637 0.5066127</span></span>
-<span id="cb459-28"><a href="長期記憶過程.html#cb459-28" tabindex="-1"></a><span class="co">#&gt; ar 0.1016536 0.1251250</span></span>
-<span id="cb459-29"><a href="長期記憶過程.html#cb459-29" tabindex="-1"></a><span class="co">#&gt; ma 0.5642407 0.5875491</span></span></code></pre></div>
+<div class="sourceCode" id="cb459"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb459-1"><a href="長期記憶過程.html#cb459-1" tabindex="-1"></a><span class="co"># Reisen (94) estimate</span></span>
+<span id="cb459-2"><a href="長期記憶過程.html#cb459-2" tabindex="-1"></a><span class="co"># (m3.2 &lt;- fdSperio(ew))        # 0.3784656</span></span></code></pre></div>
+<div class="sourceCode" id="cb460"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb460-1"><a href="長期記憶過程.html#cb460-1" tabindex="-1"></a><span class="co"># 最尤法 (nar, nmaの指定必要)</span></span>
+<span id="cb460-2"><a href="長期記憶過程.html#cb460-2" tabindex="-1"></a><span class="co"># m3.0 &lt;- fracdiff(ew, nar = 0, nma = 0)        # デフォルト: nar = 0, nma = 0</span></span>
+<span id="cb460-3"><a href="長期記憶過程.html#cb460-3" tabindex="-1"></a><span class="co"># summary(m3.0)</span></span>
+<span id="cb460-4"><a href="長期記憶過程.html#cb460-4" tabindex="-1"></a></span>
+<span id="cb460-5"><a href="長期記憶過程.html#cb460-5" tabindex="-1"></a><span class="co"># ARFIMA(1,d,1)の最尤推定</span></span>
+<span id="cb460-6"><a href="長期記憶過程.html#cb460-6" tabindex="-1"></a>m2 <span class="ot">&lt;-</span> <span class="fu">fracdiff</span>(ew, <span class="at">nar =</span> <span class="dv">1</span>, <span class="at">nma =</span> <span class="dv">1</span>)</span>
+<span id="cb460-7"><a href="長期記憶過程.html#cb460-7" tabindex="-1"></a><span class="fu">summary</span>(m2)</span>
+<span id="cb460-8"><a href="長期記憶過程.html#cb460-8" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb460-9"><a href="長期記憶過程.html#cb460-9" tabindex="-1"></a><span class="co">#&gt; Call:</span></span>
+<span id="cb460-10"><a href="長期記憶過程.html#cb460-10" tabindex="-1"></a><span class="co">#&gt;   fracdiff(x = ew, nar = 1, nma = 1) </span></span>
+<span id="cb460-11"><a href="長期記憶過程.html#cb460-11" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb460-12"><a href="長期記憶過程.html#cb460-12" tabindex="-1"></a><span class="co">#&gt; Coefficients:</span></span>
+<span id="cb460-13"><a href="長期記憶過程.html#cb460-13" tabindex="-1"></a><span class="co">#&gt;    Estimate Std. Error z value Pr(&gt;|z|)    </span></span>
+<span id="cb460-14"><a href="長期記憶過程.html#cb460-14" tabindex="-1"></a><span class="co">#&gt; d  0.490938   0.007997   61.39   &lt;2e-16 ***</span></span>
+<span id="cb460-15"><a href="長期記憶過程.html#cb460-15" tabindex="-1"></a><span class="co">#&gt; ar 0.113389   0.005988   18.94   &lt;2e-16 ***</span></span>
+<span id="cb460-16"><a href="長期記憶過程.html#cb460-16" tabindex="-1"></a><span class="co">#&gt; ma 0.575895   0.005946   96.85   &lt;2e-16 ***</span></span>
+<span id="cb460-17"><a href="長期記憶過程.html#cb460-17" tabindex="-1"></a><span class="co">#&gt; ---</span></span>
+<span id="cb460-18"><a href="長期記憶過程.html#cb460-18" tabindex="-1"></a><span class="co">#&gt; Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</span></span>
+<span id="cb460-19"><a href="長期記憶過程.html#cb460-19" tabindex="-1"></a><span class="co">#&gt; sigma[eps] = 0.0065619 </span></span>
+<span id="cb460-20"><a href="長期記憶過程.html#cb460-20" tabindex="-1"></a><span class="co">#&gt; [d.tol = 0.0001221, M = 100, h = 0.0003742]</span></span>
+<span id="cb460-21"><a href="長期記憶過程.html#cb460-21" tabindex="-1"></a><span class="co">#&gt; Log likelihood: 3.551e+04 ==&gt; AIC = -71021.02 [4 deg.freedom]</span></span>
+<span id="cb460-22"><a href="長期記憶過程.html#cb460-22" tabindex="-1"></a><span class="fu">coef</span>(m2)</span>
+<span id="cb460-23"><a href="長期記憶過程.html#cb460-23" tabindex="-1"></a><span class="co">#&gt;         d        ar        ma </span></span>
+<span id="cb460-24"><a href="長期記憶過程.html#cb460-24" tabindex="-1"></a><span class="co">#&gt; 0.4909382 0.1133893 0.5758949</span></span>
+<span id="cb460-25"><a href="長期記憶過程.html#cb460-25" tabindex="-1"></a><span class="fu">confint</span>(m2)</span>
+<span id="cb460-26"><a href="長期記憶過程.html#cb460-26" tabindex="-1"></a><span class="co">#&gt;        2.5 %    97.5 %</span></span>
+<span id="cb460-27"><a href="長期記憶過程.html#cb460-27" tabindex="-1"></a><span class="co">#&gt; d  0.4752637 0.5066127</span></span>
+<span id="cb460-28"><a href="長期記憶過程.html#cb460-28" tabindex="-1"></a><span class="co">#&gt; ar 0.1016536 0.1251250</span></span>
+<span id="cb460-29"><a href="長期記憶過程.html#cb460-29" tabindex="-1"></a><span class="co">#&gt; ma 0.5642407 0.5875491</span></span></code></pre></div>
 <ul>
 <li>注: MA係数の符号が, arima()の符号とは反対</li>
 </ul>
 <table>
-<caption><span id="tab:unnamed-chunk-14">Table 6.1: </span>パラメータ推定値</caption>
+<caption><span id="tab:unnamed-chunk-18">Table 6.1: </span>パラメータ推定値</caption>
 <thead>
 <tr class="header">
 <th align="left"></th>
@@ -873,19 +909,19 @@ Geweke and Porter-Hudak(83), Reisen(94)の代替的な<span class="math inline">
 <ul>
 <li>→ dの値, 非定常境界 (d=0.5) に近い</li>
 </ul>
-<div class="sourceCode" id="cb460"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb460-1"><a href="長期記憶過程.html#cb460-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">101</span>)</span>
-<span id="cb460-2"><a href="長期記憶過程.html#cb460-2" tabindex="-1"></a>m2_sim <span class="ot">&lt;-</span> <span class="fu">fracdiff.sim</span>(<span class="at">n =</span> <span class="dv">512</span>, </span>
-<span id="cb460-3"><a href="長期記憶過程.html#cb460-3" tabindex="-1"></a>                       <span class="at">ar =</span> <span class="fu">coef</span>(m2)[<span class="st">&quot;ar&quot;</span>], </span>
-<span id="cb460-4"><a href="長期記憶過程.html#cb460-4" tabindex="-1"></a>                       <span class="at">ma =</span> <span class="sc">-</span><span class="fu">coef</span>(m2)[<span class="st">&quot;ma&quot;</span>], </span>
-<span id="cb460-5"><a href="長期記憶過程.html#cb460-5" tabindex="-1"></a>                       <span class="at">d =</span> <span class="fu">coef</span>(m2)[<span class="st">&quot;d&quot;</span>])</span>
-<span id="cb460-6"><a href="長期記憶過程.html#cb460-6" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">as.ts</span>(m2_sim<span class="sc">$</span>series))</span></code></pre></div>
-<p><img src="050-longmemory_files/figure-html/unnamed-chunk-15-1.png" width="75%" /></p>
-<div class="sourceCode" id="cb461"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb461-1"><a href="長期記憶過程.html#cb461-1" tabindex="-1"></a><span class="fu">hurstexp</span>(ew) <span class="co"># ハースト指数</span></span>
-<span id="cb461-2"><a href="長期記憶過程.html#cb461-2" tabindex="-1"></a><span class="co">#&gt; Simple R/S Hurst estimation:         0.7368679 </span></span>
-<span id="cb461-3"><a href="長期記憶過程.html#cb461-3" tabindex="-1"></a><span class="co">#&gt; Corrected R over S Hurst exponent:   0.8540535 </span></span>
-<span id="cb461-4"><a href="長期記憶過程.html#cb461-4" tabindex="-1"></a><span class="co">#&gt; Empirical Hurst exponent:            0.9058207 </span></span>
-<span id="cb461-5"><a href="長期記憶過程.html#cb461-5" tabindex="-1"></a><span class="co">#&gt; Corrected empirical Hurst exponent:  0.8784372 </span></span>
-<span id="cb461-6"><a href="長期記憶過程.html#cb461-6" tabindex="-1"></a><span class="co">#&gt; Theoretical Hurst exponent:          0.5264069</span></span></code></pre></div>
+<div class="sourceCode" id="cb461"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb461-1"><a href="長期記憶過程.html#cb461-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">101</span>)</span>
+<span id="cb461-2"><a href="長期記憶過程.html#cb461-2" tabindex="-1"></a>m2_sim <span class="ot">&lt;-</span> <span class="fu">fracdiff.sim</span>(<span class="at">n =</span> <span class="dv">512</span>, </span>
+<span id="cb461-3"><a href="長期記憶過程.html#cb461-3" tabindex="-1"></a>                       <span class="at">ar =</span> <span class="fu">coef</span>(m2)[<span class="st">&quot;ar&quot;</span>], </span>
+<span id="cb461-4"><a href="長期記憶過程.html#cb461-4" tabindex="-1"></a>                       <span class="at">ma =</span> <span class="sc">-</span><span class="fu">coef</span>(m2)[<span class="st">&quot;ma&quot;</span>], </span>
+<span id="cb461-5"><a href="長期記憶過程.html#cb461-5" tabindex="-1"></a>                       <span class="at">d =</span> <span class="fu">coef</span>(m2)[<span class="st">&quot;d&quot;</span>])</span>
+<span id="cb461-6"><a href="長期記憶過程.html#cb461-6" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">as.ts</span>(m2_sim<span class="sc">$</span>series))</span></code></pre></div>
+<p><img src="050-longmemory_files/figure-html/unnamed-chunk-19-1.png" width="75%" /></p>
+<div class="sourceCode" id="cb462"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb462-1"><a href="長期記憶過程.html#cb462-1" tabindex="-1"></a><span class="fu">hurstexp</span>(ew) <span class="co"># ハースト指数</span></span>
+<span id="cb462-2"><a href="長期記憶過程.html#cb462-2" tabindex="-1"></a><span class="co">#&gt; Simple R/S Hurst estimation:         0.7368679 </span></span>
+<span id="cb462-3"><a href="長期記憶過程.html#cb462-3" tabindex="-1"></a><span class="co">#&gt; Corrected R over S Hurst exponent:   0.8540535 </span></span>
+<span id="cb462-4"><a href="長期記憶過程.html#cb462-4" tabindex="-1"></a><span class="co">#&gt; Empirical Hurst exponent:            0.9058207 </span></span>
+<span id="cb462-5"><a href="長期記憶過程.html#cb462-5" tabindex="-1"></a><span class="co">#&gt; Corrected empirical Hurst exponent:  0.8784372 </span></span>
+<span id="cb462-6"><a href="長期記憶過程.html#cb462-6" tabindex="-1"></a><span class="co">#&gt; Theoretical Hurst exponent:          0.5264069</span></span></code></pre></div>
 </div>
 <div id="arfimaモデル-データ分析例-2" class="section level2 hasAnchor" number="6.5">
 <h2><span class="header-section-number">6.5</span> ARFIMAモデル: データ分析例 (2)<a href="長期記憶過程.html#arfimaモデル-データ分析例-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -894,105 +930,110 @@ Geweke and Porter-Hudak(83), Reisen(94)の代替的な<span class="math inline">
 (stylized factsの一つ).
 ここでは, 実現ボラティリティ (RV) の日次系列に対して
 ARFIMAモデルの推定を試みる.</p>
-<p>データセットして, パッケージ<strong>highfrequency</strong>に収納されている
+<p>データセットして, パッケージ<strong>highfrequency</strong>に含まれている
 <code>SPYRM</code>データセットを用いる. これはSPY (S&amp;P500 ETF)の高頻度
-データより計算された日次のリスク・流動性指標の<code>xts</code>クラスの
+データより計算された日次のリスク・流動性指標を格納している
 データセットである.</p>
 <pre><code>SPYRM
 - realized measuresの日次系列
 - データ期間: 1/2/2014--12/31/2019</code></pre>
 <p>この<code>SPYRM</code>内の要素<code>RV5</code>は5分次リターンより計算された実現ボラティリティ
 (RV) である. 今回はこれに対してARFIMAモデルを適合する.</p>
-<div class="sourceCode" id="cb463"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb463-1"><a href="長期記憶過程.html#cb463-1" tabindex="-1"></a><span class="co"># RV (Realized Volatility): 実現ボラティリティ</span></span>
-<span id="cb463-2"><a href="長期記憶過程.html#cb463-2" tabindex="-1"></a><span class="fu">library</span>(highfrequency)</span>
-<span id="cb463-3"><a href="長期記憶過程.html#cb463-3" tabindex="-1"></a><span class="fu">data</span>(SPYRM) <span class="co"># SPY (SPDR S&amp;P500 ETF)</span></span>
-<span id="cb463-4"><a href="長期記憶過程.html#cb463-4" tabindex="-1"></a><span class="fu">head</span>(SPYRM) <span class="co"># realized measuresの日次系列</span></span>
-<span id="cb463-5"><a href="長期記憶過程.html#cb463-5" tabindex="-1"></a><span class="co">#&gt; Key: &lt;DT&gt;</span></span>
-<span id="cb463-6"><a href="長期記憶過程.html#cb463-6" tabindex="-1"></a><span class="co">#&gt;            DT          RV1          RV5         BPV1         BPV5       medRV1</span></span>
-<span id="cb463-7"><a href="長期記憶過程.html#cb463-7" tabindex="-1"></a><span class="co">#&gt;        &lt;Date&gt;        &lt;num&gt;        &lt;num&gt;        &lt;num&gt;        &lt;num&gt;        &lt;num&gt;</span></span>
-<span id="cb463-8"><a href="長期記憶過程.html#cb463-8" tabindex="-1"></a><span class="co">#&gt; 1: 2014-01-02 2.680770e-05 2.570763e-05 2.535726e-05 2.374001e-05 2.454129e-05</span></span>
-<span id="cb463-9"><a href="長期記憶過程.html#cb463-9" tabindex="-1"></a><span class="co">#&gt; 2: 2014-01-03 1.584448e-05 1.777932e-05 1.549670e-05 1.670686e-05 1.538273e-05</span></span>
-<span id="cb463-10"><a href="長期記憶過程.html#cb463-10" tabindex="-1"></a><span class="co">#&gt; 3: 2014-01-06 2.722618e-05 2.562549e-05 2.179050e-05 1.888701e-05 2.239435e-05</span></span>
-<span id="cb463-11"><a href="長期記憶過程.html#cb463-11" tabindex="-1"></a><span class="co">#&gt; 4: 2014-01-07 1.083393e-05 9.949228e-06 1.004319e-05 9.745236e-06 1.058696e-05</span></span>
-<span id="cb463-12"><a href="長期記憶過程.html#cb463-12" tabindex="-1"></a><span class="co">#&gt; 5: 2014-01-08 3.111775e-05 2.678386e-05 2.578336e-05 2.347057e-05 2.644604e-05</span></span>
-<span id="cb463-13"><a href="長期記憶過程.html#cb463-13" tabindex="-1"></a><span class="co">#&gt; 6: 2014-01-09 2.316577e-05 1.870702e-05 1.977435e-05 1.113170e-05 2.039378e-05</span></span>
-<span id="cb463-14"><a href="長期記憶過程.html#cb463-14" tabindex="-1"></a><span class="co">#&gt;          medRV5          RK1          RK5        RQ1        RQ5     medRQ1</span></span>
-<span id="cb463-15"><a href="長期記憶過程.html#cb463-15" tabindex="-1"></a><span class="co">#&gt;           &lt;num&gt;        &lt;num&gt;        &lt;num&gt;      &lt;num&gt;      &lt;num&gt;      &lt;num&gt;</span></span>
-<span id="cb463-16"><a href="長期記憶過程.html#cb463-16" tabindex="-1"></a><span class="co">#&gt; 1: 1.933930e-05 2.586084e-05 2.639544e-05 0.05341515 0.05426241 0.04728122</span></span>
-<span id="cb463-17"><a href="長期記憶過程.html#cb463-17" tabindex="-1"></a><span class="co">#&gt; 2: 1.626439e-05 1.600491e-05 1.634770e-05 0.03020677 0.03037783 0.02960068</span></span>
-<span id="cb463-18"><a href="長期記憶過程.html#cb463-18" tabindex="-1"></a><span class="co">#&gt; 3: 1.638726e-05 3.195125e-05 2.586378e-05 0.06205223 0.05000808 0.04193434</span></span>
-<span id="cb463-19"><a href="長期記憶過程.html#cb463-19" tabindex="-1"></a><span class="co">#&gt; 4: 9.317152e-06 9.422459e-06 9.962419e-06 0.02134510 0.01695114 0.02069017</span></span>
-<span id="cb463-20"><a href="長期記憶過程.html#cb463-20" tabindex="-1"></a><span class="co">#&gt; 5: 2.323985e-05 1.978144e-05 1.942075e-05 0.08892314 0.05380877 0.08233854</span></span>
-<span id="cb463-21"><a href="長期記憶過程.html#cb463-21" tabindex="-1"></a><span class="co">#&gt; 6: 1.011690e-05 1.908528e-05 2.138626e-05 0.04709965 0.04329358 0.04527193</span></span>
-<span id="cb463-22"><a href="長期記憶過程.html#cb463-22" tabindex="-1"></a><span class="co">#&gt;        medRQ5  CLOSE</span></span>
-<span id="cb463-23"><a href="長期記憶過程.html#cb463-23" tabindex="-1"></a><span class="co">#&gt;         &lt;num&gt;  &lt;num&gt;</span></span>
-<span id="cb463-24"><a href="長期記憶過程.html#cb463-24" tabindex="-1"></a><span class="co">#&gt; 1: 0.04728122 182.95</span></span>
-<span id="cb463-25"><a href="長期記憶過程.html#cb463-25" tabindex="-1"></a><span class="co">#&gt; 2: 0.02960068 182.80</span></span>
-<span id="cb463-26"><a href="長期記憶過程.html#cb463-26" tabindex="-1"></a><span class="co">#&gt; 3: 0.04193434 182.40</span></span>
-<span id="cb463-27"><a href="長期記憶過程.html#cb463-27" tabindex="-1"></a><span class="co">#&gt; 4: 0.02069017 183.45</span></span>
-<span id="cb463-28"><a href="長期記憶過程.html#cb463-28" tabindex="-1"></a><span class="co">#&gt; 5: 0.08233854 183.53</span></span>
-<span id="cb463-29"><a href="長期記憶過程.html#cb463-29" tabindex="-1"></a><span class="co">#&gt; 6: 0.04527193 183.63</span></span>
-<span id="cb463-30"><a href="長期記憶過程.html#cb463-30" tabindex="-1"></a><span class="co"># 1/2/2014--12/31/2019</span></span></code></pre></div>
-<div class="sourceCode" id="cb464"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb464-1"><a href="長期記憶過程.html#cb464-1" tabindex="-1"></a><span class="fu">library</span>(xts)</span>
-<span id="cb464-2"><a href="長期記憶過程.html#cb464-2" tabindex="-1"></a><span class="co"># 5分次リターンより計算された実現ボラティリティ (RV)</span></span>
-<span id="cb464-3"><a href="長期記憶過程.html#cb464-3" tabindex="-1"></a>rv5 <span class="ot">&lt;-</span> <span class="fu">as.xts</span>(SPYRM[, <span class="fu">list</span>(DT, RV5)]) <span class="sc">*</span> <span class="dv">10000</span></span>
-<span id="cb464-4"><a href="長期記憶過程.html#cb464-4" tabindex="-1"></a><span class="fu">plot</span>(rv5)</span></code></pre></div>
-<p><img src="050-longmemory_files/figure-html/unnamed-chunk-18-1.png" width="75%" /></p>
+<div class="sourceCode" id="cb464"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb464-1"><a href="長期記憶過程.html#cb464-1" tabindex="-1"></a><span class="co"># RV (Realized Volatility): 実現ボラティリティ</span></span>
+<span id="cb464-2"><a href="長期記憶過程.html#cb464-2" tabindex="-1"></a><span class="fu">library</span>(highfrequency)</span>
+<span id="cb464-3"><a href="長期記憶過程.html#cb464-3" tabindex="-1"></a><span class="fu">data</span>(SPYRM) <span class="co"># SPY (SPDR S&amp;P500 ETF)</span></span>
+<span id="cb464-4"><a href="長期記憶過程.html#cb464-4" tabindex="-1"></a><span class="fu">head</span>(SPYRM) <span class="co"># realized measuresの日次系列</span></span>
+<span id="cb464-5"><a href="長期記憶過程.html#cb464-5" tabindex="-1"></a><span class="co">#&gt; Key: &lt;DT&gt;</span></span>
+<span id="cb464-6"><a href="長期記憶過程.html#cb464-6" tabindex="-1"></a><span class="co">#&gt;            DT          RV1          RV5         BPV1         BPV5       medRV1</span></span>
+<span id="cb464-7"><a href="長期記憶過程.html#cb464-7" tabindex="-1"></a><span class="co">#&gt;        &lt;Date&gt;        &lt;num&gt;        &lt;num&gt;        &lt;num&gt;        &lt;num&gt;        &lt;num&gt;</span></span>
+<span id="cb464-8"><a href="長期記憶過程.html#cb464-8" tabindex="-1"></a><span class="co">#&gt; 1: 2014-01-02 2.680770e-05 2.570763e-05 2.535726e-05 2.374001e-05 2.454129e-05</span></span>
+<span id="cb464-9"><a href="長期記憶過程.html#cb464-9" tabindex="-1"></a><span class="co">#&gt; 2: 2014-01-03 1.584448e-05 1.777932e-05 1.549670e-05 1.670686e-05 1.538273e-05</span></span>
+<span id="cb464-10"><a href="長期記憶過程.html#cb464-10" tabindex="-1"></a><span class="co">#&gt; 3: 2014-01-06 2.722618e-05 2.562549e-05 2.179050e-05 1.888701e-05 2.239435e-05</span></span>
+<span id="cb464-11"><a href="長期記憶過程.html#cb464-11" tabindex="-1"></a><span class="co">#&gt; 4: 2014-01-07 1.083393e-05 9.949228e-06 1.004319e-05 9.745236e-06 1.058696e-05</span></span>
+<span id="cb464-12"><a href="長期記憶過程.html#cb464-12" tabindex="-1"></a><span class="co">#&gt; 5: 2014-01-08 3.111775e-05 2.678386e-05 2.578336e-05 2.347057e-05 2.644604e-05</span></span>
+<span id="cb464-13"><a href="長期記憶過程.html#cb464-13" tabindex="-1"></a><span class="co">#&gt; 6: 2014-01-09 2.316577e-05 1.870702e-05 1.977435e-05 1.113170e-05 2.039378e-05</span></span>
+<span id="cb464-14"><a href="長期記憶過程.html#cb464-14" tabindex="-1"></a><span class="co">#&gt;          medRV5          RK1          RK5        RQ1        RQ5     medRQ1</span></span>
+<span id="cb464-15"><a href="長期記憶過程.html#cb464-15" tabindex="-1"></a><span class="co">#&gt;           &lt;num&gt;        &lt;num&gt;        &lt;num&gt;      &lt;num&gt;      &lt;num&gt;      &lt;num&gt;</span></span>
+<span id="cb464-16"><a href="長期記憶過程.html#cb464-16" tabindex="-1"></a><span class="co">#&gt; 1: 1.933930e-05 2.586084e-05 2.639544e-05 0.05341515 0.05426241 0.04728122</span></span>
+<span id="cb464-17"><a href="長期記憶過程.html#cb464-17" tabindex="-1"></a><span class="co">#&gt; 2: 1.626439e-05 1.600491e-05 1.634770e-05 0.03020677 0.03037783 0.02960068</span></span>
+<span id="cb464-18"><a href="長期記憶過程.html#cb464-18" tabindex="-1"></a><span class="co">#&gt; 3: 1.638726e-05 3.195125e-05 2.586378e-05 0.06205223 0.05000808 0.04193434</span></span>
+<span id="cb464-19"><a href="長期記憶過程.html#cb464-19" tabindex="-1"></a><span class="co">#&gt; 4: 9.317152e-06 9.422459e-06 9.962419e-06 0.02134510 0.01695114 0.02069017</span></span>
+<span id="cb464-20"><a href="長期記憶過程.html#cb464-20" tabindex="-1"></a><span class="co">#&gt; 5: 2.323985e-05 1.978144e-05 1.942075e-05 0.08892314 0.05380877 0.08233854</span></span>
+<span id="cb464-21"><a href="長期記憶過程.html#cb464-21" tabindex="-1"></a><span class="co">#&gt; 6: 1.011690e-05 1.908528e-05 2.138626e-05 0.04709965 0.04329358 0.04527193</span></span>
+<span id="cb464-22"><a href="長期記憶過程.html#cb464-22" tabindex="-1"></a><span class="co">#&gt;        medRQ5  CLOSE</span></span>
+<span id="cb464-23"><a href="長期記憶過程.html#cb464-23" tabindex="-1"></a><span class="co">#&gt;         &lt;num&gt;  &lt;num&gt;</span></span>
+<span id="cb464-24"><a href="長期記憶過程.html#cb464-24" tabindex="-1"></a><span class="co">#&gt; 1: 0.04728122 182.95</span></span>
+<span id="cb464-25"><a href="長期記憶過程.html#cb464-25" tabindex="-1"></a><span class="co">#&gt; 2: 0.02960068 182.80</span></span>
+<span id="cb464-26"><a href="長期記憶過程.html#cb464-26" tabindex="-1"></a><span class="co">#&gt; 3: 0.04193434 182.40</span></span>
+<span id="cb464-27"><a href="長期記憶過程.html#cb464-27" tabindex="-1"></a><span class="co">#&gt; 4: 0.02069017 183.45</span></span>
+<span id="cb464-28"><a href="長期記憶過程.html#cb464-28" tabindex="-1"></a><span class="co">#&gt; 5: 0.08233854 183.53</span></span>
+<span id="cb464-29"><a href="長期記憶過程.html#cb464-29" tabindex="-1"></a><span class="co">#&gt; 6: 0.04527193 183.63</span></span>
+<span id="cb464-30"><a href="長期記憶過程.html#cb464-30" tabindex="-1"></a><span class="co"># 1/2/2014--12/31/2019</span></span></code></pre></div>
+<p>ここでは, RV系列<code>RV5</code>に日付情報<code>DT</code>を加え, 関数<code>as.xts()</code>を使って,
+<strong>xts</strong>クラスの時系列オブジェクト<code>rv5</code>を生成する.
+<strong>xts</strong>オブジェクトにすることのメリットの一つとして, 例えば,
+標準的なR関数である<code>plot()</code>を適用すると, Rは見映えの良い時系列プロットを
+作成する.</p>
+<div class="sourceCode" id="cb465"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb465-1"><a href="長期記憶過程.html#cb465-1" tabindex="-1"></a><span class="fu">library</span>(xts)</span>
+<span id="cb465-2"><a href="長期記憶過程.html#cb465-2" tabindex="-1"></a><span class="co"># 5分次リターンより計算された実現ボラティリティ (RV)</span></span>
+<span id="cb465-3"><a href="長期記憶過程.html#cb465-3" tabindex="-1"></a>rv5 <span class="ot">&lt;-</span> <span class="fu">as.xts</span>(SPYRM[, <span class="fu">list</span>(DT, RV5)]) <span class="sc">*</span> <span class="dv">10000</span></span>
+<span id="cb465-4"><a href="長期記憶過程.html#cb465-4" tabindex="-1"></a><span class="fu">plot</span>(rv5)</span></code></pre></div>
+<p><img src="050-longmemory_files/figure-html/unnamed-chunk-22-1.png" width="75%" /></p>
 <p>上で解説したように, まず, <span class="math inline">\(d\)</span>の値を日次RV系列<code>rv5</code>より推定してみる.</p>
-<div class="sourceCode" id="cb465"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb465-1"><a href="長期記憶過程.html#cb465-1" tabindex="-1"></a><span class="fu">library</span>(fracdiff)</span>
-<span id="cb465-2"><a href="長期記憶過程.html#cb465-2" tabindex="-1"></a><span class="co"># Geweke-Porter-Hudak(83) estimate</span></span>
-<span id="cb465-3"><a href="長期記憶過程.html#cb465-3" tabindex="-1"></a>(<span class="at">d_gph =</span> <span class="fu">fdGPH</span>(rv5))</span>
-<span id="cb465-4"><a href="長期記憶過程.html#cb465-4" tabindex="-1"></a><span class="co">#&gt; $d</span></span>
-<span id="cb465-5"><a href="長期記憶過程.html#cb465-5" tabindex="-1"></a><span class="co">#&gt; [1] 0.2546147</span></span>
-<span id="cb465-6"><a href="長期記憶過程.html#cb465-6" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb465-7"><a href="長期記憶過程.html#cb465-7" tabindex="-1"></a><span class="co">#&gt; $sd.as</span></span>
-<span id="cb465-8"><a href="長期記憶過程.html#cb465-8" tabindex="-1"></a><span class="co">#&gt; [1] 0.1212817</span></span>
-<span id="cb465-9"><a href="長期記憶過程.html#cb465-9" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb465-10"><a href="長期記憶過程.html#cb465-10" tabindex="-1"></a><span class="co">#&gt; $sd.reg</span></span>
-<span id="cb465-11"><a href="長期記憶過程.html#cb465-11" tabindex="-1"></a><span class="co">#&gt; [1] 0.1234719</span></span>
-<span id="cb465-12"><a href="長期記憶過程.html#cb465-12" tabindex="-1"></a><span class="co"># Reisen (94) estimate</span></span>
-<span id="cb465-13"><a href="長期記憶過程.html#cb465-13" tabindex="-1"></a>(<span class="at">d_sperio =</span> <span class="fu">fdSperio</span>(rv5))</span>
-<span id="cb465-14"><a href="長期記憶過程.html#cb465-14" tabindex="-1"></a><span class="co">#&gt; $d</span></span>
-<span id="cb465-15"><a href="長期記憶過程.html#cb465-15" tabindex="-1"></a><span class="co">#&gt; [1] 0.2959239</span></span>
-<span id="cb465-16"><a href="長期記憶過程.html#cb465-16" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb465-17"><a href="長期記憶過程.html#cb465-17" tabindex="-1"></a><span class="co">#&gt; $sd.as</span></span>
-<span id="cb465-18"><a href="長期記憶過程.html#cb465-18" tabindex="-1"></a><span class="co">#&gt; [1] 0.04815862</span></span>
-<span id="cb465-19"><a href="長期記憶過程.html#cb465-19" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb465-20"><a href="長期記憶過程.html#cb465-20" tabindex="-1"></a><span class="co">#&gt; $sd.reg</span></span>
-<span id="cb465-21"><a href="長期記憶過程.html#cb465-21" tabindex="-1"></a><span class="co">#&gt; [1] 0.06010544</span></span></code></pre></div>
-<div class="sourceCode" id="cb466"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb466-1"><a href="長期記憶過程.html#cb466-1" tabindex="-1"></a><span class="co"># 最尤法 (nar, nmaの指定必要)</span></span>
-<span id="cb466-2"><a href="長期記憶過程.html#cb466-2" tabindex="-1"></a>(fit_arfima <span class="ot">&lt;-</span> <span class="fu">fracdiff</span>(rv5, <span class="at">nar =</span> <span class="dv">0</span>, <span class="at">nma =</span> <span class="dv">0</span>))</span>
-<span id="cb466-3"><a href="長期記憶過程.html#cb466-3" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb466-4"><a href="長期記憶過程.html#cb466-4" tabindex="-1"></a><span class="co">#&gt; Call:</span></span>
-<span id="cb466-5"><a href="長期記憶過程.html#cb466-5" tabindex="-1"></a><span class="co">#&gt;   fracdiff(x = rv5, nar = 0, nma = 0) </span></span>
+<div class="sourceCode" id="cb466"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb466-1"><a href="長期記憶過程.html#cb466-1" tabindex="-1"></a><span class="fu">library</span>(fracdiff)</span>
+<span id="cb466-2"><a href="長期記憶過程.html#cb466-2" tabindex="-1"></a><span class="co"># Geweke-Porter-Hudak(83) estimate</span></span>
+<span id="cb466-3"><a href="長期記憶過程.html#cb466-3" tabindex="-1"></a>(<span class="at">d_gph =</span> <span class="fu">fdGPH</span>(rv5))</span>
+<span id="cb466-4"><a href="長期記憶過程.html#cb466-4" tabindex="-1"></a><span class="co">#&gt; $d</span></span>
+<span id="cb466-5"><a href="長期記憶過程.html#cb466-5" tabindex="-1"></a><span class="co">#&gt; [1] 0.2546147</span></span>
 <span id="cb466-6"><a href="長期記憶過程.html#cb466-6" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb466-7"><a href="長期記憶過程.html#cb466-7" tabindex="-1"></a><span class="co">#&gt; Coefficients:</span></span>
-<span id="cb466-8"><a href="長期記憶過程.html#cb466-8" tabindex="-1"></a><span class="co">#&gt;         d </span></span>
-<span id="cb466-9"><a href="長期記憶過程.html#cb466-9" tabindex="-1"></a><span class="co">#&gt; 0.3452906 </span></span>
-<span id="cb466-10"><a href="長期記憶過程.html#cb466-10" tabindex="-1"></a><span class="co">#&gt; sigma[eps] = 0.7376825 </span></span>
-<span id="cb466-11"><a href="長期記憶過程.html#cb466-11" tabindex="-1"></a><span class="co">#&gt; a list with components:</span></span>
-<span id="cb466-12"><a href="長期記憶過程.html#cb466-12" tabindex="-1"></a><span class="co">#&gt;  [1] &quot;log.likelihood&quot;  &quot;n&quot;               &quot;msg&quot;             &quot;d&quot;              </span></span>
-<span id="cb466-13"><a href="長期記憶過程.html#cb466-13" tabindex="-1"></a><span class="co">#&gt;  [5] &quot;ar&quot;              &quot;ma&quot;              &quot;covariance.dpq&quot;  &quot;fnormMin&quot;       </span></span>
-<span id="cb466-14"><a href="長期記憶過程.html#cb466-14" tabindex="-1"></a><span class="co">#&gt;  [9] &quot;sigma&quot;           &quot;stderror.dpq&quot;    &quot;correlation.dpq&quot; &quot;h&quot;              </span></span>
-<span id="cb466-15"><a href="長期記憶過程.html#cb466-15" tabindex="-1"></a><span class="co">#&gt; [13] &quot;d.tol&quot;           &quot;M&quot;               &quot;hessian.dpq&quot;     &quot;length.w&quot;       </span></span>
-<span id="cb466-16"><a href="長期記憶過程.html#cb466-16" tabindex="-1"></a><span class="co">#&gt; [17] &quot;residuals&quot;       &quot;fitted&quot;          &quot;call&quot;</span></span>
-<span id="cb466-17"><a href="長期記憶過程.html#cb466-17" tabindex="-1"></a><span class="co"># ARFIMA(1,d,1)の最尤推定</span></span>
-<span id="cb466-18"><a href="長期記憶過程.html#cb466-18" tabindex="-1"></a>fit_arfima2 <span class="ot">=</span> <span class="fu">fracdiff</span>(rv5, <span class="at">nar =</span> <span class="dv">1</span>, <span class="at">nma =</span> <span class="dv">1</span>)</span>
-<span id="cb466-19"><a href="長期記憶過程.html#cb466-19" tabindex="-1"></a><span class="fu">summary</span>(fit_arfima2)</span>
-<span id="cb466-20"><a href="長期記憶過程.html#cb466-20" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb466-21"><a href="長期記憶過程.html#cb466-21" tabindex="-1"></a><span class="co">#&gt; Call:</span></span>
-<span id="cb466-22"><a href="長期記憶過程.html#cb466-22" tabindex="-1"></a><span class="co">#&gt;   fracdiff(x = rv5, nar = 1, nma = 1) </span></span>
-<span id="cb466-23"><a href="長期記憶過程.html#cb466-23" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb466-24"><a href="長期記憶過程.html#cb466-24" tabindex="-1"></a><span class="co">#&gt; Coefficients:</span></span>
-<span id="cb466-25"><a href="長期記憶過程.html#cb466-25" tabindex="-1"></a><span class="co">#&gt;    Estimate Std. Error z value Pr(&gt;|z|)    </span></span>
-<span id="cb466-26"><a href="長期記憶過程.html#cb466-26" tabindex="-1"></a><span class="co">#&gt; d   0.15971    0.01091  14.637   &lt;2e-16 ***</span></span>
-<span id="cb466-27"><a href="長期記憶過程.html#cb466-27" tabindex="-1"></a><span class="co">#&gt; ar  0.74835    0.08420   8.888   &lt;2e-16 ***</span></span>
-<span id="cb466-28"><a href="長期記憶過程.html#cb466-28" tabindex="-1"></a><span class="co">#&gt; ma  0.56622    0.06213   9.113   &lt;2e-16 ***</span></span>
-<span id="cb466-29"><a href="長期記憶過程.html#cb466-29" tabindex="-1"></a><span class="co">#&gt; ---</span></span>
-<span id="cb466-30"><a href="長期記憶過程.html#cb466-30" tabindex="-1"></a><span class="co">#&gt; Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</span></span>
-<span id="cb466-31"><a href="長期記憶過程.html#cb466-31" tabindex="-1"></a><span class="co">#&gt; sigma[eps] = 0.7369145 </span></span>
-<span id="cb466-32"><a href="長期記憶過程.html#cb466-32" tabindex="-1"></a><span class="co">#&gt; [d.tol = 0.0001221, M = 100, h = 1.755e-05]</span></span>
-<span id="cb466-33"><a href="長期記憶過程.html#cb466-33" tabindex="-1"></a><span class="co">#&gt; Log likelihood: -1665 ==&gt; AIC = 3337.888 [4 deg.freedom]</span></span></code></pre></div>
+<span id="cb466-7"><a href="長期記憶過程.html#cb466-7" tabindex="-1"></a><span class="co">#&gt; $sd.as</span></span>
+<span id="cb466-8"><a href="長期記憶過程.html#cb466-8" tabindex="-1"></a><span class="co">#&gt; [1] 0.1212817</span></span>
+<span id="cb466-9"><a href="長期記憶過程.html#cb466-9" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb466-10"><a href="長期記憶過程.html#cb466-10" tabindex="-1"></a><span class="co">#&gt; $sd.reg</span></span>
+<span id="cb466-11"><a href="長期記憶過程.html#cb466-11" tabindex="-1"></a><span class="co">#&gt; [1] 0.1234719</span></span>
+<span id="cb466-12"><a href="長期記憶過程.html#cb466-12" tabindex="-1"></a><span class="co"># Reisen (94) estimate</span></span>
+<span id="cb466-13"><a href="長期記憶過程.html#cb466-13" tabindex="-1"></a>(<span class="at">d_sperio =</span> <span class="fu">fdSperio</span>(rv5))</span>
+<span id="cb466-14"><a href="長期記憶過程.html#cb466-14" tabindex="-1"></a><span class="co">#&gt; $d</span></span>
+<span id="cb466-15"><a href="長期記憶過程.html#cb466-15" tabindex="-1"></a><span class="co">#&gt; [1] 0.2959239</span></span>
+<span id="cb466-16"><a href="長期記憶過程.html#cb466-16" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb466-17"><a href="長期記憶過程.html#cb466-17" tabindex="-1"></a><span class="co">#&gt; $sd.as</span></span>
+<span id="cb466-18"><a href="長期記憶過程.html#cb466-18" tabindex="-1"></a><span class="co">#&gt; [1] 0.04815862</span></span>
+<span id="cb466-19"><a href="長期記憶過程.html#cb466-19" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb466-20"><a href="長期記憶過程.html#cb466-20" tabindex="-1"></a><span class="co">#&gt; $sd.reg</span></span>
+<span id="cb466-21"><a href="長期記憶過程.html#cb466-21" tabindex="-1"></a><span class="co">#&gt; [1] 0.06010544</span></span></code></pre></div>
+<div class="sourceCode" id="cb467"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb467-1"><a href="長期記憶過程.html#cb467-1" tabindex="-1"></a><span class="co"># 最尤法 (nar, nmaの指定必要)</span></span>
+<span id="cb467-2"><a href="長期記憶過程.html#cb467-2" tabindex="-1"></a>(fit_arfima <span class="ot">&lt;-</span> <span class="fu">fracdiff</span>(rv5, <span class="at">nar =</span> <span class="dv">0</span>, <span class="at">nma =</span> <span class="dv">0</span>))</span>
+<span id="cb467-3"><a href="長期記憶過程.html#cb467-3" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb467-4"><a href="長期記憶過程.html#cb467-4" tabindex="-1"></a><span class="co">#&gt; Call:</span></span>
+<span id="cb467-5"><a href="長期記憶過程.html#cb467-5" tabindex="-1"></a><span class="co">#&gt;   fracdiff(x = rv5, nar = 0, nma = 0) </span></span>
+<span id="cb467-6"><a href="長期記憶過程.html#cb467-6" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb467-7"><a href="長期記憶過程.html#cb467-7" tabindex="-1"></a><span class="co">#&gt; Coefficients:</span></span>
+<span id="cb467-8"><a href="長期記憶過程.html#cb467-8" tabindex="-1"></a><span class="co">#&gt;         d </span></span>
+<span id="cb467-9"><a href="長期記憶過程.html#cb467-9" tabindex="-1"></a><span class="co">#&gt; 0.3452906 </span></span>
+<span id="cb467-10"><a href="長期記憶過程.html#cb467-10" tabindex="-1"></a><span class="co">#&gt; sigma[eps] = 0.7376825 </span></span>
+<span id="cb467-11"><a href="長期記憶過程.html#cb467-11" tabindex="-1"></a><span class="co">#&gt; a list with components:</span></span>
+<span id="cb467-12"><a href="長期記憶過程.html#cb467-12" tabindex="-1"></a><span class="co">#&gt;  [1] &quot;log.likelihood&quot;  &quot;n&quot;               &quot;msg&quot;             &quot;d&quot;              </span></span>
+<span id="cb467-13"><a href="長期記憶過程.html#cb467-13" tabindex="-1"></a><span class="co">#&gt;  [5] &quot;ar&quot;              &quot;ma&quot;              &quot;covariance.dpq&quot;  &quot;fnormMin&quot;       </span></span>
+<span id="cb467-14"><a href="長期記憶過程.html#cb467-14" tabindex="-1"></a><span class="co">#&gt;  [9] &quot;sigma&quot;           &quot;stderror.dpq&quot;    &quot;correlation.dpq&quot; &quot;h&quot;              </span></span>
+<span id="cb467-15"><a href="長期記憶過程.html#cb467-15" tabindex="-1"></a><span class="co">#&gt; [13] &quot;d.tol&quot;           &quot;M&quot;               &quot;hessian.dpq&quot;     &quot;length.w&quot;       </span></span>
+<span id="cb467-16"><a href="長期記憶過程.html#cb467-16" tabindex="-1"></a><span class="co">#&gt; [17] &quot;residuals&quot;       &quot;fitted&quot;          &quot;call&quot;</span></span>
+<span id="cb467-17"><a href="長期記憶過程.html#cb467-17" tabindex="-1"></a><span class="co"># ARFIMA(1,d,1)の最尤推定</span></span>
+<span id="cb467-18"><a href="長期記憶過程.html#cb467-18" tabindex="-1"></a>fit_arfima2 <span class="ot">=</span> <span class="fu">fracdiff</span>(rv5, <span class="at">nar =</span> <span class="dv">1</span>, <span class="at">nma =</span> <span class="dv">1</span>)</span>
+<span id="cb467-19"><a href="長期記憶過程.html#cb467-19" tabindex="-1"></a><span class="fu">summary</span>(fit_arfima2)</span>
+<span id="cb467-20"><a href="長期記憶過程.html#cb467-20" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb467-21"><a href="長期記憶過程.html#cb467-21" tabindex="-1"></a><span class="co">#&gt; Call:</span></span>
+<span id="cb467-22"><a href="長期記憶過程.html#cb467-22" tabindex="-1"></a><span class="co">#&gt;   fracdiff(x = rv5, nar = 1, nma = 1) </span></span>
+<span id="cb467-23"><a href="長期記憶過程.html#cb467-23" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb467-24"><a href="長期記憶過程.html#cb467-24" tabindex="-1"></a><span class="co">#&gt; Coefficients:</span></span>
+<span id="cb467-25"><a href="長期記憶過程.html#cb467-25" tabindex="-1"></a><span class="co">#&gt;    Estimate Std. Error z value Pr(&gt;|z|)    </span></span>
+<span id="cb467-26"><a href="長期記憶過程.html#cb467-26" tabindex="-1"></a><span class="co">#&gt; d   0.15971    0.01091  14.637   &lt;2e-16 ***</span></span>
+<span id="cb467-27"><a href="長期記憶過程.html#cb467-27" tabindex="-1"></a><span class="co">#&gt; ar  0.74835    0.08420   8.888   &lt;2e-16 ***</span></span>
+<span id="cb467-28"><a href="長期記憶過程.html#cb467-28" tabindex="-1"></a><span class="co">#&gt; ma  0.56622    0.06213   9.113   &lt;2e-16 ***</span></span>
+<span id="cb467-29"><a href="長期記憶過程.html#cb467-29" tabindex="-1"></a><span class="co">#&gt; ---</span></span>
+<span id="cb467-30"><a href="長期記憶過程.html#cb467-30" tabindex="-1"></a><span class="co">#&gt; Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</span></span>
+<span id="cb467-31"><a href="長期記憶過程.html#cb467-31" tabindex="-1"></a><span class="co">#&gt; sigma[eps] = 0.7369145 </span></span>
+<span id="cb467-32"><a href="長期記憶過程.html#cb467-32" tabindex="-1"></a><span class="co">#&gt; [d.tol = 0.0001221, M = 100, h = 1.755e-05]</span></span>
+<span id="cb467-33"><a href="長期記憶過程.html#cb467-33" tabindex="-1"></a><span class="co">#&gt; Log likelihood: -1665 ==&gt; AIC = 3337.888 [4 deg.freedom]</span></span></code></pre></div>
 <div id="最適なarfimaモデルの選択および推定" class="section level3 unnumbered hasAnchor">
 <h3>最適なARFIMAモデルの選択および推定<a href="長期記憶過程.html#最適なarfimaモデルの選択および推定" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>パッケージ<strong>forecast</strong>の関数<code>arfima()</code>は,
@@ -1001,89 +1042,92 @@ ARFIMAモデルの推定を試みる.</p>
 ARFIMAモデルの自動選択&amp;パラメータ推定を実行することができる.
 モデル選択基準は, <code>auto.arima()</code>の引数<code>ic</code>の選択肢
 (“aicc”, “aic”, “bic”) から選ぶことができる (デフォルトは”aicc”).</p>
+<p>関数<code>arfima()</code>は<strong>xts</strong>オブジェクトをモデル推定する対象データセットとして
+想定しない. R操作としては, 関数<code>coredata()</code>を先に<code>rv5</code>適用し,
+日付情報を除いたデータの中身 (RV系列) を取り出す必要がある</p>
 <ul>
 <li>RV (分散表示)</li>
 </ul>
-<div class="sourceCode" id="cb467"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb467-1"><a href="長期記憶過程.html#cb467-1" tabindex="-1"></a><span class="co"># RV</span></span>
-<span id="cb467-2"><a href="長期記憶過程.html#cb467-2" tabindex="-1"></a>fit_rv <span class="ot">&lt;-</span> forecast<span class="sc">::</span><span class="fu">arfima</span>(<span class="fu">coredata</span>(rv5))</span>
-<span id="cb467-3"><a href="長期記憶過程.html#cb467-3" tabindex="-1"></a><span class="fu">summary</span>(fit_rv)</span>
-<span id="cb467-4"><a href="長期記憶過程.html#cb467-4" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb467-5"><a href="長期記憶過程.html#cb467-5" tabindex="-1"></a><span class="co">#&gt; Call:</span></span>
-<span id="cb467-6"><a href="長期記憶過程.html#cb467-6" tabindex="-1"></a><span class="co">#&gt;   forecast::arfima(y = coredata(rv5)) </span></span>
-<span id="cb467-7"><a href="長期記憶過程.html#cb467-7" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb467-8"><a href="長期記憶過程.html#cb467-8" tabindex="-1"></a><span class="co">#&gt; Coefficients:</span></span>
-<span id="cb467-9"><a href="長期記憶過程.html#cb467-9" tabindex="-1"></a><span class="co">#&gt;         Estimate Std. Error z value Pr(&gt;|z|)    </span></span>
-<span id="cb467-10"><a href="長期記憶過程.html#cb467-10" tabindex="-1"></a><span class="co">#&gt; d       0.266671   0.009558  27.900  &lt; 2e-16 ***</span></span>
-<span id="cb467-11"><a href="長期記憶過程.html#cb467-11" tabindex="-1"></a><span class="co">#&gt; ma.ma1 -0.063041   0.027422  -2.299  0.02151 *  </span></span>
-<span id="cb467-12"><a href="長期記憶過程.html#cb467-12" tabindex="-1"></a><span class="co">#&gt; ma.ma2 -0.084791   0.026271  -3.228  0.00125 ** </span></span>
-<span id="cb467-13"><a href="長期記憶過程.html#cb467-13" tabindex="-1"></a><span class="co">#&gt; ma.ma3 -0.076951   0.026091  -2.949  0.00318 ** </span></span>
-<span id="cb467-14"><a href="長期記憶過程.html#cb467-14" tabindex="-1"></a><span class="co">#&gt; ---</span></span>
-<span id="cb467-15"><a href="長期記憶過程.html#cb467-15" tabindex="-1"></a><span class="co">#&gt; Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</span></span>
-<span id="cb467-16"><a href="長期記憶過程.html#cb467-16" tabindex="-1"></a><span class="co">#&gt; sigma[eps] = 0.7364955 </span></span>
-<span id="cb467-17"><a href="長期記憶過程.html#cb467-17" tabindex="-1"></a><span class="co">#&gt; [d.tol = 0.0001221, M = 100, h = 1.755e-05]</span></span>
-<span id="cb467-18"><a href="長期記憶過程.html#cb467-18" tabindex="-1"></a><span class="co">#&gt; Log likelihood: -1664 ==&gt; AIC = 3338.552 [5 deg.freedom]</span></span>
-<span id="cb467-19"><a href="長期記憶過程.html#cb467-19" tabindex="-1"></a><span class="fu">accuracy</span>(fit_rv)</span>
-<span id="cb467-20"><a href="長期記憶過程.html#cb467-20" tabindex="-1"></a><span class="co">#&gt;                         ME      RMSE       MAE       MPE     MAPE      MASE</span></span>
-<span id="cb467-21"><a href="長期記憶過程.html#cb467-21" tabindex="-1"></a><span class="co">#&gt; Training set -0.0007177275 0.7356355 0.2306756 -69.83532 87.93373 0.9842525</span></span>
-<span id="cb467-22"><a href="長期記憶過程.html#cb467-22" tabindex="-1"></a><span class="co">#&gt;                     ACF1</span></span>
-<span id="cb467-23"><a href="長期記憶過程.html#cb467-23" tabindex="-1"></a><span class="co">#&gt; Training set 0.001397451</span></span></code></pre></div>
+<div class="sourceCode" id="cb468"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb468-1"><a href="長期記憶過程.html#cb468-1" tabindex="-1"></a><span class="co"># RV</span></span>
+<span id="cb468-2"><a href="長期記憶過程.html#cb468-2" tabindex="-1"></a>fit_rv <span class="ot">&lt;-</span> forecast<span class="sc">::</span><span class="fu">arfima</span>(<span class="fu">coredata</span>(rv5))</span>
+<span id="cb468-3"><a href="長期記憶過程.html#cb468-3" tabindex="-1"></a><span class="fu">summary</span>(fit_rv)</span>
+<span id="cb468-4"><a href="長期記憶過程.html#cb468-4" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb468-5"><a href="長期記憶過程.html#cb468-5" tabindex="-1"></a><span class="co">#&gt; Call:</span></span>
+<span id="cb468-6"><a href="長期記憶過程.html#cb468-6" tabindex="-1"></a><span class="co">#&gt;   forecast::arfima(y = coredata(rv5)) </span></span>
+<span id="cb468-7"><a href="長期記憶過程.html#cb468-7" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb468-8"><a href="長期記憶過程.html#cb468-8" tabindex="-1"></a><span class="co">#&gt; Coefficients:</span></span>
+<span id="cb468-9"><a href="長期記憶過程.html#cb468-9" tabindex="-1"></a><span class="co">#&gt;         Estimate Std. Error z value Pr(&gt;|z|)    </span></span>
+<span id="cb468-10"><a href="長期記憶過程.html#cb468-10" tabindex="-1"></a><span class="co">#&gt; d       0.266671   0.009558  27.900  &lt; 2e-16 ***</span></span>
+<span id="cb468-11"><a href="長期記憶過程.html#cb468-11" tabindex="-1"></a><span class="co">#&gt; ma.ma1 -0.063041   0.027422  -2.299  0.02151 *  </span></span>
+<span id="cb468-12"><a href="長期記憶過程.html#cb468-12" tabindex="-1"></a><span class="co">#&gt; ma.ma2 -0.084791   0.026271  -3.228  0.00125 ** </span></span>
+<span id="cb468-13"><a href="長期記憶過程.html#cb468-13" tabindex="-1"></a><span class="co">#&gt; ma.ma3 -0.076951   0.026091  -2.949  0.00318 ** </span></span>
+<span id="cb468-14"><a href="長期記憶過程.html#cb468-14" tabindex="-1"></a><span class="co">#&gt; ---</span></span>
+<span id="cb468-15"><a href="長期記憶過程.html#cb468-15" tabindex="-1"></a><span class="co">#&gt; Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</span></span>
+<span id="cb468-16"><a href="長期記憶過程.html#cb468-16" tabindex="-1"></a><span class="co">#&gt; sigma[eps] = 0.7364955 </span></span>
+<span id="cb468-17"><a href="長期記憶過程.html#cb468-17" tabindex="-1"></a><span class="co">#&gt; [d.tol = 0.0001221, M = 100, h = 1.755e-05]</span></span>
+<span id="cb468-18"><a href="長期記憶過程.html#cb468-18" tabindex="-1"></a><span class="co">#&gt; Log likelihood: -1664 ==&gt; AIC = 3338.552 [5 deg.freedom]</span></span>
+<span id="cb468-19"><a href="長期記憶過程.html#cb468-19" tabindex="-1"></a><span class="fu">accuracy</span>(fit_rv)</span>
+<span id="cb468-20"><a href="長期記憶過程.html#cb468-20" tabindex="-1"></a><span class="co">#&gt;                         ME      RMSE       MAE       MPE     MAPE      MASE</span></span>
+<span id="cb468-21"><a href="長期記憶過程.html#cb468-21" tabindex="-1"></a><span class="co">#&gt; Training set -0.0007177275 0.7356355 0.2306756 -69.83532 87.93373 0.9842525</span></span>
+<span id="cb468-22"><a href="長期記憶過程.html#cb468-22" tabindex="-1"></a><span class="co">#&gt;                     ACF1</span></span>
+<span id="cb468-23"><a href="長期記憶過程.html#cb468-23" tabindex="-1"></a><span class="co">#&gt; Training set 0.001397451</span></span></code></pre></div>
 <ul>
 <li>RV (標準偏差表示)</li>
 </ul>
-<div class="sourceCode" id="cb468"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb468-1"><a href="長期記憶過程.html#cb468-1" tabindex="-1"></a><span class="co"># sqrt(RV5)</span></span>
-<span id="cb468-2"><a href="長期記憶過程.html#cb468-2" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">sqrt</span>(rv5))</span></code></pre></div>
-<p><img src="050-longmemory_files/figure-html/unnamed-chunk-22-1.png" width="75%" /></p>
-<div class="sourceCode" id="cb469"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb469-1"><a href="長期記憶過程.html#cb469-1" tabindex="-1"></a>fit_sqrtrv <span class="ot">&lt;-</span> forecast<span class="sc">::</span><span class="fu">arfima</span>(<span class="fu">coredata</span>(<span class="fu">sqrt</span>(rv5)))</span>
-<span id="cb469-2"><a href="長期記憶過程.html#cb469-2" tabindex="-1"></a><span class="fu">summary</span>(fit_sqrtrv)</span>
-<span id="cb469-3"><a href="長期記憶過程.html#cb469-3" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb469-4"><a href="長期記憶過程.html#cb469-4" tabindex="-1"></a><span class="co">#&gt; Call:</span></span>
-<span id="cb469-5"><a href="長期記憶過程.html#cb469-5" tabindex="-1"></a><span class="co">#&gt;   forecast::arfima(y = coredata(sqrt(rv5))) </span></span>
-<span id="cb469-6"><a href="長期記憶過程.html#cb469-6" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb469-7"><a href="長期記憶過程.html#cb469-7" tabindex="-1"></a><span class="co">#&gt; Coefficients:</span></span>
-<span id="cb469-8"><a href="長期記憶過程.html#cb469-8" tabindex="-1"></a><span class="co">#&gt;          Estimate Std. Error z value Pr(&gt;|z|)    </span></span>
-<span id="cb469-9"><a href="長期記憶過程.html#cb469-9" tabindex="-1"></a><span class="co">#&gt; d       0.3353183  0.0009209 364.114  &lt; 2e-16 ***</span></span>
-<span id="cb469-10"><a href="長期記憶過程.html#cb469-10" tabindex="-1"></a><span class="co">#&gt; ar.ar1 -0.2347200  0.0508590  -4.615 3.93e-06 ***</span></span>
-<span id="cb469-11"><a href="長期記憶過程.html#cb469-11" tabindex="-1"></a><span class="co">#&gt; ar.ar2  0.6560776  0.0584624  11.222  &lt; 2e-16 ***</span></span>
-<span id="cb469-12"><a href="長期記憶過程.html#cb469-12" tabindex="-1"></a><span class="co">#&gt; ma.ma1 -0.4738122  0.0668987  -7.083 1.42e-12 ***</span></span>
-<span id="cb469-13"><a href="長期記憶過程.html#cb469-13" tabindex="-1"></a><span class="co">#&gt; ma.ma2  0.4597059  0.0603449   7.618 2.58e-14 ***</span></span>
-<span id="cb469-14"><a href="長期記憶過程.html#cb469-14" tabindex="-1"></a><span class="co">#&gt; ---</span></span>
-<span id="cb469-15"><a href="長期記憶過程.html#cb469-15" tabindex="-1"></a><span class="co">#&gt; Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</span></span>
-<span id="cb469-16"><a href="長期記憶過程.html#cb469-16" tabindex="-1"></a><span class="co">#&gt; sigma[eps] = 0.2161109 </span></span>
-<span id="cb469-17"><a href="長期記憶過程.html#cb469-17" tabindex="-1"></a><span class="co">#&gt; [d.tol = 0.0001221, M = 100, h = 1.787e-06]</span></span>
-<span id="cb469-18"><a href="長期記憶過程.html#cb469-18" tabindex="-1"></a><span class="co">#&gt; Log likelihood: 168.6 ==&gt; AIC = -325.1244 [6 deg.freedom]</span></span>
-<span id="cb469-19"><a href="長期記憶過程.html#cb469-19" tabindex="-1"></a><span class="fu">accuracy</span>(fit_sqrtrv)</span>
-<span id="cb469-20"><a href="長期記憶過程.html#cb469-20" tabindex="-1"></a><span class="co">#&gt;                         ME      RMSE      MAE       MPE     MAPE      MASE</span></span>
-<span id="cb469-21"><a href="長期記憶過程.html#cb469-21" tabindex="-1"></a><span class="co">#&gt; Training set -0.0004485554 0.2160546 0.136351 -9.742148 25.83164 0.9239617</span></span>
-<span id="cb469-22"><a href="長期記憶過程.html#cb469-22" tabindex="-1"></a><span class="co">#&gt;                     ACF1</span></span>
-<span id="cb469-23"><a href="長期記憶過程.html#cb469-23" tabindex="-1"></a><span class="co">#&gt; Training set 0.001251137</span></span></code></pre></div>
+<div class="sourceCode" id="cb469"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb469-1"><a href="長期記憶過程.html#cb469-1" tabindex="-1"></a><span class="co"># sqrt(RV5)</span></span>
+<span id="cb469-2"><a href="長期記憶過程.html#cb469-2" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">sqrt</span>(rv5))</span></code></pre></div>
+<p><img src="050-longmemory_files/figure-html/unnamed-chunk-26-1.png" width="75%" /></p>
+<div class="sourceCode" id="cb470"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb470-1"><a href="長期記憶過程.html#cb470-1" tabindex="-1"></a>fit_sqrtrv <span class="ot">&lt;-</span> forecast<span class="sc">::</span><span class="fu">arfima</span>(<span class="fu">coredata</span>(<span class="fu">sqrt</span>(rv5)))</span>
+<span id="cb470-2"><a href="長期記憶過程.html#cb470-2" tabindex="-1"></a><span class="fu">summary</span>(fit_sqrtrv)</span>
+<span id="cb470-3"><a href="長期記憶過程.html#cb470-3" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb470-4"><a href="長期記憶過程.html#cb470-4" tabindex="-1"></a><span class="co">#&gt; Call:</span></span>
+<span id="cb470-5"><a href="長期記憶過程.html#cb470-5" tabindex="-1"></a><span class="co">#&gt;   forecast::arfima(y = coredata(sqrt(rv5))) </span></span>
+<span id="cb470-6"><a href="長期記憶過程.html#cb470-6" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb470-7"><a href="長期記憶過程.html#cb470-7" tabindex="-1"></a><span class="co">#&gt; Coefficients:</span></span>
+<span id="cb470-8"><a href="長期記憶過程.html#cb470-8" tabindex="-1"></a><span class="co">#&gt;          Estimate Std. Error z value Pr(&gt;|z|)    </span></span>
+<span id="cb470-9"><a href="長期記憶過程.html#cb470-9" tabindex="-1"></a><span class="co">#&gt; d       0.3353183  0.0009209 364.114  &lt; 2e-16 ***</span></span>
+<span id="cb470-10"><a href="長期記憶過程.html#cb470-10" tabindex="-1"></a><span class="co">#&gt; ar.ar1 -0.2347200  0.0508590  -4.615 3.93e-06 ***</span></span>
+<span id="cb470-11"><a href="長期記憶過程.html#cb470-11" tabindex="-1"></a><span class="co">#&gt; ar.ar2  0.6560776  0.0584624  11.222  &lt; 2e-16 ***</span></span>
+<span id="cb470-12"><a href="長期記憶過程.html#cb470-12" tabindex="-1"></a><span class="co">#&gt; ma.ma1 -0.4738122  0.0668987  -7.083 1.42e-12 ***</span></span>
+<span id="cb470-13"><a href="長期記憶過程.html#cb470-13" tabindex="-1"></a><span class="co">#&gt; ma.ma2  0.4597059  0.0603449   7.618 2.58e-14 ***</span></span>
+<span id="cb470-14"><a href="長期記憶過程.html#cb470-14" tabindex="-1"></a><span class="co">#&gt; ---</span></span>
+<span id="cb470-15"><a href="長期記憶過程.html#cb470-15" tabindex="-1"></a><span class="co">#&gt; Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</span></span>
+<span id="cb470-16"><a href="長期記憶過程.html#cb470-16" tabindex="-1"></a><span class="co">#&gt; sigma[eps] = 0.2161109 </span></span>
+<span id="cb470-17"><a href="長期記憶過程.html#cb470-17" tabindex="-1"></a><span class="co">#&gt; [d.tol = 0.0001221, M = 100, h = 1.787e-06]</span></span>
+<span id="cb470-18"><a href="長期記憶過程.html#cb470-18" tabindex="-1"></a><span class="co">#&gt; Log likelihood: 168.6 ==&gt; AIC = -325.1244 [6 deg.freedom]</span></span>
+<span id="cb470-19"><a href="長期記憶過程.html#cb470-19" tabindex="-1"></a><span class="fu">accuracy</span>(fit_sqrtrv)</span>
+<span id="cb470-20"><a href="長期記憶過程.html#cb470-20" tabindex="-1"></a><span class="co">#&gt;                         ME      RMSE      MAE       MPE     MAPE      MASE</span></span>
+<span id="cb470-21"><a href="長期記憶過程.html#cb470-21" tabindex="-1"></a><span class="co">#&gt; Training set -0.0004485554 0.2160546 0.136351 -9.742148 25.83164 0.9239617</span></span>
+<span id="cb470-22"><a href="長期記憶過程.html#cb470-22" tabindex="-1"></a><span class="co">#&gt;                     ACF1</span></span>
+<span id="cb470-23"><a href="長期記憶過程.html#cb470-23" tabindex="-1"></a><span class="co">#&gt; Training set 0.001251137</span></span></code></pre></div>
 <ul>
 <li>対数RV系列</li>
 </ul>
-<div class="sourceCode" id="cb470"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb470-1"><a href="長期記憶過程.html#cb470-1" tabindex="-1"></a><span class="co"># log(RV5)</span></span>
-<span id="cb470-2"><a href="長期記憶過程.html#cb470-2" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">log</span>(rv5))</span></code></pre></div>
-<p><img src="050-longmemory_files/figure-html/unnamed-chunk-23-1.png" width="75%" /></p>
-<div class="sourceCode" id="cb471"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb471-1"><a href="長期記憶過程.html#cb471-1" tabindex="-1"></a>fit_lnrv <span class="ot">&lt;-</span> forecast<span class="sc">::</span><span class="fu">arfima</span>(<span class="fu">coredata</span>(<span class="fu">log</span>(rv5)))</span>
-<span id="cb471-2"><a href="長期記憶過程.html#cb471-2" tabindex="-1"></a><span class="fu">summary</span>(fit_lnrv)</span>
-<span id="cb471-3"><a href="長期記憶過程.html#cb471-3" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb471-4"><a href="長期記憶過程.html#cb471-4" tabindex="-1"></a><span class="co">#&gt; Call:</span></span>
-<span id="cb471-5"><a href="長期記憶過程.html#cb471-5" tabindex="-1"></a><span class="co">#&gt;   forecast::arfima(y = coredata(log(rv5))) </span></span>
-<span id="cb471-6"><a href="長期記憶過程.html#cb471-6" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb471-7"><a href="長期記憶過程.html#cb471-7" tabindex="-1"></a><span class="co">#&gt; Coefficients:</span></span>
-<span id="cb471-8"><a href="長期記憶過程.html#cb471-8" tabindex="-1"></a><span class="co">#&gt;        Estimate Std. Error z value Pr(&gt;|z|)    </span></span>
-<span id="cb471-9"><a href="長期記憶過程.html#cb471-9" tabindex="-1"></a><span class="co">#&gt; d      0.422179   0.008266  51.074  &lt; 2e-16 ***</span></span>
-<span id="cb471-10"><a href="長期記憶過程.html#cb471-10" tabindex="-1"></a><span class="co">#&gt; ar.ar1 0.674953   0.122455   5.512 3.55e-08 ***</span></span>
-<span id="cb471-11"><a href="長期記憶過程.html#cb471-11" tabindex="-1"></a><span class="co">#&gt; ma.ma1 0.535849   0.103727   5.166 2.39e-07 ***</span></span>
-<span id="cb471-12"><a href="長期記憶過程.html#cb471-12" tabindex="-1"></a><span class="co">#&gt; ---</span></span>
-<span id="cb471-13"><a href="長期記憶過程.html#cb471-13" tabindex="-1"></a><span class="co">#&gt; Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</span></span>
-<span id="cb471-14"><a href="長期記憶過程.html#cb471-14" tabindex="-1"></a><span class="co">#&gt; sigma[eps] = 0.5985781 </span></span>
-<span id="cb471-15"><a href="長期記憶過程.html#cb471-15" tabindex="-1"></a><span class="co">#&gt; [d.tol = 0.0001221, M = 100, h = 1.429e-05]</span></span>
-<span id="cb471-16"><a href="長期記憶過程.html#cb471-16" tabindex="-1"></a><span class="co">#&gt; Log likelihood: -1355 ==&gt; AIC = 2717.863 [4 deg.freedom]</span></span>
-<span id="cb471-17"><a href="長期記憶過程.html#cb471-17" tabindex="-1"></a><span class="fu">accuracy</span>(fit_rv)</span>
-<span id="cb471-18"><a href="長期記憶過程.html#cb471-18" tabindex="-1"></a><span class="co">#&gt;                         ME      RMSE       MAE       MPE     MAPE      MASE</span></span>
-<span id="cb471-19"><a href="長期記憶過程.html#cb471-19" tabindex="-1"></a><span class="co">#&gt; Training set -0.0007177275 0.7356355 0.2306756 -69.83532 87.93373 0.9842525</span></span>
-<span id="cb471-20"><a href="長期記憶過程.html#cb471-20" tabindex="-1"></a><span class="co">#&gt;                     ACF1</span></span>
-<span id="cb471-21"><a href="長期記憶過程.html#cb471-21" tabindex="-1"></a><span class="co">#&gt; Training set 0.001397451</span></span></code></pre></div>
-<p>注) <code>fracdiff()</code>の係数は,
+<div class="sourceCode" id="cb471"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb471-1"><a href="長期記憶過程.html#cb471-1" tabindex="-1"></a><span class="co"># log(RV5)</span></span>
+<span id="cb471-2"><a href="長期記憶過程.html#cb471-2" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">log</span>(rv5))</span></code></pre></div>
+<p><img src="050-longmemory_files/figure-html/unnamed-chunk-27-1.png" width="75%" /></p>
+<div class="sourceCode" id="cb472"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb472-1"><a href="長期記憶過程.html#cb472-1" tabindex="-1"></a>fit_lnrv <span class="ot">&lt;-</span> forecast<span class="sc">::</span><span class="fu">arfima</span>(<span class="fu">coredata</span>(<span class="fu">log</span>(rv5)))</span>
+<span id="cb472-2"><a href="長期記憶過程.html#cb472-2" tabindex="-1"></a><span class="fu">summary</span>(fit_lnrv)</span>
+<span id="cb472-3"><a href="長期記憶過程.html#cb472-3" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb472-4"><a href="長期記憶過程.html#cb472-4" tabindex="-1"></a><span class="co">#&gt; Call:</span></span>
+<span id="cb472-5"><a href="長期記憶過程.html#cb472-5" tabindex="-1"></a><span class="co">#&gt;   forecast::arfima(y = coredata(log(rv5))) </span></span>
+<span id="cb472-6"><a href="長期記憶過程.html#cb472-6" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb472-7"><a href="長期記憶過程.html#cb472-7" tabindex="-1"></a><span class="co">#&gt; Coefficients:</span></span>
+<span id="cb472-8"><a href="長期記憶過程.html#cb472-8" tabindex="-1"></a><span class="co">#&gt;        Estimate Std. Error z value Pr(&gt;|z|)    </span></span>
+<span id="cb472-9"><a href="長期記憶過程.html#cb472-9" tabindex="-1"></a><span class="co">#&gt; d      0.422179   0.008266  51.074  &lt; 2e-16 ***</span></span>
+<span id="cb472-10"><a href="長期記憶過程.html#cb472-10" tabindex="-1"></a><span class="co">#&gt; ar.ar1 0.674953   0.122455   5.512 3.55e-08 ***</span></span>
+<span id="cb472-11"><a href="長期記憶過程.html#cb472-11" tabindex="-1"></a><span class="co">#&gt; ma.ma1 0.535849   0.103727   5.166 2.39e-07 ***</span></span>
+<span id="cb472-12"><a href="長期記憶過程.html#cb472-12" tabindex="-1"></a><span class="co">#&gt; ---</span></span>
+<span id="cb472-13"><a href="長期記憶過程.html#cb472-13" tabindex="-1"></a><span class="co">#&gt; Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</span></span>
+<span id="cb472-14"><a href="長期記憶過程.html#cb472-14" tabindex="-1"></a><span class="co">#&gt; sigma[eps] = 0.5985781 </span></span>
+<span id="cb472-15"><a href="長期記憶過程.html#cb472-15" tabindex="-1"></a><span class="co">#&gt; [d.tol = 0.0001221, M = 100, h = 1.429e-05]</span></span>
+<span id="cb472-16"><a href="長期記憶過程.html#cb472-16" tabindex="-1"></a><span class="co">#&gt; Log likelihood: -1355 ==&gt; AIC = 2717.863 [4 deg.freedom]</span></span>
+<span id="cb472-17"><a href="長期記憶過程.html#cb472-17" tabindex="-1"></a><span class="fu">accuracy</span>(fit_rv)</span>
+<span id="cb472-18"><a href="長期記憶過程.html#cb472-18" tabindex="-1"></a><span class="co">#&gt;                         ME      RMSE       MAE       MPE     MAPE      MASE</span></span>
+<span id="cb472-19"><a href="長期記憶過程.html#cb472-19" tabindex="-1"></a><span class="co">#&gt; Training set -0.0007177275 0.7356355 0.2306756 -69.83532 87.93373 0.9842525</span></span>
+<span id="cb472-20"><a href="長期記憶過程.html#cb472-20" tabindex="-1"></a><span class="co">#&gt;                     ACF1</span></span>
+<span id="cb472-21"><a href="長期記憶過程.html#cb472-21" tabindex="-1"></a><span class="co">#&gt; Training set 0.001397451</span></span></code></pre></div>
+<p>注) <code>fracdiff()</code>のAR/MA多項式は,
 <span class="math inline">\(\phi(z) = 1 - \phi_1 z - \cdots - \phi_p z^p\)</span>,
 <span class="math inline">\(\theta(z) = 1 - \theta_1 z - \cdots - \theta_q z^q\)</span>
 であることに注意しよう.</p>
@@ -1095,21 +1139,21 @@ ARFIMAモデルの自動選択&amp;パラメータ推定を実行することが
 <ul>
 <li>RV (分散表示)</li>
 </ul>
-<div class="sourceCode" id="cb472"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb472-1"><a href="長期記憶過程.html#cb472-1" tabindex="-1"></a>fcast_rv <span class="ot">&lt;-</span> <span class="fu">forecast</span>(fit_rv, <span class="at">h =</span> <span class="dv">20</span>)</span>
-<span id="cb472-2"><a href="長期記憶過程.html#cb472-2" tabindex="-1"></a><span class="fu">autoplot</span>(fcast_rv)</span></code></pre></div>
-<p><img src="050-longmemory_files/figure-html/unnamed-chunk-24-1.png" width="75%" /></p>
+<div class="sourceCode" id="cb473"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb473-1"><a href="長期記憶過程.html#cb473-1" tabindex="-1"></a>fcast_rv <span class="ot">&lt;-</span> <span class="fu">forecast</span>(fit_rv, <span class="at">h =</span> <span class="dv">20</span>)</span>
+<span id="cb473-2"><a href="長期記憶過程.html#cb473-2" tabindex="-1"></a><span class="fu">autoplot</span>(fcast_rv)</span></code></pre></div>
+<p><img src="050-longmemory_files/figure-html/unnamed-chunk-28-1.png" width="75%" /></p>
 <ul>
 <li>RV (標準偏差表示)</li>
 </ul>
-<div class="sourceCode" id="cb473"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb473-1"><a href="長期記憶過程.html#cb473-1" tabindex="-1"></a>fcast_sqrtrv <span class="ot">&lt;-</span> <span class="fu">forecast</span>(fit_sqrtrv, <span class="at">h =</span> <span class="dv">20</span>)</span>
-<span id="cb473-2"><a href="長期記憶過程.html#cb473-2" tabindex="-1"></a><span class="fu">autoplot</span>(fcast_sqrtrv)</span></code></pre></div>
-<p><img src="050-longmemory_files/figure-html/unnamed-chunk-25-1.png" width="75%" /></p>
+<div class="sourceCode" id="cb474"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb474-1"><a href="長期記憶過程.html#cb474-1" tabindex="-1"></a>fcast_sqrtrv <span class="ot">&lt;-</span> <span class="fu">forecast</span>(fit_sqrtrv, <span class="at">h =</span> <span class="dv">20</span>)</span>
+<span id="cb474-2"><a href="長期記憶過程.html#cb474-2" tabindex="-1"></a><span class="fu">autoplot</span>(fcast_sqrtrv)</span></code></pre></div>
+<p><img src="050-longmemory_files/figure-html/unnamed-chunk-29-1.png" width="75%" /></p>
 <ul>
 <li>対数RV系列</li>
 </ul>
-<div class="sourceCode" id="cb474"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb474-1"><a href="長期記憶過程.html#cb474-1" tabindex="-1"></a>fcast_lnrv <span class="ot">&lt;-</span> <span class="fu">forecast</span>(fit_lnrv, <span class="at">h =</span> <span class="dv">20</span>)</span>
-<span id="cb474-2"><a href="長期記憶過程.html#cb474-2" tabindex="-1"></a><span class="fu">autoplot</span>(fcast_lnrv)</span></code></pre></div>
-<p><img src="050-longmemory_files/figure-html/unnamed-chunk-26-1.png" width="75%" /></p>
+<div class="sourceCode" id="cb475"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb475-1"><a href="長期記憶過程.html#cb475-1" tabindex="-1"></a>fcast_lnrv <span class="ot">&lt;-</span> <span class="fu">forecast</span>(fit_lnrv, <span class="at">h =</span> <span class="dv">20</span>)</span>
+<span id="cb475-2"><a href="長期記憶過程.html#cb475-2" tabindex="-1"></a><span class="fu">autoplot</span>(fcast_lnrv)</span></code></pre></div>
+<p><img src="050-longmemory_files/figure-html/unnamed-chunk-30-1.png" width="75%" /></p>
 
 </div>
 </div>

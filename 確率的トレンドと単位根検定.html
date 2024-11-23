@@ -262,6 +262,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="長期記憶過程.html"><a href="長期記憶過程.html#arfimaモデルによる外挿予測"><i class="fa fa-check"></i>ARFIMAモデルによる外挿予測</a></li>
 </ul></li>
 </ul></li>
+<li class="chapter" data-level="7" data-path="レジームスイッチングモデル.html"><a href="レジームスイッチングモデル.html"><i class="fa fa-check"></i><b>7</b> レジーム・スイッチング・モデル</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="レジームスイッチングモデル.html"><a href="レジームスイッチングモデル.html#自己回帰マルコフスイッチングモデル-msm-ar"><i class="fa fa-check"></i><b>7.1</b> 自己回帰マルコフ・スイッチング・モデル (MSM-AR)</a></li>
+<li class="chapter" data-level="7.2" data-path="レジームスイッチングモデル.html"><a href="レジームスイッチングモデル.html#msm-arモデルの適合"><i class="fa fa-check"></i><b>7.2</b> MSM-ARモデルの適合</a></li>
+</ul></li>
 </ul>
 
       </nav>
@@ -281,25 +286,44 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="確率的トレンドと単位根検定" class="section level1 hasAnchor" number="5">
 <h1><span class="header-section-number">5</span> 確率的トレンドと単位根検定<a href="確率的トレンドと単位根検定.html#確率的トレンドと単位根検定" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>次のような定数項付きのランダムウォークを考える:
+<span class="math display">\[
+X_t = \beta + X_{t-1}  +Z_t, \quad \{Z_t\} \sim WN(0,\sigma^2).
+\]</span>
+いま, 定数項<span class="math inline">\(\beta \ne 0\)</span>であれば, バイアス有りランダムウォークとも呼ばれる.
+時点<span class="math inline">\(t=0\)</span>において初期値<span class="math inline">\(X_0=\alpha\)</span>からスタートしたとすると,
+再帰的代入によって,
+<span class="math display">\[
+X_t  = \alpha + \beta \cdot t + \eta_t
+\]</span>
+のように書ける. ただし, <span class="math inline">\(\eta_t = \sum_{s=1}^{t} Z_s\)</span>と定義した (<span class="math inline">\(\sum_{s=1}^{0}=0\)</span>と表記). すなわち, 定数項<span class="math inline">\(\beta\)</span>は時点が1ステップ進むことに<span class="math inline">\(X_t\)</span>の期待値が変化する量 (直線の傾き) を, 初期値<span class="math inline">\(\alpha\)</span>は<span class="math inline">\(t=0\)</span>における<span class="math inline">\(X_t\)</span>の期待値の値 (切片項) を表し, 全体として, <span class="math inline">\(\alpha + \beta \cdot t\)</span>は<span class="math inline">\(X_t\)</span>の確定的な線形トレンドを構成している.
+一方, 右辺第3項 <span class="math inline">\(\eta_t\)</span>は, (定数項なし, 初期値0スタートの) ランダムウォークであり,
+<span class="math inline">\(I(1)\)</span>, あるいは<span class="math inline">\(ARIMA(0,1,0)\)</span>と表記される確定過程のクラスの代表例である. 第3項<span class="math inline">\(\eta_t\)</span>は, それ自体が<strong>確率的トレンド</strong>を形成する.</p>
+<p>以上のように, 定数項付き (<span class="math inline">\(\beta \ne 0\)</span>) のランダムウォークは, 線形トレンド部分と確率的トレンド部分を同時に持っている.
+一方, 定数項なし (<span class="math inline">\(\beta = 0\)</span>) のランダムウォークは, 線形トレンド (傾き) を持たず確率的トレンドのみを持つが,
+初期値(<span class="math inline">\(X_0=\alpha\)</span>)の値だけ<span class="math inline">\(y\)</span>軸方向にシフト (切片項) する.</p>
+<p>次に, この定数項付きのランダムウォークを一般化して「確率的トレンド」モデルとして定義し, 一方, 第3項<span class="math inline">\(\eta_t\)</span>が (ランダムウォークせず) 確率的トレンドを持たないような「確定的トレンド」モデルとの比較を行う.</p>
 <div id="確率的トレンド-vs-確定的トレンド" class="section level2 hasAnchor" number="5.1">
 <h2><span class="header-section-number">5.1</span> 確率的トレンド vs 確定的トレンド<a href="確率的トレンドと単位根検定.html#確率的トレンド-vs-確定的トレンド" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<ul>
-<li><p>確定的 (線形) トレンド (deterministic (linear) trend)
+<p>-「確定的 (線形) トレンド (deterministic (linear) trend)」モデル
 <span class="math display">\[
 X_{t}={\color{olive}\alpha}+\beta\cdot t+\eta_{t},
 \quad \{\eta_{t}\}\sim\mathrm{ARMA}(p,q)
-\]</span></p></li>
-<li><p>確率的トレンド (stochastic trend)
+\]</span></p>
+<p>-「確率的トレンド (stochastic trend)」モデル
 <span class="math display">\[
 X_{t}={\color{olive}\alpha}+\beta\cdot t+\eta_{t},
 \quad \{\eta_{t}\}\sim\mathrm{ARIMA}(p,1,q)
-\]</span></p></li>
-</ul>
+\]</span></p>
+<p>より正確には, この「確率的トレンド」モデルは,
+「確定的トレンド」を表す項<span class="math inline">\(\alpha+\beta\cdot t\)</span>と
+文字通り「確率的トレンド」をもたらす項<span class="math inline">\(\eta_t\)</span>の
+二つの成分が重なり合って生成されている.</p>
 <p>例えば, <span class="math inline">\(\alpha=0,\beta=0.05,\phi(z)=1-\phi_{1}z\)</span> において, 順に, <span class="math inline">\(\phi_{1}=1,0.98, 0.95\)</span>の場合について,
-同一の乱数を用いて一本のサンプルパスを生成した場合を図示する.</p>
+同一の乱数を用いて一本のサンプルパスを生成した場合を図示する. (テクニカルな注: 厳密には, いずれのケースも初期値<span class="math inline">\(X_0=0\)</span>からシミュレーションをスタートしているため, 確定的トレンドの二つのケースは, 事象 <span class="math inline">\(\{X_0=0\}\)</span>の条件の下での定常性を有する確率過程のサンプルパスである. 一方, 確率的トレンドのケースは初期値の設定有無によらず常に非定常である.)</p>
 <p><img src="042-unitroot_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
-<p>確定的な線形トレンドと確率的トレンドは, 見かけ上は区別が
-しにくいケースが多いが, 時系列的な性質は大きく異なる.
+<p>これらの「確定的な(線形トレンド)」モデルと「確率的トレンド」モデルは, モデルの形状は類似しているが,
+<!-- 見かけ上は区別がしにくいケースが多いが,--> 時系列的な性質は大きく異なる.
 特に, 確率的トレンドを持つ場合は, 時間と共に観測時系列の
 分散は増大していく一方, それを持たない場合には, 時間を通じて
 定常 (分散は一定) であるという違いがある.</p>
@@ -311,7 +335,14 @@ X_{t}={\color{olive}\alpha}+\beta\cdot t+\eta_{t},
 確定的トレンドなのか, 確率的トレンドなのかを
 目視により判断するのは容易ではない.
 -->
-<p>厄介なことに, 確定的線形トレンドを構成するパラメータ
+<p>「確率的トレンド」モデルは,
+確定的トレンド部分と確率的トレンド部分を同時に
+持っていたが,
+私達が手にする実際の時系列データが見かけ上トレンドを
+持っている時, それを確定的トレンドの部分と
+確率的トレンドの部分に仕分けするのは容易ではない.</p>
+<p>単位根検定を実施する際に,
+厄介なことに, 確定的線形トレンドを構成するパラメータ
 切片項<span class="math inline">\(\alpha\)</span>, 傾き<span class="math inline">\(\beta\)</span>の有無によって,
 単位根検定を行う際の理論的な評価の計算方法が変わる
 ため, 検定結果がパラメータに関する仮定に依存する
@@ -498,7 +529,7 @@ unitrootTest(x, lags = 1, type = c(&quot;nc&quot;, &quot;c&quot;, &quot;ct&quot;
 ##     0.703 
 ## 
 ## Description:
-##  Mon Nov 18 10:35:31 2024 by user:</code></pre>
+##  Sat Nov 23 14:12:48 2024 by user:</code></pre>
 <div class="sourceCode" id="cb347"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb347-1"><a href="確率的トレンドと単位根検定.html#cb347-1" tabindex="-1"></a><span class="fu">unitrootTest</span>(x, <span class="at">type =</span> <span class="st">&quot;nc&quot;</span>, <span class="at">lags =</span> <span class="dv">1</span>)</span></code></pre></div>
 <pre><code>## 
 ## Title:
@@ -514,7 +545,7 @@ unitrootTest(x, lags = 1, type = c(&quot;nc&quot;, &quot;c&quot;, &quot;ct&quot;
 ##     n: 0.7506 
 ## 
 ## Description:
-##  Mon Nov 18 10:35:31 2024 by user:</code></pre>
+##  Sat Nov 23 14:12:48 2024 by user:</code></pre>
 <p>→ 二つの関数の結果を比較せよ.</p>
 <div class="sourceCode" id="cb349"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb349-1"><a href="確率的トレンドと単位根検定.html#cb349-1" tabindex="-1"></a><span class="fu">adfTest</span>(y, <span class="at">type =</span> <span class="st">&quot;nc&quot;</span>, <span class="at">lags =</span> <span class="dv">1</span>)</span></code></pre></div>
 <pre><code>## 
@@ -530,7 +561,7 @@ unitrootTest(x, lags = 1, type = c(&quot;nc&quot;, &quot;c&quot;, &quot;ct&quot;
 ##     0.3835 
 ## 
 ## Description:
-##  Mon Nov 18 10:35:31 2024 by user:</code></pre>
+##  Sat Nov 23 14:12:48 2024 by user:</code></pre>
 <div class="sourceCode" id="cb351"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb351-1"><a href="確率的トレンドと単位根検定.html#cb351-1" tabindex="-1"></a><span class="fu">unitrootTest</span>(y, <span class="at">type =</span> <span class="st">&quot;nc&quot;</span>, <span class="at">lags =</span> <span class="dv">1</span>)</span></code></pre></div>
 <pre><code>## 
 ## Title:
@@ -546,7 +577,7 @@ unitrootTest(x, lags = 1, type = c(&quot;nc&quot;, &quot;c&quot;, &quot;ct&quot;
 ##     n: 0.522 
 ## 
 ## Description:
-##  Mon Nov 18 10:35:31 2024 by user:</code></pre>
+##  Sat Nov 23 14:12:48 2024 by user:</code></pre>
 <p>→ いずれも, 帰無仮説 (<span class="math inline">\(\phi_1=1\)</span>) を棄却せず (単位根有り).</p>
 <div class="sourceCode" id="cb353"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb353-1"><a href="確率的トレンドと単位根検定.html#cb353-1" tabindex="-1"></a><span class="fu">adfTest</span>(x, <span class="at">type =</span> <span class="st">&quot;c&quot;</span>, <span class="at">lags =</span> <span class="dv">1</span>)</span></code></pre></div>
 <pre><code>## 
@@ -562,7 +593,7 @@ unitrootTest(x, lags = 1, type = c(&quot;nc&quot;, &quot;c&quot;, &quot;ct&quot;
 ##     0.5166 
 ## 
 ## Description:
-##  Mon Nov 18 10:35:31 2024 by user:</code></pre>
+##  Sat Nov 23 14:12:48 2024 by user:</code></pre>
 <div class="sourceCode" id="cb355"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb355-1"><a href="確率的トレンドと単位根検定.html#cb355-1" tabindex="-1"></a><span class="co"># unitrootTest(x, type = &quot;c&quot;, lags = 1)</span></span>
 <span id="cb355-2"><a href="確率的トレンドと単位根検定.html#cb355-2" tabindex="-1"></a><span class="fu">adfTest</span>(y, <span class="at">type =</span> <span class="st">&quot;c&quot;</span>, <span class="at">lags =</span> <span class="dv">1</span>)</span></code></pre></div>
 <pre><code>## 
@@ -578,7 +609,7 @@ unitrootTest(x, lags = 1, type = c(&quot;nc&quot;, &quot;c&quot;, &quot;ct&quot;
 ##     0.6617 
 ## 
 ## Description:
-##  Mon Nov 18 10:35:31 2024 by user:</code></pre>
+##  Sat Nov 23 14:12:48 2024 by user:</code></pre>
 <div class="sourceCode" id="cb357"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb357-1"><a href="確率的トレンドと単位根検定.html#cb357-1" tabindex="-1"></a><span class="co"># unitrootTest(y, type = &quot;c&quot;, lags = 1)</span></span></code></pre></div>
 <div class="sourceCode" id="cb358"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb358-1"><a href="確率的トレンドと単位根検定.html#cb358-1" tabindex="-1"></a><span class="fu">adfTest</span>(x, <span class="at">type =</span> <span class="st">&quot;c&quot;</span>, <span class="at">lags =</span> <span class="dv">1</span>)</span></code></pre></div>
 <pre><code>## 
@@ -594,7 +625,7 @@ unitrootTest(x, lags = 1, type = c(&quot;nc&quot;, &quot;c&quot;, &quot;ct&quot;
 ##     0.5166 
 ## 
 ## Description:
-##  Mon Nov 18 10:35:31 2024 by user:</code></pre>
+##  Sat Nov 23 14:12:48 2024 by user:</code></pre>
 <div class="sourceCode" id="cb360"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb360-1"><a href="確率的トレンドと単位根検定.html#cb360-1" tabindex="-1"></a><span class="co"># unitrootTest(x, type = &quot;ct&quot;, lags = 1)</span></span>
 <span id="cb360-2"><a href="確率的トレンドと単位根検定.html#cb360-2" tabindex="-1"></a><span class="fu">adfTest</span>(y, <span class="at">type =</span> <span class="st">&quot;c&quot;</span>, <span class="at">lags =</span> <span class="dv">1</span>)</span></code></pre></div>
 <pre><code>## 
@@ -610,7 +641,7 @@ unitrootTest(x, lags = 1, type = c(&quot;nc&quot;, &quot;c&quot;, &quot;ct&quot;
 ##     0.6617 
 ## 
 ## Description:
-##  Mon Nov 18 10:35:31 2024 by user:</code></pre>
+##  Sat Nov 23 14:12:48 2024 by user:</code></pre>
 <div class="sourceCode" id="cb362"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb362-1"><a href="確率的トレンドと単位根検定.html#cb362-1" tabindex="-1"></a><span class="co"># unitrootTest(y, type = &quot;ct&quot;, lags = 1)</span></span></code></pre></div>
 </div>
 <div id="パッケージtseries" class="section level3 unnumbered hasAnchor">
@@ -1161,7 +1192,7 @@ ur.pp(x, type = c(&quot;Z-alpha&quot;, &quot;Z-tau&quot;), model = c(&quot;const
 ## 
 ## Coefficients:
 ##              Estimate Std. Error t value Pr(&gt;|t|)    
-## (Intercept) 25.705352   9.478623   2.712  0.00680 ** 
+## (Intercept) 25.705362   9.478625   2.712  0.00680 ** 
 ## y.l1         0.987289   0.005062 195.048  &lt; 2e-16 ***
 ## trend        0.030037   0.011404   2.634  0.00857 ** 
 ## ---
@@ -1195,7 +1226,7 @@ ur.pp(x, type = c(&quot;Z-alpha&quot;, &quot;Z-tau&quot;), model = c(&quot;const
 ## 
 ## Coefficients:
 ##              Estimate Std. Error t value Pr(&gt;|t|)    
-## (Intercept) 25.705352   9.478623   2.712  0.00680 ** 
+## (Intercept) 25.705362   9.478625   2.712  0.00680 ** 
 ## y.l1         0.987289   0.005062 195.048  &lt; 2e-16 ***
 ## trend        0.030037   0.011404   2.634  0.00857 ** 
 ## ---
@@ -1229,7 +1260,7 @@ ur.pp(x, type = c(&quot;Z-alpha&quot;, &quot;Z-tau&quot;), model = c(&quot;const
 ## 
 ## Coefficients:
 ##              Estimate Std. Error t value Pr(&gt;|t|)    
-## (Intercept) 25.705352   9.478623   2.712  0.00680 ** 
+## (Intercept) 25.705362   9.478625   2.712  0.00680 ** 
 ## y.l1         0.987289   0.005062 195.048  &lt; 2e-16 ***
 ## trend        0.030037   0.011404   2.634  0.00857 ** 
 ## ---
@@ -1267,7 +1298,7 @@ ur.pp(x, type = c(&quot;Z-alpha&quot;, &quot;Z-tau&quot;), model = c(&quot;const
 ## 
 ## Coefficients:
 ##             Estimate Std. Error t value Pr(&gt;|t|)    
-## (Intercept) 2.828506   3.806292   0.743    0.458    
+## (Intercept) 2.828508   3.806293   0.743    0.458    
 ## y.l1        0.999615   0.001934 516.776   &lt;2e-16 ***
 ## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
@@ -1298,9 +1329,9 @@ ur.pp(x, type = c(&quot;Z-alpha&quot;, &quot;Z-tau&quot;), model = c(&quot;const
 <p>観測過程が <span class="math inline">\(\{X_{t}\}=\)</span>確定的トレンド + ランダムウォーク + 定常過程,</p>
 <p>すなわち,
 <span class="math display">\[
-\{X_{t}\} = \alpha+\beta t + \sum_{s=1}^{t}Z_{s} + \epsilon_{t}, \, Z_t\sim IID(0,\sigma_Z^2)
+X_{t} = \alpha+\beta \cdot t + \sum_{s=1}^{t}Z_{s} + \epsilon_{t}, \, \{Z_t\}\sim IID(0,\sigma_Z^2)
 \]</span>
-として生成されていると仮定, ランダムウォーク項の有無を, <span class="math inline">\(Z_t\)</span>の分散が0か否かを調べることで検定を行う.</p>
+として生成されていると仮定, ランダムウォーク項の有無の検定を<span class="math inline">\(Z_t\)</span>の分散が0か否かを調べることで行う.</p>
 <ul>
 <li><span class="math inline">\(H_{0}:\,\sigma_{Z}^{2}=0\)</span> (トレンド定常過程) vs <span class="math inline">\(H_{1}:\,\sigma_{Z}^{2}\ne0\)</span> (単位根過程)</li>
 </ul>

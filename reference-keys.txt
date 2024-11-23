@@ -1,6 +1,6 @@
 fig:quantmod-1
 fig:quantmod-2
-tab:unnamed-chunk-18
+tab:unnamed-chunk-21
 はじめに
 時系列モデリング
 金融時系列データの特徴
@@ -70,3 +70,6 @@ hurst指数の推定
 arfimaモデルの推定
 arfimaモデル-データ分析例-1
 arfimaモデル-データ分析例-2
+レジームスイッチングモデル
+自己回帰マルコフスイッチングモデル-msm-ar
+msm-arモデルの適合

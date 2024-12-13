@@ -76,8 +76,13 @@ msm-arモデルの適合
 garchモデル
 収益率データとarch効果
 archgarchモデル
+archgarchモデルのシミュレーション
 archgarchモデルの適合
 garchモデル-データ分析例-tsay-ch4
+varモデル
+varpモデルのシミュレーション
+varpモデルの同定推定予測
+var解析
 バブル-生成崩壊-検出
 検定法に関する最近のレビュー論文
 supreme-adf検定sadf-pwy-2011-generalized-supreme-adf-検定gsadf-psy-2015

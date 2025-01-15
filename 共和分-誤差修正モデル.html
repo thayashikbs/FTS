@@ -346,6 +346,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="共和分分析.html"><a href="共和分分析.html#誤差修正モデル-ecm-の推定"><i class="fa fa-check"></i>誤差修正モデル (ECM) の推定</a></li>
 </ul></li>
 </ul></li>
+<li class="chapter" data-level="11" data-path="多変量ボラティリティモデル.html"><a href="多変量ボラティリティモデル.html"><i class="fa fa-check"></i><b>11</b> 多変量ボラティリティ・モデル</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="多変量ボラティリティモデル.html"><a href="多変量ボラティリティモデル.html#ボラティリティスピルオーバー-volatility-spillover"><i class="fa fa-check"></i><b>11.1</b> ボラティリティ・スピルオーバー (volatility spillover)</a></li>
+<li class="chapter" data-level="11.2" data-path="多変量ボラティリティモデル.html"><a href="多変量ボラティリティモデル.html#多変量garchモデル-データ分析例-tsay-mts-ch.7"><i class="fa fa-check"></i><b>11.2</b> 多変量GARCHモデル: データ分析例 (Tsay, MTS, Ch.7)</a>
+<ul>
+<li class="chapter" data-level="" data-path="多変量ボラティリティモデル.html"><a href="多変量ボラティリティモデル.html#多変量時系列データの条件付不均一分散性の検定"><i class="fa fa-check"></i>多変量時系列データの条件付不均一分散性の検定</a></li>
+<li class="chapter" data-level="" data-path="多変量ボラティリティモデル.html"><a href="多変量ボラティリティモデル.html#指数加重移動平均法-ewma"><i class="fa fa-check"></i>指数加重移動平均法 (EWMA)</a></li>
+<li class="chapter" data-level="" data-path="多変量ボラティリティモデル.html"><a href="多変量ボラティリティモデル.html#bekk1-1モデル"><i class="fa fa-check"></i>BEKK(1, 1)モデル</a></li>
+<li class="chapter" data-level="" data-path="多変量ボラティリティモデル.html"><a href="多変量ボラティリティモデル.html#cholesky分解を利用したボラティリティモデリングおよび推定"><i class="fa fa-check"></i>Cholesky分解を利用したボラティリティ・モデリングおよび推定</a></li>
+<li class="chapter" data-level="" data-path="多変量ボラティリティモデル.html"><a href="多変量ボラティリティモデル.html#dcc-dynamic-conditional-correlation-モデル"><i class="fa fa-check"></i>DCC (Dynamic Conditional Correlation) モデル</a></li>
+<li class="chapter" data-level="" data-path="多変量ボラティリティモデル.html"><a href="多変量ボラティリティモデル.html#go-garchモデル"><i class="fa fa-check"></i>GO-GARCHモデル</a></li>
+<li class="chapter" data-level="" data-path="多変量ボラティリティモデル.html"><a href="多変量ボラティリティモデル.html#コピュラに基づくアプローチ"><i class="fa fa-check"></i>コピュラに基づくアプローチ</a></li>
+</ul></li>
+</ul></li>
 <li class="appendix"><span><b>Appendix 参考文献</b></span></li>
 <li class="chapter" data-level="A" data-path="バブル-生成崩壊-検出.html"><a href="バブル-生成崩壊-検出.html"><i class="fa fa-check"></i><b>A</b> バブル (生成・崩壊) 検出</a>
 <ul>
@@ -414,28 +428,28 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="共和分-誤差修正モデル" class="section level1 hasAnchor" number="15">
+<div id="共和分-誤差修正モデル" class="section level1 hasAnchor" number="16">
 <h1><span class="header-section-number">E</span> 共和分/ 誤差修正モデル<a href="共和分-誤差修正モデル.html#共和分-誤差修正モデル" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <!-- - 2024年1月17日 -->
 <ul>
 <li><p>金融/経済時系列の分析, 近年, 新興市場に関する実証研究多数. (確立された方法論, 論文書き易い)</p></li>
 <li><p>金融市場における応用例: 統計的アービトラージ・ペア・トレード, 現物–先物裁定取引, 指数トラッキング, 信用スプレッド取引, ヘッジ取引, …</p></li>
 </ul>
-<div id="株式市場とマクロ変数-国際株式市場間の分析" class="section level2 hasAnchor" number="15.1">
+<div id="株式市場とマクロ変数-国際株式市場間の分析" class="section level2 hasAnchor" number="16.1">
 <h2><span class="header-section-number">E.1</span> 株式市場とマクロ変数, 国際株式市場間の分析<a href="共和分-誤差修正モデル.html#株式市場とマクロ変数-国際株式市場間の分析" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ul>
 <li>Ramin Cooper Maysami, Tiong Sim Koh (2000). A vector error correction model of the Singapore stock market, <em>International Review of Economics &amp; Finance</em>, 9(1), 79-96.
 <a href="https://doi.org/10.1016/S1059-0560(99)00042-8" class="uri">https://doi.org/10.1016/S1059-0560(99)00042-8</a>. (<a href="https://www.sciencedirect.com/science/article/pii/S1059056099000428" class="uri">https://www.sciencedirect.com/science/article/pii/S1059056099000428</a>)</li>
 </ul>
 </div>
-<div id="個別株式の複数取引所株価間の分析" class="section level2 hasAnchor" number="15.2">
+<div id="個別株式の複数取引所株価間の分析" class="section level2 hasAnchor" number="16.2">
 <h2><span class="header-section-number">E.2</span> 個別株式の複数取引所株価間の分析<a href="共和分-誤差修正モデル.html#個別株式の複数取引所株価間の分析" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ul>
 <li>deB. Harris F.H., McInish T.H., Shoesmith G.L., Wood R.A. (1995). Cointegration, Error Correction, and Price Discovery on Informationally Linked Security Markets. <em>Journal of Financial and Quantitative Analysis</em>, 30(4):563-579.<br />
 <a href="https//doi.org.10.2307/2331277">https//doi.org.10.2307/2331277</a></li>
 </ul>
 </div>
-<div id="高頻度データ-bidask価格-の分析" class="section level2 hasAnchor" number="15.3">
+<div id="高頻度データ-bidask価格-の分析" class="section level2 hasAnchor" number="16.3">
 <h2><span class="header-section-number">E.3</span> 高頻度データ (bid/ask価格) の分析<a href="共和分-誤差修正モデル.html#高頻度データ-bidask価格-の分析" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ul>
 <li><p>Robert F. Engle, Andrew J. Patton (2004). Impacts of trades in an error-correction model of quote prices, Journal of Financial Markets, 7(1), 1-25.
@@ -443,7 +457,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><a href="https://archive.nyu.edu/bitstream/2451/26697/2/FIN-00-033.pdf" class="uri">https://archive.nyu.edu/bitstream/2451/26697/2/FIN-00-033.pdf</a></p></li>
 </ul>
 </div>
-<div id="統計的アービトラージ-ペアトレード" class="section level2 hasAnchor" number="15.4">
+<div id="統計的アービトラージ-ペアトレード" class="section level2 hasAnchor" number="16.4">
 <h2><span class="header-section-number">E.4</span> 統計的アービトラージ / ペアトレード<a href="共和分-誤差修正モデル.html#統計的アービトラージ-ペアトレード" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ul>
 <li>Krauss, Christopher (2017). Statistical arbitrage pairs trading strategies: Review and outlook, <em>Journal of Economic Surveys</em>, 31(2), 513–545.<br />
@@ -451,7 +465,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a href="https://www.econstor.eu/bitstream/10419/116783/1/833997289.pdf"></a></li>
 </ul>
 </div>
-<div id="国際株式市場間のヘッジ" class="section level2 hasAnchor" number="15.5">
+<div id="国際株式市場間のヘッジ" class="section level2 hasAnchor" number="16.5">
 <h2><span class="header-section-number">E.5</span> 国際株式市場間のヘッジ<a href="共和分-誤差修正モデル.html#国際株式市場間のヘッジ" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ul>
 <li>Alexander Carol (1999). Optimal hedging using cointegration, <em>Phil. Trans. R. Soc. A.</em> 3572039–2058.
@@ -459,7 +473,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a href="https://www.researchgate.net/publication/242031262_Optimal_hedging_using_cointegration"></a></li>
 </ul>
 </div>
-<div id="クレジットスプレッド-株式-cds-債券-の分析" class="section level2 hasAnchor" number="15.6">
+<div id="クレジットスプレッド-株式-cds-債券-の分析" class="section level2 hasAnchor" number="16.6">
 <h2><span class="header-section-number">E.6</span> クレジット・スプレッド (株式, CDS, 債券) の分析<a href="共和分-誤差修正モデル.html#クレジットスプレッド-株式-cds-債券-の分析" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ul>
 <li>Santiago Forte, Juan Ignacio Peña (2009). Credit spreads: An empirical analysis on the informational content of stocks, bonds, and CDS, <em>Journal of Banking &amp; Finance</em>, 33(11), 2013-2025.

@@ -30,7 +30,7 @@
   
   
 <link rel="prev" href="varモデル.html"/>
-<link rel="next" href="バブル-生成崩壊-検出.html"/>
+<link rel="next" href="多変量ボラティリティモデル.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -346,6 +346,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="共和分分析.html"><a href="共和分分析.html#誤差修正モデル-ecm-の推定"><i class="fa fa-check"></i>誤差修正モデル (ECM) の推定</a></li>
 </ul></li>
 </ul></li>
+<li class="chapter" data-level="11" data-path="多変量ボラティリティモデル.html"><a href="多変量ボラティリティモデル.html"><i class="fa fa-check"></i><b>11</b> 多変量ボラティリティ・モデル</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="多変量ボラティリティモデル.html"><a href="多変量ボラティリティモデル.html#ボラティリティスピルオーバー-volatility-spillover"><i class="fa fa-check"></i><b>11.1</b> ボラティリティ・スピルオーバー (volatility spillover)</a></li>
+<li class="chapter" data-level="11.2" data-path="多変量ボラティリティモデル.html"><a href="多変量ボラティリティモデル.html#多変量garchモデル-データ分析例-tsay-mts-ch.7"><i class="fa fa-check"></i><b>11.2</b> 多変量GARCHモデル: データ分析例 (Tsay, MTS, Ch.7)</a>
+<ul>
+<li class="chapter" data-level="" data-path="多変量ボラティリティモデル.html"><a href="多変量ボラティリティモデル.html#多変量時系列データの条件付不均一分散性の検定"><i class="fa fa-check"></i>多変量時系列データの条件付不均一分散性の検定</a></li>
+<li class="chapter" data-level="" data-path="多変量ボラティリティモデル.html"><a href="多変量ボラティリティモデル.html#指数加重移動平均法-ewma"><i class="fa fa-check"></i>指数加重移動平均法 (EWMA)</a></li>
+<li class="chapter" data-level="" data-path="多変量ボラティリティモデル.html"><a href="多変量ボラティリティモデル.html#bekk1-1モデル"><i class="fa fa-check"></i>BEKK(1, 1)モデル</a></li>
+<li class="chapter" data-level="" data-path="多変量ボラティリティモデル.html"><a href="多変量ボラティリティモデル.html#cholesky分解を利用したボラティリティモデリングおよび推定"><i class="fa fa-check"></i>Cholesky分解を利用したボラティリティ・モデリングおよび推定</a></li>
+<li class="chapter" data-level="" data-path="多変量ボラティリティモデル.html"><a href="多変量ボラティリティモデル.html#dcc-dynamic-conditional-correlation-モデル"><i class="fa fa-check"></i>DCC (Dynamic Conditional Correlation) モデル</a></li>
+<li class="chapter" data-level="" data-path="多変量ボラティリティモデル.html"><a href="多変量ボラティリティモデル.html#go-garchモデル"><i class="fa fa-check"></i>GO-GARCHモデル</a></li>
+<li class="chapter" data-level="" data-path="多変量ボラティリティモデル.html"><a href="多変量ボラティリティモデル.html#コピュラに基づくアプローチ"><i class="fa fa-check"></i>コピュラに基づくアプローチ</a></li>
+</ul></li>
+</ul></li>
 <li class="appendix"><span><b>Appendix 参考文献</b></span></li>
 <li class="chapter" data-level="A" data-path="バブル-生成崩壊-検出.html"><a href="バブル-生成崩壊-検出.html"><i class="fa fa-check"></i><b>A</b> バブル (生成・崩壊) 検出</a>
 <ul>
@@ -655,7 +669,7 @@ y_{4,t} &amp;= w_{1,t}+ 2 w_{2,t} + u_{4,t}
 ##     0.5756 
 ## 
 ## Description:
-##  Mon Dec 30 14:12:54 2024 by user:</code></pre>
+##  Wed Jan 15 21:54:15 2025 by user:</code></pre>
 <div class="sourceCode" id="cb825"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb825-1"><a href="共和分分析.html#cb825-1" tabindex="-1"></a>fUnitRoots<span class="sc">::</span><span class="fu">adfTest</span>(y2)</span></code></pre></div>
 <pre><code>## 
 ## Title:
@@ -670,7 +684,7 @@ y_{4,t} &amp;= w_{1,t}+ 2 w_{2,t} + u_{4,t}
 ##     0.6497 
 ## 
 ## Description:
-##  Mon Dec 30 14:12:54 2024 by user:</code></pre>
+##  Wed Jan 15 21:54:15 2025 by user:</code></pre>
 <div class="sourceCode" id="cb827"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb827-1"><a href="共和分分析.html#cb827-1" tabindex="-1"></a>fUnitRoots<span class="sc">::</span><span class="fu">adfTest</span>(y3)</span></code></pre></div>
 <pre><code>## 
 ## Title:
@@ -685,7 +699,7 @@ y_{4,t} &amp;= w_{1,t}+ 2 w_{2,t} + u_{4,t}
 ##     0.5766 
 ## 
 ## Description:
-##  Mon Dec 30 14:12:54 2024 by user:</code></pre>
+##  Wed Jan 15 21:54:15 2025 by user:</code></pre>
 <div class="sourceCode" id="cb829"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb829-1"><a href="共和分分析.html#cb829-1" tabindex="-1"></a>fUnitRoots<span class="sc">::</span><span class="fu">adfTest</span>(y4)</span></code></pre></div>
 <pre><code>## 
 ## Title:
@@ -700,7 +714,7 @@ y_{4,t} &amp;= w_{1,t}+ 2 w_{2,t} + u_{4,t}
 ##     0.3768 
 ## 
 ## Description:
-##  Mon Dec 30 14:12:54 2024 by user:</code></pre>
+##  Wed Jan 15 21:54:15 2025 by user:</code></pre>
 <div id="englegrangerの方法-philips-ouliaris検定" class="section level3 unnumbered hasAnchor">
 <h3>Engle–Grangerの方法 (Philips-Ouliaris検定)<a href="共和分分析.html#englegrangerの方法-philips-ouliaris検定" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>共和分検定の方法の一つであるPhilips-Ouliaris検定は,
@@ -1098,7 +1112,7 @@ Johansen検定は, 理論的にはもとのVAR(<span class="math inline">\(p\)</
 ##     0.01 
 ## 
 ## Description:
-##  Mon Dec 30 14:12:55 2024 by user:</code></pre>
+##  Wed Jan 15 21:54:16 2025 by user:</code></pre>
 <div class="sourceCode" id="cb863"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb863-1"><a href="共和分分析.html#cb863-1" tabindex="-1"></a>fUnitRoots<span class="sc">::</span><span class="fu">adfTest</span>(coint_resid[, <span class="dv">2</span>])</span></code></pre></div>
 <pre><code>## Warning in fUnitRoots::adfTest(coint_resid[, 2]): p-value smaller than printed
 ## p-value</code></pre>
@@ -1115,7 +1129,7 @@ Johansen検定は, 理論的にはもとのVAR(<span class="math inline">\(p\)</
 ##     0.01 
 ## 
 ## Description:
-##  Mon Dec 30 14:12:55 2024 by user:</code></pre>
+##  Wed Jan 15 21:54:16 2025 by user:</code></pre>
 <div class="sourceCode" id="cb866"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb866-1"><a href="共和分分析.html#cb866-1" tabindex="-1"></a><span class="do">##fUnitRoots::adfTest(coint_resid[, 3])</span></span>
 <span id="cb866-2"><a href="共和分分析.html#cb866-2" tabindex="-1"></a><span class="do">##fUnitRoots::adfTest(coint_resid[, 4])</span></span></code></pre></div>
 <ul>
@@ -1370,7 +1384,7 @@ Rコードと実行結果の要点を記載する.</p>
 ##     0.425 
 ## 
 ## Description:
-##  Mon Dec 30 14:12:56 2024 by user:</code></pre>
+##  Wed Jan 15 21:54:19 2025 by user:</code></pre>
 <div class="sourceCode" id="cb884"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb884-1"><a href="共和分分析.html#cb884-1" tabindex="-1"></a>fUnitRoots<span class="sc">::</span><span class="fu">adfTest</span>(bnd[, <span class="dv">2</span>], <span class="at">lags =</span> <span class="dv">2</span>, <span class="at">type =</span> <span class="st">&quot;c&quot;</span>)</span></code></pre></div>
 <pre><code>## 
 ## Title:
@@ -1385,7 +1399,7 @@ Rコードと実行結果の要点を記載する.</p>
 ##     0.4544 
 ## 
 ## Description:
-##  Mon Dec 30 14:12:56 2024 by user:</code></pre>
+##  Wed Jan 15 21:54:19 2025 by user:</code></pre>
 <ul>
 <li>–&gt; Aaa, Baa系列のADF検定、棄却されない (H0: 単位根非定常)</li>
 </ul>
@@ -1562,7 +1576,7 @@ Rコードと実行結果の要点を記載する.</p>
 ##     0.01 
 ## 
 ## Description:
-##  Mon Dec 30 14:12:56 2024 by user:</code></pre>
+##  Wed Jan 15 21:54:19 2025 by user:</code></pre>
 <ul>
 <li>→ <span class="math inline">\(p\)</span>値<span class="math inline">\(=0.01\)</span> (単位根無)</li>
 </ul>
@@ -1890,16 +1904,13 @@ Rコードと実行結果の要点を記載する.</p>
 </div>
 </div>
 </div>
-
-
-
             </section>
 
           </div>
         </div>
       </div>
 <a href="varモデル.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="バブル-生成崩壊-検出.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="多変量ボラティリティモデル.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

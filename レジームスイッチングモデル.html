@@ -360,6 +360,29 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="多変量ボラティリティモデル.html"><a href="多変量ボラティリティモデル.html#コピュラに基づくアプローチ"><i class="fa fa-check"></i>コピュラに基づくアプローチ</a></li>
 </ul></li>
 </ul></li>
+<li class="chapter" data-level="12" data-path="動的線形モデル.html"><a href="動的線形モデル.html"><i class="fa fa-check"></i><b>12</b> 動的線形モデル</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="動的線形モデル.html"><a href="動的線形モデル.html#局所水準-local-level-モデル"><i class="fa fa-check"></i><b>12.1</b> 局所水準 (local level) モデル</a>
+<ul>
+<li class="chapter" data-level="" data-path="動的線形モデル.html"><a href="動的線形モデル.html#フィルタリング"><i class="fa fa-check"></i>フィルタリング</a></li>
+<li class="chapter" data-level="" data-path="動的線形モデル.html"><a href="動的線形モデル.html#スムージング-平滑化"><i class="fa fa-check"></i>スムージング (平滑化)</a></li>
+<li class="chapter" data-level="" data-path="動的線形モデル.html"><a href="動的線形モデル.html#状態予測"><i class="fa fa-check"></i>状態予測</a></li>
+<li class="chapter" data-level="" data-path="動的線形モデル.html"><a href="動的線形モデル.html#モデル診断-1"><i class="fa fa-check"></i>モデル診断</a></li>
+<li class="chapter" data-level="" data-path="動的線形モデル.html"><a href="動的線形モデル.html#モデルパラメータの推定"><i class="fa fa-check"></i>モデル・パラメータの推定</a></li>
+</ul></li>
+<li class="chapter" data-level="12.2" data-path="動的線形モデル.html"><a href="動的線形モデル.html#local-level-plus-seasonal-componentモデル"><i class="fa fa-check"></i><b>12.2</b> local level plus seasonal componentモデル</a>
+<ul>
+<li class="chapter" data-level="" data-path="動的線形モデル.html"><a href="動的線形モデル.html#状態予測-1"><i class="fa fa-check"></i>状態予測</a></li>
+</ul></li>
+<li class="chapter" data-level="12.3" data-path="動的線形モデル.html"><a href="動的線形モデル.html#動的回帰モデル"><i class="fa fa-check"></i><b>12.3</b> 動的回帰モデル</a>
+<ul>
+<li class="chapter" data-level="" data-path="動的線形モデル.html"><a href="動的線形モデル.html#スムージング"><i class="fa fa-check"></i>スムージング</a></li>
+</ul></li>
+<li class="chapter" data-level="12.4" data-path="動的線形モデル.html"><a href="動的線形モデル.html#sur-seemingly-unrelated-regression-モデル-3.3.3"><i class="fa fa-check"></i><b>12.4</b> SUR (Seemingly Unrelated Regression) モデル (3.3.3)</a>
+<ul>
+<li class="chapter" data-level="" data-path="動的線形モデル.html"><a href="動的線形モデル.html#参考文献"><i class="fa fa-check"></i>参考文献</a></li>
+</ul></li>
+</ul></li>
 <li class="appendix"><span><b>Appendix 参考文献</b></span></li>
 <li class="chapter" data-level="A" data-path="バブル-生成崩壊-検出.html"><a href="バブル-生成崩壊-検出.html"><i class="fa fa-check"></i><b>A</b> バブル (生成・崩壊) 検出</a>
 <ul>
@@ -502,8 +525,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb486-12"><a href="レジームスイッチングモデル.html#cb486-12" tabindex="-1"></a><span class="do">## Regime 1 </span></span>
 <span id="cb486-13"><a href="レジームスイッチングモデル.html#cb486-13" tabindex="-1"></a><span class="do">## ---------</span></span>
 <span id="cb486-14"><a href="レジームスイッチングモデル.html#cb486-14" tabindex="-1"></a><span class="do">##                Estimate Std. Error t value  Pr(&gt;|t|)    </span></span>
-<span id="cb486-15"><a href="レジームスイッチングモデル.html#cb486-15" tabindex="-1"></a><span class="do">## (Intercept)(S)   0.8417     0.3020  2.7871  0.005318 ** </span></span>
-<span id="cb486-16"><a href="レジームスイッチングモデル.html#cb486-16" tabindex="-1"></a><span class="do">## x(S)            -0.0533     0.1348 -0.3954  0.692548    </span></span>
+<span id="cb486-15"><a href="レジームスイッチングモデル.html#cb486-15" tabindex="-1"></a><span class="do">## (Intercept)(S)   0.8417     0.3015  2.7917  0.005243 ** </span></span>
+<span id="cb486-16"><a href="レジームスイッチングモデル.html#cb486-16" tabindex="-1"></a><span class="do">## x(S)            -0.0533     0.1235 -0.4316  0.666032    </span></span>
 <span id="cb486-17"><a href="レジームスイッチングモデル.html#cb486-17" tabindex="-1"></a><span class="do">## y_1(S)           0.9208     0.0305 30.1902 &lt; 2.2e-16 ***</span></span>
 <span id="cb486-18"><a href="レジームスイッチングモデル.html#cb486-18" tabindex="-1"></a><span class="do">## ---</span></span>
 <span id="cb486-19"><a href="レジームスイッチングモデル.html#cb486-19" tabindex="-1"></a><span class="do">## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</span></span>
@@ -513,14 +536,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb486-23"><a href="レジームスイッチングモデル.html#cb486-23" tabindex="-1"></a><span class="do">## </span></span>
 <span id="cb486-24"><a href="レジームスイッチングモデル.html#cb486-24" tabindex="-1"></a><span class="do">## Standardized Residuals:</span></span>
 <span id="cb486-25"><a href="レジームスイッチングモデル.html#cb486-25" tabindex="-1"></a><span class="do">##           Min            Q1           Med            Q3           Max </span></span>
-<span id="cb486-26"><a href="レジームスイッチングモデル.html#cb486-26" tabindex="-1"></a><span class="do">## -1.5153664923 -0.0906543591  0.0001873641  0.1656717254  1.2020899007 </span></span>
+<span id="cb486-26"><a href="レジームスイッチングモデル.html#cb486-26" tabindex="-1"></a><span class="do">## -1.5153665994 -0.0906543418  0.0001873641  0.1656717256  1.2020898994 </span></span>
 <span id="cb486-27"><a href="レジームスイッチングモデル.html#cb486-27" tabindex="-1"></a><span class="do">## </span></span>
 <span id="cb486-28"><a href="レジームスイッチングモデル.html#cb486-28" tabindex="-1"></a><span class="do">## Regime 2 </span></span>
 <span id="cb486-29"><a href="レジームスイッチングモデル.html#cb486-29" tabindex="-1"></a><span class="do">## ---------</span></span>
 <span id="cb486-30"><a href="レジームスイッチングモデル.html#cb486-30" tabindex="-1"></a><span class="do">##                Estimate Std. Error t value  Pr(&gt;|t|)    </span></span>
-<span id="cb486-31"><a href="レジームスイッチングモデル.html#cb486-31" tabindex="-1"></a><span class="do">## (Intercept)(S)   8.6393     0.7191 12.0140 &lt; 2.2e-16 ***</span></span>
+<span id="cb486-31"><a href="レジームスイッチングモデル.html#cb486-31" tabindex="-1"></a><span class="do">## (Intercept)(S)   8.6393     0.7153 12.0779 &lt; 2.2e-16 ***</span></span>
 <span id="cb486-32"><a href="レジームスイッチングモデル.html#cb486-32" tabindex="-1"></a><span class="do">## x(S)             1.8771     0.3106  6.0435 1.508e-09 ***</span></span>
-<span id="cb486-33"><a href="レジームスイッチングモデル.html#cb486-33" tabindex="-1"></a><span class="do">## y_1(S)          -0.0569     0.0791 -0.7193     0.472    </span></span>
+<span id="cb486-33"><a href="レジームスイッチングモデル.html#cb486-33" tabindex="-1"></a><span class="do">## y_1(S)          -0.0569     0.0787 -0.7230    0.4697    </span></span>
 <span id="cb486-34"><a href="レジームスイッチングモデル.html#cb486-34" tabindex="-1"></a><span class="do">## ---</span></span>
 <span id="cb486-35"><a href="レジームスイッチングモデル.html#cb486-35" tabindex="-1"></a><span class="do">## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</span></span>
 <span id="cb486-36"><a href="レジームスイッチングモデル.html#cb486-36" tabindex="-1"></a><span class="do">## </span></span>
@@ -529,12 +552,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb486-39"><a href="レジームスイッチングモデル.html#cb486-39" tabindex="-1"></a><span class="do">## </span></span>
 <span id="cb486-40"><a href="レジームスイッチングモデル.html#cb486-40" tabindex="-1"></a><span class="do">## Standardized Residuals:</span></span>
 <span id="cb486-41"><a href="レジームスイッチングモデル.html#cb486-41" tabindex="-1"></a><span class="do">##         Min          Q1         Med          Q3         Max </span></span>
-<span id="cb486-42"><a href="レジームスイッチングモデル.html#cb486-42" tabindex="-1"></a><span class="do">## -2.31102193 -0.03317757  0.01034139  0.04509107  2.85245599 </span></span>
+<span id="cb486-42"><a href="レジームスイッチングモデル.html#cb486-42" tabindex="-1"></a><span class="do">## -2.31102193 -0.03317756  0.01034139  0.04509106  2.85245598 </span></span>
 <span id="cb486-43"><a href="レジームスイッチングモデル.html#cb486-43" tabindex="-1"></a><span class="do">## </span></span>
 <span id="cb486-44"><a href="レジームスイッチングモデル.html#cb486-44" tabindex="-1"></a><span class="do">## Transition probabilities:</span></span>
 <span id="cb486-45"><a href="レジームスイッチングモデル.html#cb486-45" tabindex="-1"></a><span class="do">##            Regime 1   Regime 2</span></span>
-<span id="cb486-46"><a href="レジームスイッチングモデル.html#cb486-46" tabindex="-1"></a><span class="do">## Regime 1 0.98499728 0.02290885</span></span>
-<span id="cb486-47"><a href="レジームスイッチングモデル.html#cb486-47" tabindex="-1"></a><span class="do">## Regime 2 0.01500272 0.97709115</span></span>
+<span id="cb486-46"><a href="レジームスイッチングモデル.html#cb486-46" tabindex="-1"></a><span class="do">## Regime 1 0.98499728 0.02290884</span></span>
+<span id="cb486-47"><a href="レジームスイッチングモデル.html#cb486-47" tabindex="-1"></a><span class="do">## Regime 2 0.01500272 0.97709116</span></span>
 <span id="cb486-48"><a href="レジームスイッチングモデル.html#cb486-48" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>))</span>
 <span id="cb486-49"><a href="レジームスイッチングモデル.html#cb486-49" tabindex="-1"></a><span class="fu">qqnorm</span>(mod.mswm<span class="sc">@</span>Fit<span class="sc">@</span>error[, <span class="dv">1</span>]); <span class="fu">qqline</span>(mod.mswm<span class="sc">@</span>Fit<span class="sc">@</span>error[, <span class="dv">1</span>], <span class="at">col =</span> <span class="dv">2</span>); </span>
 <span id="cb486-50"><a href="レジームスイッチングモデル.html#cb486-50" tabindex="-1"></a><span class="fu">qqnorm</span>(mod.mswm<span class="sc">@</span>Fit<span class="sc">@</span>error[, <span class="dv">2</span>]); <span class="fu">qqline</span>(mod.mswm<span class="sc">@</span>Fit<span class="sc">@</span>error[, <span class="dv">2</span>],<span class="at">col =</span> <span class="dv">2</span>); </span></code></pre></div>

@@ -360,6 +360,29 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="多変量ボラティリティモデル.html"><a href="多変量ボラティリティモデル.html#コピュラに基づくアプローチ"><i class="fa fa-check"></i>コピュラに基づくアプローチ</a></li>
 </ul></li>
 </ul></li>
+<li class="chapter" data-level="12" data-path="動的線形モデル.html"><a href="動的線形モデル.html"><i class="fa fa-check"></i><b>12</b> 動的線形モデル</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="動的線形モデル.html"><a href="動的線形モデル.html#局所水準-local-level-モデル"><i class="fa fa-check"></i><b>12.1</b> 局所水準 (local level) モデル</a>
+<ul>
+<li class="chapter" data-level="" data-path="動的線形モデル.html"><a href="動的線形モデル.html#フィルタリング"><i class="fa fa-check"></i>フィルタリング</a></li>
+<li class="chapter" data-level="" data-path="動的線形モデル.html"><a href="動的線形モデル.html#スムージング-平滑化"><i class="fa fa-check"></i>スムージング (平滑化)</a></li>
+<li class="chapter" data-level="" data-path="動的線形モデル.html"><a href="動的線形モデル.html#状態予測"><i class="fa fa-check"></i>状態予測</a></li>
+<li class="chapter" data-level="" data-path="動的線形モデル.html"><a href="動的線形モデル.html#モデル診断-1"><i class="fa fa-check"></i>モデル診断</a></li>
+<li class="chapter" data-level="" data-path="動的線形モデル.html"><a href="動的線形モデル.html#モデルパラメータの推定"><i class="fa fa-check"></i>モデル・パラメータの推定</a></li>
+</ul></li>
+<li class="chapter" data-level="12.2" data-path="動的線形モデル.html"><a href="動的線形モデル.html#local-level-plus-seasonal-componentモデル"><i class="fa fa-check"></i><b>12.2</b> local level plus seasonal componentモデル</a>
+<ul>
+<li class="chapter" data-level="" data-path="動的線形モデル.html"><a href="動的線形モデル.html#状態予測-1"><i class="fa fa-check"></i>状態予測</a></li>
+</ul></li>
+<li class="chapter" data-level="12.3" data-path="動的線形モデル.html"><a href="動的線形モデル.html#動的回帰モデル"><i class="fa fa-check"></i><b>12.3</b> 動的回帰モデル</a>
+<ul>
+<li class="chapter" data-level="" data-path="動的線形モデル.html"><a href="動的線形モデル.html#スムージング"><i class="fa fa-check"></i>スムージング</a></li>
+</ul></li>
+<li class="chapter" data-level="12.4" data-path="動的線形モデル.html"><a href="動的線形モデル.html#sur-seemingly-unrelated-regression-モデル-3.3.3"><i class="fa fa-check"></i><b>12.4</b> SUR (Seemingly Unrelated Regression) モデル (3.3.3)</a>
+<ul>
+<li class="chapter" data-level="" data-path="動的線形モデル.html"><a href="動的線形モデル.html#参考文献"><i class="fa fa-check"></i>参考文献</a></li>
+</ul></li>
+</ul></li>
 <li class="appendix"><span><b>Appendix 参考文献</b></span></li>
 <li class="chapter" data-level="A" data-path="バブル-生成崩壊-検出.html"><a href="バブル-生成崩壊-検出.html"><i class="fa fa-check"></i><b>A</b> バブル (生成・崩壊) 検出</a>
 <ul>
@@ -515,9 +538,9 @@ R関数とは異なる別の関数が呼び出され,
 <span id="cb503-3"><a href="garchモデル.html#cb503-3" tabindex="-1"></a><span class="fu">library</span>(MTS)  <span class="co"># archTest()</span></span>
 <span id="cb503-4"><a href="garchモデル.html#cb503-4" tabindex="-1"></a><span class="fu">archTest</span>(<span class="fu">as.numeric</span>(<span class="fu">na.omit</span>(x) <span class="sc">-</span> <span class="fu">mean</span>(x, <span class="at">na.rm =</span> T)), <span class="at">lag =</span> <span class="dv">5</span>) <span class="co"># MTS内</span></span></code></pre></div>
 <pre><code>## Q(m) of squared series(LM test):  
-## Test statistic:  72.23513  p-value:  3.508305e-14 
+## Test statistic:  72.23536  p-value:  3.508305e-14 
 ## Rank-based Test:  
-## Test statistic:  29.85653  p-value:  1.57392e-05</code></pre>
+## Test statistic:  29.85654  p-value:  1.573916e-05</code></pre>
 <div class="sourceCode" id="cb505"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb505-1"><a href="garchモデル.html#cb505-1" tabindex="-1"></a><span class="co"># archTest(as.numeric(na.omit(x)), lag = 5) # MTS内</span></span></code></pre></div>
 <p>注) archTest()は, NAを受け付けない. また, 数値ベクトル化して与える必要</p>
 <div class="sourceCode" id="cb506"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb506-1"><a href="garchモデル.html#cb506-1" tabindex="-1"></a><span class="co"># パッケージ**FTS**使用</span></span>
@@ -790,7 +813,7 @@ i.i.dの (正規分布に) 近い挙動をすることが期待される.
 ## 
 ## Mean and Variance Equation:
 ##  data ~ garch(5, 0)
-## &lt;environment: 0x129907110&gt;
+## &lt;environment: 0x15239c678&gt;
 ##  [data = x]
 ## 
 ## Conditional Distribution:
@@ -821,7 +844,7 @@ i.i.dの (正規分布に) 近い挙動をすることが期待される.
 ##  1223.356    normalized:  4.077854 
 ## 
 ## Description:
-##  Wed Jan 15 21:52:23 2025 by user:  
+##  Thu Jan 23 20:35:00 2025 by user:  
 ## 
 ## 
 ## Standardised Residuals Tests:
@@ -871,7 +894,7 @@ i.i.dの (正規分布に) 近い挙動をすることが期待される.
 ## 
 ## Mean and Variance Equation:
 ##  data ~ garch(1, 1)
-## &lt;environment: 0x11823f5f8&gt;
+## &lt;environment: 0x1278e5970&gt;
 ##  [data = x]
 ## 
 ## Conditional Distribution:
@@ -897,7 +920,7 @@ i.i.dの (正規分布に) 近い挙動をすることが期待される.
 ##  1223.751    normalized:  4.079169 
 ## 
 ## Description:
-##  Wed Jan 15 21:52:23 2025 by user:  
+##  Thu Jan 23 20:35:00 2025 by user:  
 ## 
 ## 
 ## Standardised Residuals Tests:
@@ -1004,7 +1027,7 @@ GARCHモデルの適合, および予測の例を示す.
 ## Roll Steps: 0
 ## Out of Sample: 0
 ## 
-## 0-roll forecast [T0=2025-01-14]:
+## 0-roll forecast [T0=2025-01-22]:
 ##         Series    Sigma
 ## T+1  3.651e-03 0.003180
 ## T+2  1.854e-03 0.003277
@@ -1032,7 +1055,7 @@ GARCHモデルの適合, および予測の例を示す.
 <span id="cb564-4"><a href="garchモデル.html#cb564-4" tabindex="-1"></a><span class="co"># x_pred@forecast$seriesFor  # 同</span></span>
 <span id="cb564-5"><a href="garchモデル.html#cb564-5" tabindex="-1"></a><span class="co"># ボラティリティ(条件付標準偏差)の予測値</span></span>
 <span id="cb564-6"><a href="garchモデル.html#cb564-6" tabindex="-1"></a><span class="fu">sigma</span>(x_pred)             </span></code></pre></div>
-<pre><code>##       2025-01-14
+<pre><code>##       2025-01-22
 ## T+1  0.003180496
 ## T+2  0.003276746
 ## T+3  0.003367257
@@ -1195,7 +1218,7 @@ GARCHモデルの適合, および予測の例を示す.
 ## 4    50     83.13    0.0016808
 ## 
 ## 
-## Elapsed time : 0.01883388</code></pre>
+## Elapsed time : 0.01803303</code></pre>
 </div>
 <div id="gjr-garch11" class="section level3 unnumbered hasAnchor">
 <h3>GJR-GARCH(1,1)<a href="garchモデル.html#gjr-garch11" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -1299,7 +1322,7 @@ GARCHモデルの適合, および予測の例を示す.
 ## 4    50     81.56     0.002401
 ## 
 ## 
-## Elapsed time : 0.139123</code></pre>
+## Elapsed time : 0.132581</code></pre>
 </div>
 <div id="aparch" class="section level3 unnumbered hasAnchor">
 <h3>APARCH<a href="garchモデル.html#aparch" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -1410,7 +1433,7 @@ GARCHモデルの適合, および予測の例を示す.
 ## 4    50     82.04     0.002153
 ## 
 ## 
-## Elapsed time : 0.832525</code></pre>
+## Elapsed time : 0.8576891</code></pre>
 <ul>
 <li>係数の推定値</li>
 </ul>
@@ -1471,30 +1494,30 @@ GARCHモデルの適合, および予測の例を示す.
 ## 
 ## Series (summary):
 ##            min      q.25      mean     q.75      max forecast[analytic]
-## t+1  -0.055262 -0.006314 -0.000191 0.006557 0.033224          -0.000125
-## t+2  -0.038298 -0.006478  0.000077 0.006135 0.028295          -0.000125
-## t+3  -0.036450 -0.007031 -0.000953 0.005318 0.033375          -0.000125
-## t+4  -0.036453 -0.005357  0.000574 0.007198 0.027421          -0.000125
-## t+5  -0.033985 -0.008004 -0.001333 0.004996 0.031384          -0.000125
-## t+6  -0.029069 -0.007096 -0.000345 0.006628 0.031596          -0.000125
-## t+7  -0.034889 -0.007043 -0.000323 0.005791 0.032704          -0.000125
-## t+8  -0.037076 -0.005807 -0.000034 0.006267 0.026417          -0.000125
-## t+9  -0.033911 -0.006444 -0.000538 0.004988 0.035382          -0.000125
-## t+10 -0.033322 -0.007051  0.000257 0.006697 0.041214          -0.000125
+## t+1  -0.035828 -0.006975 -0.000858 0.005174 0.033224          -0.000125
+## t+2  -0.034620 -0.006163  0.000186 0.006515 0.029359          -0.000125
+## t+3  -0.055863 -0.005126  0.000184 0.005878 0.022887          -0.000125
+## t+4  -0.035733 -0.006555 -0.000206 0.006352 0.031778          -0.000125
+## t+5  -0.036566 -0.006991 -0.000425 0.006763 0.029873          -0.000125
+## t+6  -0.055802 -0.006707 -0.000807 0.005644 0.026368          -0.000125
+## t+7  -0.052953 -0.005928 -0.000504 0.005569 0.026582          -0.000125
+## t+8  -0.030944 -0.006523 -0.000109 0.006399 0.025884          -0.000125
+## t+9  -0.034583 -0.007004 -0.000775 0.005462 0.025983          -0.000125
+## t+10 -0.032746 -0.007036 -0.000831 0.005415 0.039594          -0.000125
 ## .....................
 ## 
 ## Sigma (summary):
 ##           min    q0.25     mean    q0.75      max forecast[analytic]
 ## t+1  0.010004 0.010004 0.010004 0.010004 0.010004           0.010004
-## t+2  0.009666 0.009666 0.010009 0.010107 0.015776           0.009985
-## t+3  0.009342 0.009342 0.009967 0.010280 0.015843           0.009967
-## t+4  0.009031 0.009214 0.009981 0.010392 0.016829           0.009949
-## t+5  0.008733 0.009028 0.009942 0.010511 0.019596           0.009931
-## t+6  0.008447 0.009028 0.009973 0.010609 0.019759           0.009913
-## t+7  0.008174 0.008938 0.009979 0.010641 0.020777           0.009895
-## t+8  0.007912 0.008787 0.009964 0.010637 0.020152           0.009877
-## t+9  0.007660 0.008719 0.009942 0.010685 0.019399           0.009860
-## t+10 0.007420 0.008672 0.009933 0.010759 0.018676           0.009842
+## t+2  0.009666 0.009666 0.010020 0.010166 0.013331           0.009985
+## t+3  0.009342 0.009342 0.009977 0.010363 0.012963           0.009967
+## t+4  0.009031 0.009173 0.009934 0.010350 0.015947           0.009949
+## t+5  0.008733 0.009158 0.009929 0.010413 0.015365           0.009931
+## t+6  0.008447 0.009067 0.009939 0.010522 0.014984           0.009913
+## t+7  0.008174 0.008929 0.009957 0.010605 0.015930           0.009895
+## t+8  0.007912 0.008899 0.009938 0.010688 0.017687           0.009877
+## t+9  0.007660 0.008869 0.009919 0.010654 0.017034           0.009860
+## t+10 0.007420 0.008785 0.009907 0.010725 0.018531           0.009842
 ## .....................</code></pre>
 
 </div>
@@ -1671,7 +1694,7 @@ find("filter")
 <span id="cb604-20"><a href="garchモデル.html#cb604-20" tabindex="-1"></a><span class="do">## </span></span>
 <span id="cb604-21"><a href="garchモデル.html#cb604-21" tabindex="-1"></a><span class="do">## Mean and Variance Equation:</span></span>
 <span id="cb604-22"><a href="garchモデル.html#cb604-22" tabindex="-1"></a><span class="do">##  data ~ 1 + garch(1, 1)</span></span>
-<span id="cb604-23"><a href="garchモデル.html#cb604-23" tabindex="-1"></a><span class="do">## &lt;environment: 0x12a893580&gt;</span></span>
+<span id="cb604-23"><a href="garchモデル.html#cb604-23" tabindex="-1"></a><span class="do">## &lt;environment: 0x10f0c7580&gt;</span></span>
 <span id="cb604-24"><a href="garchモデル.html#cb604-24" tabindex="-1"></a><span class="do">##  [data = sp5]</span></span>
 <span id="cb604-25"><a href="garchモデル.html#cb604-25" tabindex="-1"></a><span class="do">## </span></span>
 <span id="cb604-26"><a href="garchモデル.html#cb604-26" tabindex="-1"></a><span class="do">## Conditional Distribution:</span></span>
@@ -1697,7 +1720,7 @@ find("filter")
 <span id="cb604-46"><a href="garchモデル.html#cb604-46" tabindex="-1"></a><span class="do">##  -1289.671    normalized:  -2.904663 </span></span>
 <span id="cb604-47"><a href="garchモデル.html#cb604-47" tabindex="-1"></a><span class="do">## </span></span>
 <span id="cb604-48"><a href="garchモデル.html#cb604-48" tabindex="-1"></a><span class="do">## Description:</span></span>
-<span id="cb604-49"><a href="garchモデル.html#cb604-49" tabindex="-1"></a><span class="do">##  Wed Jan 15 21:52:45 2025 by user:  </span></span>
+<span id="cb604-49"><a href="garchモデル.html#cb604-49" tabindex="-1"></a><span class="do">##  Thu Jan 23 20:35:36 2025 by user:  </span></span>
 <span id="cb604-50"><a href="garchモデル.html#cb604-50" tabindex="-1"></a><span class="do">## </span></span>
 <span id="cb604-51"><a href="garchモデル.html#cb604-51" tabindex="-1"></a><span class="do">## </span></span>
 <span id="cb604-52"><a href="garchモデル.html#cb604-52" tabindex="-1"></a><span class="do">## Standardised Residuals Tests:</span></span>
@@ -1942,7 +1965,7 @@ find("filter")
 <span id="cb616-9"><a href="garchモデル.html#cb616-9" tabindex="-1"></a><span class="do">## </span></span>
 <span id="cb616-10"><a href="garchモデル.html#cb616-10" tabindex="-1"></a><span class="do">## Mean and Variance Equation:</span></span>
 <span id="cb616-11"><a href="garchモデル.html#cb616-11" tabindex="-1"></a><span class="do">##  data ~ 1 + aparch(1, 1)</span></span>
-<span id="cb616-12"><a href="garchモデル.html#cb616-12" tabindex="-1"></a><span class="do">## &lt;environment: 0x12ae5d350&gt;</span></span>
+<span id="cb616-12"><a href="garchモデル.html#cb616-12" tabindex="-1"></a><span class="do">## &lt;environment: 0x10f56a9e8&gt;</span></span>
 <span id="cb616-13"><a href="garchモデル.html#cb616-13" tabindex="-1"></a><span class="do">##  [data = eu]</span></span>
 <span id="cb616-14"><a href="garchモデル.html#cb616-14" tabindex="-1"></a><span class="do">## </span></span>
 <span id="cb616-15"><a href="garchモデル.html#cb616-15" tabindex="-1"></a><span class="do">## Conditional Distribution:</span></span>
@@ -1970,7 +1993,7 @@ find("filter")
 <span id="cb616-37"><a href="garchモデル.html#cb616-37" tabindex="-1"></a><span class="do">##  -2731.172    normalized:  -0.9324587 </span></span>
 <span id="cb616-38"><a href="garchモデル.html#cb616-38" tabindex="-1"></a><span class="do">## </span></span>
 <span id="cb616-39"><a href="garchモデル.html#cb616-39" tabindex="-1"></a><span class="do">## Description:</span></span>
-<span id="cb616-40"><a href="garchモデル.html#cb616-40" tabindex="-1"></a><span class="do">##  Wed Jan 15 21:52:54 2025 by user:  </span></span>
+<span id="cb616-40"><a href="garchモデル.html#cb616-40" tabindex="-1"></a><span class="do">##  Thu Jan 23 20:35:46 2025 by user:  </span></span>
 <span id="cb616-41"><a href="garchモデル.html#cb616-41" tabindex="-1"></a><span class="do">## </span></span>
 <span id="cb616-42"><a href="garchモデル.html#cb616-42" tabindex="-1"></a><span class="do">## </span></span>
 <span id="cb616-43"><a href="garchモデル.html#cb616-43" tabindex="-1"></a><span class="do">## Standardised Residuals Tests:</span></span>
@@ -1998,7 +2021,7 @@ find("filter")
 <span id="cb616-65"><a href="garchモデル.html#cb616-65" tabindex="-1"></a><span class="do">## </span></span>
 <span id="cb616-66"><a href="garchモデル.html#cb616-66" tabindex="-1"></a><span class="do">## Mean and Variance Equation:</span></span>
 <span id="cb616-67"><a href="garchモデル.html#cb616-67" tabindex="-1"></a><span class="do">##  data ~ 1 + aparch(1, 1)</span></span>
-<span id="cb616-68"><a href="garchモデル.html#cb616-68" tabindex="-1"></a><span class="do">## &lt;environment: 0x12ae5d350&gt;</span></span>
+<span id="cb616-68"><a href="garchモデル.html#cb616-68" tabindex="-1"></a><span class="do">## &lt;environment: 0x10f56a9e8&gt;</span></span>
 <span id="cb616-69"><a href="garchモデル.html#cb616-69" tabindex="-1"></a><span class="do">##  [data = eu]</span></span>
 <span id="cb616-70"><a href="garchモデル.html#cb616-70" tabindex="-1"></a><span class="do">## </span></span>
 <span id="cb616-71"><a href="garchモデル.html#cb616-71" tabindex="-1"></a><span class="do">## Conditional Distribution:</span></span>
@@ -2026,7 +2049,7 @@ find("filter")
 <span id="cb616-93"><a href="garchモデル.html#cb616-93" tabindex="-1"></a><span class="do">##  -2731.172    normalized:  -0.9324587 </span></span>
 <span id="cb616-94"><a href="garchモデル.html#cb616-94" tabindex="-1"></a><span class="do">## </span></span>
 <span id="cb616-95"><a href="garchモデル.html#cb616-95" tabindex="-1"></a><span class="do">## Description:</span></span>
-<span id="cb616-96"><a href="garchモデル.html#cb616-96" tabindex="-1"></a><span class="do">##  Wed Jan 15 21:52:54 2025 by user:</span></span></code></pre></div>
+<span id="cb616-96"><a href="garchモデル.html#cb616-96" tabindex="-1"></a><span class="do">##  Thu Jan 23 20:35:46 2025 by user:</span></span></code></pre></div>
 <table>
 <thead>
 <tr class="header">
@@ -2100,7 +2123,7 @@ find("filter")
 <span id="cb617-10"><a href="garchモデル.html#cb617-10" tabindex="-1"></a><span class="do">## </span></span>
 <span id="cb617-11"><a href="garchモデル.html#cb617-11" tabindex="-1"></a><span class="do">## Mean and Variance Equation:</span></span>
 <span id="cb617-12"><a href="garchモデル.html#cb617-12" tabindex="-1"></a><span class="do">##  data ~ 1 + aparch(1, 1)</span></span>
-<span id="cb617-13"><a href="garchモデル.html#cb617-13" tabindex="-1"></a><span class="do">## &lt;environment: 0x12f3151c8&gt;</span></span>
+<span id="cb617-13"><a href="garchモデル.html#cb617-13" tabindex="-1"></a><span class="do">## &lt;environment: 0x118ce9ac0&gt;</span></span>
 <span id="cb617-14"><a href="garchモデル.html#cb617-14" tabindex="-1"></a><span class="do">##  [data = eu]</span></span>
 <span id="cb617-15"><a href="garchモデル.html#cb617-15" tabindex="-1"></a><span class="do">## </span></span>
 <span id="cb617-16"><a href="garchモデル.html#cb617-16" tabindex="-1"></a><span class="do">## Conditional Distribution:</span></span>
@@ -2127,7 +2150,7 @@ find("filter")
 <span id="cb617-37"><a href="garchモデル.html#cb617-37" tabindex="-1"></a><span class="do">##  -2731.85    normalized:  -0.9326902 </span></span>
 <span id="cb617-38"><a href="garchモデル.html#cb617-38" tabindex="-1"></a><span class="do">## </span></span>
 <span id="cb617-39"><a href="garchモデル.html#cb617-39" tabindex="-1"></a><span class="do">## Description:</span></span>
-<span id="cb617-40"><a href="garchモデル.html#cb617-40" tabindex="-1"></a><span class="do">##  Wed Jan 15 21:52:54 2025 by user:  </span></span>
+<span id="cb617-40"><a href="garchモデル.html#cb617-40" tabindex="-1"></a><span class="do">##  Thu Jan 23 20:35:46 2025 by user:  </span></span>
 <span id="cb617-41"><a href="garchモデル.html#cb617-41" tabindex="-1"></a><span class="do">## </span></span>
 <span id="cb617-42"><a href="garchモデル.html#cb617-42" tabindex="-1"></a><span class="do">## </span></span>
 <span id="cb617-43"><a href="garchモデル.html#cb617-43" tabindex="-1"></a><span class="do">## Standardised Residuals Tests:</span></span>
@@ -2158,7 +2181,7 @@ find("filter")
 <span id="cb618-9"><a href="garchモデル.html#cb618-9" tabindex="-1"></a><span class="do">## </span></span>
 <span id="cb618-10"><a href="garchモデル.html#cb618-10" tabindex="-1"></a><span class="do">## Mean and Variance Equation:</span></span>
 <span id="cb618-11"><a href="garchモデル.html#cb618-11" tabindex="-1"></a><span class="do">##  data ~ 1 + aparch(1, 1)</span></span>
-<span id="cb618-12"><a href="garchモデル.html#cb618-12" tabindex="-1"></a><span class="do">## &lt;environment: 0x12f3151c8&gt;</span></span>
+<span id="cb618-12"><a href="garchモデル.html#cb618-12" tabindex="-1"></a><span class="do">## &lt;environment: 0x118ce9ac0&gt;</span></span>
 <span id="cb618-13"><a href="garchモデル.html#cb618-13" tabindex="-1"></a><span class="do">##  [data = eu]</span></span>
 <span id="cb618-14"><a href="garchモデル.html#cb618-14" tabindex="-1"></a><span class="do">## </span></span>
 <span id="cb618-15"><a href="garchモデル.html#cb618-15" tabindex="-1"></a><span class="do">## Conditional Distribution:</span></span>
@@ -2185,7 +2208,7 @@ find("filter")
 <span id="cb618-36"><a href="garchモデル.html#cb618-36" tabindex="-1"></a><span class="do">##  -2731.85    normalized:  -0.9326902 </span></span>
 <span id="cb618-37"><a href="garchモデル.html#cb618-37" tabindex="-1"></a><span class="do">## </span></span>
 <span id="cb618-38"><a href="garchモデル.html#cb618-38" tabindex="-1"></a><span class="do">## Description:</span></span>
-<span id="cb618-39"><a href="garchモデル.html#cb618-39" tabindex="-1"></a><span class="do">##  Wed Jan 15 21:52:54 2025 by user:</span></span></code></pre></div>
+<span id="cb618-39"><a href="garchモデル.html#cb618-39" tabindex="-1"></a><span class="do">##  Thu Jan 23 20:35:46 2025 by user:</span></span></code></pre></div>
 <table>
 <thead>
 <tr class="header">
@@ -2347,7 +2370,7 @@ find("filter")
 <span id="cb627-10"><a href="garchモデル.html#cb627-10" tabindex="-1"></a><span class="do">## </span></span>
 <span id="cb627-11"><a href="garchモデル.html#cb627-11" tabindex="-1"></a><span class="do">## Mean and Variance Equation:</span></span>
 <span id="cb627-12"><a href="garchモデル.html#cb627-12" tabindex="-1"></a><span class="do">##  data ~ 1 + garch(1, 1)</span></span>
-<span id="cb627-13"><a href="garchモデル.html#cb627-13" tabindex="-1"></a><span class="do">## &lt;environment: 0x10b5eda48&gt;</span></span>
+<span id="cb627-13"><a href="garchモデル.html#cb627-13" tabindex="-1"></a><span class="do">## &lt;environment: 0x10a921608&gt;</span></span>
 <span id="cb627-14"><a href="garchモデル.html#cb627-14" tabindex="-1"></a><span class="do">##  [data = sp5]</span></span>
 <span id="cb627-15"><a href="garchモデル.html#cb627-15" tabindex="-1"></a><span class="do">## </span></span>
 <span id="cb627-16"><a href="garchモデル.html#cb627-16" tabindex="-1"></a><span class="do">## Conditional Distribution:</span></span>
@@ -2373,7 +2396,7 @@ find("filter")
 <span id="cb627-36"><a href="garchモデル.html#cb627-36" tabindex="-1"></a><span class="do">##  899.7817    normalized:  1.717141 </span></span>
 <span id="cb627-37"><a href="garchモデル.html#cb627-37" tabindex="-1"></a><span class="do">## </span></span>
 <span id="cb627-38"><a href="garchモデル.html#cb627-38" tabindex="-1"></a><span class="do">## Description:</span></span>
-<span id="cb627-39"><a href="garchモデル.html#cb627-39" tabindex="-1"></a><span class="do">##  Wed Jan 15 21:53:18 2025 by user:  </span></span>
+<span id="cb627-39"><a href="garchモデル.html#cb627-39" tabindex="-1"></a><span class="do">##  Thu Jan 23 20:36:08 2025 by user:  </span></span>
 <span id="cb627-40"><a href="garchモデル.html#cb627-40" tabindex="-1"></a><span class="do">## </span></span>
 <span id="cb627-41"><a href="garchモデル.html#cb627-41" tabindex="-1"></a><span class="do">## </span></span>
 <span id="cb627-42"><a href="garchモデル.html#cb627-42" tabindex="-1"></a><span class="do">## Standardised Residuals Tests:</span></span>

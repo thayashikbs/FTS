@@ -360,6 +360,29 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="多変量ボラティリティモデル.html"><a href="多変量ボラティリティモデル.html#コピュラに基づくアプローチ"><i class="fa fa-check"></i>コピュラに基づくアプローチ</a></li>
 </ul></li>
 </ul></li>
+<li class="chapter" data-level="12" data-path="動的線形モデル.html"><a href="動的線形モデル.html"><i class="fa fa-check"></i><b>12</b> 動的線形モデル</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="動的線形モデル.html"><a href="動的線形モデル.html#局所水準-local-level-モデル"><i class="fa fa-check"></i><b>12.1</b> 局所水準 (local level) モデル</a>
+<ul>
+<li class="chapter" data-level="" data-path="動的線形モデル.html"><a href="動的線形モデル.html#フィルタリング"><i class="fa fa-check"></i>フィルタリング</a></li>
+<li class="chapter" data-level="" data-path="動的線形モデル.html"><a href="動的線形モデル.html#スムージング-平滑化"><i class="fa fa-check"></i>スムージング (平滑化)</a></li>
+<li class="chapter" data-level="" data-path="動的線形モデル.html"><a href="動的線形モデル.html#状態予測"><i class="fa fa-check"></i>状態予測</a></li>
+<li class="chapter" data-level="" data-path="動的線形モデル.html"><a href="動的線形モデル.html#モデル診断-1"><i class="fa fa-check"></i>モデル診断</a></li>
+<li class="chapter" data-level="" data-path="動的線形モデル.html"><a href="動的線形モデル.html#モデルパラメータの推定"><i class="fa fa-check"></i>モデル・パラメータの推定</a></li>
+</ul></li>
+<li class="chapter" data-level="12.2" data-path="動的線形モデル.html"><a href="動的線形モデル.html#local-level-plus-seasonal-componentモデル"><i class="fa fa-check"></i><b>12.2</b> local level plus seasonal componentモデル</a>
+<ul>
+<li class="chapter" data-level="" data-path="動的線形モデル.html"><a href="動的線形モデル.html#状態予測-1"><i class="fa fa-check"></i>状態予測</a></li>
+</ul></li>
+<li class="chapter" data-level="12.3" data-path="動的線形モデル.html"><a href="動的線形モデル.html#動的回帰モデル"><i class="fa fa-check"></i><b>12.3</b> 動的回帰モデル</a>
+<ul>
+<li class="chapter" data-level="" data-path="動的線形モデル.html"><a href="動的線形モデル.html#スムージング"><i class="fa fa-check"></i>スムージング</a></li>
+</ul></li>
+<li class="chapter" data-level="12.4" data-path="動的線形モデル.html"><a href="動的線形モデル.html#sur-seemingly-unrelated-regression-モデル-3.3.3"><i class="fa fa-check"></i><b>12.4</b> SUR (Seemingly Unrelated Regression) モデル (3.3.3)</a>
+<ul>
+<li class="chapter" data-level="" data-path="動的線形モデル.html"><a href="動的線形モデル.html#参考文献"><i class="fa fa-check"></i>参考文献</a></li>
+</ul></li>
+</ul></li>
 <li class="appendix"><span><b>Appendix 参考文献</b></span></li>
 <li class="chapter" data-level="A" data-path="バブル-生成崩壊-検出.html"><a href="バブル-生成崩壊-検出.html"><i class="fa fa-check"></i><b>A</b> バブル (生成・崩壊) 検出</a>
 <ul>
@@ -673,7 +696,7 @@ unitrootTest(x, lags = 1, type = c(&quot;nc&quot;, &quot;c&quot;, &quot;ct&quot;
 ##     0.703 
 ## 
 ## Description:
-##  Wed Jan 15 21:51:19 2025 by user:</code></pre>
+##  Thu Jan 23 20:34:15 2025 by user:</code></pre>
 <div class="sourceCode" id="cb347"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb347-1"><a href="確率的トレンドと単位根検定.html#cb347-1" tabindex="-1"></a><span class="fu">unitrootTest</span>(x, <span class="at">type =</span> <span class="st">&quot;nc&quot;</span>, <span class="at">lags =</span> <span class="dv">1</span>)</span></code></pre></div>
 <pre><code>## 
 ## Title:
@@ -689,7 +712,7 @@ unitrootTest(x, lags = 1, type = c(&quot;nc&quot;, &quot;c&quot;, &quot;ct&quot;
 ##     n: 0.7506 
 ## 
 ## Description:
-##  Wed Jan 15 21:51:19 2025 by user:</code></pre>
+##  Thu Jan 23 20:34:15 2025 by user:</code></pre>
 <p>→ 二つの関数の結果を比較せよ.</p>
 <div class="sourceCode" id="cb349"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb349-1"><a href="確率的トレンドと単位根検定.html#cb349-1" tabindex="-1"></a><span class="fu">adfTest</span>(y, <span class="at">type =</span> <span class="st">&quot;nc&quot;</span>, <span class="at">lags =</span> <span class="dv">1</span>)</span></code></pre></div>
 <pre><code>## 
@@ -705,7 +728,7 @@ unitrootTest(x, lags = 1, type = c(&quot;nc&quot;, &quot;c&quot;, &quot;ct&quot;
 ##     0.3835 
 ## 
 ## Description:
-##  Wed Jan 15 21:51:19 2025 by user:</code></pre>
+##  Thu Jan 23 20:34:15 2025 by user:</code></pre>
 <div class="sourceCode" id="cb351"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb351-1"><a href="確率的トレンドと単位根検定.html#cb351-1" tabindex="-1"></a><span class="fu">unitrootTest</span>(y, <span class="at">type =</span> <span class="st">&quot;nc&quot;</span>, <span class="at">lags =</span> <span class="dv">1</span>)</span></code></pre></div>
 <pre><code>## 
 ## Title:
@@ -721,7 +744,7 @@ unitrootTest(x, lags = 1, type = c(&quot;nc&quot;, &quot;c&quot;, &quot;ct&quot;
 ##     n: 0.522 
 ## 
 ## Description:
-##  Wed Jan 15 21:51:19 2025 by user:</code></pre>
+##  Thu Jan 23 20:34:15 2025 by user:</code></pre>
 <p>→ いずれも, 帰無仮説 (<span class="math inline">\(\phi_1=1\)</span>) を棄却せず (単位根有り).</p>
 <div class="sourceCode" id="cb353"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb353-1"><a href="確率的トレンドと単位根検定.html#cb353-1" tabindex="-1"></a><span class="fu">adfTest</span>(x, <span class="at">type =</span> <span class="st">&quot;c&quot;</span>, <span class="at">lags =</span> <span class="dv">1</span>)</span></code></pre></div>
 <pre><code>## 
@@ -737,7 +760,7 @@ unitrootTest(x, lags = 1, type = c(&quot;nc&quot;, &quot;c&quot;, &quot;ct&quot;
 ##     0.5166 
 ## 
 ## Description:
-##  Wed Jan 15 21:51:19 2025 by user:</code></pre>
+##  Thu Jan 23 20:34:15 2025 by user:</code></pre>
 <div class="sourceCode" id="cb355"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb355-1"><a href="確率的トレンドと単位根検定.html#cb355-1" tabindex="-1"></a><span class="co"># unitrootTest(x, type = &quot;c&quot;, lags = 1)</span></span>
 <span id="cb355-2"><a href="確率的トレンドと単位根検定.html#cb355-2" tabindex="-1"></a><span class="fu">adfTest</span>(y, <span class="at">type =</span> <span class="st">&quot;c&quot;</span>, <span class="at">lags =</span> <span class="dv">1</span>)</span></code></pre></div>
 <pre><code>## 
@@ -753,7 +776,7 @@ unitrootTest(x, lags = 1, type = c(&quot;nc&quot;, &quot;c&quot;, &quot;ct&quot;
 ##     0.6617 
 ## 
 ## Description:
-##  Wed Jan 15 21:51:19 2025 by user:</code></pre>
+##  Thu Jan 23 20:34:15 2025 by user:</code></pre>
 <div class="sourceCode" id="cb357"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb357-1"><a href="確率的トレンドと単位根検定.html#cb357-1" tabindex="-1"></a><span class="co"># unitrootTest(y, type = &quot;c&quot;, lags = 1)</span></span></code></pre></div>
 <div class="sourceCode" id="cb358"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb358-1"><a href="確率的トレンドと単位根検定.html#cb358-1" tabindex="-1"></a><span class="fu">adfTest</span>(x, <span class="at">type =</span> <span class="st">&quot;c&quot;</span>, <span class="at">lags =</span> <span class="dv">1</span>)</span></code></pre></div>
 <pre><code>## 
@@ -769,7 +792,7 @@ unitrootTest(x, lags = 1, type = c(&quot;nc&quot;, &quot;c&quot;, &quot;ct&quot;
 ##     0.5166 
 ## 
 ## Description:
-##  Wed Jan 15 21:51:19 2025 by user:</code></pre>
+##  Thu Jan 23 20:34:15 2025 by user:</code></pre>
 <div class="sourceCode" id="cb360"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb360-1"><a href="確率的トレンドと単位根検定.html#cb360-1" tabindex="-1"></a><span class="co"># unitrootTest(x, type = &quot;ct&quot;, lags = 1)</span></span>
 <span id="cb360-2"><a href="確率的トレンドと単位根検定.html#cb360-2" tabindex="-1"></a><span class="fu">adfTest</span>(y, <span class="at">type =</span> <span class="st">&quot;c&quot;</span>, <span class="at">lags =</span> <span class="dv">1</span>)</span></code></pre></div>
 <pre><code>## 
@@ -785,7 +808,7 @@ unitrootTest(x, lags = 1, type = c(&quot;nc&quot;, &quot;c&quot;, &quot;ct&quot;
 ##     0.6617 
 ## 
 ## Description:
-##  Wed Jan 15 21:51:19 2025 by user:</code></pre>
+##  Thu Jan 23 20:34:15 2025 by user:</code></pre>
 <div class="sourceCode" id="cb362"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb362-1"><a href="確率的トレンドと単位根検定.html#cb362-1" tabindex="-1"></a><span class="co"># unitrootTest(y, type = &quot;ct&quot;, lags = 1)</span></span></code></pre></div>
 </div>
 <div id="パッケージtseries" class="section level3 unnumbered hasAnchor">
@@ -1336,7 +1359,7 @@ ur.pp(x, type = c(&quot;Z-alpha&quot;, &quot;Z-tau&quot;), model = c(&quot;const
 ## 
 ## Coefficients:
 ##              Estimate Std. Error t value Pr(&gt;|t|)    
-## (Intercept) 25.705354   9.478624   2.712  0.00680 ** 
+## (Intercept) 25.705360   9.478625   2.712  0.00680 ** 
 ## y.l1         0.987289   0.005062 195.048  &lt; 2e-16 ***
 ## trend        0.030037   0.011404   2.634  0.00857 ** 
 ## ---
@@ -1370,7 +1393,7 @@ ur.pp(x, type = c(&quot;Z-alpha&quot;, &quot;Z-tau&quot;), model = c(&quot;const
 ## 
 ## Coefficients:
 ##              Estimate Std. Error t value Pr(&gt;|t|)    
-## (Intercept) 25.705354   9.478624   2.712  0.00680 ** 
+## (Intercept) 25.705360   9.478625   2.712  0.00680 ** 
 ## y.l1         0.987289   0.005062 195.048  &lt; 2e-16 ***
 ## trend        0.030037   0.011404   2.634  0.00857 ** 
 ## ---
@@ -1404,7 +1427,7 @@ ur.pp(x, type = c(&quot;Z-alpha&quot;, &quot;Z-tau&quot;), model = c(&quot;const
 ## 
 ## Coefficients:
 ##              Estimate Std. Error t value Pr(&gt;|t|)    
-## (Intercept) 25.705354   9.478624   2.712  0.00680 ** 
+## (Intercept) 25.705360   9.478625   2.712  0.00680 ** 
 ## y.l1         0.987289   0.005062 195.048  &lt; 2e-16 ***
 ## trend        0.030037   0.011404   2.634  0.00857 ** 
 ## ---
@@ -1442,7 +1465,7 @@ ur.pp(x, type = c(&quot;Z-alpha&quot;, &quot;Z-tau&quot;), model = c(&quot;const
 ## 
 ## Coefficients:
 ##             Estimate Std. Error t value Pr(&gt;|t|)    
-## (Intercept) 2.828506   3.806292   0.743    0.458    
+## (Intercept) 2.828507   3.806292   0.743    0.458    
 ## y.l1        0.999615   0.001934 516.776   &lt;2e-16 ***
 ## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1

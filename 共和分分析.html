@@ -360,6 +360,29 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="多変量ボラティリティモデル.html"><a href="多変量ボラティリティモデル.html#コピュラに基づくアプローチ"><i class="fa fa-check"></i>コピュラに基づくアプローチ</a></li>
 </ul></li>
 </ul></li>
+<li class="chapter" data-level="12" data-path="動的線形モデル.html"><a href="動的線形モデル.html"><i class="fa fa-check"></i><b>12</b> 動的線形モデル</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="動的線形モデル.html"><a href="動的線形モデル.html#局所水準-local-level-モデル"><i class="fa fa-check"></i><b>12.1</b> 局所水準 (local level) モデル</a>
+<ul>
+<li class="chapter" data-level="" data-path="動的線形モデル.html"><a href="動的線形モデル.html#フィルタリング"><i class="fa fa-check"></i>フィルタリング</a></li>
+<li class="chapter" data-level="" data-path="動的線形モデル.html"><a href="動的線形モデル.html#スムージング-平滑化"><i class="fa fa-check"></i>スムージング (平滑化)</a></li>
+<li class="chapter" data-level="" data-path="動的線形モデル.html"><a href="動的線形モデル.html#状態予測"><i class="fa fa-check"></i>状態予測</a></li>
+<li class="chapter" data-level="" data-path="動的線形モデル.html"><a href="動的線形モデル.html#モデル診断-1"><i class="fa fa-check"></i>モデル診断</a></li>
+<li class="chapter" data-level="" data-path="動的線形モデル.html"><a href="動的線形モデル.html#モデルパラメータの推定"><i class="fa fa-check"></i>モデル・パラメータの推定</a></li>
+</ul></li>
+<li class="chapter" data-level="12.2" data-path="動的線形モデル.html"><a href="動的線形モデル.html#local-level-plus-seasonal-componentモデル"><i class="fa fa-check"></i><b>12.2</b> local level plus seasonal componentモデル</a>
+<ul>
+<li class="chapter" data-level="" data-path="動的線形モデル.html"><a href="動的線形モデル.html#状態予測-1"><i class="fa fa-check"></i>状態予測</a></li>
+</ul></li>
+<li class="chapter" data-level="12.3" data-path="動的線形モデル.html"><a href="動的線形モデル.html#動的回帰モデル"><i class="fa fa-check"></i><b>12.3</b> 動的回帰モデル</a>
+<ul>
+<li class="chapter" data-level="" data-path="動的線形モデル.html"><a href="動的線形モデル.html#スムージング"><i class="fa fa-check"></i>スムージング</a></li>
+</ul></li>
+<li class="chapter" data-level="12.4" data-path="動的線形モデル.html"><a href="動的線形モデル.html#sur-seemingly-unrelated-regression-モデル-3.3.3"><i class="fa fa-check"></i><b>12.4</b> SUR (Seemingly Unrelated Regression) モデル (3.3.3)</a>
+<ul>
+<li class="chapter" data-level="" data-path="動的線形モデル.html"><a href="動的線形モデル.html#参考文献"><i class="fa fa-check"></i>参考文献</a></li>
+</ul></li>
+</ul></li>
 <li class="appendix"><span><b>Appendix 参考文献</b></span></li>
 <li class="chapter" data-level="A" data-path="バブル-生成崩壊-検出.html"><a href="バブル-生成崩壊-検出.html"><i class="fa fa-check"></i><b>A</b> バブル (生成・崩壊) 検出</a>
 <ul>
@@ -669,7 +692,7 @@ y_{4,t} &amp;= w_{1,t}+ 2 w_{2,t} + u_{4,t}
 ##     0.5756 
 ## 
 ## Description:
-##  Wed Jan 15 21:54:15 2025 by user:</code></pre>
+##  Thu Jan 23 20:37:37 2025 by user:</code></pre>
 <div class="sourceCode" id="cb825"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb825-1"><a href="共和分分析.html#cb825-1" tabindex="-1"></a>fUnitRoots<span class="sc">::</span><span class="fu">adfTest</span>(y2)</span></code></pre></div>
 <pre><code>## 
 ## Title:
@@ -684,7 +707,7 @@ y_{4,t} &amp;= w_{1,t}+ 2 w_{2,t} + u_{4,t}
 ##     0.6497 
 ## 
 ## Description:
-##  Wed Jan 15 21:54:15 2025 by user:</code></pre>
+##  Thu Jan 23 20:37:37 2025 by user:</code></pre>
 <div class="sourceCode" id="cb827"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb827-1"><a href="共和分分析.html#cb827-1" tabindex="-1"></a>fUnitRoots<span class="sc">::</span><span class="fu">adfTest</span>(y3)</span></code></pre></div>
 <pre><code>## 
 ## Title:
@@ -699,7 +722,7 @@ y_{4,t} &amp;= w_{1,t}+ 2 w_{2,t} + u_{4,t}
 ##     0.5766 
 ## 
 ## Description:
-##  Wed Jan 15 21:54:15 2025 by user:</code></pre>
+##  Thu Jan 23 20:37:37 2025 by user:</code></pre>
 <div class="sourceCode" id="cb829"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb829-1"><a href="共和分分析.html#cb829-1" tabindex="-1"></a>fUnitRoots<span class="sc">::</span><span class="fu">adfTest</span>(y4)</span></code></pre></div>
 <pre><code>## 
 ## Title:
@@ -714,7 +737,7 @@ y_{4,t} &amp;= w_{1,t}+ 2 w_{2,t} + u_{4,t}
 ##     0.3768 
 ## 
 ## Description:
-##  Wed Jan 15 21:54:15 2025 by user:</code></pre>
+##  Thu Jan 23 20:37:37 2025 by user:</code></pre>
 <div id="englegrangerの方法-philips-ouliaris検定" class="section level3 unnumbered hasAnchor">
 <h3>Engle–Grangerの方法 (Philips-Ouliaris検定)<a href="共和分分析.html#englegrangerの方法-philips-ouliaris検定" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>共和分検定の方法の一つであるPhilips-Ouliaris検定は,
@@ -1112,7 +1135,7 @@ Johansen検定は, 理論的にはもとのVAR(<span class="math inline">\(p\)</
 ##     0.01 
 ## 
 ## Description:
-##  Wed Jan 15 21:54:16 2025 by user:</code></pre>
+##  Thu Jan 23 20:37:38 2025 by user:</code></pre>
 <div class="sourceCode" id="cb863"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb863-1"><a href="共和分分析.html#cb863-1" tabindex="-1"></a>fUnitRoots<span class="sc">::</span><span class="fu">adfTest</span>(coint_resid[, <span class="dv">2</span>])</span></code></pre></div>
 <pre><code>## Warning in fUnitRoots::adfTest(coint_resid[, 2]): p-value smaller than printed
 ## p-value</code></pre>
@@ -1129,7 +1152,7 @@ Johansen検定は, 理論的にはもとのVAR(<span class="math inline">\(p\)</
 ##     0.01 
 ## 
 ## Description:
-##  Wed Jan 15 21:54:16 2025 by user:</code></pre>
+##  Thu Jan 23 20:37:38 2025 by user:</code></pre>
 <div class="sourceCode" id="cb866"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb866-1"><a href="共和分分析.html#cb866-1" tabindex="-1"></a><span class="do">##fUnitRoots::adfTest(coint_resid[, 3])</span></span>
 <span id="cb866-2"><a href="共和分分析.html#cb866-2" tabindex="-1"></a><span class="do">##fUnitRoots::adfTest(coint_resid[, 4])</span></span></code></pre></div>
 <ul>
@@ -1384,7 +1407,7 @@ Rコードと実行結果の要点を記載する.</p>
 ##     0.425 
 ## 
 ## Description:
-##  Wed Jan 15 21:54:19 2025 by user:</code></pre>
+##  Thu Jan 23 20:37:41 2025 by user:</code></pre>
 <div class="sourceCode" id="cb884"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb884-1"><a href="共和分分析.html#cb884-1" tabindex="-1"></a>fUnitRoots<span class="sc">::</span><span class="fu">adfTest</span>(bnd[, <span class="dv">2</span>], <span class="at">lags =</span> <span class="dv">2</span>, <span class="at">type =</span> <span class="st">&quot;c&quot;</span>)</span></code></pre></div>
 <pre><code>## 
 ## Title:
@@ -1399,7 +1422,7 @@ Rコードと実行結果の要点を記載する.</p>
 ##     0.4544 
 ## 
 ## Description:
-##  Wed Jan 15 21:54:19 2025 by user:</code></pre>
+##  Thu Jan 23 20:37:41 2025 by user:</code></pre>
 <ul>
 <li>–&gt; Aaa, Baa系列のADF検定、棄却されない (H0: 単位根非定常)</li>
 </ul>
@@ -1576,7 +1599,7 @@ Rコードと実行結果の要点を記載する.</p>
 ##     0.01 
 ## 
 ## Description:
-##  Wed Jan 15 21:54:19 2025 by user:</code></pre>
+##  Thu Jan 23 20:37:41 2025 by user:</code></pre>
 <ul>
 <li>→ <span class="math inline">\(p\)</span>値<span class="math inline">\(=0.01\)</span> (単位根無)</li>
 </ul>

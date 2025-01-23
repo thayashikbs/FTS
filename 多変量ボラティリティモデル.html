@@ -30,7 +30,7 @@
   
   
 <link rel="prev" href="共和分分析.html"/>
-<link rel="next" href="バブル-生成崩壊-検出.html"/>
+<link rel="next" href="動的線形モデル.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -360,6 +360,29 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="多変量ボラティリティモデル.html"><a href="多変量ボラティリティモデル.html#コピュラに基づくアプローチ"><i class="fa fa-check"></i>コピュラに基づくアプローチ</a></li>
 </ul></li>
 </ul></li>
+<li class="chapter" data-level="12" data-path="動的線形モデル.html"><a href="動的線形モデル.html"><i class="fa fa-check"></i><b>12</b> 動的線形モデル</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="動的線形モデル.html"><a href="動的線形モデル.html#局所水準-local-level-モデル"><i class="fa fa-check"></i><b>12.1</b> 局所水準 (local level) モデル</a>
+<ul>
+<li class="chapter" data-level="" data-path="動的線形モデル.html"><a href="動的線形モデル.html#フィルタリング"><i class="fa fa-check"></i>フィルタリング</a></li>
+<li class="chapter" data-level="" data-path="動的線形モデル.html"><a href="動的線形モデル.html#スムージング-平滑化"><i class="fa fa-check"></i>スムージング (平滑化)</a></li>
+<li class="chapter" data-level="" data-path="動的線形モデル.html"><a href="動的線形モデル.html#状態予測"><i class="fa fa-check"></i>状態予測</a></li>
+<li class="chapter" data-level="" data-path="動的線形モデル.html"><a href="動的線形モデル.html#モデル診断-1"><i class="fa fa-check"></i>モデル診断</a></li>
+<li class="chapter" data-level="" data-path="動的線形モデル.html"><a href="動的線形モデル.html#モデルパラメータの推定"><i class="fa fa-check"></i>モデル・パラメータの推定</a></li>
+</ul></li>
+<li class="chapter" data-level="12.2" data-path="動的線形モデル.html"><a href="動的線形モデル.html#local-level-plus-seasonal-componentモデル"><i class="fa fa-check"></i><b>12.2</b> local level plus seasonal componentモデル</a>
+<ul>
+<li class="chapter" data-level="" data-path="動的線形モデル.html"><a href="動的線形モデル.html#状態予測-1"><i class="fa fa-check"></i>状態予測</a></li>
+</ul></li>
+<li class="chapter" data-level="12.3" data-path="動的線形モデル.html"><a href="動的線形モデル.html#動的回帰モデル"><i class="fa fa-check"></i><b>12.3</b> 動的回帰モデル</a>
+<ul>
+<li class="chapter" data-level="" data-path="動的線形モデル.html"><a href="動的線形モデル.html#スムージング"><i class="fa fa-check"></i>スムージング</a></li>
+</ul></li>
+<li class="chapter" data-level="12.4" data-path="動的線形モデル.html"><a href="動的線形モデル.html#sur-seemingly-unrelated-regression-モデル-3.3.3"><i class="fa fa-check"></i><b>12.4</b> SUR (Seemingly Unrelated Regression) モデル (3.3.3)</a>
+<ul>
+<li class="chapter" data-level="" data-path="動的線形モデル.html"><a href="動的線形モデル.html#参考文献"><i class="fa fa-check"></i>参考文献</a></li>
+</ul></li>
+</ul></li>
 <li class="appendix"><span><b>Appendix 参考文献</b></span></li>
 <li class="chapter" data-level="A" data-path="バブル-生成崩壊-検出.html"><a href="バブル-生成崩壊-検出.html"><i class="fa fa-check"></i><b>A</b> バブル (生成・崩壊) 検出</a>
 <ul>
@@ -519,12 +542,12 @@ Rの操作上は必ずしも使い勝手は良くないが,
   - lag: かばん検定に使用するクロス相関行列のラグ数</code></pre>
 <div class="sourceCode" id="cb937"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb937-1"><a href="多変量ボラティリティモデル.html#cb937-1" tabindex="-1"></a><span class="fu">MarchTest</span>(zt) <span class="do">#### Multivariate volatility tests</span></span></code></pre></div>
 <pre><code>## Q(m) of squared series(LM test):  
-## Test statistic:  8.971698  p-value:  0.5347917 
+## Test statistic:  13.93706  p-value:  0.1758821 
 ## Rank-based Test:  
-## Test statistic:  9.218022  p-value:  0.5115452 
+## Test statistic:  11.64981  p-value:  0.3091768 
 ## Q_k(m) of squared series:  
-## Test statistic:  255.784  p-value:  0.3872624 
-## Robust Test(5%) :  249.0308  p-value:  0.505414</code></pre>
+## Test statistic:  246.6223  p-value:  0.5485054 
+## Robust Test(5%) :  272.7509  p-value:  0.1544035</code></pre>
 <p>→ <span class="math inline">\(p\)</span>値はいずれも大きく, 帰無仮説は棄却されない (ARCH効果なし) ことが確認される. これは, <span class="math inline">\(z_t\)</span>が正規乱数から生成された
 <span class="math inline">\(k=5\)</span>のデータセットであり, 当然の結果と言える.</p>
 <!-- #### 分析例 {-} -->
@@ -954,21 +977,21 @@ van der Weideらによって一般化されたGO-GARCHである.</p>
 ## 
 ## Orthogonal Matrix U:
 ##            [,1]       [,2]       [,3]
-## [1,]  0.3723098  0.7911398 -0.4852661
-## [2,] -0.7625876  0.5587829  0.3259171
-## [3,] -0.5290043 -0.2487158 -0.8113537
+## [1,]  0.3740908 -0.4748227  0.7966175
+## [2,] -0.7627545  0.3310647  0.5555193
+## [3,] -0.5275051 -0.8154383 -0.2383249
 ## 
 ## Linear Map Z:
-##              [,1]         [,2]         [,3]
-## [1,]  0.008732688  0.060727645 -0.033116444
-## [2,] -0.030421759  0.030704124 -0.007245466
-## [3,] -0.039780215 -0.001150593 -0.047121453
+##              [,1]         [,2]          [,3]
+## [1,]  0.008860625 -0.032357267  0.0611171195
+## [2,] -0.030377259 -0.006936321  0.0308193613
+## [3,] -0.039680584 -0.047216322 -0.0005393315
 ## 
 ## Estimated GARCH coefficients:
 ##         omega     alpha1     beta1
-## y1 0.02487791 0.07512190 0.9014529
-## y2 0.08153132 0.09372128 0.8813127
-## y3 0.18003995 0.09594125 0.8180497
+## y1 0.07189733 0.12997472 0.7732720
+## y2 0.06092239 0.07995516 0.8977731
+## y3 0.16172513 0.11625265 0.7948855
 ## 
 ## Convergence codes of component GARCH models:
 ## y1 y2 y3 
@@ -982,21 +1005,21 @@ van der Weideらによって一般化されたGO-GARCHである.</p>
 <span id="cb1009-7"><a href="多変量ボラティリティモデル.html#cb1009-7" tabindex="-1"></a><span class="fu">MCHdiag</span>(crtn, Sigma_t) <span class="do">### Model checking</span></span></code></pre></div>
 <pre><code>## Test results:  
 ## Q(m) of et: 
-## Test and p-value:  33.7598 0.0002028196 
+## Test and p-value:  20.83751 0.02225555 
 ## Rank-based test: 
-## Test and p-value:  34.57501 0.0001475207 
+## Test and p-value:  30.87788 0.0006145976 
 ## Qk(m) of epsilon_t: 
-## Test and p-value:  196.1901 7.213249e-10 
+## Test and p-value:  199.2371 3.061371e-10 
 ## Robust Qk(m):  
-## Test and p-value:  117.4467 0.02762091</code></pre>
+## Test and p-value:  160.2123 7.588029e-06</code></pre>
 <div class="sourceCode" id="cb1011"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1011-1"><a href="多変量ボラティリティモデル.html#cb1011-1" tabindex="-1"></a>M <span class="ot">&lt;-</span> m1<span class="sc">@</span>Z</span>
 <span id="cb1011-2"><a href="多変量ボラティリティモデル.html#cb1011-2" tabindex="-1"></a>Minv <span class="ot">&lt;-</span> <span class="fu">solve</span>(M)        <span class="co"># 逆行列</span></span>
 <span id="cb1011-3"><a href="多変量ボラティリティモデル.html#cb1011-3" tabindex="-1"></a>bt <span class="ot">&lt;-</span> crtn <span class="sc">%*%</span> <span class="fu">t</span>(Minv)</span>
 <span id="cb1011-4"><a href="多変量ボラティリティモデル.html#cb1011-4" tabindex="-1"></a><span class="fu">cor</span>(bt<span class="sc">^</span><span class="dv">2</span>)</span></code></pre></div>
 <pre><code>##           [,1]      [,2]      [,3]
-## [1,] 1.0000000 0.3430936 0.1740420
-## [2,] 0.3430936 1.0000000 0.1063717
-## [3,] 0.1740420 0.1063717 1.0000000</code></pre>
+## [1,] 1.0000000 0.1692612 0.3464301
+## [2,] 0.1692612 1.0000000 0.1058548
+## [3,] 0.3464301 0.1058548 1.0000000</code></pre>
 <div class="sourceCode" id="cb1013"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1013-1"><a href="多変量ボラティリティモデル.html#cb1013-1" tabindex="-1"></a><span class="fu">matplot</span>(Sigma_t[, <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">5</span>, <span class="dv">9</span>)], <span class="at">type =</span> <span class="st">&quot;l&quot;</span>)  <span class="co"># 追加</span></span></code></pre></div>
 <p><img src="100-multivola_files/figure-html/gogarch-1.png" width="672" /></p>
 </div>
@@ -1084,16 +1107,13 @@ Hu and Tsay (2014) による主成分分析 (PCA) の一般化
 </div>
 </div>
 </div>
-
-
-
             </section>
 
           </div>
         </div>
       </div>
 <a href="共和分分析.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="バブル-生成崩壊-検出.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="動的線形モデル.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

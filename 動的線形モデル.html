@@ -30,7 +30,7 @@
   
   
 <link rel="prev" href="多変量ボラティリティモデル.html"/>
-<link rel="next" href="バブル-生成崩壊-検出.html"/>
+<link rel="next" href="高頻度データ分析.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -65,7 +65,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -383,6 +383,25 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="動的線形モデル.html"><a href="動的線形モデル.html#参考文献"><i class="fa fa-check"></i>参考文献</a></li>
 </ul></li>
 </ul></li>
+<li class="chapter" data-level="13" data-path="高頻度データ分析.html"><a href="高頻度データ分析.html"><i class="fa fa-check"></i><b>13</b> 高頻度データ分析</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="高頻度データ分析.html"><a href="高頻度データ分析.html#ボラティリティ推定"><i class="fa fa-check"></i><b>13.1</b> ボラティリティ推定</a>
+<ul>
+<li class="chapter" data-level="" data-path="高頻度データ分析.html"><a href="高頻度データ分析.html#データセット1-topix指数データ"><i class="fa fa-check"></i>データセット1: TOPIX指数データ</a></li>
+<li class="chapter" data-level="" data-path="高頻度データ分析.html"><a href="高頻度データ分析.html#実現ボラティリティの計算"><i class="fa fa-check"></i>実現ボラティリティの計算</a></li>
+<li class="chapter" data-level="" data-path="高頻度データ分析.html"><a href="高頻度データ分析.html#parkinsonボラティリティの計算"><i class="fa fa-check"></i>Parkinsonボラティリティの計算</a></li>
+<li class="chapter" data-level="" data-path="高頻度データ分析.html"><a href="高頻度データ分析.html#har-rvモデルによる予測"><i class="fa fa-check"></i>HAR-RVモデルによる予測</a></li>
+</ul></li>
+<li class="chapter" data-level="13.2" data-path="高頻度データ分析.html"><a href="高頻度データ分析.html#共分散相関の推定"><i class="fa fa-check"></i><b>13.2</b> 共分散・相関の推定</a>
+<ul>
+<li class="chapter" data-level="" data-path="高頻度データ分析.html"><a href="高頻度データ分析.html#データセット2-株価指数先物データ"><i class="fa fa-check"></i>データセット2: 株価指数先物データ</a></li>
+<li class="chapter" data-level="" data-path="高頻度データ分析.html"><a href="高頻度データ分析.html#共分散相関の推定-1"><i class="fa fa-check"></i>共分散・相関の推定</a></li>
+</ul></li>
+<li class="chapter" data-level="13.3" data-path="高頻度データ分析.html"><a href="高頻度データ分析.html#acdモデル"><i class="fa fa-check"></i><b>13.3</b> ACDモデル</a>
+<ul>
+<li class="chapter" data-level="" data-path="高頻度データ分析.html"><a href="高頻度データ分析.html#補足-等間隔データを作成するための方法"><i class="fa fa-check"></i>補足: 等間隔データを作成するための方法</a></li>
+</ul></li>
+</ul></li>
 <li class="appendix"><span><b>Appendix 参考文献</b></span></li>
 <li class="chapter" data-level="A" data-path="バブル-生成崩壊-検出.html"><a href="バブル-生成崩壊-検出.html"><i class="fa fa-check"></i><b>A</b> バブル (生成・崩壊) 検出</a>
 <ul>
@@ -433,6 +452,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="E.4" data-path="共和分-誤差修正モデル.html"><a href="共和分-誤差修正モデル.html#統計的アービトラージ-ペアトレード"><i class="fa fa-check"></i><b>E.4</b> 統計的アービトラージ / ペアトレード</a></li>
 <li class="chapter" data-level="E.5" data-path="共和分-誤差修正モデル.html"><a href="共和分-誤差修正モデル.html#国際株式市場間のヘッジ"><i class="fa fa-check"></i><b>E.5</b> 国際株式市場間のヘッジ</a></li>
 <li class="chapter" data-level="E.6" data-path="共和分-誤差修正モデル.html"><a href="共和分-誤差修正モデル.html#クレジットスプレッド-株式-cds-債券-の分析"><i class="fa fa-check"></i><b>E.6</b> クレジット・スプレッド (株式, CDS, 債券) の分析</a></li>
+</ul></li>
+<li class="chapter" data-level="F" data-path="今後の学習のために.html"><a href="今後の学習のために.html"><i class="fa fa-check"></i><b>F</b> 今後の学習のために</a>
+<ul>
+<li class="chapter" data-level="F.1" data-path="今後の学習のために.html"><a href="今後の学習のために.html#ai機械学習と時系列解析"><i class="fa fa-check"></i><b>F.1</b> AI/機械学習と時系列解析</a></li>
+<li class="chapter" data-level="F.2" data-path="今後の学習のために.html"><a href="今後の学習のために.html#カテゴリーデータや整数値データ等に対する時系列解析"><i class="fa fa-check"></i><b>F.2</b> カテゴリーデータや整数値データ等に対する時系列解析</a></li>
+<li class="chapter" data-level="F.3" data-path="今後の学習のために.html"><a href="今後の学習のために.html#状態空間モデル動的線形モデル"><i class="fa fa-check"></i><b>F.3</b> 状態空間モデル・動的線形モデル</a></li>
+<li class="chapter" data-level="F.4" data-path="今後の学習のために.html"><a href="今後の学習のために.html#その他"><i class="fa fa-check"></i><b>F.4</b> その他</a></li>
 </ul></li>
 </ul>
 
@@ -498,52 +524,52 @@ Rパッケージとしては, <strong>dlm</strong>を利用する.</p>
 <li>正規乱数により生成した<span class="math inline">\(10 \times 2\)</span>の説明変数行列<span class="math inline">\(x\)</span>を
 <code>dlmModReg()</code>に代入した場合の出力</li>
 </ul>
-<div class="sourceCode" id="cb1025"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1025-1"><a href="動的線形モデル.html#cb1025-1" tabindex="-1"></a><span class="fu">library</span>(dlm)</span>
-<span id="cb1025-2"><a href="動的線形モデル.html#cb1025-2" tabindex="-1"></a><span class="do">## Linear regression as a DLM</span></span>
-<span id="cb1025-3"><a href="動的線形モデル.html#cb1025-3" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">rnorm</span>(<span class="dv">10</span>),<span class="at">ncol =</span> <span class="dv">2</span>) <span class="co"># 説明変数 (デザイン行列)</span></span>
-<span id="cb1025-4"><a href="動的線形モデル.html#cb1025-4" tabindex="-1"></a>mod <span class="ot">&lt;-</span> <span class="fu">dlmModReg</span>(x)</span>
-<span id="cb1025-5"><a href="動的線形モデル.html#cb1025-5" tabindex="-1"></a><span class="co"># is.dlm(mod)</span></span>
-<span id="cb1025-6"><a href="動的線形モデル.html#cb1025-6" tabindex="-1"></a>mod</span>
-<span id="cb1025-7"><a href="動的線形モデル.html#cb1025-7" tabindex="-1"></a><span class="co">#&gt; $FF</span></span>
-<span id="cb1025-8"><a href="動的線形モデル.html#cb1025-8" tabindex="-1"></a><span class="co">#&gt;      [,1] [,2] [,3]</span></span>
-<span id="cb1025-9"><a href="動的線形モデル.html#cb1025-9" tabindex="-1"></a><span class="co">#&gt; [1,]    1    1    1</span></span>
-<span id="cb1025-10"><a href="動的線形モデル.html#cb1025-10" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb1025-11"><a href="動的線形モデル.html#cb1025-11" tabindex="-1"></a><span class="co">#&gt; $V</span></span>
-<span id="cb1025-12"><a href="動的線形モデル.html#cb1025-12" tabindex="-1"></a><span class="co">#&gt;      [,1]</span></span>
-<span id="cb1025-13"><a href="動的線形モデル.html#cb1025-13" tabindex="-1"></a><span class="co">#&gt; [1,]    1</span></span>
-<span id="cb1025-14"><a href="動的線形モデル.html#cb1025-14" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb1025-15"><a href="動的線形モデル.html#cb1025-15" tabindex="-1"></a><span class="co">#&gt; $GG</span></span>
-<span id="cb1025-16"><a href="動的線形モデル.html#cb1025-16" tabindex="-1"></a><span class="co">#&gt;      [,1] [,2] [,3]</span></span>
-<span id="cb1025-17"><a href="動的線形モデル.html#cb1025-17" tabindex="-1"></a><span class="co">#&gt; [1,]    1    0    0</span></span>
-<span id="cb1025-18"><a href="動的線形モデル.html#cb1025-18" tabindex="-1"></a><span class="co">#&gt; [2,]    0    1    0</span></span>
-<span id="cb1025-19"><a href="動的線形モデル.html#cb1025-19" tabindex="-1"></a><span class="co">#&gt; [3,]    0    0    1</span></span>
-<span id="cb1025-20"><a href="動的線形モデル.html#cb1025-20" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb1025-21"><a href="動的線形モデル.html#cb1025-21" tabindex="-1"></a><span class="co">#&gt; $W</span></span>
-<span id="cb1025-22"><a href="動的線形モデル.html#cb1025-22" tabindex="-1"></a><span class="co">#&gt;      [,1] [,2] [,3]</span></span>
-<span id="cb1025-23"><a href="動的線形モデル.html#cb1025-23" tabindex="-1"></a><span class="co">#&gt; [1,]    0    0    0</span></span>
-<span id="cb1025-24"><a href="動的線形モデル.html#cb1025-24" tabindex="-1"></a><span class="co">#&gt; [2,]    0    0    0</span></span>
-<span id="cb1025-25"><a href="動的線形モデル.html#cb1025-25" tabindex="-1"></a><span class="co">#&gt; [3,]    0    0    0</span></span>
-<span id="cb1025-26"><a href="動的線形モデル.html#cb1025-26" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb1025-27"><a href="動的線形モデル.html#cb1025-27" tabindex="-1"></a><span class="co">#&gt; $JFF</span></span>
-<span id="cb1025-28"><a href="動的線形モデル.html#cb1025-28" tabindex="-1"></a><span class="co">#&gt;      [,1] [,2] [,3]</span></span>
-<span id="cb1025-29"><a href="動的線形モデル.html#cb1025-29" tabindex="-1"></a><span class="co">#&gt; [1,]    0    1    2</span></span>
-<span id="cb1025-30"><a href="動的線形モデル.html#cb1025-30" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb1025-31"><a href="動的線形モデル.html#cb1025-31" tabindex="-1"></a><span class="co">#&gt; $X</span></span>
-<span id="cb1025-32"><a href="動的線形モデル.html#cb1025-32" tabindex="-1"></a><span class="co">#&gt;      [,1]   [,2]   </span></span>
-<span id="cb1025-33"><a href="動的線形モデル.html#cb1025-33" tabindex="-1"></a><span class="co">#&gt; [1,] -1.688 -0.1194</span></span>
-<span id="cb1025-34"><a href="動的線形モデル.html#cb1025-34" tabindex="-1"></a><span class="co">#&gt; [2,] 1.019  -0.8276</span></span>
-<span id="cb1025-35"><a href="動的線形モデル.html#cb1025-35" tabindex="-1"></a><span class="co">#&gt; [3,] ...           </span></span>
-<span id="cb1025-36"><a href="動的線形モデル.html#cb1025-36" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb1025-37"><a href="動的線形モデル.html#cb1025-37" tabindex="-1"></a><span class="co">#&gt; $m0</span></span>
-<span id="cb1025-38"><a href="動的線形モデル.html#cb1025-38" tabindex="-1"></a><span class="co">#&gt; [1] 0 0 0</span></span>
-<span id="cb1025-39"><a href="動的線形モデル.html#cb1025-39" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb1025-40"><a href="動的線形モデル.html#cb1025-40" tabindex="-1"></a><span class="co">#&gt; $C0</span></span>
-<span id="cb1025-41"><a href="動的線形モデル.html#cb1025-41" tabindex="-1"></a><span class="co">#&gt;       [,1]  [,2]  [,3]</span></span>
-<span id="cb1025-42"><a href="動的線形モデル.html#cb1025-42" tabindex="-1"></a><span class="co">#&gt; [1,] 1e+07 0e+00 0e+00</span></span>
-<span id="cb1025-43"><a href="動的線形モデル.html#cb1025-43" tabindex="-1"></a><span class="co">#&gt; [2,] 0e+00 1e+07 0e+00</span></span>
-<span id="cb1025-44"><a href="動的線形モデル.html#cb1025-44" tabindex="-1"></a><span class="co">#&gt; [3,] 0e+00 0e+00 1e+07</span></span>
-<span id="cb1025-45"><a href="動的線形モデル.html#cb1025-45" tabindex="-1"></a><span class="do">## Adding dlm&#39;s</span></span>
-<span id="cb1025-46"><a href="動的線形モデル.html#cb1025-46" tabindex="-1"></a><span class="co"># dlmModPoly() + dlmModSeas(4) # linear trend plus quarterly seasonal component</span></span></code></pre></div>
+<div class="sourceCode" id="cb1023"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1023-1"><a href="動的線形モデル.html#cb1023-1" tabindex="-1"></a><span class="fu">library</span>(dlm)</span>
+<span id="cb1023-2"><a href="動的線形モデル.html#cb1023-2" tabindex="-1"></a><span class="do">## Linear regression as a DLM</span></span>
+<span id="cb1023-3"><a href="動的線形モデル.html#cb1023-3" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">rnorm</span>(<span class="dv">10</span>),<span class="at">ncol =</span> <span class="dv">2</span>) <span class="co"># 説明変数 (デザイン行列)</span></span>
+<span id="cb1023-4"><a href="動的線形モデル.html#cb1023-4" tabindex="-1"></a>mod <span class="ot">&lt;-</span> <span class="fu">dlmModReg</span>(x)</span>
+<span id="cb1023-5"><a href="動的線形モデル.html#cb1023-5" tabindex="-1"></a><span class="co"># is.dlm(mod)</span></span>
+<span id="cb1023-6"><a href="動的線形モデル.html#cb1023-6" tabindex="-1"></a>mod</span>
+<span id="cb1023-7"><a href="動的線形モデル.html#cb1023-7" tabindex="-1"></a><span class="co">#&gt; $FF</span></span>
+<span id="cb1023-8"><a href="動的線形モデル.html#cb1023-8" tabindex="-1"></a><span class="co">#&gt;      [,1] [,2] [,3]</span></span>
+<span id="cb1023-9"><a href="動的線形モデル.html#cb1023-9" tabindex="-1"></a><span class="co">#&gt; [1,]    1    1    1</span></span>
+<span id="cb1023-10"><a href="動的線形モデル.html#cb1023-10" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb1023-11"><a href="動的線形モデル.html#cb1023-11" tabindex="-1"></a><span class="co">#&gt; $V</span></span>
+<span id="cb1023-12"><a href="動的線形モデル.html#cb1023-12" tabindex="-1"></a><span class="co">#&gt;      [,1]</span></span>
+<span id="cb1023-13"><a href="動的線形モデル.html#cb1023-13" tabindex="-1"></a><span class="co">#&gt; [1,]    1</span></span>
+<span id="cb1023-14"><a href="動的線形モデル.html#cb1023-14" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb1023-15"><a href="動的線形モデル.html#cb1023-15" tabindex="-1"></a><span class="co">#&gt; $GG</span></span>
+<span id="cb1023-16"><a href="動的線形モデル.html#cb1023-16" tabindex="-1"></a><span class="co">#&gt;      [,1] [,2] [,3]</span></span>
+<span id="cb1023-17"><a href="動的線形モデル.html#cb1023-17" tabindex="-1"></a><span class="co">#&gt; [1,]    1    0    0</span></span>
+<span id="cb1023-18"><a href="動的線形モデル.html#cb1023-18" tabindex="-1"></a><span class="co">#&gt; [2,]    0    1    0</span></span>
+<span id="cb1023-19"><a href="動的線形モデル.html#cb1023-19" tabindex="-1"></a><span class="co">#&gt; [3,]    0    0    1</span></span>
+<span id="cb1023-20"><a href="動的線形モデル.html#cb1023-20" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb1023-21"><a href="動的線形モデル.html#cb1023-21" tabindex="-1"></a><span class="co">#&gt; $W</span></span>
+<span id="cb1023-22"><a href="動的線形モデル.html#cb1023-22" tabindex="-1"></a><span class="co">#&gt;      [,1] [,2] [,3]</span></span>
+<span id="cb1023-23"><a href="動的線形モデル.html#cb1023-23" tabindex="-1"></a><span class="co">#&gt; [1,]    0    0    0</span></span>
+<span id="cb1023-24"><a href="動的線形モデル.html#cb1023-24" tabindex="-1"></a><span class="co">#&gt; [2,]    0    0    0</span></span>
+<span id="cb1023-25"><a href="動的線形モデル.html#cb1023-25" tabindex="-1"></a><span class="co">#&gt; [3,]    0    0    0</span></span>
+<span id="cb1023-26"><a href="動的線形モデル.html#cb1023-26" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb1023-27"><a href="動的線形モデル.html#cb1023-27" tabindex="-1"></a><span class="co">#&gt; $JFF</span></span>
+<span id="cb1023-28"><a href="動的線形モデル.html#cb1023-28" tabindex="-1"></a><span class="co">#&gt;      [,1] [,2] [,3]</span></span>
+<span id="cb1023-29"><a href="動的線形モデル.html#cb1023-29" tabindex="-1"></a><span class="co">#&gt; [1,]    0    1    2</span></span>
+<span id="cb1023-30"><a href="動的線形モデル.html#cb1023-30" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb1023-31"><a href="動的線形モデル.html#cb1023-31" tabindex="-1"></a><span class="co">#&gt; $X</span></span>
+<span id="cb1023-32"><a href="動的線形モデル.html#cb1023-32" tabindex="-1"></a><span class="co">#&gt;      [,1]   [,2]  </span></span>
+<span id="cb1023-33"><a href="動的線形モデル.html#cb1023-33" tabindex="-1"></a><span class="co">#&gt; [1,]  1.75  0.3983</span></span>
+<span id="cb1023-34"><a href="動的線形モデル.html#cb1023-34" tabindex="-1"></a><span class="co">#&gt; [2,] 0.2792 0.5926</span></span>
+<span id="cb1023-35"><a href="動的線形モデル.html#cb1023-35" tabindex="-1"></a><span class="co">#&gt; [3,] ...          </span></span>
+<span id="cb1023-36"><a href="動的線形モデル.html#cb1023-36" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb1023-37"><a href="動的線形モデル.html#cb1023-37" tabindex="-1"></a><span class="co">#&gt; $m0</span></span>
+<span id="cb1023-38"><a href="動的線形モデル.html#cb1023-38" tabindex="-1"></a><span class="co">#&gt; [1] 0 0 0</span></span>
+<span id="cb1023-39"><a href="動的線形モデル.html#cb1023-39" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb1023-40"><a href="動的線形モデル.html#cb1023-40" tabindex="-1"></a><span class="co">#&gt; $C0</span></span>
+<span id="cb1023-41"><a href="動的線形モデル.html#cb1023-41" tabindex="-1"></a><span class="co">#&gt;       [,1]  [,2]  [,3]</span></span>
+<span id="cb1023-42"><a href="動的線形モデル.html#cb1023-42" tabindex="-1"></a><span class="co">#&gt; [1,] 1e+07 0e+00 0e+00</span></span>
+<span id="cb1023-43"><a href="動的線形モデル.html#cb1023-43" tabindex="-1"></a><span class="co">#&gt; [2,] 0e+00 1e+07 0e+00</span></span>
+<span id="cb1023-44"><a href="動的線形モデル.html#cb1023-44" tabindex="-1"></a><span class="co">#&gt; [3,] 0e+00 0e+00 1e+07</span></span>
+<span id="cb1023-45"><a href="動的線形モデル.html#cb1023-45" tabindex="-1"></a><span class="do">## Adding dlm&#39;s</span></span>
+<span id="cb1023-46"><a href="動的線形モデル.html#cb1023-46" tabindex="-1"></a><span class="co"># dlmModPoly() + dlmModSeas(4) # linear trend plus quarterly seasonal component</span></span></code></pre></div>
 <p>一方, <span class="math inline">\(n\)</span>-次多項式DLMの場合は, <code>dlmModPoly()</code>を用いる.</p>
 <pre><code>- dlmModPoly(): $n$-次多項式DLMの生成
   - order=1: local level(ランダムウォーク+ノイズ)
@@ -552,57 +578,57 @@ Rパッケージとしては, <strong>dlm</strong>を利用する.</p>
 <li>観測ノイズ<span class="math inline">\(V=0.3\)</span>, システムノイズ (の分散共分散行列の対角成分)
 <span class="math inline">\(W=0.01\)</span>に持つ局所水準 (ランダムウォーク+ノイズ) モデルの特定化の場合の出力</li>
 </ul>
-<div class="sourceCode" id="cb1027"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1027-1"><a href="動的線形モデル.html#cb1027-1" tabindex="-1"></a><span class="do">## the default</span></span>
-<span id="cb1027-2"><a href="動的線形モデル.html#cb1027-2" tabindex="-1"></a><span class="fu">dlmModPoly</span>()</span>
-<span id="cb1027-3"><a href="動的線形モデル.html#cb1027-3" tabindex="-1"></a><span class="co">#&gt; $FF</span></span>
-<span id="cb1027-4"><a href="動的線形モデル.html#cb1027-4" tabindex="-1"></a><span class="co">#&gt;      [,1] [,2]</span></span>
-<span id="cb1027-5"><a href="動的線形モデル.html#cb1027-5" tabindex="-1"></a><span class="co">#&gt; [1,]    1    0</span></span>
-<span id="cb1027-6"><a href="動的線形モデル.html#cb1027-6" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb1027-7"><a href="動的線形モデル.html#cb1027-7" tabindex="-1"></a><span class="co">#&gt; $V</span></span>
-<span id="cb1027-8"><a href="動的線形モデル.html#cb1027-8" tabindex="-1"></a><span class="co">#&gt;      [,1]</span></span>
-<span id="cb1027-9"><a href="動的線形モデル.html#cb1027-9" tabindex="-1"></a><span class="co">#&gt; [1,]    1</span></span>
-<span id="cb1027-10"><a href="動的線形モデル.html#cb1027-10" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb1027-11"><a href="動的線形モデル.html#cb1027-11" tabindex="-1"></a><span class="co">#&gt; $GG</span></span>
-<span id="cb1027-12"><a href="動的線形モデル.html#cb1027-12" tabindex="-1"></a><span class="co">#&gt;      [,1] [,2]</span></span>
-<span id="cb1027-13"><a href="動的線形モデル.html#cb1027-13" tabindex="-1"></a><span class="co">#&gt; [1,]    1    1</span></span>
-<span id="cb1027-14"><a href="動的線形モデル.html#cb1027-14" tabindex="-1"></a><span class="co">#&gt; [2,]    0    1</span></span>
-<span id="cb1027-15"><a href="動的線形モデル.html#cb1027-15" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb1027-16"><a href="動的線形モデル.html#cb1027-16" tabindex="-1"></a><span class="co">#&gt; $W</span></span>
-<span id="cb1027-17"><a href="動的線形モデル.html#cb1027-17" tabindex="-1"></a><span class="co">#&gt;      [,1] [,2]</span></span>
-<span id="cb1027-18"><a href="動的線形モデル.html#cb1027-18" tabindex="-1"></a><span class="co">#&gt; [1,]    0    0</span></span>
-<span id="cb1027-19"><a href="動的線形モデル.html#cb1027-19" tabindex="-1"></a><span class="co">#&gt; [2,]    0    1</span></span>
-<span id="cb1027-20"><a href="動的線形モデル.html#cb1027-20" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb1027-21"><a href="動的線形モデル.html#cb1027-21" tabindex="-1"></a><span class="co">#&gt; $m0</span></span>
-<span id="cb1027-22"><a href="動的線形モデル.html#cb1027-22" tabindex="-1"></a><span class="co">#&gt; [1] 0 0</span></span>
-<span id="cb1027-23"><a href="動的線形モデル.html#cb1027-23" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb1027-24"><a href="動的線形モデル.html#cb1027-24" tabindex="-1"></a><span class="co">#&gt; $C0</span></span>
-<span id="cb1027-25"><a href="動的線形モデル.html#cb1027-25" tabindex="-1"></a><span class="co">#&gt;       [,1]  [,2]</span></span>
-<span id="cb1027-26"><a href="動的線形モデル.html#cb1027-26" tabindex="-1"></a><span class="co">#&gt; [1,] 1e+07 0e+00</span></span>
-<span id="cb1027-27"><a href="動的線形モデル.html#cb1027-27" tabindex="-1"></a><span class="co">#&gt; [2,] 0e+00 1e+07</span></span>
-<span id="cb1027-28"><a href="動的線形モデル.html#cb1027-28" tabindex="-1"></a><span class="do">## random walk plus noise</span></span>
-<span id="cb1027-29"><a href="動的線形モデル.html#cb1027-29" tabindex="-1"></a><span class="fu">dlmModPoly</span>(<span class="dv">1</span>, <span class="at">dV =</span> .<span class="dv">3</span>, <span class="at">dW =</span> .<span class="dv">01</span>)</span>
-<span id="cb1027-30"><a href="動的線形モデル.html#cb1027-30" tabindex="-1"></a><span class="co">#&gt; $FF</span></span>
-<span id="cb1027-31"><a href="動的線形モデル.html#cb1027-31" tabindex="-1"></a><span class="co">#&gt;      [,1]</span></span>
-<span id="cb1027-32"><a href="動的線形モデル.html#cb1027-32" tabindex="-1"></a><span class="co">#&gt; [1,]    1</span></span>
-<span id="cb1027-33"><a href="動的線形モデル.html#cb1027-33" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb1027-34"><a href="動的線形モデル.html#cb1027-34" tabindex="-1"></a><span class="co">#&gt; $V</span></span>
-<span id="cb1027-35"><a href="動的線形モデル.html#cb1027-35" tabindex="-1"></a><span class="co">#&gt;      [,1]</span></span>
-<span id="cb1027-36"><a href="動的線形モデル.html#cb1027-36" tabindex="-1"></a><span class="co">#&gt; [1,]  0.3</span></span>
-<span id="cb1027-37"><a href="動的線形モデル.html#cb1027-37" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb1027-38"><a href="動的線形モデル.html#cb1027-38" tabindex="-1"></a><span class="co">#&gt; $GG</span></span>
-<span id="cb1027-39"><a href="動的線形モデル.html#cb1027-39" tabindex="-1"></a><span class="co">#&gt;      [,1]</span></span>
-<span id="cb1027-40"><a href="動的線形モデル.html#cb1027-40" tabindex="-1"></a><span class="co">#&gt; [1,]    1</span></span>
-<span id="cb1027-41"><a href="動的線形モデル.html#cb1027-41" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb1027-42"><a href="動的線形モデル.html#cb1027-42" tabindex="-1"></a><span class="co">#&gt; $W</span></span>
-<span id="cb1027-43"><a href="動的線形モデル.html#cb1027-43" tabindex="-1"></a><span class="co">#&gt;      [,1]</span></span>
-<span id="cb1027-44"><a href="動的線形モデル.html#cb1027-44" tabindex="-1"></a><span class="co">#&gt; [1,] 0.01</span></span>
-<span id="cb1027-45"><a href="動的線形モデル.html#cb1027-45" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb1027-46"><a href="動的線形モデル.html#cb1027-46" tabindex="-1"></a><span class="co">#&gt; $m0</span></span>
-<span id="cb1027-47"><a href="動的線形モデル.html#cb1027-47" tabindex="-1"></a><span class="co">#&gt; [1] 0</span></span>
-<span id="cb1027-48"><a href="動的線形モデル.html#cb1027-48" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb1027-49"><a href="動的線形モデル.html#cb1027-49" tabindex="-1"></a><span class="co">#&gt; $C0</span></span>
-<span id="cb1027-50"><a href="動的線形モデル.html#cb1027-50" tabindex="-1"></a><span class="co">#&gt;       [,1]</span></span>
-<span id="cb1027-51"><a href="動的線形モデル.html#cb1027-51" tabindex="-1"></a><span class="co">#&gt; [1,] 1e+07</span></span></code></pre></div>
+<div class="sourceCode" id="cb1025"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1025-1"><a href="動的線形モデル.html#cb1025-1" tabindex="-1"></a><span class="do">## the default</span></span>
+<span id="cb1025-2"><a href="動的線形モデル.html#cb1025-2" tabindex="-1"></a><span class="fu">dlmModPoly</span>()</span>
+<span id="cb1025-3"><a href="動的線形モデル.html#cb1025-3" tabindex="-1"></a><span class="co">#&gt; $FF</span></span>
+<span id="cb1025-4"><a href="動的線形モデル.html#cb1025-4" tabindex="-1"></a><span class="co">#&gt;      [,1] [,2]</span></span>
+<span id="cb1025-5"><a href="動的線形モデル.html#cb1025-5" tabindex="-1"></a><span class="co">#&gt; [1,]    1    0</span></span>
+<span id="cb1025-6"><a href="動的線形モデル.html#cb1025-6" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb1025-7"><a href="動的線形モデル.html#cb1025-7" tabindex="-1"></a><span class="co">#&gt; $V</span></span>
+<span id="cb1025-8"><a href="動的線形モデル.html#cb1025-8" tabindex="-1"></a><span class="co">#&gt;      [,1]</span></span>
+<span id="cb1025-9"><a href="動的線形モデル.html#cb1025-9" tabindex="-1"></a><span class="co">#&gt; [1,]    1</span></span>
+<span id="cb1025-10"><a href="動的線形モデル.html#cb1025-10" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb1025-11"><a href="動的線形モデル.html#cb1025-11" tabindex="-1"></a><span class="co">#&gt; $GG</span></span>
+<span id="cb1025-12"><a href="動的線形モデル.html#cb1025-12" tabindex="-1"></a><span class="co">#&gt;      [,1] [,2]</span></span>
+<span id="cb1025-13"><a href="動的線形モデル.html#cb1025-13" tabindex="-1"></a><span class="co">#&gt; [1,]    1    1</span></span>
+<span id="cb1025-14"><a href="動的線形モデル.html#cb1025-14" tabindex="-1"></a><span class="co">#&gt; [2,]    0    1</span></span>
+<span id="cb1025-15"><a href="動的線形モデル.html#cb1025-15" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb1025-16"><a href="動的線形モデル.html#cb1025-16" tabindex="-1"></a><span class="co">#&gt; $W</span></span>
+<span id="cb1025-17"><a href="動的線形モデル.html#cb1025-17" tabindex="-1"></a><span class="co">#&gt;      [,1] [,2]</span></span>
+<span id="cb1025-18"><a href="動的線形モデル.html#cb1025-18" tabindex="-1"></a><span class="co">#&gt; [1,]    0    0</span></span>
+<span id="cb1025-19"><a href="動的線形モデル.html#cb1025-19" tabindex="-1"></a><span class="co">#&gt; [2,]    0    1</span></span>
+<span id="cb1025-20"><a href="動的線形モデル.html#cb1025-20" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb1025-21"><a href="動的線形モデル.html#cb1025-21" tabindex="-1"></a><span class="co">#&gt; $m0</span></span>
+<span id="cb1025-22"><a href="動的線形モデル.html#cb1025-22" tabindex="-1"></a><span class="co">#&gt; [1] 0 0</span></span>
+<span id="cb1025-23"><a href="動的線形モデル.html#cb1025-23" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb1025-24"><a href="動的線形モデル.html#cb1025-24" tabindex="-1"></a><span class="co">#&gt; $C0</span></span>
+<span id="cb1025-25"><a href="動的線形モデル.html#cb1025-25" tabindex="-1"></a><span class="co">#&gt;       [,1]  [,2]</span></span>
+<span id="cb1025-26"><a href="動的線形モデル.html#cb1025-26" tabindex="-1"></a><span class="co">#&gt; [1,] 1e+07 0e+00</span></span>
+<span id="cb1025-27"><a href="動的線形モデル.html#cb1025-27" tabindex="-1"></a><span class="co">#&gt; [2,] 0e+00 1e+07</span></span>
+<span id="cb1025-28"><a href="動的線形モデル.html#cb1025-28" tabindex="-1"></a><span class="do">## random walk plus noise</span></span>
+<span id="cb1025-29"><a href="動的線形モデル.html#cb1025-29" tabindex="-1"></a><span class="fu">dlmModPoly</span>(<span class="dv">1</span>, <span class="at">dV =</span> .<span class="dv">3</span>, <span class="at">dW =</span> .<span class="dv">01</span>)</span>
+<span id="cb1025-30"><a href="動的線形モデル.html#cb1025-30" tabindex="-1"></a><span class="co">#&gt; $FF</span></span>
+<span id="cb1025-31"><a href="動的線形モデル.html#cb1025-31" tabindex="-1"></a><span class="co">#&gt;      [,1]</span></span>
+<span id="cb1025-32"><a href="動的線形モデル.html#cb1025-32" tabindex="-1"></a><span class="co">#&gt; [1,]    1</span></span>
+<span id="cb1025-33"><a href="動的線形モデル.html#cb1025-33" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb1025-34"><a href="動的線形モデル.html#cb1025-34" tabindex="-1"></a><span class="co">#&gt; $V</span></span>
+<span id="cb1025-35"><a href="動的線形モデル.html#cb1025-35" tabindex="-1"></a><span class="co">#&gt;      [,1]</span></span>
+<span id="cb1025-36"><a href="動的線形モデル.html#cb1025-36" tabindex="-1"></a><span class="co">#&gt; [1,]  0.3</span></span>
+<span id="cb1025-37"><a href="動的線形モデル.html#cb1025-37" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb1025-38"><a href="動的線形モデル.html#cb1025-38" tabindex="-1"></a><span class="co">#&gt; $GG</span></span>
+<span id="cb1025-39"><a href="動的線形モデル.html#cb1025-39" tabindex="-1"></a><span class="co">#&gt;      [,1]</span></span>
+<span id="cb1025-40"><a href="動的線形モデル.html#cb1025-40" tabindex="-1"></a><span class="co">#&gt; [1,]    1</span></span>
+<span id="cb1025-41"><a href="動的線形モデル.html#cb1025-41" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb1025-42"><a href="動的線形モデル.html#cb1025-42" tabindex="-1"></a><span class="co">#&gt; $W</span></span>
+<span id="cb1025-43"><a href="動的線形モデル.html#cb1025-43" tabindex="-1"></a><span class="co">#&gt;      [,1]</span></span>
+<span id="cb1025-44"><a href="動的線形モデル.html#cb1025-44" tabindex="-1"></a><span class="co">#&gt; [1,] 0.01</span></span>
+<span id="cb1025-45"><a href="動的線形モデル.html#cb1025-45" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb1025-46"><a href="動的線形モデル.html#cb1025-46" tabindex="-1"></a><span class="co">#&gt; $m0</span></span>
+<span id="cb1025-47"><a href="動的線形モデル.html#cb1025-47" tabindex="-1"></a><span class="co">#&gt; [1] 0</span></span>
+<span id="cb1025-48"><a href="動的線形モデル.html#cb1025-48" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb1025-49"><a href="動的線形モデル.html#cb1025-49" tabindex="-1"></a><span class="co">#&gt; $C0</span></span>
+<span id="cb1025-50"><a href="動的線形モデル.html#cb1025-50" tabindex="-1"></a><span class="co">#&gt;       [,1]</span></span>
+<span id="cb1025-51"><a href="動的線形モデル.html#cb1025-51" tabindex="-1"></a><span class="co">#&gt; [1,] 1e+07</span></span></code></pre></div>
 </div>
 <div id="局所水準-local-level-モデル" class="section level2 hasAnchor" number="12.1">
 <h2><span class="header-section-number">12.1</span> 局所水準 (local level) モデル<a href="動的線形モデル.html#局所水準-local-level-モデル" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -624,46 +650,46 @@ Y_t &amp;= \mu_t + v_t, \quad v_t \sim_{i.i.d.} N(0,V), \\
 <ul>
 <li>cf. <a href="https://kevinkotze.github.io/ts-4-tut/" class="uri">https://kevinkotze.github.io/ts-4-tut/</a></li>
 </ul>
-<div class="sourceCode" id="cb1028"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1028-1"><a href="動的線形モデル.html#cb1028-1" tabindex="-1"></a><span class="fu">ts.plot</span>(Nile)</span></code></pre></div>
+<div class="sourceCode" id="cb1026"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1026-1"><a href="動的線形モデル.html#cb1026-1" tabindex="-1"></a><span class="fu">ts.plot</span>(Nile)</span></code></pre></div>
 <p><img src="130%E2%88%92dlm_files/figure-html/Nile-1.png" width="75%" /></p>
-<div class="sourceCode" id="cb1029"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1029-1"><a href="動的線形モデル.html#cb1029-1" tabindex="-1"></a><span class="co"># local level model</span></span>
-<span id="cb1029-2"><a href="動的線形モデル.html#cb1029-2" tabindex="-1"></a>NilePoly <span class="ot">&lt;-</span> <span class="fu">dlmModPoly</span>(<span class="at">order =</span> <span class="dv">1</span>, <span class="at">dV =</span> <span class="dv">15100</span>, <span class="at">dW =</span> <span class="dv">1468</span>)</span>
-<span id="cb1029-3"><a href="動的線形モデル.html#cb1029-3" tabindex="-1"></a><span class="fu">unlist</span>(NilePoly)</span>
-<span id="cb1029-4"><a href="動的線形モデル.html#cb1029-4" tabindex="-1"></a><span class="co">#&gt;       m0       C0       FF        V       GG        W </span></span>
-<span id="cb1029-5"><a href="動的線形モデル.html#cb1029-5" tabindex="-1"></a><span class="co">#&gt;        0 10000000        1    15100        1     1468</span></span></code></pre></div>
+<div class="sourceCode" id="cb1027"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1027-1"><a href="動的線形モデル.html#cb1027-1" tabindex="-1"></a><span class="co"># local level model</span></span>
+<span id="cb1027-2"><a href="動的線形モデル.html#cb1027-2" tabindex="-1"></a>NilePoly <span class="ot">&lt;-</span> <span class="fu">dlmModPoly</span>(<span class="at">order =</span> <span class="dv">1</span>, <span class="at">dV =</span> <span class="dv">15100</span>, <span class="at">dW =</span> <span class="dv">1468</span>)</span>
+<span id="cb1027-3"><a href="動的線形モデル.html#cb1027-3" tabindex="-1"></a><span class="fu">unlist</span>(NilePoly)</span>
+<span id="cb1027-4"><a href="動的線形モデル.html#cb1027-4" tabindex="-1"></a><span class="co">#&gt;       m0       C0       FF        V       GG        W </span></span>
+<span id="cb1027-5"><a href="動的線形モデル.html#cb1027-5" tabindex="-1"></a><span class="co">#&gt;        0 10000000        1    15100        1     1468</span></span></code></pre></div>
 <div id="フィルタリング" class="section level3 unnumbered hasAnchor">
 <h3>フィルタリング<a href="動的線形モデル.html#フィルタリング" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>最新の観測値に基づいて, 現在の状態を (“オンライン”で) 推定する.</p>
 <ul>
 <li>Kalman filterによる, 状態空間ベクトルのフィルター値と, (特異値分解(SVD)に基づいて) 分散共分散行列の計算</li>
 </ul>
-<div class="sourceCode" id="cb1030"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1030-1"><a href="動的線形モデル.html#cb1030-1" tabindex="-1"></a>NileFilt <span class="ot">&lt;-</span> <span class="fu">dlmFilter</span>(Nile, NilePoly)</span>
-<span id="cb1030-2"><a href="動的線形モデル.html#cb1030-2" tabindex="-1"></a><span class="co">#　str(NileFilt, 1)</span></span>
-<span id="cb1030-3"><a href="動的線形モデル.html#cb1030-3" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="fu">length</span>(Nile)</span>
-<span id="cb1030-4"><a href="動的線形モデル.html#cb1030-4" tabindex="-1"></a><span class="fu">attach</span>(NileFilt)</span>
-<span id="cb1030-5"><a href="動的線形モデル.html#cb1030-5" tabindex="-1"></a><span class="co">#dlmSvd2var(U.C[[n + 1]], D.C[n + 1, ])</span></span>
-<span id="cb1030-6"><a href="動的線形モデル.html#cb1030-6" tabindex="-1"></a><span class="co"># 特異値分解(SVD)から非負定値行列 (u d^2 u&#39;) 計算</span></span></code></pre></div>
+<div class="sourceCode" id="cb1028"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1028-1"><a href="動的線形モデル.html#cb1028-1" tabindex="-1"></a>NileFilt <span class="ot">&lt;-</span> <span class="fu">dlmFilter</span>(Nile, NilePoly)</span>
+<span id="cb1028-2"><a href="動的線形モデル.html#cb1028-2" tabindex="-1"></a><span class="co">#　str(NileFilt, 1)</span></span>
+<span id="cb1028-3"><a href="動的線形モデル.html#cb1028-3" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="fu">length</span>(Nile)</span>
+<span id="cb1028-4"><a href="動的線形モデル.html#cb1028-4" tabindex="-1"></a><span class="fu">attach</span>(NileFilt)</span>
+<span id="cb1028-5"><a href="動的線形モデル.html#cb1028-5" tabindex="-1"></a><span class="co">#dlmSvd2var(U.C[[n + 1]], D.C[n + 1, ])</span></span>
+<span id="cb1028-6"><a href="動的線形モデル.html#cb1028-6" tabindex="-1"></a><span class="co"># 特異値分解(SVD)から非負定値行列 (u d^2 u&#39;) 計算</span></span></code></pre></div>
 <ul>
 <li>S/N比 (<span class="math inline">\(W/V\)</span>), Kalman”ゲイン”を決める重要な要因
 <ul>
 <li>観測値の変動に対する状態の(事前→事後)更新の感応度合い</li>
 </ul></li>
 </ul>
-<div class="sourceCode" id="cb1031"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1031-1"><a href="動的線形モデル.html#cb1031-1" tabindex="-1"></a><span class="fu">plot</span>(Nile, <span class="at">type =</span> <span class="st">&#39;o&#39;</span>, <span class="at">col =</span> <span class="fu">c</span>(<span class="st">&quot;darkgrey&quot;</span>),</span>
-<span id="cb1031-2"><a href="動的線形モデル.html#cb1031-2" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">&quot;&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;Level&quot;</span>)</span>
-<span id="cb1031-3"><a href="動的線形モデル.html#cb1031-3" tabindex="-1"></a>mod1 <span class="ot">&lt;-</span> <span class="fu">dlmModPoly</span>(<span class="at">order =</span> <span class="dv">1</span>, <span class="at">dV =</span> <span class="dv">15100</span>, <span class="at">dW =</span> <span class="dv">755</span>)</span>
-<span id="cb1031-4"><a href="動的線形モデル.html#cb1031-4" tabindex="-1"></a>NileFilt1 <span class="ot">&lt;-</span> <span class="fu">dlmFilter</span>(Nile, mod1)</span>
-<span id="cb1031-5"><a href="動的線形モデル.html#cb1031-5" tabindex="-1"></a><span class="fu">lines</span>(<span class="fu">dropFirst</span>(NileFilt1<span class="sc">$</span>m), <span class="at">lty =</span> <span class="st">&quot;longdash&quot;</span>)</span>
-<span id="cb1031-6"><a href="動的線形モデル.html#cb1031-6" tabindex="-1"></a>mod2 <span class="ot">&lt;-</span> <span class="fu">dlmModPoly</span>(<span class="at">order =</span> <span class="dv">1</span>, <span class="at">dV =</span> <span class="dv">15100</span>, <span class="at">dW =</span> <span class="dv">7550</span>)</span>
-<span id="cb1031-7"><a href="動的線形モデル.html#cb1031-7" tabindex="-1"></a>NileFilt2 <span class="ot">&lt;-</span> <span class="fu">dlmFilter</span>(Nile, mod2)</span>
-<span id="cb1031-8"><a href="動的線形モデル.html#cb1031-8" tabindex="-1"></a><span class="fu">lines</span>(<span class="fu">dropFirst</span>(NileFilt2<span class="sc">$</span>m), <span class="at">lty =</span> <span class="st">&quot;dotdash&quot;</span>)</span>
-<span id="cb1031-9"><a href="動的線形モデル.html#cb1031-9" tabindex="-1"></a>leg <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;data&quot;</span>, <span class="fu">paste</span>(<span class="st">&quot;filtered,  W/V =&quot;</span>,</span>
-<span id="cb1031-10"><a href="動的線形モデル.html#cb1031-10" tabindex="-1"></a>                       <span class="fu">format</span>(<span class="fu">c</span>(<span class="fu">W</span>(mod1) <span class="sc">/</span> <span class="fu">V</span>(mod1),</span>
-<span id="cb1031-11"><a href="動的線形モデル.html#cb1031-11" tabindex="-1"></a>                                <span class="fu">W</span>(mod2) <span class="sc">/</span> <span class="fu">V</span>(mod2)))))</span>
-<span id="cb1031-12"><a href="動的線形モデル.html#cb1031-12" tabindex="-1"></a><span class="fu">legend</span>(<span class="st">&quot;bottomright&quot;</span>, <span class="at">legend =</span> leg,</span>
-<span id="cb1031-13"><a href="動的線形モデル.html#cb1031-13" tabindex="-1"></a>       <span class="at">col=</span><span class="fu">c</span>(<span class="st">&quot;darkgrey&quot;</span>, <span class="st">&quot;black&quot;</span>, <span class="st">&quot;black&quot;</span>),</span>
-<span id="cb1031-14"><a href="動的線形モデル.html#cb1031-14" tabindex="-1"></a>       <span class="at">lty =</span> <span class="fu">c</span>(<span class="st">&quot;solid&quot;</span>, <span class="st">&quot;longdash&quot;</span>, <span class="st">&quot;dotdash&quot;</span>),</span>
-<span id="cb1031-15"><a href="動的線形モデル.html#cb1031-15" tabindex="-1"></a>       <span class="at">pch =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="cn">NA</span>, <span class="cn">NA</span>), <span class="at">bty =</span> <span class="st">&quot;n&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1029"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1029-1"><a href="動的線形モデル.html#cb1029-1" tabindex="-1"></a><span class="fu">plot</span>(Nile, <span class="at">type =</span> <span class="st">&#39;o&#39;</span>, <span class="at">col =</span> <span class="fu">c</span>(<span class="st">&quot;darkgrey&quot;</span>),</span>
+<span id="cb1029-2"><a href="動的線形モデル.html#cb1029-2" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">&quot;&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;Level&quot;</span>)</span>
+<span id="cb1029-3"><a href="動的線形モデル.html#cb1029-3" tabindex="-1"></a>mod1 <span class="ot">&lt;-</span> <span class="fu">dlmModPoly</span>(<span class="at">order =</span> <span class="dv">1</span>, <span class="at">dV =</span> <span class="dv">15100</span>, <span class="at">dW =</span> <span class="dv">755</span>)</span>
+<span id="cb1029-4"><a href="動的線形モデル.html#cb1029-4" tabindex="-1"></a>NileFilt1 <span class="ot">&lt;-</span> <span class="fu">dlmFilter</span>(Nile, mod1)</span>
+<span id="cb1029-5"><a href="動的線形モデル.html#cb1029-5" tabindex="-1"></a><span class="fu">lines</span>(<span class="fu">dropFirst</span>(NileFilt1<span class="sc">$</span>m), <span class="at">lty =</span> <span class="st">&quot;longdash&quot;</span>)</span>
+<span id="cb1029-6"><a href="動的線形モデル.html#cb1029-6" tabindex="-1"></a>mod2 <span class="ot">&lt;-</span> <span class="fu">dlmModPoly</span>(<span class="at">order =</span> <span class="dv">1</span>, <span class="at">dV =</span> <span class="dv">15100</span>, <span class="at">dW =</span> <span class="dv">7550</span>)</span>
+<span id="cb1029-7"><a href="動的線形モデル.html#cb1029-7" tabindex="-1"></a>NileFilt2 <span class="ot">&lt;-</span> <span class="fu">dlmFilter</span>(Nile, mod2)</span>
+<span id="cb1029-8"><a href="動的線形モデル.html#cb1029-8" tabindex="-1"></a><span class="fu">lines</span>(<span class="fu">dropFirst</span>(NileFilt2<span class="sc">$</span>m), <span class="at">lty =</span> <span class="st">&quot;dotdash&quot;</span>)</span>
+<span id="cb1029-9"><a href="動的線形モデル.html#cb1029-9" tabindex="-1"></a>leg <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;data&quot;</span>, <span class="fu">paste</span>(<span class="st">&quot;filtered,  W/V =&quot;</span>,</span>
+<span id="cb1029-10"><a href="動的線形モデル.html#cb1029-10" tabindex="-1"></a>                       <span class="fu">format</span>(<span class="fu">c</span>(<span class="fu">W</span>(mod1) <span class="sc">/</span> <span class="fu">V</span>(mod1),</span>
+<span id="cb1029-11"><a href="動的線形モデル.html#cb1029-11" tabindex="-1"></a>                                <span class="fu">W</span>(mod2) <span class="sc">/</span> <span class="fu">V</span>(mod2)))))</span>
+<span id="cb1029-12"><a href="動的線形モデル.html#cb1029-12" tabindex="-1"></a><span class="fu">legend</span>(<span class="st">&quot;bottomright&quot;</span>, <span class="at">legend =</span> leg,</span>
+<span id="cb1029-13"><a href="動的線形モデル.html#cb1029-13" tabindex="-1"></a>       <span class="at">col=</span><span class="fu">c</span>(<span class="st">&quot;darkgrey&quot;</span>, <span class="st">&quot;black&quot;</span>, <span class="st">&quot;black&quot;</span>),</span>
+<span id="cb1029-14"><a href="動的線形モデル.html#cb1029-14" tabindex="-1"></a>       <span class="at">lty =</span> <span class="fu">c</span>(<span class="st">&quot;solid&quot;</span>, <span class="st">&quot;longdash&quot;</span>, <span class="st">&quot;dotdash&quot;</span>),</span>
+<span id="cb1029-15"><a href="動的線形モデル.html#cb1029-15" tabindex="-1"></a>       <span class="at">pch =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="cn">NA</span>, <span class="cn">NA</span>), <span class="at">bty =</span> <span class="st">&quot;n&quot;</span>)</span></code></pre></div>
 <p><img src="130%E2%88%92dlm_files/figure-html/Nile_Filter2-1.png" width="75%" /></p>
 <p>状態方程式の誤差分散 (dW) の大きさが 755 と 7550 の2つの場合を比較する:</p>
 <ul>
@@ -674,114 +700,114 @@ Y_t &amp;= \mu_t + v_t, \quad v_t \sim_{i.i.d.} N(0,V), \\
 <div id="スムージング-平滑化" class="section level3 unnumbered hasAnchor">
 <h3>スムージング (平滑化)<a href="動的線形モデル.html#スムージング-平滑化" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>最新時点までの全観測値を使い, 過去の全時点の状態を (“オフライン”で) 推定する (平滑化推定値の計算)</p>
-<div class="sourceCode" id="cb1032"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1032-1"><a href="動的線形モデル.html#cb1032-1" tabindex="-1"></a>NileSmooth <span class="ot">&lt;-</span> <span class="fu">dlmSmooth</span>(NileFilt)</span>
-<span id="cb1032-2"><a href="動的線形モデル.html#cb1032-2" tabindex="-1"></a><span class="fu">str</span>(NileSmooth, <span class="dv">1</span>)</span>
-<span id="cb1032-3"><a href="動的線形モデル.html#cb1032-3" tabindex="-1"></a><span class="co">#&gt; List of 3</span></span>
-<span id="cb1032-4"><a href="動的線形モデル.html#cb1032-4" tabindex="-1"></a><span class="co">#&gt;  $ s  : Time-Series [1:101] from 1870 to 1970: 1111 1111 1111 1105 1113 ...</span></span>
-<span id="cb1032-5"><a href="動的線形モデル.html#cb1032-5" tabindex="-1"></a><span class="co">#&gt;  $ U.S:List of 101</span></span>
-<span id="cb1032-6"><a href="動的線形モデル.html#cb1032-6" tabindex="-1"></a><span class="co">#&gt;  $ D.S: num [1:101, 1] 74.1 63.5 56.9 53.1 50.9 ...</span></span>
-<span id="cb1032-7"><a href="動的線形モデル.html#cb1032-7" tabindex="-1"></a><span class="fu">attach</span>(NileSmooth)</span></code></pre></div>
-<div class="sourceCode" id="cb1033"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1033-1"><a href="動的線形モデル.html#cb1033-1" tabindex="-1"></a><span class="co"># dlmSvd2var() により共分散行列を再構築:</span></span>
-<span id="cb1033-2"><a href="動的線形モデル.html#cb1033-2" tabindex="-1"></a><span class="co"># 各要素を drop() でスカラーに落とす</span></span>
-<span id="cb1033-3"><a href="動的線形モデル.html#cb1033-3" tabindex="-1"></a><span class="co"># U.S, D.S: フィルタ・平滑化結果（状態側）のSVD分解要素</span></span>
-<span id="cb1033-4"><a href="動的線形モデル.html#cb1033-4" tabindex="-1"></a><span class="co"># U.C, D.C は観測側のSVD要素。</span></span>
-<span id="cb1033-5"><a href="動的線形モデル.html#cb1033-5" tabindex="-1"></a><span class="co"># ここでは, 特定の時点 (n+1, n/2+1) の分散を取り出して確認</span></span>
-<span id="cb1033-6"><a href="動的線形モデル.html#cb1033-6" tabindex="-1"></a><span class="fu">drop</span>(<span class="fu">dlmSvd2var</span>(U.S[[n <span class="sc">+</span> <span class="dv">1</span>]], D.S[n <span class="sc">+</span> <span class="dv">1</span>,]))</span>
-<span id="cb1033-7"><a href="動的線形モデル.html#cb1033-7" tabindex="-1"></a><span class="co">#&gt; [1] 4031.035</span></span>
-<span id="cb1033-8"><a href="動的線形モデル.html#cb1033-8" tabindex="-1"></a><span class="fu">drop</span>(<span class="fu">dlmSvd2var</span>(U.C[[n <span class="sc">+</span> <span class="dv">1</span>]], D.C[n <span class="sc">+</span> <span class="dv">1</span>,]))</span>
-<span id="cb1033-9"><a href="動的線形モデル.html#cb1033-9" tabindex="-1"></a><span class="co">#&gt; [1] 4031.035</span></span>
-<span id="cb1033-10"><a href="動的線形モデル.html#cb1033-10" tabindex="-1"></a><span class="fu">drop</span>(<span class="fu">dlmSvd2var</span>(U.S[[n <span class="sc">/</span> <span class="dv">2</span> <span class="sc">+</span> <span class="dv">1</span>]], D.S[n <span class="sc">/</span> <span class="dv">2</span> <span class="sc">+</span> <span class="dv">1</span>,]))</span>
-<span id="cb1033-11"><a href="動的線形モデル.html#cb1033-11" tabindex="-1"></a><span class="co">#&gt; [1] 2325.985</span></span>
-<span id="cb1033-12"><a href="動的線形モデル.html#cb1033-12" tabindex="-1"></a><span class="fu">drop</span>(<span class="fu">dlmSvd2var</span>(U.C[[n <span class="sc">/</span> <span class="dv">2</span> <span class="sc">+</span> <span class="dv">1</span>]], D.C[n <span class="sc">/</span> <span class="dv">2</span> <span class="sc">+</span> <span class="dv">1</span>,]))</span>
-<span id="cb1033-13"><a href="動的線形モデル.html#cb1033-13" tabindex="-1"></a><span class="co">#&gt; [1] 4031.035</span></span></code></pre></div>
-<div class="sourceCode" id="cb1034"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1034-1"><a href="動的線形モデル.html#cb1034-1" tabindex="-1"></a><span class="co"># 平滑化した状態sの分散をもとに, 95%信頼区間の (半分の) 幅 (hwid)を算出</span></span>
-<span id="cb1034-2"><a href="動的線形モデル.html#cb1034-2" tabindex="-1"></a><span class="co"># qnorm(0.025, lower = FALSE): 片側 (上側) 2.5%点を取得 --&gt; 95%区間に対応</span></span>
-<span id="cb1034-3"><a href="動的線形モデル.html#cb1034-3" tabindex="-1"></a><span class="co"># dlmSvd2var(U.S, D.S) の結果 (unlist()でベクトル化) の平方根 --&gt; 標準偏差</span></span>
-<span id="cb1034-4"><a href="動的線形モデル.html#cb1034-4" tabindex="-1"></a>hwid <span class="ot">&lt;-</span> <span class="fu">qnorm</span>(<span class="fl">0.025</span>, <span class="at">lower =</span> <span class="cn">FALSE</span>) <span class="sc">*</span></span>
-<span id="cb1034-5"><a href="動的線形モデル.html#cb1034-5" tabindex="-1"></a>    <span class="fu">sqrt</span>(<span class="fu">unlist</span>(<span class="fu">dlmSvd2var</span>(U.S, D.S)))</span>
-<span id="cb1034-6"><a href="動的線形モデル.html#cb1034-6" tabindex="-1"></a><span class="co"># cbind()により3列からなる行列smooth作成:</span></span>
-<span id="cb1034-7"><a href="動的線形モデル.html#cb1034-7" tabindex="-1"></a><span class="co"># 平滑化推定値(s), 推定値-hwid (下側信頼区間), 推定値+hwid (上側信頼区間)</span></span>
-<span id="cb1034-8"><a href="動的線形モデル.html#cb1034-8" tabindex="-1"></a>smooth <span class="ot">&lt;-</span> <span class="fu">cbind</span>(s, <span class="fu">as.vector</span>(s) <span class="sc">+</span> hwid <span class="sc">%o%</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="dv">1</span>))</span>
-<span id="cb1034-9"><a href="動的線形モデル.html#cb1034-9" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">dropFirst</span>(smooth), <span class="at">plot.type =</span> <span class="st">&quot;s&quot;</span>, <span class="at">type =</span> <span class="st">&quot;l&quot;</span>,</span>
-<span id="cb1034-10"><a href="動的線形モデル.html#cb1034-10" tabindex="-1"></a>     <span class="at">lty =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">5</span>, <span class="dv">5</span>), <span class="at">ylab =</span> <span class="st">&quot;Level&quot;</span>, <span class="at">xlab =</span> <span class="st">&quot;&quot;</span>,</span>
-<span id="cb1034-11"><a href="動的線形モデル.html#cb1034-11" tabindex="-1"></a>     <span class="at">ylim =</span> <span class="fu">range</span>(Nile))</span>
-<span id="cb1034-12"><a href="動的線形モデル.html#cb1034-12" tabindex="-1"></a><span class="fu">lines</span>(Nile, <span class="at">type =</span> <span class="st">&quot;o&quot;</span>, <span class="at">col =</span> <span class="st">&quot;darkgrey&quot;</span>)</span>
-<span id="cb1034-13"><a href="動的線形モデル.html#cb1034-13" tabindex="-1"></a><span class="fu">legend</span>(<span class="st">&quot;bottomleft&quot;</span>, <span class="at">col =</span> <span class="fu">c</span>(<span class="st">&quot;darkgrey&quot;</span>, <span class="fu">rep</span>(<span class="st">&quot;black&quot;</span>, <span class="dv">2</span>)),</span>
-<span id="cb1034-14"><a href="動的線形モデル.html#cb1034-14" tabindex="-1"></a>       <span class="at">lty =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">5</span>), <span class="at">pch =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="cn">NA</span>, <span class="cn">NA</span>), <span class="at">bty =</span> <span class="st">&quot;n&quot;</span>,</span>
-<span id="cb1034-15"><a href="動的線形モデル.html#cb1034-15" tabindex="-1"></a>       <span class="at">legend =</span> <span class="fu">c</span>(<span class="st">&quot;data&quot;</span>, <span class="st">&quot;smoothed level&quot;</span>,</span>
-<span id="cb1034-16"><a href="動的線形モデル.html#cb1034-16" tabindex="-1"></a>       <span class="st">&quot;95% probability limits&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb1030"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1030-1"><a href="動的線形モデル.html#cb1030-1" tabindex="-1"></a>NileSmooth <span class="ot">&lt;-</span> <span class="fu">dlmSmooth</span>(NileFilt)</span>
+<span id="cb1030-2"><a href="動的線形モデル.html#cb1030-2" tabindex="-1"></a><span class="fu">str</span>(NileSmooth, <span class="dv">1</span>)</span>
+<span id="cb1030-3"><a href="動的線形モデル.html#cb1030-3" tabindex="-1"></a><span class="co">#&gt; List of 3</span></span>
+<span id="cb1030-4"><a href="動的線形モデル.html#cb1030-4" tabindex="-1"></a><span class="co">#&gt;  $ s  : Time-Series [1:101] from 1870 to 1970: 1111 1111 1111 1105 1113 ...</span></span>
+<span id="cb1030-5"><a href="動的線形モデル.html#cb1030-5" tabindex="-1"></a><span class="co">#&gt;  $ U.S:List of 101</span></span>
+<span id="cb1030-6"><a href="動的線形モデル.html#cb1030-6" tabindex="-1"></a><span class="co">#&gt;  $ D.S: num [1:101, 1] 74.1 63.5 56.9 53.1 50.9 ...</span></span>
+<span id="cb1030-7"><a href="動的線形モデル.html#cb1030-7" tabindex="-1"></a><span class="fu">attach</span>(NileSmooth)</span></code></pre></div>
+<div class="sourceCode" id="cb1031"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1031-1"><a href="動的線形モデル.html#cb1031-1" tabindex="-1"></a><span class="co"># dlmSvd2var() により共分散行列を再構築:</span></span>
+<span id="cb1031-2"><a href="動的線形モデル.html#cb1031-2" tabindex="-1"></a><span class="co"># 各要素を drop() でスカラーに落とす</span></span>
+<span id="cb1031-3"><a href="動的線形モデル.html#cb1031-3" tabindex="-1"></a><span class="co"># U.S, D.S: フィルタ・平滑化結果（状態側）のSVD分解要素</span></span>
+<span id="cb1031-4"><a href="動的線形モデル.html#cb1031-4" tabindex="-1"></a><span class="co"># U.C, D.C は観測側のSVD要素。</span></span>
+<span id="cb1031-5"><a href="動的線形モデル.html#cb1031-5" tabindex="-1"></a><span class="co"># ここでは, 特定の時点 (n+1, n/2+1) の分散を取り出して確認</span></span>
+<span id="cb1031-6"><a href="動的線形モデル.html#cb1031-6" tabindex="-1"></a><span class="fu">drop</span>(<span class="fu">dlmSvd2var</span>(U.S[[n <span class="sc">+</span> <span class="dv">1</span>]], D.S[n <span class="sc">+</span> <span class="dv">1</span>,]))</span>
+<span id="cb1031-7"><a href="動的線形モデル.html#cb1031-7" tabindex="-1"></a><span class="co">#&gt; [1] 4031.035</span></span>
+<span id="cb1031-8"><a href="動的線形モデル.html#cb1031-8" tabindex="-1"></a><span class="fu">drop</span>(<span class="fu">dlmSvd2var</span>(U.C[[n <span class="sc">+</span> <span class="dv">1</span>]], D.C[n <span class="sc">+</span> <span class="dv">1</span>,]))</span>
+<span id="cb1031-9"><a href="動的線形モデル.html#cb1031-9" tabindex="-1"></a><span class="co">#&gt; [1] 4031.035</span></span>
+<span id="cb1031-10"><a href="動的線形モデル.html#cb1031-10" tabindex="-1"></a><span class="fu">drop</span>(<span class="fu">dlmSvd2var</span>(U.S[[n <span class="sc">/</span> <span class="dv">2</span> <span class="sc">+</span> <span class="dv">1</span>]], D.S[n <span class="sc">/</span> <span class="dv">2</span> <span class="sc">+</span> <span class="dv">1</span>,]))</span>
+<span id="cb1031-11"><a href="動的線形モデル.html#cb1031-11" tabindex="-1"></a><span class="co">#&gt; [1] 2325.985</span></span>
+<span id="cb1031-12"><a href="動的線形モデル.html#cb1031-12" tabindex="-1"></a><span class="fu">drop</span>(<span class="fu">dlmSvd2var</span>(U.C[[n <span class="sc">/</span> <span class="dv">2</span> <span class="sc">+</span> <span class="dv">1</span>]], D.C[n <span class="sc">/</span> <span class="dv">2</span> <span class="sc">+</span> <span class="dv">1</span>,]))</span>
+<span id="cb1031-13"><a href="動的線形モデル.html#cb1031-13" tabindex="-1"></a><span class="co">#&gt; [1] 4031.035</span></span></code></pre></div>
+<div class="sourceCode" id="cb1032"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1032-1"><a href="動的線形モデル.html#cb1032-1" tabindex="-1"></a><span class="co"># 平滑化した状態sの分散をもとに, 95%信頼区間の (半分の) 幅 (hwid)を算出</span></span>
+<span id="cb1032-2"><a href="動的線形モデル.html#cb1032-2" tabindex="-1"></a><span class="co"># qnorm(0.025, lower = FALSE): 片側 (上側) 2.5%点を取得 --&gt; 95%区間に対応</span></span>
+<span id="cb1032-3"><a href="動的線形モデル.html#cb1032-3" tabindex="-1"></a><span class="co"># dlmSvd2var(U.S, D.S) の結果 (unlist()でベクトル化) の平方根 --&gt; 標準偏差</span></span>
+<span id="cb1032-4"><a href="動的線形モデル.html#cb1032-4" tabindex="-1"></a>hwid <span class="ot">&lt;-</span> <span class="fu">qnorm</span>(<span class="fl">0.025</span>, <span class="at">lower =</span> <span class="cn">FALSE</span>) <span class="sc">*</span></span>
+<span id="cb1032-5"><a href="動的線形モデル.html#cb1032-5" tabindex="-1"></a>    <span class="fu">sqrt</span>(<span class="fu">unlist</span>(<span class="fu">dlmSvd2var</span>(U.S, D.S)))</span>
+<span id="cb1032-6"><a href="動的線形モデル.html#cb1032-6" tabindex="-1"></a><span class="co"># cbind()により3列からなる行列smooth作成:</span></span>
+<span id="cb1032-7"><a href="動的線形モデル.html#cb1032-7" tabindex="-1"></a><span class="co"># 平滑化推定値(s), 推定値-hwid (下側信頼区間), 推定値+hwid (上側信頼区間)</span></span>
+<span id="cb1032-8"><a href="動的線形モデル.html#cb1032-8" tabindex="-1"></a>smooth <span class="ot">&lt;-</span> <span class="fu">cbind</span>(s, <span class="fu">as.vector</span>(s) <span class="sc">+</span> hwid <span class="sc">%o%</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="dv">1</span>))</span>
+<span id="cb1032-9"><a href="動的線形モデル.html#cb1032-9" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">dropFirst</span>(smooth), <span class="at">plot.type =</span> <span class="st">&quot;s&quot;</span>, <span class="at">type =</span> <span class="st">&quot;l&quot;</span>,</span>
+<span id="cb1032-10"><a href="動的線形モデル.html#cb1032-10" tabindex="-1"></a>     <span class="at">lty =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">5</span>, <span class="dv">5</span>), <span class="at">ylab =</span> <span class="st">&quot;Level&quot;</span>, <span class="at">xlab =</span> <span class="st">&quot;&quot;</span>,</span>
+<span id="cb1032-11"><a href="動的線形モデル.html#cb1032-11" tabindex="-1"></a>     <span class="at">ylim =</span> <span class="fu">range</span>(Nile))</span>
+<span id="cb1032-12"><a href="動的線形モデル.html#cb1032-12" tabindex="-1"></a><span class="fu">lines</span>(Nile, <span class="at">type =</span> <span class="st">&quot;o&quot;</span>, <span class="at">col =</span> <span class="st">&quot;darkgrey&quot;</span>)</span>
+<span id="cb1032-13"><a href="動的線形モデル.html#cb1032-13" tabindex="-1"></a><span class="fu">legend</span>(<span class="st">&quot;bottomleft&quot;</span>, <span class="at">col =</span> <span class="fu">c</span>(<span class="st">&quot;darkgrey&quot;</span>, <span class="fu">rep</span>(<span class="st">&quot;black&quot;</span>, <span class="dv">2</span>)),</span>
+<span id="cb1032-14"><a href="動的線形モデル.html#cb1032-14" tabindex="-1"></a>       <span class="at">lty =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">5</span>), <span class="at">pch =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="cn">NA</span>, <span class="cn">NA</span>), <span class="at">bty =</span> <span class="st">&quot;n&quot;</span>,</span>
+<span id="cb1032-15"><a href="動的線形モデル.html#cb1032-15" tabindex="-1"></a>       <span class="at">legend =</span> <span class="fu">c</span>(<span class="st">&quot;data&quot;</span>, <span class="st">&quot;smoothed level&quot;</span>,</span>
+<span id="cb1032-16"><a href="動的線形モデル.html#cb1032-16" tabindex="-1"></a>       <span class="st">&quot;95% probability limits&quot;</span>))</span></code></pre></div>
 <p><img src="130%E2%88%92dlm_files/figure-html/unnamed-chunk-3-1.png" width="75%" /></p>
 </div>
 <div id="状態予測" class="section level3 unnumbered hasAnchor">
 <h3>状態予測<a href="動的線形モデル.html#状態予測" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb1035"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1035-1"><a href="動的線形モデル.html#cb1035-1" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="fu">window</span>(<span class="fu">cbind</span>(Nile, NileFilt1<span class="sc">$</span>f, NileFilt2<span class="sc">$</span>f),</span>
-<span id="cb1035-2"><a href="動的線形モデル.html#cb1035-2" tabindex="-1"></a>            <span class="at">start =</span> <span class="dv">1880</span>, <span class="at">end =</span> <span class="dv">1920</span>)</span>
-<span id="cb1035-3"><a href="動的線形モデル.html#cb1035-3" tabindex="-1"></a><span class="fu">plot</span>(a[, <span class="dv">1</span>], <span class="at">type =</span> <span class="st">&#39;o&#39;</span>, <span class="at">col =</span> <span class="st">&quot;darkgrey&quot;</span>,</span>
-<span id="cb1035-4"><a href="動的線形モデル.html#cb1035-4" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">&quot;&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;Level&quot;</span>)</span>
-<span id="cb1035-5"><a href="動的線形モデル.html#cb1035-5" tabindex="-1"></a><span class="fu">lines</span>(a[, <span class="dv">2</span>], <span class="at">lty =</span> <span class="st">&quot;longdash&quot;</span>)</span>
-<span id="cb1035-6"><a href="動的線形モデル.html#cb1035-6" tabindex="-1"></a><span class="fu">lines</span>(a[, <span class="dv">3</span>], <span class="at">lty =</span> <span class="st">&quot;dotdash&quot;</span>)</span>
-<span id="cb1035-7"><a href="動的線形モデル.html#cb1035-7" tabindex="-1"></a>leg <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;data&quot;</span>, <span class="fu">paste</span>(<span class="st">&quot;one-step-ahead forecast,  W/V =&quot;</span>,</span>
-<span id="cb1035-8"><a href="動的線形モデル.html#cb1035-8" tabindex="-1"></a>                       <span class="fu">format</span>(<span class="fu">c</span>(<span class="fu">W</span>(mod1) <span class="sc">/</span> <span class="fu">V</span>(mod1),</span>
-<span id="cb1035-9"><a href="動的線形モデル.html#cb1035-9" tabindex="-1"></a>                                <span class="fu">W</span>(mod2) <span class="sc">/</span> <span class="fu">V</span>(mod2)))))</span>
-<span id="cb1035-10"><a href="動的線形モデル.html#cb1035-10" tabindex="-1"></a><span class="fu">legend</span>(<span class="st">&quot;bottomleft&quot;</span>, <span class="at">legend =</span> leg,</span>
-<span id="cb1035-11"><a href="動的線形モデル.html#cb1035-11" tabindex="-1"></a>       <span class="at">col =</span> <span class="fu">c</span>(<span class="st">&quot;darkgrey&quot;</span>, <span class="st">&quot;black&quot;</span>, <span class="st">&quot;black&quot;</span>),</span>
-<span id="cb1035-12"><a href="動的線形モデル.html#cb1035-12" tabindex="-1"></a>       <span class="at">lty =</span> <span class="fu">c</span>(<span class="st">&quot;solid&quot;</span>, <span class="st">&quot;longdash&quot;</span>, <span class="st">&quot;dotdash&quot;</span>),</span>
-<span id="cb1035-13"><a href="動的線形モデル.html#cb1035-13" tabindex="-1"></a>       <span class="at">pch =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="cn">NA</span>, <span class="cn">NA</span>), <span class="at">bty =</span> <span class="st">&quot;n&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1033"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1033-1"><a href="動的線形モデル.html#cb1033-1" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="fu">window</span>(<span class="fu">cbind</span>(Nile, NileFilt1<span class="sc">$</span>f, NileFilt2<span class="sc">$</span>f),</span>
+<span id="cb1033-2"><a href="動的線形モデル.html#cb1033-2" tabindex="-1"></a>            <span class="at">start =</span> <span class="dv">1880</span>, <span class="at">end =</span> <span class="dv">1920</span>)</span>
+<span id="cb1033-3"><a href="動的線形モデル.html#cb1033-3" tabindex="-1"></a><span class="fu">plot</span>(a[, <span class="dv">1</span>], <span class="at">type =</span> <span class="st">&#39;o&#39;</span>, <span class="at">col =</span> <span class="st">&quot;darkgrey&quot;</span>,</span>
+<span id="cb1033-4"><a href="動的線形モデル.html#cb1033-4" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">&quot;&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;Level&quot;</span>)</span>
+<span id="cb1033-5"><a href="動的線形モデル.html#cb1033-5" tabindex="-1"></a><span class="fu">lines</span>(a[, <span class="dv">2</span>], <span class="at">lty =</span> <span class="st">&quot;longdash&quot;</span>)</span>
+<span id="cb1033-6"><a href="動的線形モデル.html#cb1033-6" tabindex="-1"></a><span class="fu">lines</span>(a[, <span class="dv">3</span>], <span class="at">lty =</span> <span class="st">&quot;dotdash&quot;</span>)</span>
+<span id="cb1033-7"><a href="動的線形モデル.html#cb1033-7" tabindex="-1"></a>leg <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;data&quot;</span>, <span class="fu">paste</span>(<span class="st">&quot;one-step-ahead forecast,  W/V =&quot;</span>,</span>
+<span id="cb1033-8"><a href="動的線形モデル.html#cb1033-8" tabindex="-1"></a>                       <span class="fu">format</span>(<span class="fu">c</span>(<span class="fu">W</span>(mod1) <span class="sc">/</span> <span class="fu">V</span>(mod1),</span>
+<span id="cb1033-9"><a href="動的線形モデル.html#cb1033-9" tabindex="-1"></a>                                <span class="fu">W</span>(mod2) <span class="sc">/</span> <span class="fu">V</span>(mod2)))))</span>
+<span id="cb1033-10"><a href="動的線形モデル.html#cb1033-10" tabindex="-1"></a><span class="fu">legend</span>(<span class="st">&quot;bottomleft&quot;</span>, <span class="at">legend =</span> leg,</span>
+<span id="cb1033-11"><a href="動的線形モデル.html#cb1033-11" tabindex="-1"></a>       <span class="at">col =</span> <span class="fu">c</span>(<span class="st">&quot;darkgrey&quot;</span>, <span class="st">&quot;black&quot;</span>, <span class="st">&quot;black&quot;</span>),</span>
+<span id="cb1033-12"><a href="動的線形モデル.html#cb1033-12" tabindex="-1"></a>       <span class="at">lty =</span> <span class="fu">c</span>(<span class="st">&quot;solid&quot;</span>, <span class="st">&quot;longdash&quot;</span>, <span class="st">&quot;dotdash&quot;</span>),</span>
+<span id="cb1033-13"><a href="動的線形モデル.html#cb1033-13" tabindex="-1"></a>       <span class="at">pch =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="cn">NA</span>, <span class="cn">NA</span>), <span class="at">bty =</span> <span class="st">&quot;n&quot;</span>)</span></code></pre></div>
 <p><img src="130%E2%88%92dlm_files/figure-html/Nile_forecast-1.png" width="75%" /></p>
 <p>つぎの2つのモデルを比較する.</p>
 <ul>
 <li>mod0: 通常のローカルレベルモデル</li>
 <li>modDam: 1898–1899年にダム建設によって変動が増大した (あるいは別の構造変化があった) ことを想定したモデル</li>
 </ul>
-<div class="sourceCode" id="cb1036"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1036-1"><a href="動的線形モデル.html#cb1036-1" tabindex="-1"></a>mod0 <span class="ot">&lt;-</span> <span class="fu">dlmModPoly</span>(<span class="at">order =</span> <span class="dv">1</span>, <span class="at">dV =</span> <span class="dv">15100</span>, <span class="at">dW =</span> <span class="dv">1468</span>)</span>
-<span id="cb1036-2"><a href="動的線形モデル.html#cb1036-2" tabindex="-1"></a><span class="co"># ローカルレベルモデル (order=1) を生成</span></span>
-<span id="cb1036-3"><a href="動的線形モデル.html#cb1036-3" tabindex="-1"></a><span class="co"># dV = 観測誤差の分散, dW = 状態方程式誤差の分散</span></span>
-<span id="cb1036-4"><a href="動的線形モデル.html#cb1036-4" tabindex="-1"></a></span>
-<span id="cb1036-5"><a href="動的線形モデル.html#cb1036-5" tabindex="-1"></a>X <span class="ot">&lt;-</span> <span class="fu">ts</span>(<span class="fu">matrix</span>(mod0<span class="sc">$</span>W, <span class="at">nc =</span> <span class="dv">1</span>, <span class="at">nr =</span> <span class="fu">length</span>(Nile)),</span>
-<span id="cb1036-6"><a href="動的線形モデル.html#cb1036-6" tabindex="-1"></a>        <span class="at">start =</span> <span class="fu">start</span>(Nile))</span>
-<span id="cb1036-7"><a href="動的線形モデル.html#cb1036-7" tabindex="-1"></a><span class="co"># 1列だけの行列 mod0$W を</span></span>
-<span id="cb1036-8"><a href="動的線形モデル.html#cb1036-8" tabindex="-1"></a><span class="co"># Nile と同じ長さ・開始時点を持つ時系列 X に変換</span></span>
-<span id="cb1036-9"><a href="動的線形モデル.html#cb1036-9" tabindex="-1"></a></span>
-<span id="cb1036-10"><a href="動的線形モデル.html#cb1036-10" tabindex="-1"></a><span class="fu">window</span>(X, <span class="dv">1898</span>, <span class="dv">1899</span>) <span class="ot">&lt;-</span> <span class="dv">12</span> <span class="sc">*</span> mod0<span class="sc">$</span>W</span>
-<span id="cb1036-11"><a href="動的線形モデル.html#cb1036-11" tabindex="-1"></a><span class="co"># 1898--1899年のプロセス分散（状態方程式誤差）を12倍</span></span>
-<span id="cb1036-12"><a href="動的線形モデル.html#cb1036-12" tabindex="-1"></a><span class="co"># -&gt; この期間に大きな構造変化があるとみなし, 変動が増す設定</span></span></code></pre></div>
-<div class="sourceCode" id="cb1037"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1037-1"><a href="動的線形モデル.html#cb1037-1" tabindex="-1"></a>modDam <span class="ot">&lt;-</span> mod0</span>
-<span id="cb1037-2"><a href="動的線形モデル.html#cb1037-2" tabindex="-1"></a>modDam<span class="sc">$</span>X <span class="ot">&lt;-</span> X</span>
-<span id="cb1037-3"><a href="動的線形モデル.html#cb1037-3" tabindex="-1"></a>modDam<span class="sc">$</span>JW <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>)</span>
-<span id="cb1037-4"><a href="動的線形モデル.html#cb1037-4" tabindex="-1"></a><span class="co"># modDam: &quot;Dam model&quot; として、</span></span>
-<span id="cb1037-5"><a href="動的線形モデル.html#cb1037-5" tabindex="-1"></a><span class="co"># 上で作成した時系列 X (時間変化する分散) を組み込む</span></span>
-<span id="cb1037-6"><a href="動的線形モデル.html#cb1037-6" tabindex="-1"></a><span class="co"># JWは状態方程式側の分散を X で置き換えるために設定する行列</span></span>
-<span id="cb1037-7"><a href="動的線形モデル.html#cb1037-7" tabindex="-1"></a></span>
-<span id="cb1037-8"><a href="動的線形モデル.html#cb1037-8" tabindex="-1"></a>damFilt <span class="ot">&lt;-</span> <span class="fu">dlmFilter</span>(Nile, modDam)</span>
-<span id="cb1037-9"><a href="動的線形モデル.html#cb1037-9" tabindex="-1"></a>mod0Filt <span class="ot">&lt;-</span> <span class="fu">dlmFilter</span>(Nile, mod0)</span>
-<span id="cb1037-10"><a href="動的線形モデル.html#cb1037-10" tabindex="-1"></a><span class="co"># Nileデータに対してフィルタリングを実行</span></span>
-<span id="cb1037-11"><a href="動的線形モデル.html#cb1037-11" tabindex="-1"></a><span class="co"># damFilt: ダム建設による影響を考慮したモデル</span></span>
-<span id="cb1037-12"><a href="動的線形モデル.html#cb1037-12" tabindex="-1"></a><span class="co"># mod0Filt: 通常のローカルレベルモデル</span></span></code></pre></div>
-<div class="sourceCode" id="cb1038"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1038-1"><a href="動的線形モデル.html#cb1038-1" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="fu">window</span>(<span class="fu">cbind</span>(Nile, mod0Filt<span class="sc">$</span>f, damFilt<span class="sc">$</span>f),</span>
-<span id="cb1038-2"><a href="動的線形モデル.html#cb1038-2" tabindex="-1"></a>            <span class="at">start =</span> <span class="dv">1880</span>, <span class="at">end =</span> <span class="dv">1920</span>)</span>
-<span id="cb1038-3"><a href="動的線形モデル.html#cb1038-3" tabindex="-1"></a><span class="co"># Nile実測値, mod0(通常モデル)の1ステップ先予測</span></span>
-<span id="cb1038-4"><a href="動的線形モデル.html#cb1038-4" tabindex="-1"></a><span class="co"># modDam(ダム有りモデル)の1ステップ先予測</span></span>
-<span id="cb1038-5"><a href="動的線形モデル.html#cb1038-5" tabindex="-1"></a><span class="co"># を時系列 a としてまとめ, 可視化のため 1880~1920年に切り出す</span></span>
-<span id="cb1038-6"><a href="動的線形モデル.html#cb1038-6" tabindex="-1"></a></span>
-<span id="cb1038-7"><a href="動的線形モデル.html#cb1038-7" tabindex="-1"></a><span class="fu">plot</span>(a[, <span class="dv">1</span>], <span class="at">type =</span> <span class="st">&#39;o&#39;</span>, <span class="at">col =</span> <span class="st">&quot;darkgrey&quot;</span>,</span>
-<span id="cb1038-8"><a href="動的線形モデル.html#cb1038-8" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">&quot;&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;Level&quot;</span>)</span>
-<span id="cb1038-9"><a href="動的線形モデル.html#cb1038-9" tabindex="-1"></a><span class="fu">lines</span>(a[, <span class="dv">2</span>], <span class="at">lty =</span> <span class="st">&quot;longdash&quot;</span>)</span>
-<span id="cb1038-10"><a href="動的線形モデル.html#cb1038-10" tabindex="-1"></a><span class="fu">lines</span>(a[, <span class="dv">3</span>], <span class="at">lty =</span> <span class="st">&quot;dotdash&quot;</span>)</span>
-<span id="cb1038-11"><a href="動的線形モデル.html#cb1038-11" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v =</span> <span class="dv">1898</span>, <span class="at">lty =</span> <span class="dv">2</span>)</span>
-<span id="cb1038-12"><a href="動的線形モデル.html#cb1038-12" tabindex="-1"></a>leg <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;data&quot;</span>, <span class="fu">paste</span>(<span class="st">&quot;one-step-ahead forecast -&quot;</span>,</span>
-<span id="cb1038-13"><a href="動的線形モデル.html#cb1038-13" tabindex="-1"></a>                       <span class="fu">c</span>(<span class="st">&quot;mod0&quot;</span>, <span class="st">&quot;modDam&quot;</span>)))</span>
-<span id="cb1038-14"><a href="動的線形モデル.html#cb1038-14" tabindex="-1"></a><span class="fu">legend</span>(<span class="st">&quot;bottomleft&quot;</span>, <span class="at">legend =</span> leg,</span>
-<span id="cb1038-15"><a href="動的線形モデル.html#cb1038-15" tabindex="-1"></a>       <span class="at">col =</span> <span class="fu">c</span>(<span class="st">&quot;darkgrey&quot;</span>, <span class="st">&quot;black&quot;</span>, <span class="st">&quot;black&quot;</span>),</span>
-<span id="cb1038-16"><a href="動的線形モデル.html#cb1038-16" tabindex="-1"></a>       <span class="at">lty =</span> <span class="fu">c</span>(<span class="st">&quot;solid&quot;</span>, <span class="st">&quot;longdash&quot;</span>, <span class="st">&quot;dotdash&quot;</span>),</span>
-<span id="cb1038-17"><a href="動的線形モデル.html#cb1038-17" tabindex="-1"></a>       <span class="at">pch =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="cn">NA</span>, <span class="cn">NA</span>), <span class="at">bty =</span> <span class="st">&quot;n&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1034"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1034-1"><a href="動的線形モデル.html#cb1034-1" tabindex="-1"></a>mod0 <span class="ot">&lt;-</span> <span class="fu">dlmModPoly</span>(<span class="at">order =</span> <span class="dv">1</span>, <span class="at">dV =</span> <span class="dv">15100</span>, <span class="at">dW =</span> <span class="dv">1468</span>)</span>
+<span id="cb1034-2"><a href="動的線形モデル.html#cb1034-2" tabindex="-1"></a><span class="co"># ローカルレベルモデル (order=1) を生成</span></span>
+<span id="cb1034-3"><a href="動的線形モデル.html#cb1034-3" tabindex="-1"></a><span class="co"># dV = 観測誤差の分散, dW = 状態方程式誤差の分散</span></span>
+<span id="cb1034-4"><a href="動的線形モデル.html#cb1034-4" tabindex="-1"></a></span>
+<span id="cb1034-5"><a href="動的線形モデル.html#cb1034-5" tabindex="-1"></a>X <span class="ot">&lt;-</span> <span class="fu">ts</span>(<span class="fu">matrix</span>(mod0<span class="sc">$</span>W, <span class="at">nc =</span> <span class="dv">1</span>, <span class="at">nr =</span> <span class="fu">length</span>(Nile)),</span>
+<span id="cb1034-6"><a href="動的線形モデル.html#cb1034-6" tabindex="-1"></a>        <span class="at">start =</span> <span class="fu">start</span>(Nile))</span>
+<span id="cb1034-7"><a href="動的線形モデル.html#cb1034-7" tabindex="-1"></a><span class="co"># 1列だけの行列 mod0$W を</span></span>
+<span id="cb1034-8"><a href="動的線形モデル.html#cb1034-8" tabindex="-1"></a><span class="co"># Nile と同じ長さ・開始時点を持つ時系列 X に変換</span></span>
+<span id="cb1034-9"><a href="動的線形モデル.html#cb1034-9" tabindex="-1"></a></span>
+<span id="cb1034-10"><a href="動的線形モデル.html#cb1034-10" tabindex="-1"></a><span class="fu">window</span>(X, <span class="dv">1898</span>, <span class="dv">1899</span>) <span class="ot">&lt;-</span> <span class="dv">12</span> <span class="sc">*</span> mod0<span class="sc">$</span>W</span>
+<span id="cb1034-11"><a href="動的線形モデル.html#cb1034-11" tabindex="-1"></a><span class="co"># 1898--1899年のプロセス分散（状態方程式誤差）を12倍</span></span>
+<span id="cb1034-12"><a href="動的線形モデル.html#cb1034-12" tabindex="-1"></a><span class="co"># -&gt; この期間に大きな構造変化があるとみなし, 変動が増す設定</span></span></code></pre></div>
+<div class="sourceCode" id="cb1035"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1035-1"><a href="動的線形モデル.html#cb1035-1" tabindex="-1"></a>modDam <span class="ot">&lt;-</span> mod0</span>
+<span id="cb1035-2"><a href="動的線形モデル.html#cb1035-2" tabindex="-1"></a>modDam<span class="sc">$</span>X <span class="ot">&lt;-</span> X</span>
+<span id="cb1035-3"><a href="動的線形モデル.html#cb1035-3" tabindex="-1"></a>modDam<span class="sc">$</span>JW <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>)</span>
+<span id="cb1035-4"><a href="動的線形モデル.html#cb1035-4" tabindex="-1"></a><span class="co"># modDam: &quot;Dam model&quot; として、</span></span>
+<span id="cb1035-5"><a href="動的線形モデル.html#cb1035-5" tabindex="-1"></a><span class="co"># 上で作成した時系列 X (時間変化する分散) を組み込む</span></span>
+<span id="cb1035-6"><a href="動的線形モデル.html#cb1035-6" tabindex="-1"></a><span class="co"># JWは状態方程式側の分散を X で置き換えるために設定する行列</span></span>
+<span id="cb1035-7"><a href="動的線形モデル.html#cb1035-7" tabindex="-1"></a></span>
+<span id="cb1035-8"><a href="動的線形モデル.html#cb1035-8" tabindex="-1"></a>damFilt <span class="ot">&lt;-</span> <span class="fu">dlmFilter</span>(Nile, modDam)</span>
+<span id="cb1035-9"><a href="動的線形モデル.html#cb1035-9" tabindex="-1"></a>mod0Filt <span class="ot">&lt;-</span> <span class="fu">dlmFilter</span>(Nile, mod0)</span>
+<span id="cb1035-10"><a href="動的線形モデル.html#cb1035-10" tabindex="-1"></a><span class="co"># Nileデータに対してフィルタリングを実行</span></span>
+<span id="cb1035-11"><a href="動的線形モデル.html#cb1035-11" tabindex="-1"></a><span class="co"># damFilt: ダム建設による影響を考慮したモデル</span></span>
+<span id="cb1035-12"><a href="動的線形モデル.html#cb1035-12" tabindex="-1"></a><span class="co"># mod0Filt: 通常のローカルレベルモデル</span></span></code></pre></div>
+<div class="sourceCode" id="cb1036"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1036-1"><a href="動的線形モデル.html#cb1036-1" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="fu">window</span>(<span class="fu">cbind</span>(Nile, mod0Filt<span class="sc">$</span>f, damFilt<span class="sc">$</span>f),</span>
+<span id="cb1036-2"><a href="動的線形モデル.html#cb1036-2" tabindex="-1"></a>            <span class="at">start =</span> <span class="dv">1880</span>, <span class="at">end =</span> <span class="dv">1920</span>)</span>
+<span id="cb1036-3"><a href="動的線形モデル.html#cb1036-3" tabindex="-1"></a><span class="co"># Nile実測値, mod0(通常モデル)の1ステップ先予測</span></span>
+<span id="cb1036-4"><a href="動的線形モデル.html#cb1036-4" tabindex="-1"></a><span class="co"># modDam(ダム有りモデル)の1ステップ先予測</span></span>
+<span id="cb1036-5"><a href="動的線形モデル.html#cb1036-5" tabindex="-1"></a><span class="co"># を時系列 a としてまとめ, 可視化のため 1880~1920年に切り出す</span></span>
+<span id="cb1036-6"><a href="動的線形モデル.html#cb1036-6" tabindex="-1"></a></span>
+<span id="cb1036-7"><a href="動的線形モデル.html#cb1036-7" tabindex="-1"></a><span class="fu">plot</span>(a[, <span class="dv">1</span>], <span class="at">type =</span> <span class="st">&#39;o&#39;</span>, <span class="at">col =</span> <span class="st">&quot;darkgrey&quot;</span>,</span>
+<span id="cb1036-8"><a href="動的線形モデル.html#cb1036-8" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">&quot;&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;Level&quot;</span>)</span>
+<span id="cb1036-9"><a href="動的線形モデル.html#cb1036-9" tabindex="-1"></a><span class="fu">lines</span>(a[, <span class="dv">2</span>], <span class="at">lty =</span> <span class="st">&quot;longdash&quot;</span>)</span>
+<span id="cb1036-10"><a href="動的線形モデル.html#cb1036-10" tabindex="-1"></a><span class="fu">lines</span>(a[, <span class="dv">3</span>], <span class="at">lty =</span> <span class="st">&quot;dotdash&quot;</span>)</span>
+<span id="cb1036-11"><a href="動的線形モデル.html#cb1036-11" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v =</span> <span class="dv">1898</span>, <span class="at">lty =</span> <span class="dv">2</span>)</span>
+<span id="cb1036-12"><a href="動的線形モデル.html#cb1036-12" tabindex="-1"></a>leg <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;data&quot;</span>, <span class="fu">paste</span>(<span class="st">&quot;one-step-ahead forecast -&quot;</span>,</span>
+<span id="cb1036-13"><a href="動的線形モデル.html#cb1036-13" tabindex="-1"></a>                       <span class="fu">c</span>(<span class="st">&quot;mod0&quot;</span>, <span class="st">&quot;modDam&quot;</span>)))</span>
+<span id="cb1036-14"><a href="動的線形モデル.html#cb1036-14" tabindex="-1"></a><span class="fu">legend</span>(<span class="st">&quot;bottomleft&quot;</span>, <span class="at">legend =</span> leg,</span>
+<span id="cb1036-15"><a href="動的線形モデル.html#cb1036-15" tabindex="-1"></a>       <span class="at">col =</span> <span class="fu">c</span>(<span class="st">&quot;darkgrey&quot;</span>, <span class="st">&quot;black&quot;</span>, <span class="st">&quot;black&quot;</span>),</span>
+<span id="cb1036-16"><a href="動的線形モデル.html#cb1036-16" tabindex="-1"></a>       <span class="at">lty =</span> <span class="fu">c</span>(<span class="st">&quot;solid&quot;</span>, <span class="st">&quot;longdash&quot;</span>, <span class="st">&quot;dotdash&quot;</span>),</span>
+<span id="cb1036-17"><a href="動的線形モデル.html#cb1036-17" tabindex="-1"></a>       <span class="at">pch =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="cn">NA</span>, <span class="cn">NA</span>), <span class="at">bty =</span> <span class="st">&quot;n&quot;</span>)</span></code></pre></div>
 <p><img src="130%E2%88%92dlm_files/figure-html/unnamed-chunk-6-1.png" width="75%" /></p>
 </div>
 <div id="モデル診断-1" class="section level3 unnumbered hasAnchor">
 <h3>モデル診断<a href="動的線形モデル.html#モデル診断-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb1039"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1039-1"><a href="動的線形モデル.html#cb1039-1" tabindex="-1"></a><span class="fu">qqnorm</span>(<span class="fu">residuals</span>(damFilt, <span class="at">sd =</span> <span class="cn">FALSE</span>))</span>
-<span id="cb1039-2"><a href="動的線形モデル.html#cb1039-2" tabindex="-1"></a><span class="fu">qqline</span>(<span class="fu">residuals</span>(damFilt, <span class="at">sd =</span> <span class="cn">FALSE</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb1037"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1037-1"><a href="動的線形モデル.html#cb1037-1" tabindex="-1"></a><span class="fu">qqnorm</span>(<span class="fu">residuals</span>(damFilt, <span class="at">sd =</span> <span class="cn">FALSE</span>))</span>
+<span id="cb1037-2"><a href="動的線形モデル.html#cb1037-2" tabindex="-1"></a><span class="fu">qqline</span>(<span class="fu">residuals</span>(damFilt, <span class="at">sd =</span> <span class="cn">FALSE</span>))</span></code></pre></div>
 <p><img src="130%E2%88%92dlm_files/figure-html/Nile_diag-1.png" width="75%" /></p>
-<div class="sourceCode" id="cb1040"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1040-1"><a href="動的線形モデル.html#cb1040-1" tabindex="-1"></a><span class="fu">tsdiag</span>(damFilt)</span></code></pre></div>
+<div class="sourceCode" id="cb1038"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1038-1"><a href="動的線形モデル.html#cb1038-1" tabindex="-1"></a><span class="fu">tsdiag</span>(damFilt)</span></code></pre></div>
 <p><img src="130%E2%88%92dlm_files/figure-html/Nile_diag-2.png" width="75%" /></p>
 </div>
 <div id="モデルパラメータの推定" class="section level3 unnumbered hasAnchor">
@@ -798,21 +824,21 @@ Y_t &amp;= \mu_t + v_t, \quad v_t \sim_{i.i.d.} N(0,V), \\
 <p>具体的には, <strong>dlm</strong>には最尤推定を行うための関数<code>dlmMLE()</code>が用意されている.</p>
 <pre><code>dlmMLE(): モデルパラメータの最尤推定</code></pre>
 <p>ここでは, ナイルデータに対して, ローカルレベルモデルを仮定し, MLEを使用してdV, dWの最尤推定値を計算する.</p>
-<div class="sourceCode" id="cb1042"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1042-1"><a href="動的線形モデル.html#cb1042-1" tabindex="-1"></a><span class="co"># p.145</span></span>
-<span id="cb1042-2"><a href="動的線形モデル.html#cb1042-2" tabindex="-1"></a>buildFun <span class="ot">&lt;-</span> <span class="cf">function</span>(parm) {</span>
-<span id="cb1042-3"><a href="動的線形モデル.html#cb1042-3" tabindex="-1"></a>    <span class="fu">dlmModPoly</span>(<span class="at">order =</span> <span class="dv">1</span>, </span>
-<span id="cb1042-4"><a href="動的線形モデル.html#cb1042-4" tabindex="-1"></a>               <span class="at">dV =</span> <span class="fu">exp</span>(parm[<span class="dv">1</span>]), </span>
-<span id="cb1042-5"><a href="動的線形モデル.html#cb1042-5" tabindex="-1"></a>               <span class="at">dW =</span> <span class="fu">exp</span>(parm[<span class="dv">2</span>]))</span>
-<span id="cb1042-6"><a href="動的線形モデル.html#cb1042-6" tabindex="-1"></a>}</span>
-<span id="cb1042-7"><a href="動的線形モデル.html#cb1042-7" tabindex="-1"></a></span>
-<span id="cb1042-8"><a href="動的線形モデル.html#cb1042-8" tabindex="-1"></a><span class="co"># 初期値を適当に設定して最尤推定</span></span>
-<span id="cb1042-9"><a href="動的線形モデル.html#cb1042-9" tabindex="-1"></a>fit <span class="ot">&lt;-</span> <span class="fu">dlmMLE</span>(Nile, <span class="at">parm =</span> <span class="fu">c</span>(<span class="fu">log</span>(<span class="dv">1000</span>), <span class="fu">log</span>(<span class="dv">1000</span>)), <span class="at">build =</span> buildFun)</span>
-<span id="cb1042-10"><a href="動的線形モデル.html#cb1042-10" tabindex="-1"></a>fit<span class="sc">$</span>conv       <span class="co"># 0 なら収束</span></span>
-<span id="cb1042-11"><a href="動的線形モデル.html#cb1042-11" tabindex="-1"></a><span class="co">#&gt; [1] 0</span></span>
-<span id="cb1042-12"><a href="動的線形モデル.html#cb1042-12" tabindex="-1"></a>fit<span class="sc">$</span>par        <span class="co"># 推定された log(dV), log(dW)</span></span>
-<span id="cb1042-13"><a href="動的線形モデル.html#cb1042-13" tabindex="-1"></a><span class="co">#&gt; [1] 9.622441 7.291932</span></span>
-<span id="cb1042-14"><a href="動的線形モデル.html#cb1042-14" tabindex="-1"></a><span class="fu">exp</span>(fit<span class="sc">$</span>par)   <span class="co"># dV, dW の推定値</span></span>
-<span id="cb1042-15"><a href="動的線形モデル.html#cb1042-15" tabindex="-1"></a><span class="co">#&gt; [1] 15099.857  1468.404</span></span></code></pre></div>
+<div class="sourceCode" id="cb1040"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1040-1"><a href="動的線形モデル.html#cb1040-1" tabindex="-1"></a><span class="co"># p.145</span></span>
+<span id="cb1040-2"><a href="動的線形モデル.html#cb1040-2" tabindex="-1"></a>buildFun <span class="ot">&lt;-</span> <span class="cf">function</span>(parm) {</span>
+<span id="cb1040-3"><a href="動的線形モデル.html#cb1040-3" tabindex="-1"></a>    <span class="fu">dlmModPoly</span>(<span class="at">order =</span> <span class="dv">1</span>, </span>
+<span id="cb1040-4"><a href="動的線形モデル.html#cb1040-4" tabindex="-1"></a>               <span class="at">dV =</span> <span class="fu">exp</span>(parm[<span class="dv">1</span>]), </span>
+<span id="cb1040-5"><a href="動的線形モデル.html#cb1040-5" tabindex="-1"></a>               <span class="at">dW =</span> <span class="fu">exp</span>(parm[<span class="dv">2</span>]))</span>
+<span id="cb1040-6"><a href="動的線形モデル.html#cb1040-6" tabindex="-1"></a>}</span>
+<span id="cb1040-7"><a href="動的線形モデル.html#cb1040-7" tabindex="-1"></a></span>
+<span id="cb1040-8"><a href="動的線形モデル.html#cb1040-8" tabindex="-1"></a><span class="co"># 初期値を適当に設定して最尤推定</span></span>
+<span id="cb1040-9"><a href="動的線形モデル.html#cb1040-9" tabindex="-1"></a>fit <span class="ot">&lt;-</span> <span class="fu">dlmMLE</span>(Nile, <span class="at">parm =</span> <span class="fu">c</span>(<span class="fu">log</span>(<span class="dv">1000</span>), <span class="fu">log</span>(<span class="dv">1000</span>)), <span class="at">build =</span> buildFun)</span>
+<span id="cb1040-10"><a href="動的線形モデル.html#cb1040-10" tabindex="-1"></a>fit<span class="sc">$</span>conv       <span class="co"># 0 なら収束</span></span>
+<span id="cb1040-11"><a href="動的線形モデル.html#cb1040-11" tabindex="-1"></a><span class="co">#&gt; [1] 0</span></span>
+<span id="cb1040-12"><a href="動的線形モデル.html#cb1040-12" tabindex="-1"></a>fit<span class="sc">$</span>par        <span class="co"># 推定された log(dV), log(dW)</span></span>
+<span id="cb1040-13"><a href="動的線形モデル.html#cb1040-13" tabindex="-1"></a><span class="co">#&gt; [1] 9.622441 7.291932</span></span>
+<span id="cb1040-14"><a href="動的線形モデル.html#cb1040-14" tabindex="-1"></a><span class="fu">exp</span>(fit<span class="sc">$</span>par)   <span class="co"># dV, dW の推定値</span></span>
+<span id="cb1040-15"><a href="動的線形モデル.html#cb1040-15" tabindex="-1"></a><span class="co">#&gt; [1] 15099.857  1468.404</span></span></code></pre></div>
 <!-- ~~なお, 未知パラメータのベイズ推定には, **rstan**等の別のパッケージを利用する必要がある.~~
 -->
 <p>より複雑なDLMに対しても, 上記<code>buidFun()</code>に対応する
@@ -841,54 +867,54 @@ Y_t &amp;= \mu_t + v_t, \quad v_t \sim_{i.i.d.} N(0,V), \\
   - gross domestic product
   - personal disposable income
 - Source: (Hyndman (n.d.)</code></pre>
-<div class="sourceCode" id="cb1044"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1044-1"><a href="動的線形モデル.html#cb1044-1" tabindex="-1"></a>ifl <span class="ot">&lt;-</span> <span class="fu">file.path</span>(dir_PPC, <span class="st">&quot;qconsum.dat&quot;</span>)</span>
-<span id="cb1044-2"><a href="動的線形モデル.html#cb1044-2" tabindex="-1"></a>expd <span class="ot">&lt;-</span> <span class="fu">ts</span>(<span class="fu">read.table</span>(ifl, <span class="at">skip =</span> <span class="dv">4</span>,</span>
-<span id="cb1044-3"><a href="動的線形モデル.html#cb1044-3" tabindex="-1"></a>                      <span class="at">colClasses =</span> <span class="st">&quot;numeric&quot;</span>)[, <span class="dv">1</span>],</span>
-<span id="cb1044-4"><a href="動的線形モデル.html#cb1044-4" tabindex="-1"></a>           <span class="at">start =</span> <span class="fu">c</span>(<span class="dv">1957</span>, <span class="dv">1</span>), <span class="at">frequency =</span> <span class="dv">4</span>)</span>
-<span id="cb1044-5"><a href="動的線形モデル.html#cb1044-5" tabindex="-1"></a>expd.dlm <span class="ot">&lt;-</span> <span class="fu">dlm</span>(<span class="at">m0 =</span> <span class="fu">rep</span>(<span class="dv">0</span>,<span class="dv">4</span>), <span class="at">C0 =</span> <span class="fl">1e8</span> <span class="sc">*</span> <span class="fu">diag</span>(<span class="dv">4</span>),</span>
-<span id="cb1044-6"><a href="動的線形モデル.html#cb1044-6" tabindex="-1"></a>                <span class="at">FF =</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>), <span class="at">nr =</span> <span class="dv">1</span>),</span>
-<span id="cb1044-7"><a href="動的線形モデル.html#cb1044-7" tabindex="-1"></a>                <span class="at">V =</span> <span class="fl">1e-3</span>,</span>
-<span id="cb1044-8"><a href="動的線形モデル.html#cb1044-8" tabindex="-1"></a>                <span class="at">GG =</span> <span class="fu">bdiag</span>(<span class="fu">matrix</span>(<span class="dv">1</span>),</span>
-<span id="cb1044-9"><a href="動的線形モデル.html#cb1044-9" tabindex="-1"></a>                <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="sc">-</span><span class="dv">1</span>, <span class="sc">-</span><span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>),</span>
-<span id="cb1044-10"><a href="動的線形モデル.html#cb1044-10" tabindex="-1"></a>                       <span class="at">nr =</span> <span class="dv">3</span>, <span class="at">byrow =</span> <span class="cn">TRUE</span>)),</span>
-<span id="cb1044-11"><a href="動的線形モデル.html#cb1044-11" tabindex="-1"></a>                <span class="at">W =</span> <span class="fu">diag</span>(<span class="fu">c</span>(<span class="fl">771.35</span>, <span class="fl">86.48</span>, <span class="dv">0</span>, <span class="dv">0</span>), <span class="at">nr =</span> <span class="dv">4</span>))</span>
-<span id="cb1044-12"><a href="動的線形モデル.html#cb1044-12" tabindex="-1"></a><span class="fu">plot</span>(expd, <span class="at">xlab =</span> <span class="st">&quot;&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;Expenditures&quot;</span>, <span class="at">type =</span> <span class="st">&#39;o&#39;</span>,</span>
-<span id="cb1044-13"><a href="動的線形モデル.html#cb1044-13" tabindex="-1"></a>     <span class="at">col =</span> <span class="st">&quot;darkgrey&quot;</span>)</span>
-<span id="cb1044-14"><a href="動的線形モデル.html#cb1044-14" tabindex="-1"></a><span class="do">### Filter</span></span>
-<span id="cb1044-15"><a href="動的線形モデル.html#cb1044-15" tabindex="-1"></a>expdFilt <span class="ot">&lt;-</span> <span class="fu">dlmFilter</span>(expd, expd.dlm)</span>
-<span id="cb1044-16"><a href="動的線形モデル.html#cb1044-16" tabindex="-1"></a><span class="fu">lines</span>(<span class="fu">dropFirst</span>(expdFilt<span class="sc">$</span>m[, <span class="dv">1</span>]), <span class="at">lty =</span> <span class="st">&quot;dotdash&quot;</span>)</span>
-<span id="cb1044-17"><a href="動的線形モデル.html#cb1044-17" tabindex="-1"></a><span class="do">### Smooth</span></span>
-<span id="cb1044-18"><a href="動的線形モデル.html#cb1044-18" tabindex="-1"></a>expdSmooth <span class="ot">&lt;-</span> <span class="fu">dlmSmooth</span>(expdFilt)</span>
-<span id="cb1044-19"><a href="動的線形モデル.html#cb1044-19" tabindex="-1"></a><span class="fu">lines</span>(<span class="fu">dropFirst</span>(expdSmooth<span class="sc">$</span>s[,<span class="dv">1</span>]), <span class="at">lty =</span> <span class="st">&quot;longdash&quot;</span>)</span>
-<span id="cb1044-20"><a href="動的線形モデル.html#cb1044-20" tabindex="-1"></a><span class="fu">legend</span>(<span class="st">&quot;bottomright&quot;</span>, <span class="at">col =</span> <span class="fu">c</span>(<span class="st">&quot;darkgrey&quot;</span>, <span class="fu">rep</span>(<span class="st">&quot;black&quot;</span>, <span class="dv">2</span>)),</span>
-<span id="cb1044-21"><a href="動的線形モデル.html#cb1044-21" tabindex="-1"></a>       <span class="at">lty =</span> <span class="fu">c</span>(<span class="st">&quot;solid&quot;</span>, <span class="st">&quot;dotdash&quot;</span>, <span class="st">&quot;longdash&quot;</span>),</span>
-<span id="cb1044-22"><a href="動的線形モデル.html#cb1044-22" tabindex="-1"></a>       <span class="at">pch =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="cn">NA</span>, <span class="cn">NA</span>), <span class="at">bty =</span> <span class="st">&quot;n&quot;</span>,</span>
-<span id="cb1044-23"><a href="動的線形モデル.html#cb1044-23" tabindex="-1"></a>       <span class="at">legend =</span> <span class="fu">c</span>(<span class="st">&quot;data&quot;</span>, <span class="st">&quot;filtered level&quot;</span>, <span class="st">&quot;smoothed level&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb1042"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1042-1"><a href="動的線形モデル.html#cb1042-1" tabindex="-1"></a>ifl <span class="ot">&lt;-</span> <span class="fu">file.path</span>(dir_PPC, <span class="st">&quot;qconsum.dat&quot;</span>)</span>
+<span id="cb1042-2"><a href="動的線形モデル.html#cb1042-2" tabindex="-1"></a>expd <span class="ot">&lt;-</span> <span class="fu">ts</span>(<span class="fu">read.table</span>(ifl, <span class="at">skip =</span> <span class="dv">4</span>,</span>
+<span id="cb1042-3"><a href="動的線形モデル.html#cb1042-3" tabindex="-1"></a>                      <span class="at">colClasses =</span> <span class="st">&quot;numeric&quot;</span>)[, <span class="dv">1</span>],</span>
+<span id="cb1042-4"><a href="動的線形モデル.html#cb1042-4" tabindex="-1"></a>           <span class="at">start =</span> <span class="fu">c</span>(<span class="dv">1957</span>, <span class="dv">1</span>), <span class="at">frequency =</span> <span class="dv">4</span>)</span>
+<span id="cb1042-5"><a href="動的線形モデル.html#cb1042-5" tabindex="-1"></a>expd.dlm <span class="ot">&lt;-</span> <span class="fu">dlm</span>(<span class="at">m0 =</span> <span class="fu">rep</span>(<span class="dv">0</span>,<span class="dv">4</span>), <span class="at">C0 =</span> <span class="fl">1e8</span> <span class="sc">*</span> <span class="fu">diag</span>(<span class="dv">4</span>),</span>
+<span id="cb1042-6"><a href="動的線形モデル.html#cb1042-6" tabindex="-1"></a>                <span class="at">FF =</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>), <span class="at">nr =</span> <span class="dv">1</span>),</span>
+<span id="cb1042-7"><a href="動的線形モデル.html#cb1042-7" tabindex="-1"></a>                <span class="at">V =</span> <span class="fl">1e-3</span>,</span>
+<span id="cb1042-8"><a href="動的線形モデル.html#cb1042-8" tabindex="-1"></a>                <span class="at">GG =</span> <span class="fu">bdiag</span>(<span class="fu">matrix</span>(<span class="dv">1</span>),</span>
+<span id="cb1042-9"><a href="動的線形モデル.html#cb1042-9" tabindex="-1"></a>                <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="sc">-</span><span class="dv">1</span>, <span class="sc">-</span><span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>),</span>
+<span id="cb1042-10"><a href="動的線形モデル.html#cb1042-10" tabindex="-1"></a>                       <span class="at">nr =</span> <span class="dv">3</span>, <span class="at">byrow =</span> <span class="cn">TRUE</span>)),</span>
+<span id="cb1042-11"><a href="動的線形モデル.html#cb1042-11" tabindex="-1"></a>                <span class="at">W =</span> <span class="fu">diag</span>(<span class="fu">c</span>(<span class="fl">771.35</span>, <span class="fl">86.48</span>, <span class="dv">0</span>, <span class="dv">0</span>), <span class="at">nr =</span> <span class="dv">4</span>))</span>
+<span id="cb1042-12"><a href="動的線形モデル.html#cb1042-12" tabindex="-1"></a><span class="fu">plot</span>(expd, <span class="at">xlab =</span> <span class="st">&quot;&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;Expenditures&quot;</span>, <span class="at">type =</span> <span class="st">&#39;o&#39;</span>,</span>
+<span id="cb1042-13"><a href="動的線形モデル.html#cb1042-13" tabindex="-1"></a>     <span class="at">col =</span> <span class="st">&quot;darkgrey&quot;</span>)</span>
+<span id="cb1042-14"><a href="動的線形モデル.html#cb1042-14" tabindex="-1"></a><span class="do">### Filter</span></span>
+<span id="cb1042-15"><a href="動的線形モデル.html#cb1042-15" tabindex="-1"></a>expdFilt <span class="ot">&lt;-</span> <span class="fu">dlmFilter</span>(expd, expd.dlm)</span>
+<span id="cb1042-16"><a href="動的線形モデル.html#cb1042-16" tabindex="-1"></a><span class="fu">lines</span>(<span class="fu">dropFirst</span>(expdFilt<span class="sc">$</span>m[, <span class="dv">1</span>]), <span class="at">lty =</span> <span class="st">&quot;dotdash&quot;</span>)</span>
+<span id="cb1042-17"><a href="動的線形モデル.html#cb1042-17" tabindex="-1"></a><span class="do">### Smooth</span></span>
+<span id="cb1042-18"><a href="動的線形モデル.html#cb1042-18" tabindex="-1"></a>expdSmooth <span class="ot">&lt;-</span> <span class="fu">dlmSmooth</span>(expdFilt)</span>
+<span id="cb1042-19"><a href="動的線形モデル.html#cb1042-19" tabindex="-1"></a><span class="fu">lines</span>(<span class="fu">dropFirst</span>(expdSmooth<span class="sc">$</span>s[,<span class="dv">1</span>]), <span class="at">lty =</span> <span class="st">&quot;longdash&quot;</span>)</span>
+<span id="cb1042-20"><a href="動的線形モデル.html#cb1042-20" tabindex="-1"></a><span class="fu">legend</span>(<span class="st">&quot;bottomright&quot;</span>, <span class="at">col =</span> <span class="fu">c</span>(<span class="st">&quot;darkgrey&quot;</span>, <span class="fu">rep</span>(<span class="st">&quot;black&quot;</span>, <span class="dv">2</span>)),</span>
+<span id="cb1042-21"><a href="動的線形モデル.html#cb1042-21" tabindex="-1"></a>       <span class="at">lty =</span> <span class="fu">c</span>(<span class="st">&quot;solid&quot;</span>, <span class="st">&quot;dotdash&quot;</span>, <span class="st">&quot;longdash&quot;</span>),</span>
+<span id="cb1042-22"><a href="動的線形モデル.html#cb1042-22" tabindex="-1"></a>       <span class="at">pch =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="cn">NA</span>, <span class="cn">NA</span>), <span class="at">bty =</span> <span class="st">&quot;n&quot;</span>,</span>
+<span id="cb1042-23"><a href="動的線形モデル.html#cb1042-23" tabindex="-1"></a>       <span class="at">legend =</span> <span class="fu">c</span>(<span class="st">&quot;data&quot;</span>, <span class="st">&quot;filtered level&quot;</span>, <span class="st">&quot;smoothed level&quot;</span>))</span></code></pre></div>
 <p><img src="130%E2%88%92dlm_files/figure-html/qconsum-1.png" width="75%" /></p>
-<div class="sourceCode" id="cb1045"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1045-1"><a href="動的線形モデル.html#cb1045-1" tabindex="-1"></a><span class="do">### Seasonal component</span></span>
-<span id="cb1045-2"><a href="動的線形モデル.html#cb1045-2" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">dropFirst</span>(expdSmooth<span class="sc">$</span>s[, <span class="dv">3</span>]), <span class="at">type =</span> <span class="st">&#39;o&#39;</span>, <span class="at">xlab =</span> <span class="st">&quot;&quot;</span>,</span>
-<span id="cb1045-3"><a href="動的線形モデル.html#cb1045-3" tabindex="-1"></a>     <span class="at">ylab =</span> <span class="st">&quot;Expenditure - Seasonal component&quot;</span>)</span>
-<span id="cb1045-4"><a href="動的線形モデル.html#cb1045-4" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">h =</span> <span class="dv">0</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1043"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1043-1"><a href="動的線形モデル.html#cb1043-1" tabindex="-1"></a><span class="do">### Seasonal component</span></span>
+<span id="cb1043-2"><a href="動的線形モデル.html#cb1043-2" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">dropFirst</span>(expdSmooth<span class="sc">$</span>s[, <span class="dv">3</span>]), <span class="at">type =</span> <span class="st">&#39;o&#39;</span>, <span class="at">xlab =</span> <span class="st">&quot;&quot;</span>,</span>
+<span id="cb1043-3"><a href="動的線形モデル.html#cb1043-3" tabindex="-1"></a>     <span class="at">ylab =</span> <span class="st">&quot;Expenditure - Seasonal component&quot;</span>)</span>
+<span id="cb1043-4"><a href="動的線形モデル.html#cb1043-4" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">h =</span> <span class="dv">0</span>)</span></code></pre></div>
 <p><img src="130%E2%88%92dlm_files/figure-html/qconsum-2.png" width="75%" />
 <!-- 注(9/3/22): plotとlineはchunkまたがるとエラーになる!? --></p>
 <div id="状態予測-1" class="section level3 unnumbered hasAnchor">
 <h3>状態予測<a href="動的線形モデル.html#状態予測-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb1046"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1046-1"><a href="動的線形モデル.html#cb1046-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
-<span id="cb1046-2"><a href="動的線形モデル.html#cb1046-2" tabindex="-1"></a>expdFore <span class="ot">&lt;-</span> <span class="fu">dlmForecast</span>(expdFilt, <span class="at">nAhead =</span> <span class="dv">12</span>, <span class="at">sampleNew =</span> <span class="dv">10</span>)</span>
-<span id="cb1046-3"><a href="動的線形モデル.html#cb1046-3" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">window</span>(expd, <span class="at">start =</span> <span class="fu">c</span>(<span class="dv">1964</span>, <span class="dv">1</span>)), <span class="at">type =</span> <span class="st">&#39;o&#39;</span>,</span>
-<span id="cb1046-4"><a href="動的線形モデル.html#cb1046-4" tabindex="-1"></a>     <span class="at">xlim =</span> <span class="fu">c</span>(<span class="dv">1964</span>, <span class="dv">1971</span>), <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">350</span>, <span class="dv">850</span>),</span>
-<span id="cb1046-5"><a href="動的線形モデル.html#cb1046-5" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">&quot;&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;Expenditures&quot;</span>)</span>
-<span id="cb1046-6"><a href="動的線形モデル.html#cb1046-6" tabindex="-1"></a><span class="fu">names</span>(expdFore)</span>
-<span id="cb1046-7"><a href="動的線形モデル.html#cb1046-7" tabindex="-1"></a><span class="co">#&gt; [1] &quot;a&quot;         &quot;R&quot;         &quot;f&quot;         &quot;Q&quot;         &quot;newStates&quot; &quot;newObs&quot;</span></span>
-<span id="cb1046-8"><a href="動的線形モデル.html#cb1046-8" tabindex="-1"></a><span class="fu">attach</span>(expdFore)</span>
-<span id="cb1046-9"><a href="動的線形モデル.html#cb1046-9" tabindex="-1"></a><span class="fu">invisible</span>(<span class="fu">lapply</span>(newObs, <span class="cf">function</span>(x)</span>
-<span id="cb1046-10"><a href="動的線形モデル.html#cb1046-10" tabindex="-1"></a>                 <span class="fu">lines</span>(x, <span class="at">col =</span> <span class="st">&quot;darkgrey&quot;</span>,</span>
-<span id="cb1046-11"><a href="動的線形モデル.html#cb1046-11" tabindex="-1"></a>                       <span class="at">type =</span> <span class="st">&#39;o&#39;</span>, <span class="at">pch =</span> <span class="dv">4</span>)))</span>
-<span id="cb1046-12"><a href="動的線形モデル.html#cb1046-12" tabindex="-1"></a><span class="fu">lines</span>(f, <span class="at">type =</span> <span class="st">&#39;o&#39;</span>, <span class="at">lwd =</span> <span class="dv">2</span>, <span class="at">pch =</span> <span class="dv">16</span>)</span>
-<span id="cb1046-13"><a href="動的線形モデル.html#cb1046-13" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v =</span> <span class="fu">mean</span>(<span class="fu">c</span>(<span class="fu">time</span>(f)[<span class="dv">1</span>], <span class="fu">time</span>(expd)[<span class="fu">length</span>(expd)])),</span>
-<span id="cb1046-14"><a href="動的線形モデル.html#cb1046-14" tabindex="-1"></a>       <span class="at">lty =</span> <span class="st">&quot;dashed&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1044"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1044-1"><a href="動的線形モデル.html#cb1044-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
+<span id="cb1044-2"><a href="動的線形モデル.html#cb1044-2" tabindex="-1"></a>expdFore <span class="ot">&lt;-</span> <span class="fu">dlmForecast</span>(expdFilt, <span class="at">nAhead =</span> <span class="dv">12</span>, <span class="at">sampleNew =</span> <span class="dv">10</span>)</span>
+<span id="cb1044-3"><a href="動的線形モデル.html#cb1044-3" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">window</span>(expd, <span class="at">start =</span> <span class="fu">c</span>(<span class="dv">1964</span>, <span class="dv">1</span>)), <span class="at">type =</span> <span class="st">&#39;o&#39;</span>,</span>
+<span id="cb1044-4"><a href="動的線形モデル.html#cb1044-4" tabindex="-1"></a>     <span class="at">xlim =</span> <span class="fu">c</span>(<span class="dv">1964</span>, <span class="dv">1971</span>), <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">350</span>, <span class="dv">850</span>),</span>
+<span id="cb1044-5"><a href="動的線形モデル.html#cb1044-5" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">&quot;&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;Expenditures&quot;</span>)</span>
+<span id="cb1044-6"><a href="動的線形モデル.html#cb1044-6" tabindex="-1"></a><span class="fu">names</span>(expdFore)</span>
+<span id="cb1044-7"><a href="動的線形モデル.html#cb1044-7" tabindex="-1"></a><span class="co">#&gt; [1] &quot;a&quot;         &quot;R&quot;         &quot;f&quot;         &quot;Q&quot;         &quot;newStates&quot; &quot;newObs&quot;</span></span>
+<span id="cb1044-8"><a href="動的線形モデル.html#cb1044-8" tabindex="-1"></a><span class="fu">attach</span>(expdFore)</span>
+<span id="cb1044-9"><a href="動的線形モデル.html#cb1044-9" tabindex="-1"></a><span class="fu">invisible</span>(<span class="fu">lapply</span>(newObs, <span class="cf">function</span>(x)</span>
+<span id="cb1044-10"><a href="動的線形モデル.html#cb1044-10" tabindex="-1"></a>                 <span class="fu">lines</span>(x, <span class="at">col =</span> <span class="st">&quot;darkgrey&quot;</span>,</span>
+<span id="cb1044-11"><a href="動的線形モデル.html#cb1044-11" tabindex="-1"></a>                       <span class="at">type =</span> <span class="st">&#39;o&#39;</span>, <span class="at">pch =</span> <span class="dv">4</span>)))</span>
+<span id="cb1044-12"><a href="動的線形モデル.html#cb1044-12" tabindex="-1"></a><span class="fu">lines</span>(f, <span class="at">type =</span> <span class="st">&#39;o&#39;</span>, <span class="at">lwd =</span> <span class="dv">2</span>, <span class="at">pch =</span> <span class="dv">16</span>)</span>
+<span id="cb1044-13"><a href="動的線形モデル.html#cb1044-13" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v =</span> <span class="fu">mean</span>(<span class="fu">c</span>(<span class="fu">time</span>(f)[<span class="dv">1</span>], <span class="fu">time</span>(expd)[<span class="fu">length</span>(expd)])),</span>
+<span id="cb1044-14"><a href="動的線形モデル.html#cb1044-14" tabindex="-1"></a>       <span class="at">lty =</span> <span class="st">&quot;dashed&quot;</span>)</span></code></pre></div>
 <p><img src="130%E2%88%92dlm_files/figure-html/qconsum_forecast-1.png" width="75%" /></p>
-<div class="sourceCode" id="cb1047"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1047-1"><a href="動的線形モデル.html#cb1047-1" tabindex="-1"></a><span class="fu">detach</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb1045"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1045-1"><a href="動的線形モデル.html#cb1045-1" tabindex="-1"></a><span class="fu">detach</span>()</span></code></pre></div>
 <!---
 - その他
   - 未知パラメータの推定(特に, $V,W$)は, dlmMLE()関数により最尤推定が可能
@@ -921,54 +947,54 @@ Y_t &amp;=  F \theta_t + v_t, \quad v_t \sim_{i.i.d.} N(0,V_t),\label{eq:Y} \\
 - 1978.1--1987.12, 月次
 - Mobile, IBM, Weyer, Citicorp, Market (NY+アメリカン全上場株式の時価加重), 30日T-Bill(無リスク金利)
 - 注) 1999年, ExxonとMobile合併 --&gt; Exxon Mobile (XOM)</code></pre>
-<div class="sourceCode" id="cb1049"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1049-1"><a href="動的線形モデル.html#cb1049-1" tabindex="-1"></a>ifl <span class="ot">&lt;-</span> <span class="fu">file.path</span>(dir_PPC, <span class="st">&quot;P.dat&quot;</span>)</span>
-<span id="cb1049-2"><a href="動的線形モデル.html#cb1049-2" tabindex="-1"></a>capm <span class="ot">&lt;-</span> <span class="fu">read.table</span>(ifl, <span class="at">header =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb1049-3"><a href="動的線形モデル.html#cb1049-3" tabindex="-1"></a>capm.ts <span class="ot">&lt;-</span> <span class="fu">ts</span>(capm, <span class="at">start =</span> <span class="fu">c</span>(<span class="dv">1978</span>, <span class="dv">1</span>), <span class="at">frequency =</span> <span class="dv">12</span>)</span>
-<span id="cb1049-4"><a href="動的線形モデル.html#cb1049-4" tabindex="-1"></a><span class="fu">colnames</span>(capm)</span>
-<span id="cb1049-5"><a href="動的線形モデル.html#cb1049-5" tabindex="-1"></a><span class="co">#&gt; [1] &quot;MOBIL&quot;  &quot;IBM&quot;    &quot;WEYER&quot;  &quot;CITCRP&quot; &quot;MARKET&quot; &quot;RKFREE&quot;</span></span>
-<span id="cb1049-6"><a href="動的線形モデル.html#cb1049-6" tabindex="-1"></a><span class="fu">par</span>(<span class="at">cex =</span> <span class="fl">0.5</span>)</span>
-<span id="cb1049-7"><a href="動的線形モデル.html#cb1049-7" tabindex="-1"></a><span class="fu">require</span>(zoo)</span>
-<span id="cb1049-8"><a href="動的線形モデル.html#cb1049-8" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">as.zoo</span>(capm.ts), <span class="at">main =</span> <span class="st">&quot;&quot;</span>, <span class="at">xlab =</span> <span class="st">&quot;&quot;</span>, <span class="at">cex.lab =</span> <span class="fl">0.7</span>,</span>
-<span id="cb1049-9"><a href="動的線形モデル.html#cb1049-9" tabindex="-1"></a>     <span class="at">oma =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>), <span class="at">mar =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fl">4.1</span>, <span class="dv">0</span>, <span class="fl">1.1</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb1047"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1047-1"><a href="動的線形モデル.html#cb1047-1" tabindex="-1"></a>ifl <span class="ot">&lt;-</span> <span class="fu">file.path</span>(dir_PPC, <span class="st">&quot;P.dat&quot;</span>)</span>
+<span id="cb1047-2"><a href="動的線形モデル.html#cb1047-2" tabindex="-1"></a>capm <span class="ot">&lt;-</span> <span class="fu">read.table</span>(ifl, <span class="at">header =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb1047-3"><a href="動的線形モデル.html#cb1047-3" tabindex="-1"></a>capm.ts <span class="ot">&lt;-</span> <span class="fu">ts</span>(capm, <span class="at">start =</span> <span class="fu">c</span>(<span class="dv">1978</span>, <span class="dv">1</span>), <span class="at">frequency =</span> <span class="dv">12</span>)</span>
+<span id="cb1047-4"><a href="動的線形モデル.html#cb1047-4" tabindex="-1"></a><span class="fu">colnames</span>(capm)</span>
+<span id="cb1047-5"><a href="動的線形モデル.html#cb1047-5" tabindex="-1"></a><span class="co">#&gt; [1] &quot;MOBIL&quot;  &quot;IBM&quot;    &quot;WEYER&quot;  &quot;CITCRP&quot; &quot;MARKET&quot; &quot;RKFREE&quot;</span></span>
+<span id="cb1047-6"><a href="動的線形モデル.html#cb1047-6" tabindex="-1"></a><span class="fu">par</span>(<span class="at">cex =</span> <span class="fl">0.5</span>)</span>
+<span id="cb1047-7"><a href="動的線形モデル.html#cb1047-7" tabindex="-1"></a><span class="fu">require</span>(zoo)</span>
+<span id="cb1047-8"><a href="動的線形モデル.html#cb1047-8" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">as.zoo</span>(capm.ts), <span class="at">main =</span> <span class="st">&quot;&quot;</span>, <span class="at">xlab =</span> <span class="st">&quot;&quot;</span>, <span class="at">cex.lab =</span> <span class="fl">0.7</span>,</span>
+<span id="cb1047-9"><a href="動的線形モデル.html#cb1047-9" tabindex="-1"></a>     <span class="at">oma =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>), <span class="at">mar =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fl">4.1</span>, <span class="dv">0</span>, <span class="fl">1.1</span>))</span></code></pre></div>
 <p><img src="130%E2%88%92dlm_files/figure-html/unnamed-chunk-8-1.png" width="75%" /></p>
 <p>回帰に先立ち, あらかじめ月次リターン系列から無リスク金利を控除し
 IBM, Market, それぞれの超過リターンを計算しておく.</p>
-<div class="sourceCode" id="cb1050"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1050-1"><a href="動的線形モデル.html#cb1050-1" tabindex="-1"></a><span class="co"># 以下, 1変量 (IBM) に絞って実行</span></span>
-<span id="cb1050-2"><a href="動的線形モデル.html#cb1050-2" tabindex="-1"></a>IBM <span class="ot">&lt;-</span> capm.ts[, <span class="st">&quot;IBM&quot;</span>] <span class="sc">-</span> capm.ts[, <span class="st">&quot;RKFREE&quot;</span>]</span>
-<span id="cb1050-3"><a href="動的線形モデル.html#cb1050-3" tabindex="-1"></a>x <span class="ot">&lt;-</span> capm.ts[, <span class="st">&quot;MARKET&quot;</span>] <span class="sc">-</span> capm.ts[, <span class="st">&quot;RKFREE&quot;</span>]</span>
-<span id="cb1050-4"><a href="動的線形モデル.html#cb1050-4" tabindex="-1"></a>outLM <span class="ot">&lt;-</span> <span class="fu">lm</span>(IBM <span class="sc">~</span> x)</span>
-<span id="cb1050-5"><a href="動的線形モデル.html#cb1050-5" tabindex="-1"></a>outLM<span class="sc">$</span>coef</span>
-<span id="cb1050-6"><a href="動的線形モデル.html#cb1050-6" tabindex="-1"></a><span class="co">#&gt;   (Intercept)             x </span></span>
-<span id="cb1050-7"><a href="動的線形モデル.html#cb1050-7" tabindex="-1"></a><span class="co">#&gt; -0.0004895937  0.4568207721</span></span>
-<span id="cb1050-8"><a href="動的線形モデル.html#cb1050-8" tabindex="-1"></a><span class="fu">summary</span>(outLM)</span>
-<span id="cb1050-9"><a href="動的線形モデル.html#cb1050-9" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb1050-10"><a href="動的線形モデル.html#cb1050-10" tabindex="-1"></a><span class="co">#&gt; Call:</span></span>
-<span id="cb1050-11"><a href="動的線形モデル.html#cb1050-11" tabindex="-1"></a><span class="co">#&gt; lm(formula = IBM ~ x)</span></span>
-<span id="cb1050-12"><a href="動的線形モデル.html#cb1050-12" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb1050-13"><a href="動的線形モデル.html#cb1050-13" tabindex="-1"></a><span class="co">#&gt; Residuals:</span></span>
-<span id="cb1050-14"><a href="動的線形モデル.html#cb1050-14" tabindex="-1"></a><span class="co">#&gt;      Min       1Q   Median       3Q      Max </span></span>
-<span id="cb1050-15"><a href="動的線形モデル.html#cb1050-15" tabindex="-1"></a><span class="co">#&gt; -0.11850 -0.03327 -0.00263  0.03332  0.15042 </span></span>
-<span id="cb1050-16"><a href="動的線形モデル.html#cb1050-16" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb1050-17"><a href="動的線形モデル.html#cb1050-17" tabindex="-1"></a><span class="co">#&gt; Coefficients:</span></span>
-<span id="cb1050-18"><a href="動的線形モデル.html#cb1050-18" tabindex="-1"></a><span class="co">#&gt;               Estimate Std. Error t value Pr(&gt;|t|)    </span></span>
-<span id="cb1050-19"><a href="動的線形モデル.html#cb1050-19" tabindex="-1"></a><span class="co">#&gt; (Intercept) -0.0004896  0.0046400  -0.106    0.916    </span></span>
-<span id="cb1050-20"><a href="動的線形モデル.html#cb1050-20" tabindex="-1"></a><span class="co">#&gt; x            0.4568208  0.0675477   6.763 5.49e-10 ***</span></span>
-<span id="cb1050-21"><a href="動的線形モデル.html#cb1050-21" tabindex="-1"></a><span class="co">#&gt; ---</span></span>
-<span id="cb1050-22"><a href="動的線形モデル.html#cb1050-22" tabindex="-1"></a><span class="co">#&gt; Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</span></span>
-<span id="cb1050-23"><a href="動的線形モデル.html#cb1050-23" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb1050-24"><a href="動的線形モデル.html#cb1050-24" tabindex="-1"></a><span class="co">#&gt; Residual standard error: 0.05055 on 118 degrees of freedom</span></span>
-<span id="cb1050-25"><a href="動的線形モデル.html#cb1050-25" tabindex="-1"></a><span class="co">#&gt; Multiple R-squared:  0.2793, Adjusted R-squared:  0.2732 </span></span>
-<span id="cb1050-26"><a href="動的線形モデル.html#cb1050-26" tabindex="-1"></a><span class="co">#&gt; F-statistic: 45.74 on 1 and 118 DF,  p-value: 5.489e-10</span></span>
-<span id="cb1050-27"><a href="動的線形モデル.html#cb1050-27" tabindex="-1"></a><span class="fu">acf</span>(outLM<span class="sc">$</span>res)</span></code></pre></div>
+<div class="sourceCode" id="cb1048"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1048-1"><a href="動的線形モデル.html#cb1048-1" tabindex="-1"></a><span class="co"># 以下, 1変量 (IBM) に絞って実行</span></span>
+<span id="cb1048-2"><a href="動的線形モデル.html#cb1048-2" tabindex="-1"></a>IBM <span class="ot">&lt;-</span> capm.ts[, <span class="st">&quot;IBM&quot;</span>] <span class="sc">-</span> capm.ts[, <span class="st">&quot;RKFREE&quot;</span>]</span>
+<span id="cb1048-3"><a href="動的線形モデル.html#cb1048-3" tabindex="-1"></a>x <span class="ot">&lt;-</span> capm.ts[, <span class="st">&quot;MARKET&quot;</span>] <span class="sc">-</span> capm.ts[, <span class="st">&quot;RKFREE&quot;</span>]</span>
+<span id="cb1048-4"><a href="動的線形モデル.html#cb1048-4" tabindex="-1"></a>outLM <span class="ot">&lt;-</span> <span class="fu">lm</span>(IBM <span class="sc">~</span> x)</span>
+<span id="cb1048-5"><a href="動的線形モデル.html#cb1048-5" tabindex="-1"></a>outLM<span class="sc">$</span>coef</span>
+<span id="cb1048-6"><a href="動的線形モデル.html#cb1048-6" tabindex="-1"></a><span class="co">#&gt;   (Intercept)             x </span></span>
+<span id="cb1048-7"><a href="動的線形モデル.html#cb1048-7" tabindex="-1"></a><span class="co">#&gt; -0.0004895937  0.4568207721</span></span>
+<span id="cb1048-8"><a href="動的線形モデル.html#cb1048-8" tabindex="-1"></a><span class="fu">summary</span>(outLM)</span>
+<span id="cb1048-9"><a href="動的線形モデル.html#cb1048-9" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb1048-10"><a href="動的線形モデル.html#cb1048-10" tabindex="-1"></a><span class="co">#&gt; Call:</span></span>
+<span id="cb1048-11"><a href="動的線形モデル.html#cb1048-11" tabindex="-1"></a><span class="co">#&gt; lm(formula = IBM ~ x)</span></span>
+<span id="cb1048-12"><a href="動的線形モデル.html#cb1048-12" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb1048-13"><a href="動的線形モデル.html#cb1048-13" tabindex="-1"></a><span class="co">#&gt; Residuals:</span></span>
+<span id="cb1048-14"><a href="動的線形モデル.html#cb1048-14" tabindex="-1"></a><span class="co">#&gt;      Min       1Q   Median       3Q      Max </span></span>
+<span id="cb1048-15"><a href="動的線形モデル.html#cb1048-15" tabindex="-1"></a><span class="co">#&gt; -0.11850 -0.03327 -0.00263  0.03332  0.15042 </span></span>
+<span id="cb1048-16"><a href="動的線形モデル.html#cb1048-16" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb1048-17"><a href="動的線形モデル.html#cb1048-17" tabindex="-1"></a><span class="co">#&gt; Coefficients:</span></span>
+<span id="cb1048-18"><a href="動的線形モデル.html#cb1048-18" tabindex="-1"></a><span class="co">#&gt;               Estimate Std. Error t value Pr(&gt;|t|)    </span></span>
+<span id="cb1048-19"><a href="動的線形モデル.html#cb1048-19" tabindex="-1"></a><span class="co">#&gt; (Intercept) -0.0004896  0.0046400  -0.106    0.916    </span></span>
+<span id="cb1048-20"><a href="動的線形モデル.html#cb1048-20" tabindex="-1"></a><span class="co">#&gt; x            0.4568208  0.0675477   6.763 5.49e-10 ***</span></span>
+<span id="cb1048-21"><a href="動的線形モデル.html#cb1048-21" tabindex="-1"></a><span class="co">#&gt; ---</span></span>
+<span id="cb1048-22"><a href="動的線形モデル.html#cb1048-22" tabindex="-1"></a><span class="co">#&gt; Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</span></span>
+<span id="cb1048-23"><a href="動的線形モデル.html#cb1048-23" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb1048-24"><a href="動的線形モデル.html#cb1048-24" tabindex="-1"></a><span class="co">#&gt; Residual standard error: 0.05055 on 118 degrees of freedom</span></span>
+<span id="cb1048-25"><a href="動的線形モデル.html#cb1048-25" tabindex="-1"></a><span class="co">#&gt; Multiple R-squared:  0.2793, Adjusted R-squared:  0.2732 </span></span>
+<span id="cb1048-26"><a href="動的線形モデル.html#cb1048-26" tabindex="-1"></a><span class="co">#&gt; F-statistic: 45.74 on 1 and 118 DF,  p-value: 5.489e-10</span></span>
+<span id="cb1048-27"><a href="動的線形モデル.html#cb1048-27" tabindex="-1"></a><span class="fu">acf</span>(outLM<span class="sc">$</span>res)</span></code></pre></div>
 <p><img src="130%E2%88%92dlm_files/figure-html/unnamed-chunk-9-1.png" width="75%" /></p>
-<div class="sourceCode" id="cb1051"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1051-1"><a href="動的線形モデル.html#cb1051-1" tabindex="-1"></a><span class="fu">qqnorm</span>(outLM<span class="sc">$</span>res)</span></code></pre></div>
+<div class="sourceCode" id="cb1049"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1049-1"><a href="動的線形モデル.html#cb1049-1" tabindex="-1"></a><span class="fu">qqnorm</span>(outLM<span class="sc">$</span>res)</span></code></pre></div>
 <p><img src="130%E2%88%92dlm_files/figure-html/unnamed-chunk-9-2.png" width="75%" /></p>
-<div class="sourceCode" id="cb1052"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1052-1"><a href="動的線形モデル.html#cb1052-1" tabindex="-1"></a></span>
-<span id="cb1052-2"><a href="動的線形モデル.html#cb1052-2" tabindex="-1"></a><span class="co"># 以下, 追加</span></span>
-<span id="cb1052-3"><a href="動的線形モデル.html#cb1052-3" tabindex="-1"></a><span class="fu">summary</span>(outLM)<span class="sc">$</span>sigma<span class="sc">^</span><span class="dv">2</span></span>
-<span id="cb1052-4"><a href="動的線形モデル.html#cb1052-4" tabindex="-1"></a><span class="co">#&gt; [1] 0.002555574</span></span>
-<span id="cb1052-5"><a href="動的線形モデル.html#cb1052-5" tabindex="-1"></a><span class="co"># --&gt; 0.002555574</span></span>
-<span id="cb1052-6"><a href="動的線形モデル.html#cb1052-6" tabindex="-1"></a><span class="co"># --&gt; 教科書では, dV=0.00254と設定</span></span></code></pre></div>
+<div class="sourceCode" id="cb1050"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1050-1"><a href="動的線形モデル.html#cb1050-1" tabindex="-1"></a></span>
+<span id="cb1050-2"><a href="動的線形モデル.html#cb1050-2" tabindex="-1"></a><span class="co"># 以下, 追加</span></span>
+<span id="cb1050-3"><a href="動的線形モデル.html#cb1050-3" tabindex="-1"></a><span class="fu">summary</span>(outLM)<span class="sc">$</span>sigma<span class="sc">^</span><span class="dv">2</span></span>
+<span id="cb1050-4"><a href="動的線形モデル.html#cb1050-4" tabindex="-1"></a><span class="co">#&gt; [1] 0.002555574</span></span>
+<span id="cb1050-5"><a href="動的線形モデル.html#cb1050-5" tabindex="-1"></a><span class="co"># --&gt; 0.002555574</span></span>
+<span id="cb1050-6"><a href="動的線形モデル.html#cb1050-6" tabindex="-1"></a><span class="co"># --&gt; 教科書では, dV=0.00254と設定</span></span></code></pre></div>
 <div id="静的capm" class="section level4 unnumbered hasAnchor">
 <h4>静的CAPM<a href="動的線形モデル.html#静的capm" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>通常の線形回帰モデル
@@ -995,13 +1021,13 @@ Y_t = \alpha + \beta x_t + v_t, \quad v_t \sim_{i.i.d.} N(0,\sigma^2), \\
 <p>これは, <span class="math inline">\(\alpha\)</span>には”vague prior”,
 <span class="math inline">\(\beta\)</span>にはN(1.5,1)を指定していることを表す
 (1.5→“aggressive investment”, 1→“fairly small variance”).</p>
-<div class="sourceCode" id="cb1053"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1053-1"><a href="動的線形モデル.html#cb1053-1" tabindex="-1"></a>mod <span class="ot">&lt;-</span> <span class="fu">dlmModReg</span>(x, <span class="at">dV =</span> <span class="fl">0.00254</span>, <span class="at">m0 =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fl">1.5</span>),</span>
-<span id="cb1053-2"><a href="動的線形モデル.html#cb1053-2" tabindex="-1"></a>                 <span class="at">C0 =</span> <span class="fu">diag</span>(<span class="fu">c</span>(<span class="fl">1e+07</span>, <span class="dv">1</span>)))</span>
-<span id="cb1053-3"><a href="動的線形モデル.html#cb1053-3" tabindex="-1"></a><span class="co"># Kalmanフィルター適用</span></span>
-<span id="cb1053-4"><a href="動的線形モデル.html#cb1053-4" tabindex="-1"></a>outF <span class="ot">&lt;-</span> <span class="fu">dlmFilter</span>(IBM, mod)</span>
-<span id="cb1053-5"><a href="動的線形モデル.html#cb1053-5" tabindex="-1"></a><span class="co"># 状態変数 (theta) のフィルター値</span></span>
-<span id="cb1053-6"><a href="動的線形モデル.html#cb1053-6" tabindex="-1"></a>outF<span class="sc">$</span>m[<span class="dv">1</span> <span class="sc">+</span> <span class="fu">length</span>(IBM), ]</span>
-<span id="cb1053-7"><a href="動的線形モデル.html#cb1053-7" tabindex="-1"></a><span class="co">#&gt; [1] -0.0005232801  0.4615301204</span></span></code></pre></div>
+<div class="sourceCode" id="cb1051"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1051-1"><a href="動的線形モデル.html#cb1051-1" tabindex="-1"></a>mod <span class="ot">&lt;-</span> <span class="fu">dlmModReg</span>(x, <span class="at">dV =</span> <span class="fl">0.00254</span>, <span class="at">m0 =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fl">1.5</span>),</span>
+<span id="cb1051-2"><a href="動的線形モデル.html#cb1051-2" tabindex="-1"></a>                 <span class="at">C0 =</span> <span class="fu">diag</span>(<span class="fu">c</span>(<span class="fl">1e+07</span>, <span class="dv">1</span>)))</span>
+<span id="cb1051-3"><a href="動的線形モデル.html#cb1051-3" tabindex="-1"></a><span class="co"># Kalmanフィルター適用</span></span>
+<span id="cb1051-4"><a href="動的線形モデル.html#cb1051-4" tabindex="-1"></a>outF <span class="ot">&lt;-</span> <span class="fu">dlmFilter</span>(IBM, mod)</span>
+<span id="cb1051-5"><a href="動的線形モデル.html#cb1051-5" tabindex="-1"></a><span class="co"># 状態変数 (theta) のフィルター値</span></span>
+<span id="cb1051-6"><a href="動的線形モデル.html#cb1051-6" tabindex="-1"></a>outF<span class="sc">$</span>m[<span class="dv">1</span> <span class="sc">+</span> <span class="fu">length</span>(IBM), ]</span>
+<span id="cb1051-7"><a href="動的線形モデル.html#cb1051-7" tabindex="-1"></a><span class="co">#&gt; [1] -0.0005232801  0.4615301204</span></span></code></pre></div>
 </div>
 <div id="動的capm" class="section level4 unnumbered hasAnchor">
 <h4>動的CAPM<a href="動的線形モデル.html#動的capm" class="anchor-section" aria-label="Anchor link to header"></a></h4>
@@ -1022,32 +1048,32 @@ Y_t &amp;= \alpha_t + \beta_t x_t + v_t, \quad v_t \sim_{i.i.d.} N(0,\sigma^2), 
 それに先立ち, dlmMLE()に渡す関数を定義する
 (引数<code>u</code>は推定対象パラメータを格納する数値ベクトル–ここでは3次元.
 <code>u</code>を渡すとDLM (<strong>dlm</strong>クラスオブジェクト) を返す).</p>
-<div class="sourceCode" id="cb1054"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1054-1"><a href="動的線形モデル.html#cb1054-1" tabindex="-1"></a>buildCapm <span class="ot">&lt;-</span> <span class="cf">function</span>(u) {</span>
-<span id="cb1054-2"><a href="動的線形モデル.html#cb1054-2" tabindex="-1"></a>    <span class="fu">dlmModReg</span>(x, <span class="at">dV =</span> <span class="fu">exp</span>(u[<span class="dv">1</span>]), <span class="at">dW =</span> <span class="fu">exp</span>(u[<span class="dv">2</span><span class="sc">:</span><span class="dv">3</span>]))</span>
-<span id="cb1054-3"><a href="動的線形モデル.html#cb1054-3" tabindex="-1"></a>}</span>
-<span id="cb1054-4"><a href="動的線形モデル.html#cb1054-4" tabindex="-1"></a><span class="co"># 注) dV, dWは分散なので非負</span></span>
-<span id="cb1054-5"><a href="動的線形モデル.html#cb1054-5" tabindex="-1"></a><span class="co"># dlmMLE():</span></span>
-<span id="cb1054-6"><a href="動的線形モデル.html#cb1054-6" tabindex="-1"></a><span class="co"># 状態空間モデルの特定化における未知パラメータのMLEを返す関数</span></span>
-<span id="cb1054-7"><a href="動的線形モデル.html#cb1054-7" tabindex="-1"></a><span class="co"># (内部で最適化計算を行うoptim()を呼び出して計算)</span></span>
-<span id="cb1054-8"><a href="動的線形モデル.html#cb1054-8" tabindex="-1"></a><span class="co"># parm: 初期パラメータ</span></span>
-<span id="cb1054-9"><a href="動的線形モデル.html#cb1054-9" tabindex="-1"></a>outMLE <span class="ot">&lt;-</span> <span class="fu">dlmMLE</span>(IBM, <span class="at">parm =</span> <span class="fu">rep</span>(<span class="dv">0</span>, <span class="dv">3</span>), <span class="at">build =</span> buildCapm)</span>
-<span id="cb1054-10"><a href="動的線形モデル.html#cb1054-10" tabindex="-1"></a><span class="co"># V,WのMLE</span></span>
-<span id="cb1054-11"><a href="動的線形モデル.html#cb1054-11" tabindex="-1"></a><span class="fu">exp</span>(outMLE<span class="sc">$</span>par)</span>
-<span id="cb1054-12"><a href="動的線形モデル.html#cb1054-12" tabindex="-1"></a><span class="co">#&gt; [1] 2.328401e-03 1.100131e-05 6.496219e-04</span></span>
-<span id="cb1054-13"><a href="動的線形モデル.html#cb1054-13" tabindex="-1"></a><span class="co"># 最適化計算に呼び出されたoptim()の戻り値</span></span>
-<span id="cb1054-14"><a href="動的線形モデル.html#cb1054-14" tabindex="-1"></a><span class="co"># outMLE$value</span></span>
-<span id="cb1054-15"><a href="動的線形モデル.html#cb1054-15" tabindex="-1"></a></span>
-<span id="cb1054-16"><a href="動的線形モデル.html#cb1054-16" tabindex="-1"></a><span class="co"># MLEを使ってDLMを定義 (特定化)</span></span>
-<span id="cb1054-17"><a href="動的線形モデル.html#cb1054-17" tabindex="-1"></a>mod <span class="ot">&lt;-</span> <span class="fu">buildCapm</span>(outMLE<span class="sc">$</span>par)</span></code></pre></div>
+<div class="sourceCode" id="cb1052"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1052-1"><a href="動的線形モデル.html#cb1052-1" tabindex="-1"></a>buildCapm <span class="ot">&lt;-</span> <span class="cf">function</span>(u) {</span>
+<span id="cb1052-2"><a href="動的線形モデル.html#cb1052-2" tabindex="-1"></a>    <span class="fu">dlmModReg</span>(x, <span class="at">dV =</span> <span class="fu">exp</span>(u[<span class="dv">1</span>]), <span class="at">dW =</span> <span class="fu">exp</span>(u[<span class="dv">2</span><span class="sc">:</span><span class="dv">3</span>]))</span>
+<span id="cb1052-3"><a href="動的線形モデル.html#cb1052-3" tabindex="-1"></a>}</span>
+<span id="cb1052-4"><a href="動的線形モデル.html#cb1052-4" tabindex="-1"></a><span class="co"># 注) dV, dWは分散なので非負</span></span>
+<span id="cb1052-5"><a href="動的線形モデル.html#cb1052-5" tabindex="-1"></a><span class="co"># dlmMLE():</span></span>
+<span id="cb1052-6"><a href="動的線形モデル.html#cb1052-6" tabindex="-1"></a><span class="co"># 状態空間モデルの特定化における未知パラメータのMLEを返す関数</span></span>
+<span id="cb1052-7"><a href="動的線形モデル.html#cb1052-7" tabindex="-1"></a><span class="co"># (内部で最適化計算を行うoptim()を呼び出して計算)</span></span>
+<span id="cb1052-8"><a href="動的線形モデル.html#cb1052-8" tabindex="-1"></a><span class="co"># parm: 初期パラメータ</span></span>
+<span id="cb1052-9"><a href="動的線形モデル.html#cb1052-9" tabindex="-1"></a>outMLE <span class="ot">&lt;-</span> <span class="fu">dlmMLE</span>(IBM, <span class="at">parm =</span> <span class="fu">rep</span>(<span class="dv">0</span>, <span class="dv">3</span>), <span class="at">build =</span> buildCapm)</span>
+<span id="cb1052-10"><a href="動的線形モデル.html#cb1052-10" tabindex="-1"></a><span class="co"># V,WのMLE</span></span>
+<span id="cb1052-11"><a href="動的線形モデル.html#cb1052-11" tabindex="-1"></a><span class="fu">exp</span>(outMLE<span class="sc">$</span>par)</span>
+<span id="cb1052-12"><a href="動的線形モデル.html#cb1052-12" tabindex="-1"></a><span class="co">#&gt; [1] 2.328401e-03 1.100131e-05 6.496219e-04</span></span>
+<span id="cb1052-13"><a href="動的線形モデル.html#cb1052-13" tabindex="-1"></a><span class="co"># 最適化計算に呼び出されたoptim()の戻り値</span></span>
+<span id="cb1052-14"><a href="動的線形モデル.html#cb1052-14" tabindex="-1"></a><span class="co"># outMLE$value</span></span>
+<span id="cb1052-15"><a href="動的線形モデル.html#cb1052-15" tabindex="-1"></a></span>
+<span id="cb1052-16"><a href="動的線形モデル.html#cb1052-16" tabindex="-1"></a><span class="co"># MLEを使ってDLMを定義 (特定化)</span></span>
+<span id="cb1052-17"><a href="動的線形モデル.html#cb1052-17" tabindex="-1"></a>mod <span class="ot">&lt;-</span> <span class="fu">buildCapm</span>(outMLE<span class="sc">$</span>par)</span></code></pre></div>
 </div>
 <div id="スムージング" class="section level3 unnumbered hasAnchor">
 <h3>スムージング<a href="動的線形モデル.html#スムージング" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb1055"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1055-1"><a href="動的線形モデル.html#cb1055-1" tabindex="-1"></a><span class="co"># 状態変数のスムージング推定値 (平滑化推定値)</span></span>
-<span id="cb1055-2"><a href="動的線形モデル.html#cb1055-2" tabindex="-1"></a>outS <span class="ot">&lt;-</span> <span class="fu">dlmSmooth</span>(IBM, mod)</span>
-<span id="cb1055-3"><a href="動的線形モデル.html#cb1055-3" tabindex="-1"></a><span class="co"># require(zoo)</span></span>
-<span id="cb1055-4"><a href="動的線形モデル.html#cb1055-4" tabindex="-1"></a><span class="co"># alpha, betaのスムージング推定値のプロット</span></span>
-<span id="cb1055-5"><a href="動的線形モデル.html#cb1055-5" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">as.zoo</span>(<span class="fu">dropFirst</span>(outS<span class="sc">$</span>s)), <span class="at">main =</span> <span class="st">&quot;&quot;</span>, <span class="at">mar =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fl">2.1</span>, <span class="dv">0</span>, <span class="fl">1.1</span>),</span>
-<span id="cb1055-6"><a href="動的線形モデル.html#cb1055-6" tabindex="-1"></a>     <span class="at">oma =</span> <span class="fu">c</span>(<span class="fl">2.1</span>, <span class="dv">0</span>, .<span class="dv">1</span>, .<span class="dv">1</span>), <span class="at">cex.axis =</span> <span class="fl">0.5</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1053"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1053-1"><a href="動的線形モデル.html#cb1053-1" tabindex="-1"></a><span class="co"># 状態変数のスムージング推定値 (平滑化推定値)</span></span>
+<span id="cb1053-2"><a href="動的線形モデル.html#cb1053-2" tabindex="-1"></a>outS <span class="ot">&lt;-</span> <span class="fu">dlmSmooth</span>(IBM, mod)</span>
+<span id="cb1053-3"><a href="動的線形モデル.html#cb1053-3" tabindex="-1"></a><span class="co"># require(zoo)</span></span>
+<span id="cb1053-4"><a href="動的線形モデル.html#cb1053-4" tabindex="-1"></a><span class="co"># alpha, betaのスムージング推定値のプロット</span></span>
+<span id="cb1053-5"><a href="動的線形モデル.html#cb1053-5" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">as.zoo</span>(<span class="fu">dropFirst</span>(outS<span class="sc">$</span>s)), <span class="at">main =</span> <span class="st">&quot;&quot;</span>, <span class="at">mar =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fl">2.1</span>, <span class="dv">0</span>, <span class="fl">1.1</span>),</span>
+<span id="cb1053-6"><a href="動的線形モデル.html#cb1053-6" tabindex="-1"></a>     <span class="at">oma =</span> <span class="fu">c</span>(<span class="fl">2.1</span>, <span class="dv">0</span>, .<span class="dv">1</span>, .<span class="dv">1</span>), <span class="at">cex.axis =</span> <span class="fl">0.5</span>)</span></code></pre></div>
 <p><img src="130%E2%88%92dlm_files/figure-html/unnamed-chunk-12-1.png" width="75%" /></p>
 </div>
 </div>
@@ -1110,61 +1136,61 @@ W_{\alpha} &amp; 0\\
 <h4>動的CAPM<a href="動的線形モデル.html#動的capm-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>目的変数として個別4銘柄と, 説明変数としてMarketの,
 各々の超過リターンを計算する.</p>
-<div class="sourceCode" id="cb1056"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1056-1"><a href="動的線形モデル.html#cb1056-1" tabindex="-1"></a>ifl <span class="ot">&lt;-</span> <span class="fu">file.path</span>(dir_PPC, <span class="st">&quot;P.dat&quot;</span>)</span>
-<span id="cb1056-2"><a href="動的線形モデル.html#cb1056-2" tabindex="-1"></a>tmp <span class="ot">&lt;-</span> <span class="fu">ts</span>(<span class="fu">read.table</span>(ifl,</span>
-<span id="cb1056-3"><a href="動的線形モデル.html#cb1056-3" tabindex="-1"></a>                     <span class="at">header =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb1056-4"><a href="動的線形モデル.html#cb1056-4" tabindex="-1"></a>          <span class="at">start =</span> <span class="fu">c</span>(<span class="dv">1978</span>, <span class="dv">1</span>), <span class="at">frequency =</span> <span class="dv">12</span>) <span class="sc">*</span> <span class="dv">100</span></span>
-<span id="cb1056-5"><a href="動的線形モデル.html#cb1056-5" tabindex="-1"></a>y <span class="ot">&lt;-</span> tmp[, <span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>] <span class="sc">-</span> tmp[, <span class="st">&quot;RKFREE&quot;</span>]</span>
-<span id="cb1056-6"><a href="動的線形モデル.html#cb1056-6" tabindex="-1"></a><span class="fu">colnames</span>(y) <span class="ot">&lt;-</span> <span class="fu">colnames</span>(tmp)[<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>]</span>
-<span id="cb1056-7"><a href="動的線形モデル.html#cb1056-7" tabindex="-1"></a>market <span class="ot">&lt;-</span> tmp[, <span class="st">&quot;MARKET&quot;</span>] <span class="sc">-</span> tmp[, <span class="st">&quot;RKFREE&quot;</span>]</span>
-<span id="cb1056-8"><a href="動的線形モデル.html#cb1056-8" tabindex="-1"></a><span class="fu">rm</span>(<span class="st">&quot;tmp&quot;</span>)</span>
-<span id="cb1056-9"><a href="動的線形モデル.html#cb1056-9" tabindex="-1"></a><span class="co"># m &lt;- NCOL(y)</span></span>
-<span id="cb1056-10"><a href="動的線形モデル.html#cb1056-10" tabindex="-1"></a>m <span class="ot">&lt;-</span> <span class="fu">ncol</span>(y)</span></code></pre></div>
+<div class="sourceCode" id="cb1054"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1054-1"><a href="動的線形モデル.html#cb1054-1" tabindex="-1"></a>ifl <span class="ot">&lt;-</span> <span class="fu">file.path</span>(dir_PPC, <span class="st">&quot;P.dat&quot;</span>)</span>
+<span id="cb1054-2"><a href="動的線形モデル.html#cb1054-2" tabindex="-1"></a>tmp <span class="ot">&lt;-</span> <span class="fu">ts</span>(<span class="fu">read.table</span>(ifl,</span>
+<span id="cb1054-3"><a href="動的線形モデル.html#cb1054-3" tabindex="-1"></a>                     <span class="at">header =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb1054-4"><a href="動的線形モデル.html#cb1054-4" tabindex="-1"></a>          <span class="at">start =</span> <span class="fu">c</span>(<span class="dv">1978</span>, <span class="dv">1</span>), <span class="at">frequency =</span> <span class="dv">12</span>) <span class="sc">*</span> <span class="dv">100</span></span>
+<span id="cb1054-5"><a href="動的線形モデル.html#cb1054-5" tabindex="-1"></a>y <span class="ot">&lt;-</span> tmp[, <span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>] <span class="sc">-</span> tmp[, <span class="st">&quot;RKFREE&quot;</span>]</span>
+<span id="cb1054-6"><a href="動的線形モデル.html#cb1054-6" tabindex="-1"></a><span class="fu">colnames</span>(y) <span class="ot">&lt;-</span> <span class="fu">colnames</span>(tmp)[<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>]</span>
+<span id="cb1054-7"><a href="動的線形モデル.html#cb1054-7" tabindex="-1"></a>market <span class="ot">&lt;-</span> tmp[, <span class="st">&quot;MARKET&quot;</span>] <span class="sc">-</span> tmp[, <span class="st">&quot;RKFREE&quot;</span>]</span>
+<span id="cb1054-8"><a href="動的線形モデル.html#cb1054-8" tabindex="-1"></a><span class="fu">rm</span>(<span class="st">&quot;tmp&quot;</span>)</span>
+<span id="cb1054-9"><a href="動的線形モデル.html#cb1054-9" tabindex="-1"></a><span class="co"># m &lt;- NCOL(y)</span></span>
+<span id="cb1054-10"><a href="動的線形モデル.html#cb1054-10" tabindex="-1"></a>m <span class="ot">&lt;-</span> <span class="fu">ncol</span>(y)</span></code></pre></div>
 <p>まず, 上記SURモデルのDLM表現を<code>dlmModReg()</code>を用いて行う.
 PPCでは,</p>
 <ul>
 <li>簡単のため, <span class="math inline">\(\alpha\)</span>は定数 (時間固定) (–&gt; 対応する<span class="math inline">\(W_{\alpha}=0\)</span>)</li>
 <li>データより別途計算しておいた<span class="math inline">\(W_{\beta},V\)</span>の推定値を使用</li>
 </ul>
-<div class="sourceCode" id="cb1057"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1057-1"><a href="動的線形モデル.html#cb1057-1" tabindex="-1"></a><span class="co"># Marketを使って初期設定</span></span>
-<span id="cb1057-2"><a href="動的線形モデル.html#cb1057-2" tabindex="-1"></a>CAPM <span class="ot">&lt;-</span> <span class="fu">dlmModReg</span>(market)</span>
-<span id="cb1057-3"><a href="動的線形モデル.html#cb1057-3" tabindex="-1"></a></span>
-<span id="cb1057-4"><a href="動的線形モデル.html#cb1057-4" tabindex="-1"></a><span class="co"># 4変量の特定化のために手入力</span></span>
-<span id="cb1057-5"><a href="動的線形モデル.html#cb1057-5" tabindex="-1"></a>CAPM<span class="sc">$</span>FF <span class="ot">&lt;-</span> CAPM<span class="sc">$</span>FF <span class="sc">%x%</span> <span class="fu">diag</span>(m) <span class="co"># ブロック対角行列</span></span>
-<span id="cb1057-6"><a href="動的線形モデル.html#cb1057-6" tabindex="-1"></a><span class="co"># 注) %x%: クロネッカー積</span></span>
-<span id="cb1057-7"><a href="動的線形モデル.html#cb1057-7" tabindex="-1"></a>CAPM<span class="sc">$</span>GG <span class="ot">&lt;-</span> CAPM<span class="sc">$</span>GG <span class="sc">%x%</span> <span class="fu">diag</span>(m)</span>
-<span id="cb1057-8"><a href="動的線形モデル.html#cb1057-8" tabindex="-1"></a>CAPM<span class="sc">$</span>JFF <span class="ot">&lt;-</span> CAPM<span class="sc">$</span>JFF <span class="sc">%x%</span> <span class="fu">diag</span>(m)</span>
-<span id="cb1057-9"><a href="動的線形モデル.html#cb1057-9" tabindex="-1"></a></span>
-<span id="cb1057-10"><a href="動的線形モデル.html#cb1057-10" tabindex="-1"></a><span class="co"># PPCでは, データより別途計算しておいたW,Vの推定値を使用</span></span>
-<span id="cb1057-11"><a href="動的線形モデル.html#cb1057-11" tabindex="-1"></a>CAPM<span class="sc">$</span>W <span class="ot">&lt;-</span> CAPM<span class="sc">$</span>W <span class="sc">%x%</span> <span class="fu">matrix</span>(<span class="dv">0</span>, m, m)</span>
-<span id="cb1057-12"><a href="動的線形モデル.html#cb1057-12" tabindex="-1"></a>CAPM<span class="sc">$</span>W[<span class="sc">-</span>(<span class="dv">1</span><span class="sc">:</span>m), <span class="sc">-</span>(<span class="dv">1</span><span class="sc">:</span>m)] <span class="ot">&lt;-</span></span>
-<span id="cb1057-13"><a href="動的線形モデル.html#cb1057-13" tabindex="-1"></a>    <span class="fu">c</span>(<span class="fl">8.153e-07</span>,  <span class="sc">-</span><span class="fl">3.172e-05</span>, <span class="sc">-</span><span class="fl">4.267e-05</span>, <span class="sc">-</span><span class="fl">6.649e-05</span>,</span>
-<span id="cb1057-14"><a href="動的線形モデル.html#cb1057-14" tabindex="-1"></a>      <span class="sc">-</span><span class="fl">3.172e-05</span>, <span class="fl">0.001377</span>,   <span class="fl">0.001852</span>,   <span class="fl">0.002884</span>,</span>
-<span id="cb1057-15"><a href="動的線形モデル.html#cb1057-15" tabindex="-1"></a>      <span class="sc">-</span><span class="fl">4.267e-05</span>, <span class="fl">0.001852</span>,   <span class="fl">0.002498</span>,   <span class="fl">0.003884</span>,</span>
-<span id="cb1057-16"><a href="動的線形モデル.html#cb1057-16" tabindex="-1"></a>      <span class="sc">-</span><span class="fl">6.649e-05</span>, <span class="fl">0.002884</span>,   <span class="fl">0.003884</span>,   <span class="fl">0.006057</span>)</span>
-<span id="cb1057-17"><a href="動的線形モデル.html#cb1057-17" tabindex="-1"></a>CAPM<span class="sc">$</span>V <span class="ot">&lt;-</span> CAPM<span class="sc">$</span>V <span class="sc">%x%</span> <span class="fu">matrix</span>(<span class="dv">0</span>, m, m)</span>
-<span id="cb1057-18"><a href="動的線形モデル.html#cb1057-18" tabindex="-1"></a>CAPM<span class="sc">$</span>V[] <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">41.06</span>,     <span class="fl">0.01571</span>, <span class="sc">-</span><span class="fl">0.9504</span>, <span class="sc">-</span><span class="fl">2.328</span>,</span>
-<span id="cb1057-19"><a href="動的線形モデル.html#cb1057-19" tabindex="-1"></a>              <span class="fl">0.01571</span>, <span class="fl">24.23</span>,     <span class="fl">5.783</span>,   <span class="fl">3.376</span>,</span>
-<span id="cb1057-20"><a href="動的線形モデル.html#cb1057-20" tabindex="-1"></a>              <span class="sc">-</span><span class="fl">0.9504</span>,   <span class="fl">5.783</span>,   <span class="fl">39.2</span>,     <span class="fl">8.145</span>,</span>
-<span id="cb1057-21"><a href="動的線形モデル.html#cb1057-21" tabindex="-1"></a>              <span class="sc">-</span><span class="fl">2.328</span>,    <span class="fl">3.376</span>,    <span class="fl">8.145</span>,  <span class="fl">39.29</span>)</span>
-<span id="cb1057-22"><a href="動的線形モデル.html#cb1057-22" tabindex="-1"></a>CAPM<span class="sc">$</span>m0 <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="dv">0</span>, <span class="dv">2</span> <span class="sc">*</span> m)</span>
-<span id="cb1057-23"><a href="動的線形モデル.html#cb1057-23" tabindex="-1"></a>CAPM<span class="sc">$</span>C0 <span class="ot">&lt;-</span> <span class="fu">diag</span>(<span class="fl">1e7</span>, <span class="at">nr =</span> <span class="dv">2</span> <span class="sc">*</span> m)</span></code></pre></div>
+<div class="sourceCode" id="cb1055"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1055-1"><a href="動的線形モデル.html#cb1055-1" tabindex="-1"></a><span class="co"># Marketを使って初期設定</span></span>
+<span id="cb1055-2"><a href="動的線形モデル.html#cb1055-2" tabindex="-1"></a>CAPM <span class="ot">&lt;-</span> <span class="fu">dlmModReg</span>(market)</span>
+<span id="cb1055-3"><a href="動的線形モデル.html#cb1055-3" tabindex="-1"></a></span>
+<span id="cb1055-4"><a href="動的線形モデル.html#cb1055-4" tabindex="-1"></a><span class="co"># 4変量の特定化のために手入力</span></span>
+<span id="cb1055-5"><a href="動的線形モデル.html#cb1055-5" tabindex="-1"></a>CAPM<span class="sc">$</span>FF <span class="ot">&lt;-</span> CAPM<span class="sc">$</span>FF <span class="sc">%x%</span> <span class="fu">diag</span>(m) <span class="co"># ブロック対角行列</span></span>
+<span id="cb1055-6"><a href="動的線形モデル.html#cb1055-6" tabindex="-1"></a><span class="co"># 注) %x%: クロネッカー積</span></span>
+<span id="cb1055-7"><a href="動的線形モデル.html#cb1055-7" tabindex="-1"></a>CAPM<span class="sc">$</span>GG <span class="ot">&lt;-</span> CAPM<span class="sc">$</span>GG <span class="sc">%x%</span> <span class="fu">diag</span>(m)</span>
+<span id="cb1055-8"><a href="動的線形モデル.html#cb1055-8" tabindex="-1"></a>CAPM<span class="sc">$</span>JFF <span class="ot">&lt;-</span> CAPM<span class="sc">$</span>JFF <span class="sc">%x%</span> <span class="fu">diag</span>(m)</span>
+<span id="cb1055-9"><a href="動的線形モデル.html#cb1055-9" tabindex="-1"></a></span>
+<span id="cb1055-10"><a href="動的線形モデル.html#cb1055-10" tabindex="-1"></a><span class="co"># PPCでは, データより別途計算しておいたW,Vの推定値を使用</span></span>
+<span id="cb1055-11"><a href="動的線形モデル.html#cb1055-11" tabindex="-1"></a>CAPM<span class="sc">$</span>W <span class="ot">&lt;-</span> CAPM<span class="sc">$</span>W <span class="sc">%x%</span> <span class="fu">matrix</span>(<span class="dv">0</span>, m, m)</span>
+<span id="cb1055-12"><a href="動的線形モデル.html#cb1055-12" tabindex="-1"></a>CAPM<span class="sc">$</span>W[<span class="sc">-</span>(<span class="dv">1</span><span class="sc">:</span>m), <span class="sc">-</span>(<span class="dv">1</span><span class="sc">:</span>m)] <span class="ot">&lt;-</span></span>
+<span id="cb1055-13"><a href="動的線形モデル.html#cb1055-13" tabindex="-1"></a>    <span class="fu">c</span>(<span class="fl">8.153e-07</span>,  <span class="sc">-</span><span class="fl">3.172e-05</span>, <span class="sc">-</span><span class="fl">4.267e-05</span>, <span class="sc">-</span><span class="fl">6.649e-05</span>,</span>
+<span id="cb1055-14"><a href="動的線形モデル.html#cb1055-14" tabindex="-1"></a>      <span class="sc">-</span><span class="fl">3.172e-05</span>, <span class="fl">0.001377</span>,   <span class="fl">0.001852</span>,   <span class="fl">0.002884</span>,</span>
+<span id="cb1055-15"><a href="動的線形モデル.html#cb1055-15" tabindex="-1"></a>      <span class="sc">-</span><span class="fl">4.267e-05</span>, <span class="fl">0.001852</span>,   <span class="fl">0.002498</span>,   <span class="fl">0.003884</span>,</span>
+<span id="cb1055-16"><a href="動的線形モデル.html#cb1055-16" tabindex="-1"></a>      <span class="sc">-</span><span class="fl">6.649e-05</span>, <span class="fl">0.002884</span>,   <span class="fl">0.003884</span>,   <span class="fl">0.006057</span>)</span>
+<span id="cb1055-17"><a href="動的線形モデル.html#cb1055-17" tabindex="-1"></a>CAPM<span class="sc">$</span>V <span class="ot">&lt;-</span> CAPM<span class="sc">$</span>V <span class="sc">%x%</span> <span class="fu">matrix</span>(<span class="dv">0</span>, m, m)</span>
+<span id="cb1055-18"><a href="動的線形モデル.html#cb1055-18" tabindex="-1"></a>CAPM<span class="sc">$</span>V[] <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">41.06</span>,     <span class="fl">0.01571</span>, <span class="sc">-</span><span class="fl">0.9504</span>, <span class="sc">-</span><span class="fl">2.328</span>,</span>
+<span id="cb1055-19"><a href="動的線形モデル.html#cb1055-19" tabindex="-1"></a>              <span class="fl">0.01571</span>, <span class="fl">24.23</span>,     <span class="fl">5.783</span>,   <span class="fl">3.376</span>,</span>
+<span id="cb1055-20"><a href="動的線形モデル.html#cb1055-20" tabindex="-1"></a>              <span class="sc">-</span><span class="fl">0.9504</span>,   <span class="fl">5.783</span>,   <span class="fl">39.2</span>,     <span class="fl">8.145</span>,</span>
+<span id="cb1055-21"><a href="動的線形モデル.html#cb1055-21" tabindex="-1"></a>              <span class="sc">-</span><span class="fl">2.328</span>,    <span class="fl">3.376</span>,    <span class="fl">8.145</span>,  <span class="fl">39.29</span>)</span>
+<span id="cb1055-22"><a href="動的線形モデル.html#cb1055-22" tabindex="-1"></a>CAPM<span class="sc">$</span>m0 <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="dv">0</span>, <span class="dv">2</span> <span class="sc">*</span> m)</span>
+<span id="cb1055-23"><a href="動的線形モデル.html#cb1055-23" tabindex="-1"></a>CAPM<span class="sc">$</span>C0 <span class="ot">&lt;-</span> <span class="fu">diag</span>(<span class="fl">1e7</span>, <span class="at">nr =</span> <span class="dv">2</span> <span class="sc">*</span> m)</span></code></pre></div>
 </div>
 <div id="スムージング-1" class="section level4 unnumbered hasAnchor">
 <h4>スムージング<a href="動的線形モデル.html#スムージング-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<div class="sourceCode" id="cb1058"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1058-1"><a href="動的線形モデル.html#cb1058-1" tabindex="-1"></a><span class="do">## Smooth</span></span>
-<span id="cb1058-2"><a href="動的線形モデル.html#cb1058-2" tabindex="-1"></a><span class="co"># Kalmanスムージング実行</span></span>
-<span id="cb1058-3"><a href="動的線形モデル.html#cb1058-3" tabindex="-1"></a>CAPMsmooth <span class="ot">&lt;-</span> <span class="fu">dlmSmooth</span>(y, CAPM)</span>
-<span id="cb1058-4"><a href="動的線形モデル.html#cb1058-4" tabindex="-1"></a></span>
-<span id="cb1058-5"><a href="動的線形モデル.html#cb1058-5" tabindex="-1"></a><span class="do">## plots</span></span>
-<span id="cb1058-6"><a href="動的線形モデル.html#cb1058-6" tabindex="-1"></a><span class="co"># 4銘柄のbetaのスムージング推定値のplot</span></span>
-<span id="cb1058-7"><a href="動的線形モデル.html#cb1058-7" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mar =</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">1</span>, <span class="dv">2</span>) <span class="sc">+</span> <span class="fl">0.1</span>, <span class="at">cex =</span> <span class="fl">0.7</span>)</span>
-<span id="cb1058-8"><a href="動的線形モデル.html#cb1058-8" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">dropFirst</span>(CAPMsmooth<span class="sc">$</span>s[, m <span class="sc">+</span> <span class="dv">1</span><span class="sc">:</span>m]),</span>
-<span id="cb1058-9"><a href="動的線形モデル.html#cb1058-9" tabindex="-1"></a>     <span class="at">lty =</span> <span class="fu">c</span>(<span class="st">&quot;13&quot;</span>, <span class="st">&quot;6413&quot;</span>, <span class="st">&quot;431313&quot;</span>, <span class="st">&quot;B4&quot;</span>),</span>
-<span id="cb1058-10"><a href="動的線形モデル.html#cb1058-10" tabindex="-1"></a>     <span class="at">plot.type =</span> <span class="st">&quot;s&quot;</span>, <span class="at">xlab =</span> <span class="st">&quot;&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;Beta&quot;</span>)</span>
-<span id="cb1058-11"><a href="動的線形モデル.html#cb1058-11" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">h =</span> <span class="dv">1</span>, <span class="at">col =</span> <span class="st">&quot;darkgrey&quot;</span>)</span>
-<span id="cb1058-12"><a href="動的線形モデル.html#cb1058-12" tabindex="-1"></a><span class="fu">legend</span>(<span class="st">&quot;bottomright&quot;</span>, <span class="at">legend =</span> <span class="fu">colnames</span>(y), <span class="at">bty =</span> <span class="st">&quot;n&quot;</span>,</span>
-<span id="cb1058-13"><a href="動的線形モデル.html#cb1058-13" tabindex="-1"></a>       <span class="at">lty =</span> <span class="fu">c</span>(<span class="st">&quot;13&quot;</span>, <span class="st">&quot;6413&quot;</span>, <span class="st">&quot;431313&quot;</span>, <span class="st">&quot;B4&quot;</span>), <span class="at">inset =</span> <span class="fl">0.05</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1056"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1056-1"><a href="動的線形モデル.html#cb1056-1" tabindex="-1"></a><span class="do">## Smooth</span></span>
+<span id="cb1056-2"><a href="動的線形モデル.html#cb1056-2" tabindex="-1"></a><span class="co"># Kalmanスムージング実行</span></span>
+<span id="cb1056-3"><a href="動的線形モデル.html#cb1056-3" tabindex="-1"></a>CAPMsmooth <span class="ot">&lt;-</span> <span class="fu">dlmSmooth</span>(y, CAPM)</span>
+<span id="cb1056-4"><a href="動的線形モデル.html#cb1056-4" tabindex="-1"></a></span>
+<span id="cb1056-5"><a href="動的線形モデル.html#cb1056-5" tabindex="-1"></a><span class="do">## plots</span></span>
+<span id="cb1056-6"><a href="動的線形モデル.html#cb1056-6" tabindex="-1"></a><span class="co"># 4銘柄のbetaのスムージング推定値のplot</span></span>
+<span id="cb1056-7"><a href="動的線形モデル.html#cb1056-7" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mar =</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">1</span>, <span class="dv">2</span>) <span class="sc">+</span> <span class="fl">0.1</span>, <span class="at">cex =</span> <span class="fl">0.7</span>)</span>
+<span id="cb1056-8"><a href="動的線形モデル.html#cb1056-8" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">dropFirst</span>(CAPMsmooth<span class="sc">$</span>s[, m <span class="sc">+</span> <span class="dv">1</span><span class="sc">:</span>m]),</span>
+<span id="cb1056-9"><a href="動的線形モデル.html#cb1056-9" tabindex="-1"></a>     <span class="at">lty =</span> <span class="fu">c</span>(<span class="st">&quot;13&quot;</span>, <span class="st">&quot;6413&quot;</span>, <span class="st">&quot;431313&quot;</span>, <span class="st">&quot;B4&quot;</span>),</span>
+<span id="cb1056-10"><a href="動的線形モデル.html#cb1056-10" tabindex="-1"></a>     <span class="at">plot.type =</span> <span class="st">&quot;s&quot;</span>, <span class="at">xlab =</span> <span class="st">&quot;&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;Beta&quot;</span>)</span>
+<span id="cb1056-11"><a href="動的線形モデル.html#cb1056-11" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">h =</span> <span class="dv">1</span>, <span class="at">col =</span> <span class="st">&quot;darkgrey&quot;</span>)</span>
+<span id="cb1056-12"><a href="動的線形モデル.html#cb1056-12" tabindex="-1"></a><span class="fu">legend</span>(<span class="st">&quot;bottomright&quot;</span>, <span class="at">legend =</span> <span class="fu">colnames</span>(y), <span class="at">bty =</span> <span class="st">&quot;n&quot;</span>,</span>
+<span id="cb1056-13"><a href="動的線形モデル.html#cb1056-13" tabindex="-1"></a>       <span class="at">lty =</span> <span class="fu">c</span>(<span class="st">&quot;13&quot;</span>, <span class="st">&quot;6413&quot;</span>, <span class="st">&quot;431313&quot;</span>, <span class="st">&quot;B4&quot;</span>), <span class="at">inset =</span> <span class="fl">0.05</span>)</span></code></pre></div>
 <p><img src="130%E2%88%92dlm_files/figure-html/unnamed-chunk-15-1.png" width="75%" /></p>
 </div>
 <div id="参考文献" class="section level3 unnumbered hasAnchor">
@@ -1175,16 +1201,13 @@ PPCでは,</p>
 </div>
 </div>
 </div>
-
-
-
             </section>
 
           </div>
         </div>
       </div>
 <a href="多変量ボラティリティモデル.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="バブル-生成崩壊-検出.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="高頻度データ分析.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

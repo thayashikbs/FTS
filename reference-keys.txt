@@ -97,6 +97,10 @@ var解析-データ分析例
 local-level-plus-seasonal-componentモデル
 動的回帰モデル
 sur-seemingly-unrelated-regression-モデル-3.3.3
+高頻度データ分析
+ボラティリティ推定
+共分散相関の推定
+acdモデル
 バブル-生成崩壊-検出
 検定法に関する最近のレビュー論文
 supreme-adf検定sadf-pwy-2011-generalized-supreme-adf-検定gsadf-psy-2015
@@ -131,3 +135,8 @@ aparch-model
 統計的アービトラージ-ペアトレード
 国際株式市場間のヘッジ
 クレジットスプレッド-株式-cds-債券-の分析
+今後の学習のために
+ai機械学習と時系列解析
+カテゴリーデータや整数値データ等に対する時系列解析
+状態空間モデル動的線形モデル
+その他

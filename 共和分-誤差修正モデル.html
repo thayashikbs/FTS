@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>E 共和分/ 誤差修正モデル | 金融時系列解析</title>
   <meta name="description" content="E 共和分/ 誤差修正モデル | 金融時系列解析" />
-  <meta name="generator" content="bookdown 0.35 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.40 and GitBook 2.6.7" />
 
   <meta property="og:title" content="E 共和分/ 誤差修正モデル | 金融時系列解析" />
   <meta property="og:type" content="book" />
@@ -29,7 +29,7 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="archgarchモデル.html"/>
+<link rel="prev" href="archgarchモデル-1.html"/>
 <link rel="next" href="今後の学習のために.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
@@ -55,7 +55,7 @@
 
 <style type="text/css">
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -151,8 +151,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="1.5" data-path="index.html"><a href="index.html#時系列データの分解"><i class="fa fa-check"></i><b>1.5</b> 時系列データの分解</a>
 <ul>
-<li class="chapter" data-level="1.5.1" data-path="index.html"><a href="index.html#トレンド抽出-平滑化smoothing"><i class="fa fa-check"></i><b>1.5.1</b> トレンド抽出, 平滑化(smoothing)</a></li>
-<li class="chapter" data-level="1.5.2" data-path="index.html"><a href="index.html#時系列の分解"><i class="fa fa-check"></i><b>1.5.2</b> 時系列の分解</a></li>
+<li class="chapter" data-level="1.5.1" data-path="index.html"><a href="index.html#トレンド抽出-平滑化-smoothing"><i class="fa fa-check"></i><b>1.5.1</b> トレンド抽出, 平滑化 (smoothing)</a></li>
+<li class="chapter" data-level="1.5.2" data-path="index.html"><a href="index.html#分解モデル"><i class="fa fa-check"></i><b>1.5.2</b> 分解モデル</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="定常性と自己相関関数.html"><a href="定常性と自己相関関数.html"><i class="fa fa-check"></i><b>2</b> 定常性と自己相関関数</a>
@@ -168,18 +168,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="2.3.1" data-path="定常性と自己相関関数.html"><a href="定常性と自己相関関数.html#アンサンブル平均-vs-標本平均"><i class="fa fa-check"></i><b>2.3.1</b> アンサンブル平均 vs 標本平均</a></li>
 </ul></li>
-<li class="chapter" data-level="2.4" data-path="定常性と自己相関関数.html"><a href="定常性と自己相関関数.html#標本自己相関関数"><i class="fa fa-check"></i><b>2.4</b> 標本自己相関関数</a>
+<li class="chapter" data-level="2.4" data-path="定常性と自己相関関数.html"><a href="定常性と自己相関関数.html#r操作-標本acf"><i class="fa fa-check"></i><b>2.4</b> R操作: 標本ACF</a>
 <ul>
 <li class="chapter" data-level="2.4.1" data-path="定常性と自己相関関数.html"><a href="定常性と自己相関関数.html#白色ノイズ"><i class="fa fa-check"></i><b>2.4.1</b> 白色ノイズ</a></li>
 <li class="chapter" data-level="2.4.2" data-path="定常性と自己相関関数.html"><a href="定常性と自己相関関数.html#ランダムウォーク"><i class="fa fa-check"></i><b>2.4.2</b> ランダムウォーク</a></li>
 <li class="chapter" data-level="2.4.3" data-path="定常性と自己相関関数.html"><a href="定常性と自己相関関数.html#非定常成分を含む時系列"><i class="fa fa-check"></i><b>2.4.3</b> 非定常成分を含む時系列</a></li>
-<li class="chapter" data-level="2.4.4" data-path="定常性と自己相関関数.html"><a href="定常性と自己相関関数.html#線形時系列モデル"><i class="fa fa-check"></i><b>2.4.4</b> 線形時系列モデル</a></li>
+<li class="chapter" data-level="2.4.4" data-path="定常性と自己相関関数.html"><a href="定常性と自己相関関数.html#線形定常時系列モデル"><i class="fa fa-check"></i><b>2.4.4</b> 線形・定常時系列モデル</a></li>
 </ul></li>
-<li class="chapter" data-level="2.5" data-path="定常性と自己相関関数.html"><a href="定常性と自己相関関数.html#自己相関関数-標本値-vs-理論値"><i class="fa fa-check"></i><b>2.5</b> 自己相関関数 (標本値 vs 理論値)</a>
-<ul>
-<li class="chapter" data-level="" data-path="定常性と自己相関関数.html"><a href="定常性と自己相関関数.html#ar2-モデル"><i class="fa fa-check"></i>AR(2) モデル</a></li>
-<li class="chapter" data-level="2.5.1" data-path="定常性と自己相関関数.html"><a href="定常性と自己相関関数.html#arma11モデル-1"><i class="fa fa-check"></i><b>2.5.1</b> ARMA(1,1)モデル</a></li>
-</ul></li>
+<li class="chapter" data-level="2.5" data-path="定常性と自己相関関数.html"><a href="定常性と自己相関関数.html#母acf-vs-標本acf"><i class="fa fa-check"></i><b>2.5</b> 母ACF vs 標本ACF</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="armapqモデル.html"><a href="armapqモデル.html"><i class="fa fa-check"></i><b>3</b> ARMA<span class="math inline">\((p,q)\)</span>モデル</a>
 <ul>
@@ -191,193 +187,219 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.2" data-path="armapqモデル.html"><a href="armapqモデル.html#armapqモデルによる予測"><i class="fa fa-check"></i><b>3.2</b> ARMA<span class="math inline">\((p,q)\)</span>モデルによる予測</a></li>
 <li class="chapter" data-level="3.3" data-path="armapqモデル.html"><a href="armapqモデル.html#armapqモデルの推定"><i class="fa fa-check"></i><b>3.3</b> ARMA<span class="math inline">\((p,q)\)</span>モデルの推定</a></li>
 <li class="chapter" data-level="3.4" data-path="armapqモデル.html"><a href="armapqモデル.html#armapqモデルの同定-次数の特定"><i class="fa fa-check"></i><b>3.4</b> ARMA<span class="math inline">\((p,q)\)</span>モデルの同定 (次数の特定)</a></li>
-<li class="chapter" data-level="3.5" data-path="armapqモデル.html"><a href="armapqモデル.html#rによる実行例"><i class="fa fa-check"></i><b>3.5</b> Rによる実行例</a>
+<li class="chapter" data-level="3.5" data-path="armapqモデル.html"><a href="armapqモデル.html#r操作"><i class="fa fa-check"></i><b>3.5</b> R操作</a>
 <ul>
-<li class="chapter" data-level="3.5.1" data-path="armapqモデル.html"><a href="armapqモデル.html#armapqモデルの同定-acfpacfeacfの利用"><i class="fa fa-check"></i><b>3.5.1</b> ARMA<span class="math inline">\((p,q)\)</span>モデルの同定 (ACF/PACF/EACFの利用)</a></li>
-<li class="chapter" data-level="3.5.2" data-path="armapqモデル.html"><a href="armapqモデル.html#armapqモデルの推定診断"><i class="fa fa-check"></i><b>3.5.2</b> ARMA<span class="math inline">\((p,q)\)</span>モデルの推定・診断</a></li>
-<li class="chapter" data-level="3.5.3" data-path="armapqモデル.html"><a href="armapqモデル.html#パッケージforecastの利用"><i class="fa fa-check"></i><b>3.5.3</b> パッケージ{forecast}の利用</a></li>
+<li class="chapter" data-level="" data-path="armapqモデル.html"><a href="armapqモデル.html#armapqモデルの同定-acfpacfeacfの利用"><i class="fa fa-check"></i>ARMA<span class="math inline">\((p,q)\)</span>モデルの同定 (ACF/PACF/EACFの利用)</a></li>
+<li class="chapter" data-level="" data-path="armapqモデル.html"><a href="armapqモデル.html#armapqモデルの推定診断"><i class="fa fa-check"></i>ARMA<span class="math inline">\((p,q)\)</span>モデルの推定・診断</a></li>
+<li class="chapter" data-level="" data-path="armapqモデル.html"><a href="armapqモデル.html#パッケージforecastの利用"><i class="fa fa-check"></i>パッケージ{forecast}の利用</a></li>
 </ul></li>
-<li class="chapter" data-level="3.6" data-path="armapqモデル.html"><a href="armapqモデル.html#armaモデル-データ分析例-tsay-ch2"><i class="fa fa-check"></i><b>3.6</b> ARMAモデル: データ分析例 (Tsay, Ch2)</a>
+<li class="chapter" data-level="3.6" data-path="armapqモデル.html"><a href="armapqモデル.html#データ分析例-tsay-ch2より"><i class="fa fa-check"></i><b>3.6</b> データ分析例 (Tsay, Ch2より)</a>
 <ul>
-<li class="chapter" data-level="3.6.1" data-path="armapqモデル.html"><a href="armapqモデル.html#標本acf"><i class="fa fa-check"></i><b>3.6.1</b> 標本ACF</a></li>
-<li class="chapter" data-level="3.6.2" data-path="armapqモデル.html"><a href="armapqモデル.html#ar-ma-arma-2.42.6"><i class="fa fa-check"></i><b>3.6.2</b> AR, MA, ARMA (2.4–2.6)</a></li>
+<li class="chapter" data-level="" data-path="armapqモデル.html"><a href="armapqモデル.html#標本acf"><i class="fa fa-check"></i>標本ACF</a></li>
+<li class="chapter" data-level="" data-path="armapqモデル.html"><a href="armapqモデル.html#ar-ma-arma-2.42.6"><i class="fa fa-check"></i>AR, MA, ARMA (2.4–2.6)</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="arimaモデルsarimaモデル.html"><a href="arimaモデルsarimaモデル.html"><i class="fa fa-check"></i><b>4</b> ARIMAモデル/SARIMAモデル</a>
+<li class="chapter" data-level="4" data-path="arimasarimaモデル.html"><a href="arimasarimaモデル.html"><i class="fa fa-check"></i><b>4</b> ARIMA/SARIMAモデル</a>
 <ul>
-<li class="chapter" data-level="4.1" data-path="arimaモデルsarimaモデル.html"><a href="arimaモデルsarimaモデル.html#arimapdqモデルとは"><i class="fa fa-check"></i><b>4.1</b> ARIMA<span class="math inline">\((p,d,q)\)</span>モデルとは</a></li>
-<li class="chapter" data-level="4.2" data-path="arimaモデルsarimaモデル.html"><a href="arimaモデルsarimaモデル.html#sarimapdqtimes-pdq_sモデル-周期sとは"><i class="fa fa-check"></i><b>4.2</b> SARIMA<span class="math inline">\((p,d,q)\times (P,D,Q)_s\)</span>モデル (周期<span class="math inline">\(s\)</span>)とは</a></li>
-<li class="chapter" data-level="4.3" data-path="arimaモデルsarimaモデル.html"><a href="arimaモデルsarimaモデル.html#sarimaモデルのパス発生-sarimaパッケージの利用"><i class="fa fa-check"></i><b>4.3</b> SARIMAモデルのパス発生 ({sarima}パッケージの利用)</a></li>
-<li class="chapter" data-level="4.4" data-path="arimaモデルsarimaモデル.html"><a href="arimaモデルsarimaモデル.html#sarimaモデルの推定診断"><i class="fa fa-check"></i><b>4.4</b> SARIMAモデルの推定・診断</a></li>
-<li class="chapter" data-level="4.5" data-path="arimaモデルsarimaモデル.html"><a href="arimaモデルsarimaモデル.html#パッケージforecastの利用-1"><i class="fa fa-check"></i><b>4.5</b> パッケージ{forecast}の利用</a></li>
+<li class="chapter" data-level="4.1" data-path="arimasarimaモデル.html"><a href="arimasarimaモデル.html#arimapdqモデルとは"><i class="fa fa-check"></i><b>4.1</b> ARIMA<span class="math inline">\((p,d,q)\)</span>モデルとは</a></li>
+<li class="chapter" data-level="4.2" data-path="arimasarimaモデル.html"><a href="arimasarimaモデル.html#sarimapdqtimes-pdq_sモデル-周期sとは"><i class="fa fa-check"></i><b>4.2</b> SARIMA<span class="math inline">\((p,d,q)\times (P,D,Q)_s\)</span>モデル (周期<span class="math inline">\(s\)</span>)とは</a></li>
+<li class="chapter" data-level="4.3" data-path="arimasarimaモデル.html"><a href="arimasarimaモデル.html#sarimaモデルのパス生成-パッケージsarimaの利用"><i class="fa fa-check"></i><b>4.3</b> SARIMAモデルのパス生成: パッケージ<strong>sarima</strong>の利用</a></li>
+<li class="chapter" data-level="4.4" data-path="arimasarimaモデル.html"><a href="arimasarimaモデル.html#sarimaモデルの推定診断"><i class="fa fa-check"></i><b>4.4</b> SARIMAモデルの推定・診断</a>
+<ul>
+<li class="chapter" data-level="" data-path="arimasarimaモデル.html"><a href="arimasarimaモデル.html#パッケージforecastの利用-1"><i class="fa fa-check"></i>パッケージ<strong>forecast</strong>の利用</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="単位根過程と単位根検定.html"><a href="単位根過程と単位根検定.html"><i class="fa fa-check"></i><b>5</b> 単位根過程と単位根検定</a>
+<li class="chapter" data-level="4.5" data-path="arimasarimaモデル.html"><a href="arimasarimaモデル.html#データ分析例"><i class="fa fa-check"></i><b>4.5</b> データ分析例</a>
 <ul>
-<li class="chapter" data-level="5.1" data-path="単位根過程と単位根検定.html"><a href="単位根過程と単位根検定.html#単位根過程と見せかけの回帰"><i class="fa fa-check"></i><b>5.1</b> 単位根過程と見せかけの回帰</a>
-<ul>
-<li class="chapter" data-level="5.1.1" data-path="単位根過程と単位根検定.html"><a href="単位根過程と単位根検定.html#単位根過程"><i class="fa fa-check"></i><b>5.1.1</b> 単位根過程</a></li>
-<li class="chapter" data-level="5.1.2" data-path="単位根過程と単位根検定.html"><a href="単位根過程と単位根検定.html#見せかけの回帰"><i class="fa fa-check"></i><b>5.1.2</b> 見せかけの回帰</a></li>
-<li class="chapter" data-level="5.1.3" data-path="単位根過程と単位根検定.html"><a href="単位根過程と単位根検定.html#見せかけの回帰の判定"><i class="fa fa-check"></i><b>5.1.3</b> 見せかけの回帰の判定</a></li>
+<li class="chapter" data-level="" data-path="arimasarimaモデル.html"><a href="arimasarimaモデル.html#データセット-bonds"><i class="fa fa-check"></i>データセット: bonds</a></li>
+<li class="chapter" data-level="" data-path="arimasarimaモデル.html"><a href="arimasarimaモデル.html#データセット-airpassengers"><i class="fa fa-check"></i>データセット: AirPassengers</a></li>
 </ul></li>
-<li class="chapter" data-level="5.2" data-path="単位根過程と単位根検定.html"><a href="単位根過程と単位根検定.html#主な単位根検定法"><i class="fa fa-check"></i><b>5.2</b> 主な単位根検定法</a>
+<li class="chapter" data-level="4.6" data-path="arimasarimaモデル.html"><a href="arimasarimaモデル.html#外生的トレンドがあるケース"><i class="fa fa-check"></i><b>4.6</b> 外生的トレンドがあるケース</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="確率的トレンドと単位根検定.html"><a href="確率的トレンドと単位根検定.html"><i class="fa fa-check"></i><b>5</b> 確率的トレンドと単位根検定</a>
 <ul>
-<li class="chapter" data-level="5.2.1" data-path="単位根過程と単位根検定.html"><a href="単位根過程と単位根検定.html#augmented-dicky-fuller-adf-検定の実行例"><i class="fa fa-check"></i><b>5.2.1</b> Augmented Dicky-Fuller (ADF) 検定の実行例</a></li>
-<li class="chapter" data-level="5.2.2" data-path="単位根過程と単位根検定.html"><a href="単位根過程と単位根検定.html#adf検定以外の検定法"><i class="fa fa-check"></i><b>5.2.2</b> ADF検定以外の検定法</a></li>
+<li class="chapter" data-level="5.1" data-path="確率的トレンドと単位根検定.html"><a href="確率的トレンドと単位根検定.html#確率的トレンド-vs-確定的トレンド"><i class="fa fa-check"></i><b>5.1</b> 確率的トレンド vs 確定的トレンド</a></li>
+<li class="chapter" data-level="5.2" data-path="確率的トレンドと単位根検定.html"><a href="確率的トレンドと単位根検定.html#単位根過程と見せかけの回帰"><i class="fa fa-check"></i><b>5.2</b> 単位根過程と見せかけの回帰</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="確率的トレンドと単位根検定.html"><a href="確率的トレンドと単位根検定.html#単位根過程"><i class="fa fa-check"></i><b>5.2.1</b> 単位根過程</a></li>
+<li class="chapter" data-level="5.2.2" data-path="確率的トレンドと単位根検定.html"><a href="確率的トレンドと単位根検定.html#見せかけの回帰"><i class="fa fa-check"></i><b>5.2.2</b> 見せかけの回帰</a></li>
+<li class="chapter" data-level="5.2.3" data-path="確率的トレンドと単位根検定.html"><a href="確率的トレンドと単位根検定.html#見せかけの回帰の判定"><i class="fa fa-check"></i><b>5.2.3</b> 見せかけの回帰の判定</a></li>
+<li class="chapter" data-level="5.2.4" data-path="確率的トレンドと単位根検定.html"><a href="確率的トレンドと単位根検定.html#rで実行可能な主な単位根検定法"><i class="fa fa-check"></i><b>5.2.4</b> Rで実行可能な主な単位根検定法</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="確率的トレンドと単位根検定.html"><a href="確率的トレンドと単位根検定.html#augmented-dicky-fuller-adf-検定"><i class="fa fa-check"></i><b>5.3</b> Augmented Dicky-Fuller (ADF) 検定</a>
+<ul>
+<li class="chapter" data-level="" data-path="確率的トレンドと単位根検定.html"><a href="確率的トレンドと単位根検定.html#パッケージfunitroots"><i class="fa fa-check"></i>パッケージ<strong>fUnitRoots</strong></a></li>
+<li class="chapter" data-level="" data-path="確率的トレンドと単位根検定.html"><a href="確率的トレンドと単位根検定.html#パッケージtseries"><i class="fa fa-check"></i>パッケージ<strong>tseries</strong></a></li>
+<li class="chapter" data-level="" data-path="確率的トレンドと単位根検定.html"><a href="確率的トレンドと単位根検定.html#パッケージurca"><i class="fa fa-check"></i>パッケージ<strong>urca</strong></a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="確率的トレンドと単位根検定.html"><a href="確率的トレンドと単位根検定.html#adf検定以外の検定法"><i class="fa fa-check"></i><b>5.4</b> ADF検定以外の検定法</a>
+<ul>
+<li class="chapter" data-level="" data-path="確率的トレンドと単位根検定.html"><a href="確率的トレンドと単位根検定.html#phillips-perron-pp-検定"><i class="fa fa-check"></i>Phillips-Perron (PP) 検定</a></li>
+<li class="chapter" data-level="" data-path="確率的トレンドと単位根検定.html"><a href="確率的トレンドと単位根検定.html#kwiatkowski-phillips-schmidt-shin-kpss-検定"><i class="fa fa-check"></i>Kwiatkowski-Phillips-Schmidt-Shin (KPSS) 検定</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="長期記憶過程.html"><a href="長期記憶過程.html"><i class="fa fa-check"></i><b>6</b> 長期記憶過程</a>
 <ul>
-<li class="chapter" data-level="6.1" data-path="長期記憶過程.html"><a href="長期記憶過程.html#arfimapdq過程のシミュレーション"><i class="fa fa-check"></i><b>6.1</b> ARFIMA(p,d,q)過程のシミュレーション</a></li>
-<li class="chapter" data-level="6.2" data-path="長期記憶過程.html"><a href="長期記憶過程.html#arfima-fractional-gaussian過程のシミュレーション"><i class="fa fa-check"></i><b>6.2</b> ARFIMA, fractional Gaussian過程のシミュレーション</a></li>
-<li class="chapter" data-level="6.3" data-path="長期記憶過程.html"><a href="長期記憶過程.html#hurst指数の推定"><i class="fa fa-check"></i><b>6.3</b> Hurst指数の推定</a></li>
-<li class="chapter" data-level="6.4" data-path="長期記憶過程.html"><a href="長期記憶過程.html#arfimaモデルの推定"><i class="fa fa-check"></i><b>6.4</b> ARFIMAモデルの推定</a>
+<li class="chapter" data-level="6.1" data-path="長期記憶過程.html"><a href="長期記憶過程.html#長期記憶過程のシミュレーション"><i class="fa fa-check"></i><b>6.1</b> 長期記憶過程のシミュレーション</a>
 <ul>
-<li class="chapter" data-level="6.4.1" data-path="長期記憶過程.html"><a href="長期記憶過程.html#最尤法"><i class="fa fa-check"></i><b>6.4.1</b> 最尤法</a></li>
-<li class="chapter" data-level="6.4.2" data-path="長期記憶過程.html"><a href="長期記憶過程.html#階差次数dの代替的推定法"><i class="fa fa-check"></i><b>6.4.2</b> 階差次数<span class="math inline">\(d\)</span>の代替的推定法</a></li>
+<li class="chapter" data-level="" data-path="長期記憶過程.html"><a href="長期記憶過程.html#パッケージfracdiffの利用"><i class="fa fa-check"></i>パッケージ<strong>fracdiff</strong>の利用</a></li>
+<li class="chapter" data-level="" data-path="長期記憶過程.html"><a href="長期記憶過程.html#パッケージlongmemoの利用"><i class="fa fa-check"></i>パッケージ<strong>longmemo</strong>の利用</a></li>
 </ul></li>
-<li class="chapter" data-level="6.5" data-path="長期記憶過程.html"><a href="長期記憶過程.html#arfimaモデル-データ分析例-tsay-2.11-pp.119120"><i class="fa fa-check"></i><b>6.5</b> ARFIMAモデル: データ分析例 (Tsay, 2.11, pp.119–120)</a></li>
+<li class="chapter" data-level="6.2" data-path="長期記憶過程.html"><a href="長期記憶過程.html#hurst指数の推定"><i class="fa fa-check"></i><b>6.2</b> Hurst指数の推定</a>
+<ul>
+<li class="chapter" data-level="" data-path="長期記憶過程.html"><a href="長期記憶過程.html#パッケージpracmaの利用"><i class="fa fa-check"></i>パッケージ<strong>pracma</strong>の利用</a></li>
+<li class="chapter" data-level="" data-path="長期記憶過程.html"><a href="長期記憶過程.html#パッケージfractalの利用"><i class="fa fa-check"></i>パッケージ<strong>fractal</strong>の利用</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="長期記憶過程.html"><a href="長期記憶過程.html#arfimaモデルの推定"><i class="fa fa-check"></i><b>6.3</b> ARFIMAモデルの推定</a>
+<ul>
+<li class="chapter" data-level="" data-path="長期記憶過程.html"><a href="長期記憶過程.html#パッケージfracdiffの利用-1"><i class="fa fa-check"></i>パッケージ<strong>fracdiff</strong>の利用</a></li>
+<li class="chapter" data-level="" data-path="長期記憶過程.html"><a href="長期記憶過程.html#パッケージnsarfimaの利用"><i class="fa fa-check"></i>パッケージ<strong>nsarfima</strong>の利用</a></li>
+<li class="chapter" data-level="" data-path="長期記憶過程.html"><a href="長期記憶過程.html#階差次数dの代替的推定法"><i class="fa fa-check"></i>階差次数<span class="math inline">\(d\)</span>の代替的推定法</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="長期記憶過程.html"><a href="長期記憶過程.html#arfimaモデル-データ分析例-1"><i class="fa fa-check"></i><b>6.4</b> ARFIMAモデル: データ分析例 (1)</a></li>
+<li class="chapter" data-level="6.5" data-path="長期記憶過程.html"><a href="長期記憶過程.html#arfimaモデル-データ分析例-2"><i class="fa fa-check"></i><b>6.5</b> ARFIMAモデル: データ分析例 (2)</a>
+<ul>
+<li class="chapter" data-level="" data-path="長期記憶過程.html"><a href="長期記憶過程.html#最適なarfimaモデルの選択および推定"><i class="fa fa-check"></i>最適なARFIMAモデルの選択および推定</a></li>
+<li class="chapter" data-level="" data-path="長期記憶過程.html"><a href="長期記憶過程.html#arfimaモデルによる外挿予測"><i class="fa fa-check"></i>ARFIMAモデルによる外挿予測</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="レジームスイッチングモデル.html"><a href="レジームスイッチングモデル.html"><i class="fa fa-check"></i><b>7</b> レジーム・スイッチング・モデル</a>
 <ul>
-<li class="chapter" data-level="7.1" data-path="レジームスイッチングモデル.html"><a href="レジームスイッチングモデル.html#自己相関マルコフスイッチングモデル-msm-ar"><i class="fa fa-check"></i><b>7.1</b> 自己相関マルコフ・スイッチング・モデル (MSM-AR)</a></li>
+<li class="chapter" data-level="7.1" data-path="レジームスイッチングモデル.html"><a href="レジームスイッチングモデル.html#自己回帰マルコフスイッチングモデル-msm-ar"><i class="fa fa-check"></i><b>7.1</b> 自己回帰マルコフ・スイッチング・モデル (MSM-AR)</a></li>
 <li class="chapter" data-level="7.2" data-path="レジームスイッチングモデル.html"><a href="レジームスイッチングモデル.html#msm-arモデルの適合"><i class="fa fa-check"></i><b>7.2</b> MSM-ARモデルの適合</a></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="garchモデル.html"><a href="garchモデル.html"><i class="fa fa-check"></i><b>8</b> GARCHモデル</a>
 <ul>
-<li class="chapter" data-level="8.1" data-path="garchモデル.html"><a href="garchモデル.html#garchモデル-1"><i class="fa fa-check"></i><b>8.1</b> GARCHモデル</a>
+<li class="chapter" data-level="8.1" data-path="garchモデル.html"><a href="garchモデル.html#収益率データとarch効果"><i class="fa fa-check"></i><b>8.1</b> 収益率データとARCH効果</a></li>
+<li class="chapter" data-level="8.2" data-path="garchモデル.html"><a href="garchモデル.html#archgarchモデル"><i class="fa fa-check"></i><b>8.2</b> ARCH/GARCHモデル</a>
 <ul>
-<li class="chapter" data-level="8.1.1" data-path="garchモデル.html"><a href="garchモデル.html#garchpqモデルのサンプルパス生成"><i class="fa fa-check"></i><b>8.1.1</b> GARCH(p,q)モデルのサンプルパス生成</a></li>
+<li class="chapter" data-level="" data-path="garchモデル.html"><a href="garchモデル.html#garchpqモデル"><i class="fa fa-check"></i>GARCH(p,q)モデル</a></li>
+<li class="chapter" data-level="" data-path="garchモデル.html"><a href="garchモデル.html#garchモデリング"><i class="fa fa-check"></i>GARCHモデリング</a></li>
 </ul></li>
-<li class="chapter" data-level="8.2" data-path="garchモデル.html"><a href="garchモデル.html#garchモデルの推定"><i class="fa fa-check"></i><b>8.2</b> GARCHモデルの推定</a></li>
-<li class="chapter" data-level="8.3" data-path="garchモデル.html"><a href="garchモデル.html#garchモデルのバリエーション"><i class="fa fa-check"></i><b>8.3</b> GARCHモデルのバリエーション</a>
+<li class="chapter" data-level="8.3" data-path="garchモデル.html"><a href="garchモデル.html#archgarchモデルのシミュレーション"><i class="fa fa-check"></i><b>8.3</b> ARCH/GARCHモデルのシミュレーション</a>
 <ul>
-<li class="chapter" data-level="8.3.1" data-path="garchモデル.html"><a href="garchモデル.html#iarch11"><i class="fa fa-check"></i><b>8.3.1</b> IARCH(1,1)</a></li>
-<li class="chapter" data-level="8.3.2" data-path="garchモデル.html"><a href="garchモデル.html#gjr-garch11"><i class="fa fa-check"></i><b>8.3.2</b> GJR-GARCH(1,1)</a></li>
-<li class="chapter" data-level="8.3.3" data-path="garchモデル.html"><a href="garchモデル.html#aparch"><i class="fa fa-check"></i><b>8.3.3</b> APARCH</a></li>
+<li class="chapter" data-level="" data-path="garchモデル.html"><a href="garchモデル.html#パッケージfgarchの利用"><i class="fa fa-check"></i>パッケージ<strong>fGarch</strong>の利用</a></li>
+<li class="chapter" data-level="" data-path="garchモデル.html"><a href="garchモデル.html#archpモデル"><i class="fa fa-check"></i>ARCH(p)モデル</a></li>
+<li class="chapter" data-level="" data-path="garchモデル.html"><a href="garchモデル.html#garchpqモデル-1"><i class="fa fa-check"></i>GARCH(p,q)モデル</a></li>
+<li class="chapter" data-level="" data-path="garchモデル.html"><a href="garchモデル.html#armapq-garchpqモデル"><i class="fa fa-check"></i>ARMA(p’,q’)-GARCH(p,q)モデル</a></li>
 </ul></li>
-<li class="chapter" data-level="8.4" data-path="garchモデル.html"><a href="garchモデル.html#garchモデル-データ分析例-tsay-ch4"><i class="fa fa-check"></i><b>8.4</b> GARCHモデル: データ分析例 (Tsay, Ch4)</a>
+<li class="chapter" data-level="8.4" data-path="garchモデル.html"><a href="garchモデル.html#archgarchモデルの適合"><i class="fa fa-check"></i><b>8.4</b> ARCH/GARCHモデルの適合</a>
 <ul>
-<li class="chapter" data-level="8.4.1" data-path="garchモデル.html"><a href="garchモデル.html#必要な関数やデータセットの入手"><i class="fa fa-check"></i><b>8.4.1</b> 必要な関数やデータセットの入手</a></li>
-<li class="chapter" data-level="8.4.2" data-path="garchモデル.html"><a href="garchモデル.html#integrated-garch-モデル"><i class="fa fa-check"></i><b>8.4.2</b> Integrated GARCH モデル</a></li>
-<li class="chapter" data-level="8.4.3" data-path="garchモデル.html"><a href="garchモデル.html#garch-m-モデル"><i class="fa fa-check"></i><b>8.4.3</b> GARCH-M モデル</a></li>
-<li class="chapter" data-level="8.4.4" data-path="garchモデル.html"><a href="garchモデル.html#exponential-garch-model"><i class="fa fa-check"></i><b>8.4.4</b> Exponential GARCH Model</a></li>
-<li class="chapter" data-level="8.4.5" data-path="garchモデル.html"><a href="garchモデル.html#threshold-garch-モデル"><i class="fa fa-check"></i><b>8.4.5</b> Threshold GARCH モデル</a></li>
-<li class="chapter" data-level="8.4.6" data-path="garchモデル.html"><a href="garchモデル.html#asymmetric-power-arch-モデル"><i class="fa fa-check"></i><b>8.4.6</b> Asymmetric Power ARCH モデル</a></li>
-<li class="chapter" data-level="8.4.7" data-path="garchモデル.html"><a href="garchモデル.html#nonsymmetric-garch-モデル"><i class="fa fa-check"></i><b>8.4.7</b> Nonsymmetric GARCH モデル</a></li>
-<li class="chapter" data-level="8.4.8" data-path="garchモデル.html"><a href="garchモデル.html#代替的アプリーチ間の比較"><i class="fa fa-check"></i><b>8.4.8</b> 代替的アプリーチ間の比較</a></li>
+<li class="chapter" data-level="" data-path="garchモデル.html"><a href="garchモデル.html#パッケージrugarchの利用"><i class="fa fa-check"></i>パッケージ<strong>rugarch</strong>の利用</a></li>
+<li class="chapter" data-level="" data-path="garchモデル.html"><a href="garchモデル.html#iarch11"><i class="fa fa-check"></i>IARCH(1,1)</a></li>
+<li class="chapter" data-level="" data-path="garchモデル.html"><a href="garchモデル.html#gjr-garch11"><i class="fa fa-check"></i>GJR-GARCH(1,1)</a></li>
+<li class="chapter" data-level="" data-path="garchモデル.html"><a href="garchモデル.html#aparch"><i class="fa fa-check"></i>APARCH</a></li>
+</ul></li>
+<li class="chapter" data-level="8.5" data-path="garchモデル.html"><a href="garchモデル.html#garchモデル-データ分析例-tsay-ch4"><i class="fa fa-check"></i><b>8.5</b> GARCHモデル: データ分析例 (Tsay, Ch4)</a>
+<ul>
+<li class="chapter" data-level="" data-path="garchモデル.html"><a href="garchモデル.html#必要な関数やデータセットの入手"><i class="fa fa-check"></i>必要な関数やデータセットの入手</a></li>
+<li class="chapter" data-level="" data-path="garchモデル.html"><a href="garchモデル.html#integrated-garch-モデル"><i class="fa fa-check"></i>Integrated GARCH モデル</a></li>
+<li class="chapter" data-level="" data-path="garchモデル.html"><a href="garchモデル.html#garch-m-モデル"><i class="fa fa-check"></i>GARCH-M モデル</a></li>
+<li class="chapter" data-level="" data-path="garchモデル.html"><a href="garchモデル.html#exponential-garch-model"><i class="fa fa-check"></i>Exponential GARCH Model</a></li>
+<li class="chapter" data-level="" data-path="garchモデル.html"><a href="garchモデル.html#threshold-garch-モデル"><i class="fa fa-check"></i>Threshold GARCH モデル</a></li>
+<li class="chapter" data-level="" data-path="garchモデル.html"><a href="garchモデル.html#asymmetric-power-arch-モデル"><i class="fa fa-check"></i>Asymmetric Power ARCH モデル</a></li>
+<li class="chapter" data-level="" data-path="garchモデル.html"><a href="garchモデル.html#nonsymmetric-garch-モデル"><i class="fa fa-check"></i>Nonsymmetric GARCH モデル</a></li>
+<li class="chapter" data-level="" data-path="garchモデル.html"><a href="garchモデル.html#代替的アプリーチ間の比較"><i class="fa fa-check"></i>代替的アプリーチ間の比較</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="9" data-path="varモデル.html"><a href="varモデル.html"><i class="fa fa-check"></i><b>9</b> VARモデル</a>
 <ul>
-<li class="chapter" data-level="9.1" data-path="varモデル.html"><a href="varモデル.html#varモデル-1"><i class="fa fa-check"></i><b>9.1</b> VARモデル</a>
+<li class="chapter" data-level="9.1" data-path="varモデル.html"><a href="varモデル.html#varpモデルのシミュレーション"><i class="fa fa-check"></i><b>9.1</b> VAR(<span class="math inline">\(p\)</span>)モデルのシミュレーション</a>
 <ul>
-<li class="chapter" data-level="9.1.1" data-path="varモデル.html"><a href="varモデル.html#varpモデルのシミュレーション"><i class="fa fa-check"></i><b>9.1.1</b> VAR(<span class="math inline">\(p\)</span>)モデルのシミュレーション</a></li>
-<li class="chapter" data-level="9.1.2" data-path="varモデル.html"><a href="varモデル.html#varpモデルの次数同定"><i class="fa fa-check"></i><b>9.1.2</b> VAR(<span class="math inline">\(p\)</span>)モデルの次数同定</a></li>
-<li class="chapter" data-level="9.1.3" data-path="varモデル.html"><a href="varモデル.html#varpモデルの推定"><i class="fa fa-check"></i><b>9.1.3</b> VAR(<span class="math inline">\(p\)</span>)モデルの推定</a></li>
-<li class="chapter" data-level="9.1.4" data-path="varモデル.html"><a href="varモデル.html#varpモデル予測"><i class="fa fa-check"></i><b>9.1.4</b> VAR(<span class="math inline">\(p\)</span>)モデル予測</a></li>
+<li class="chapter" data-level="" data-path="varモデル.html"><a href="varモデル.html#パッケージmts-varsの利用"><i class="fa fa-check"></i>パッケージ<strong>MTS</strong>, <strong>vars</strong>の利用</a></li>
 </ul></li>
-<li class="chapter" data-level="9.2" data-path="varモデル.html"><a href="varモデル.html#var解析"><i class="fa fa-check"></i><b>9.2</b> VAR解析</a>
+<li class="chapter" data-level="9.2" data-path="varモデル.html"><a href="varモデル.html#varpモデルの構築"><i class="fa fa-check"></i><b>9.2</b> VAR(<span class="math inline">\(p\)</span>)モデルの構築</a>
 <ul>
-<li class="chapter" data-level="9.2.1" data-path="varモデル.html"><a href="varモデル.html#varpモデルの推定復習"><i class="fa fa-check"></i><b>9.2.1</b> VAR(<span class="math inline">\(p\)</span>)モデルの推定(復習)</a></li>
-<li class="chapter" data-level="9.2.2" data-path="varモデル.html"><a href="varモデル.html#グレンジャーの因果性検定"><i class="fa fa-check"></i><b>9.2.2</b> グレンジャーの因果性検定</a></li>
-<li class="chapter" data-level="9.2.3" data-path="varモデル.html"><a href="varモデル.html#インパルス応答"><i class="fa fa-check"></i><b>9.2.3</b> インパルス応答</a></li>
-<li class="chapter" data-level="9.2.4" data-path="varモデル.html"><a href="varモデル.html#予測誤差分散分解-forecast-error-variance-decomposition"><i class="fa fa-check"></i><b>9.2.4</b> 予測誤差分散分解 (forecast error variance decomposition)</a></li>
+<li class="chapter" data-level="" data-path="varモデル.html"><a href="varモデル.html#varpモデルの次数同定"><i class="fa fa-check"></i>VAR(<span class="math inline">\(p\)</span>)モデルの次数同定</a></li>
+<li class="chapter" data-level="" data-path="varモデル.html"><a href="varモデル.html#varpモデルの推定"><i class="fa fa-check"></i>VAR(<span class="math inline">\(p\)</span>)モデルの推定</a></li>
+<li class="chapter" data-level="" data-path="varモデル.html"><a href="varモデル.html#varpモデル予測"><i class="fa fa-check"></i>VAR(<span class="math inline">\(p\)</span>)モデル予測</a></li>
 </ul></li>
-<li class="chapter" data-level="9.3" data-path="varモデル.html"><a href="varモデル.html#var解析-データ分析例"><i class="fa fa-check"></i><b>9.3</b> VAR解析 (データ分析例)</a>
+<li class="chapter" data-level="9.3" data-path="varモデル.html"><a href="varモデル.html#var解析"><i class="fa fa-check"></i><b>9.3</b> VAR解析</a>
+<ul>
+<li class="chapter" data-level="" data-path="varモデル.html"><a href="varモデル.html#varp-モデルの構築-復習"><i class="fa fa-check"></i>VAR(<span class="math inline">\(p\)</span>) モデルの構築 (復習)</a></li>
+<li class="chapter" data-level="" data-path="varモデル.html"><a href="varモデル.html#グレンジャーの因果性検定"><i class="fa fa-check"></i>グレンジャーの因果性検定</a></li>
+<li class="chapter" data-level="" data-path="varモデル.html"><a href="varモデル.html#インパルス応答"><i class="fa fa-check"></i>インパルス応答</a></li>
+<li class="chapter" data-level="" data-path="varモデル.html"><a href="varモデル.html#予測誤差分散分解-forecast-error-variance-decomposition"><i class="fa fa-check"></i>予測誤差分散分解 (forecast error variance decomposition)</a></li>
+</ul></li>
+<li class="chapter" data-level="9.4" data-path="varモデル.html"><a href="varモデル.html#var解析-データ分析例"><i class="fa fa-check"></i><b>9.4</b> VAR解析 (データ分析例)</a>
 <ul>
 <li class="chapter" data-level="" data-path="varモデル.html"><a href="varモデル.html#事例1-ソフトバンク9434-vs-ソフトバンクグループ9984"><i class="fa fa-check"></i>事例1: ソフトバンク(9434) vs ソフトバンクグループ(9984)</a></li>
 <li class="chapter" data-level="" data-path="varモデル.html"><a href="varモデル.html#事例2-米英日3株式市場-sp500-ftse-日経平均"><i class="fa fa-check"></i>事例2: 米英日3株式市場 (S&amp;P500, FTSE, 日経平均)</a></li>
 </ul></li>
-<li class="chapter" data-level="9.4" data-path="varモデル.html"><a href="varモデル.html#補足-分散共分散行列のコレスキー分解"><i class="fa fa-check"></i><b>9.4</b> 補足: 分散共分散行列のコレスキー分解</a></li>
+<li class="chapter" data-level="9.5" data-path="varモデル.html"><a href="varモデル.html#補足-分散共分散行列のコレスキー分解"><i class="fa fa-check"></i><b>9.5</b> 補足: 分散共分散行列のコレスキー分解</a></li>
 </ul></li>
-<li class="chapter" data-level="10" data-path="共和分分析誤差修正モデル.html"><a href="共和分分析誤差修正モデル.html"><i class="fa fa-check"></i><b>10</b> 共和分分析・誤差修正モデル</a>
+<li class="chapter" data-level="10" data-path="共和分分析.html"><a href="共和分分析.html"><i class="fa fa-check"></i><b>10</b> 共和分分析</a>
 <ul>
-<li class="chapter" data-level="10.1" data-path="共和分分析誤差修正モデル.html"><a href="共和分分析誤差修正モデル.html#見せかけの回帰-1"><i class="fa fa-check"></i><b>10.1</b> 見せかけの回帰</a>
+<li class="chapter" data-level="10.1" data-path="共和分分析.html"><a href="共和分分析.html#見せかけの回帰-再掲"><i class="fa fa-check"></i><b>10.1</b> 見せかけの回帰 (再掲)</a>
 <ul>
-<li class="chapter" data-level="" data-path="共和分分析誤差修正モデル.html"><a href="共和分分析誤差修正モデル.html#durbin-watson検定"><i class="fa fa-check"></i>Durbin-Watson検定</a></li>
+<li class="chapter" data-level="" data-path="共和分分析.html"><a href="共和分分析.html#durbin-watson検定"><i class="fa fa-check"></i>Durbin-Watson検定</a></li>
+<li class="chapter" data-level="" data-path="共和分分析.html"><a href="共和分分析.html#rで実行可能な主な単位根検定法-1"><i class="fa fa-check"></i>Rで実行可能な主な単位根検定法</a></li>
 </ul></li>
-<li class="chapter" data-level="10.2" data-path="共和分分析誤差修正モデル.html"><a href="共和分分析誤差修正モデル.html#共和分検定"><i class="fa fa-check"></i><b>10.2</b> 共和分検定</a>
+<li class="chapter" data-level="10.2" data-path="共和分分析.html"><a href="共和分分析.html#共和分分析-1"><i class="fa fa-check"></i><b>10.2</b> 共和分分析</a>
 <ul>
-<li class="chapter" data-level="10.2.1" data-path="共和分分析誤差修正モデル.html"><a href="共和分分析誤差修正モデル.html#engle-grangerの方法"><i class="fa fa-check"></i><b>10.2.1</b> Engle-Grangerの方法</a></li>
-<li class="chapter" data-level="10.2.2" data-path="共和分分析誤差修正モデル.html"><a href="共和分分析誤差修正モデル.html#johansenの方法"><i class="fa fa-check"></i><b>10.2.2</b> Johansenの方法</a></li>
+<li class="chapter" data-level="" data-path="共和分分析.html"><a href="共和分分析.html#englegrangerの方法-philips-ouliaris検定"><i class="fa fa-check"></i>Engle–Grangerの方法 (Philips-Ouliaris検定)</a></li>
+<li class="chapter" data-level="" data-path="共和分分析.html"><a href="共和分分析.html#johansenの方法"><i class="fa fa-check"></i>Johansenの方法</a></li>
 </ul></li>
-<li class="chapter" data-level="10.3" data-path="共和分分析誤差修正モデル.html"><a href="共和分分析誤差修正モデル.html#誤差修正モデル-データ分析例-tsay-mts-ch5"><i class="fa fa-check"></i><b>10.3</b> 誤差修正モデル: データ分析例 (Tsay, MTS, Ch5)</a>
+<li class="chapter" data-level="10.3" data-path="共和分分析.html"><a href="共和分分析.html#誤差修正モデル-データ分析例-tsay-mts-ch5"><i class="fa fa-check"></i><b>10.3</b> 誤差修正モデル: データ分析例 (Tsay, MTS, Ch5)</a>
 <ul>
-<li class="chapter" data-level="10.3.1" data-path="共和分分析誤差修正モデル.html"><a href="共和分分析誤差修正モデル.html#共和分検定-1"><i class="fa fa-check"></i><b>10.3.1</b> 共和分検定</a></li>
-<li class="chapter" data-level="10.3.2" data-path="共和分分析誤差修正モデル.html"><a href="共和分分析誤差修正モデル.html#johansenの方法-johansen-procedure"><i class="fa fa-check"></i><b>10.3.2</b> Johansenの方法 (Johansen-Procedure)</a></li>
-<li class="chapter" data-level="10.3.3" data-path="共和分分析誤差修正モデル.html"><a href="共和分分析誤差修正モデル.html#誤差修正モデルecmの推定"><i class="fa fa-check"></i><b>10.3.3</b> 誤差修正モデル(ECM)の推定</a></li>
+<li class="chapter" data-level="" data-path="共和分分析.html"><a href="共和分分析.html#共和分検定"><i class="fa fa-check"></i>共和分検定</a></li>
+<li class="chapter" data-level="" data-path="共和分分析.html"><a href="共和分分析.html#johansenの方法-1"><i class="fa fa-check"></i>Johansenの方法</a></li>
+<li class="chapter" data-level="" data-path="共和分分析.html"><a href="共和分分析.html#誤差修正モデル-ecm-の推定"><i class="fa fa-check"></i>誤差修正モデル (ECM) の推定</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="11" data-path="多変量ボラティリティモデル.html"><a href="多変量ボラティリティモデル.html"><i class="fa fa-check"></i><b>11</b> 多変量ボラティリティ・モデル</a>
 <ul>
-<li class="chapter" data-level="11.1" data-path="多変量ボラティリティモデル.html"><a href="多変量ボラティリティモデル.html#多変量時系列データの条件付不均一分散性の検定"><i class="fa fa-check"></i><b>11.1</b> 多変量時系列データの条件付不均一分散性の検定</a>
+<li class="chapter" data-level="11.1" data-path="多変量ボラティリティモデル.html"><a href="多変量ボラティリティモデル.html#ボラティリティスピルオーバー-volatility-spillover"><i class="fa fa-check"></i><b>11.1</b> ボラティリティ・スピルオーバー (volatility spillover)</a></li>
+<li class="chapter" data-level="11.2" data-path="多変量ボラティリティモデル.html"><a href="多変量ボラティリティモデル.html#多変量garchモデル-データ分析例-tsay-mts-ch.7"><i class="fa fa-check"></i><b>11.2</b> 多変量GARCHモデル: データ分析例 (Tsay, MTS, Ch.7)</a>
 <ul>
-<li class="chapter" data-level="" data-path="多変量ボラティリティモデル.html"><a href="多変量ボラティリティモデル.html#分析例"><i class="fa fa-check"></i>分析例</a></li>
+<li class="chapter" data-level="" data-path="多変量ボラティリティモデル.html"><a href="多変量ボラティリティモデル.html#多変量時系列データの条件付不均一分散性の検定"><i class="fa fa-check"></i>多変量時系列データの条件付不均一分散性の検定</a></li>
+<li class="chapter" data-level="" data-path="多変量ボラティリティモデル.html"><a href="多変量ボラティリティモデル.html#指数加重移動平均法-ewma"><i class="fa fa-check"></i>指数加重移動平均法 (EWMA)</a></li>
+<li class="chapter" data-level="" data-path="多変量ボラティリティモデル.html"><a href="多変量ボラティリティモデル.html#bekk1-1モデル"><i class="fa fa-check"></i>BEKK(1, 1)モデル</a></li>
+<li class="chapter" data-level="" data-path="多変量ボラティリティモデル.html"><a href="多変量ボラティリティモデル.html#cholesky分解を利用したボラティリティモデリングおよび推定"><i class="fa fa-check"></i>Cholesky分解を利用したボラティリティ・モデリングおよび推定</a></li>
+<li class="chapter" data-level="" data-path="多変量ボラティリティモデル.html"><a href="多変量ボラティリティモデル.html#dcc-dynamic-conditional-correlation-モデル"><i class="fa fa-check"></i>DCC (Dynamic Conditional Correlation) モデル</a></li>
+<li class="chapter" data-level="" data-path="多変量ボラティリティモデル.html"><a href="多変量ボラティリティモデル.html#go-garchモデル"><i class="fa fa-check"></i>GO-GARCHモデル</a></li>
+<li class="chapter" data-level="" data-path="多変量ボラティリティモデル.html"><a href="多変量ボラティリティモデル.html#コピュラに基づくアプローチ"><i class="fa fa-check"></i>コピュラに基づくアプローチ</a></li>
 </ul></li>
-<li class="chapter" data-level="11.2" data-path="多変量ボラティリティモデル.html"><a href="多変量ボラティリティモデル.html#指数加重移動平均法-ewma"><i class="fa fa-check"></i><b>11.2</b> 指数加重移動平均法 (EWMA)</a></li>
-<li class="chapter" data-level="11.3" data-path="多変量ボラティリティモデル.html"><a href="多変量ボラティリティモデル.html#bekk1-1モデル"><i class="fa fa-check"></i><b>11.3</b> BEKK(1, 1)モデル</a></li>
-<li class="chapter" data-level="11.4" data-path="多変量ボラティリティモデル.html"><a href="多変量ボラティリティモデル.html#cholesky分解を利用したボラティリティ推定"><i class="fa fa-check"></i><b>11.4</b> Cholesky分解を利用したボラティリティ推定</a></li>
-<li class="chapter" data-level="11.5" data-path="多変量ボラティリティモデル.html"><a href="多変量ボラティリティモデル.html#dcc-dynamic-conditional-correlation-モデル"><i class="fa fa-check"></i><b>11.5</b> DCC (Dynamic Conditional Correlation) モデル</a>
+</ul></li>
+<li class="chapter" data-level="12" data-path="動的線形モデル.html"><a href="動的線形モデル.html"><i class="fa fa-check"></i><b>12</b> 動的線形モデル</a>
 <ul>
-<li class="chapter" data-level="" data-path="多変量ボラティリティモデル.html"><a href="多変量ボラティリティモデル.html#tse-and-tsui-2002-モデル"><i class="fa fa-check"></i>Tse and Tsui (2002) モデル</a></li>
-<li class="chapter" data-level="" data-path="多変量ボラティリティモデル.html"><a href="多変量ボラティリティモデル.html#engle-2002-モデル"><i class="fa fa-check"></i>Engle (2002) モデル</a></li>
-</ul></li>
-<li class="chapter" data-level="11.6" data-path="多変量ボラティリティモデル.html"><a href="多変量ボラティリティモデル.html#go-garchモデル"><i class="fa fa-check"></i><b>11.6</b> Go-GARCHモデル</a></li>
-<li class="chapter" data-level="11.7" data-path="多変量ボラティリティモデル.html"><a href="多変量ボラティリティモデル.html#コピュラに基づくアプローチ"><i class="fa fa-check"></i><b>11.7</b> コピュラに基づくアプローチ</a>
+<li class="chapter" data-level="12.1" data-path="動的線形モデル.html"><a href="動的線形モデル.html#局所水準-local-level-モデル"><i class="fa fa-check"></i><b>12.1</b> 局所水準 (local level) モデル</a>
 <ul>
-<li class="chapter" data-level="" data-path="多変量ボラティリティモデル.html"><a href="多変量ボラティリティモデル.html#多変量-t-copula-ボラティリティモデル"><i class="fa fa-check"></i>多変量 t-Copula ボラティリティ・モデル</a></li>
+<li class="chapter" data-level="" data-path="動的線形モデル.html"><a href="動的線形モデル.html#フィルタリング"><i class="fa fa-check"></i>フィルタリング</a></li>
+<li class="chapter" data-level="" data-path="動的線形モデル.html"><a href="動的線形モデル.html#スムージング-平滑化"><i class="fa fa-check"></i>スムージング (平滑化)</a></li>
+<li class="chapter" data-level="" data-path="動的線形モデル.html"><a href="動的線形モデル.html#状態予測"><i class="fa fa-check"></i>状態予測</a></li>
+<li class="chapter" data-level="" data-path="動的線形モデル.html"><a href="動的線形モデル.html#モデル診断-1"><i class="fa fa-check"></i>モデル診断</a></li>
+<li class="chapter" data-level="" data-path="動的線形モデル.html"><a href="動的線形モデル.html#モデルパラメータの推定"><i class="fa fa-check"></i>モデル・パラメータの推定</a></li>
 </ul></li>
-<li class="chapter" data-level="11.8" data-path="多変量ボラティリティモデル.html"><a href="多変量ボラティリティモデル.html#主成分分析に基づくアプローチ-pvc"><i class="fa fa-check"></i><b>11.8</b> 主成分分析に基づくアプローチ (PVC)</a></li>
-</ul></li>
-<li class="chapter" data-level="12" data-path="高頻度データ分析.html"><a href="高頻度データ分析.html"><i class="fa fa-check"></i><b>12</b> 高頻度データ分析</a>
+<li class="chapter" data-level="12.2" data-path="動的線形モデル.html"><a href="動的線形モデル.html#local-level-plus-seasonal-componentモデル"><i class="fa fa-check"></i><b>12.2</b> local level plus seasonal componentモデル</a>
 <ul>
-<li class="chapter" data-level="12.1" data-path="高頻度データ分析.html"><a href="高頻度データ分析.html#ボラティリティ推定"><i class="fa fa-check"></i><b>12.1</b> ボラティリティ推定</a>
+<li class="chapter" data-level="" data-path="動的線形モデル.html"><a href="動的線形モデル.html#状態予測-1"><i class="fa fa-check"></i>状態予測</a></li>
+</ul></li>
+<li class="chapter" data-level="12.3" data-path="動的線形モデル.html"><a href="動的線形モデル.html#動的回帰モデル"><i class="fa fa-check"></i><b>12.3</b> 動的回帰モデル</a>
+<ul>
+<li class="chapter" data-level="" data-path="動的線形モデル.html"><a href="動的線形モデル.html#スムージング"><i class="fa fa-check"></i>スムージング</a></li>
+</ul></li>
+<li class="chapter" data-level="12.4" data-path="動的線形モデル.html"><a href="動的線形モデル.html#sur-seemingly-unrelated-regression-モデル-3.3.3"><i class="fa fa-check"></i><b>12.4</b> SUR (Seemingly Unrelated Regression) モデル (3.3.3)</a>
+<ul>
+<li class="chapter" data-level="" data-path="動的線形モデル.html"><a href="動的線形モデル.html#参考文献"><i class="fa fa-check"></i>参考文献</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="高頻度データ分析.html"><a href="高頻度データ分析.html"><i class="fa fa-check"></i><b>13</b> 高頻度データ分析</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="高頻度データ分析.html"><a href="高頻度データ分析.html#ボラティリティ推定"><i class="fa fa-check"></i><b>13.1</b> ボラティリティ推定</a>
 <ul>
 <li class="chapter" data-level="" data-path="高頻度データ分析.html"><a href="高頻度データ分析.html#データセット1-topix指数データ"><i class="fa fa-check"></i>データセット1: TOPIX指数データ</a></li>
 <li class="chapter" data-level="" data-path="高頻度データ分析.html"><a href="高頻度データ分析.html#実現ボラティリティの計算"><i class="fa fa-check"></i>実現ボラティリティの計算</a></li>
 <li class="chapter" data-level="" data-path="高頻度データ分析.html"><a href="高頻度データ分析.html#parkinsonボラティリティの計算"><i class="fa fa-check"></i>Parkinsonボラティリティの計算</a></li>
 <li class="chapter" data-level="" data-path="高頻度データ分析.html"><a href="高頻度データ分析.html#har-rvモデルによる予測"><i class="fa fa-check"></i>HAR-RVモデルによる予測</a></li>
 </ul></li>
-<li class="chapter" data-level="12.2" data-path="高頻度データ分析.html"><a href="高頻度データ分析.html#共分散相関の推定"><i class="fa fa-check"></i><b>12.2</b> 共分散・相関の推定</a>
+<li class="chapter" data-level="13.2" data-path="高頻度データ分析.html"><a href="高頻度データ分析.html#共分散相関の推定"><i class="fa fa-check"></i><b>13.2</b> 共分散・相関の推定</a>
 <ul>
 <li class="chapter" data-level="" data-path="高頻度データ分析.html"><a href="高頻度データ分析.html#データセット2-株価指数先物データ"><i class="fa fa-check"></i>データセット2: 株価指数先物データ</a></li>
 <li class="chapter" data-level="" data-path="高頻度データ分析.html"><a href="高頻度データ分析.html#共分散相関の推定-1"><i class="fa fa-check"></i>共分散・相関の推定</a></li>
 </ul></li>
-<li class="chapter" data-level="12.3" data-path="高頻度データ分析.html"><a href="高頻度データ分析.html#acdモデル"><i class="fa fa-check"></i><b>12.3</b> ACDモデル</a></li>
-</ul></li>
-<li class="chapter" data-level="13" data-path="スペクトル解析.html"><a href="スペクトル解析.html"><i class="fa fa-check"></i><b>13</b> スペクトル解析</a>
+<li class="chapter" data-level="13.3" data-path="高頻度データ分析.html"><a href="高頻度データ分析.html#acdモデル"><i class="fa fa-check"></i><b>13.3</b> ACDモデル</a>
 <ul>
-<li class="chapter" data-level="13.1" data-path="スペクトル解析.html"><a href="スペクトル解析.html#armaモデルのスペクトル密度"><i class="fa fa-check"></i><b>13.1</b> ARMAモデルのスペクトル密度</a></li>
-<li class="chapter" data-level="13.2" data-path="スペクトル解析.html"><a href="スペクトル解析.html#周期変動時系列のスペクトル密度"><i class="fa fa-check"></i><b>13.2</b> 周期変動時系列のスペクトル密度</a></li>
-<li class="chapter" data-level="13.3" data-path="スペクトル解析.html"><a href="スペクトル解析.html#データ分析例-1"><i class="fa fa-check"></i><b>13.3</b> データ分析例 (1)</a>
-<ul>
-<li class="chapter" data-level="" data-path="スペクトル解析.html"><a href="スペクトル解析.html#データセット1-sunspots"><i class="fa fa-check"></i>データセット1: sunspots</a></li>
-<li class="chapter" data-level="" data-path="スペクトル解析.html"><a href="スペクトル解析.html#データセット2-soi"><i class="fa fa-check"></i>データセット2: SOI</a></li>
-<li class="chapter" data-level="" data-path="スペクトル解析.html"><a href="スペクトル解析.html#データセット3-銀行プライムローン金利"><i class="fa fa-check"></i>データセット3: 銀行プライムローン金利</a></li>
-<li class="chapter" data-level="" data-path="スペクトル解析.html"><a href="スペクトル解析.html#データセット4-事故死者数"><i class="fa fa-check"></i>データセット4: 事故死者数</a></li>
-</ul></li>
-<li class="chapter" data-level="13.4" data-path="スペクトル解析.html"><a href="スペクトル解析.html#データ分析例-2"><i class="fa fa-check"></i><b>13.4</b> データ分析例 (2)</a>
-<ul>
-<li class="chapter" data-level="" data-path="スペクトル解析.html"><a href="スペクトル解析.html#為替水準に対する分解-スペクトル解析"><i class="fa fa-check"></i>為替水準に対する分解 &amp; スペクトル解析</a></li>
-<li class="chapter" data-level="" data-path="スペクトル解析.html"><a href="スペクトル解析.html#為替リターンに対する分解-スペクトル解析"><i class="fa fa-check"></i>為替リターンに対する分解 &amp; スペクトル解析</a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="14" data-path="動的線形モデル.html"><a href="動的線形モデル.html"><i class="fa fa-check"></i><b>14</b> 動的線形モデル</a>
-<ul>
-<li class="chapter" data-level="14.1" data-path="動的線形モデル.html"><a href="動的線形モデル.html#パッケージdlm"><i class="fa fa-check"></i><b>14.1</b> パッケージ<strong>dlm</strong></a>
-<ul>
-<li class="chapter" data-level="" data-path="動的線形モデル.html"><a href="動的線形モデル.html#local-levelモデル"><i class="fa fa-check"></i>local levelモデル</a></li>
-<li class="chapter" data-level="" data-path="動的線形モデル.html"><a href="動的線形モデル.html#local-level-plus-seasonal-componentモデル"><i class="fa fa-check"></i>local level plus seasonal componentモデル</a></li>
-</ul></li>
-<li class="chapter" data-level="14.2" data-path="動的線形モデル.html"><a href="動的線形モデル.html#パッケージstatespacer"><i class="fa fa-check"></i><b>14.2</b> パッケージ<strong>statespacer</strong></a>
-<ul>
-<li class="chapter" data-level="" data-path="動的線形モデル.html"><a href="動的線形モデル.html#local-levelモデル-1"><i class="fa fa-check"></i>local levelモデル</a></li>
-<li class="chapter" data-level="" data-path="動的線形モデル.html"><a href="動的線形モデル.html#季節性への対応説明変数の追加従属変数が複数ある場合への対応"><i class="fa fa-check"></i>季節性への対応・説明変数の追加・従属変数が複数ある場合への対応</a></li>
-</ul></li>
-<li class="chapter" data-level="14.3" data-path="動的線形モデル.html"><a href="動的線形モデル.html#パッケージbssm"><i class="fa fa-check"></i><b>14.3</b> パッケージ<strong>bssm</strong></a>
-<ul>
-<li class="chapter" data-level="" data-path="動的線形モデル.html"><a href="動的線形モデル.html#local-levelモデル-2"><i class="fa fa-check"></i>local levelモデル</a></li>
-<li class="chapter" data-level="" data-path="動的線形モデル.html"><a href="動的線形モデル.html#確率的季節性成分を持つドリフト有りランダムウォークモデル"><i class="fa fa-check"></i>確率的季節性成分を持つドリフト有りランダムウォーク・モデル</a></li>
+<li class="chapter" data-level="" data-path="高頻度データ分析.html"><a href="高頻度データ分析.html#補足-等間隔データを作成するための方法"><i class="fa fa-check"></i>補足: 等間隔データを作成するための方法</a></li>
 </ul></li>
 </ul></li>
 <li class="appendix"><span><b>Appendix 参考文献</b></span></li>
@@ -413,14 +435,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="C.4" data-path="markov-switching-regime-switchingモデル.html"><a href="markov-switching-regime-switchingモデル.html#外国為替市場-1"><i class="fa fa-check"></i><b>C.4</b> 外国為替市場</a></li>
 <li class="chapter" data-level="C.5" data-path="markov-switching-regime-switchingモデル.html"><a href="markov-switching-regime-switchingモデル.html#アセットアロケーション"><i class="fa fa-check"></i><b>C.5</b> アセット・アロケーション</a></li>
 </ul></li>
-<li class="chapter" data-level="D" data-path="archgarchモデル.html"><a href="archgarchモデル.html"><i class="fa fa-check"></i><b>D</b> ARCH/GARCHモデル</a>
+<li class="chapter" data-level="D" data-path="archgarchモデル-1.html"><a href="archgarchモデル-1.html"><i class="fa fa-check"></i><b>D</b> ARCH/GARCHモデル</a>
 <ul>
-<li class="chapter" data-level="D.1" data-path="archgarchモデル.html"><a href="archgarchモデル.html#概説"><i class="fa fa-check"></i><b>D.1</b> 概説</a></li>
-<li class="chapter" data-level="D.2" data-path="archgarchモデル.html"><a href="archgarchモデル.html#arch-model"><i class="fa fa-check"></i><b>D.2</b> ARCH model</a></li>
-<li class="chapter" data-level="D.3" data-path="archgarchモデル.html"><a href="archgarchモデル.html#garch-model"><i class="fa fa-check"></i><b>D.3</b> GARCH model</a></li>
-<li class="chapter" data-level="D.4" data-path="archgarchモデル.html"><a href="archgarchモデル.html#arch-m-model"><i class="fa fa-check"></i><b>D.4</b> ARCH-M Model</a></li>
-<li class="chapter" data-level="D.5" data-path="archgarchモデル.html"><a href="archgarchモデル.html#gjr-model"><i class="fa fa-check"></i><b>D.5</b> GJR model</a></li>
-<li class="chapter" data-level="D.6" data-path="archgarchモデル.html"><a href="archgarchモデル.html#aparch-model"><i class="fa fa-check"></i><b>D.6</b> APARCH model</a></li>
+<li class="chapter" data-level="D.1" data-path="archgarchモデル-1.html"><a href="archgarchモデル-1.html#概説"><i class="fa fa-check"></i><b>D.1</b> 概説</a></li>
+<li class="chapter" data-level="D.2" data-path="archgarchモデル-1.html"><a href="archgarchモデル-1.html#arch-model"><i class="fa fa-check"></i><b>D.2</b> ARCH model</a></li>
+<li class="chapter" data-level="D.3" data-path="archgarchモデル-1.html"><a href="archgarchモデル-1.html#garch-model"><i class="fa fa-check"></i><b>D.3</b> GARCH model</a></li>
+<li class="chapter" data-level="D.4" data-path="archgarchモデル-1.html"><a href="archgarchモデル-1.html#arch-m-model"><i class="fa fa-check"></i><b>D.4</b> ARCH-M Model</a></li>
+<li class="chapter" data-level="D.5" data-path="archgarchモデル-1.html"><a href="archgarchモデル-1.html#gjr-model"><i class="fa fa-check"></i><b>D.5</b> GJR model</a></li>
+<li class="chapter" data-level="D.6" data-path="archgarchモデル-1.html"><a href="archgarchモデル-1.html#aparch-model"><i class="fa fa-check"></i><b>D.6</b> APARCH model</a></li>
 </ul></li>
 <li class="chapter" data-level="E" data-path="共和分-誤差修正モデル.html"><a href="共和分-誤差修正モデル.html"><i class="fa fa-check"></i><b>E</b> 共和分/ 誤差修正モデル</a>
 <ul>
@@ -455,28 +477,28 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="共和分-誤差修正モデル" class="section level1 hasAnchor" number="19">
+<div id="共和分-誤差修正モデル" class="section level1 hasAnchor" number="18">
 <h1><span class="header-section-number">E</span> 共和分/ 誤差修正モデル<a href="共和分-誤差修正モデル.html#共和分-誤差修正モデル" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<!-- - 2024年1月17日 -->
 <ul>
-<li><p>2024年1月17日</p></li>
 <li><p>金融/経済時系列の分析, 近年, 新興市場に関する実証研究多数. (確立された方法論, 論文書き易い)</p></li>
 <li><p>金融市場における応用例: 統計的アービトラージ・ペア・トレード, 現物–先物裁定取引, 指数トラッキング, 信用スプレッド取引, ヘッジ取引, …</p></li>
 </ul>
-<div id="株式市場とマクロ変数-国際株式市場間の分析" class="section level2 hasAnchor" number="19.1">
+<div id="株式市場とマクロ変数-国際株式市場間の分析" class="section level2 hasAnchor" number="18.1">
 <h2><span class="header-section-number">E.1</span> 株式市場とマクロ変数, 国際株式市場間の分析<a href="共和分-誤差修正モデル.html#株式市場とマクロ変数-国際株式市場間の分析" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ul>
 <li>Ramin Cooper Maysami, Tiong Sim Koh (2000). A vector error correction model of the Singapore stock market, <em>International Review of Economics &amp; Finance</em>, 9(1), 79-96.
 <a href="https://doi.org/10.1016/S1059-0560(99)00042-8" class="uri">https://doi.org/10.1016/S1059-0560(99)00042-8</a>. (<a href="https://www.sciencedirect.com/science/article/pii/S1059056099000428" class="uri">https://www.sciencedirect.com/science/article/pii/S1059056099000428</a>)</li>
 </ul>
 </div>
-<div id="個別株式の複数取引所株価間の分析" class="section level2 hasAnchor" number="19.2">
+<div id="個別株式の複数取引所株価間の分析" class="section level2 hasAnchor" number="18.2">
 <h2><span class="header-section-number">E.2</span> 個別株式の複数取引所株価間の分析<a href="共和分-誤差修正モデル.html#個別株式の複数取引所株価間の分析" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ul>
 <li>deB. Harris F.H., McInish T.H., Shoesmith G.L., Wood R.A. (1995). Cointegration, Error Correction, and Price Discovery on Informationally Linked Security Markets. <em>Journal of Financial and Quantitative Analysis</em>, 30(4):563-579.<br />
 <a href="https//doi.org.10.2307/2331277">https//doi.org.10.2307/2331277</a></li>
 </ul>
 </div>
-<div id="高頻度データ-bidask価格-の分析" class="section level2 hasAnchor" number="19.3">
+<div id="高頻度データ-bidask価格-の分析" class="section level2 hasAnchor" number="18.3">
 <h2><span class="header-section-number">E.3</span> 高頻度データ (bid/ask価格) の分析<a href="共和分-誤差修正モデル.html#高頻度データ-bidask価格-の分析" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ul>
 <li><p>Robert F. Engle, Andrew J. Patton (2004). Impacts of trades in an error-correction model of quote prices, Journal of Financial Markets, 7(1), 1-25.
@@ -484,7 +506,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><a href="https://archive.nyu.edu/bitstream/2451/26697/2/FIN-00-033.pdf" class="uri">https://archive.nyu.edu/bitstream/2451/26697/2/FIN-00-033.pdf</a></p></li>
 </ul>
 </div>
-<div id="統計的アービトラージ-ペアトレード" class="section level2 hasAnchor" number="19.4">
+<div id="統計的アービトラージ-ペアトレード" class="section level2 hasAnchor" number="18.4">
 <h2><span class="header-section-number">E.4</span> 統計的アービトラージ / ペアトレード<a href="共和分-誤差修正モデル.html#統計的アービトラージ-ペアトレード" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ul>
 <li>Krauss, Christopher (2017). Statistical arbitrage pairs trading strategies: Review and outlook, <em>Journal of Economic Surveys</em>, 31(2), 513–545.<br />
@@ -492,7 +514,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a href="https://www.econstor.eu/bitstream/10419/116783/1/833997289.pdf"></a></li>
 </ul>
 </div>
-<div id="国際株式市場間のヘッジ" class="section level2 hasAnchor" number="19.5">
+<div id="国際株式市場間のヘッジ" class="section level2 hasAnchor" number="18.5">
 <h2><span class="header-section-number">E.5</span> 国際株式市場間のヘッジ<a href="共和分-誤差修正モデル.html#国際株式市場間のヘッジ" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ul>
 <li>Alexander Carol (1999). Optimal hedging using cointegration, <em>Phil. Trans. R. Soc. A.</em> 3572039–2058.
@@ -500,7 +522,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a href="https://www.researchgate.net/publication/242031262_Optimal_hedging_using_cointegration"></a></li>
 </ul>
 </div>
-<div id="クレジットスプレッド-株式-cds-債券-の分析" class="section level2 hasAnchor" number="19.6">
+<div id="クレジットスプレッド-株式-cds-債券-の分析" class="section level2 hasAnchor" number="18.6">
 <h2><span class="header-section-number">E.6</span> クレジット・スプレッド (株式, CDS, 債券) の分析<a href="共和分-誤差修正モデル.html#クレジットスプレッド-株式-cds-債券-の分析" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ul>
 <li>Santiago Forte, Juan Ignacio Peña (2009). Credit spreads: An empirical analysis on the informational content of stocks, bonds, and CDS, <em>Journal of Banking &amp; Finance</em>, 33(11), 2013-2025.
@@ -515,7 +537,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-<a href="archgarchモデル.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="archgarchモデル-1.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 <a href="今後の学習のために.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>

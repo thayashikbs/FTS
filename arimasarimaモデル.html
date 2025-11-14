@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>4 ARIMA/SARIMAモデル | 金融時系列解析</title>
+  <meta name="description" content="4 ARIMA/SARIMAモデル | 金融時系列解析" />
+  <meta name="generator" content="bookdown 0.36 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="4 ARIMA/SARIMAモデル | 金融時系列解析" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="4 ARIMA/SARIMAモデル | 金融時系列解析" />
+  
+  
+  
+
+<meta name="author" content="林 高樹" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="armapqモデル.html"/>
+
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> はじめに</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#時系列モデリング"><i class="fa fa-check"></i><b>1.1</b> 時系列モデリング</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#金融時系列データの特徴"><i class="fa fa-check"></i><b>1.2</b> 金融時系列データの特徴</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#金融時系列データの特徴-みずほ-8411-株価データの例"><i class="fa fa-check"></i>金融時系列データの特徴: みずほ (8411) 株価データの例</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#シミュレーションによるサンプルパス生成"><i class="fa fa-check"></i><b>1.3</b> シミュレーションによるサンプルパス生成</a></li>
+<li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#rにおける時系列オブジェクトクラスおよび関数の例"><i class="fa fa-check"></i><b>1.4</b> Rにおける時系列オブジェクト・クラスおよび関数の例</a>
+<ul>
+<li class="chapter" data-level="1.4.1" data-path="index.html"><a href="index.html#日付時間データに対するクラス"><i class="fa fa-check"></i><b>1.4.1</b> 日付・時間データに対するクラス</a></li>
+<li class="chapter" data-level="1.4.2" data-path="index.html"><a href="index.html#時系列データに対するクラス1-tsクラス"><i class="fa fa-check"></i><b>1.4.2</b> 時系列データに対するクラス(1): tsクラス</a></li>
+<li class="chapter" data-level="1.4.3" data-path="index.html"><a href="index.html#時系列データに対するクラス2-zooクラスとxtsクラス"><i class="fa fa-check"></i><b>1.4.3</b> 時系列データに対するクラス(2): zooクラスとxtsクラス</a></li>
+</ul></li>
+<li class="chapter" data-level="1.5" data-path="index.html"><a href="index.html#時系列データの分解"><i class="fa fa-check"></i><b>1.5</b> 時系列データの分解</a>
+<ul>
+<li class="chapter" data-level="1.5.1" data-path="index.html"><a href="index.html#トレンド抽出-平滑化-smoothing"><i class="fa fa-check"></i><b>1.5.1</b> トレンド抽出, 平滑化 (smoothing)</a></li>
+<li class="chapter" data-level="1.5.2" data-path="index.html"><a href="index.html#分解モデル"><i class="fa fa-check"></i><b>1.5.2</b> 分解モデル</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="定常性と自己相関関数.html"><a href="定常性と自己相関関数.html"><i class="fa fa-check"></i><b>2</b> 定常性と自己相関関数</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="定常性と自己相関関数.html"><a href="定常性と自己相関関数.html#確率過程の2次特性-平均関数と自己共分散関数"><i class="fa fa-check"></i><b>2.1</b> 確率過程の2次特性: 平均関数と自己共分散関数</a></li>
+<li class="chapter" data-level="2.2" data-path="定常性と自己相関関数.html"><a href="定常性と自己相関関数.html#定常性-stationarity"><i class="fa fa-check"></i><b>2.2</b> 定常性 (stationarity)</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="定常性と自己相関関数.html"><a href="定常性と自己相関関数.html#強定常性"><i class="fa fa-check"></i><b>2.2.1</b> 強定常性</a></li>
+<li class="chapter" data-level="2.2.2" data-path="定常性と自己相関関数.html"><a href="定常性と自己相関関数.html#弱定常性"><i class="fa fa-check"></i><b>2.2.2</b> 弱定常性</a></li>
+<li class="chapter" data-level="2.2.3" data-path="定常性と自己相関関数.html"><a href="定常性と自己相関関数.html#ホワイトノイズ"><i class="fa fa-check"></i><b>2.2.3</b> ホワイトノイズ</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="定常性と自己相関関数.html"><a href="定常性と自己相関関数.html#標本平均と標本自己共分散関数"><i class="fa fa-check"></i><b>2.3</b> 標本平均と標本自己共分散関数</a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="定常性と自己相関関数.html"><a href="定常性と自己相関関数.html#アンサンブル平均-vs-標本平均"><i class="fa fa-check"></i><b>2.3.1</b> アンサンブル平均 vs 標本平均</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="定常性と自己相関関数.html"><a href="定常性と自己相関関数.html#r操作-標本acf"><i class="fa fa-check"></i><b>2.4</b> R操作: 標本ACF</a>
+<ul>
+<li class="chapter" data-level="2.4.1" data-path="定常性と自己相関関数.html"><a href="定常性と自己相関関数.html#白色ノイズ"><i class="fa fa-check"></i><b>2.4.1</b> 白色ノイズ</a></li>
+<li class="chapter" data-level="2.4.2" data-path="定常性と自己相関関数.html"><a href="定常性と自己相関関数.html#ランダムウォーク"><i class="fa fa-check"></i><b>2.4.2</b> ランダムウォーク</a></li>
+<li class="chapter" data-level="2.4.3" data-path="定常性と自己相関関数.html"><a href="定常性と自己相関関数.html#非定常成分を含む時系列"><i class="fa fa-check"></i><b>2.4.3</b> 非定常成分を含む時系列</a></li>
+<li class="chapter" data-level="2.4.4" data-path="定常性と自己相関関数.html"><a href="定常性と自己相関関数.html#線形定常時系列モデル"><i class="fa fa-check"></i><b>2.4.4</b> 線形・定常時系列モデル</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="定常性と自己相関関数.html"><a href="定常性と自己相関関数.html#母acf-vs-標本acf"><i class="fa fa-check"></i><b>2.5</b> 母ACF vs 標本ACF</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="armapqモデル.html"><a href="armapqモデル.html"><i class="fa fa-check"></i><b>3</b> ARMA<span class="math inline">\((p,q)\)</span>モデル</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="armapqモデル.html"><a href="armapqモデル.html#armapqモデルとは"><i class="fa fa-check"></i><b>3.1</b> ARMA<span class="math inline">\((p,q)\)</span>モデルとは</a>
+<ul>
+<li class="chapter" data-level="" data-path="armapqモデル.html"><a href="armapqモデル.html#因果性と反転可能性"><i class="fa fa-check"></i>因果性と反転可能性</a></li>
+<li class="chapter" data-level="" data-path="armapqモデル.html"><a href="armapqモデル.html#armapqモデルの意義"><i class="fa fa-check"></i>ARMA<span class="math inline">\((p,q)\)</span>モデルの意義</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="armapqモデル.html"><a href="armapqモデル.html#armapqモデルによる予測"><i class="fa fa-check"></i><b>3.2</b> ARMA<span class="math inline">\((p,q)\)</span>モデルによる予測</a></li>
+<li class="chapter" data-level="3.3" data-path="armapqモデル.html"><a href="armapqモデル.html#armapqモデルの推定"><i class="fa fa-check"></i><b>3.3</b> ARMA<span class="math inline">\((p,q)\)</span>モデルの推定</a></li>
+<li class="chapter" data-level="3.4" data-path="armapqモデル.html"><a href="armapqモデル.html#armapqモデルの同定-次数の特定"><i class="fa fa-check"></i><b>3.4</b> ARMA<span class="math inline">\((p,q)\)</span>モデルの同定 (次数の特定)</a></li>
+<li class="chapter" data-level="3.5" data-path="armapqモデル.html"><a href="armapqモデル.html#r操作"><i class="fa fa-check"></i><b>3.5</b> R操作</a>
+<ul>
+<li class="chapter" data-level="" data-path="armapqモデル.html"><a href="armapqモデル.html#armapqモデルの同定-acfpacfeacfの利用"><i class="fa fa-check"></i>ARMA<span class="math inline">\((p,q)\)</span>モデルの同定 (ACF/PACF/EACFの利用)</a></li>
+<li class="chapter" data-level="" data-path="armapqモデル.html"><a href="armapqモデル.html#armapqモデルの推定診断"><i class="fa fa-check"></i>ARMA<span class="math inline">\((p,q)\)</span>モデルの推定・診断</a></li>
+<li class="chapter" data-level="" data-path="armapqモデル.html"><a href="armapqモデル.html#パッケージforecastの利用"><i class="fa fa-check"></i>パッケージ{forecast}の利用</a></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="armapqモデル.html"><a href="armapqモデル.html#データ分析例-tsay-ch2より"><i class="fa fa-check"></i><b>3.6</b> データ分析例 (Tsay, Ch2より)</a>
+<ul>
+<li class="chapter" data-level="" data-path="armapqモデル.html"><a href="armapqモデル.html#標本acf"><i class="fa fa-check"></i>標本ACF</a></li>
+<li class="chapter" data-level="" data-path="armapqモデル.html"><a href="armapqモデル.html#ar-ma-arma-2.42.6"><i class="fa fa-check"></i>AR, MA, ARMA (2.4–2.6)</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="arimasarimaモデル.html"><a href="arimasarimaモデル.html"><i class="fa fa-check"></i><b>4</b> ARIMA/SARIMAモデル</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="arimasarimaモデル.html"><a href="arimasarimaモデル.html#arimapdqモデルとは"><i class="fa fa-check"></i><b>4.1</b> ARIMA<span class="math inline">\((p,d,q)\)</span>モデルとは</a></li>
+<li class="chapter" data-level="4.2" data-path="arimasarimaモデル.html"><a href="arimasarimaモデル.html#sarimapdqtimes-pdq_sモデル-周期sとは"><i class="fa fa-check"></i><b>4.2</b> SARIMA<span class="math inline">\((p,d,q)\times (P,D,Q)_s\)</span>モデル (周期<span class="math inline">\(s\)</span>)とは</a></li>
+<li class="chapter" data-level="4.3" data-path="arimasarimaモデル.html"><a href="arimasarimaモデル.html#sarimaモデルのパス生成-パッケージsarimaの利用"><i class="fa fa-check"></i><b>4.3</b> SARIMAモデルのパス生成: パッケージ<strong>sarima</strong>の利用</a></li>
+<li class="chapter" data-level="4.4" data-path="arimasarimaモデル.html"><a href="arimasarimaモデル.html#sarimaモデルの推定診断"><i class="fa fa-check"></i><b>4.4</b> SARIMAモデルの推定・診断</a>
+<ul>
+<li class="chapter" data-level="" data-path="arimasarimaモデル.html"><a href="arimasarimaモデル.html#パッケージforecastの利用-1"><i class="fa fa-check"></i>パッケージ<strong>forecast</strong>の利用</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="arimasarimaモデル.html"><a href="arimasarimaモデル.html#データ分析例"><i class="fa fa-check"></i><b>4.5</b> データ分析例</a>
+<ul>
+<li class="chapter" data-level="" data-path="arimasarimaモデル.html"><a href="arimasarimaモデル.html#データセット-bonds"><i class="fa fa-check"></i>データセット: bonds</a></li>
+<li class="chapter" data-level="" data-path="arimasarimaモデル.html"><a href="arimasarimaモデル.html#データセット-airpassengers"><i class="fa fa-check"></i>データセット: AirPassengers</a></li>
+</ul></li>
+<li class="chapter" data-level="4.6" data-path="arimasarimaモデル.html"><a href="arimasarimaモデル.html#外生的トレンドがあるケース"><i class="fa fa-check"></i><b>4.6</b> 外生的トレンドがあるケース</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">金融時系列解析</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="arimasarimaモデル" class="section level1 hasAnchor" number="4">
+<h1><span class="header-section-number">4</span> ARIMA/SARIMAモデル<a href="arimasarimaモデル.html#arimasarimaモデル" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="arimapdqモデルとは" class="section level2 hasAnchor" number="4.1">
+<h2><span class="header-section-number">4.1</span> ARIMA<span class="math inline">\((p,d,q)\)</span>モデルとは<a href="arimasarimaモデル.html#arimapdqモデルとは" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li><span class="math inline">\(Y_t:=(1-B)^d X_t\)</span>が, causal ARMA<span class="math inline">\((p,q)\)</span>となる確率過程<span class="math inline">\(X_t\)</span> (<span class="math inline">\(d\)</span>は非負整数), すなわち,</li>
+</ul>
+<p><span class="math display">\[ \phi(B)Y_t = \theta(B) Z_t \tag{2}\]</span></p>
+<ul>
+<li>Backward shift operator <span class="math inline">\(B\)</span></li>
+<li>AR多項式 <span class="math inline">\(\phi(z)=1 - \phi_1 z - \cdots - \phi_p z^p\)</span></li>
+<li>MA多項式 <span class="math inline">\(\theta(z)=1 + \theta_1 z + \cdots + \theta_q z^q\)</span></li>
+</ul>
+</div>
+<div id="sarimapdqtimes-pdq_sモデル-周期sとは" class="section level2 hasAnchor" number="4.2">
+<h2><span class="header-section-number">4.2</span> SARIMA<span class="math inline">\((p,d,q)\times (P,D,Q)_s\)</span>モデル (周期<span class="math inline">\(s\)</span>)とは<a href="arimasarimaモデル.html#sarimapdqtimes-pdq_sモデル-周期sとは" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li><span class="math inline">\(Y_t:=(1-B)^d (1-B^s)^D X_t\)</span>が, 以下で定義されるcausal ARMAとなる確率過程<span class="math inline">\(X_t\)</span> (<span class="math inline">\(d,D\)</span>は非負整数)</li>
+</ul>
+<p><span class="math display">\[ \phi(B)\Phi(B^s) Y_t = \theta(B) \Theta(B^s) Z_t \tag{2}\]</span></p>
+<ul>
+<li>Backward shift operator <span class="math inline">\(B\)</span></li>
+<li>AR多項式 <span class="math inline">\(\phi(z)=1 - \phi_1 z - \cdots - \phi_p z^p\)</span></li>
+<li>MA多項式 <span class="math inline">\(\theta(z)=1 + \theta_1 z + \cdots + \theta_q z^q\)</span></li>
+<li>SAR多項式 <span class="math inline">\(\Phi(z)=1 - \Phi_1 z - \cdots - \Phi_p z^P\)</span></li>
+<li>SMA多項式 <span class="math inline">\(\Theta(z)=1 + \Theta_1 z + \cdots + \Theta_q z^Q\)</span></li>
+</ul>
+</div>
+<div id="sarimaモデルのパス生成-パッケージsarimaの利用" class="section level2 hasAnchor" number="4.3">
+<h2><span class="header-section-number">4.3</span> SARIMAモデルのパス生成: パッケージ<strong>sarima</strong>の利用<a href="arimasarimaモデル.html#sarimaモデルのパス生成-パッケージsarimaの利用" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li>“SAR(1)”モデル (s=12)</li>
+</ul>
+<div class="sourceCode" id="cb261"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb261-1"><a href="arimasarimaモデル.html#cb261-1" tabindex="-1"></a><span class="fu">library</span>(sarima)</span></code></pre></div>
+<pre><code>## Loading required package: stats4</code></pre>
+<pre><code>## 
+## Attaching package: &#39;sarima&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:stats&#39;:
+## 
+##     spectrum</code></pre>
+<div class="sourceCode" id="cb265"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb265-1"><a href="arimasarimaモデル.html#cb265-1" tabindex="-1"></a><span class="co">#par(mfrow = c(3,1))</span></span>
+<span id="cb265-2"><a href="arimasarimaモデル.html#cb265-2" tabindex="-1"></a>seed_val <span class="ot">&lt;-</span> <span class="dv">10</span></span>
+<span id="cb265-3"><a href="arimasarimaモデル.html#cb265-3" tabindex="-1"></a>tlen <span class="ot">&lt;-</span> <span class="dv">144</span></span>
+<span id="cb265-4"><a href="arimasarimaモデル.html#cb265-4" tabindex="-1"></a><span class="fu">set.seed</span>(seed_val)</span>
+<span id="cb265-5"><a href="arimasarimaモデル.html#cb265-5" tabindex="-1"></a><span class="co">#x &lt;- sim_sarima(n = tlen, model = list(ar = c(rep(0,11), 0.8)))  # 12  seasons</span></span>
+<span id="cb265-6"><a href="arimasarimaモデル.html#cb265-6" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">sim_sarima</span>(<span class="at">n =</span> tlen, <span class="at">model =</span> <span class="fu">list</span>(<span class="at">sar =</span> <span class="fl">0.8</span>, <span class="at">nseasons =</span> <span class="dv">12</span>, <span class="at">sigma2 =</span> <span class="dv">1</span>))  <span class="co"># 12 seasons</span></span>
+<span id="cb265-7"><a href="arimasarimaモデル.html#cb265-7" tabindex="-1"></a></span>
+<span id="cb265-8"><a href="arimasarimaモデル.html#cb265-8" tabindex="-1"></a><span class="fu">ts.plot</span>(x, <span class="at">type =</span> <span class="st">&quot;l&quot;</span>) <span class="co"># 時系列プロット</span></span></code></pre></div>
+<p><img src="040-SARIMA_files/figure-html/SAR1-1.png" width="672" /></p>
+<div class="sourceCode" id="cb266"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb266-1"><a href="arimasarimaモデル.html#cb266-1" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))</span>
+<span id="cb266-2"><a href="arimasarimaモデル.html#cb266-2" tabindex="-1"></a><span class="fu">acf</span>(x) <span class="co"># 自己相関(ACF)</span></span>
+<span id="cb266-3"><a href="arimasarimaモデル.html#cb266-3" tabindex="-1"></a><span class="fu">pacf</span>(x) <span class="co"># 偏自己相関(PACF)</span></span></code></pre></div>
+<p><img src="040-SARIMA_files/figure-html/SAR1-2.png" width="672" /></p>
+<div class="sourceCode" id="cb267"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb267-1"><a href="arimasarimaモデル.html#cb267-1" tabindex="-1"></a><span class="co"># par(mfrow = c(1,1))</span></span></code></pre></div>
+<ul>
+<li>“SMA(1)”モデル</li>
+</ul>
+<div class="sourceCode" id="cb268"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb268-1"><a href="arimasarimaモデル.html#cb268-1" tabindex="-1"></a><span class="fu">set.seed</span>(seed_val)</span>
+<span id="cb268-2"><a href="arimasarimaモデル.html#cb268-2" tabindex="-1"></a><span class="co">#x &lt;- sim_sarima(n = tlen, model = list(ma = c(rep(0,11), 0.8)))  # 12 seasons</span></span>
+<span id="cb268-3"><a href="arimasarimaモデル.html#cb268-3" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">sim_sarima</span>(<span class="at">n =</span> tlen,<span class="at">model =</span> <span class="fu">list</span>(<span class="at">sma =</span> <span class="fl">0.8</span>, <span class="at">nseasons =</span> <span class="dv">12</span>, <span class="at">sigma2 =</span> <span class="dv">1</span>))  <span class="co"># 12 seasons</span></span>
+<span id="cb268-4"><a href="arimasarimaモデル.html#cb268-4" tabindex="-1"></a><span class="fu">ts.plot</span>(x, <span class="at">type =</span> <span class="st">&quot;l&quot;</span>) <span class="co"># 時系列プロット</span></span></code></pre></div>
+<p><img src="040-SARIMA_files/figure-html/SMA1-1.png" width="672" /></p>
+<div class="sourceCode" id="cb269"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb269-1"><a href="arimasarimaモデル.html#cb269-1" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))</span>
+<span id="cb269-2"><a href="arimasarimaモデル.html#cb269-2" tabindex="-1"></a><span class="fu">acf</span>(x) <span class="co"># 自己相関(ACF)</span></span>
+<span id="cb269-3"><a href="arimasarimaモデル.html#cb269-3" tabindex="-1"></a><span class="fu">pacf</span>(x) <span class="co"># 偏自己相関(PACF)</span></span></code></pre></div>
+<p><img src="040-SARIMA_files/figure-html/SMA1-2.png" width="672" /></p>
+<div class="sourceCode" id="cb270"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb270-1"><a href="arimasarimaモデル.html#cb270-1" tabindex="-1"></a><span class="co"># par(mfrow = c(1,1))</span></span></code></pre></div>
+<ul>
+<li>I(1) モデル (“Random Walk”)</li>
+</ul>
+<div class="sourceCode" id="cb271"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb271-1"><a href="arimasarimaモデル.html#cb271-1" tabindex="-1"></a><span class="fu">set.seed</span>(seed_val)</span>
+<span id="cb271-2"><a href="arimasarimaモデル.html#cb271-2" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">sim_sarima</span>(<span class="at">n =</span> tlen, <span class="at">model =</span> <span class="fu">list</span>(<span class="at">iorder =</span> <span class="dv">1</span>, <span class="at">sigma2 =</span> <span class="dv">1</span>)) <span class="co"># (1-B)X_t = e_t (random walk)</span></span>
+<span id="cb271-3"><a href="arimasarimaモデル.html#cb271-3" tabindex="-1"></a><span class="fu">ts.plot</span>(x, <span class="at">type=</span><span class="st">&quot;l&quot;</span>) <span class="co"># 時系列プロット</span></span></code></pre></div>
+<p><img src="040-SARIMA_files/figure-html/I1-1.png" width="672" /></p>
+<div class="sourceCode" id="cb272"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb272-1"><a href="arimasarimaモデル.html#cb272-1" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))</span>
+<span id="cb272-2"><a href="arimasarimaモデル.html#cb272-2" tabindex="-1"></a><span class="fu">acf</span>(x) <span class="co"># 自己相関(ACF)</span></span>
+<span id="cb272-3"><a href="arimasarimaモデル.html#cb272-3" tabindex="-1"></a><span class="fu">pacf</span>(x) <span class="co"># 偏自己相関(PACF)</span></span></code></pre></div>
+<p><img src="040-SARIMA_files/figure-html/I1-2.png" width="672" /></p>
+<div class="sourceCode" id="cb273"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb273-1"><a href="arimasarimaモデル.html#cb273-1" tabindex="-1"></a><span class="co"># par(mfrow = c(1,1))</span></span></code></pre></div>
+<ul>
+<li>SARIMA<span class="math inline">\((0,0,0) \times (0,1,0)_{12}\)</span></li>
+</ul>
+<div class="sourceCode" id="cb274"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb274-1"><a href="arimasarimaモデル.html#cb274-1" tabindex="-1"></a><span class="fu">set.seed</span>(seed_val)</span>
+<span id="cb274-2"><a href="arimasarimaモデル.html#cb274-2" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">sim_sarima</span>(<span class="at">n =</span> tlen, <span class="at">model =</span> <span class="fu">list</span>(<span class="at">siorder =</span> <span class="dv">1</span>,<span class="at">nseasons =</span> <span class="dv">12</span>, <span class="at">sigma2 =</span> <span class="dv">1</span>)) <span class="co"># (1-B)^{12} X_t = e_t</span></span>
+<span id="cb274-3"><a href="arimasarimaモデル.html#cb274-3" tabindex="-1"></a><span class="fu">ts.plot</span>(x, <span class="at">type=</span><span class="st">&quot;l&quot;</span>) <span class="co"># 時系列プロット</span></span></code></pre></div>
+<p><img src="040-SARIMA_files/figure-html/SARIMA_1-1.png" width="672" /></p>
+<div class="sourceCode" id="cb275"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb275-1"><a href="arimasarimaモデル.html#cb275-1" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))</span>
+<span id="cb275-2"><a href="arimasarimaモデル.html#cb275-2" tabindex="-1"></a><span class="fu">acf</span>(x) <span class="co"># 自己相関(ACF)</span></span>
+<span id="cb275-3"><a href="arimasarimaモデル.html#cb275-3" tabindex="-1"></a><span class="fu">pacf</span>(x) <span class="co"># 偏自己相関(PACF)</span></span></code></pre></div>
+<p><img src="040-SARIMA_files/figure-html/SARIMA_1-2.png" width="672" /></p>
+<div class="sourceCode" id="cb276"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb276-1"><a href="arimasarimaモデル.html#cb276-1" tabindex="-1"></a><span class="co"># par(mfrow = c(1,1))</span></span></code></pre></div>
+<ul>
+<li>SARIMA<span class="math inline">\((0,1,0) \times (0,1,0)_{12}\)</span></li>
+</ul>
+<div class="sourceCode" id="cb277"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb277-1"><a href="arimasarimaモデル.html#cb277-1" tabindex="-1"></a><span class="fu">set.seed</span>(seed_val)</span>
+<span id="cb277-2"><a href="arimasarimaモデル.html#cb277-2" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">sim_sarima</span>(<span class="at">n =</span> tlen, <span class="at">model =</span> <span class="fu">list</span>(<span class="at">iorder =</span> <span class="dv">1</span>, <span class="at">siorder =</span> <span class="dv">1</span>, <span class="at">nseasons =</span> <span class="dv">12</span>, <span class="at">sigma2 =</span> <span class="dv">1</span>))</span>
+<span id="cb277-3"><a href="arimasarimaモデル.html#cb277-3" tabindex="-1"></a><span class="fu">ts.plot</span>(x, <span class="at">type =</span> <span class="st">&quot;l&quot;</span>) <span class="co"># 時系列プロット</span></span></code></pre></div>
+<p><img src="040-SARIMA_files/figure-html/SARIMA_2-1.png" width="672" /></p>
+<div class="sourceCode" id="cb278"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb278-1"><a href="arimasarimaモデル.html#cb278-1" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))</span>
+<span id="cb278-2"><a href="arimasarimaモデル.html#cb278-2" tabindex="-1"></a><span class="fu">acf</span>(x) <span class="co"># 自己相関(ACF)</span></span>
+<span id="cb278-3"><a href="arimasarimaモデル.html#cb278-3" tabindex="-1"></a><span class="fu">pacf</span>(x) <span class="co"># 偏自己相関(PACF)</span></span></code></pre></div>
+<p><img src="040-SARIMA_files/figure-html/SARIMA_2-2.png" width="672" /></p>
+<div class="sourceCode" id="cb279"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb279-1"><a href="arimasarimaモデル.html#cb279-1" tabindex="-1"></a><span class="co"># par(mfrow = c(1,1))</span></span></code></pre></div>
+<ul>
+<li>SARIMA<span class="math inline">\((0,1,0) \times (0,1,0)_{12}\)</span>に, 初期値xを指定したシミュレーション</li>
+</ul>
+<div class="sourceCode" id="cb280"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb280-1"><a href="arimasarimaモデル.html#cb280-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">sim_sarima</span>(<span class="at">n =</span> tlen, <span class="at">model =</span> <span class="fu">list</span>(<span class="at">iorder =</span> <span class="dv">1</span>, <span class="at">siorder =</span> <span class="dv">1</span>, <span class="at">nseasons =</span> <span class="dv">12</span>, <span class="at">sigma2 =</span> <span class="dv">1</span>), <span class="at">x =</span> <span class="fu">list</span>(<span class="at">init=</span>AirPassengers[<span class="dv">1</span><span class="sc">:</span><span class="dv">13</span>]))</span>
+<span id="cb280-2"><a href="arimasarimaモデル.html#cb280-2" tabindex="-1"></a><span class="fu">ts.plot</span>(x, <span class="at">type =</span> <span class="st">&quot;l&quot;</span>) <span class="co"># 時系列プロット</span></span></code></pre></div>
+<p><img src="040-SARIMA_files/figure-html/SARIMA_2-3-1.png" width="672" /></p>
+<div class="sourceCode" id="cb281"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb281-1"><a href="arimasarimaモデル.html#cb281-1" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))</span>
+<span id="cb281-2"><a href="arimasarimaモデル.html#cb281-2" tabindex="-1"></a><span class="fu">acf</span>(x) <span class="co"># 自己相関(ACF)</span></span>
+<span id="cb281-3"><a href="arimasarimaモデル.html#cb281-3" tabindex="-1"></a><span class="fu">pacf</span>(x) <span class="co"># 偏自己相関(PACF)</span></span></code></pre></div>
+<p><img src="040-SARIMA_files/figure-html/SARIMA_2-3-2.png" width="672" /></p>
+<div class="sourceCode" id="cb282"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb282-1"><a href="arimasarimaモデル.html#cb282-1" tabindex="-1"></a><span class="co"># par(mfrow = c(1,1))</span></span></code></pre></div>
+<ul>
+<li>SARIMA<span class="math inline">\((0,0,0) \times (1,0,1)_{12}\)</span></li>
+</ul>
+<div class="sourceCode" id="cb283"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb283-1"><a href="arimasarimaモデル.html#cb283-1" tabindex="-1"></a><span class="fu">set.seed</span>(seed_val)</span>
+<span id="cb283-2"><a href="arimasarimaモデル.html#cb283-2" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">sim_sarima</span>(<span class="at">n =</span> tlen, <span class="at">model =</span> <span class="fu">list</span>(<span class="at">sar =</span> <span class="fl">0.4</span>, <span class="at">sma =</span> <span class="fl">0.5</span>, <span class="at">iorder =</span> <span class="dv">0</span>, <span class="at">siorder =</span> <span class="dv">0</span>, <span class="at">nseasons =</span> <span class="dv">12</span>)) </span>
+<span id="cb283-3"><a href="arimasarimaモデル.html#cb283-3" tabindex="-1"></a><span class="fu">ts.plot</span>(x, <span class="at">type =</span> <span class="st">&quot;l&quot;</span>) <span class="co"># 時系列プロット</span></span></code></pre></div>
+<p><img src="040-SARIMA_files/figure-html/SARIMA_3-1.png" width="672" /></p>
+<div class="sourceCode" id="cb284"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb284-1"><a href="arimasarimaモデル.html#cb284-1" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))</span>
+<span id="cb284-2"><a href="arimasarimaモデル.html#cb284-2" tabindex="-1"></a><span class="fu">acf</span>(x) <span class="co"># 自己相関(ACF)</span></span>
+<span id="cb284-3"><a href="arimasarimaモデル.html#cb284-3" tabindex="-1"></a><span class="fu">pacf</span>(x) <span class="co"># 偏自己相関(PACF)</span></span></code></pre></div>
+<p><img src="040-SARIMA_files/figure-html/SARIMA_3-2.png" width="672" /></p>
+<div class="sourceCode" id="cb285"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb285-1"><a href="arimasarimaモデル.html#cb285-1" tabindex="-1"></a><span class="co"># par(mfrow = c(1,1))</span></span></code></pre></div>
+<ul>
+<li>SARIMA<span class="math inline">\((0,0,1) \times (1,0,1)_{12}\)</span></li>
+</ul>
+<div class="sourceCode" id="cb286"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb286-1"><a href="arimasarimaモデル.html#cb286-1" tabindex="-1"></a><span class="fu">set.seed</span>(seed_val)</span>
+<span id="cb286-2"><a href="arimasarimaモデル.html#cb286-2" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">sim_sarima</span>(<span class="at">n =</span> tlen, <span class="at">model =</span> <span class="fu">list</span>(<span class="at">ma =</span> <span class="fl">0.7</span>, <span class="at">sar =</span> <span class="fl">0.4</span>, <span class="at">sma =</span> <span class="fl">0.5</span>, <span class="at">iorder =</span> <span class="dv">0</span>, <span class="at">siorder =</span> <span class="dv">0</span>, <span class="at">nseasons =</span> <span class="dv">12</span>)) </span>
+<span id="cb286-3"><a href="arimasarimaモデル.html#cb286-3" tabindex="-1"></a><span class="fu">ts.plot</span>(x, <span class="at">type =</span> <span class="st">&quot;l&quot;</span>) <span class="co"># 時系列プロット</span></span></code></pre></div>
+<p><img src="040-SARIMA_files/figure-html/SARIMA_4-1.png" width="672" /></p>
+<div class="sourceCode" id="cb287"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb287-1"><a href="arimasarimaモデル.html#cb287-1" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))</span>
+<span id="cb287-2"><a href="arimasarimaモデル.html#cb287-2" tabindex="-1"></a><span class="fu">acf</span>(x) <span class="co"># 自己相関(ACF)</span></span>
+<span id="cb287-3"><a href="arimasarimaモデル.html#cb287-3" tabindex="-1"></a><span class="fu">pacf</span>(x) <span class="co"># 偏自己相関(PACF)</span></span></code></pre></div>
+<p><img src="040-SARIMA_files/figure-html/SARIMA_4-2.png" width="672" /></p>
+<div class="sourceCode" id="cb288"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb288-1"><a href="arimasarimaモデル.html#cb288-1" tabindex="-1"></a><span class="co"># par(mfrow = c(1,1))</span></span></code></pre></div>
+<ul>
+<li>SARIMA<span class="math inline">\((2,1,1) \times (1,1,1)_{12}\)</span></li>
+</ul>
+<div class="sourceCode" id="cb289"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb289-1"><a href="arimasarimaモデル.html#cb289-1" tabindex="-1"></a><span class="fu">set.seed</span>(seed_val)</span>
+<span id="cb289-2"><a href="arimasarimaモデル.html#cb289-2" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">sim_sarima</span>(<span class="at">n =</span> tlen, <span class="at">model =</span> <span class="fu">list</span>(<span class="at">ar =</span> <span class="fu">c</span>(<span class="fl">1.2</span>, <span class="sc">-</span><span class="fl">0.8</span>), <span class="at">ma =</span> <span class="fl">0.4</span>, <span class="at">sar =</span> <span class="fl">0.3</span>, <span class="at">sma =</span> <span class="fl">0.7</span>, <span class="at">iorder =</span> <span class="dv">1</span>, <span class="at">siorder =</span> <span class="dv">1</span>, <span class="at">nseasons =</span> <span class="dv">12</span>))</span>
+<span id="cb289-3"><a href="arimasarimaモデル.html#cb289-3" tabindex="-1"></a><span class="fu">ts.plot</span>(x, <span class="at">type =</span> <span class="st">&quot;l&quot;</span>) <span class="co"># 時系列プロット</span></span></code></pre></div>
+<p><img src="040-SARIMA_files/figure-html/SARIMA_5-1.png" width="672" /></p>
+<div class="sourceCode" id="cb290"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb290-1"><a href="arimasarimaモデル.html#cb290-1" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))</span>
+<span id="cb290-2"><a href="arimasarimaモデル.html#cb290-2" tabindex="-1"></a><span class="fu">acf</span>(x) <span class="co"># 自己相関(ACF)</span></span>
+<span id="cb290-3"><a href="arimasarimaモデル.html#cb290-3" tabindex="-1"></a><span class="fu">pacf</span>(x) <span class="co"># 偏自己相関(PACF)</span></span></code></pre></div>
+<p><img src="040-SARIMA_files/figure-html/SARIMA_5-2.png" width="672" /></p>
+<div class="sourceCode" id="cb291"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb291-1"><a href="arimasarimaモデル.html#cb291-1" tabindex="-1"></a><span class="co"># par(mfrow = c(1,1))</span></span></code></pre></div>
+</div>
+<div id="sarimaモデルの推定診断" class="section level2 hasAnchor" number="4.4">
+<h2><span class="header-section-number">4.4</span> SARIMAモデルの推定・診断<a href="arimasarimaモデル.html#sarimaモデルの推定診断" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li>関数<code>arima()</code>は, SARIMAモデルの推定が可能 (一方, 関数<code>arima.sim()</code>はSARIMAモデルのパスを生成できない)</li>
+<li>仮に<span class="math inline">\((p,d,q)=(2,1,1), (P,D,Q)=(1,1,1), s=12\)</span>を正しく選んだとすると,</li>
+</ul>
+<div class="sourceCode" id="cb292"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb292-1"><a href="arimasarimaモデル.html#cb292-1" tabindex="-1"></a>(x.fit <span class="ot">&lt;-</span> <span class="fu">arima</span>(x, <span class="at">order =</span> <span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">1</span>,<span class="dv">1</span>), <span class="at">seasonal =</span> <span class="fu">list</span>(<span class="at">order =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>), <span class="at">period =</span> <span class="dv">12</span>))) </span></code></pre></div>
+<pre><code>## 
+## Call:
+## arima(x = x, order = c(2, 1, 1), seasonal = list(order = c(1, 1, 1), period = 12))
+## 
+## Coefficients:
+##          ar1      ar2     ma1    sar1    sma1
+##       1.2462  -0.8486  0.3504  0.2220  1.0000
+## s.e.  0.0589   0.0558  0.0842  0.0909  0.2598
+## 
+## sigma^2 estimated as 0.7217:  log likelihood = -183.18,  aic = 378.35</code></pre>
+<div class="sourceCode" id="cb294"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb294-1"><a href="arimasarimaモデル.html#cb294-1" tabindex="-1"></a><span class="fu">tsdiag</span>(x.fit, <span class="at">gof =</span> <span class="dv">20</span>)  <span class="co"># モデル診断</span></span></code></pre></div>
+<p><img src="040-SARIMA_files/figure-html/SARIMA_est-1.png" width="672" /></p>
+<div class="sourceCode" id="cb295"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb295-1"><a href="arimasarimaモデル.html#cb295-1" tabindex="-1"></a><span class="fu">Box.test</span>(x.fit<span class="sc">$</span>residuals,<span class="at">lag =</span> <span class="dv">20</span>,<span class="at">type =</span> <span class="st">&#39;Ljung&#39;</span>)  <span class="co"># Ljung-Box検定</span></span></code></pre></div>
+<pre><code>## 
+##  Box-Ljung test
+## 
+## data:  x.fit$residuals
+## X-squared = 12.586, df = 20, p-value = 0.8944</code></pre>
+<p>※ ARIMAモデル指定の場合には, 定数項パラメータは推定されない (<code>include.mean</code>オプションは無視される)</p>
+<div id="パッケージforecastの利用-1" class="section level3 unnumbered hasAnchor">
+<h3>パッケージ<strong>forecast</strong>の利用<a href="arimasarimaモデル.html#パッケージforecastの利用-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>モデルの自動選択・推定</li>
+<li><strong>forecast</strong>の関数<code>auto.arima()</code>は, <code>seasonal</code>オプションによりSARIMAモデルを推定可能 (デフォルトは, <code>seasonal = T</code>)</li>
+</ul>
+<pre><code>auto.arima()
+- 一変量時系列データに対してARIMA/SARIMAモデルを適合し, 情報量基準(AIC, AICc, BICの一つ)の下で最良のARIMAモデルを返す
+- 所与の次数の制約条件の下で, 全ての可能なモデルの中からサーチを実行
+- パラメータのデフォルト値:
+  - max.p = 5 # pの最大値
+  - max.q = 5 # qの最大値
+  - max.P = 2 # Pの最大値
+  - max.Q = 2 # Qの最大値
+  - max.order = 5 # p+q+P+Qの最大値
+  - max.d = 2 # dの最大値
+  - max.D = 1 # Dの最大値</code></pre>
+<div class="sourceCode" id="cb298"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb298-1"><a href="arimasarimaモデル.html#cb298-1" tabindex="-1"></a><span class="fu">require</span>(forecast)</span></code></pre></div>
+<pre><code>## Loading required package: forecast</code></pre>
+<pre><code>## Registered S3 method overwritten by &#39;quantmod&#39;:
+##   method            from
+##   as.zoo.data.frame zoo</code></pre>
+<div class="sourceCode" id="cb301"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb301-1"><a href="arimasarimaモデル.html#cb301-1" tabindex="-1"></a>(x.fit3 <span class="ot">&lt;-</span> <span class="fu">auto.arima</span>(x)) <span class="co"># AIC/AICc(デフォルト)/BICによりモデルを自動選択&amp;推定</span></span></code></pre></div>
+<pre><code>## Series: x 
+## ARIMA(4,1,1) with drift 
+## 
+## Coefficients:
+##          ar1      ar2     ar3      ar4      ma1    drift
+##       2.2193  -2.3467  1.3199  -0.4084  -0.7300  -3.0955
+## s.e.  0.0898   0.1786  0.1721   0.0780   0.0598   0.4031
+## 
+## sigma^2 = 14.72:  log likelihood = -393.94
+## AIC=801.88   AICc=802.71   BIC=822.62</code></pre>
+<p>→ モデルは正しく推定はされてはいない. 定数項は大きな値</p>
+<div class="sourceCode" id="cb303"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb303-1"><a href="arimasarimaモデル.html#cb303-1" tabindex="-1"></a><span class="fu">tsdiag</span>(x.fit3, <span class="at">gof =</span> <span class="dv">20</span>)  <span class="co"># モデル診断</span></span></code></pre></div>
+<p><img src="040-SARIMA_files/figure-html/SARIMA__2-1.png" width="672" /></p>
+<div class="sourceCode" id="cb304"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb304-1"><a href="arimasarimaモデル.html#cb304-1" tabindex="-1"></a><span class="fu">Box.test</span>(x.fit3<span class="sc">$</span>residuals, <span class="at">lag =</span> <span class="dv">20</span>, <span class="at">type =</span> <span class="st">&#39;Ljung&#39;</span>)  <span class="co"># Ljung-Box検定</span></span></code></pre></div>
+<pre><code>## 
+##  Box-Ljung test
+## 
+## data:  x.fit3$residuals
+## X-squared = 145.11, df = 20, p-value &lt; 2.2e-16</code></pre>
+<p>→ 季節性も残留</p>
+<ul>
+<li>推定モデルを使った予測</li>
+</ul>
+<div class="sourceCode" id="cb306"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb306-1"><a href="arimasarimaモデル.html#cb306-1" tabindex="-1"></a>x.pred <span class="ot">&lt;-</span> <span class="fu">forecast</span>(x.fit3, <span class="at">h =</span> <span class="dv">20</span>)</span>
+<span id="cb306-2"><a href="arimasarimaモデル.html#cb306-2" tabindex="-1"></a><span class="fu">plot</span>(x.pred)　<span class="co"># </span></span></code></pre></div>
+<p><img src="040-SARIMA_files/figure-html/SARIMA___-1.png" width="672" /></p>
+</div>
+</div>
+<div id="データ分析例" class="section level2 hasAnchor" number="4.5">
+<h2><span class="header-section-number">4.5</span> データ分析例<a href="arimasarimaモデル.html#データ分析例" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="データセット-bonds" class="section level3 unnumbered hasAnchor">
+<h3>データセット: bonds<a href="arimasarimaモデル.html#データセット-bonds" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<pre><code>bonds {expsmooth}
+- 米国10年債利回り(年率) , 1994.1〜2004.5, 月次
+- データ出所: Hyndman, R.J., Koehler, A.B., Ord, J.K., and Snyder, R.D., (2008). Forecasting with exponential smoothing: the state space approach, Springer.</code></pre>
+<ul>
+<li>コード出所 (一部改変): # Hyndman and Khandakar (JSS, 2008)</li>
+<li><a href="https://www.jstatsoft.org/article/view/v027i03" class="uri">https://www.jstatsoft.org/article/view/v027i03</a></li>
+</ul>
+<div class="sourceCode" id="cb308"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb308-1"><a href="arimasarimaモデル.html#cb308-1" tabindex="-1"></a><span class="fu">library</span>(forecast)</span>
+<span id="cb308-2"><a href="arimasarimaモデル.html#cb308-2" tabindex="-1"></a><span class="fu">library</span>(expsmooth) <span class="co"># required for the data</span></span></code></pre></div>
+<p>季節性成分なしARIMAモデルを適合</p>
+<div class="sourceCode" id="cb309"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb309-1"><a href="arimasarimaモデル.html#cb309-1" tabindex="-1"></a><span class="co"># Seasonal成分なし</span></span>
+<span id="cb309-2"><a href="arimasarimaモデル.html#cb309-2" tabindex="-1"></a>bnd_aafit <span class="ot">&lt;-</span> <span class="fu">auto.arima</span>(bonds,</span>
+<span id="cb309-3"><a href="arimasarimaモデル.html#cb309-3" tabindex="-1"></a>                    <span class="at">max.P =</span> <span class="dv">0</span>, <span class="at">max.Q =</span> <span class="dv">0</span>, <span class="at">D =</span> <span class="dv">0</span>,</span>
+<span id="cb309-4"><a href="arimasarimaモデル.html#cb309-4" tabindex="-1"></a>                    <span class="at">approximation =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb309-5"><a href="arimasarimaモデル.html#cb309-5" tabindex="-1"></a>bnd_aafit</span></code></pre></div>
+<pre><code>## Series: bonds 
+## ARIMA(0,1,1) 
+## 
+## Coefficients:
+##         ma1
+##       0.322
+## s.e.  0.090
+## 
+## sigma^2 = 0.05675:  log likelihood = 2.38
+## AIC=-0.77   AICc=-0.67   BIC=4.88</code></pre>
+<p>→ AICc基準 (デフォルト設定) の下で, 次のARIMA<span class="math inline">\((0,1,1)\equiv\)</span>IMA<span class="math inline">\((1,1)\)</span>モデルを最良モデルとして選択.
+<span class="math display">\[
+X_t = Z_t + 0.322 Z_{t-1}
+\]</span></p>
+<p>モデル残差のチェック</p>
+<div class="sourceCode" id="cb311"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb311-1"><a href="arimasarimaモデル.html#cb311-1" tabindex="-1"></a><span class="fu">tsdiag</span>(bnd_aafit)</span></code></pre></div>
+<p><img src="040-SARIMA_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<p>適合ARIMAモデルを使って予測</p>
+<div class="sourceCode" id="cb312"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb312-1"><a href="arimasarimaモデル.html#cb312-1" tabindex="-1"></a>bnd_fcast <span class="ot">&lt;-</span> <span class="fu">forecast</span>(bnd_aafit)</span>
+<span id="cb312-2"><a href="arimasarimaモデル.html#cb312-2" tabindex="-1"></a><span class="co"># 時系列プロット</span></span>
+<span id="cb312-3"><a href="arimasarimaモデル.html#cb312-3" tabindex="-1"></a><span class="fu">plot</span>(bnd_fcast)</span></code></pre></div>
+<p><img src="040-SARIMA_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<p>予測値 (点予測) は青線, および, 予測区間は青線を囲む色のついた領域 (デフォルトでは, 内側の濃い色の領域が信頼水準80%, 外側の薄い色が95%) で表示される. 予測の長さは, デフォルトでは,
+周期があれば, その2倍, なければ (周期=1) 10 である.</p>
+<p>適合結果および予測結果の要約</p>
+<div class="sourceCode" id="cb313"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb313-1"><a href="arimasarimaモデル.html#cb313-1" tabindex="-1"></a><span class="fu">summary</span>(bnd_fcast)</span></code></pre></div>
+<pre><code>## 
+## Forecast method: ARIMA(0,1,1)
+## 
+## Model Information:
+## Series: bonds 
+## ARIMA(0,1,1) 
+## 
+## Coefficients:
+##         ma1
+##       0.322
+## s.e.  0.090
+## 
+## sigma^2 = 0.05675:  log likelihood = 2.38
+## AIC=-0.77   AICc=-0.67   BIC=4.88
+## 
+## Error measures:
+##                        ME      RMSE       MAE        MPE     MAPE      MASE
+## Training set -0.006475772 0.2363103 0.1948763 -0.1916236 3.544951 0.2414321
+##                     ACF1
+## Training set -0.01876417
+## 
+## Forecasts:
+##          Point Forecast    Lo 80    Hi 80    Lo 95    Hi 95
+## Jun 2004       4.761471 4.456175 5.066767 4.294561 5.228381
+## Jul 2004       4.761471 4.255410 5.267532 3.987517 5.535425
+## Aug 2004       4.761471 4.114176 5.408766 3.771519 5.751423
+## Sep 2004       4.761471 3.998659 5.524283 3.594850 5.928092
+## Oct 2004       4.761471 3.898468 5.624474 3.441621 6.081321
+## Nov 2004       4.761471 3.808755 5.714187 3.304418 6.218524
+## Dec 2004       4.761471 3.726793 5.796149 3.179067 6.343875
+## Jan 2005       4.761471 3.650862 5.872080 3.062941 6.460001
+## Feb 2005       4.761471 3.579801 5.943141 2.954263 6.568679
+## Mar 2005       4.761471 3.512777 6.010165 2.851758 6.671184
+## Apr 2005       4.761471 3.449172 6.073770 2.754483 6.768459
+## May 2005       4.761471 3.388510 6.134432 2.661709 6.861233
+## Jun 2005       4.761471 3.330418 6.192524 2.572864 6.950078
+## Jul 2005       4.761471 3.274593 6.248349 2.487488 7.035454
+## Aug 2005       4.761471 3.220790 6.302152 2.405203 7.117739
+## Sep 2005       4.761471 3.168803 6.354139 2.325696 7.197246
+## Oct 2005       4.761471 3.118461 6.404481 2.248704 7.274238
+## Nov 2005       4.761471 3.069616 6.453326 2.174001 7.348941
+## Dec 2005       4.761471 3.022141 6.500801 2.101396 7.421546
+## Jan 2006       4.761471 2.975929 6.547013 2.030720 7.492222
+## Feb 2006       4.761471 2.930883 6.592059 1.961828 7.561114
+## Mar 2006       4.761471 2.886919 6.636023 1.894592 7.628350
+## Apr 2006       4.761471 2.843963 6.678979 1.828896 7.694046
+## May 2006       4.761471 2.801948 6.720994 1.764640 7.758302</code></pre>
+</div>
+<div id="データセット-airpassengers" class="section level3 unnumbered hasAnchor">
+<h3>データセット: AirPassengers<a href="arimasarimaモデル.html#データセット-airpassengers" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb315"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb315-1"><a href="arimasarimaモデル.html#cb315-1" tabindex="-1"></a><span class="co"># データセット: AirPassengers</span></span>
+<span id="cb315-2"><a href="arimasarimaモデル.html#cb315-2" tabindex="-1"></a>ap <span class="ot">&lt;-</span> AirPassengers</span></code></pre></div>
+<p>(デフォルトの制約条件下) SARIMAモデルを選択・適合</p>
+<div class="sourceCode" id="cb316"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb316-1"><a href="arimasarimaモデル.html#cb316-1" tabindex="-1"></a>ap_aafit <span class="ot">&lt;-</span> <span class="fu">auto.arima</span>(ap,</span>
+<span id="cb316-2"><a href="arimasarimaモデル.html#cb316-2" tabindex="-1"></a>                    <span class="at">approximation =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb316-3"><a href="arimasarimaモデル.html#cb316-3" tabindex="-1"></a>ap_aafit</span></code></pre></div>
+<pre><code>## Series: ap 
+## ARIMA(2,1,1)(0,1,0)[12] 
+## 
+## Coefficients:
+##          ar1     ar2      ma1
+##       0.5960  0.2143  -0.9819
+## s.e.  0.0888  0.0880   0.0292
+## 
+## sigma^2 = 132.3:  log likelihood = -504.92
+## AIC=1017.85   AICc=1018.17   BIC=1029.35</code></pre>
+<p>→ AICc基準 (デフォルト設定) の下で, 次のARIMA<span class="math inline">\((2,1,1)(0,1,0)_{12}\)</span> モデルを最良モデルとして選択.
+<span class="math display">\[
+(1 - 0.5960 \phi_1 - 0.2143 \phi_2) (1 - B) (1 - B^{12}) X_t = Z_t - 0.9819 Z_{t-1}
+\]</span></p>
+<p>モデル残差のチェック</p>
+<div class="sourceCode" id="cb318"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb318-1"><a href="arimasarimaモデル.html#cb318-1" tabindex="-1"></a><span class="fu">tsdiag</span>(ap_aafit)</span></code></pre></div>
+<p><img src="040-SARIMA_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
+<p>適合SARIMAモデルを使って予測</p>
+<div class="sourceCode" id="cb319"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb319-1"><a href="arimasarimaモデル.html#cb319-1" tabindex="-1"></a>ap_fcast <span class="ot">&lt;-</span> <span class="fu">forecast</span>(ap_aafit)</span>
+<span id="cb319-2"><a href="arimasarimaモデル.html#cb319-2" tabindex="-1"></a><span class="co"># 時系列プロット</span></span>
+<span id="cb319-3"><a href="arimasarimaモデル.html#cb319-3" tabindex="-1"></a><span class="fu">plot</span>(ap_fcast)</span></code></pre></div>
+<p><img src="040-SARIMA_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
+<p>24ヶ月先 (デフォルト設定により, 周期<span class="math inline">\(s=12 \times 2\)</span>倍) まで
+予測を行っている. 先の米国債利回りデータと比べても,
+予測区間が非常に狭い.</p>
+<p>適合結果および予測結果の要約</p>
+<div class="sourceCode" id="cb320"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb320-1"><a href="arimasarimaモデル.html#cb320-1" tabindex="-1"></a><span class="fu">summary</span>(ap_fcast)</span></code></pre></div>
+<pre><code>## 
+## Forecast method: ARIMA(2,1,1)(0,1,0)[12]
+## 
+## Model Information:
+## Series: ap 
+## ARIMA(2,1,1)(0,1,0)[12] 
+## 
+## Coefficients:
+##          ar1     ar2      ma1
+##       0.5960  0.2143  -0.9819
+## s.e.  0.0888  0.0880   0.0292
+## 
+## sigma^2 = 132.3:  log likelihood = -504.92
+## AIC=1017.85   AICc=1018.17   BIC=1029.35
+## 
+## Error measures:
+##                    ME     RMSE      MAE       MPE     MAPE     MASE
+## Training set 1.342306 10.84619 7.867539 0.4206996 2.800458 0.245628
+##                      ACF1
+## Training set -0.001248451
+## 
+## Forecasts:
+##          Point Forecast    Lo 80    Hi 80    Lo 95    Hi 95
+## Jan 1961       445.6349 430.8903 460.3794 423.0850 468.1847
+## Feb 1961       420.3950 403.0907 437.6993 393.9303 446.8596
+## Mar 1961       449.1983 429.7726 468.6240 419.4892 478.9074
+## Apr 1961       491.8399 471.0269 512.6529 460.0092 523.6706
+## May 1961       503.3944 481.5559 525.2330 469.9953 536.7936
+## Jun 1961       566.8624 544.2637 589.4611 532.3007 601.4242
+## Jul 1961       654.2601 631.0820 677.4383 618.8122 689.7081
+## Aug 1961       638.5974 614.9704 662.2245 602.4629 674.7319
+## Sep 1961       540.8837 516.9028 564.8646 504.2080 577.5593
+## Oct 1961       494.1266 469.8624 518.3908 457.0177 531.2355
+## Nov 1961       423.3327 398.8381 447.8272 385.8715 460.7939
+## Dec 1961       465.5075 440.8228 490.1922 427.7555 503.2595
+## Jan 1962       479.2908 448.9986 509.5830 432.9628 525.6187
+## Feb 1962       454.1768 421.7183 486.6352 404.5359 503.8177
+## Mar 1962       483.0869 448.7343 517.4395 430.5491 535.6247
+## Apr 1962       525.8192 490.1122 561.5262 471.2101 580.4283
+## May 1962       537.4506 500.6862 574.2150 481.2243 593.6769
+## Jun 1962       600.9838 563.3924 638.5753 543.4927 658.4750
+## Jul 1962       688.4369 650.1833 726.6905 629.9331 746.9408
+## Aug 1962       672.8212 634.0292 711.6133 613.4939 732.1485
+## Sep 1962       575.1474 535.9102 614.3845 515.1393 635.1555
+## Oct 1962       528.4241 488.8131 568.0350 467.8443 589.0038
+## Nov 1962       457.6589 417.7292 497.5885 396.5918 518.7259
+## Dec 1962       499.8581 459.6529 540.0633 438.3695 561.3466</code></pre>
+</div>
+</div>
+<div id="外生的トレンドがあるケース" class="section level2 hasAnchor" number="4.6">
+<h2><span class="header-section-number">4.6</span> 外生的トレンドがあるケース<a href="arimasarimaモデル.html#外生的トレンドがあるケース" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>以下のような引数を使って, 外生的トレンドを指定できる:</p>
+<ul>
+<li><code>sim_sarima()</code>: <code>xintercept</code>オプション</li>
+<li><code>arima()</code>, <code>auto.arima()</code>: <code>xreg</code>オプション</li>
+</ul>
+<div class="sourceCode" id="cb322"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb322-1"><a href="arimasarimaモデル.html#cb322-1" tabindex="-1"></a><span class="fu">set.seed</span>(seed_val)</span>
+<span id="cb322-2"><a href="arimasarimaモデル.html#cb322-2" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">sim_sarima</span>(<span class="at">n =</span> tlen, <span class="at">model =</span> <span class="fu">list</span>(<span class="at">sma =</span> <span class="fl">0.4</span>, <span class="at">ma =</span> <span class="fl">0.4</span>, <span class="at">sar =</span> <span class="fl">0.8</span>, <span class="at">ar =</span> <span class="fl">0.5</span>, </span>
+<span id="cb322-3"><a href="arimasarimaモデル.html#cb322-3" tabindex="-1"></a>    <span class="at">nseasons =</span> <span class="dv">12</span>, <span class="at">sigma2 =</span> <span class="dv">1</span>), <span class="at">xintercept =</span> (<span class="dv">1</span><span class="sc">:</span>tlen) <span class="sc">*</span> <span class="fl">0.05</span>)</span>
+<span id="cb322-4"><a href="arimasarimaモデル.html#cb322-4" tabindex="-1"></a><span class="fu">ts.plot</span>(x, <span class="at">type =</span> <span class="st">&quot;l&quot;</span>) <span class="co"># 時系列プロット</span></span></code></pre></div>
+<p><img src="040-SARIMA_files/figure-html/SARIMA____-1.png" width="672" /></p>
+<div class="sourceCode" id="cb323"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb323-1"><a href="arimasarimaモデル.html#cb323-1" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))</span>
+<span id="cb323-2"><a href="arimasarimaモデル.html#cb323-2" tabindex="-1"></a><span class="fu">acf</span>(x) <span class="co"># 自己相関(ACF)</span></span>
+<span id="cb323-3"><a href="arimasarimaモデル.html#cb323-3" tabindex="-1"></a><span class="fu">pacf</span>(x) <span class="co"># 偏自己相関(PACF)</span></span></code></pre></div>
+<p><img src="040-SARIMA_files/figure-html/SARIMA____-2.png" width="672" /></p>
+<div class="sourceCode" id="cb324"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb324-1"><a href="arimasarimaモデル.html#cb324-1" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">1</span>))</span></code></pre></div>
+<ul>
+<li>モデル次数, 線形トレンドを正しく指定した場合の<code>arima()</code>による適合</li>
+</ul>
+<div class="sourceCode" id="cb325"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb325-1"><a href="arimasarimaモデル.html#cb325-1" tabindex="-1"></a>(x.fit <span class="ot">&lt;-</span> <span class="fu">arima</span>(x,<span class="at">order =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>), <span class="at">seasonal =</span> <span class="fu">list</span>(<span class="at">order =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>), <span class="at">period =</span> <span class="dv">12</span>), <span class="at">xreg =</span> <span class="dv">1</span><span class="sc">:</span>tlen)) </span></code></pre></div>
+<pre><code>## 
+## Call:
+## arima(x = x, order = c(1, 0, 1), seasonal = list(order = c(1, 0, 1), period = 12), 
+##     xreg = 1:tlen)
+## 
+## Coefficients:
+##          ar1     ma1    sar1    sma1  intercept  1:tlen
+##       0.7606  0.1744  0.7531  0.6228    -5.2907  0.3521
+## s.e.  0.0656  0.1134  0.0576  0.0957     3.0592  0.0310
+## 
+## sigma^2 estimated as 0.9208:  log likelihood = -211.59,  aic = 437.19</code></pre>
+<div class="sourceCode" id="cb327"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb327-1"><a href="arimasarimaモデル.html#cb327-1" tabindex="-1"></a><span class="fu">tsdiag</span>(x.fit, <span class="at">gof =</span> <span class="dv">20</span>)  <span class="co"># モデル診断</span></span></code></pre></div>
+<p><img src="040-SARIMA_files/figure-html/SARIMA__est1-1.png" width="672" /></p>
+<div class="sourceCode" id="cb328"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb328-1"><a href="arimasarimaモデル.html#cb328-1" tabindex="-1"></a><span class="fu">Box.test</span>(x.fit<span class="sc">$</span>residuals, <span class="at">lag =</span> <span class="dv">20</span>, <span class="at">type =</span> <span class="st">&#39;Ljung&#39;</span>)  <span class="co"># Ljung-Box検定</span></span></code></pre></div>
+<pre><code>## 
+##  Box-Ljung test
+## 
+## data:  x.fit$residuals
+## X-squared = 11.261, df = 20, p-value = 0.9392</code></pre>
+<ul>
+<li>線形トレンドを正しく指定した場合の<code>auto.arima()</code>による適合</li>
+</ul>
+<div class="sourceCode" id="cb330"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb330-1"><a href="arimasarimaモデル.html#cb330-1" tabindex="-1"></a><span class="fu">require</span>(forecast)</span>
+<span id="cb330-2"><a href="arimasarimaモデル.html#cb330-2" tabindex="-1"></a>(x.fit3 <span class="ot">&lt;-</span> <span class="fu">auto.arima</span>(x, <span class="at">xreg =</span> <span class="dv">1</span><span class="sc">:</span>tlen)) <span class="co"># AIC/AICc(デフォルト)/BICによりモデルを自動選択&amp;推定</span></span></code></pre></div>
+<pre><code>## Series: x 
+## Regression with ARIMA(1,0,0) errors 
+## 
+## Coefficients:
+##          ar1  intercept    xreg
+##       0.8291    -8.3410  0.3737
+## s.e.  0.0485     1.9888  0.0233
+## 
+## sigma^2 = 4.862:  log likelihood = -317.26
+## AIC=642.53   AICc=642.81   BIC=654.41</code></pre>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="armapqモデル.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

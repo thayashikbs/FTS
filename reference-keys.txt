@@ -52,4 +52,4 @@ sarimapdqtimes-pdq_sモデル-周期sとは
 sarimaモデルのパス生成-パッケージsarimaの利用
 sarimaモデルの推定診断
 データ分析例
-外生的トレンドがあるケース
+外生変数があるケース

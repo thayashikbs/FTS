@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>2 定常性と自己相関関数 | 金融時系列解析</title>
   <meta name="description" content="2 定常性と自己相関関数 | 金融時系列解析" />
-  <meta name="generator" content="bookdown 0.36 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.40 and GitBook 2.6.7" />
 
   <meta property="og:title" content="2 定常性と自己相関関数 | 金融時系列解析" />
   <meta property="og:type" content="book" />
@@ -65,7 +65,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -213,7 +213,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="arimasarimaモデル.html"><a href="arimasarimaモデル.html#データセット-bonds"><i class="fa fa-check"></i>データセット: bonds</a></li>
 <li class="chapter" data-level="" data-path="arimasarimaモデル.html"><a href="arimasarimaモデル.html#データセット-airpassengers"><i class="fa fa-check"></i>データセット: AirPassengers</a></li>
 </ul></li>
-<li class="chapter" data-level="4.6" data-path="arimasarimaモデル.html"><a href="arimasarimaモデル.html#外生的トレンドがあるケース"><i class="fa fa-check"></i><b>4.6</b> 外生的トレンドがあるケース</a></li>
+<li class="chapter" data-level="4.6" data-path="arimasarimaモデル.html"><a href="arimasarimaモデル.html#外生変数があるケース"><i class="fa fa-check"></i><b>4.6</b> 外生変数があるケース</a></li>
 </ul></li>
 </ul>
 
@@ -382,41 +382,41 @@ https://www.nishiyama.kier.kyoto-u.ac.jp/Advanced_Econometrics2010.pdf
 <h3><span class="header-section-number">2.4.1</span> 白色ノイズ<a href="定常性と自己相関関数.html#白色ノイズ" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>正規乱数を使って生成 → <strong>正規白色ノイズ (Gaussian white noise)</strong>と呼ばれる.
 <!--- - CM, pp.68-- --></p>
-<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="定常性と自己相関関数.html#cb61-1" tabindex="-1"></a><span class="co"># 乱数のシード設定</span></span>
-<span id="cb61-2"><a href="定常性と自己相関関数.html#cb61-2" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
-<span id="cb61-3"><a href="定常性と自己相関関数.html#cb61-3" tabindex="-1"></a>w <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">100</span>)</span>
-<span id="cb61-4"><a href="定常性と自己相関関数.html#cb61-4" tabindex="-1"></a><span class="co"># 時系列プロット</span></span>
-<span id="cb61-5"><a href="定常性と自己相関関数.html#cb61-5" tabindex="-1"></a><span class="fu">plot</span>(w, <span class="at">type =</span> <span class="st">&quot;l&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="定常性と自己相関関数.html#cb62-1" tabindex="-1"></a><span class="co"># 乱数のシード設定</span></span>
+<span id="cb62-2"><a href="定常性と自己相関関数.html#cb62-2" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
+<span id="cb62-3"><a href="定常性と自己相関関数.html#cb62-3" tabindex="-1"></a>w <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">100</span>)</span>
+<span id="cb62-4"><a href="定常性と自己相関関数.html#cb62-4" tabindex="-1"></a><span class="co"># 時系列プロット</span></span>
+<span id="cb62-5"><a href="定常性と自己相関関数.html#cb62-5" tabindex="-1"></a><span class="fu">plot</span>(w, <span class="at">type =</span> <span class="st">&quot;l&quot;</span>)</span></code></pre></div>
 <p><img src="022-ACF_files/figure-html/WhiteNoise-1.png" width="75%" /></p>
-<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="定常性と自己相関関数.html#cb62-1" tabindex="-1"></a><span class="co"># ヒストグラム</span></span>
-<span id="cb62-2"><a href="定常性と自己相関関数.html#cb62-2" tabindex="-1"></a>z <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="sc">-</span><span class="dv">3</span>, <span class="dv">3</span>, <span class="at">length =</span> <span class="dv">1000</span>)</span>
-<span id="cb62-3"><a href="定常性と自己相関関数.html#cb62-3" tabindex="-1"></a><span class="fu">hist</span>(<span class="fu">rnorm</span>(<span class="dv">100</span>), <span class="at">prob =</span> T, <span class="at">xlim =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">3</span>, <span class="dv">3</span>)); <span class="fu">points</span>(z, <span class="fu">dnorm</span>(z), <span class="at">type =</span> <span class="st">&quot;l&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="定常性と自己相関関数.html#cb63-1" tabindex="-1"></a><span class="co"># ヒストグラム</span></span>
+<span id="cb63-2"><a href="定常性と自己相関関数.html#cb63-2" tabindex="-1"></a>z <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="sc">-</span><span class="dv">3</span>, <span class="dv">3</span>, <span class="at">length =</span> <span class="dv">1000</span>)</span>
+<span id="cb63-3"><a href="定常性と自己相関関数.html#cb63-3" tabindex="-1"></a><span class="fu">hist</span>(<span class="fu">rnorm</span>(<span class="dv">100</span>), <span class="at">prob =</span> T, <span class="at">xlim =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">3</span>, <span class="dv">3</span>)); <span class="fu">points</span>(z, <span class="fu">dnorm</span>(z), <span class="at">type =</span> <span class="st">&quot;l&quot;</span>)</span></code></pre></div>
 <p><img src="022-ACF_files/figure-html/WhiteNoise-2.png" width="75%" /></p>
-<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="定常性と自己相関関数.html#cb63-1" tabindex="-1"></a><span class="co"># 自己相関関数(ACF)</span></span>
-<span id="cb63-2"><a href="定常性と自己相関関数.html#cb63-2" tabindex="-1"></a><span class="fu">acf</span>(w)</span></code></pre></div>
+<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="定常性と自己相関関数.html#cb64-1" tabindex="-1"></a><span class="co"># 自己相関関数(ACF)</span></span>
+<span id="cb64-2"><a href="定常性と自己相関関数.html#cb64-2" tabindex="-1"></a><span class="fu">acf</span>(w)</span></code></pre></div>
 <p><img src="022-ACF_files/figure-html/WhiteNoise-3.png" width="75%" /></p>
-<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="定常性と自己相関関数.html#cb64-1" tabindex="-1"></a><span class="co"># 2乗系列のACF</span></span>
-<span id="cb64-2"><a href="定常性と自己相関関数.html#cb64-2" tabindex="-1"></a><span class="fu">acf</span>(w <span class="sc">^</span> <span class="dv">2</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="定常性と自己相関関数.html#cb65-1" tabindex="-1"></a><span class="co"># 2乗系列のACF</span></span>
+<span id="cb65-2"><a href="定常性と自己相関関数.html#cb65-2" tabindex="-1"></a><span class="fu">acf</span>(w <span class="sc">^</span> <span class="dv">2</span>)</span></code></pre></div>
 <p><img src="022-ACF_files/figure-html/WhiteNoise-4.png" width="75%" /></p>
-<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="定常性と自己相関関数.html#cb65-1" tabindex="-1"></a><span class="co"># 絶対値系列のACF</span></span>
-<span id="cb65-2"><a href="定常性と自己相関関数.html#cb65-2" tabindex="-1"></a><span class="fu">acf</span>(<span class="fu">abs</span>(w))</span></code></pre></div>
+<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb66-1"><a href="定常性と自己相関関数.html#cb66-1" tabindex="-1"></a><span class="co"># 絶対値系列のACF</span></span>
+<span id="cb66-2"><a href="定常性と自己相関関数.html#cb66-2" tabindex="-1"></a><span class="fu">acf</span>(<span class="fu">abs</span>(w))</span></code></pre></div>
 <p><img src="022-ACF_files/figure-html/WhiteNoise-5.png" width="75%" /></p>
 </div>
 <div id="ランダムウォーク" class="section level3 hasAnchor" number="2.4.2">
 <h3><span class="header-section-number">2.4.2</span> ランダムウォーク<a href="定常性と自己相関関数.html#ランダムウォーク" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>正規乱数を使って生成 → <strong>正規ランダムウォーク (Gaussian random walk)</strong>と呼ばれる.</p>
-<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb66-1"><a href="定常性と自己相関関数.html#cb66-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">cumsum</span>(w)</span>
-<span id="cb66-2"><a href="定常性と自己相関関数.html#cb66-2" tabindex="-1"></a><span class="co"># 時系列プロット</span></span>
-<span id="cb66-3"><a href="定常性と自己相関関数.html#cb66-3" tabindex="-1"></a><span class="fu">plot</span>(x, <span class="at">type =</span> <span class="st">&quot;l&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="定常性と自己相関関数.html#cb67-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">cumsum</span>(w)</span>
+<span id="cb67-2"><a href="定常性と自己相関関数.html#cb67-2" tabindex="-1"></a><span class="co"># 時系列プロット</span></span>
+<span id="cb67-3"><a href="定常性と自己相関関数.html#cb67-3" tabindex="-1"></a><span class="fu">plot</span>(x, <span class="at">type =</span> <span class="st">&quot;l&quot;</span>)</span></code></pre></div>
 <p><img src="022-ACF_files/figure-html/RandomWalk-1.png" width="75%" /></p>
-<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="定常性と自己相関関数.html#cb67-1" tabindex="-1"></a><span class="co"># ACF</span></span>
-<span id="cb67-2"><a href="定常性と自己相関関数.html#cb67-2" tabindex="-1"></a><span class="fu">acf</span>(x)</span></code></pre></div>
+<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb68-1"><a href="定常性と自己相関関数.html#cb68-1" tabindex="-1"></a><span class="co"># ACF</span></span>
+<span id="cb68-2"><a href="定常性と自己相関関数.html#cb68-2" tabindex="-1"></a><span class="fu">acf</span>(x)</span></code></pre></div>
 <p><img src="022-ACF_files/figure-html/RandomWalk-2.png" width="75%" /></p>
-<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb68-1"><a href="定常性と自己相関関数.html#cb68-1" tabindex="-1"></a><span class="co"># 2乗系列のACF</span></span>
-<span id="cb68-2"><a href="定常性と自己相関関数.html#cb68-2" tabindex="-1"></a><span class="fu">acf</span>(x <span class="sc">^</span> <span class="dv">2</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="定常性と自己相関関数.html#cb69-1" tabindex="-1"></a><span class="co"># 2乗系列のACF</span></span>
+<span id="cb69-2"><a href="定常性と自己相関関数.html#cb69-2" tabindex="-1"></a><span class="fu">acf</span>(x <span class="sc">^</span> <span class="dv">2</span>)</span></code></pre></div>
 <p><img src="022-ACF_files/figure-html/RandomWalk-3.png" width="75%" /></p>
-<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="定常性と自己相関関数.html#cb69-1" tabindex="-1"></a><span class="co"># 絶対値系列のACF</span></span>
-<span id="cb69-2"><a href="定常性と自己相関関数.html#cb69-2" tabindex="-1"></a><span class="fu">acf</span>(<span class="fu">abs</span>(x))</span></code></pre></div>
+<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb70-1"><a href="定常性と自己相関関数.html#cb70-1" tabindex="-1"></a><span class="co"># 絶対値系列のACF</span></span>
+<span id="cb70-2"><a href="定常性と自己相関関数.html#cb70-2" tabindex="-1"></a><span class="fu">acf</span>(<span class="fu">abs</span>(x))</span></code></pre></div>
 <p><img src="022-ACF_files/figure-html/RandomWalk-4.png" width="75%" /></p>
 </div>
 <div id="非定常成分を含む時系列" class="section level3 hasAnchor" number="2.4.3">
@@ -426,9 +426,9 @@ https://www.nishiyama.kier.kyoto-u.ac.jp/Advanced_Econometrics2010.pdf
 <p>1章でも登場したAirPassengersデータを利用して,
 ACFを作成する.
 特に, 同データに見られる非定常性成分であるトレンドや季節性がACFの形状にどのように影響するかを確認する.</p>
-<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb70-1"><a href="定常性と自己相関関数.html#cb70-1" tabindex="-1"></a><span class="fu">data</span>(AirPassengers)</span>
-<span id="cb70-2"><a href="定常性と自己相関関数.html#cb70-2" tabindex="-1"></a>ap <span class="ot">&lt;-</span> AirPassengers</span>
-<span id="cb70-3"><a href="定常性と自己相関関数.html#cb70-3" tabindex="-1"></a><span class="fu">acf</span>(ap) </span></code></pre></div>
+<div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb71-1"><a href="定常性と自己相関関数.html#cb71-1" tabindex="-1"></a><span class="fu">data</span>(AirPassengers)</span>
+<span id="cb71-2"><a href="定常性と自己相関関数.html#cb71-2" tabindex="-1"></a>ap <span class="ot">&lt;-</span> AirPassengers</span>
+<span id="cb71-3"><a href="定常性と自己相関関数.html#cb71-3" tabindex="-1"></a><span class="fu">acf</span>(ap) </span></code></pre></div>
 <p><img src="022-ACF_files/figure-html/AirPassengers-1.png" width="75%" />
 ACFはゆっくり減衰しつつ, 横軸が1.0 (月次データのラグ=12に対応) で,
 山が作られることが観察される.</p>
@@ -437,62 +437,62 @@ ACFはゆっくり減衰しつつ, 横軸が1.0 (月次データのラグ=12に�
 <h4><span class="header-section-number">2.4.3.2</span> 時系列の分解<a href="定常性と自己相関関数.html#時系列の分解" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>関数<code>decompose()</code>を利用して積分解する.
 - トレンド成分</p>
-<div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb71-1"><a href="定常性と自己相関関数.html#cb71-1" tabindex="-1"></a><span class="co"># 乗法モデルを仮定</span></span>
-<span id="cb71-2"><a href="定常性と自己相関関数.html#cb71-2" tabindex="-1"></a>ap_decom <span class="ot">&lt;-</span> <span class="fu">decompose</span>(ap, <span class="st">&quot;multiplicative&quot;</span>)</span>
-<span id="cb71-3"><a href="定常性と自己相関関数.html#cb71-3" tabindex="-1"></a><span class="co"># トレンド成分</span></span>
-<span id="cb71-4"><a href="定常性と自己相関関数.html#cb71-4" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">ts</span>(ap_decom<span class="sc">$</span>trend[<span class="dv">7</span><span class="sc">:</span><span class="dv">138</span>]))</span></code></pre></div>
+<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb72-1"><a href="定常性と自己相関関数.html#cb72-1" tabindex="-1"></a><span class="co"># 乗法モデルを仮定</span></span>
+<span id="cb72-2"><a href="定常性と自己相関関数.html#cb72-2" tabindex="-1"></a>ap_decom <span class="ot">&lt;-</span> <span class="fu">decompose</span>(ap, <span class="st">&quot;multiplicative&quot;</span>)</span>
+<span id="cb72-3"><a href="定常性と自己相関関数.html#cb72-3" tabindex="-1"></a><span class="co"># トレンド成分</span></span>
+<span id="cb72-4"><a href="定常性と自己相関関数.html#cb72-4" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">ts</span>(ap_decom<span class="sc">$</span>trend[<span class="dv">7</span><span class="sc">:</span><span class="dv">138</span>]))</span></code></pre></div>
 <p><img src="022-ACF_files/figure-html/decompose-1.png" width="75%" /></p>
-<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb72-1"><a href="定常性と自己相関関数.html#cb72-1" tabindex="-1"></a><span class="fu">acf</span>(<span class="fu">ts</span>(ap_decom<span class="sc">$</span>trend[<span class="dv">7</span><span class="sc">:</span><span class="dv">138</span>]))</span></code></pre></div>
+<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb73-1"><a href="定常性と自己相関関数.html#cb73-1" tabindex="-1"></a><span class="fu">acf</span>(<span class="fu">ts</span>(ap_decom<span class="sc">$</span>trend[<span class="dv">7</span><span class="sc">:</span><span class="dv">138</span>]))</span></code></pre></div>
 <p><img src="022-ACF_files/figure-html/decompose-2.png" width="75%" />
 正の (直線的な) トレンド → ACFの減衰が遅いことが確認される.</p>
 <ul>
 <li>季節性成分</li>
 </ul>
-<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb73-1"><a href="定常性と自己相関関数.html#cb73-1" tabindex="-1"></a><span class="co"># 季節性成分</span></span>
-<span id="cb73-2"><a href="定常性と自己相関関数.html#cb73-2" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">ts</span>(ap_decom<span class="sc">$</span>seasonal[<span class="dv">7</span><span class="sc">:</span><span class="dv">138</span>]))</span></code></pre></div>
+<div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb74-1"><a href="定常性と自己相関関数.html#cb74-1" tabindex="-1"></a><span class="co"># 季節性成分</span></span>
+<span id="cb74-2"><a href="定常性と自己相関関数.html#cb74-2" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">ts</span>(ap_decom<span class="sc">$</span>seasonal[<span class="dv">7</span><span class="sc">:</span><span class="dv">138</span>]))</span></code></pre></div>
 <p><img src="022-ACF_files/figure-html/unnamed-chunk-1-1.png" width="75%" /></p>
-<div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb74-1"><a href="定常性と自己相関関数.html#cb74-1" tabindex="-1"></a><span class="fu">acf</span>(<span class="fu">ts</span>(ap_decom<span class="sc">$</span>seasonal[<span class="dv">7</span><span class="sc">:</span><span class="dv">138</span>]))</span></code></pre></div>
+<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb75-1"><a href="定常性と自己相関関数.html#cb75-1" tabindex="-1"></a><span class="fu">acf</span>(<span class="fu">ts</span>(ap_decom<span class="sc">$</span>seasonal[<span class="dv">7</span><span class="sc">:</span><span class="dv">138</span>]))</span></code></pre></div>
 <p><img src="022-ACF_files/figure-html/unnamed-chunk-1-2.png" width="75%" />
 1年周期 → 6ヶ月に負の最小値, 12ヶ月に正の最大値が確認される.</p>
 <ul>
 <li>ランダムノイズ成分</li>
 </ul>
-<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb75-1"><a href="定常性と自己相関関数.html#cb75-1" tabindex="-1"></a><span class="co"># ランダムノイズ成分</span></span>
-<span id="cb75-2"><a href="定常性と自己相関関数.html#cb75-2" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">ts</span>(ap_decom<span class="sc">$</span>random[<span class="dv">7</span><span class="sc">:</span><span class="dv">138</span>]))</span></code></pre></div>
+<div class="sourceCode" id="cb76"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb76-1"><a href="定常性と自己相関関数.html#cb76-1" tabindex="-1"></a><span class="co"># ランダムノイズ成分</span></span>
+<span id="cb76-2"><a href="定常性と自己相関関数.html#cb76-2" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">ts</span>(ap_decom<span class="sc">$</span>random[<span class="dv">7</span><span class="sc">:</span><span class="dv">138</span>]))</span></code></pre></div>
 <p><img src="022-ACF_files/figure-html/unnamed-chunk-2-1.png" width="75%" /></p>
-<div class="sourceCode" id="cb76"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb76-1"><a href="定常性と自己相関関数.html#cb76-1" tabindex="-1"></a><span class="fu">acf</span>(<span class="fu">ts</span>(ap_decom<span class="sc">$</span>random[<span class="dv">7</span><span class="sc">:</span><span class="dv">138</span>]))</span></code></pre></div>
+<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb77-1"><a href="定常性と自己相関関数.html#cb77-1" tabindex="-1"></a><span class="fu">acf</span>(<span class="fu">ts</span>(ap_decom<span class="sc">$</span>random[<span class="dv">7</span><span class="sc">:</span><span class="dv">138</span>]))</span></code></pre></div>
 <p><img src="022-ACF_files/figure-html/unnamed-chunk-2-2.png" width="75%" />
 周期性が未だ残っているが,
 自己相関はかなり除去されたことが確認される.</p>
-<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb77-1"><a href="定常性と自己相関関数.html#cb77-1" tabindex="-1"></a><span class="co">#library(zoo)       # na.trim()使用</span></span>
-<span id="cb77-2"><a href="定常性と自己相関関数.html#cb77-2" tabindex="-1"></a><span class="co">#acf(ap_decom$random, na.action = na.trim)      # ← NA除去</span></span>
-<span id="cb77-3"><a href="定常性と自己相関関数.html#cb77-3" tabindex="-1"></a><span class="co"># 標準偏差</span></span>
-<span id="cb77-4"><a href="定常性と自己相関関数.html#cb77-4" tabindex="-1"></a><span class="fu">sd</span>(ap[<span class="dv">7</span><span class="sc">:</span><span class="dv">138</span>])       <span class="co"># sd of the original series</span></span>
-<span id="cb77-5"><a href="定常性と自己相関関数.html#cb77-5" tabindex="-1"></a><span class="co">#&gt; [1] 109.4187</span></span>
-<span id="cb77-6"><a href="定常性と自己相関関数.html#cb77-6" tabindex="-1"></a><span class="fu">sd</span>(ap[<span class="dv">7</span><span class="sc">:</span><span class="dv">138</span>] <span class="sc">-</span> ap_decom<span class="sc">$</span>trend[<span class="dv">7</span><span class="sc">:</span><span class="dv">138</span>])   <span class="co"># after substracting the trend estimate</span></span>
-<span id="cb77-7"><a href="定常性と自己相関関数.html#cb77-7" tabindex="-1"></a><span class="co">#&gt; [1] 41.11491</span></span>
-<span id="cb77-8"><a href="定常性と自己相関関数.html#cb77-8" tabindex="-1"></a><span class="fu">sd</span>(ap_decom<span class="sc">$</span>random[<span class="dv">7</span><span class="sc">:</span><span class="dv">138</span>])  <span class="co"># the error component</span></span>
-<span id="cb77-9"><a href="定常性と自己相関関数.html#cb77-9" tabindex="-1"></a><span class="co">#&gt; [1] 0.0333884</span></span>
-<span id="cb77-10"><a href="定常性と自己相関関数.html#cb77-10" tabindex="-1"></a><span class="co"># → std dev gets smaller</span></span>
-<span id="cb77-11"><a href="定常性と自己相関関数.html#cb77-11" tabindex="-1"></a></span>
-<span id="cb77-12"><a href="定常性と自己相関関数.html#cb77-12" tabindex="-1"></a><span class="co">#または</span></span>
-<span id="cb77-13"><a href="定常性と自己相関関数.html#cb77-13" tabindex="-1"></a><span class="co">#library(zoo)</span></span>
-<span id="cb77-14"><a href="定常性と自己相関関数.html#cb77-14" tabindex="-1"></a><span class="co">#ap_d_zoo = zoo(ap_decom$random)</span></span></code></pre></div>
+<div class="sourceCode" id="cb78"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb78-1"><a href="定常性と自己相関関数.html#cb78-1" tabindex="-1"></a><span class="co">#library(zoo)       # na.trim()使用</span></span>
+<span id="cb78-2"><a href="定常性と自己相関関数.html#cb78-2" tabindex="-1"></a><span class="co">#acf(ap_decom$random, na.action = na.trim)      # ← NA除去</span></span>
+<span id="cb78-3"><a href="定常性と自己相関関数.html#cb78-3" tabindex="-1"></a><span class="co"># 標準偏差</span></span>
+<span id="cb78-4"><a href="定常性と自己相関関数.html#cb78-4" tabindex="-1"></a><span class="fu">sd</span>(ap[<span class="dv">7</span><span class="sc">:</span><span class="dv">138</span>])       <span class="co"># sd of the original series</span></span>
+<span id="cb78-5"><a href="定常性と自己相関関数.html#cb78-5" tabindex="-1"></a><span class="co">#&gt; [1] 109.4187</span></span>
+<span id="cb78-6"><a href="定常性と自己相関関数.html#cb78-6" tabindex="-1"></a><span class="fu">sd</span>(ap[<span class="dv">7</span><span class="sc">:</span><span class="dv">138</span>] <span class="sc">-</span> ap_decom<span class="sc">$</span>trend[<span class="dv">7</span><span class="sc">:</span><span class="dv">138</span>])   <span class="co"># after substracting the trend estimate</span></span>
+<span id="cb78-7"><a href="定常性と自己相関関数.html#cb78-7" tabindex="-1"></a><span class="co">#&gt; [1] 41.11491</span></span>
+<span id="cb78-8"><a href="定常性と自己相関関数.html#cb78-8" tabindex="-1"></a><span class="fu">sd</span>(ap_decom<span class="sc">$</span>random[<span class="dv">7</span><span class="sc">:</span><span class="dv">138</span>])  <span class="co"># the error component</span></span>
+<span id="cb78-9"><a href="定常性と自己相関関数.html#cb78-9" tabindex="-1"></a><span class="co">#&gt; [1] 0.0333884</span></span>
+<span id="cb78-10"><a href="定常性と自己相関関数.html#cb78-10" tabindex="-1"></a><span class="co"># → std dev gets smaller</span></span>
+<span id="cb78-11"><a href="定常性と自己相関関数.html#cb78-11" tabindex="-1"></a></span>
+<span id="cb78-12"><a href="定常性と自己相関関数.html#cb78-12" tabindex="-1"></a><span class="co">#または</span></span>
+<span id="cb78-13"><a href="定常性と自己相関関数.html#cb78-13" tabindex="-1"></a><span class="co">#library(zoo)</span></span>
+<span id="cb78-14"><a href="定常性と自己相関関数.html#cb78-14" tabindex="-1"></a><span class="co">#ap_d_zoo = zoo(ap_decom$random)</span></span></code></pre></div>
 <ul>
 <li>関数<code>stl()</code>の利用</li>
 </ul>
-<div class="sourceCode" id="cb78"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb78-1"><a href="定常性と自己相関関数.html#cb78-1" tabindex="-1"></a><span class="co"># stl(): Seasonal Decomposition of Time Series by Loess</span></span>
-<span id="cb78-2"><a href="定常性と自己相関関数.html#cb78-2" tabindex="-1"></a>ap_stl<span class="ot">&lt;-</span> <span class="fu">stl</span>(ap, <span class="st">&quot;period&quot;</span>)</span>
-<span id="cb78-3"><a href="定常性と自己相関関数.html#cb78-3" tabindex="-1"></a><span class="co"># トレンド成分</span></span>
-<span id="cb78-4"><a href="定常性と自己相関関数.html#cb78-4" tabindex="-1"></a><span class="fu">plot</span>(ap_stl<span class="sc">$</span>time.series[, <span class="st">&quot;trend&quot;</span>])</span></code></pre></div>
+<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="定常性と自己相関関数.html#cb79-1" tabindex="-1"></a><span class="co"># stl(): Seasonal Decomposition of Time Series by Loess</span></span>
+<span id="cb79-2"><a href="定常性と自己相関関数.html#cb79-2" tabindex="-1"></a>ap_stl<span class="ot">&lt;-</span> <span class="fu">stl</span>(ap, <span class="st">&quot;period&quot;</span>)</span>
+<span id="cb79-3"><a href="定常性と自己相関関数.html#cb79-3" tabindex="-1"></a><span class="co"># トレンド成分</span></span>
+<span id="cb79-4"><a href="定常性と自己相関関数.html#cb79-4" tabindex="-1"></a><span class="fu">plot</span>(ap_stl<span class="sc">$</span>time.series[, <span class="st">&quot;trend&quot;</span>])</span></code></pre></div>
 <p><img src="022-ACF_files/figure-html/stl-1.png" width="75%" /></p>
-<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="定常性と自己相関関数.html#cb79-1" tabindex="-1"></a><span class="co"># 季節性成分</span></span>
-<span id="cb79-2"><a href="定常性と自己相関関数.html#cb79-2" tabindex="-1"></a><span class="fu">plot</span>(ap_stl<span class="sc">$</span>time.series[, <span class="st">&quot;seasonal&quot;</span>])</span></code></pre></div>
+<div class="sourceCode" id="cb80"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb80-1"><a href="定常性と自己相関関数.html#cb80-1" tabindex="-1"></a><span class="co"># 季節性成分</span></span>
+<span id="cb80-2"><a href="定常性と自己相関関数.html#cb80-2" tabindex="-1"></a><span class="fu">plot</span>(ap_stl<span class="sc">$</span>time.series[, <span class="st">&quot;seasonal&quot;</span>])</span></code></pre></div>
 <p><img src="022-ACF_files/figure-html/stl-2.png" width="75%" /></p>
-<div class="sourceCode" id="cb80"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb80-1"><a href="定常性と自己相関関数.html#cb80-1" tabindex="-1"></a><span class="co"># ランダムノイズ成分</span></span>
-<span id="cb80-2"><a href="定常性と自己相関関数.html#cb80-2" tabindex="-1"></a><span class="fu">plot</span>(ap_stl<span class="sc">$</span>time.series[, <span class="st">&quot;remainder&quot;</span>])</span></code></pre></div>
+<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb81-1"><a href="定常性と自己相関関数.html#cb81-1" tabindex="-1"></a><span class="co"># ランダムノイズ成分</span></span>
+<span id="cb81-2"><a href="定常性と自己相関関数.html#cb81-2" tabindex="-1"></a><span class="fu">plot</span>(ap_stl<span class="sc">$</span>time.series[, <span class="st">&quot;remainder&quot;</span>])</span></code></pre></div>
 <p><img src="022-ACF_files/figure-html/stl-3.png" width="75%" /></p>
-<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb81-1"><a href="定常性と自己相関関数.html#cb81-1" tabindex="-1"></a><span class="fu">acf</span>(ap_stl<span class="sc">$</span>time.series[, <span class="st">&quot;remainder&quot;</span>])</span></code></pre></div>
+<div class="sourceCode" id="cb82"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb82-1"><a href="定常性と自己相関関数.html#cb82-1" tabindex="-1"></a><span class="fu">acf</span>(ap_stl<span class="sc">$</span>time.series[, <span class="st">&quot;remainder&quot;</span>])</span></code></pre></div>
 <p><img src="022-ACF_files/figure-html/stl-4.png" width="75%" /></p>
 </div>
 <div id="階差-differencing" class="section level4 hasAnchor" number="2.4.3.3">
@@ -500,20 +500,20 @@ ACFはゆっくり減衰しつつ, 横軸が1.0 (月次データのラグ=12に�
 <p>次に, 時系列データに対して, 階差 (差分) 操作を行うことによりACFの形状がどう変化するかを観察する.</p>
 <p>上の観察から, 原系列を一旦対数変換してから
 階差を取る.</p>
-<div class="sourceCode" id="cb82"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb82-1"><a href="定常性と自己相関関数.html#cb82-1" tabindex="-1"></a><span class="co"># ap &lt;- AirPassengers</span></span>
-<span id="cb82-2"><a href="定常性と自己相関関数.html#cb82-2" tabindex="-1"></a><span class="co"># is.ts(ap); is.vector(ts)</span></span>
-<span id="cb82-3"><a href="定常性と自己相関関数.html#cb82-3" tabindex="-1"></a><span class="co"># ACF</span></span>
-<span id="cb82-4"><a href="定常性と自己相関関数.html#cb82-4" tabindex="-1"></a><span class="co"># acf(ap)</span></span>
-<span id="cb82-5"><a href="定常性と自己相関関数.html#cb82-5" tabindex="-1"></a><span class="co"># 対数値の階差系列のACF</span></span>
-<span id="cb82-6"><a href="定常性と自己相関関数.html#cb82-6" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">diff</span>(<span class="fu">log</span>(ap), <span class="at">lag =</span> <span class="dv">1</span>)) <span class="co"># 前月との階差</span></span></code></pre></div>
+<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb83-1"><a href="定常性と自己相関関数.html#cb83-1" tabindex="-1"></a><span class="co"># ap &lt;- AirPassengers</span></span>
+<span id="cb83-2"><a href="定常性と自己相関関数.html#cb83-2" tabindex="-1"></a><span class="co"># is.ts(ap); is.vector(ts)</span></span>
+<span id="cb83-3"><a href="定常性と自己相関関数.html#cb83-3" tabindex="-1"></a><span class="co"># ACF</span></span>
+<span id="cb83-4"><a href="定常性と自己相関関数.html#cb83-4" tabindex="-1"></a><span class="co"># acf(ap)</span></span>
+<span id="cb83-5"><a href="定常性と自己相関関数.html#cb83-5" tabindex="-1"></a><span class="co"># 対数値の階差系列のACF</span></span>
+<span id="cb83-6"><a href="定常性と自己相関関数.html#cb83-6" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">diff</span>(<span class="fu">log</span>(ap), <span class="at">lag =</span> <span class="dv">1</span>)) <span class="co"># 前月との階差</span></span></code></pre></div>
 <p><img src="022-ACF_files/figure-html/Difference-1.png" width="75%" /></p>
-<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb83-1"><a href="定常性と自己相関関数.html#cb83-1" tabindex="-1"></a><span class="fu">acf</span>(<span class="fu">diff</span>(<span class="fu">log</span>(ap), <span class="at">lag =</span> <span class="dv">1</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb84"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb84-1"><a href="定常性と自己相関関数.html#cb84-1" tabindex="-1"></a><span class="fu">acf</span>(<span class="fu">diff</span>(<span class="fu">log</span>(ap), <span class="at">lag =</span> <span class="dv">1</span>))</span></code></pre></div>
 <p><img src="022-ACF_files/figure-html/Difference-2.png" width="75%" />
 ラグ1の階差を取ることにより, トレンドは消えたが, 横軸1.0 (ラグ12ヶ月に対応) にピークがあり,
 この階差系列には1年の周期性が残っていることが分かる.</p>
-<div class="sourceCode" id="cb84"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb84-1"><a href="定常性と自己相関関数.html#cb84-1" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">diff</span>(<span class="fu">log</span>(ap), <span class="at">lag =</span> <span class="dv">12</span>)) <span class="co"># 1年前との階差</span></span></code></pre></div>
+<div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb85-1"><a href="定常性と自己相関関数.html#cb85-1" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">diff</span>(<span class="fu">log</span>(ap), <span class="at">lag =</span> <span class="dv">12</span>)) <span class="co"># 1年前との階差</span></span></code></pre></div>
 <p><img src="022-ACF_files/figure-html/unnamed-chunk-4-1.png" width="75%" /></p>
-<div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb85-1"><a href="定常性と自己相関関数.html#cb85-1" tabindex="-1"></a><span class="fu">acf</span>(<span class="fu">diff</span>(<span class="fu">log</span>(ap), <span class="at">lag =</span> <span class="dv">12</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb86-1"><a href="定常性と自己相関関数.html#cb86-1" tabindex="-1"></a><span class="fu">acf</span>(<span class="fu">diff</span>(<span class="fu">log</span>(ap), <span class="at">lag =</span> <span class="dv">12</span>))</span></code></pre></div>
 <p><img src="022-ACF_files/figure-html/unnamed-chunk-4-2.png" width="75%" />
 一方, ラグ12の階差を取ると,
 1年の周期性は概ね消えるが,
@@ -525,112 +525,112 @@ ACFはゆっくり減衰しつつ, 横軸が1.0 (月次データのラグ=12に�
 Box-Pierce検定, Ljung-Box検定
 を実行してみる.</li>
 </ul>
-<div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb86-1"><a href="定常性と自己相関関数.html#cb86-1" tabindex="-1"></a><span class="co"># かばん検定 (portmanteau test)</span></span>
-<span id="cb86-2"><a href="定常性と自己相関関数.html#cb86-2" tabindex="-1"></a><span class="fu">Box.test</span>(<span class="fu">diff</span>(<span class="fu">log</span>(ap), <span class="at">lag =</span> <span class="dv">12</span>)) <span class="co"># Box-Pierce検定 (デフォルト)</span></span>
-<span id="cb86-3"><a href="定常性と自己相関関数.html#cb86-3" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb86-4"><a href="定常性と自己相関関数.html#cb86-4" tabindex="-1"></a><span class="co">#&gt;  Box-Pierce test</span></span>
-<span id="cb86-5"><a href="定常性と自己相関関数.html#cb86-5" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb86-6"><a href="定常性と自己相関関数.html#cb86-6" tabindex="-1"></a><span class="co">#&gt; data:  diff(log(ap), lag = 12)</span></span>
-<span id="cb86-7"><a href="定常性と自己相関関数.html#cb86-7" tabindex="-1"></a><span class="co">#&gt; X-squared = 67.234, df = 1, p-value = 2.22e-16</span></span>
-<span id="cb86-8"><a href="定常性と自己相関関数.html#cb86-8" tabindex="-1"></a><span class="fu">Box.test</span>(<span class="fu">diff</span>(<span class="fu">log</span>(ap), <span class="at">lag =</span> <span class="dv">12</span>), <span class="at">type =</span> <span class="st">&quot;Ljung&quot;</span>)  <span class="co"># Ljung-Box検定</span></span>
-<span id="cb86-9"><a href="定常性と自己相関関数.html#cb86-9" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb86-10"><a href="定常性と自己相関関数.html#cb86-10" tabindex="-1"></a><span class="co">#&gt;  Box-Ljung test</span></span>
-<span id="cb86-11"><a href="定常性と自己相関関数.html#cb86-11" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb86-12"><a href="定常性と自己相関関数.html#cb86-12" tabindex="-1"></a><span class="co">#&gt; data:  diff(log(ap), lag = 12)</span></span>
-<span id="cb86-13"><a href="定常性と自己相関関数.html#cb86-13" tabindex="-1"></a><span class="co">#&gt; X-squared = 68.774, df = 1, p-value &lt; 2.2e-16</span></span></code></pre></div>
+<div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb87-1"><a href="定常性と自己相関関数.html#cb87-1" tabindex="-1"></a><span class="co"># かばん検定 (portmanteau test)</span></span>
+<span id="cb87-2"><a href="定常性と自己相関関数.html#cb87-2" tabindex="-1"></a><span class="fu">Box.test</span>(<span class="fu">diff</span>(<span class="fu">log</span>(ap), <span class="at">lag =</span> <span class="dv">12</span>)) <span class="co"># Box-Pierce検定 (デフォルト)</span></span>
+<span id="cb87-3"><a href="定常性と自己相関関数.html#cb87-3" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb87-4"><a href="定常性と自己相関関数.html#cb87-4" tabindex="-1"></a><span class="co">#&gt;  Box-Pierce test</span></span>
+<span id="cb87-5"><a href="定常性と自己相関関数.html#cb87-5" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb87-6"><a href="定常性と自己相関関数.html#cb87-6" tabindex="-1"></a><span class="co">#&gt; data:  diff(log(ap), lag = 12)</span></span>
+<span id="cb87-7"><a href="定常性と自己相関関数.html#cb87-7" tabindex="-1"></a><span class="co">#&gt; X-squared = 67.234, df = 1, p-value = 2.22e-16</span></span>
+<span id="cb87-8"><a href="定常性と自己相関関数.html#cb87-8" tabindex="-1"></a><span class="fu">Box.test</span>(<span class="fu">diff</span>(<span class="fu">log</span>(ap), <span class="at">lag =</span> <span class="dv">12</span>), <span class="at">type =</span> <span class="st">&quot;Ljung&quot;</span>)  <span class="co"># Ljung-Box検定</span></span>
+<span id="cb87-9"><a href="定常性と自己相関関数.html#cb87-9" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb87-10"><a href="定常性と自己相関関数.html#cb87-10" tabindex="-1"></a><span class="co">#&gt;  Box-Ljung test</span></span>
+<span id="cb87-11"><a href="定常性と自己相関関数.html#cb87-11" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb87-12"><a href="定常性と自己相関関数.html#cb87-12" tabindex="-1"></a><span class="co">#&gt; data:  diff(log(ap), lag = 12)</span></span>
+<span id="cb87-13"><a href="定常性と自己相関関数.html#cb87-13" tabindex="-1"></a><span class="co">#&gt; X-squared = 68.774, df = 1, p-value &lt; 2.2e-16</span></span></code></pre></div>
 </div>
 <div id="株価データの例-出所-tsay-ch.2" class="section level4 hasAnchor" number="2.4.3.4">
 <h4><span class="header-section-number">2.4.3.4</span> 株価データの例 (出所: Tsay, Ch.2)<a href="定常性と自己相関関数.html#株価データの例-出所-tsay-ch.2" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>教科書のIBM月次株価データを利用して
 ACFを計算する.</p>
-<div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb87-1"><a href="定常性と自己相関関数.html#cb87-1" tabindex="-1"></a>ifl <span class="ot">&lt;-</span> <span class="fu">file.path</span>(idir, <span class="st">&quot;m-ibmsp-2611.txt&quot;</span>)</span>
-<span id="cb87-2"><a href="定常性と自己相関関数.html#cb87-2" tabindex="-1"></a>da <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="st">&quot;m-ibmsp-2611.txt&quot;</span>, <span class="at">header =</span> T)</span>
-<span id="cb87-3"><a href="定常性と自己相関関数.html#cb87-3" tabindex="-1"></a><span class="co">#da &lt;- read.table(&quot;m-ibmsp6709.txt&quot;, header = T)</span></span>
-<span id="cb87-4"><a href="定常性と自己相関関数.html#cb87-4" tabindex="-1"></a><span class="fu">head</span>(da)</span>
-<span id="cb87-5"><a href="定常性と自己相関関数.html#cb87-5" tabindex="-1"></a><span class="co">#&gt;       data       ibm        sp</span></span>
-<span id="cb87-6"><a href="定常性と自己相関関数.html#cb87-6" tabindex="-1"></a><span class="co">#&gt; 1 19260130 -0.010381  0.022472</span></span>
-<span id="cb87-7"><a href="定常性と自己相関関数.html#cb87-7" tabindex="-1"></a><span class="co">#&gt; 2 19260227 -0.024476 -0.043956</span></span>
-<span id="cb87-8"><a href="定常性と自己相関関数.html#cb87-8" tabindex="-1"></a><span class="co">#&gt; 3 19260331 -0.115591 -0.059113</span></span>
-<span id="cb87-9"><a href="定常性と自己相関関数.html#cb87-9" tabindex="-1"></a><span class="co">#&gt; 4 19260430  0.089783  0.022688</span></span>
-<span id="cb87-10"><a href="定常性と自己相関関数.html#cb87-10" tabindex="-1"></a><span class="co">#&gt; 5 19260528  0.036932  0.007679</span></span>
-<span id="cb87-11"><a href="定常性と自己相関関数.html#cb87-11" tabindex="-1"></a><span class="co">#&gt; 6 19260630  0.068493  0.043184</span></span>
-<span id="cb87-12"><a href="定常性と自己相関関数.html#cb87-12" tabindex="-1"></a>ibm <span class="ot">&lt;-</span> da<span class="sc">$</span>ibm</span>
-<span id="cb87-13"><a href="定常性と自己相関関数.html#cb87-13" tabindex="-1"></a>sp5 <span class="ot">&lt;-</span> da<span class="sc">$</span>sp</span>
-<span id="cb87-14"><a href="定常性と自己相関関数.html#cb87-14" tabindex="-1"></a><span class="fu">plot</span>(sp5, ibm)</span></code></pre></div>
+<div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb88-1"><a href="定常性と自己相関関数.html#cb88-1" tabindex="-1"></a>ifl <span class="ot">&lt;-</span> <span class="fu">file.path</span>(idir, <span class="st">&quot;m-ibmsp-2611.txt&quot;</span>)</span>
+<span id="cb88-2"><a href="定常性と自己相関関数.html#cb88-2" tabindex="-1"></a>da <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="st">&quot;m-ibmsp-2611.txt&quot;</span>, <span class="at">header =</span> T)</span>
+<span id="cb88-3"><a href="定常性と自己相関関数.html#cb88-3" tabindex="-1"></a><span class="co">#da &lt;- read.table(&quot;m-ibmsp6709.txt&quot;, header = T)</span></span>
+<span id="cb88-4"><a href="定常性と自己相関関数.html#cb88-4" tabindex="-1"></a><span class="fu">head</span>(da)</span>
+<span id="cb88-5"><a href="定常性と自己相関関数.html#cb88-5" tabindex="-1"></a><span class="co">#&gt;       data       ibm        sp</span></span>
+<span id="cb88-6"><a href="定常性と自己相関関数.html#cb88-6" tabindex="-1"></a><span class="co">#&gt; 1 19260130 -0.010381  0.022472</span></span>
+<span id="cb88-7"><a href="定常性と自己相関関数.html#cb88-7" tabindex="-1"></a><span class="co">#&gt; 2 19260227 -0.024476 -0.043956</span></span>
+<span id="cb88-8"><a href="定常性と自己相関関数.html#cb88-8" tabindex="-1"></a><span class="co">#&gt; 3 19260331 -0.115591 -0.059113</span></span>
+<span id="cb88-9"><a href="定常性と自己相関関数.html#cb88-9" tabindex="-1"></a><span class="co">#&gt; 4 19260430  0.089783  0.022688</span></span>
+<span id="cb88-10"><a href="定常性と自己相関関数.html#cb88-10" tabindex="-1"></a><span class="co">#&gt; 5 19260528  0.036932  0.007679</span></span>
+<span id="cb88-11"><a href="定常性と自己相関関数.html#cb88-11" tabindex="-1"></a><span class="co">#&gt; 6 19260630  0.068493  0.043184</span></span>
+<span id="cb88-12"><a href="定常性と自己相関関数.html#cb88-12" tabindex="-1"></a>ibm <span class="ot">&lt;-</span> da<span class="sc">$</span>ibm</span>
+<span id="cb88-13"><a href="定常性と自己相関関数.html#cb88-13" tabindex="-1"></a>sp5 <span class="ot">&lt;-</span> da<span class="sc">$</span>sp</span>
+<span id="cb88-14"><a href="定常性と自己相関関数.html#cb88-14" tabindex="-1"></a><span class="fu">plot</span>(sp5, ibm)</span></code></pre></div>
 <p><img src="022-ACF_files/figure-html/IBM_SP-1.png" width="75%" /></p>
-<div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb88-1"><a href="定常性と自己相関関数.html#cb88-1" tabindex="-1"></a><span class="fu">plot</span>(ibm, <span class="at">type =</span> <span class="st">&quot;l&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb89-1"><a href="定常性と自己相関関数.html#cb89-1" tabindex="-1"></a><span class="fu">plot</span>(ibm, <span class="at">type =</span> <span class="st">&quot;l&quot;</span>)</span></code></pre></div>
 <p><img src="022-ACF_files/figure-html/IBM_SP-2.png" width="75%" /></p>
-<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb89-1"><a href="定常性と自己相関関数.html#cb89-1" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">cumsum</span>(<span class="fu">log</span>(ibm <span class="sc">+</span> <span class="dv">1</span>)), <span class="at">type =</span> <span class="st">&quot;l&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb90-1"><a href="定常性と自己相関関数.html#cb90-1" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">cumsum</span>(<span class="fu">log</span>(ibm <span class="sc">+</span> <span class="dv">1</span>)), <span class="at">type =</span> <span class="st">&quot;l&quot;</span>)</span></code></pre></div>
 <p><img src="022-ACF_files/figure-html/IBM_SP-3.png" width="75%" /></p>
-<div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb90-1"><a href="定常性と自己相関関数.html#cb90-1" tabindex="-1"></a><span class="co"># 原系列に対する自己相関性の検証</span></span>
-<span id="cb90-2"><a href="定常性と自己相関関数.html#cb90-2" tabindex="-1"></a><span class="fu">acf</span>(ibm)</span>
-<span id="cb90-3"><a href="定常性と自己相関関数.html#cb90-3" tabindex="-1"></a><span class="fu">acf</span>(ibm)<span class="sc">$</span>acf</span></code></pre></div>
+<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb91-1"><a href="定常性と自己相関関数.html#cb91-1" tabindex="-1"></a><span class="co"># 原系列に対する自己相関性の検証</span></span>
+<span id="cb91-2"><a href="定常性と自己相関関数.html#cb91-2" tabindex="-1"></a><span class="fu">acf</span>(ibm)</span></code></pre></div>
 <p><img src="022-ACF_files/figure-html/unnamed-chunk-6-1.png" width="75%" /></p>
-<pre><code>#&gt; , , 1
-#&gt; 
-#&gt;               [,1]
-#&gt;  [1,]  1.000000000
-#&gt;  [2,]  0.037561974
-#&gt;  [3,] -0.008664145
-#&gt;  [4,] -0.016156989
-#&gt;  [5,] -0.030554233
-#&gt;  [6,]  0.015370816
-#&gt;  [7,] -0.041809301
-#&gt;  [8,]  0.003236462
-#&gt;  [9,]  0.063082544
-#&gt; [10,]  0.048232274
-#&gt; [11,]  0.037150816
-#&gt; [12,]  0.011816712
-#&gt; [13,]  0.010848647
-#&gt; [14,] -0.067274698
-#&gt; [15,] -0.011545286
-#&gt; [16,] -0.038790792
-#&gt; [17,]  0.031043139
-#&gt; [18,]  0.029670820
-#&gt; [19,]  0.065795548
-#&gt; [20,]  0.019771486
-#&gt; [21,] -0.013009184
-#&gt; [22,] -0.012984508
-#&gt; [23,]  0.002353094
-#&gt; [24,] -0.072724702
-#&gt; [25,]  0.053508492
-#&gt; [26,] -0.010189813
-#&gt; [27,]  0.036015597
-#&gt; [28,]  0.019976030
-#&gt; [29,]  0.032989584
-#&gt; [30,]  0.004650878
-#&gt; [31,] -0.016390330
-Box.test(ibm, lag = 30)     # Box-Pierce (デフォルト)
-#&gt; 
-#&gt;  Box-Pierce test
-#&gt; 
-#&gt; data:  ibm
-#&gt; X-squared = 38.094, df = 30, p-value = 0.1473
-Box.test(ibm, lag = 30, type = &#39;Ljung&#39;) # Ljung-Box
-#&gt; 
-#&gt;  Box-Ljung test
-#&gt; 
-#&gt; data:  ibm
-#&gt; X-squared = 38.75, df = 30, p-value = 0.1314
-#lnibm &lt;- log(ibm + 1) # Transfer to log returns
-#Box.test(lnibm, lag = 30, type = &#39;Ljung&#39;)</code></pre>
-<div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb92-1"><a href="定常性と自己相関関数.html#cb92-1" tabindex="-1"></a><span class="co"># 絶対値系列, 2乗系列に対する自己相関性の検証</span></span>
-<span id="cb92-2"><a href="定常性と自己相関関数.html#cb92-2" tabindex="-1"></a><span class="fu">acf</span>(<span class="fu">abs</span>(ibm))</span></code></pre></div>
+<div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb92-1"><a href="定常性と自己相関関数.html#cb92-1" tabindex="-1"></a><span class="fu">acf</span>(ibm)<span class="sc">$</span>acf</span>
+<span id="cb92-2"><a href="定常性と自己相関関数.html#cb92-2" tabindex="-1"></a><span class="co">#&gt; , , 1</span></span>
+<span id="cb92-3"><a href="定常性と自己相関関数.html#cb92-3" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb92-4"><a href="定常性と自己相関関数.html#cb92-4" tabindex="-1"></a><span class="co">#&gt;               [,1]</span></span>
+<span id="cb92-5"><a href="定常性と自己相関関数.html#cb92-5" tabindex="-1"></a><span class="co">#&gt;  [1,]  1.000000000</span></span>
+<span id="cb92-6"><a href="定常性と自己相関関数.html#cb92-6" tabindex="-1"></a><span class="co">#&gt;  [2,]  0.037561974</span></span>
+<span id="cb92-7"><a href="定常性と自己相関関数.html#cb92-7" tabindex="-1"></a><span class="co">#&gt;  [3,] -0.008664145</span></span>
+<span id="cb92-8"><a href="定常性と自己相関関数.html#cb92-8" tabindex="-1"></a><span class="co">#&gt;  [4,] -0.016156989</span></span>
+<span id="cb92-9"><a href="定常性と自己相関関数.html#cb92-9" tabindex="-1"></a><span class="co">#&gt;  [5,] -0.030554233</span></span>
+<span id="cb92-10"><a href="定常性と自己相関関数.html#cb92-10" tabindex="-1"></a><span class="co">#&gt;  [6,]  0.015370816</span></span>
+<span id="cb92-11"><a href="定常性と自己相関関数.html#cb92-11" tabindex="-1"></a><span class="co">#&gt;  [7,] -0.041809301</span></span>
+<span id="cb92-12"><a href="定常性と自己相関関数.html#cb92-12" tabindex="-1"></a><span class="co">#&gt;  [8,]  0.003236462</span></span>
+<span id="cb92-13"><a href="定常性と自己相関関数.html#cb92-13" tabindex="-1"></a><span class="co">#&gt;  [9,]  0.063082544</span></span>
+<span id="cb92-14"><a href="定常性と自己相関関数.html#cb92-14" tabindex="-1"></a><span class="co">#&gt; [10,]  0.048232274</span></span>
+<span id="cb92-15"><a href="定常性と自己相関関数.html#cb92-15" tabindex="-1"></a><span class="co">#&gt; [11,]  0.037150816</span></span>
+<span id="cb92-16"><a href="定常性と自己相関関数.html#cb92-16" tabindex="-1"></a><span class="co">#&gt; [12,]  0.011816712</span></span>
+<span id="cb92-17"><a href="定常性と自己相関関数.html#cb92-17" tabindex="-1"></a><span class="co">#&gt; [13,]  0.010848647</span></span>
+<span id="cb92-18"><a href="定常性と自己相関関数.html#cb92-18" tabindex="-1"></a><span class="co">#&gt; [14,] -0.067274698</span></span>
+<span id="cb92-19"><a href="定常性と自己相関関数.html#cb92-19" tabindex="-1"></a><span class="co">#&gt; [15,] -0.011545286</span></span>
+<span id="cb92-20"><a href="定常性と自己相関関数.html#cb92-20" tabindex="-1"></a><span class="co">#&gt; [16,] -0.038790792</span></span>
+<span id="cb92-21"><a href="定常性と自己相関関数.html#cb92-21" tabindex="-1"></a><span class="co">#&gt; [17,]  0.031043139</span></span>
+<span id="cb92-22"><a href="定常性と自己相関関数.html#cb92-22" tabindex="-1"></a><span class="co">#&gt; [18,]  0.029670820</span></span>
+<span id="cb92-23"><a href="定常性と自己相関関数.html#cb92-23" tabindex="-1"></a><span class="co">#&gt; [19,]  0.065795548</span></span>
+<span id="cb92-24"><a href="定常性と自己相関関数.html#cb92-24" tabindex="-1"></a><span class="co">#&gt; [20,]  0.019771486</span></span>
+<span id="cb92-25"><a href="定常性と自己相関関数.html#cb92-25" tabindex="-1"></a><span class="co">#&gt; [21,] -0.013009184</span></span>
+<span id="cb92-26"><a href="定常性と自己相関関数.html#cb92-26" tabindex="-1"></a><span class="co">#&gt; [22,] -0.012984508</span></span>
+<span id="cb92-27"><a href="定常性と自己相関関数.html#cb92-27" tabindex="-1"></a><span class="co">#&gt; [23,]  0.002353094</span></span>
+<span id="cb92-28"><a href="定常性と自己相関関数.html#cb92-28" tabindex="-1"></a><span class="co">#&gt; [24,] -0.072724702</span></span>
+<span id="cb92-29"><a href="定常性と自己相関関数.html#cb92-29" tabindex="-1"></a><span class="co">#&gt; [25,]  0.053508492</span></span>
+<span id="cb92-30"><a href="定常性と自己相関関数.html#cb92-30" tabindex="-1"></a><span class="co">#&gt; [26,] -0.010189813</span></span>
+<span id="cb92-31"><a href="定常性と自己相関関数.html#cb92-31" tabindex="-1"></a><span class="co">#&gt; [27,]  0.036015597</span></span>
+<span id="cb92-32"><a href="定常性と自己相関関数.html#cb92-32" tabindex="-1"></a><span class="co">#&gt; [28,]  0.019976030</span></span>
+<span id="cb92-33"><a href="定常性と自己相関関数.html#cb92-33" tabindex="-1"></a><span class="co">#&gt; [29,]  0.032989584</span></span>
+<span id="cb92-34"><a href="定常性と自己相関関数.html#cb92-34" tabindex="-1"></a><span class="co">#&gt; [30,]  0.004650878</span></span>
+<span id="cb92-35"><a href="定常性と自己相関関数.html#cb92-35" tabindex="-1"></a><span class="co">#&gt; [31,] -0.016390330</span></span>
+<span id="cb92-36"><a href="定常性と自己相関関数.html#cb92-36" tabindex="-1"></a><span class="fu">Box.test</span>(ibm, <span class="at">lag =</span> <span class="dv">30</span>)     <span class="co"># Box-Pierce (デフォルト)</span></span>
+<span id="cb92-37"><a href="定常性と自己相関関数.html#cb92-37" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb92-38"><a href="定常性と自己相関関数.html#cb92-38" tabindex="-1"></a><span class="co">#&gt;  Box-Pierce test</span></span>
+<span id="cb92-39"><a href="定常性と自己相関関数.html#cb92-39" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb92-40"><a href="定常性と自己相関関数.html#cb92-40" tabindex="-1"></a><span class="co">#&gt; data:  ibm</span></span>
+<span id="cb92-41"><a href="定常性と自己相関関数.html#cb92-41" tabindex="-1"></a><span class="co">#&gt; X-squared = 38.094, df = 30, p-value = 0.1473</span></span>
+<span id="cb92-42"><a href="定常性と自己相関関数.html#cb92-42" tabindex="-1"></a><span class="fu">Box.test</span>(ibm, <span class="at">lag =</span> <span class="dv">30</span>, <span class="at">type =</span> <span class="st">&#39;Ljung&#39;</span>) <span class="co"># Ljung-Box</span></span>
+<span id="cb92-43"><a href="定常性と自己相関関数.html#cb92-43" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb92-44"><a href="定常性と自己相関関数.html#cb92-44" tabindex="-1"></a><span class="co">#&gt;  Box-Ljung test</span></span>
+<span id="cb92-45"><a href="定常性と自己相関関数.html#cb92-45" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb92-46"><a href="定常性と自己相関関数.html#cb92-46" tabindex="-1"></a><span class="co">#&gt; data:  ibm</span></span>
+<span id="cb92-47"><a href="定常性と自己相関関数.html#cb92-47" tabindex="-1"></a><span class="co">#&gt; X-squared = 38.75, df = 30, p-value = 0.1314</span></span>
+<span id="cb92-48"><a href="定常性と自己相関関数.html#cb92-48" tabindex="-1"></a><span class="co">#lnibm &lt;- log(ibm + 1) # Transfer to log returns</span></span>
+<span id="cb92-49"><a href="定常性と自己相関関数.html#cb92-49" tabindex="-1"></a><span class="co">#Box.test(lnibm, lag = 30, type = &#39;Ljung&#39;)</span></span></code></pre></div>
+<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb93-1"><a href="定常性と自己相関関数.html#cb93-1" tabindex="-1"></a><span class="co"># 絶対値系列, 2乗系列に対する自己相関性の検証</span></span>
+<span id="cb93-2"><a href="定常性と自己相関関数.html#cb93-2" tabindex="-1"></a><span class="fu">acf</span>(<span class="fu">abs</span>(ibm))</span></code></pre></div>
 <p><img src="022-ACF_files/figure-html/unnamed-chunk-7-1.png" width="75%" /></p>
-<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb93-1"><a href="定常性と自己相関関数.html#cb93-1" tabindex="-1"></a><span class="fu">acf</span>(ibm <span class="sc">^</span> <span class="dv">2</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb94-1"><a href="定常性と自己相関関数.html#cb94-1" tabindex="-1"></a><span class="fu">acf</span>(ibm <span class="sc">^</span> <span class="dv">2</span>)</span></code></pre></div>
 <p><img src="022-ACF_files/figure-html/unnamed-chunk-7-2.png" width="75%" /></p>
-<div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb94-1"><a href="定常性と自己相関関数.html#cb94-1" tabindex="-1"></a><span class="fu">Box.test</span>(<span class="fu">abs</span>(ibm), <span class="at">lag =</span> <span class="dv">30</span>, <span class="at">type =</span> <span class="st">&#39;Ljung&#39;</span>)        <span class="co"># Ljung-Box</span></span>
-<span id="cb94-2"><a href="定常性と自己相関関数.html#cb94-2" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb94-3"><a href="定常性と自己相関関数.html#cb94-3" tabindex="-1"></a><span class="co">#&gt;  Box-Ljung test</span></span>
-<span id="cb94-4"><a href="定常性と自己相関関数.html#cb94-4" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb94-5"><a href="定常性と自己相関関数.html#cb94-5" tabindex="-1"></a><span class="co">#&gt; data:  abs(ibm)</span></span>
-<span id="cb94-6"><a href="定常性と自己相関関数.html#cb94-6" tabindex="-1"></a><span class="co">#&gt; X-squared = 256.75, df = 30, p-value &lt; 2.2e-16</span></span>
-<span id="cb94-7"><a href="定常性と自己相関関数.html#cb94-7" tabindex="-1"></a><span class="fu">Box.test</span>(ibm<span class="sc">^</span><span class="dv">2</span>, <span class="at">lag =</span> <span class="dv">30</span>, <span class="at">type =</span> <span class="st">&#39;Ljung&#39;</span>)       <span class="co"># Ljung-Box</span></span>
-<span id="cb94-8"><a href="定常性と自己相関関数.html#cb94-8" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb94-9"><a href="定常性と自己相関関数.html#cb94-9" tabindex="-1"></a><span class="co">#&gt;  Box-Ljung test</span></span>
-<span id="cb94-10"><a href="定常性と自己相関関数.html#cb94-10" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb94-11"><a href="定常性と自己相関関数.html#cb94-11" tabindex="-1"></a><span class="co">#&gt; data:  ibm^2</span></span>
-<span id="cb94-12"><a href="定常性と自己相関関数.html#cb94-12" tabindex="-1"></a><span class="co">#&gt; X-squared = 189.3, df = 30, p-value &lt; 2.2e-16</span></span></code></pre></div>
+<div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb95-1"><a href="定常性と自己相関関数.html#cb95-1" tabindex="-1"></a><span class="fu">Box.test</span>(<span class="fu">abs</span>(ibm), <span class="at">lag =</span> <span class="dv">30</span>, <span class="at">type =</span> <span class="st">&#39;Ljung&#39;</span>)        <span class="co"># Ljung-Box</span></span>
+<span id="cb95-2"><a href="定常性と自己相関関数.html#cb95-2" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb95-3"><a href="定常性と自己相関関数.html#cb95-3" tabindex="-1"></a><span class="co">#&gt;  Box-Ljung test</span></span>
+<span id="cb95-4"><a href="定常性と自己相関関数.html#cb95-4" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb95-5"><a href="定常性と自己相関関数.html#cb95-5" tabindex="-1"></a><span class="co">#&gt; data:  abs(ibm)</span></span>
+<span id="cb95-6"><a href="定常性と自己相関関数.html#cb95-6" tabindex="-1"></a><span class="co">#&gt; X-squared = 256.75, df = 30, p-value &lt; 2.2e-16</span></span>
+<span id="cb95-7"><a href="定常性と自己相関関数.html#cb95-7" tabindex="-1"></a><span class="fu">Box.test</span>(ibm<span class="sc">^</span><span class="dv">2</span>, <span class="at">lag =</span> <span class="dv">30</span>, <span class="at">type =</span> <span class="st">&#39;Ljung&#39;</span>)       <span class="co"># Ljung-Box</span></span>
+<span id="cb95-8"><a href="定常性と自己相関関数.html#cb95-8" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb95-9"><a href="定常性と自己相関関数.html#cb95-9" tabindex="-1"></a><span class="co">#&gt;  Box-Ljung test</span></span>
+<span id="cb95-10"><a href="定常性と自己相関関数.html#cb95-10" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb95-11"><a href="定常性と自己相関関数.html#cb95-11" tabindex="-1"></a><span class="co">#&gt; data:  ibm^2</span></span>
+<span id="cb95-12"><a href="定常性と自己相関関数.html#cb95-12" tabindex="-1"></a><span class="co">#&gt; X-squared = 189.3, df = 30, p-value &lt; 2.2e-16</span></span></code></pre></div>
 </div>
 </div>
 <div id="線形定常時系列モデル" class="section level3 hasAnchor" number="2.4.4">
@@ -642,28 +642,28 @@ Box.test(ibm, lag = 30, type = &#39;Ljung&#39;) # Ljung-Box
 <ul>
 <li>AR(1)モデル</li>
 </ul>
-<div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb95-1"><a href="定常性と自己相関関数.html#cb95-1" tabindex="-1"></a><span class="co">#par(mfrow = c(3,1))</span></span>
-<span id="cb95-2"><a href="定常性と自己相関関数.html#cb95-2" tabindex="-1"></a>tlen <span class="ot">=</span> <span class="dv">100</span></span>
-<span id="cb95-3"><a href="定常性と自己相関関数.html#cb95-3" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
-<span id="cb95-4"><a href="定常性と自己相関関数.html#cb95-4" tabindex="-1"></a>phi <span class="ot">&lt;-</span> <span class="sc">-</span> <span class="fl">0.8</span></span>
-<span id="cb95-5"><a href="定常性と自己相関関数.html#cb95-5" tabindex="-1"></a>x <span class="ot">&lt;-</span> w <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">100</span>)</span>
-<span id="cb95-6"><a href="定常性と自己相関関数.html#cb95-6" tabindex="-1"></a><span class="cf">for</span> (t <span class="cf">in</span> <span class="dv">2</span><span class="sc">:</span><span class="dv">100</span>) x[t] <span class="ot">=</span> phi <span class="sc">*</span> x[t<span class="dv">-1</span>] <span class="sc">+</span> w[t]</span>
-<span id="cb95-7"><a href="定常性と自己相関関数.html#cb95-7" tabindex="-1"></a><span class="fu">plot</span>(x, <span class="at">type =</span> <span class="st">&quot;l&quot;</span>) <span class="co"># 時系列プロット</span></span></code></pre></div>
+<div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb96-1"><a href="定常性と自己相関関数.html#cb96-1" tabindex="-1"></a><span class="co">#par(mfrow = c(3,1))</span></span>
+<span id="cb96-2"><a href="定常性と自己相関関数.html#cb96-2" tabindex="-1"></a>tlen <span class="ot">=</span> <span class="dv">100</span></span>
+<span id="cb96-3"><a href="定常性と自己相関関数.html#cb96-3" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
+<span id="cb96-4"><a href="定常性と自己相関関数.html#cb96-4" tabindex="-1"></a>phi <span class="ot">&lt;-</span> <span class="sc">-</span> <span class="fl">0.8</span></span>
+<span id="cb96-5"><a href="定常性と自己相関関数.html#cb96-5" tabindex="-1"></a>x <span class="ot">&lt;-</span> w <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">100</span>)</span>
+<span id="cb96-6"><a href="定常性と自己相関関数.html#cb96-6" tabindex="-1"></a><span class="cf">for</span> (t <span class="cf">in</span> <span class="dv">2</span><span class="sc">:</span><span class="dv">100</span>) x[t] <span class="ot">=</span> phi <span class="sc">*</span> x[t<span class="dv">-1</span>] <span class="sc">+</span> w[t]</span>
+<span id="cb96-7"><a href="定常性と自己相関関数.html#cb96-7" tabindex="-1"></a><span class="fu">plot</span>(x, <span class="at">type =</span> <span class="st">&quot;l&quot;</span>) <span class="co"># 時系列プロット</span></span></code></pre></div>
 <p><img src="022-ACF_files/figure-html/AR1-1.png" width="75%" /></p>
-<div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb96-1"><a href="定常性と自己相関関数.html#cb96-1" tabindex="-1"></a><span class="fu">acf</span>(x) <span class="co"># 自己相関(ACF)</span></span></code></pre></div>
+<div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb97-1"><a href="定常性と自己相関関数.html#cb97-1" tabindex="-1"></a><span class="fu">acf</span>(x) <span class="co"># 自己相関(ACF)</span></span></code></pre></div>
 <p><img src="022-ACF_files/figure-html/AR1-2.png" width="75%" /></p>
-<div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb97-1"><a href="定常性と自己相関関数.html#cb97-1" tabindex="-1"></a><span class="fu">pacf</span>(x) <span class="co"># 偏自己相関(PACF)</span></span></code></pre></div>
+<div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb98-1"><a href="定常性と自己相関関数.html#cb98-1" tabindex="-1"></a><span class="fu">pacf</span>(x) <span class="co"># 偏自己相関(PACF)</span></span></code></pre></div>
 <p><img src="022-ACF_files/figure-html/AR1-3.png" width="75%" /></p>
 <ul>
 <li>MA(1)モデル</li>
 </ul>
-<div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb98-1"><a href="定常性と自己相関関数.html#cb98-1" tabindex="-1"></a>theta <span class="ot">&lt;-</span> <span class="sc">-</span> <span class="fl">0.8</span></span>
-<span id="cb98-2"><a href="定常性と自己相関関数.html#cb98-2" tabindex="-1"></a><span class="cf">for</span> (t <span class="cf">in</span> <span class="dv">2</span><span class="sc">:</span><span class="dv">100</span>) x[t] <span class="ot">&lt;-</span> w[t] <span class="sc">+</span> theta <span class="sc">*</span> w[t<span class="dv">-1</span>]</span>
-<span id="cb98-3"><a href="定常性と自己相関関数.html#cb98-3" tabindex="-1"></a><span class="fu">plot</span>(x, <span class="at">type =</span> <span class="st">&quot;l&quot;</span>) <span class="co"># 時系列プロット</span></span></code></pre></div>
+<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb99-1"><a href="定常性と自己相関関数.html#cb99-1" tabindex="-1"></a>theta <span class="ot">&lt;-</span> <span class="sc">-</span> <span class="fl">0.8</span></span>
+<span id="cb99-2"><a href="定常性と自己相関関数.html#cb99-2" tabindex="-1"></a><span class="cf">for</span> (t <span class="cf">in</span> <span class="dv">2</span><span class="sc">:</span><span class="dv">100</span>) x[t] <span class="ot">&lt;-</span> w[t] <span class="sc">+</span> theta <span class="sc">*</span> w[t<span class="dv">-1</span>]</span>
+<span id="cb99-3"><a href="定常性と自己相関関数.html#cb99-3" tabindex="-1"></a><span class="fu">plot</span>(x, <span class="at">type =</span> <span class="st">&quot;l&quot;</span>) <span class="co"># 時系列プロット</span></span></code></pre></div>
 <p><img src="022-ACF_files/figure-html/MA1-1.png" width="75%" /></p>
-<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb99-1"><a href="定常性と自己相関関数.html#cb99-1" tabindex="-1"></a><span class="fu">acf</span>(x) <span class="co"># 自己相関(ACF)</span></span></code></pre></div>
+<div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb100-1"><a href="定常性と自己相関関数.html#cb100-1" tabindex="-1"></a><span class="fu">acf</span>(x) <span class="co"># 自己相関(ACF)</span></span></code></pre></div>
 <p><img src="022-ACF_files/figure-html/MA1-2.png" width="75%" /></p>
-<div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb100-1"><a href="定常性と自己相関関数.html#cb100-1" tabindex="-1"></a><span class="fu">pacf</span>(x) <span class="co"># 偏自己相関(PACF)</span></span></code></pre></div>
+<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb101-1"><a href="定常性と自己相関関数.html#cb101-1" tabindex="-1"></a><span class="fu">pacf</span>(x) <span class="co"># 偏自己相関(PACF)</span></span></code></pre></div>
 <p><img src="022-ACF_files/figure-html/MA1-3.png" width="75%" /></p>
 </div>
 </div>
@@ -672,14 +672,14 @@ Box.test(ibm, lag = 30, type = &#39;Ljung&#39;) # Ljung-Box
 <ul>
 <li>ARMA(1,1)モデル</li>
 </ul>
-<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb101-1"><a href="定常性と自己相関関数.html#cb101-1" tabindex="-1"></a>phi <span class="ot">&lt;-</span> <span class="fl">0.5</span>; theta <span class="ot">&lt;-</span> <span class="fl">0.5</span></span>
-<span id="cb101-2"><a href="定常性と自己相関関数.html#cb101-2" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
-<span id="cb101-3"><a href="定常性と自己相関関数.html#cb101-3" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">arima.sim</span>(<span class="at">n =</span> tlen, <span class="at">model =</span> <span class="fu">list</span>(<span class="at">order =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>), <span class="at">ar =</span> phi, <span class="at">ma =</span> theta))</span>
-<span id="cb101-4"><a href="定常性と自己相関関数.html#cb101-4" tabindex="-1"></a><span class="fu">plot</span>(x, <span class="at">type =</span> <span class="st">&quot;l&quot;</span>) <span class="co"># 時系列プロット</span></span></code></pre></div>
+<div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb102-1"><a href="定常性と自己相関関数.html#cb102-1" tabindex="-1"></a>phi <span class="ot">&lt;-</span> <span class="fl">0.5</span>; theta <span class="ot">&lt;-</span> <span class="fl">0.5</span></span>
+<span id="cb102-2"><a href="定常性と自己相関関数.html#cb102-2" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
+<span id="cb102-3"><a href="定常性と自己相関関数.html#cb102-3" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">arima.sim</span>(<span class="at">n =</span> tlen, <span class="at">model =</span> <span class="fu">list</span>(<span class="at">order =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>), <span class="at">ar =</span> phi, <span class="at">ma =</span> theta))</span>
+<span id="cb102-4"><a href="定常性と自己相関関数.html#cb102-4" tabindex="-1"></a><span class="fu">plot</span>(x, <span class="at">type =</span> <span class="st">&quot;l&quot;</span>) <span class="co"># 時系列プロット</span></span></code></pre></div>
 <p><img src="022-ACF_files/figure-html/AR1MA1-1.png" width="75%" /></p>
-<div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb102-1"><a href="定常性と自己相関関数.html#cb102-1" tabindex="-1"></a><span class="fu">acf</span>(x) <span class="co"># 自己相関(ACF)</span></span></code></pre></div>
+<div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb103-1"><a href="定常性と自己相関関数.html#cb103-1" tabindex="-1"></a><span class="fu">acf</span>(x) <span class="co"># 自己相関(ACF)</span></span></code></pre></div>
 <p><img src="022-ACF_files/figure-html/AR1MA1-2.png" width="75%" /></p>
-<div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb103-1"><a href="定常性と自己相関関数.html#cb103-1" tabindex="-1"></a><span class="fu">pacf</span>(x) <span class="co"># 偏自己相関(PACF)</span></span></code></pre></div>
+<div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb104-1"><a href="定常性と自己相関関数.html#cb104-1" tabindex="-1"></a><span class="fu">pacf</span>(x) <span class="co"># 偏自己相関(PACF)</span></span></code></pre></div>
 <p><img src="022-ACF_files/figure-html/AR1MA1-3.png" width="75%" />
 <!---
 ***
@@ -718,33 +718,33 @@ ACF, PACFのコレログラムの形状を観察しなさい.結果が"安定"�
 コレログラムを2枚作図する.
 左図が標本ACF (自己相関), 右図が標本PACF (偏自己相関)
 である. 本節では, 左図に注目する.</p>
-<div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb104-1"><a href="定常性と自己相関関数.html#cb104-1" tabindex="-1"></a>sim_AR2 <span class="ot">&lt;-</span> <span class="cf">function</span>(phi_par, <span class="at">n_sim =</span> <span class="dv">100</span>, <span class="at">seed =</span> <span class="dv">1</span>, ...){</span>
-<span id="cb104-2"><a href="定常性と自己相関関数.html#cb104-2" tabindex="-1"></a>    <span class="fu">set.seed</span>(seed)</span>
-<span id="cb104-3"><a href="定常性と自己相関関数.html#cb104-3" tabindex="-1"></a>    <span class="co"># par(mfrow = c(3, 1))</span></span>
-<span id="cb104-4"><a href="定常性と自己相関関数.html#cb104-4" tabindex="-1"></a>    x <span class="ot">&lt;-</span> w <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(n_sim)</span>
-<span id="cb104-5"><a href="定常性と自己相関関数.html#cb104-5" tabindex="-1"></a>    <span class="cf">for</span> (t <span class="cf">in</span> <span class="dv">3</span><span class="sc">:</span>n_sim) {x[t] <span class="ot">&lt;-</span> phi_par[<span class="dv">1</span>] <span class="sc">*</span> x[t<span class="dv">-1</span>] <span class="sc">+</span> phi_par[<span class="dv">2</span>] <span class="sc">*</span> x[t<span class="dv">-2</span>] <span class="sc">+</span> w[t]}</span>
-<span id="cb104-6"><a href="定常性と自己相関関数.html#cb104-6" tabindex="-1"></a>    <span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>))</span>
-<span id="cb104-7"><a href="定常性と自己相関関数.html#cb104-7" tabindex="-1"></a>    <span class="fu">plot</span>(x, <span class="at">type =</span> <span class="st">&quot;l&quot;</span>, ...)</span>
-<span id="cb104-8"><a href="定常性と自己相関関数.html#cb104-8" tabindex="-1"></a>    <span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>))</span>
-<span id="cb104-9"><a href="定常性と自己相関関数.html#cb104-9" tabindex="-1"></a>    <span class="fu">acf</span>(x, <span class="at">lag.max =</span> <span class="dv">20</span>); <span class="fu">pacf</span>(x, <span class="at">lag.max =</span> <span class="dv">20</span>)</span>
-<span id="cb104-10"><a href="定常性と自己相関関数.html#cb104-10" tabindex="-1"></a>    <span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">1</span>))</span>
-<span id="cb104-11"><a href="定常性と自己相関関数.html#cb104-11" tabindex="-1"></a>}</span>
-<span id="cb104-12"><a href="定常性と自己相関関数.html#cb104-12" tabindex="-1"></a></span>
-<span id="cb104-13"><a href="定常性と自己相関関数.html#cb104-13" tabindex="-1"></a><span class="co"># Tsay, p_57, Fig 2_9のパラメータ例</span></span>
-<span id="cb104-14"><a href="定常性と自己相関関数.html#cb104-14" tabindex="-1"></a>phi_par1 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">1.2</span>, <span class="sc">-</span><span class="fl">0.35</span>)   <span class="co"># (phi1, phi2)</span></span>
-<span id="cb104-15"><a href="定常性と自己相関関数.html#cb104-15" tabindex="-1"></a>phi_par2 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">0.6</span>, <span class="sc">-</span><span class="fl">0.4</span>)    <span class="co"># (phi1, phi2)</span></span>
-<span id="cb104-16"><a href="定常性と自己相関関数.html#cb104-16" tabindex="-1"></a>phi_par3 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">0.2</span>, <span class="fl">0.35</span>)    <span class="co"># (phi1, phi2)</span></span>
-<span id="cb104-17"><a href="定常性と自己相関関数.html#cb104-17" tabindex="-1"></a>phi_par4 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="sc">-</span><span class="fl">0.2</span>, <span class="fl">0.35</span>)   <span class="co"># (phi1, phi2)</span></span>
-<span id="cb104-18"><a href="定常性と自己相関関数.html#cb104-18" tabindex="-1"></a></span>
-<span id="cb104-19"><a href="定常性と自己相関関数.html#cb104-19" tabindex="-1"></a>nsize <span class="ot">&lt;-</span> <span class="dv">400</span></span>
-<span id="cb104-20"><a href="定常性と自己相関関数.html#cb104-20" tabindex="-1"></a>seed_tmp <span class="ot">&lt;-</span> <span class="dv">100</span></span>
-<span id="cb104-21"><a href="定常性と自己相関関数.html#cb104-21" tabindex="-1"></a><span class="fu">sim_AR2</span>(phi_par1, <span class="at">n_sim =</span> nsize, <span class="at">seed =</span> seed_tmp, <span class="at">main =</span> <span class="st">&quot;(1)&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb105-1"><a href="定常性と自己相関関数.html#cb105-1" tabindex="-1"></a>sim_AR2 <span class="ot">&lt;-</span> <span class="cf">function</span>(phi_par, <span class="at">n_sim =</span> <span class="dv">100</span>, <span class="at">seed =</span> <span class="dv">1</span>, ...){</span>
+<span id="cb105-2"><a href="定常性と自己相関関数.html#cb105-2" tabindex="-1"></a>    <span class="fu">set.seed</span>(seed)</span>
+<span id="cb105-3"><a href="定常性と自己相関関数.html#cb105-3" tabindex="-1"></a>    <span class="co"># par(mfrow = c(3, 1))</span></span>
+<span id="cb105-4"><a href="定常性と自己相関関数.html#cb105-4" tabindex="-1"></a>    x <span class="ot">&lt;-</span> w <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(n_sim)</span>
+<span id="cb105-5"><a href="定常性と自己相関関数.html#cb105-5" tabindex="-1"></a>    <span class="cf">for</span> (t <span class="cf">in</span> <span class="dv">3</span><span class="sc">:</span>n_sim) {x[t] <span class="ot">&lt;-</span> phi_par[<span class="dv">1</span>] <span class="sc">*</span> x[t<span class="dv">-1</span>] <span class="sc">+</span> phi_par[<span class="dv">2</span>] <span class="sc">*</span> x[t<span class="dv">-2</span>] <span class="sc">+</span> w[t]}</span>
+<span id="cb105-6"><a href="定常性と自己相関関数.html#cb105-6" tabindex="-1"></a>    <span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>))</span>
+<span id="cb105-7"><a href="定常性と自己相関関数.html#cb105-7" tabindex="-1"></a>    <span class="fu">plot</span>(x, <span class="at">type =</span> <span class="st">&quot;l&quot;</span>, ...)</span>
+<span id="cb105-8"><a href="定常性と自己相関関数.html#cb105-8" tabindex="-1"></a>    <span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>))</span>
+<span id="cb105-9"><a href="定常性と自己相関関数.html#cb105-9" tabindex="-1"></a>    <span class="fu">acf</span>(x, <span class="at">lag.max =</span> <span class="dv">20</span>); <span class="fu">pacf</span>(x, <span class="at">lag.max =</span> <span class="dv">20</span>)</span>
+<span id="cb105-10"><a href="定常性と自己相関関数.html#cb105-10" tabindex="-1"></a>    <span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">1</span>))</span>
+<span id="cb105-11"><a href="定常性と自己相関関数.html#cb105-11" tabindex="-1"></a>}</span>
+<span id="cb105-12"><a href="定常性と自己相関関数.html#cb105-12" tabindex="-1"></a></span>
+<span id="cb105-13"><a href="定常性と自己相関関数.html#cb105-13" tabindex="-1"></a><span class="co"># Tsay, p_57, Fig 2_9のパラメータ例</span></span>
+<span id="cb105-14"><a href="定常性と自己相関関数.html#cb105-14" tabindex="-1"></a>phi_par1 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">1.2</span>, <span class="sc">-</span><span class="fl">0.35</span>)   <span class="co"># (phi1, phi2)</span></span>
+<span id="cb105-15"><a href="定常性と自己相関関数.html#cb105-15" tabindex="-1"></a>phi_par2 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">0.6</span>, <span class="sc">-</span><span class="fl">0.4</span>)    <span class="co"># (phi1, phi2)</span></span>
+<span id="cb105-16"><a href="定常性と自己相関関数.html#cb105-16" tabindex="-1"></a>phi_par3 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">0.2</span>, <span class="fl">0.35</span>)    <span class="co"># (phi1, phi2)</span></span>
+<span id="cb105-17"><a href="定常性と自己相関関数.html#cb105-17" tabindex="-1"></a>phi_par4 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="sc">-</span><span class="fl">0.2</span>, <span class="fl">0.35</span>)   <span class="co"># (phi1, phi2)</span></span>
+<span id="cb105-18"><a href="定常性と自己相関関数.html#cb105-18" tabindex="-1"></a></span>
+<span id="cb105-19"><a href="定常性と自己相関関数.html#cb105-19" tabindex="-1"></a>nsize <span class="ot">&lt;-</span> <span class="dv">400</span></span>
+<span id="cb105-20"><a href="定常性と自己相関関数.html#cb105-20" tabindex="-1"></a>seed_tmp <span class="ot">&lt;-</span> <span class="dv">100</span></span>
+<span id="cb105-21"><a href="定常性と自己相関関数.html#cb105-21" tabindex="-1"></a><span class="fu">sim_AR2</span>(phi_par1, <span class="at">n_sim =</span> nsize, <span class="at">seed =</span> seed_tmp, <span class="at">main =</span> <span class="st">&quot;(1)&quot;</span>)</span></code></pre></div>
 <p><img src="024-ACF-2_files/figure-html/unnamed-chunk-1-1.png" width="672" /><img src="024-ACF-2_files/figure-html/unnamed-chunk-1-2.png" width="672" /></p>
-<div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb105-1"><a href="定常性と自己相関関数.html#cb105-1" tabindex="-1"></a><span class="fu">sim_AR2</span>(phi_par2, <span class="at">n_sim =</span> nsize, <span class="at">seed =</span> seed_tmp, <span class="at">main =</span> <span class="st">&quot;(2)&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb106"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb106-1"><a href="定常性と自己相関関数.html#cb106-1" tabindex="-1"></a><span class="fu">sim_AR2</span>(phi_par2, <span class="at">n_sim =</span> nsize, <span class="at">seed =</span> seed_tmp, <span class="at">main =</span> <span class="st">&quot;(2)&quot;</span>)</span></code></pre></div>
 <p><img src="024-ACF-2_files/figure-html/unnamed-chunk-1-3.png" width="672" /><img src="024-ACF-2_files/figure-html/unnamed-chunk-1-4.png" width="672" /></p>
-<div class="sourceCode" id="cb106"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb106-1"><a href="定常性と自己相関関数.html#cb106-1" tabindex="-1"></a><span class="fu">sim_AR2</span>(phi_par3, <span class="at">n_sim =</span> nsize, <span class="at">seed =</span> seed_tmp, <span class="at">main =</span> <span class="st">&quot;(3)&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb107"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb107-1"><a href="定常性と自己相関関数.html#cb107-1" tabindex="-1"></a><span class="fu">sim_AR2</span>(phi_par3, <span class="at">n_sim =</span> nsize, <span class="at">seed =</span> seed_tmp, <span class="at">main =</span> <span class="st">&quot;(3)&quot;</span>)</span></code></pre></div>
 <p><img src="024-ACF-2_files/figure-html/unnamed-chunk-1-5.png" width="672" /><img src="024-ACF-2_files/figure-html/unnamed-chunk-1-6.png" width="672" /></p>
-<div class="sourceCode" id="cb107"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb107-1"><a href="定常性と自己相関関数.html#cb107-1" tabindex="-1"></a><span class="fu">sim_AR2</span>(phi_par4, <span class="at">n_sim =</span> nsize, <span class="at">seed =</span> seed_tmp, <span class="at">main =</span> <span class="st">&quot;(4)&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb108"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb108-1"><a href="定常性と自己相関関数.html#cb108-1" tabindex="-1"></a><span class="fu">sim_AR2</span>(phi_par4, <span class="at">n_sim =</span> nsize, <span class="at">seed =</span> seed_tmp, <span class="at">main =</span> <span class="st">&quot;(4)&quot;</span>)</span></code></pre></div>
 <p><img src="024-ACF-2_files/figure-html/unnamed-chunk-1-7.png" width="672" /><img src="024-ACF-2_files/figure-html/unnamed-chunk-1-8.png" width="672" /></p>
 </div>
 <div id="ar2のacf理論値の計算およびプロット" class="section level4 unnumbered hasAnchor">
@@ -752,68 +752,68 @@ ACF, PACFのコレログラムの形状を観察しなさい.結果が"安定"�
 <ul>
 <li>AR(2)の特性方程式の解</li>
 </ul>
-<div class="sourceCode" id="cb108"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb108-1"><a href="定常性と自己相関関数.html#cb108-1" tabindex="-1"></a>sol_AR2eqn <span class="ot">&lt;-</span> <span class="cf">function</span>(phi_par){</span>
-<span id="cb108-2"><a href="定常性と自己相関関数.html#cb108-2" tabindex="-1"></a>    D <span class="ot">&lt;-</span> phi_par[<span class="dv">1</span>]<span class="sc">^</span><span class="dv">2</span> <span class="sc">+</span> <span class="dv">4</span> <span class="sc">*</span> phi_par[<span class="dv">2</span>]</span>
-<span id="cb108-3"><a href="定常性と自己相関関数.html#cb108-3" tabindex="-1"></a>    <span class="cf">if</span> (D<span class="sc">&gt;=</span> <span class="dv">0</span>){</span>
-<span id="cb108-4"><a href="定常性と自己相関関数.html#cb108-4" tabindex="-1"></a>    z1 <span class="ot">&lt;-</span> (phi_par[<span class="dv">1</span>] <span class="sc">+</span> <span class="fu">sqrt</span>(D)) <span class="sc">/</span> (<span class="sc">-</span><span class="dv">2</span> <span class="sc">*</span> phi_par[<span class="dv">2</span>])</span>
-<span id="cb108-5"><a href="定常性と自己相関関数.html#cb108-5" tabindex="-1"></a>    z2 <span class="ot">&lt;-</span> (phi_par[<span class="dv">1</span>] <span class="sc">-</span> <span class="fu">sqrt</span>(D)) <span class="sc">/</span> (<span class="sc">-</span><span class="dv">2</span> <span class="sc">*</span> phi_par[<span class="dv">2</span>])</span>
-<span id="cb108-6"><a href="定常性と自己相関関数.html#cb108-6" tabindex="-1"></a>    }</span>
-<span id="cb108-7"><a href="定常性と自己相関関数.html#cb108-7" tabindex="-1"></a>    <span class="cf">else</span>{</span>
-<span id="cb108-8"><a href="定常性と自己相関関数.html#cb108-8" tabindex="-1"></a>    z1 <span class="ot">&lt;-</span> <span class="fu">complex</span>(<span class="at">re =</span> phi_par[<span class="dv">1</span>] <span class="sc">/</span> (<span class="sc">-</span><span class="dv">2</span> <span class="sc">*</span> phi_par[<span class="dv">2</span>]), <span class="at">im =</span> <span class="fu">sqrt</span>(<span class="sc">-</span>D)<span class="sc">/</span>(<span class="sc">-</span><span class="dv">2</span> <span class="sc">*</span> phi_par[<span class="dv">2</span>]))</span>
-<span id="cb108-9"><a href="定常性と自己相関関数.html#cb108-9" tabindex="-1"></a>    z2 <span class="ot">&lt;-</span> <span class="fu">complex</span>(<span class="at">re =</span> phi_par[<span class="dv">1</span>] <span class="sc">/</span> (<span class="sc">-</span><span class="dv">2</span> <span class="sc">*</span> phi_par[<span class="dv">2</span>]), <span class="at">im =</span> <span class="sc">-</span><span class="fu">sqrt</span>(<span class="sc">-</span>D)<span class="sc">/</span>(<span class="sc">-</span><span class="dv">2</span> <span class="sc">*</span> phi_par[<span class="dv">2</span>]))</span>
-<span id="cb108-10"><a href="定常性と自己相関関数.html#cb108-10" tabindex="-1"></a>    }</span>
-<span id="cb108-11"><a href="定常性と自己相関関数.html#cb108-11" tabindex="-1"></a>    <span class="fu">return</span>(<span class="fu">c</span>(z1,z2))</span>
-<span id="cb108-12"><a href="定常性と自己相関関数.html#cb108-12" tabindex="-1"></a>}</span>
-<span id="cb108-13"><a href="定常性と自己相関関数.html#cb108-13" tabindex="-1"></a><span class="fu">sol_AR2eqn</span>(phi_par1)</span></code></pre></div>
+<div class="sourceCode" id="cb109"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb109-1"><a href="定常性と自己相関関数.html#cb109-1" tabindex="-1"></a>sol_AR2eqn <span class="ot">&lt;-</span> <span class="cf">function</span>(phi_par){</span>
+<span id="cb109-2"><a href="定常性と自己相関関数.html#cb109-2" tabindex="-1"></a>    D <span class="ot">&lt;-</span> phi_par[<span class="dv">1</span>]<span class="sc">^</span><span class="dv">2</span> <span class="sc">+</span> <span class="dv">4</span> <span class="sc">*</span> phi_par[<span class="dv">2</span>]</span>
+<span id="cb109-3"><a href="定常性と自己相関関数.html#cb109-3" tabindex="-1"></a>    <span class="cf">if</span> (D<span class="sc">&gt;=</span> <span class="dv">0</span>){</span>
+<span id="cb109-4"><a href="定常性と自己相関関数.html#cb109-4" tabindex="-1"></a>    z1 <span class="ot">&lt;-</span> (phi_par[<span class="dv">1</span>] <span class="sc">+</span> <span class="fu">sqrt</span>(D)) <span class="sc">/</span> (<span class="sc">-</span><span class="dv">2</span> <span class="sc">*</span> phi_par[<span class="dv">2</span>])</span>
+<span id="cb109-5"><a href="定常性と自己相関関数.html#cb109-5" tabindex="-1"></a>    z2 <span class="ot">&lt;-</span> (phi_par[<span class="dv">1</span>] <span class="sc">-</span> <span class="fu">sqrt</span>(D)) <span class="sc">/</span> (<span class="sc">-</span><span class="dv">2</span> <span class="sc">*</span> phi_par[<span class="dv">2</span>])</span>
+<span id="cb109-6"><a href="定常性と自己相関関数.html#cb109-6" tabindex="-1"></a>    }</span>
+<span id="cb109-7"><a href="定常性と自己相関関数.html#cb109-7" tabindex="-1"></a>    <span class="cf">else</span>{</span>
+<span id="cb109-8"><a href="定常性と自己相関関数.html#cb109-8" tabindex="-1"></a>    z1 <span class="ot">&lt;-</span> <span class="fu">complex</span>(<span class="at">re =</span> phi_par[<span class="dv">1</span>] <span class="sc">/</span> (<span class="sc">-</span><span class="dv">2</span> <span class="sc">*</span> phi_par[<span class="dv">2</span>]), <span class="at">im =</span> <span class="fu">sqrt</span>(<span class="sc">-</span>D)<span class="sc">/</span>(<span class="sc">-</span><span class="dv">2</span> <span class="sc">*</span> phi_par[<span class="dv">2</span>]))</span>
+<span id="cb109-9"><a href="定常性と自己相関関数.html#cb109-9" tabindex="-1"></a>    z2 <span class="ot">&lt;-</span> <span class="fu">complex</span>(<span class="at">re =</span> phi_par[<span class="dv">1</span>] <span class="sc">/</span> (<span class="sc">-</span><span class="dv">2</span> <span class="sc">*</span> phi_par[<span class="dv">2</span>]), <span class="at">im =</span> <span class="sc">-</span><span class="fu">sqrt</span>(<span class="sc">-</span>D)<span class="sc">/</span>(<span class="sc">-</span><span class="dv">2</span> <span class="sc">*</span> phi_par[<span class="dv">2</span>]))</span>
+<span id="cb109-10"><a href="定常性と自己相関関数.html#cb109-10" tabindex="-1"></a>    }</span>
+<span id="cb109-11"><a href="定常性と自己相関関数.html#cb109-11" tabindex="-1"></a>    <span class="fu">return</span>(<span class="fu">c</span>(z1,z2))</span>
+<span id="cb109-12"><a href="定常性と自己相関関数.html#cb109-12" tabindex="-1"></a>}</span>
+<span id="cb109-13"><a href="定常性と自己相関関数.html#cb109-13" tabindex="-1"></a><span class="fu">sol_AR2eqn</span>(phi_par1)</span></code></pre></div>
 <pre><code>## [1] 2.000000 1.428571</code></pre>
-<div class="sourceCode" id="cb110"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb110-1"><a href="定常性と自己相関関数.html#cb110-1" tabindex="-1"></a><span class="fu">sol_AR2eqn</span>(phi_par2)</span></code></pre></div>
+<div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb111-1"><a href="定常性と自己相関関数.html#cb111-1" tabindex="-1"></a><span class="fu">sol_AR2eqn</span>(phi_par2)</span></code></pre></div>
 <pre><code>## [1] 0.75+1.391941i 0.75-1.391941i</code></pre>
-<div class="sourceCode" id="cb112"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb112-1"><a href="定常性と自己相関関数.html#cb112-1" tabindex="-1"></a><span class="fu">sol_AR2eqn</span>(phi_par3)</span></code></pre></div>
+<div class="sourceCode" id="cb113"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb113-1"><a href="定常性と自己相関関数.html#cb113-1" tabindex="-1"></a><span class="fu">sol_AR2eqn</span>(phi_par3)</span></code></pre></div>
 <pre><code>## [1] -2.000000  1.428571</code></pre>
-<div class="sourceCode" id="cb114"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb114-1"><a href="定常性と自己相関関数.html#cb114-1" tabindex="-1"></a><span class="fu">sol_AR2eqn</span>(phi_par4)</span></code></pre></div>
+<div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb115-1"><a href="定常性と自己相関関数.html#cb115-1" tabindex="-1"></a><span class="fu">sol_AR2eqn</span>(phi_par4)</span></code></pre></div>
 <pre><code>## [1] -1.428571  2.000000</code></pre>
 <ul>
 <li>AR(2)のACF理論値: rhoに関する差分方程式(漸化式)より計算</li>
 </ul>
-<div class="sourceCode" id="cb116"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb116-1"><a href="定常性と自己相関関数.html#cb116-1" tabindex="-1"></a>plot_ACF_AR2 <span class="ot">&lt;-</span> <span class="cf">function</span>(phi_par, <span class="at">hlen =</span> <span class="dv">20</span>){</span>
-<span id="cb116-2"><a href="定常性と自己相関関数.html#cb116-2" tabindex="-1"></a>    rho_0 <span class="ot">&lt;-</span> <span class="dv">1</span></span>
-<span id="cb116-3"><a href="定常性と自己相関関数.html#cb116-3" tabindex="-1"></a>    rho_1 <span class="ot">&lt;-</span> phi_par[<span class="dv">1</span>]<span class="sc">/</span>(<span class="dv">1</span><span class="sc">-</span>phi_par[<span class="dv">2</span>])</span>
-<span id="cb116-4"><a href="定常性と自己相関関数.html#cb116-4" tabindex="-1"></a>    ACF_h <span class="ot">&lt;-</span> <span class="fu">c</span>(rho_0, rho_1)</span>
-<span id="cb116-5"><a href="定常性と自己相関関数.html#cb116-5" tabindex="-1"></a>    <span class="cf">for</span> (h <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>hlen){</span>
-<span id="cb116-6"><a href="定常性と自己相関関数.html#cb116-6" tabindex="-1"></a>        rho_2 <span class="ot">=</span> phi_par[<span class="dv">1</span>]<span class="sc">*</span>rho_1 <span class="sc">+</span> phi_par[<span class="dv">2</span>]<span class="sc">*</span>rho_0</span>
-<span id="cb116-7"><a href="定常性と自己相関関数.html#cb116-7" tabindex="-1"></a>        ACF_h <span class="ot">=</span> <span class="fu">c</span>(ACF_h, rho_2)</span>
-<span id="cb116-8"><a href="定常性と自己相関関数.html#cb116-8" tabindex="-1"></a>        rho_0 <span class="ot">=</span>  rho_1; rho_1 <span class="ot">=</span> rho_2</span>
-<span id="cb116-9"><a href="定常性と自己相関関数.html#cb116-9" tabindex="-1"></a>    }</span>
-<span id="cb116-10"><a href="定常性と自己相関関数.html#cb116-10" tabindex="-1"></a>    <span class="fu">barplot</span>(ACF_h, <span class="at">main=</span>phi_par)</span>
-<span id="cb116-11"><a href="定常性と自己相関関数.html#cb116-11" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb117-1"><a href="定常性と自己相関関数.html#cb117-1" tabindex="-1"></a>plot_ACF_AR2 <span class="ot">&lt;-</span> <span class="cf">function</span>(phi_par, <span class="at">hlen =</span> <span class="dv">20</span>){</span>
+<span id="cb117-2"><a href="定常性と自己相関関数.html#cb117-2" tabindex="-1"></a>    rho_0 <span class="ot">&lt;-</span> <span class="dv">1</span></span>
+<span id="cb117-3"><a href="定常性と自己相関関数.html#cb117-3" tabindex="-1"></a>    rho_1 <span class="ot">&lt;-</span> phi_par[<span class="dv">1</span>]<span class="sc">/</span>(<span class="dv">1</span><span class="sc">-</span>phi_par[<span class="dv">2</span>])</span>
+<span id="cb117-4"><a href="定常性と自己相関関数.html#cb117-4" tabindex="-1"></a>    ACF_h <span class="ot">&lt;-</span> <span class="fu">c</span>(rho_0, rho_1)</span>
+<span id="cb117-5"><a href="定常性と自己相関関数.html#cb117-5" tabindex="-1"></a>    <span class="cf">for</span> (h <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>hlen){</span>
+<span id="cb117-6"><a href="定常性と自己相関関数.html#cb117-6" tabindex="-1"></a>        rho_2 <span class="ot">=</span> phi_par[<span class="dv">1</span>]<span class="sc">*</span>rho_1 <span class="sc">+</span> phi_par[<span class="dv">2</span>]<span class="sc">*</span>rho_0</span>
+<span id="cb117-7"><a href="定常性と自己相関関数.html#cb117-7" tabindex="-1"></a>        ACF_h <span class="ot">=</span> <span class="fu">c</span>(ACF_h, rho_2)</span>
+<span id="cb117-8"><a href="定常性と自己相関関数.html#cb117-8" tabindex="-1"></a>        rho_0 <span class="ot">=</span>  rho_1; rho_1 <span class="ot">=</span> rho_2</span>
+<span id="cb117-9"><a href="定常性と自己相関関数.html#cb117-9" tabindex="-1"></a>    }</span>
+<span id="cb117-10"><a href="定常性と自己相関関数.html#cb117-10" tabindex="-1"></a>    <span class="fu">barplot</span>(ACF_h, <span class="at">main=</span>phi_par)</span>
+<span id="cb117-11"><a href="定常性と自己相関関数.html#cb117-11" tabindex="-1"></a>}</span></code></pre></div>
 <ul>
 <li>代替的アプローチ: 特性方程式の解を使って導出</li>
 </ul>
-<div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb117-1"><a href="定常性と自己相関関数.html#cb117-1" tabindex="-1"></a>plot_ACF_AR2_2 <span class="ot">&lt;-</span> <span class="cf">function</span>(phi_par, <span class="at">hlen =</span> <span class="dv">20</span>){</span>
-<span id="cb117-2"><a href="定常性と自己相関関数.html#cb117-2" tabindex="-1"></a>    zvec <span class="ot">&lt;-</span> <span class="fu">sol_AR2eqn</span>(phi_par) <span class="co"># 特性方程式の解</span></span>
-<span id="cb117-3"><a href="定常性と自己相関関数.html#cb117-3" tabindex="-1"></a>    rho_0 <span class="ot">&lt;-</span> <span class="dv">1</span></span>
-<span id="cb117-4"><a href="定常性と自己相関関数.html#cb117-4" tabindex="-1"></a>    rho_1 <span class="ot">&lt;-</span> phi_par[<span class="dv">1</span>]<span class="sc">/</span>(<span class="dv">1</span><span class="sc">-</span>phi_par[<span class="dv">2</span>])</span>
-<span id="cb117-5"><a href="定常性と自己相関関数.html#cb117-5" tabindex="-1"></a>    <span class="co"># c1, c2に関する連立方程式</span></span>
-<span id="cb117-6"><a href="定常性と自己相関関数.html#cb117-6" tabindex="-1"></a>    cvec <span class="ot">&lt;-</span> <span class="fu">solve</span>(<span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span> , <span class="dv">1</span> <span class="sc">/</span> zvec[<span class="dv">1</span>], <span class="dv">1</span> <span class="sc">/</span> zvec[<span class="dv">2</span>]), <span class="dv">2</span>, <span class="at">byrow =</span> T), <span class="fu">c</span>(rho_0, rho_1) )</span>
-<span id="cb117-7"><a href="定常性と自己相関関数.html#cb117-7" tabindex="-1"></a>    hvec <span class="ot">&lt;-</span> <span class="dv">0</span><span class="sc">:</span>hlen</span>
-<span id="cb117-8"><a href="定常性と自己相関関数.html#cb117-8" tabindex="-1"></a>    <span class="cf">if</span> (<span class="sc">!</span> <span class="fu">is_complex</span>(zvec)){    <span class="co"># 実根の場合</span></span>
-<span id="cb117-9"><a href="定常性と自己相関関数.html#cb117-9" tabindex="-1"></a>        <span class="cf">if</span> (zvec[<span class="dv">1</span>] <span class="sc">!=</span> zvec[<span class="dv">2</span>]) ACF_h <span class="ot">&lt;-</span> cvec[<span class="dv">1</span>] <span class="sc">*</span> zvec[<span class="dv">1</span>] <span class="sc">^</span> (<span class="sc">-</span>hvec) <span class="sc">+</span> cvec[<span class="dv">2</span>] <span class="sc">*</span> zvec[<span class="dv">2</span>] <span class="sc">^</span> (<span class="sc">-</span>hvec)</span>
-<span id="cb117-10"><a href="定常性と自己相関関数.html#cb117-10" tabindex="-1"></a>        <span class="cf">else</span> ACF_h <span class="ot">&lt;-</span> zvec[<span class="dv">1</span>]<span class="sc">^</span>(<span class="sc">-</span>hvec) <span class="sc">*</span> (cvec[<span class="dv">1</span>] <span class="sc">+</span> cvec[<span class="dv">2</span>] <span class="sc">*</span> hvec)  <span class="co"># 重根</span></span>
-<span id="cb117-11"><a href="定常性と自己相関関数.html#cb117-11" tabindex="-1"></a>    }</span>
-<span id="cb117-12"><a href="定常性と自己相関関数.html#cb117-12" tabindex="-1"></a>    <span class="cf">else</span>{       <span class="co"># 複素共役 (complex conjugates) の場合</span></span>
-<span id="cb117-13"><a href="定常性と自己相関関数.html#cb117-13" tabindex="-1"></a>        z_mod <span class="ot">&lt;-</span> <span class="fu">Mod</span>(zvec[<span class="dv">1</span>])</span>
-<span id="cb117-14"><a href="定常性と自己相関関数.html#cb117-14" tabindex="-1"></a>        th <span class="ot">&lt;-</span> <span class="fu">Arg</span>(zvec[<span class="dv">1</span>])</span>
-<span id="cb117-15"><a href="定常性と自己相関関数.html#cb117-15" tabindex="-1"></a>        ACF_h <span class="ot">&lt;-</span> z_mod <span class="sc">^</span> (<span class="sc">-</span>hvec) <span class="sc">*</span> <span class="fu">cos</span>(hvec <span class="sc">*</span> th)</span>
-<span id="cb117-16"><a href="定常性と自己相関関数.html#cb117-16" tabindex="-1"></a>    }</span>
-<span id="cb117-17"><a href="定常性と自己相関関数.html#cb117-17" tabindex="-1"></a>    <span class="fu">barplot</span>(ACF_h, <span class="at">main =</span> phi_par)</span>
-<span id="cb117-18"><a href="定常性と自己相関関数.html#cb117-18" tabindex="-1"></a>}</span>
-<span id="cb117-19"><a href="定常性と自己相関関数.html#cb117-19" tabindex="-1"></a><span class="fu">plot_ACF_AR2</span>(phi_par1)</span></code></pre></div>
+<div class="sourceCode" id="cb118"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb118-1"><a href="定常性と自己相関関数.html#cb118-1" tabindex="-1"></a>plot_ACF_AR2_2 <span class="ot">&lt;-</span> <span class="cf">function</span>(phi_par, <span class="at">hlen =</span> <span class="dv">20</span>){</span>
+<span id="cb118-2"><a href="定常性と自己相関関数.html#cb118-2" tabindex="-1"></a>    zvec <span class="ot">&lt;-</span> <span class="fu">sol_AR2eqn</span>(phi_par) <span class="co"># 特性方程式の解</span></span>
+<span id="cb118-3"><a href="定常性と自己相関関数.html#cb118-3" tabindex="-1"></a>    rho_0 <span class="ot">&lt;-</span> <span class="dv">1</span></span>
+<span id="cb118-4"><a href="定常性と自己相関関数.html#cb118-4" tabindex="-1"></a>    rho_1 <span class="ot">&lt;-</span> phi_par[<span class="dv">1</span>]<span class="sc">/</span>(<span class="dv">1</span><span class="sc">-</span>phi_par[<span class="dv">2</span>])</span>
+<span id="cb118-5"><a href="定常性と自己相関関数.html#cb118-5" tabindex="-1"></a>    <span class="co"># c1, c2に関する連立方程式</span></span>
+<span id="cb118-6"><a href="定常性と自己相関関数.html#cb118-6" tabindex="-1"></a>    cvec <span class="ot">&lt;-</span> <span class="fu">solve</span>(<span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span> , <span class="dv">1</span> <span class="sc">/</span> zvec[<span class="dv">1</span>], <span class="dv">1</span> <span class="sc">/</span> zvec[<span class="dv">2</span>]), <span class="dv">2</span>, <span class="at">byrow =</span> T), <span class="fu">c</span>(rho_0, rho_1) )</span>
+<span id="cb118-7"><a href="定常性と自己相関関数.html#cb118-7" tabindex="-1"></a>    hvec <span class="ot">&lt;-</span> <span class="dv">0</span><span class="sc">:</span>hlen</span>
+<span id="cb118-8"><a href="定常性と自己相関関数.html#cb118-8" tabindex="-1"></a>    <span class="cf">if</span> (<span class="sc">!</span> <span class="fu">is_complex</span>(zvec)){    <span class="co"># 実根の場合</span></span>
+<span id="cb118-9"><a href="定常性と自己相関関数.html#cb118-9" tabindex="-1"></a>        <span class="cf">if</span> (zvec[<span class="dv">1</span>] <span class="sc">!=</span> zvec[<span class="dv">2</span>]) ACF_h <span class="ot">&lt;-</span> cvec[<span class="dv">1</span>] <span class="sc">*</span> zvec[<span class="dv">1</span>] <span class="sc">^</span> (<span class="sc">-</span>hvec) <span class="sc">+</span> cvec[<span class="dv">2</span>] <span class="sc">*</span> zvec[<span class="dv">2</span>] <span class="sc">^</span> (<span class="sc">-</span>hvec)</span>
+<span id="cb118-10"><a href="定常性と自己相関関数.html#cb118-10" tabindex="-1"></a>        <span class="cf">else</span> ACF_h <span class="ot">&lt;-</span> zvec[<span class="dv">1</span>]<span class="sc">^</span>(<span class="sc">-</span>hvec) <span class="sc">*</span> (cvec[<span class="dv">1</span>] <span class="sc">+</span> cvec[<span class="dv">2</span>] <span class="sc">*</span> hvec)  <span class="co"># 重根</span></span>
+<span id="cb118-11"><a href="定常性と自己相関関数.html#cb118-11" tabindex="-1"></a>    }</span>
+<span id="cb118-12"><a href="定常性と自己相関関数.html#cb118-12" tabindex="-1"></a>    <span class="cf">else</span>{       <span class="co"># 複素共役 (complex conjugates) の場合</span></span>
+<span id="cb118-13"><a href="定常性と自己相関関数.html#cb118-13" tabindex="-1"></a>        z_mod <span class="ot">&lt;-</span> <span class="fu">Mod</span>(zvec[<span class="dv">1</span>])</span>
+<span id="cb118-14"><a href="定常性と自己相関関数.html#cb118-14" tabindex="-1"></a>        th <span class="ot">&lt;-</span> <span class="fu">Arg</span>(zvec[<span class="dv">1</span>])</span>
+<span id="cb118-15"><a href="定常性と自己相関関数.html#cb118-15" tabindex="-1"></a>        ACF_h <span class="ot">&lt;-</span> z_mod <span class="sc">^</span> (<span class="sc">-</span>hvec) <span class="sc">*</span> <span class="fu">cos</span>(hvec <span class="sc">*</span> th)</span>
+<span id="cb118-16"><a href="定常性と自己相関関数.html#cb118-16" tabindex="-1"></a>    }</span>
+<span id="cb118-17"><a href="定常性と自己相関関数.html#cb118-17" tabindex="-1"></a>    <span class="fu">barplot</span>(ACF_h, <span class="at">main =</span> phi_par)</span>
+<span id="cb118-18"><a href="定常性と自己相関関数.html#cb118-18" tabindex="-1"></a>}</span>
+<span id="cb118-19"><a href="定常性と自己相関関数.html#cb118-19" tabindex="-1"></a><span class="fu">plot_ACF_AR2</span>(phi_par1)</span></code></pre></div>
 <p><img src="024-ACF-2_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
-<div class="sourceCode" id="cb118"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb118-1"><a href="定常性と自己相関関数.html#cb118-1" tabindex="-1"></a><span class="fu">plot_ACF_AR2</span>(phi_par2)</span></code></pre></div>
+<div class="sourceCode" id="cb119"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb119-1"><a href="定常性と自己相関関数.html#cb119-1" tabindex="-1"></a><span class="fu">plot_ACF_AR2</span>(phi_par2)</span></code></pre></div>
 <p><img src="024-ACF-2_files/figure-html/unnamed-chunk-4-2.png" width="672" /></p>
-<div class="sourceCode" id="cb119"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb119-1"><a href="定常性と自己相関関数.html#cb119-1" tabindex="-1"></a><span class="fu">plot_ACF_AR2</span>(phi_par3)</span></code></pre></div>
+<div class="sourceCode" id="cb120"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb120-1"><a href="定常性と自己相関関数.html#cb120-1" tabindex="-1"></a><span class="fu">plot_ACF_AR2</span>(phi_par3)</span></code></pre></div>
 <p><img src="024-ACF-2_files/figure-html/unnamed-chunk-4-3.png" width="672" /></p>
-<div class="sourceCode" id="cb120"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb120-1"><a href="定常性と自己相関関数.html#cb120-1" tabindex="-1"></a><span class="fu">plot_ACF_AR2</span>(phi_par4)</span></code></pre></div>
+<div class="sourceCode" id="cb121"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb121-1"><a href="定常性と自己相関関数.html#cb121-1" tabindex="-1"></a><span class="fu">plot_ACF_AR2</span>(phi_par4)</span></code></pre></div>
 <p><img src="024-ACF-2_files/figure-html/unnamed-chunk-4-4.png" width="672" /></p>
 <p>先に生成した理論ACFと, それぞれの形状が類似していることが
 確認される.</p>
@@ -821,7 +821,7 @@ ACF, PACFのコレログラムの形状を観察しなさい.結果が"安定"�
 ### MA(2)モデル
 - シミュレーションと標本ACF・標本PACF
 
-```r
+``` r
 sim_MA2 <- function(theta_par, n_sim = 100, seed = 1, ...){
     set.seed(seed)
     par(mfrow = c(3, 1))
@@ -843,19 +843,19 @@ sim_MA2(theta_par1, n_sim = nsize, seed = seed_tmp, main = "(1)")
 
 <img src="024-ACF-2_files/figure-html/unnamed-chunk-5-1.png" width="672" />
 
-```r
+``` r
 sim_MA2(theta_par2, n_sim = nsize, seed = seed_tmp, main = "(2)")
 ```
 
 <img src="024-ACF-2_files/figure-html/unnamed-chunk-5-2.png" width="672" />
 
-```r
+``` r
 sim_MA2(theta_par3, n_sim = nsize, seed = seed_tmp, main = "(3)")
 ```
 
 <img src="024-ACF-2_files/figure-html/unnamed-chunk-5-3.png" width="672" />
 
-```r
+``` r
 sim_MA2(theta_par4, n_sim = nsize, seed = seed_tmp, main = "(4)")
 ```
 
@@ -864,7 +864,7 @@ sim_MA2(theta_par4, n_sim = nsize, seed = seed_tmp, main = "(4)")
 ### ARMA(1,1)モデル
 - シミュレーションと標本ACF・標本PACF
 
-```r
+``` r
 phi <- 0.5; theta <- 0.5
 set.seed(1)
 x  <-  arima.sim(n  =  nsize, model = list(order = c(1, 0, 1), ar = phi, ma = theta))
@@ -873,13 +873,13 @@ plot(x, type = "l") # 時系列プロット
 
 <img src="024-ACF-2_files/figure-html/unnamed-chunk-6-1.png" width="672" />
 
-```r
+``` r
 acf(x) # 自己相関(ACF)
 ```
 
 <img src="024-ACF-2_files/figure-html/unnamed-chunk-6-2.png" width="672" />
 
-```r
+``` r
 pacf(x) # 偏自己相関(PACF)
 ```
 
@@ -909,42 +909,42 @@ pacf(x) # 偏自己相関(PACF)
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
-"sharing": {
-"github": false,
-"facebook": true,
-"twitter": true,
-"linkedin": false,
-"weibo": false,
-"instapaper": false,
-"vk": false,
-"whatsapp": false,
-"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
-},
-"fontsettings": {
-"theme": "white",
-"family": "sans",
-"size": 2
-},
-"edit": {
-"link": null,
-"text": null
-},
-"history": {
-"link": null,
-"text": null
-},
-"view": {
-"link": null,
-"text": null
-},
-"download": null,
-"search": {
-"engine": "fuse",
-"options": null
-},
-"toc": {
-"collapse": "subsection"
-}
+  "sharing": {
+    "github": false,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": null,
+    "text": null
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": null,
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "subsection"
+  }
 });
 });
 </script>

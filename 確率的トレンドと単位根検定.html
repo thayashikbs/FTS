@@ -340,7 +340,11 @@ X_{t}={\color{olive}\alpha}+\beta\cdot t+\eta_{t},
 文字通り「確率的トレンド」をもたらす項<span class="math inline">\(\eta_t\)</span>の
 二つの成分が重なり合って生成されている.</p>
 <p>例えば, <span class="math inline">\(\alpha=0,\beta=0.05,\phi(z)=1-\phi_{1}z\)</span> において, 順に, <span class="math inline">\(\phi_{1}=1,0.98, 0.95\)</span>の場合について,
-同一の乱数を用いて一本のサンプルパスを生成した場合を図示する. (テクニカルな注: 厳密には, いずれのケースも初期値<span class="math inline">\(X_0=0\)</span>からシミュレーションをスタートしているため, 確定的トレンドの二つのケースは, 事象 <span class="math inline">\(\{X_0=0\}\)</span>の条件の下での定常性を有する確率過程のサンプルパスである. 一方, 確率的トレンドのケースは初期値の設定有無によらず常に非定常である.)</p>
+同一の乱数を用いて一本のサンプルパスを生成した場合を図示する. <!--
+(テクニカルな注: 厳密には, いずれのケースも初期値$X_0=0$からシミュレーションをスタートしているため, 確定的トレンドの二つのケースは, 事象 $\{X_0=0\}$の条件の下での定常性を有する確率過程のサンプルパスである. 一方, 確率的トレンドのケースは初期値の設定有無によらず常に非定常である.)
+-->
+シミュレーションでは, 便宜上 <span class="math inline">\(X_0=0\)</span> (あるいは, <span class="math inline">\(\eta_0=0\)</span>) を初期値として与え, その後の値を再帰的に生成した.
+この場合, 初期時点付近の観測値は, 確定的トレンドのケースにおいては, 定常分布からの逸脱を含む過渡状態となるが, 十分大きな <span class="math inline">\(t\)</span> に対しては, トレンドを除いたプロセス <span class="math inline">\(\{X_t - \alpha - \beta \cdot t\}\)</span> は定常 ARMA 過程の分布に漸近的に近づく. 一方, 確率的トレンドのケースは初期値の設定有無によらず常に非定常である.</p>
 <p><img src="042-unitroot_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
 <p>これらの「確定的な(線形トレンド)」モデルと「確率的トレンド」モデルは, モデルの形状は類似しているが,
 <!-- 見かけ上は区別がしにくいケースが多いが,--> 時系列的な性質は大きく異なる.
@@ -579,7 +583,7 @@ unitrootTest(x, lags = 1, type = c(&quot;nc&quot;, &quot;c&quot;, &quot;ct&quot;
 ##     0.703 
 ## 
 ## Description:
-##  Fri Nov 28 11:48:57 2025 by user:</code></pre>
+##  Sat Nov 29 13:16:34 2025 by user:</code></pre>
 <div class="sourceCode" id="cb350"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb350-1"><a href="確率的トレンドと単位根検定.html#cb350-1" tabindex="-1"></a><span class="fu">unitrootTest</span>(x, <span class="at">type =</span> <span class="st">&quot;nc&quot;</span>, <span class="at">lags =</span> <span class="dv">1</span>)</span></code></pre></div>
 <pre><code>## 
 ## Title:
@@ -595,7 +599,7 @@ unitrootTest(x, lags = 1, type = c(&quot;nc&quot;, &quot;c&quot;, &quot;ct&quot;
 ##     n: 0.7506 
 ## 
 ## Description:
-##  Fri Nov 28 11:48:57 2025 by user:</code></pre>
+##  Sat Nov 29 13:16:34 2025 by user:</code></pre>
 <!--
 **自主課題**:
 二つの関数の結果を比較せよ.
@@ -630,7 +634,7 @@ MacKinnonの response surface に基づく近似は，EViews, Stataなどでも�
 ##     0.3835 
 ## 
 ## Description:
-##  Fri Nov 28 11:48:57 2025 by user:</code></pre>
+##  Sat Nov 29 13:16:34 2025 by user:</code></pre>
 <div class="sourceCode" id="cb355"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb355-1"><a href="確率的トレンドと単位根検定.html#cb355-1" tabindex="-1"></a><span class="fu">unitrootTest</span>(y, <span class="at">type =</span> <span class="st">&quot;nc&quot;</span>, <span class="at">lags =</span> <span class="dv">1</span>)</span></code></pre></div>
 <pre><code>## 
 ## Title:
@@ -646,7 +650,7 @@ MacKinnonの response surface に基づく近似は，EViews, Stataなどでも�
 ##     n: 0.522 
 ## 
 ## Description:
-##  Fri Nov 28 11:48:57 2025 by user:</code></pre>
+##  Sat Nov 29 13:16:34 2025 by user:</code></pre>
 <p>→ いずれも, 帰無仮説 (<span class="math inline">\(\phi_1=1\)</span>) を棄却せず (単位根有り).</p>
 <div class="sourceCode" id="cb357"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb357-1"><a href="確率的トレンドと単位根検定.html#cb357-1" tabindex="-1"></a><span class="fu">adfTest</span>(x, <span class="at">type =</span> <span class="st">&quot;c&quot;</span>, <span class="at">lags =</span> <span class="dv">1</span>)</span></code></pre></div>
 <pre><code>## 
@@ -662,7 +666,7 @@ MacKinnonの response surface に基づく近似は，EViews, Stataなどでも�
 ##     0.5166 
 ## 
 ## Description:
-##  Fri Nov 28 11:48:57 2025 by user:</code></pre>
+##  Sat Nov 29 13:16:34 2025 by user:</code></pre>
 <div class="sourceCode" id="cb359"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb359-1"><a href="確率的トレンドと単位根検定.html#cb359-1" tabindex="-1"></a><span class="co"># unitrootTest(x, type = &quot;c&quot;, lags = 1)</span></span>
 <span id="cb359-2"><a href="確率的トレンドと単位根検定.html#cb359-2" tabindex="-1"></a><span class="fu">adfTest</span>(y, <span class="at">type =</span> <span class="st">&quot;c&quot;</span>, <span class="at">lags =</span> <span class="dv">1</span>)</span></code></pre></div>
 <pre><code>## 
@@ -678,7 +682,7 @@ MacKinnonの response surface に基づく近似は，EViews, Stataなどでも�
 ##     0.6617 
 ## 
 ## Description:
-##  Fri Nov 28 11:48:57 2025 by user:</code></pre>
+##  Sat Nov 29 13:16:34 2025 by user:</code></pre>
 <div class="sourceCode" id="cb361"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb361-1"><a href="確率的トレンドと単位根検定.html#cb361-1" tabindex="-1"></a><span class="co"># unitrootTest(y, type = &quot;c&quot;, lags = 1)</span></span></code></pre></div>
 <div class="sourceCode" id="cb362"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb362-1"><a href="確率的トレンドと単位根検定.html#cb362-1" tabindex="-1"></a><span class="fu">adfTest</span>(x, <span class="at">type =</span> <span class="st">&quot;c&quot;</span>, <span class="at">lags =</span> <span class="dv">1</span>)</span></code></pre></div>
 <pre><code>## 
@@ -694,7 +698,7 @@ MacKinnonの response surface に基づく近似は，EViews, Stataなどでも�
 ##     0.5166 
 ## 
 ## Description:
-##  Fri Nov 28 11:48:57 2025 by user:</code></pre>
+##  Sat Nov 29 13:16:34 2025 by user:</code></pre>
 <div class="sourceCode" id="cb364"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb364-1"><a href="確率的トレンドと単位根検定.html#cb364-1" tabindex="-1"></a><span class="co"># unitrootTest(x, type = &quot;ct&quot;, lags = 1)</span></span>
 <span id="cb364-2"><a href="確率的トレンドと単位根検定.html#cb364-2" tabindex="-1"></a><span class="fu">adfTest</span>(y, <span class="at">type =</span> <span class="st">&quot;c&quot;</span>, <span class="at">lags =</span> <span class="dv">1</span>)</span></code></pre></div>
 <pre><code>## 
@@ -710,7 +714,7 @@ MacKinnonの response surface に基づく近似は，EViews, Stataなどでも�
 ##     0.6617 
 ## 
 ## Description:
-##  Fri Nov 28 11:48:57 2025 by user:</code></pre>
+##  Sat Nov 29 13:16:34 2025 by user:</code></pre>
 <div class="sourceCode" id="cb366"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb366-1"><a href="確率的トレンドと単位根検定.html#cb366-1" tabindex="-1"></a><span class="co"># unitrootTest(y, type = &quot;ct&quot;, lags = 1)</span></span></code></pre></div>
 </div>
 <div id="パッケージtseries" class="section level3 unnumbered hasAnchor">
@@ -1356,7 +1360,7 @@ ur.pp(x, type = c(&quot;Z-alpha&quot;, &quot;Z-tau&quot;), model = c(&quot;const
 ## 
 ## Coefficients:
 ##              Estimate Std. Error t value Pr(&gt;|t|)    
-## (Intercept) 24.908421   9.184760   2.712  0.00680 ** 
+## (Intercept) 24.908408   9.184757   2.712  0.00680 ** 
 ## y.l1         0.987289   0.005062 195.048  &lt; 2e-16 ***
 ## trend        0.029106   0.011051   2.634  0.00857 ** 
 ## ---
@@ -1390,7 +1394,7 @@ ur.pp(x, type = c(&quot;Z-alpha&quot;, &quot;Z-tau&quot;), model = c(&quot;const
 ## 
 ## Coefficients:
 ##              Estimate Std. Error t value Pr(&gt;|t|)    
-## (Intercept) 24.908421   9.184760   2.712  0.00680 ** 
+## (Intercept) 24.908408   9.184757   2.712  0.00680 ** 
 ## y.l1         0.987289   0.005062 195.048  &lt; 2e-16 ***
 ## trend        0.029106   0.011051   2.634  0.00857 ** 
 ## ---
@@ -1427,7 +1431,7 @@ ur.pp(x, type = c(&quot;Z-alpha&quot;, &quot;Z-tau&quot;), model = c(&quot;const
 ## 
 ## Coefficients:
 ##              Estimate Std. Error t value Pr(&gt;|t|)    
-## (Intercept) 24.908421   9.184760   2.712  0.00680 ** 
+## (Intercept) 24.908408   9.184757   2.712  0.00680 ** 
 ## y.l1         0.987289   0.005062 195.048  &lt; 2e-16 ***
 ## trend        0.029106   0.011051   2.634  0.00857 ** 
 ## ---
@@ -1468,7 +1472,7 @@ ur.pp(x, type = c(&quot;Z-alpha&quot;, &quot;Z-tau&quot;), model = c(&quot;const
 ## 
 ## Coefficients:
 ##             Estimate Std. Error t value Pr(&gt;|t|)    
-## (Intercept) 2.740814   3.688286   0.743    0.458    
+## (Intercept) 2.740812   3.688285   0.743    0.458    
 ## y.l1        0.999615   0.001934 516.776   &lt;2e-16 ***
 ## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1

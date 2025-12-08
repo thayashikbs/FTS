@@ -70,6 +70,9 @@ hurst指数の推定
 arfimaモデルの推定
 arfimaモデル-データ分析例-1
 arfimaモデル-データ分析例-2
+レジームスイッチングモデル
+自己回帰マルコフスイッチングモデル-msm-ar
+パッケージnhmsarの利用
 バブル-生成崩壊-検出
 検定法に関する最近のレビュー論文
 supreme-adf検定sadf-pwy-2011-generalized-supreme-adf-検定gsadf-psy-2015
@@ -84,3 +87,9 @@ supreme-adf検定sadf-pwy-2011-generalized-supreme-adf-検定gsadf-psy-2015
 vix
 高頻度データ-ボラティリティ-注文フロー等
 長期記憶性の発生要因-非長期記憶モデルによる近似
+markov-switching-regime-switchingモデル
+理論概説-1
+株式市場-1
+金利債券市場
+外国為替市場-1
+アセットアロケーション

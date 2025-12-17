@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>D ARCH/GARCHモデル | 金融時系列解析</title>
+  <meta name="description" content="D ARCH/GARCHモデル | 金融時系列解析" />
+  <meta name="generator" content="bookdown 0.40 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="D ARCH/GARCHモデル | 金融時系列解析" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="D ARCH/GARCHモデル | 金融時系列解析" />
+  
+  
+  
+
+<meta name="author" content="林 高樹" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="markov-switching-regime-switchingモデル.html"/>
+
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> はじめに</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#時系列モデリング"><i class="fa fa-check"></i><b>1.1</b> 時系列モデリング</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#金融時系列データの特徴"><i class="fa fa-check"></i><b>1.2</b> 金融時系列データの特徴</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#金融時系列データの特徴-みずほ-8411-株価データの例"><i class="fa fa-check"></i>金融時系列データの特徴: みずほ (8411) 株価データの例</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#シミュレーションによるサンプルパス生成"><i class="fa fa-check"></i><b>1.3</b> シミュレーションによるサンプルパス生成</a></li>
+<li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#rにおける時系列オブジェクトクラスおよび関数の例"><i class="fa fa-check"></i><b>1.4</b> Rにおける時系列オブジェクト・クラスおよび関数の例</a>
+<ul>
+<li class="chapter" data-level="1.4.1" data-path="index.html"><a href="index.html#日付時間データに対するクラス"><i class="fa fa-check"></i><b>1.4.1</b> 日付・時間データに対するクラス</a></li>
+<li class="chapter" data-level="1.4.2" data-path="index.html"><a href="index.html#時系列データに対するクラス1-tsクラス"><i class="fa fa-check"></i><b>1.4.2</b> 時系列データに対するクラス(1): tsクラス</a></li>
+<li class="chapter" data-level="1.4.3" data-path="index.html"><a href="index.html#時系列データに対するクラス2-zooクラスとxtsクラス"><i class="fa fa-check"></i><b>1.4.3</b> 時系列データに対するクラス(2): zooクラスとxtsクラス</a></li>
+</ul></li>
+<li class="chapter" data-level="1.5" data-path="index.html"><a href="index.html#時系列データの分解"><i class="fa fa-check"></i><b>1.5</b> 時系列データの分解</a>
+<ul>
+<li class="chapter" data-level="1.5.1" data-path="index.html"><a href="index.html#トレンド抽出-平滑化-smoothing"><i class="fa fa-check"></i><b>1.5.1</b> トレンド抽出, 平滑化 (smoothing)</a></li>
+<li class="chapter" data-level="1.5.2" data-path="index.html"><a href="index.html#分解モデル"><i class="fa fa-check"></i><b>1.5.2</b> 分解モデル</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="定常性と自己相関関数.html"><a href="定常性と自己相関関数.html"><i class="fa fa-check"></i><b>2</b> 定常性と自己相関関数</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="定常性と自己相関関数.html"><a href="定常性と自己相関関数.html#確率過程の2次特性-平均関数と自己共分散関数"><i class="fa fa-check"></i><b>2.1</b> 確率過程の2次特性: 平均関数と自己共分散関数</a></li>
+<li class="chapter" data-level="2.2" data-path="定常性と自己相関関数.html"><a href="定常性と自己相関関数.html#定常性-stationarity"><i class="fa fa-check"></i><b>2.2</b> 定常性 (stationarity)</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="定常性と自己相関関数.html"><a href="定常性と自己相関関数.html#強定常性"><i class="fa fa-check"></i><b>2.2.1</b> 強定常性</a></li>
+<li class="chapter" data-level="2.2.2" data-path="定常性と自己相関関数.html"><a href="定常性と自己相関関数.html#弱定常性"><i class="fa fa-check"></i><b>2.2.2</b> 弱定常性</a></li>
+<li class="chapter" data-level="2.2.3" data-path="定常性と自己相関関数.html"><a href="定常性と自己相関関数.html#ホワイトノイズ"><i class="fa fa-check"></i><b>2.2.3</b> ホワイトノイズ</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="定常性と自己相関関数.html"><a href="定常性と自己相関関数.html#標本平均と標本自己共分散関数"><i class="fa fa-check"></i><b>2.3</b> 標本平均と標本自己共分散関数</a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="定常性と自己相関関数.html"><a href="定常性と自己相関関数.html#アンサンブル平均-vs-標本平均"><i class="fa fa-check"></i><b>2.3.1</b> アンサンブル平均 vs 標本平均</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="定常性と自己相関関数.html"><a href="定常性と自己相関関数.html#r操作-標本acf"><i class="fa fa-check"></i><b>2.4</b> R操作: 標本ACF</a>
+<ul>
+<li class="chapter" data-level="2.4.1" data-path="定常性と自己相関関数.html"><a href="定常性と自己相関関数.html#白色ノイズ"><i class="fa fa-check"></i><b>2.4.1</b> 白色ノイズ</a></li>
+<li class="chapter" data-level="2.4.2" data-path="定常性と自己相関関数.html"><a href="定常性と自己相関関数.html#ランダムウォーク"><i class="fa fa-check"></i><b>2.4.2</b> ランダムウォーク</a></li>
+<li class="chapter" data-level="2.4.3" data-path="定常性と自己相関関数.html"><a href="定常性と自己相関関数.html#非定常成分を含む時系列"><i class="fa fa-check"></i><b>2.4.3</b> 非定常成分を含む時系列</a></li>
+<li class="chapter" data-level="2.4.4" data-path="定常性と自己相関関数.html"><a href="定常性と自己相関関数.html#線形定常時系列モデル"><i class="fa fa-check"></i><b>2.4.4</b> 線形・定常時系列モデル</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="定常性と自己相関関数.html"><a href="定常性と自己相関関数.html#母acf-vs-標本acf"><i class="fa fa-check"></i><b>2.5</b> 母ACF vs 標本ACF</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="armapqモデル.html"><a href="armapqモデル.html"><i class="fa fa-check"></i><b>3</b> ARMA<span class="math inline">\((p,q)\)</span>モデル</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="armapqモデル.html"><a href="armapqモデル.html#armapqモデルとは"><i class="fa fa-check"></i><b>3.1</b> ARMA<span class="math inline">\((p,q)\)</span>モデルとは</a>
+<ul>
+<li class="chapter" data-level="" data-path="armapqモデル.html"><a href="armapqモデル.html#因果性と反転可能性"><i class="fa fa-check"></i>因果性と反転可能性</a></li>
+<li class="chapter" data-level="" data-path="armapqモデル.html"><a href="armapqモデル.html#armapqモデルの意義"><i class="fa fa-check"></i>ARMA<span class="math inline">\((p,q)\)</span>モデルの意義</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="armapqモデル.html"><a href="armapqモデル.html#armapqモデルによる予測"><i class="fa fa-check"></i><b>3.2</b> ARMA<span class="math inline">\((p,q)\)</span>モデルによる予測</a></li>
+<li class="chapter" data-level="3.3" data-path="armapqモデル.html"><a href="armapqモデル.html#armapqモデルの推定"><i class="fa fa-check"></i><b>3.3</b> ARMA<span class="math inline">\((p,q)\)</span>モデルの推定</a></li>
+<li class="chapter" data-level="3.4" data-path="armapqモデル.html"><a href="armapqモデル.html#armapqモデルの同定-次数の特定"><i class="fa fa-check"></i><b>3.4</b> ARMA<span class="math inline">\((p,q)\)</span>モデルの同定 (次数の特定)</a></li>
+<li class="chapter" data-level="3.5" data-path="armapqモデル.html"><a href="armapqモデル.html#r操作"><i class="fa fa-check"></i><b>3.5</b> R操作</a>
+<ul>
+<li class="chapter" data-level="" data-path="armapqモデル.html"><a href="armapqモデル.html#armapqモデルの同定-acfpacfeacfの利用"><i class="fa fa-check"></i>ARMA<span class="math inline">\((p,q)\)</span>モデルの同定 (ACF/PACF/EACFの利用)</a></li>
+<li class="chapter" data-level="" data-path="armapqモデル.html"><a href="armapqモデル.html#armapqモデルの推定診断"><i class="fa fa-check"></i>ARMA<span class="math inline">\((p,q)\)</span>モデルの推定・診断</a></li>
+<li class="chapter" data-level="" data-path="armapqモデル.html"><a href="armapqモデル.html#パッケージforecastの利用"><i class="fa fa-check"></i>パッケージ{forecast}の利用</a></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="armapqモデル.html"><a href="armapqモデル.html#データ分析例-tsay-ch2より"><i class="fa fa-check"></i><b>3.6</b> データ分析例 (Tsay, Ch2より)</a>
+<ul>
+<li class="chapter" data-level="" data-path="armapqモデル.html"><a href="armapqモデル.html#標本acf"><i class="fa fa-check"></i>標本ACF</a></li>
+<li class="chapter" data-level="" data-path="armapqモデル.html"><a href="armapqモデル.html#ar-ma-arma-2.42.6"><i class="fa fa-check"></i>AR, MA, ARMA (2.4–2.6)</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="arimasarimaモデル.html"><a href="arimasarimaモデル.html"><i class="fa fa-check"></i><b>4</b> ARIMA/SARIMAモデル</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="arimasarimaモデル.html"><a href="arimasarimaモデル.html#arimapdqモデルとは"><i class="fa fa-check"></i><b>4.1</b> ARIMA<span class="math inline">\((p,d,q)\)</span>モデルとは</a></li>
+<li class="chapter" data-level="4.2" data-path="arimasarimaモデル.html"><a href="arimasarimaモデル.html#sarimapdqtimes-pdq_sモデル-周期sとは"><i class="fa fa-check"></i><b>4.2</b> SARIMA<span class="math inline">\((p,d,q)\times (P,D,Q)_s\)</span>モデル (周期<span class="math inline">\(s\)</span>)とは</a></li>
+<li class="chapter" data-level="4.3" data-path="arimasarimaモデル.html"><a href="arimasarimaモデル.html#sarimaモデルのパス生成-パッケージsarimaの利用"><i class="fa fa-check"></i><b>4.3</b> SARIMAモデルのパス生成: パッケージ<strong>sarima</strong>の利用</a></li>
+<li class="chapter" data-level="4.4" data-path="arimasarimaモデル.html"><a href="arimasarimaモデル.html#sarimaモデルの推定診断"><i class="fa fa-check"></i><b>4.4</b> SARIMAモデルの推定・診断</a>
+<ul>
+<li class="chapter" data-level="" data-path="arimasarimaモデル.html"><a href="arimasarimaモデル.html#パッケージforecastの利用-1"><i class="fa fa-check"></i>パッケージ<strong>forecast</strong>の利用</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="arimasarimaモデル.html"><a href="arimasarimaモデル.html#データ分析例"><i class="fa fa-check"></i><b>4.5</b> データ分析例</a>
+<ul>
+<li class="chapter" data-level="" data-path="arimasarimaモデル.html"><a href="arimasarimaモデル.html#データセット-bonds"><i class="fa fa-check"></i>データセット: bonds</a></li>
+<li class="chapter" data-level="" data-path="arimasarimaモデル.html"><a href="arimasarimaモデル.html#データセット-airpassengers"><i class="fa fa-check"></i>データセット: AirPassengers</a></li>
+</ul></li>
+<li class="chapter" data-level="4.6" data-path="arimasarimaモデル.html"><a href="arimasarimaモデル.html#外生変数があるケース"><i class="fa fa-check"></i><b>4.6</b> 外生変数があるケース</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="確率的トレンドと単位根検定.html"><a href="確率的トレンドと単位根検定.html"><i class="fa fa-check"></i><b>5</b> 確率的トレンドと単位根検定</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="確率的トレンドと単位根検定.html"><a href="確率的トレンドと単位根検定.html#確率的トレンド-vs-確定的トレンド"><i class="fa fa-check"></i><b>5.1</b> 確率的トレンド vs 確定的トレンド</a></li>
+<li class="chapter" data-level="5.2" data-path="確率的トレンドと単位根検定.html"><a href="確率的トレンドと単位根検定.html#単位根過程と見せかけの回帰"><i class="fa fa-check"></i><b>5.2</b> 単位根過程と見せかけの回帰</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="確率的トレンドと単位根検定.html"><a href="確率的トレンドと単位根検定.html#単位根過程"><i class="fa fa-check"></i><b>5.2.1</b> 単位根過程</a></li>
+<li class="chapter" data-level="5.2.2" data-path="確率的トレンドと単位根検定.html"><a href="確率的トレンドと単位根検定.html#見せかけの回帰"><i class="fa fa-check"></i><b>5.2.2</b> 見せかけの回帰</a></li>
+<li class="chapter" data-level="5.2.3" data-path="確率的トレンドと単位根検定.html"><a href="確率的トレンドと単位根検定.html#見せかけの回帰の判定"><i class="fa fa-check"></i><b>5.2.3</b> 見せかけの回帰の判定</a></li>
+<li class="chapter" data-level="5.2.4" data-path="確率的トレンドと単位根検定.html"><a href="確率的トレンドと単位根検定.html#rで実行可能な主な単位根検定法"><i class="fa fa-check"></i><b>5.2.4</b> Rで実行可能な主な単位根検定法</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="確率的トレンドと単位根検定.html"><a href="確率的トレンドと単位根検定.html#augmented-dicky-fuller-adf-検定"><i class="fa fa-check"></i><b>5.3</b> Augmented Dicky-Fuller (ADF) 検定</a>
+<ul>
+<li class="chapter" data-level="" data-path="確率的トレンドと単位根検定.html"><a href="確率的トレンドと単位根検定.html#パッケージfunitroots"><i class="fa fa-check"></i>パッケージ<strong>fUnitRoots</strong></a></li>
+<li class="chapter" data-level="" data-path="確率的トレンドと単位根検定.html"><a href="確率的トレンドと単位根検定.html#パッケージtseries"><i class="fa fa-check"></i>パッケージ<strong>tseries</strong></a></li>
+<li class="chapter" data-level="" data-path="確率的トレンドと単位根検定.html"><a href="確率的トレンドと単位根検定.html#パッケージurca"><i class="fa fa-check"></i>パッケージ<strong>urca</strong></a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="確率的トレンドと単位根検定.html"><a href="確率的トレンドと単位根検定.html#adf検定以外の検定法"><i class="fa fa-check"></i><b>5.4</b> ADF検定以外の検定法</a>
+<ul>
+<li class="chapter" data-level="" data-path="確率的トレンドと単位根検定.html"><a href="確率的トレンドと単位根検定.html#phillips-perron-pp-検定"><i class="fa fa-check"></i>Phillips-Perron (PP) 検定</a></li>
+<li class="chapter" data-level="" data-path="確率的トレンドと単位根検定.html"><a href="確率的トレンドと単位根検定.html#kwiatkowski-phillips-schmidt-shin-kpss-検定"><i class="fa fa-check"></i>Kwiatkowski-Phillips-Schmidt-Shin (KPSS) 検定</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="長期記憶過程.html"><a href="長期記憶過程.html"><i class="fa fa-check"></i><b>6</b> 長期記憶過程</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="長期記憶過程.html"><a href="長期記憶過程.html#長期記憶過程のシミュレーション"><i class="fa fa-check"></i><b>6.1</b> 長期記憶過程のシミュレーション</a>
+<ul>
+<li class="chapter" data-level="" data-path="長期記憶過程.html"><a href="長期記憶過程.html#パッケージfracdiffの利用"><i class="fa fa-check"></i>パッケージ<strong>fracdiff</strong>の利用</a></li>
+<li class="chapter" data-level="" data-path="長期記憶過程.html"><a href="長期記憶過程.html#パッケージlongmemoの利用"><i class="fa fa-check"></i>パッケージ<strong>longmemo</strong>の利用</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="長期記憶過程.html"><a href="長期記憶過程.html#hurst指数の推定"><i class="fa fa-check"></i><b>6.2</b> Hurst指数の推定</a>
+<ul>
+<li class="chapter" data-level="" data-path="長期記憶過程.html"><a href="長期記憶過程.html#パッケージpracmaの利用"><i class="fa fa-check"></i>パッケージ<strong>pracma</strong>の利用</a></li>
+<li class="chapter" data-level="" data-path="長期記憶過程.html"><a href="長期記憶過程.html#パッケージfractalの利用"><i class="fa fa-check"></i>パッケージ<strong>fractal</strong>の利用</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="長期記憶過程.html"><a href="長期記憶過程.html#arfimaモデルの推定"><i class="fa fa-check"></i><b>6.3</b> ARFIMAモデルの推定</a>
+<ul>
+<li class="chapter" data-level="" data-path="長期記憶過程.html"><a href="長期記憶過程.html#パッケージfracdiffの利用-1"><i class="fa fa-check"></i>パッケージ<strong>fracdiff</strong>の利用</a></li>
+<li class="chapter" data-level="" data-path="長期記憶過程.html"><a href="長期記憶過程.html#パッケージnsarfimaの利用"><i class="fa fa-check"></i>パッケージ<strong>nsarfima</strong>の利用</a></li>
+<li class="chapter" data-level="" data-path="長期記憶過程.html"><a href="長期記憶過程.html#階差次数dの代替的推定法"><i class="fa fa-check"></i>階差次数<span class="math inline">\(d\)</span>の代替的推定法</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="長期記憶過程.html"><a href="長期記憶過程.html#arfimaモデル-データ分析例-1"><i class="fa fa-check"></i><b>6.4</b> ARFIMAモデル: データ分析例 (1)</a></li>
+<li class="chapter" data-level="6.5" data-path="長期記憶過程.html"><a href="長期記憶過程.html#arfimaモデル-データ分析例-2"><i class="fa fa-check"></i><b>6.5</b> ARFIMAモデル: データ分析例 (2)</a>
+<ul>
+<li class="chapter" data-level="" data-path="長期記憶過程.html"><a href="長期記憶過程.html#最適なarfimaモデルの選択および推定"><i class="fa fa-check"></i>最適なARFIMAモデルの選択および推定</a></li>
+<li class="chapter" data-level="" data-path="長期記憶過程.html"><a href="長期記憶過程.html#arfimaモデルによる外挿予測"><i class="fa fa-check"></i>ARFIMAモデルによる外挿予測</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="レジームスイッチングモデル.html"><a href="レジームスイッチングモデル.html"><i class="fa fa-check"></i><b>7</b> レジーム・スイッチング・モデル</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="レジームスイッチングモデル.html"><a href="レジームスイッチングモデル.html#自己回帰マルコフスイッチングモデル-msm-ar"><i class="fa fa-check"></i><b>7.1</b> 自己回帰マルコフ・スイッチング・モデル (MSM-AR)</a></li>
+<li class="chapter" data-level="7.2" data-path="レジームスイッチングモデル.html"><a href="レジームスイッチングモデル.html#パッケージnhmsarの利用"><i class="fa fa-check"></i><b>7.2</b> パッケージ<strong>NHMSAR</strong>の利用</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="garchモデル.html"><a href="garchモデル.html"><i class="fa fa-check"></i><b>8</b> GARCHモデル</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="garchモデル.html"><a href="garchモデル.html#収益率データとarch効果"><i class="fa fa-check"></i><b>8.1</b> 収益率データとARCH効果</a></li>
+<li class="chapter" data-level="8.2" data-path="garchモデル.html"><a href="garchモデル.html#archgarchモデル"><i class="fa fa-check"></i><b>8.2</b> ARCH/GARCHモデル</a>
+<ul>
+<li class="chapter" data-level="" data-path="garchモデル.html"><a href="garchモデル.html#garchpqモデル"><i class="fa fa-check"></i>GARCH(p,q)モデル</a></li>
+<li class="chapter" data-level="" data-path="garchモデル.html"><a href="garchモデル.html#garchモデリング"><i class="fa fa-check"></i>GARCHモデリング</a></li>
+</ul></li>
+<li class="chapter" data-level="8.3" data-path="garchモデル.html"><a href="garchモデル.html#archgarchモデルのシミュレーション"><i class="fa fa-check"></i><b>8.3</b> ARCH/GARCHモデルのシミュレーション</a>
+<ul>
+<li class="chapter" data-level="" data-path="garchモデル.html"><a href="garchモデル.html#パッケージfgarchの利用"><i class="fa fa-check"></i>パッケージ<strong>fGarch</strong>の利用</a></li>
+<li class="chapter" data-level="" data-path="garchモデル.html"><a href="garchモデル.html#archpモデル"><i class="fa fa-check"></i>ARCH(p)モデル</a></li>
+<li class="chapter" data-level="" data-path="garchモデル.html"><a href="garchモデル.html#garchpqモデル-1"><i class="fa fa-check"></i>GARCH(p,q)モデル</a></li>
+<li class="chapter" data-level="" data-path="garchモデル.html"><a href="garchモデル.html#armapq-garchpqモデル"><i class="fa fa-check"></i>ARMA(p’,q’)-GARCH(p,q)モデル</a></li>
+</ul></li>
+<li class="chapter" data-level="8.4" data-path="garchモデル.html"><a href="garchモデル.html#archgarchモデルの適合"><i class="fa fa-check"></i><b>8.4</b> ARCH/GARCHモデルの適合</a>
+<ul>
+<li class="chapter" data-level="" data-path="garchモデル.html"><a href="garchモデル.html#パッケージrugarchの利用"><i class="fa fa-check"></i>パッケージ<strong>rugarch</strong>の利用</a></li>
+<li class="chapter" data-level="" data-path="garchモデル.html"><a href="garchモデル.html#iarch11"><i class="fa fa-check"></i>IARCH(1,1)</a></li>
+<li class="chapter" data-level="" data-path="garchモデル.html"><a href="garchモデル.html#gjr-garch11"><i class="fa fa-check"></i>GJR-GARCH(1,1)</a></li>
+<li class="chapter" data-level="" data-path="garchモデル.html"><a href="garchモデル.html#aparch"><i class="fa fa-check"></i>APARCH</a></li>
+</ul></li>
+<li class="chapter" data-level="8.5" data-path="garchモデル.html"><a href="garchモデル.html#garchモデル-データ分析例-tsay-ch4"><i class="fa fa-check"></i><b>8.5</b> GARCHモデル: データ分析例 (Tsay, Ch4)</a>
+<ul>
+<li class="chapter" data-level="" data-path="garchモデル.html"><a href="garchモデル.html#必要な関数やデータセットの入手"><i class="fa fa-check"></i>必要な関数やデータセットの入手</a></li>
+<li class="chapter" data-level="" data-path="garchモデル.html"><a href="garchモデル.html#integrated-garch-モデル"><i class="fa fa-check"></i>Integrated GARCH モデル</a></li>
+<li class="chapter" data-level="" data-path="garchモデル.html"><a href="garchモデル.html#garch-m-モデル"><i class="fa fa-check"></i>GARCH-M モデル</a></li>
+<li class="chapter" data-level="" data-path="garchモデル.html"><a href="garchモデル.html#exponential-garch-model"><i class="fa fa-check"></i>Exponential GARCH Model</a></li>
+<li class="chapter" data-level="" data-path="garchモデル.html"><a href="garchモデル.html#threshold-garch-モデル"><i class="fa fa-check"></i>Threshold GARCH モデル</a></li>
+<li class="chapter" data-level="" data-path="garchモデル.html"><a href="garchモデル.html#asymmetric-power-arch-モデル"><i class="fa fa-check"></i>Asymmetric Power ARCH モデル</a></li>
+<li class="chapter" data-level="" data-path="garchモデル.html"><a href="garchモデル.html#nonsymmetric-garch-モデル"><i class="fa fa-check"></i>Nonsymmetric GARCH モデル</a></li>
+<li class="chapter" data-level="" data-path="garchモデル.html"><a href="garchモデル.html#代替的アプリーチ間の比較"><i class="fa fa-check"></i>代替的アプリーチ間の比較</a></li>
+</ul></li>
+</ul></li>
+<li class="appendix"><span><b>Appendix 参考文献</b></span></li>
+<li class="chapter" data-level="A" data-path="バブル-生成崩壊-検出.html"><a href="バブル-生成崩壊-検出.html"><i class="fa fa-check"></i><b>A</b> バブル (生成・崩壊) 検出</a>
+<ul>
+<li class="chapter" data-level="A.1" data-path="バブル-生成崩壊-検出.html"><a href="バブル-生成崩壊-検出.html#検定法に関する最近のレビュー論文"><i class="fa fa-check"></i><b>A.1</b> 検定法に関する最近のレビュー論文</a></li>
+<li class="chapter" data-level="A.2" data-path="バブル-生成崩壊-検出.html"><a href="バブル-生成崩壊-検出.html#supreme-adf検定sadf-pwy-2011-generalized-supreme-adf-検定gsadf-psy-2015"><i class="fa fa-check"></i><b>A.2</b> Supreme ADF検定/SADF (PWY, 2011), Generalized supreme ADF 検定/GSADF (PSY, 2015)</a>
+<ul>
+<li class="chapter" data-level="A.2.1" data-path="バブル-生成崩壊-検出.html"><a href="バブル-生成崩壊-検出.html#数理ファイナンス-jarrow-protterら"><i class="fa fa-check"></i><b>A.2.1</b> 数理ファイナンス (Jarrow, Protterら)</a></li>
+<li class="chapter" data-level="A.2.2" data-path="バブル-生成崩壊-検出.html"><a href="バブル-生成崩壊-検出.html#経済物理学-sornetteら"><i class="fa fa-check"></i><b>A.2.2</b> 経済物理学 (Sornetteら)</a></li>
+</ul></li>
+<li class="chapter" data-level="A.3" data-path="バブル-生成崩壊-検出.html"><a href="バブル-生成崩壊-検出.html#実証分析"><i class="fa fa-check"></i><b>A.3</b> 実証分析</a>
+<ul>
+<li class="chapter" data-level="" data-path="バブル-生成崩壊-検出.html"><a href="バブル-生成崩壊-検出.html#株式市場の例"><i class="fa fa-check"></i>株式市場の例</a></li>
+<li class="chapter" data-level="" data-path="バブル-生成崩壊-検出.html"><a href="バブル-生成崩壊-検出.html#暗号資産市場の例"><i class="fa fa-check"></i>暗号資産市場の例</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="B" data-path="長期記憶過程-1.html"><a href="長期記憶過程-1.html"><i class="fa fa-check"></i><b>B</b> 長期記憶過程</a>
+<ul>
+<li class="chapter" data-level="B.1" data-path="長期記憶過程-1.html"><a href="長期記憶過程-1.html#理論概説"><i class="fa fa-check"></i><b>B.1</b> 理論・概説</a></li>
+<li class="chapter" data-level="B.2" data-path="長期記憶過程-1.html"><a href="長期記憶過程-1.html#株式市場"><i class="fa fa-check"></i><b>B.2</b> 株式市場</a></li>
+<li class="chapter" data-level="B.3" data-path="長期記憶過程-1.html"><a href="長期記憶過程-1.html#外国為替市場"><i class="fa fa-check"></i><b>B.3</b> 外国為替市場</a></li>
+<li class="chapter" data-level="B.4" data-path="長期記憶過程-1.html"><a href="長期記憶過程-1.html#コモディティ暗号資産"><i class="fa fa-check"></i><b>B.4</b> コモディティ・暗号資産</a></li>
+<li class="chapter" data-level="B.5" data-path="長期記憶過程-1.html"><a href="長期記憶過程-1.html#vix"><i class="fa fa-check"></i><b>B.5</b> VIX</a></li>
+<li class="chapter" data-level="B.6" data-path="長期記憶過程-1.html"><a href="長期記憶過程-1.html#高頻度データ-ボラティリティ-注文フロー等"><i class="fa fa-check"></i><b>B.6</b> 高頻度データ (ボラティリティ, 注文フロー等)</a></li>
+<li class="chapter" data-level="B.7" data-path="長期記憶過程-1.html"><a href="長期記憶過程-1.html#長期記憶性の発生要因-非長期記憶モデルによる近似"><i class="fa fa-check"></i><b>B.7</b> 長期記憶性の発生要因, 非長期記憶モデルによる近似</a></li>
+</ul></li>
+<li class="chapter" data-level="C" data-path="markov-switching-regime-switchingモデル.html"><a href="markov-switching-regime-switchingモデル.html"><i class="fa fa-check"></i><b>C</b> Markov switching/ regime switchingモデル</a>
+<ul>
+<li class="chapter" data-level="C.1" data-path="markov-switching-regime-switchingモデル.html"><a href="markov-switching-regime-switchingモデル.html#理論概説-1"><i class="fa fa-check"></i><b>C.1</b> 理論・概説</a></li>
+<li class="chapter" data-level="C.2" data-path="markov-switching-regime-switchingモデル.html"><a href="markov-switching-regime-switchingモデル.html#株式市場-1"><i class="fa fa-check"></i><b>C.2</b> 株式市場</a></li>
+<li class="chapter" data-level="C.3" data-path="markov-switching-regime-switchingモデル.html"><a href="markov-switching-regime-switchingモデル.html#金利債券市場"><i class="fa fa-check"></i><b>C.3</b> 金利・債券市場</a></li>
+<li class="chapter" data-level="C.4" data-path="markov-switching-regime-switchingモデル.html"><a href="markov-switching-regime-switchingモデル.html#外国為替市場-1"><i class="fa fa-check"></i><b>C.4</b> 外国為替市場</a></li>
+<li class="chapter" data-level="C.5" data-path="markov-switching-regime-switchingモデル.html"><a href="markov-switching-regime-switchingモデル.html#アセットアロケーション"><i class="fa fa-check"></i><b>C.5</b> アセット・アロケーション</a></li>
+</ul></li>
+<li class="chapter" data-level="D" data-path="archgarchモデル-1.html"><a href="archgarchモデル-1.html"><i class="fa fa-check"></i><b>D</b> ARCH/GARCHモデル</a>
+<ul>
+<li class="chapter" data-level="D.1" data-path="archgarchモデル-1.html"><a href="archgarchモデル-1.html#概説"><i class="fa fa-check"></i><b>D.1</b> 概説</a></li>
+<li class="chapter" data-level="D.2" data-path="archgarchモデル-1.html"><a href="archgarchモデル-1.html#arch-model"><i class="fa fa-check"></i><b>D.2</b> ARCH model</a></li>
+<li class="chapter" data-level="D.3" data-path="archgarchモデル-1.html"><a href="archgarchモデル-1.html#garch-model"><i class="fa fa-check"></i><b>D.3</b> GARCH model</a></li>
+<li class="chapter" data-level="D.4" data-path="archgarchモデル-1.html"><a href="archgarchモデル-1.html#arch-m-model"><i class="fa fa-check"></i><b>D.4</b> ARCH-M Model</a></li>
+<li class="chapter" data-level="D.5" data-path="archgarchモデル-1.html"><a href="archgarchモデル-1.html#gjr-model"><i class="fa fa-check"></i><b>D.5</b> GJR model</a></li>
+<li class="chapter" data-level="D.6" data-path="archgarchモデル-1.html"><a href="archgarchモデル-1.html#aparch-model"><i class="fa fa-check"></i><b>D.6</b> APARCH model</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">金融時系列解析</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="archgarchモデル-1" class="section level1 hasAnchor" number="12">
+<h1><span class="header-section-number">D</span> ARCH/GARCHモデル<a href="archgarchモデル-1.html#archgarchモデル-1" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<!-- - 2023年12月9日 -->
+<ul>
+<li>論文多数. ダウンロード可能なものごく一部の紹介.</li>
+</ul>
+<div id="概説" class="section level2 hasAnchor" number="12.1">
+<h2><span class="header-section-number">D.1</span> 概説<a href="archgarchモデル-1.html#概説" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li><p>Tim Bollerslev, Ray Y. Chou and Kenneth F. Kroner (1992). “ARCH modeling in finance: A review of the theory and empirical evidence”, <em>Journal of Econometrics</em>, 52, 1–2, 5-59.
+<a href="http://www-stat.wharton.upenn.edu/~steele/Courses/434/434Context/GARCH/BollerslevReview.pdf" class="uri">http://www-stat.wharton.upenn.edu/~steele/Courses/434/434Context/GARCH/BollerslevReview.pdf</a></p></li>
+<li><p>Tim Bollerslev, Robert F. Engle, Danile B. Nelson(1994). “ARCH models”, in <em>Handbook of Econometrics, Volume IV</em> (Edited by R.F. Engle and D.L. McFadden).</p>
+<p><a href="https://d1wqtxts1xzle7.cloudfront.net/43834885/arch-with-cover-page-v2.pdf?Expires=1639120389&amp;Signature=ImncR825Ozi~78eBe4x-ZZPU0pp9cebOmIEaGK06oLukIeZ8uviF3xhkW1~4SJkc4GWLQMrcFR1~C-Uc218lxMhj1bgt8lFtaVOhuvDPuXyUEkf~WpC4zFmFnC3Re20YzFmx7CQEOPbmCmPWiwOcO4SZvw~CwebW4Q2f~2eRj7xKzVYJn-59E66cuk3chFx3xCeH47QVZwd959Nq55ncW4CA7CsTi2CHCNCZesdznpZBsC4xd-F-GaKHuFN9O7O2qDataXJkvPhRqYMJV2SwHcBGfYp3ASXXwDNgsmKl7PJD7XwMQ9Aqj2H61rXo12lg6-dH4-r7mFdGGS~G~BE5tw__&amp;Key-Pair-Id=APKAJLOHF5GGSLRBV4ZA" class="uri">https://d1wqtxts1xzle7.cloudfront.net/43834885/arch-with-cover-page-v2.pdf?Expires=1639120389&amp;Signature=ImncR825Ozi~78eBe4x-ZZPU0pp9cebOmIEaGK06oLukIeZ8uviF3xhkW1~4SJkc4GWLQMrcFR1~C-Uc218lxMhj1bgt8lFtaVOhuvDPuXyUEkf~WpC4zFmFnC3Re20YzFmx7CQEOPbmCmPWiwOcO4SZvw~CwebW4Q2f~2eRj7xKzVYJn-59E66cuk3chFx3xCeH47QVZwd959Nq55ncW4CA7CsTi2CHCNCZesdznpZBsC4xd-F-GaKHuFN9O7O2qDataXJkvPhRqYMJV2SwHcBGfYp3ASXXwDNgsmKl7PJD7XwMQ9Aqj2H61rXo12lg6-dH4-r7mFdGGS~G~BE5tw__&amp;Key-Pair-Id=APKAJLOHF5GGSLRBV4ZA</a></p></li>
+<li><p>Robert Engle(2003). “Risk and Volatility: Econometric Models and Financial Practice”, Nobel Lecture, December 8, 2003.</p>
+<p><a href="https://www.nobelprize.org/uploads/2018/06/engle-lecture.pdf" class="uri">https://www.nobelprize.org/uploads/2018/06/engle-lecture.pdf</a></p>
+<p><a href="https://www.nobelprize.org/prizes/economic-sciences/2003/engle/lecture/" class="uri">https://www.nobelprize.org/prizes/economic-sciences/2003/engle/lecture/</a></p></li>
+</ul>
+</div>
+<div id="arch-model" class="section level2 hasAnchor" number="12.2">
+<h2><span class="header-section-number">D.2</span> ARCH model<a href="archgarchモデル-1.html#arch-model" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li><p>Robert F. Engle (1982). “Autoregressive Conditional Heteroskedasticity with Estimates of the Variance of</p>
+<p>U.K. Inflation”, <em>Econometrica</em>, 50, 987-1008.</p>
+<p><a href="http://www.econ.uiuc.edu/~econ508/Papers/engle82.pdf" class="uri">http://www.econ.uiuc.edu/~econ508/Papers/engle82.pdf</a></p></li>
+</ul>
+</div>
+<div id="garch-model" class="section level2 hasAnchor" number="12.3">
+<h2><span class="header-section-number">D.3</span> GARCH model<a href="archgarchモデル-1.html#garch-model" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li><p>Tim Bollerslev (1986). “Generalized Autoregressive Conditional Heteroskedasticity”, <em>Journal of Eco- nometrics</em>, 31, 307 327.</p>
+<p><a href="http://public.econ.duke.edu/~boller/Published_Papers/joe_86.pdf" class="uri">http://public.econ.duke.edu/~boller/Published_Papers/joe_86.pdf</a></p></li>
+</ul>
+</div>
+<div id="arch-m-model" class="section level2 hasAnchor" number="12.4">
+<h2><span class="header-section-number">D.4</span> ARCH-M Model<a href="archgarchモデル-1.html#arch-m-model" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li><p>Robert Engle, David M. Lilien and Russell P. Robins (1987). “Estimating Time Varying Risk Premia in the Term Structure: The Arch-M Model”, <em>Econometrica</em>, 1987, 55(2), 391-407.</p>
+<p><a href="https://econpapers.repec.org/article/ecmemetrp/v_3a55_3ay_3a1987_3ai_3a2_3ap_3a391-407.htm" class="uri">https://econpapers.repec.org/article/ecmemetrp/v_3a55_3ay_3a1987_3ai_3a2_3ap_3a391-407.htm</a></p></li>
+</ul>
+</div>
+<div id="gjr-model" class="section level2 hasAnchor" number="12.5">
+<h2><span class="header-section-number">D.5</span> GJR model<a href="archgarchモデル-1.html#gjr-model" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li><p>Lawrence R. Glosten, Ravi Jagannathan and David E. Runkle(1993). “On the Relation between the Expected Value and the Volatility of the Nominal Excess Return on Stocks”, <em>Journal of Finance</em>, 48(5), 1779-1801.</p>
+<p><a href="http://finance.martinsewell.com/stylized-facts/volatility/GlostenJagannathanRunkle1993.pdf" class="uri">http://finance.martinsewell.com/stylized-facts/volatility/GlostenJagannathanRunkle1993.pdf</a></p></li>
+</ul>
+</div>
+<div id="aparch-model" class="section level2 hasAnchor" number="12.6">
+<h2><span class="header-section-number">D.6</span> APARCH model<a href="archgarchモデル-1.html#aparch-model" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li><p>Zhuanxin Ding, Clive W.J. Granger and Robert F. Engle(1993). “A long memory property of stock market returns and a new model”, <em>Journal of Empirical Finance</em> 1 (1), 83-106.</p>
+<p><a href="https://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.471.7587&amp;rep=rep1&amp;type=pdf" class="uri">https://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.471.7587&amp;rep=rep1&amp;type=pdf</a></p></li>
+</ul>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="markov-switching-regime-switchingモデル.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+  "sharing": {
+    "github": false,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": null,
+    "text": null
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": null,
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "subsection"
+  }
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

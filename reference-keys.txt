@@ -73,6 +73,12 @@ arfimaモデル-データ分析例-2
 レジームスイッチングモデル
 自己回帰マルコフスイッチングモデル-msm-ar
 パッケージnhmsarの利用
+garchモデル
+収益率データとarch効果
+archgarchモデル
+archgarchモデルのシミュレーション
+archgarchモデルの適合
+garchモデル-データ分析例-tsay-ch4
 バブル-生成崩壊-検出
 検定法に関する最近のレビュー論文
 supreme-adf検定sadf-pwy-2011-generalized-supreme-adf-検定gsadf-psy-2015
@@ -93,3 +99,10 @@ markov-switching-regime-switchingモデル
 金利債券市場
 外国為替市場-1
 アセットアロケーション
+archgarchモデル-1
+概説
+arch-model
+garch-model
+arch-m-model
+gjr-model
+aparch-model

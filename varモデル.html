@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>9 VARモデル | 金融時系列解析</title>
+  <meta name="description" content="9 VARモデル | 金融時系列解析" />
+  <meta name="generator" content="bookdown 0.40 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="9 VARモデル | 金融時系列解析" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="9 VARモデル | 金融時系列解析" />
+  
+  
+  
+
+<meta name="author" content="林 高樹" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="garchモデル.html"/>
+<link rel="next" href="バブル-生成崩壊-検出.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> はじめに</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#時系列モデリング"><i class="fa fa-check"></i><b>1.1</b> 時系列モデリング</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#金融時系列データの特徴"><i class="fa fa-check"></i><b>1.2</b> 金融時系列データの特徴</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#金融時系列データの特徴-みずほ-8411-株価データの例"><i class="fa fa-check"></i>金融時系列データの特徴: みずほ (8411) 株価データの例</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#シミュレーションによるサンプルパス生成"><i class="fa fa-check"></i><b>1.3</b> シミュレーションによるサンプルパス生成</a></li>
+<li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#rにおける時系列オブジェクトクラスおよび関数の例"><i class="fa fa-check"></i><b>1.4</b> Rにおける時系列オブジェクト・クラスおよび関数の例</a>
+<ul>
+<li class="chapter" data-level="1.4.1" data-path="index.html"><a href="index.html#日付時間データに対するクラス"><i class="fa fa-check"></i><b>1.4.1</b> 日付・時間データに対するクラス</a></li>
+<li class="chapter" data-level="1.4.2" data-path="index.html"><a href="index.html#時系列データに対するクラス1-tsクラス"><i class="fa fa-check"></i><b>1.4.2</b> 時系列データに対するクラス(1): tsクラス</a></li>
+<li class="chapter" data-level="1.4.3" data-path="index.html"><a href="index.html#時系列データに対するクラス2-zooクラスとxtsクラス"><i class="fa fa-check"></i><b>1.4.3</b> 時系列データに対するクラス(2): zooクラスとxtsクラス</a></li>
+</ul></li>
+<li class="chapter" data-level="1.5" data-path="index.html"><a href="index.html#時系列データの分解"><i class="fa fa-check"></i><b>1.5</b> 時系列データの分解</a>
+<ul>
+<li class="chapter" data-level="1.5.1" data-path="index.html"><a href="index.html#トレンド抽出-平滑化-smoothing"><i class="fa fa-check"></i><b>1.5.1</b> トレンド抽出, 平滑化 (smoothing)</a></li>
+<li class="chapter" data-level="1.5.2" data-path="index.html"><a href="index.html#分解モデル"><i class="fa fa-check"></i><b>1.5.2</b> 分解モデル</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="定常性と自己相関関数.html"><a href="定常性と自己相関関数.html"><i class="fa fa-check"></i><b>2</b> 定常性と自己相関関数</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="定常性と自己相関関数.html"><a href="定常性と自己相関関数.html#確率過程の2次特性-平均関数と自己共分散関数"><i class="fa fa-check"></i><b>2.1</b> 確率過程の2次特性: 平均関数と自己共分散関数</a></li>
+<li class="chapter" data-level="2.2" data-path="定常性と自己相関関数.html"><a href="定常性と自己相関関数.html#定常性-stationarity"><i class="fa fa-check"></i><b>2.2</b> 定常性 (stationarity)</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="定常性と自己相関関数.html"><a href="定常性と自己相関関数.html#強定常性"><i class="fa fa-check"></i><b>2.2.1</b> 強定常性</a></li>
+<li class="chapter" data-level="2.2.2" data-path="定常性と自己相関関数.html"><a href="定常性と自己相関関数.html#弱定常性"><i class="fa fa-check"></i><b>2.2.2</b> 弱定常性</a></li>
+<li class="chapter" data-level="2.2.3" data-path="定常性と自己相関関数.html"><a href="定常性と自己相関関数.html#ホワイトノイズ"><i class="fa fa-check"></i><b>2.2.3</b> ホワイトノイズ</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="定常性と自己相関関数.html"><a href="定常性と自己相関関数.html#標本平均と標本自己共分散関数"><i class="fa fa-check"></i><b>2.3</b> 標本平均と標本自己共分散関数</a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="定常性と自己相関関数.html"><a href="定常性と自己相関関数.html#アンサンブル平均-vs-標本平均"><i class="fa fa-check"></i><b>2.3.1</b> アンサンブル平均 vs 標本平均</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="定常性と自己相関関数.html"><a href="定常性と自己相関関数.html#r操作-標本acf"><i class="fa fa-check"></i><b>2.4</b> R操作: 標本ACF</a>
+<ul>
+<li class="chapter" data-level="2.4.1" data-path="定常性と自己相関関数.html"><a href="定常性と自己相関関数.html#白色ノイズ"><i class="fa fa-check"></i><b>2.4.1</b> 白色ノイズ</a></li>
+<li class="chapter" data-level="2.4.2" data-path="定常性と自己相関関数.html"><a href="定常性と自己相関関数.html#ランダムウォーク"><i class="fa fa-check"></i><b>2.4.2</b> ランダムウォーク</a></li>
+<li class="chapter" data-level="2.4.3" data-path="定常性と自己相関関数.html"><a href="定常性と自己相関関数.html#非定常成分を含む時系列"><i class="fa fa-check"></i><b>2.4.3</b> 非定常成分を含む時系列</a></li>
+<li class="chapter" data-level="2.4.4" data-path="定常性と自己相関関数.html"><a href="定常性と自己相関関数.html#線形定常時系列モデル"><i class="fa fa-check"></i><b>2.4.4</b> 線形・定常時系列モデル</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="定常性と自己相関関数.html"><a href="定常性と自己相関関数.html#母acf-vs-標本acf"><i class="fa fa-check"></i><b>2.5</b> 母ACF vs 標本ACF</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="armapqモデル.html"><a href="armapqモデル.html"><i class="fa fa-check"></i><b>3</b> ARMA<span class="math inline">\((p,q)\)</span>モデル</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="armapqモデル.html"><a href="armapqモデル.html#armapqモデルとは"><i class="fa fa-check"></i><b>3.1</b> ARMA<span class="math inline">\((p,q)\)</span>モデルとは</a>
+<ul>
+<li class="chapter" data-level="" data-path="armapqモデル.html"><a href="armapqモデル.html#因果性と反転可能性"><i class="fa fa-check"></i>因果性と反転可能性</a></li>
+<li class="chapter" data-level="" data-path="armapqモデル.html"><a href="armapqモデル.html#armapqモデルの意義"><i class="fa fa-check"></i>ARMA<span class="math inline">\((p,q)\)</span>モデルの意義</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="armapqモデル.html"><a href="armapqモデル.html#armapqモデルによる予測"><i class="fa fa-check"></i><b>3.2</b> ARMA<span class="math inline">\((p,q)\)</span>モデルによる予測</a></li>
+<li class="chapter" data-level="3.3" data-path="armapqモデル.html"><a href="armapqモデル.html#armapqモデルの推定"><i class="fa fa-check"></i><b>3.3</b> ARMA<span class="math inline">\((p,q)\)</span>モデルの推定</a></li>
+<li class="chapter" data-level="3.4" data-path="armapqモデル.html"><a href="armapqモデル.html#armapqモデルの同定-次数の特定"><i class="fa fa-check"></i><b>3.4</b> ARMA<span class="math inline">\((p,q)\)</span>モデルの同定 (次数の特定)</a></li>
+<li class="chapter" data-level="3.5" data-path="armapqモデル.html"><a href="armapqモデル.html#r操作"><i class="fa fa-check"></i><b>3.5</b> R操作</a>
+<ul>
+<li class="chapter" data-level="" data-path="armapqモデル.html"><a href="armapqモデル.html#armapqモデルの同定-acfpacfeacfの利用"><i class="fa fa-check"></i>ARMA<span class="math inline">\((p,q)\)</span>モデルの同定 (ACF/PACF/EACFの利用)</a></li>
+<li class="chapter" data-level="" data-path="armapqモデル.html"><a href="armapqモデル.html#armapqモデルの推定診断"><i class="fa fa-check"></i>ARMA<span class="math inline">\((p,q)\)</span>モデルの推定・診断</a></li>
+<li class="chapter" data-level="" data-path="armapqモデル.html"><a href="armapqモデル.html#パッケージforecastの利用"><i class="fa fa-check"></i>パッケージ{forecast}の利用</a></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="armapqモデル.html"><a href="armapqモデル.html#データ分析例-tsay-ch2より"><i class="fa fa-check"></i><b>3.6</b> データ分析例 (Tsay, Ch2より)</a>
+<ul>
+<li class="chapter" data-level="" data-path="armapqモデル.html"><a href="armapqモデル.html#標本acf"><i class="fa fa-check"></i>標本ACF</a></li>
+<li class="chapter" data-level="" data-path="armapqモデル.html"><a href="armapqモデル.html#ar-ma-arma-2.42.6"><i class="fa fa-check"></i>AR, MA, ARMA (2.4–2.6)</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="arimasarimaモデル.html"><a href="arimasarimaモデル.html"><i class="fa fa-check"></i><b>4</b> ARIMA/SARIMAモデル</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="arimasarimaモデル.html"><a href="arimasarimaモデル.html#arimapdqモデルとは"><i class="fa fa-check"></i><b>4.1</b> ARIMA<span class="math inline">\((p,d,q)\)</span>モデルとは</a></li>
+<li class="chapter" data-level="4.2" data-path="arimasarimaモデル.html"><a href="arimasarimaモデル.html#sarimapdqtimes-pdq_sモデル-周期sとは"><i class="fa fa-check"></i><b>4.2</b> SARIMA<span class="math inline">\((p,d,q)\times (P,D,Q)_s\)</span>モデル (周期<span class="math inline">\(s\)</span>)とは</a></li>
+<li class="chapter" data-level="4.3" data-path="arimasarimaモデル.html"><a href="arimasarimaモデル.html#sarimaモデルのパス生成-パッケージsarimaの利用"><i class="fa fa-check"></i><b>4.3</b> SARIMAモデルのパス生成: パッケージ<strong>sarima</strong>の利用</a></li>
+<li class="chapter" data-level="4.4" data-path="arimasarimaモデル.html"><a href="arimasarimaモデル.html#sarimaモデルの推定診断"><i class="fa fa-check"></i><b>4.4</b> SARIMAモデルの推定・診断</a>
+<ul>
+<li class="chapter" data-level="" data-path="arimasarimaモデル.html"><a href="arimasarimaモデル.html#パッケージforecastの利用-1"><i class="fa fa-check"></i>パッケージ<strong>forecast</strong>の利用</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="arimasarimaモデル.html"><a href="arimasarimaモデル.html#データ分析例"><i class="fa fa-check"></i><b>4.5</b> データ分析例</a>
+<ul>
+<li class="chapter" data-level="" data-path="arimasarimaモデル.html"><a href="arimasarimaモデル.html#データセット-bonds"><i class="fa fa-check"></i>データセット: bonds</a></li>
+<li class="chapter" data-level="" data-path="arimasarimaモデル.html"><a href="arimasarimaモデル.html#データセット-airpassengers"><i class="fa fa-check"></i>データセット: AirPassengers</a></li>
+</ul></li>
+<li class="chapter" data-level="4.6" data-path="arimasarimaモデル.html"><a href="arimasarimaモデル.html#外生変数があるケース"><i class="fa fa-check"></i><b>4.6</b> 外生変数があるケース</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="確率的トレンドと単位根検定.html"><a href="確率的トレンドと単位根検定.html"><i class="fa fa-check"></i><b>5</b> 確率的トレンドと単位根検定</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="確率的トレンドと単位根検定.html"><a href="確率的トレンドと単位根検定.html#確率的トレンド-vs-確定的トレンド"><i class="fa fa-check"></i><b>5.1</b> 確率的トレンド vs 確定的トレンド</a></li>
+<li class="chapter" data-level="5.2" data-path="確率的トレンドと単位根検定.html"><a href="確率的トレンドと単位根検定.html#単位根過程と見せかけの回帰"><i class="fa fa-check"></i><b>5.2</b> 単位根過程と見せかけの回帰</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="確率的トレンドと単位根検定.html"><a href="確率的トレンドと単位根検定.html#単位根過程"><i class="fa fa-check"></i><b>5.2.1</b> 単位根過程</a></li>
+<li class="chapter" data-level="5.2.2" data-path="確率的トレンドと単位根検定.html"><a href="確率的トレンドと単位根検定.html#見せかけの回帰"><i class="fa fa-check"></i><b>5.2.2</b> 見せかけの回帰</a></li>
+<li class="chapter" data-level="5.2.3" data-path="確率的トレンドと単位根検定.html"><a href="確率的トレンドと単位根検定.html#見せかけの回帰の判定"><i class="fa fa-check"></i><b>5.2.3</b> 見せかけの回帰の判定</a></li>
+<li class="chapter" data-level="5.2.4" data-path="確率的トレンドと単位根検定.html"><a href="確率的トレンドと単位根検定.html#rで実行可能な主な単位根検定法"><i class="fa fa-check"></i><b>5.2.4</b> Rで実行可能な主な単位根検定法</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="確率的トレンドと単位根検定.html"><a href="確率的トレンドと単位根検定.html#augmented-dicky-fuller-adf-検定"><i class="fa fa-check"></i><b>5.3</b> Augmented Dicky-Fuller (ADF) 検定</a>
+<ul>
+<li class="chapter" data-level="" data-path="確率的トレンドと単位根検定.html"><a href="確率的トレンドと単位根検定.html#パッケージfunitroots"><i class="fa fa-check"></i>パッケージ<strong>fUnitRoots</strong></a></li>
+<li class="chapter" data-level="" data-path="確率的トレンドと単位根検定.html"><a href="確率的トレンドと単位根検定.html#パッケージtseries"><i class="fa fa-check"></i>パッケージ<strong>tseries</strong></a></li>
+<li class="chapter" data-level="" data-path="確率的トレンドと単位根検定.html"><a href="確率的トレンドと単位根検定.html#パッケージurca"><i class="fa fa-check"></i>パッケージ<strong>urca</strong></a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="確率的トレンドと単位根検定.html"><a href="確率的トレンドと単位根検定.html#adf検定以外の検定法"><i class="fa fa-check"></i><b>5.4</b> ADF検定以外の検定法</a>
+<ul>
+<li class="chapter" data-level="" data-path="確率的トレンドと単位根検定.html"><a href="確率的トレンドと単位根検定.html#phillips-perron-pp-検定"><i class="fa fa-check"></i>Phillips-Perron (PP) 検定</a></li>
+<li class="chapter" data-level="" data-path="確率的トレンドと単位根検定.html"><a href="確率的トレンドと単位根検定.html#kwiatkowski-phillips-schmidt-shin-kpss-検定"><i class="fa fa-check"></i>Kwiatkowski-Phillips-Schmidt-Shin (KPSS) 検定</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="長期記憶過程.html"><a href="長期記憶過程.html"><i class="fa fa-check"></i><b>6</b> 長期記憶過程</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="長期記憶過程.html"><a href="長期記憶過程.html#長期記憶過程のシミュレーション"><i class="fa fa-check"></i><b>6.1</b> 長期記憶過程のシミュレーション</a>
+<ul>
+<li class="chapter" data-level="" data-path="長期記憶過程.html"><a href="長期記憶過程.html#パッケージfracdiffの利用"><i class="fa fa-check"></i>パッケージ<strong>fracdiff</strong>の利用</a></li>
+<li class="chapter" data-level="" data-path="長期記憶過程.html"><a href="長期記憶過程.html#パッケージlongmemoの利用"><i class="fa fa-check"></i>パッケージ<strong>longmemo</strong>の利用</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="長期記憶過程.html"><a href="長期記憶過程.html#hurst指数の推定"><i class="fa fa-check"></i><b>6.2</b> Hurst指数の推定</a>
+<ul>
+<li class="chapter" data-level="" data-path="長期記憶過程.html"><a href="長期記憶過程.html#パッケージpracmaの利用"><i class="fa fa-check"></i>パッケージ<strong>pracma</strong>の利用</a></li>
+<li class="chapter" data-level="" data-path="長期記憶過程.html"><a href="長期記憶過程.html#パッケージfractalの利用"><i class="fa fa-check"></i>パッケージ<strong>fractal</strong>の利用</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="長期記憶過程.html"><a href="長期記憶過程.html#arfimaモデルの推定"><i class="fa fa-check"></i><b>6.3</b> ARFIMAモデルの推定</a>
+<ul>
+<li class="chapter" data-level="" data-path="長期記憶過程.html"><a href="長期記憶過程.html#パッケージfracdiffの利用-1"><i class="fa fa-check"></i>パッケージ<strong>fracdiff</strong>の利用</a></li>
+<li class="chapter" data-level="" data-path="長期記憶過程.html"><a href="長期記憶過程.html#パッケージnsarfimaの利用"><i class="fa fa-check"></i>パッケージ<strong>nsarfima</strong>の利用</a></li>
+<li class="chapter" data-level="" data-path="長期記憶過程.html"><a href="長期記憶過程.html#階差次数dの代替的推定法"><i class="fa fa-check"></i>階差次数<span class="math inline">\(d\)</span>の代替的推定法</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="長期記憶過程.html"><a href="長期記憶過程.html#arfimaモデル-データ分析例-1"><i class="fa fa-check"></i><b>6.4</b> ARFIMAモデル: データ分析例 (1)</a></li>
+<li class="chapter" data-level="6.5" data-path="長期記憶過程.html"><a href="長期記憶過程.html#arfimaモデル-データ分析例-2"><i class="fa fa-check"></i><b>6.5</b> ARFIMAモデル: データ分析例 (2)</a>
+<ul>
+<li class="chapter" data-level="" data-path="長期記憶過程.html"><a href="長期記憶過程.html#最適なarfimaモデルの選択および推定"><i class="fa fa-check"></i>最適なARFIMAモデルの選択および推定</a></li>
+<li class="chapter" data-level="" data-path="長期記憶過程.html"><a href="長期記憶過程.html#arfimaモデルによる外挿予測"><i class="fa fa-check"></i>ARFIMAモデルによる外挿予測</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="レジームスイッチングモデル.html"><a href="レジームスイッチングモデル.html"><i class="fa fa-check"></i><b>7</b> レジーム・スイッチング・モデル</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="レジームスイッチングモデル.html"><a href="レジームスイッチングモデル.html#自己回帰マルコフスイッチングモデル-msm-ar"><i class="fa fa-check"></i><b>7.1</b> 自己回帰マルコフ・スイッチング・モデル (MSM-AR)</a></li>
+<li class="chapter" data-level="7.2" data-path="レジームスイッチングモデル.html"><a href="レジームスイッチングモデル.html#パッケージnhmsarの利用"><i class="fa fa-check"></i><b>7.2</b> パッケージ<strong>NHMSAR</strong>の利用</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="garchモデル.html"><a href="garchモデル.html"><i class="fa fa-check"></i><b>8</b> GARCHモデル</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="garchモデル.html"><a href="garchモデル.html#収益率データとarch効果"><i class="fa fa-check"></i><b>8.1</b> 収益率データとARCH効果</a></li>
+<li class="chapter" data-level="8.2" data-path="garchモデル.html"><a href="garchモデル.html#archgarchモデル"><i class="fa fa-check"></i><b>8.2</b> ARCH/GARCHモデル</a>
+<ul>
+<li class="chapter" data-level="" data-path="garchモデル.html"><a href="garchモデル.html#garchpqモデル"><i class="fa fa-check"></i>GARCH(p,q)モデル</a></li>
+<li class="chapter" data-level="" data-path="garchモデル.html"><a href="garchモデル.html#garchモデリング"><i class="fa fa-check"></i>GARCHモデリング</a></li>
+</ul></li>
+<li class="chapter" data-level="8.3" data-path="garchモデル.html"><a href="garchモデル.html#archgarchモデルのシミュレーション"><i class="fa fa-check"></i><b>8.3</b> ARCH/GARCHモデルのシミュレーション</a>
+<ul>
+<li class="chapter" data-level="" data-path="garchモデル.html"><a href="garchモデル.html#パッケージfgarchの利用"><i class="fa fa-check"></i>パッケージ<strong>fGarch</strong>の利用</a></li>
+<li class="chapter" data-level="" data-path="garchモデル.html"><a href="garchモデル.html#archpモデル"><i class="fa fa-check"></i>ARCH(p)モデル</a></li>
+<li class="chapter" data-level="" data-path="garchモデル.html"><a href="garchモデル.html#garchpqモデル-1"><i class="fa fa-check"></i>GARCH(p,q)モデル</a></li>
+<li class="chapter" data-level="" data-path="garchモデル.html"><a href="garchモデル.html#armapq-garchpqモデル"><i class="fa fa-check"></i>ARMA(p’,q’)-GARCH(p,q)モデル</a></li>
+</ul></li>
+<li class="chapter" data-level="8.4" data-path="garchモデル.html"><a href="garchモデル.html#archgarchモデルの適合"><i class="fa fa-check"></i><b>8.4</b> ARCH/GARCHモデルの適合</a>
+<ul>
+<li class="chapter" data-level="" data-path="garchモデル.html"><a href="garchモデル.html#パッケージrugarchの利用"><i class="fa fa-check"></i>パッケージ<strong>rugarch</strong>の利用</a></li>
+<li class="chapter" data-level="" data-path="garchモデル.html"><a href="garchモデル.html#iarch11"><i class="fa fa-check"></i>IARCH(1,1)</a></li>
+<li class="chapter" data-level="" data-path="garchモデル.html"><a href="garchモデル.html#gjr-garch11"><i class="fa fa-check"></i>GJR-GARCH(1,1)</a></li>
+<li class="chapter" data-level="" data-path="garchモデル.html"><a href="garchモデル.html#aparch"><i class="fa fa-check"></i>APARCH</a></li>
+</ul></li>
+<li class="chapter" data-level="8.5" data-path="garchモデル.html"><a href="garchモデル.html#garchモデル-データ分析例-tsay-ch4"><i class="fa fa-check"></i><b>8.5</b> GARCHモデル: データ分析例 (Tsay, Ch4)</a>
+<ul>
+<li class="chapter" data-level="" data-path="garchモデル.html"><a href="garchモデル.html#必要な関数やデータセットの入手"><i class="fa fa-check"></i>必要な関数やデータセットの入手</a></li>
+<li class="chapter" data-level="" data-path="garchモデル.html"><a href="garchモデル.html#integrated-garch-モデル"><i class="fa fa-check"></i>Integrated GARCH モデル</a></li>
+<li class="chapter" data-level="" data-path="garchモデル.html"><a href="garchモデル.html#garch-m-モデル"><i class="fa fa-check"></i>GARCH-M モデル</a></li>
+<li class="chapter" data-level="" data-path="garchモデル.html"><a href="garchモデル.html#exponential-garch-model"><i class="fa fa-check"></i>Exponential GARCH Model</a></li>
+<li class="chapter" data-level="" data-path="garchモデル.html"><a href="garchモデル.html#threshold-garch-モデル"><i class="fa fa-check"></i>Threshold GARCH モデル</a></li>
+<li class="chapter" data-level="" data-path="garchモデル.html"><a href="garchモデル.html#asymmetric-power-arch-モデル"><i class="fa fa-check"></i>Asymmetric Power ARCH モデル</a></li>
+<li class="chapter" data-level="" data-path="garchモデル.html"><a href="garchモデル.html#nonsymmetric-garch-モデル"><i class="fa fa-check"></i>Nonsymmetric GARCH モデル</a></li>
+<li class="chapter" data-level="" data-path="garchモデル.html"><a href="garchモデル.html#代替的アプリーチ間の比較"><i class="fa fa-check"></i>代替的アプリーチ間の比較</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="varモデル.html"><a href="varモデル.html"><i class="fa fa-check"></i><b>9</b> VARモデル</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="varモデル.html"><a href="varモデル.html#varpモデルのシミュレーション"><i class="fa fa-check"></i><b>9.1</b> VAR(<span class="math inline">\(p\)</span>)モデルのシミュレーション</a>
+<ul>
+<li class="chapter" data-level="" data-path="varモデル.html"><a href="varモデル.html#パッケージmts-varsの利用"><i class="fa fa-check"></i>パッケージ<strong>MTS</strong>, <strong>vars</strong>の利用</a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="varモデル.html"><a href="varモデル.html#varpモデルの構築"><i class="fa fa-check"></i><b>9.2</b> VAR(<span class="math inline">\(p\)</span>)モデルの構築</a>
+<ul>
+<li class="chapter" data-level="" data-path="varモデル.html"><a href="varモデル.html#varpモデルの次数同定"><i class="fa fa-check"></i>VAR(<span class="math inline">\(p\)</span>)モデルの次数同定</a></li>
+<li class="chapter" data-level="" data-path="varモデル.html"><a href="varモデル.html#varpモデルの推定"><i class="fa fa-check"></i>VAR(<span class="math inline">\(p\)</span>)モデルの推定</a></li>
+<li class="chapter" data-level="" data-path="varモデル.html"><a href="varモデル.html#varpモデル予測"><i class="fa fa-check"></i>VAR(<span class="math inline">\(p\)</span>)モデル予測</a></li>
+</ul></li>
+</ul></li>
+<li class="appendix"><span><b>Appendix 参考文献</b></span></li>
+<li class="chapter" data-level="A" data-path="バブル-生成崩壊-検出.html"><a href="バブル-生成崩壊-検出.html"><i class="fa fa-check"></i><b>A</b> バブル (生成・崩壊) 検出</a>
+<ul>
+<li class="chapter" data-level="A.1" data-path="バブル-生成崩壊-検出.html"><a href="バブル-生成崩壊-検出.html#検定法に関する最近のレビュー論文"><i class="fa fa-check"></i><b>A.1</b> 検定法に関する最近のレビュー論文</a></li>
+<li class="chapter" data-level="A.2" data-path="バブル-生成崩壊-検出.html"><a href="バブル-生成崩壊-検出.html#supreme-adf検定sadf-pwy-2011-generalized-supreme-adf-検定gsadf-psy-2015"><i class="fa fa-check"></i><b>A.2</b> Supreme ADF検定/SADF (PWY, 2011), Generalized supreme ADF 検定/GSADF (PSY, 2015)</a>
+<ul>
+<li class="chapter" data-level="A.2.1" data-path="バブル-生成崩壊-検出.html"><a href="バブル-生成崩壊-検出.html#数理ファイナンス-jarrow-protterら"><i class="fa fa-check"></i><b>A.2.1</b> 数理ファイナンス (Jarrow, Protterら)</a></li>
+<li class="chapter" data-level="A.2.2" data-path="バブル-生成崩壊-検出.html"><a href="バブル-生成崩壊-検出.html#経済物理学-sornetteら"><i class="fa fa-check"></i><b>A.2.2</b> 経済物理学 (Sornetteら)</a></li>
+</ul></li>
+<li class="chapter" data-level="A.3" data-path="バブル-生成崩壊-検出.html"><a href="バブル-生成崩壊-検出.html#実証分析"><i class="fa fa-check"></i><b>A.3</b> 実証分析</a>
+<ul>
+<li class="chapter" data-level="" data-path="バブル-生成崩壊-検出.html"><a href="バブル-生成崩壊-検出.html#株式市場の例"><i class="fa fa-check"></i>株式市場の例</a></li>
+<li class="chapter" data-level="" data-path="バブル-生成崩壊-検出.html"><a href="バブル-生成崩壊-検出.html#暗号資産市場の例"><i class="fa fa-check"></i>暗号資産市場の例</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="B" data-path="長期記憶過程-1.html"><a href="長期記憶過程-1.html"><i class="fa fa-check"></i><b>B</b> 長期記憶過程</a>
+<ul>
+<li class="chapter" data-level="B.1" data-path="長期記憶過程-1.html"><a href="長期記憶過程-1.html#理論概説"><i class="fa fa-check"></i><b>B.1</b> 理論・概説</a></li>
+<li class="chapter" data-level="B.2" data-path="長期記憶過程-1.html"><a href="長期記憶過程-1.html#株式市場"><i class="fa fa-check"></i><b>B.2</b> 株式市場</a></li>
+<li class="chapter" data-level="B.3" data-path="長期記憶過程-1.html"><a href="長期記憶過程-1.html#外国為替市場"><i class="fa fa-check"></i><b>B.3</b> 外国為替市場</a></li>
+<li class="chapter" data-level="B.4" data-path="長期記憶過程-1.html"><a href="長期記憶過程-1.html#コモディティ暗号資産"><i class="fa fa-check"></i><b>B.4</b> コモディティ・暗号資産</a></li>
+<li class="chapter" data-level="B.5" data-path="長期記憶過程-1.html"><a href="長期記憶過程-1.html#vix"><i class="fa fa-check"></i><b>B.5</b> VIX</a></li>
+<li class="chapter" data-level="B.6" data-path="長期記憶過程-1.html"><a href="長期記憶過程-1.html#高頻度データ-ボラティリティ-注文フロー等"><i class="fa fa-check"></i><b>B.6</b> 高頻度データ (ボラティリティ, 注文フロー等)</a></li>
+<li class="chapter" data-level="B.7" data-path="長期記憶過程-1.html"><a href="長期記憶過程-1.html#長期記憶性の発生要因-非長期記憶モデルによる近似"><i class="fa fa-check"></i><b>B.7</b> 長期記憶性の発生要因, 非長期記憶モデルによる近似</a></li>
+</ul></li>
+<li class="chapter" data-level="C" data-path="markov-switching-regime-switchingモデル.html"><a href="markov-switching-regime-switchingモデル.html"><i class="fa fa-check"></i><b>C</b> Markov switching/ regime switchingモデル</a>
+<ul>
+<li class="chapter" data-level="C.1" data-path="markov-switching-regime-switchingモデル.html"><a href="markov-switching-regime-switchingモデル.html#理論概説-1"><i class="fa fa-check"></i><b>C.1</b> 理論・概説</a></li>
+<li class="chapter" data-level="C.2" data-path="markov-switching-regime-switchingモデル.html"><a href="markov-switching-regime-switchingモデル.html#株式市場-1"><i class="fa fa-check"></i><b>C.2</b> 株式市場</a></li>
+<li class="chapter" data-level="C.3" data-path="markov-switching-regime-switchingモデル.html"><a href="markov-switching-regime-switchingモデル.html#金利債券市場"><i class="fa fa-check"></i><b>C.3</b> 金利・債券市場</a></li>
+<li class="chapter" data-level="C.4" data-path="markov-switching-regime-switchingモデル.html"><a href="markov-switching-regime-switchingモデル.html#外国為替市場-1"><i class="fa fa-check"></i><b>C.4</b> 外国為替市場</a></li>
+<li class="chapter" data-level="C.5" data-path="markov-switching-regime-switchingモデル.html"><a href="markov-switching-regime-switchingモデル.html#アセットアロケーション"><i class="fa fa-check"></i><b>C.5</b> アセット・アロケーション</a></li>
+</ul></li>
+<li class="chapter" data-level="D" data-path="archgarchモデル-1.html"><a href="archgarchモデル-1.html"><i class="fa fa-check"></i><b>D</b> ARCH/GARCHモデル</a>
+<ul>
+<li class="chapter" data-level="D.1" data-path="archgarchモデル-1.html"><a href="archgarchモデル-1.html#概説"><i class="fa fa-check"></i><b>D.1</b> 概説</a></li>
+<li class="chapter" data-level="D.2" data-path="archgarchモデル-1.html"><a href="archgarchモデル-1.html#arch-model"><i class="fa fa-check"></i><b>D.2</b> ARCH model</a></li>
+<li class="chapter" data-level="D.3" data-path="archgarchモデル-1.html"><a href="archgarchモデル-1.html#garch-model"><i class="fa fa-check"></i><b>D.3</b> GARCH model</a></li>
+<li class="chapter" data-level="D.4" data-path="archgarchモデル-1.html"><a href="archgarchモデル-1.html#arch-m-model"><i class="fa fa-check"></i><b>D.4</b> ARCH-M Model</a></li>
+<li class="chapter" data-level="D.5" data-path="archgarchモデル-1.html"><a href="archgarchモデル-1.html#gjr-model"><i class="fa fa-check"></i><b>D.5</b> GJR model</a></li>
+<li class="chapter" data-level="D.6" data-path="archgarchモデル-1.html"><a href="archgarchモデル-1.html#aparch-model"><i class="fa fa-check"></i><b>D.6</b> APARCH model</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">金融時系列解析</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="varモデル" class="section level1 hasAnchor" number="9">
+<h1><span class="header-section-number">9</span> VARモデル<a href="varモデル.html#varモデル" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<!--
+## VARモデル
+- 以下では, **MTS**パッケージ, **vars**パッケージを利用
+  - https://www.rdocumentation.org/packages/MTS/versions/1.0
+  - https://www.rdocumentation.org/packages/vars/versions/1.5-3
+-->
+<div id="varpモデルのシミュレーション" class="section level2 hasAnchor" number="9.1">
+<h2><span class="header-section-number">9.1</span> VAR(<span class="math inline">\(p\)</span>)モデルのシミュレーション<a href="varモデル.html#varpモデルのシミュレーション" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="パッケージmts-varsの利用" class="section level3 unnumbered hasAnchor">
+<h3>パッケージ<strong>MTS</strong>, <strong>vars</strong>の利用<a href="varモデル.html#パッケージmts-varsの利用" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>本章では主に, Tsayが作成した多変量時系列解析用のパッケージ<strong>MTS</strong>
+および, パッケージ<strong>vars</strong>を利用する.
+<!-- 操作性や出力内容を比較するため, --></p>
+<ul>
+<li><p><a href="https://www.rdocumentation.org/packages/MTS/versions/1.0" class="uri">https://www.rdocumentation.org/packages/MTS/versions/1.0</a></p></li>
+<li><p><a href="https://www.rdocumentation.org/packages/vars/versions/1.5-3" class="uri">https://www.rdocumentation.org/packages/vars/versions/1.5-3</a></p></li>
+<li><p>関数<code>MTS::VARMAsim()</code> (VARMA(<span class="math inline">\(p,q\)</span>)モデルのパス生成)</p></li>
+<li><p>VAR(2)モデル例:
+<span class="math display">\[Y_{1,t}=0.3 + 0.2 Y_{1,t-1} + 0.3 Y_{2,t-1} - 0.5 Y_{1,t-2} (+0 \cdot Y_{2,t-2}) + \epsilon_{1,t}\]</span>
+<span class="math display">\[Y_{2,t}=-0.3  -0.6 Y_{1,t-1} + 1.1 Y_{2,t-1} (+0 \cdot Y_{1,t-2}) - 0.6 Y_{2,t-2} + \epsilon_{2,t}\]</span>
+<span class="math display">\[ \left[
+  \begin{array}{r}
+    \epsilon_{1,t} \\ \epsilon_{2,t}
+  \end{array}
+\right] \sim_{\it i.i.d.} N \Big(\left[
+  \begin{array}{r}
+    0 \\ 0
+  \end{array}
+\right], \left[
+  \begin{array}{rr}
+    4 &amp; 0.8 \\ 0.8 &amp; 1
+  \end{array}
+\right]\Big) \]</span></p></li>
+<li><p>上記VAR(2)モデルのサンプルパスの生成</p></li>
+</ul>
+<div class="sourceCode" id="cb648"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb648-1"><a href="varモデル.html#cb648-1" tabindex="-1"></a><span class="fu">library</span>(MTS)</span>
+<span id="cb648-2"><a href="varモデル.html#cb648-2" tabindex="-1"></a>nlen <span class="ot">&lt;-</span> <span class="dv">300</span></span>
+<span id="cb648-3"><a href="varモデル.html#cb648-3" tabindex="-1"></a>seed_val <span class="ot">&lt;-</span> <span class="dv">1</span></span>
+<span id="cb648-4"><a href="varモデル.html#cb648-4" tabindex="-1"></a><span class="fu">set.seed</span>(seed_val)</span>
+<span id="cb648-5"><a href="varモデル.html#cb648-5" tabindex="-1"></a>p0 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">0.3</span>, <span class="sc">-</span><span class="fl">0.3</span>)              <span class="co"># Phi0 (定数項)</span></span>
+<span id="cb648-6"><a href="varモデル.html#cb648-6" tabindex="-1"></a>p1 <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="fl">0.2</span>, <span class="sc">-</span><span class="fl">0.6</span>, <span class="fl">0.3</span>, <span class="fl">1.1</span>), <span class="dv">2</span>, <span class="dv">2</span>)  <span class="co"># Phi1 (ラグ1のVAR係数行列)</span></span>
+<span id="cb648-7"><a href="varモデル.html#cb648-7" tabindex="-1"></a>p2 <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="sc">-</span><span class="fl">0.5</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="sc">-</span><span class="fl">0.6</span>), <span class="dv">2</span>, <span class="dv">2</span>)         <span class="co"># Phi2 (ラグ2のVAR係数行列)</span></span>
+<span id="cb648-8"><a href="varモデル.html#cb648-8" tabindex="-1"></a>p_mat <span class="ot">&lt;-</span> <span class="fu">cbind</span>(p1, p2)                      <span class="co"># VAR係数行列を重ねた行列</span></span>
+<span id="cb648-9"><a href="varモデル.html#cb648-9" tabindex="-1"></a>sig_mat <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">4</span>, <span class="fl">0.8</span>, <span class="fl">0.8</span>, <span class="dv">1</span>), <span class="dv">2</span>, <span class="dv">2</span>)      <span class="co"># イノベーションの分散共分散行列 (正値定符号)</span></span>
+<span id="cb648-10"><a href="varモデル.html#cb648-10" tabindex="-1"></a>p_mat; sig_mat</span>
+<span id="cb648-11"><a href="varモデル.html#cb648-11" tabindex="-1"></a><span class="do">##      [,1] [,2] [,3] [,4]</span></span>
+<span id="cb648-12"><a href="varモデル.html#cb648-12" tabindex="-1"></a><span class="do">## [1,]  0.2  0.3 -0.5  0.0</span></span>
+<span id="cb648-13"><a href="varモデル.html#cb648-13" tabindex="-1"></a><span class="do">## [2,] -0.6  1.1  0.0 -0.6</span></span>
+<span id="cb648-14"><a href="varモデル.html#cb648-14" tabindex="-1"></a><span class="do">##      [,1] [,2]</span></span>
+<span id="cb648-15"><a href="varモデル.html#cb648-15" tabindex="-1"></a><span class="do">## [1,]  4.0  0.8</span></span>
+<span id="cb648-16"><a href="varモデル.html#cb648-16" tabindex="-1"></a><span class="do">## [2,]  0.8  1.0</span></span>
+<span id="cb648-17"><a href="varモデル.html#cb648-17" tabindex="-1"></a>ysim <span class="ot">&lt;-</span> <span class="fu">VARMAsim</span>(nlen, <span class="at">arlags =</span> <span class="dv">2</span>, <span class="at">cnst =</span> p0, <span class="at">phi =</span> p_mat, <span class="at">sigma =</span> sig_mat)</span>
+<span id="cb648-18"><a href="varモデル.html#cb648-18" tabindex="-1"></a>Yt <span class="ot">&lt;-</span> ysim<span class="sc">$</span>series</span>
+<span id="cb648-19"><a href="varモデル.html#cb648-19" tabindex="-1"></a><span class="fu">MTSplot</span>(Yt)　<span class="co"># 時系列プロット</span></span></code></pre></div>
+<p><img src="090-VAR_files/figure-html/VARsim_12-1.png" width="75%" /></p>
+<ul>
+<li>生成パス<span class="math inline">\(y_t\)</span>の標本自己共分散行列
+<ul>
+<li>対角成分: 各成分の自己相関 <span class="math inline">\(\hat{\rho}_1(h), \hat{\rho}_2(h)\)</span></li>
+<li>非対角成分: <span class="math inline">\(y^1_t,y^2_t\)</span>間のクロス相関
+<ul>
+<li>行列の(1,2)成分: <span class="math inline">\(\hat{\rho}_{1,2}(h),\,h\ge0\)</span></li>
+<li>行列の(2,1)成分: <span class="math inline">\(\hat{\rho}_{1,2}(h)\equiv\hat{\rho}_{2,1}(-h), \,h\le0\)</span></li>
+</ul></li>
+</ul></li>
+</ul>
+<div class="sourceCode" id="cb649"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb649-1"><a href="varモデル.html#cb649-1" tabindex="-1"></a><span class="fu">acf</span>(Yt)　　　<span class="co"># 標本自己共分散行列 (2x2-行列)</span></span></code></pre></div>
+<p><img src="090-VAR_files/figure-html/unnamed-chunk-1-1.png" width="75%" /></p>
+<div class="sourceCode" id="cb650"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb650-1"><a href="varモデル.html#cb650-1" tabindex="-1"></a><span class="co"># acf()の出力結果の非対角成分の確認</span></span>
+<span id="cb650-2"><a href="varモデル.html#cb650-2" tabindex="-1"></a><span class="co"># cor(Y1(t+h), Y2(t))</span></span>
+<span id="cb650-3"><a href="varモデル.html#cb650-3" tabindex="-1"></a><span class="co"># h&gt;0</span></span>
+<span id="cb650-4"><a href="varモデル.html#cb650-4" tabindex="-1"></a><span class="fu">cor</span>(Yt[<span class="dv">2</span><span class="sc">:</span>nlen, <span class="dv">1</span>], Yt[<span class="dv">1</span><span class="sc">:</span>(nlen<span class="dv">-1</span>), <span class="dv">2</span>]) <span class="co"># Y1(t+1) vs Y2(t)</span></span>
+<span id="cb650-5"><a href="varモデル.html#cb650-5" tabindex="-1"></a><span class="do">## [1] -0.2491788</span></span>
+<span id="cb650-6"><a href="varモデル.html#cb650-6" tabindex="-1"></a><span class="fu">cor</span>(Yt[<span class="dv">3</span><span class="sc">:</span>nlen, <span class="dv">1</span>], Yt[<span class="dv">1</span><span class="sc">:</span>(nlen<span class="dv">-2</span>), <span class="dv">2</span>]) <span class="co"># Y1(t+2) vs Y2(t)</span></span>
+<span id="cb650-7"><a href="varモデル.html#cb650-7" tabindex="-1"></a><span class="do">## [1] 0.5855889</span></span>
+<span id="cb650-8"><a href="varモデル.html#cb650-8" tabindex="-1"></a><span class="co"># h&lt;0</span></span>
+<span id="cb650-9"><a href="varモデル.html#cb650-9" tabindex="-1"></a><span class="fu">cor</span>(Yt[<span class="dv">1</span><span class="sc">:</span>(nlen<span class="dv">-1</span>), <span class="dv">1</span>], Yt[<span class="dv">2</span><span class="sc">:</span>nlen, <span class="dv">2</span>]) <span class="co"># Y1(t) vs Y2(t+1)</span></span>
+<span id="cb650-10"><a href="varモデル.html#cb650-10" tabindex="-1"></a><span class="do">## [1] -0.2269957</span></span>
+<span id="cb650-11"><a href="varモデル.html#cb650-11" tabindex="-1"></a><span class="fu">cor</span>(Yt[<span class="dv">1</span><span class="sc">:</span>(nlen<span class="dv">-2</span>), <span class="dv">1</span>], Yt[<span class="dv">3</span><span class="sc">:</span>nlen, <span class="dv">2</span>]) <span class="co"># y1(t) vs Y2(t+2)</span></span>
+<span id="cb650-12"><a href="varモデル.html#cb650-12" tabindex="-1"></a><span class="do">## [1] 0.2156902</span></span></code></pre></div>
+</div>
+</div>
+<div id="varpモデルの構築" class="section level2 hasAnchor" number="9.2">
+<h2><span class="header-section-number">9.2</span> VAR(<span class="math inline">\(p\)</span>)モデルの構築<a href="varモデル.html#varpモデルの構築" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>ここでは, VAR(<span class="math inline">\(p\)</span>)モデル構築の中核のステップである,
+同定・推定・予測の方法について示す.</p>
+<div id="varpモデルの次数同定" class="section level3 unnumbered hasAnchor">
+<h3>VAR(<span class="math inline">\(p\)</span>)モデルの次数同定<a href="varモデル.html#varpモデルの次数同定" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>分析者による最適なラグ次数の選択を支援</li>
+</ul>
+<pre><code>- 関数MTS::VARorder()
+  - maxp: ラグ次数の最大値 (デフォルト=13)
+  - 出力: BIC, HQ (Hannan and Quinn情報量規準), M(p), p-value (カイ二乗検定統計量 &amp; p値)</code></pre>
+<div class="sourceCode" id="cb652"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb652-1"><a href="varモデル.html#cb652-1" tabindex="-1"></a><span class="fu">VARorder</span>(Yt, <span class="at">maxp =</span> <span class="dv">10</span>, <span class="at">output =</span> T)</span>
+<span id="cb652-2"><a href="varモデル.html#cb652-2" tabindex="-1"></a><span class="do">## selected order: aic =  2 </span></span>
+<span id="cb652-3"><a href="varモデル.html#cb652-3" tabindex="-1"></a><span class="do">## selected order: bic =  2 </span></span>
+<span id="cb652-4"><a href="varモデル.html#cb652-4" tabindex="-1"></a><span class="do">## selected order: hq =  2 </span></span>
+<span id="cb652-5"><a href="varモデル.html#cb652-5" tabindex="-1"></a><span class="do">## Summary table:  </span></span>
+<span id="cb652-6"><a href="varモデル.html#cb652-6" tabindex="-1"></a><span class="do">##        p    AIC    BIC     HQ     M(p) p-value</span></span>
+<span id="cb652-7"><a href="varモデル.html#cb652-7" tabindex="-1"></a><span class="do">##  [1,]  0 4.2159 4.2159 4.2159   0.0000  0.0000</span></span>
+<span id="cb652-8"><a href="varモデル.html#cb652-8" tabindex="-1"></a><span class="do">##  [2,]  1 3.8924 3.9418 3.9122 100.3170  0.0000</span></span>
+<span id="cb652-9"><a href="varモデル.html#cb652-9" tabindex="-1"></a><span class="do">##  [3,]  2 1.5169 1.6157 1.5564 683.4158  0.0000</span></span>
+<span id="cb652-10"><a href="varモデル.html#cb652-10" tabindex="-1"></a><span class="do">##  [4,]  3 1.5299 1.6781 1.5892   3.8619  0.4250</span></span>
+<span id="cb652-11"><a href="varモデル.html#cb652-11" tabindex="-1"></a><span class="do">##  [5,]  4 1.5434 1.7409 1.6224   3.6978  0.4484</span></span>
+<span id="cb652-12"><a href="varモデル.html#cb652-12" tabindex="-1"></a><span class="do">##  [6,]  5 1.5325 1.7794 1.6313  10.4626  0.0333</span></span>
+<span id="cb652-13"><a href="varモデル.html#cb652-13" tabindex="-1"></a><span class="do">##  [7,]  6 1.5548 1.8511 1.6734   1.2025  0.8777</span></span>
+<span id="cb652-14"><a href="varモデル.html#cb652-14" tabindex="-1"></a><span class="do">##  [8,]  7 1.5575 1.9032 1.6958   6.5850  0.1595</span></span>
+<span id="cb652-15"><a href="varモデル.html#cb652-15" tabindex="-1"></a><span class="do">##  [9,]  8 1.5799 1.9750 1.7381   1.1470  0.8867</span></span>
+<span id="cb652-16"><a href="varモデル.html#cb652-16" tabindex="-1"></a><span class="do">## [10,]  9 1.5896 2.0340 1.7674   4.6092  0.3298</span></span>
+<span id="cb652-17"><a href="varモデル.html#cb652-17" tabindex="-1"></a><span class="do">## [11,] 10 1.6099 2.1037 1.8075   1.7109  0.7887</span></span></code></pre></div>
+<pre><code>- 関数vars::VARselect()
+  - lag.max: ラグ次数の最大値 (デフォルト=10)
+  - type: 確定的な(定数・トレンド)項の種類
+    &quot;const&quot;(定数項有), &quot;trend&quot;(トレンド有), &quot;both&quot;(定数項・トレンド共有), &quot;none&quot;(両方無)
+  - 出力: AIC, HQ, SC (Schwarz情報量規準), FPE (forecast prediction error)</code></pre>
+<div class="sourceCode" id="cb654"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb654-1"><a href="varモデル.html#cb654-1" tabindex="-1"></a><span class="fu">library</span>(vars)</span>
+<span id="cb654-2"><a href="varモデル.html#cb654-2" tabindex="-1"></a>vars<span class="sc">::</span><span class="fu">VARselect</span>(Yt, <span class="at">lag.max =</span> <span class="dv">10</span>, <span class="at">type =</span> <span class="st">&quot;const&quot;</span>)</span>
+<span id="cb654-3"><a href="varモデル.html#cb654-3" tabindex="-1"></a><span class="do">## $selection</span></span>
+<span id="cb654-4"><a href="varモデル.html#cb654-4" tabindex="-1"></a><span class="do">## AIC(n)  HQ(n)  SC(n) FPE(n) </span></span>
+<span id="cb654-5"><a href="varモデル.html#cb654-5" tabindex="-1"></a><span class="do">##      2      2      2      2 </span></span>
+<span id="cb654-6"><a href="varモデル.html#cb654-6" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb654-7"><a href="varモデル.html#cb654-7" tabindex="-1"></a><span class="do">## $criteria</span></span>
+<span id="cb654-8"><a href="varモデル.html#cb654-8" tabindex="-1"></a><span class="do">##                1        2        3        4        5        6        7        8</span></span>
+<span id="cb654-9"><a href="varモデル.html#cb654-9" tabindex="-1"></a><span class="do">## AIC(n)  3.907125 1.532547 1.546463 1.560866 1.550885 1.574122 1.577719 1.601096</span></span>
+<span id="cb654-10"><a href="varモデル.html#cb654-10" tabindex="-1"></a><span class="do">## HQ(n)   3.937546 1.583248 1.617444 1.652128 1.662427 1.705945 1.729823 1.773480</span></span>
+<span id="cb654-11"><a href="varモデル.html#cb654-11" tabindex="-1"></a><span class="do">## SC(n)   3.983054 1.659094 1.723629 1.788652 1.829289 1.903146 1.957362 2.031358</span></span>
+<span id="cb654-12"><a href="varモデル.html#cb654-12" tabindex="-1"></a><span class="do">## FPE(n) 49.755778 4.629985 4.694921 4.763133 4.715983 4.827081 4.844789 4.959798</span></span>
+<span id="cb654-13"><a href="varモデル.html#cb654-13" tabindex="-1"></a><span class="do">##               9       10</span></span>
+<span id="cb654-14"><a href="varモデル.html#cb654-14" tabindex="-1"></a><span class="do">## AIC(n) 1.611643 1.632857</span></span>
+<span id="cb654-15"><a href="varモデル.html#cb654-15" tabindex="-1"></a><span class="do">## HQ(n)  1.804307 1.845802</span></span>
+<span id="cb654-16"><a href="varモデル.html#cb654-16" tabindex="-1"></a><span class="do">## SC(n)  2.092524 2.164357</span></span>
+<span id="cb654-17"><a href="varモデル.html#cb654-17" tabindex="-1"></a><span class="do">## FPE(n) 5.012920 5.121076</span></span></code></pre></div>
+<!--
+"In statistics, the Bayesian information criterion (BIC) or Schwarz information criterion (also SIC, SBC, SBIC) is a criterion for model selection ..." (wiki)
+- パッケージ**vars**の用法: https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&ved=2ahUKEwjZ5trv742DAxXHr1YBHcPVBrkQFnoECA0QAQ&url=https%3A%2F%2Fwww.researchgate.net%2Fprofile%2FDavid-Booth-7%2Fpost%2FHow_to_select_optimal_lag_between_dependent_variable_and_independent_variables%2Fattachment%2F59d649eb79197b80779a450a%2FAS%253A473055043559424%25401489796519099%2Fdownload%2FVARS_how_to_use.pdf&usg=AOvVaw0WQ5jq3ZBjvAgOHYlLtqv3&opi=89978449
+-->
+</div>
+<div id="varpモデルの推定" class="section level3 unnumbered hasAnchor">
+<h3>VAR(<span class="math inline">\(p\)</span>)モデルの推定<a href="varモデル.html#varpモデルの推定" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>最小2乗法によるパラメータ推定</li>
+</ul>
+<pre><code>- 関数MTS::VAR()
+  - p: ラグ次数
+  - include.mean: 平均ベクトルを加える(推定する)か (デフォルト=T)
+  - fixed: パラメータに制約を付与する論理値行列. 制約付推定 (主に有意でない推定値の除去) に使用</code></pre>
+<div class="sourceCode" id="cb656"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb656-1"><a href="varモデル.html#cb656-1" tabindex="-1"></a>est_VAR1 <span class="ot">&lt;-</span> MTS<span class="sc">::</span><span class="fu">VAR</span>(Yt, <span class="at">p =</span> <span class="dv">2</span>, <span class="at">output =</span> T, <span class="at">include.mean =</span> T, <span class="at">fixed =</span> <span class="cn">NULL</span>) </span>
+<span id="cb656-2"><a href="varモデル.html#cb656-2" tabindex="-1"></a><span class="do">## Constant term: </span></span>
+<span id="cb656-3"><a href="varモデル.html#cb656-3" tabindex="-1"></a><span class="do">## Estimates:  0.7010694 -0.4390955 </span></span>
+<span id="cb656-4"><a href="varモデル.html#cb656-4" tabindex="-1"></a><span class="do">## Std.Error:  0.2935926 0.1458662 </span></span>
+<span id="cb656-5"><a href="varモデル.html#cb656-5" tabindex="-1"></a><span class="do">## AR coefficient matrix </span></span>
+<span id="cb656-6"><a href="varモデル.html#cb656-6" tabindex="-1"></a><span class="do">## AR( 1 )-matrix </span></span>
+<span id="cb656-7"><a href="varモデル.html#cb656-7" tabindex="-1"></a><span class="do">##         [,1]    [,2]</span></span>
+<span id="cb656-8"><a href="varモデル.html#cb656-8" tabindex="-1"></a><span class="do">## [1,] -0.0928  0.0954</span></span>
+<span id="cb656-9"><a href="varモデル.html#cb656-9" tabindex="-1"></a><span class="do">## [2,] -0.0197 -0.0286</span></span>
+<span id="cb656-10"><a href="varモデル.html#cb656-10" tabindex="-1"></a><span class="do">## standard error </span></span>
+<span id="cb656-11"><a href="varモデル.html#cb656-11" tabindex="-1"></a><span class="do">##        [,1]   [,2]</span></span>
+<span id="cb656-12"><a href="varモデル.html#cb656-12" tabindex="-1"></a><span class="do">## [1,] 0.0575 0.0462</span></span>
+<span id="cb656-13"><a href="varモデル.html#cb656-13" tabindex="-1"></a><span class="do">## [2,] 0.0286 0.0230</span></span>
+<span id="cb656-14"><a href="varモデル.html#cb656-14" tabindex="-1"></a><span class="do">## AR( 2 )-matrix </span></span>
+<span id="cb656-15"><a href="varモデル.html#cb656-15" tabindex="-1"></a><span class="do">##        [,1]  [,2]</span></span>
+<span id="cb656-16"><a href="varモデル.html#cb656-16" tabindex="-1"></a><span class="do">## [1,]  0.105 0.402</span></span>
+<span id="cb656-17"><a href="varモデル.html#cb656-17" tabindex="-1"></a><span class="do">## [2,] -0.616 1.117</span></span>
+<span id="cb656-18"><a href="varモデル.html#cb656-18" tabindex="-1"></a><span class="do">## standard error </span></span>
+<span id="cb656-19"><a href="varモデル.html#cb656-19" tabindex="-1"></a><span class="do">##        [,1]   [,2]</span></span>
+<span id="cb656-20"><a href="varモデル.html#cb656-20" tabindex="-1"></a><span class="do">## [1,] 0.0575 0.0465</span></span>
+<span id="cb656-21"><a href="varモデル.html#cb656-21" tabindex="-1"></a><span class="do">## [2,] 0.0285 0.0231</span></span>
+<span id="cb656-22"><a href="varモデル.html#cb656-22" tabindex="-1"></a><span class="do">##   </span></span>
+<span id="cb656-23"><a href="varモデル.html#cb656-23" tabindex="-1"></a><span class="do">## Residuals cov-mtx: </span></span>
+<span id="cb656-24"><a href="varモデル.html#cb656-24" tabindex="-1"></a><span class="do">##           [,1]      [,2]</span></span>
+<span id="cb656-25"><a href="varモデル.html#cb656-25" tabindex="-1"></a><span class="do">## [1,] 4.4990390 0.8786783</span></span>
+<span id="cb656-26"><a href="varモデル.html#cb656-26" tabindex="-1"></a><span class="do">## [2,] 0.8786783 1.1105526</span></span>
+<span id="cb656-27"><a href="varモデル.html#cb656-27" tabindex="-1"></a><span class="do">##   </span></span>
+<span id="cb656-28"><a href="varモデル.html#cb656-28" tabindex="-1"></a><span class="do">## det(SSE) =  4.224344 </span></span>
+<span id="cb656-29"><a href="varモデル.html#cb656-29" tabindex="-1"></a><span class="do">## AIC =  1.494197 </span></span>
+<span id="cb656-30"><a href="varモデル.html#cb656-30" tabindex="-1"></a><span class="do">## BIC =  1.592965 </span></span>
+<span id="cb656-31"><a href="varモデル.html#cb656-31" tabindex="-1"></a><span class="do">## HQ  =  1.533724</span></span></code></pre></div>
+<pre><code>- 関数vars::VAR()
+  - p: ラグ次数
+  - type: 確定的な(定数・トレンド)項の種類
+    &quot;const&quot;(定数項有), &quot;trend&quot;(トレンド有), &quot;both&quot;(定数項・トレンド共有), &quot;none&quot;(両方無)
+  - season: 中心化済の季節性ダミー変数の追加 (frequencyを表す整数を指定)
+  - exogen: 外生変数の追加
+  - lag.max: ラグ次数の最大値 (ラグ次数選択において)
+  - in: 情報量規準 (lag.maxを指定している場合)</code></pre>
+<!-- 8/26/22時点: Build Book時, 以下でエラー発生(→解決済)
+- Error in match.fun(FUN) : object 'stdev' not found -->
+<div class="sourceCode" id="cb658"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb658-1"><a href="varモデル.html#cb658-1" tabindex="-1"></a>est_VAR2 <span class="ot">&lt;-</span> vars<span class="sc">::</span><span class="fu">VAR</span>(Yt, <span class="at">p =</span> <span class="dv">2</span>, <span class="at">type =</span> <span class="st">&quot;const&quot;</span>)    </span>
+<span id="cb658-2"><a href="varモデル.html#cb658-2" tabindex="-1"></a><span class="co"># 最小2乗法によるパラメータ推定</span></span>
+<span id="cb658-3"><a href="varモデル.html#cb658-3" tabindex="-1"></a><span class="co"># type: &quot;const&quot;(定数項有), trend:(&quot;トレンド有&quot;), &quot;both&quot;, &quot;none&quot;</span></span>
+<span id="cb658-4"><a href="varモデル.html#cb658-4" tabindex="-1"></a><span class="fu">summary</span>(est_VAR2)</span>
+<span id="cb658-5"><a href="varモデル.html#cb658-5" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb658-6"><a href="varモデル.html#cb658-6" tabindex="-1"></a><span class="do">## VAR Estimation Results:</span></span>
+<span id="cb658-7"><a href="varモデル.html#cb658-7" tabindex="-1"></a><span class="do">## ========================= </span></span>
+<span id="cb658-8"><a href="varモデル.html#cb658-8" tabindex="-1"></a><span class="do">## Endogenous variables: y1, y2 </span></span>
+<span id="cb658-9"><a href="varモデル.html#cb658-9" tabindex="-1"></a><span class="do">## Deterministic variables: const </span></span>
+<span id="cb658-10"><a href="varモデル.html#cb658-10" tabindex="-1"></a><span class="do">## Sample size: 298 </span></span>
+<span id="cb658-11"><a href="varモデル.html#cb658-11" tabindex="-1"></a><span class="do">## Log Likelihood: -1060.376 </span></span>
+<span id="cb658-12"><a href="varモデル.html#cb658-12" tabindex="-1"></a><span class="do">## Roots of the characteristic polynomial:</span></span>
+<span id="cb658-13"><a href="varモデル.html#cb658-13" tabindex="-1"></a><span class="do">## 0.9308 0.7541 0.7541 0.6891</span></span>
+<span id="cb658-14"><a href="varモデル.html#cb658-14" tabindex="-1"></a><span class="do">## Call:</span></span>
+<span id="cb658-15"><a href="varモデル.html#cb658-15" tabindex="-1"></a><span class="do">## vars::VAR(y = Yt, p = 2, type = &quot;const&quot;)</span></span>
+<span id="cb658-16"><a href="varモデル.html#cb658-16" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb658-17"><a href="varモデル.html#cb658-17" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb658-18"><a href="varモデル.html#cb658-18" tabindex="-1"></a><span class="do">## Estimation results for equation y1: </span></span>
+<span id="cb658-19"><a href="varモデル.html#cb658-19" tabindex="-1"></a><span class="do">## =================================== </span></span>
+<span id="cb658-20"><a href="varモデル.html#cb658-20" tabindex="-1"></a><span class="do">## y1 = y1.l1 + y2.l1 + y1.l2 + y2.l2 + const </span></span>
+<span id="cb658-21"><a href="varモデル.html#cb658-21" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb658-22"><a href="varモデル.html#cb658-22" tabindex="-1"></a><span class="do">##       Estimate Std. Error t value Pr(&gt;|t|)    </span></span>
+<span id="cb658-23"><a href="varモデル.html#cb658-23" tabindex="-1"></a><span class="do">## y1.l1 -0.09285    0.05751  -1.614   0.1075    </span></span>
+<span id="cb658-24"><a href="varモデル.html#cb658-24" tabindex="-1"></a><span class="do">## y2.l1  0.09536    0.04624   2.062   0.0401 *  </span></span>
+<span id="cb658-25"><a href="varモデル.html#cb658-25" tabindex="-1"></a><span class="do">## y1.l2  0.10498    0.05745   1.827   0.0687 .  </span></span>
+<span id="cb658-26"><a href="varモデル.html#cb658-26" tabindex="-1"></a><span class="do">## y2.l2  0.40175    0.04645   8.648 3.49e-16 ***</span></span>
+<span id="cb658-27"><a href="varモデル.html#cb658-27" tabindex="-1"></a><span class="do">## const  0.70107    0.29359   2.388   0.0176 *  </span></span>
+<span id="cb658-28"><a href="varモデル.html#cb658-28" tabindex="-1"></a><span class="do">## ---</span></span>
+<span id="cb658-29"><a href="varモデル.html#cb658-29" tabindex="-1"></a><span class="do">## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</span></span>
+<span id="cb658-30"><a href="varモデル.html#cb658-30" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb658-31"><a href="varモデル.html#cb658-31" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb658-32"><a href="varモデル.html#cb658-32" tabindex="-1"></a><span class="do">## Residual standard error: 2.139 on 293 degrees of freedom</span></span>
+<span id="cb658-33"><a href="varモデル.html#cb658-33" tabindex="-1"></a><span class="do">## Multiple R-Squared: 0.3636,  Adjusted R-squared: 0.3549 </span></span>
+<span id="cb658-34"><a href="varモデル.html#cb658-34" tabindex="-1"></a><span class="do">## F-statistic: 41.86 on 4 and 293 DF,  p-value: &lt; 2.2e-16 </span></span>
+<span id="cb658-35"><a href="varモデル.html#cb658-35" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb658-36"><a href="varモデル.html#cb658-36" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb658-37"><a href="varモデル.html#cb658-37" tabindex="-1"></a><span class="do">## Estimation results for equation y2: </span></span>
+<span id="cb658-38"><a href="varモデル.html#cb658-38" tabindex="-1"></a><span class="do">## =================================== </span></span>
+<span id="cb658-39"><a href="varモデル.html#cb658-39" tabindex="-1"></a><span class="do">## y2 = y1.l1 + y2.l1 + y1.l2 + y2.l2 + const </span></span>
+<span id="cb658-40"><a href="varモデル.html#cb658-40" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb658-41"><a href="varモデル.html#cb658-41" tabindex="-1"></a><span class="do">##       Estimate Std. Error t value Pr(&gt;|t|)    </span></span>
+<span id="cb658-42"><a href="varモデル.html#cb658-42" tabindex="-1"></a><span class="do">## y1.l1 -0.01967    0.02857  -0.688  0.49185    </span></span>
+<span id="cb658-43"><a href="varモデル.html#cb658-43" tabindex="-1"></a><span class="do">## y2.l1 -0.02859    0.02297  -1.244  0.21435    </span></span>
+<span id="cb658-44"><a href="varモデル.html#cb658-44" tabindex="-1"></a><span class="do">## y1.l2 -0.61604    0.02854 -21.583  &lt; 2e-16 ***</span></span>
+<span id="cb658-45"><a href="varモデル.html#cb658-45" tabindex="-1"></a><span class="do">## y2.l2  1.11695    0.02308  48.395  &lt; 2e-16 ***</span></span>
+<span id="cb658-46"><a href="varモデル.html#cb658-46" tabindex="-1"></a><span class="do">## const -0.43910    0.14587  -3.010  0.00284 ** </span></span>
+<span id="cb658-47"><a href="varモデル.html#cb658-47" tabindex="-1"></a><span class="do">## ---</span></span>
+<span id="cb658-48"><a href="varモデル.html#cb658-48" tabindex="-1"></a><span class="do">## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</span></span>
+<span id="cb658-49"><a href="varモデル.html#cb658-49" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb658-50"><a href="varモデル.html#cb658-50" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb658-51"><a href="varモデル.html#cb658-51" tabindex="-1"></a><span class="do">## Residual standard error: 1.063 on 293 degrees of freedom</span></span>
+<span id="cb658-52"><a href="varモデル.html#cb658-52" tabindex="-1"></a><span class="do">## Multiple R-Squared: 0.9232,  Adjusted R-squared: 0.9222 </span></span>
+<span id="cb658-53"><a href="varモデル.html#cb658-53" tabindex="-1"></a><span class="do">## F-statistic: 880.9 on 4 and 293 DF,  p-value: &lt; 2.2e-16 </span></span>
+<span id="cb658-54"><a href="varモデル.html#cb658-54" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb658-55"><a href="varモデル.html#cb658-55" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb658-56"><a href="varモデル.html#cb658-56" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb658-57"><a href="varモデル.html#cb658-57" tabindex="-1"></a><span class="do">## Covariance matrix of residuals:</span></span>
+<span id="cb658-58"><a href="varモデル.html#cb658-58" tabindex="-1"></a><span class="do">##        y1     y2</span></span>
+<span id="cb658-59"><a href="varモデル.html#cb658-59" tabindex="-1"></a><span class="do">## y1 4.5758 0.8937</span></span>
+<span id="cb658-60"><a href="varモデル.html#cb658-60" tabindex="-1"></a><span class="do">## y2 0.8937 1.1295</span></span>
+<span id="cb658-61"><a href="varモデル.html#cb658-61" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb658-62"><a href="varモデル.html#cb658-62" tabindex="-1"></a><span class="do">## Correlation matrix of residuals:</span></span>
+<span id="cb658-63"><a href="varモデル.html#cb658-63" tabindex="-1"></a><span class="do">##        y1     y2</span></span>
+<span id="cb658-64"><a href="varモデル.html#cb658-64" tabindex="-1"></a><span class="do">## y1 1.0000 0.3931</span></span>
+<span id="cb658-65"><a href="varモデル.html#cb658-65" tabindex="-1"></a><span class="do">## y2 0.3931 1.0000</span></span></code></pre></div>
+</div>
+<div id="varpモデル予測" class="section level3 unnumbered hasAnchor">
+<h3>VAR(<span class="math inline">\(p\)</span>)モデル予測<a href="varモデル.html#varpモデル予測" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<pre><code>- 関数MTS::VARpred()
+  - h: 予測期間の長さ
+  - orig: 予測の起点 (デフォルト=0, 最終のデータ点)
+  - Out.level: 出力の詳細のコントロール (T/F)</code></pre>
+<div class="sourceCode" id="cb660"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb660-1"><a href="varモデル.html#cb660-1" tabindex="-1"></a>pred_VAR1 <span class="ot">&lt;-</span> <span class="fu">VARpred</span>(est_VAR1, <span class="at">h =</span> <span class="dv">20</span>, <span class="at">orig =</span> <span class="dv">0</span>, <span class="at">Out.level =</span> F, <span class="at">output =</span> T)</span>
+<span id="cb660-2"><a href="varモデル.html#cb660-2" tabindex="-1"></a><span class="do">## orig  300 </span></span>
+<span id="cb660-3"><a href="varモデル.html#cb660-3" tabindex="-1"></a><span class="do">## Forecasts at origin:  300 </span></span>
+<span id="cb660-4"><a href="varモデル.html#cb660-4" tabindex="-1"></a><span class="do">##          [,1]   [,2]</span></span>
+<span id="cb660-5"><a href="varモデル.html#cb660-5" tabindex="-1"></a><span class="do">##  [1,] -1.6935 -4.659</span></span>
+<span id="cb660-6"><a href="varモデル.html#cb660-6" tabindex="-1"></a><span class="do">##  [2,] -1.5588 -2.224</span></span>
+<span id="cb660-7"><a href="varモデル.html#cb660-7" tabindex="-1"></a><span class="do">##  [3,] -1.4159 -4.506</span></span>
+<span id="cb660-8"><a href="varモデル.html#cb660-8" tabindex="-1"></a><span class="do">##  [4,] -0.6541 -1.806</span></span>
+<span id="cb660-9"><a href="varモデル.html#cb660-9" tabindex="-1"></a><span class="do">##  [5,] -1.3692 -4.535</span></span>
+<span id="cb660-10"><a href="varモデル.html#cb660-10" tabindex="-1"></a><span class="do">##  [6,] -0.3984 -1.896</span></span>
+<span id="cb660-11"><a href="varモデル.html#cb660-11" tabindex="-1"></a><span class="do">##  [7,] -1.4084 -4.599</span></span>
+<span id="cb660-12"><a href="varモデル.html#cb660-12" tabindex="-1"></a><span class="do">##  [8,] -0.4105 -2.153</span></span>
+<span id="cb660-13"><a href="varモデル.html#cb660-13" tabindex="-1"></a><span class="do">##  [9,] -1.4616 -4.638</span></span>
+<span id="cb660-14"><a href="varモデル.html#cb660-14" tabindex="-1"></a><span class="do">## [10,] -0.5135 -2.429</span></span>
+<span id="cb660-15"><a href="varモデル.html#cb660-15" tabindex="-1"></a><span class="do">## [11,] -1.4999 -4.640</span></span>
+<span id="cb660-16"><a href="varモデル.html#cb660-16" tabindex="-1"></a><span class="do">## [12,] -0.6321 -2.674</span></span>
+<span id="cb660-17"><a href="varモデル.html#cb660-17" tabindex="-1"></a><span class="do">## [13,] -1.5169 -4.609</span></span>
+<span id="cb660-18"><a href="varモデル.html#cb660-18" tabindex="-1"></a><span class="do">## [14,] -0.7383 -2.875</span></span>
+<span id="cb660-19"><a href="varモデル.html#cb660-19" tabindex="-1"></a><span class="do">## [15,] -1.5155 -4.556</span></span>
+<span id="cb660-20"><a href="varモデル.html#cb660-20" tabindex="-1"></a><span class="do">## [16,] -0.8252 -3.035</span></span>
+<span id="cb660-21"><a href="varモデル.html#cb660-21" tabindex="-1"></a><span class="do">## [17,] -1.5012 -4.491</span></span>
+<span id="cb660-22"><a href="varモデル.html#cb660-22" tabindex="-1"></a><span class="do">## [18,] -0.8939 -3.163</span></span>
+<span id="cb660-23"><a href="varモデル.html#cb660-23" tabindex="-1"></a><span class="do">## [19,] -1.4795 -4.423</span></span>
+<span id="cb660-24"><a href="varモデル.html#cb660-24" tabindex="-1"></a><span class="do">## [20,] -0.9480 -3.266</span></span>
+<span id="cb660-25"><a href="varモデル.html#cb660-25" tabindex="-1"></a><span class="do">## Standard Errors of predictions:  </span></span>
+<span id="cb660-26"><a href="varモデル.html#cb660-26" tabindex="-1"></a><span class="do">##        [,1]  [,2]</span></span>
+<span id="cb660-27"><a href="varモデル.html#cb660-27" tabindex="-1"></a><span class="do">##  [1,] 2.121 1.054</span></span>
+<span id="cb660-28"><a href="varモデル.html#cb660-28" tabindex="-1"></a><span class="do">##  [2,] 2.129 1.056</span></span>
+<span id="cb660-29"><a href="varモデル.html#cb660-29" tabindex="-1"></a><span class="do">##  [3,] 2.199 1.729</span></span>
+<span id="cb660-30"><a href="varモデル.html#cb660-30" tabindex="-1"></a><span class="do">##  [4,] 2.205 1.734</span></span>
+<span id="cb660-31"><a href="varモデル.html#cb660-31" tabindex="-1"></a><span class="do">##  [5,] 2.269 2.315</span></span>
+<span id="cb660-32"><a href="varモデル.html#cb660-32" tabindex="-1"></a><span class="do">##  [6,] 2.270 2.333</span></span>
+<span id="cb660-33"><a href="varモデル.html#cb660-33" tabindex="-1"></a><span class="do">##  [7,] 2.357 2.728</span></span>
+<span id="cb660-34"><a href="varモデル.html#cb660-34" tabindex="-1"></a><span class="do">##  [8,] 2.358 2.760</span></span>
+<span id="cb660-35"><a href="varモデル.html#cb660-35" tabindex="-1"></a><span class="do">##  [9,] 2.432 3.010</span></span>
+<span id="cb660-36"><a href="varモデル.html#cb660-36" tabindex="-1"></a><span class="do">## [10,] 2.435 3.050</span></span>
+<span id="cb660-37"><a href="varモデル.html#cb660-37" tabindex="-1"></a><span class="do">## [11,] 2.488 3.207</span></span>
+<span id="cb660-38"><a href="varモデル.html#cb660-38" tabindex="-1"></a><span class="do">## [12,] 2.493 3.249</span></span>
+<span id="cb660-39"><a href="varモデル.html#cb660-39" tabindex="-1"></a><span class="do">## [13,] 2.528 3.349</span></span>
+<span id="cb660-40"><a href="varモデル.html#cb660-40" tabindex="-1"></a><span class="do">## [14,] 2.535 3.388</span></span>
+<span id="cb660-41"><a href="varモデル.html#cb660-41" tabindex="-1"></a><span class="do">## [15,] 2.557 3.453</span></span>
+<span id="cb660-42"><a href="varモデル.html#cb660-42" tabindex="-1"></a><span class="do">## [16,] 2.564 3.486</span></span>
+<span id="cb660-43"><a href="varモデル.html#cb660-43" tabindex="-1"></a><span class="do">## [17,] 2.579 3.530</span></span>
+<span id="cb660-44"><a href="varモデル.html#cb660-44" tabindex="-1"></a><span class="do">## [18,] 2.586 3.557</span></span>
+<span id="cb660-45"><a href="varモデル.html#cb660-45" tabindex="-1"></a><span class="do">## [19,] 2.596 3.588</span></span>
+<span id="cb660-46"><a href="varモデル.html#cb660-46" tabindex="-1"></a><span class="do">## [20,] 2.602 3.609</span></span>
+<span id="cb660-47"><a href="varモデル.html#cb660-47" tabindex="-1"></a><span class="do">## Root mean square errors of predictions:  </span></span>
+<span id="cb660-48"><a href="varモデル.html#cb660-48" tabindex="-1"></a><span class="do">##        [,1]  [,2]</span></span>
+<span id="cb660-49"><a href="varモデル.html#cb660-49" tabindex="-1"></a><span class="do">##  [1,] 2.139 1.063</span></span>
+<span id="cb660-50"><a href="varモデル.html#cb660-50" tabindex="-1"></a><span class="do">##  [2,] 2.154 1.061</span></span>
+<span id="cb660-51"><a href="varモデル.html#cb660-51" tabindex="-1"></a><span class="do">##  [3,] 2.408 2.994</span></span>
+<span id="cb660-52"><a href="varモデル.html#cb660-52" tabindex="-1"></a><span class="do">##  [4,] 2.226 1.751</span></span>
+<span id="cb660-53"><a href="varモデル.html#cb660-53" tabindex="-1"></a><span class="do">##  [5,] 2.460 3.586</span></span>
+<span id="cb660-54"><a href="varモデル.html#cb660-54" tabindex="-1"></a><span class="do">##  [6,] 2.275 2.391</span></span>
+<span id="cb660-55"><a href="varモデル.html#cb660-55" tabindex="-1"></a><span class="do">##  [7,] 2.616 3.717</span></span>
+<span id="cb660-56"><a href="varモデル.html#cb660-56" tabindex="-1"></a><span class="do">##  [8,] 2.359 2.859</span></span>
+<span id="cb660-57"><a href="varモデル.html#cb660-57" tabindex="-1"></a><span class="do">##  [9,] 2.656 3.698</span></span>
+<span id="cb660-58"><a href="varモデル.html#cb660-58" tabindex="-1"></a><span class="do">## [10,] 2.444 3.174</span></span>
+<span id="cb660-59"><a href="varモデル.html#cb660-59" tabindex="-1"></a><span class="do">## [11,] 2.649 3.664</span></span>
+<span id="cb660-60"><a href="varモデル.html#cb660-60" tabindex="-1"></a><span class="do">## [12,] 2.510 3.378</span></span>
+<span id="cb660-61"><a href="varモデル.html#cb660-61" tabindex="-1"></a><span class="do">## [13,] 2.636 3.650</span></span>
+<span id="cb660-62"><a href="varモデル.html#cb660-62" tabindex="-1"></a><span class="do">## [14,] 2.557 3.508</span></span>
+<span id="cb660-63"><a href="varモデル.html#cb660-63" tabindex="-1"></a><span class="do">## [15,] 2.628 3.653</span></span>
+<span id="cb660-64"><a href="varモデル.html#cb660-64" tabindex="-1"></a><span class="do">## [16,] 2.587 3.591</span></span>
+<span id="cb660-65"><a href="varモデル.html#cb660-65" tabindex="-1"></a><span class="do">## [17,] 2.626 3.667</span></span>
+<span id="cb660-66"><a href="varモデル.html#cb660-66" tabindex="-1"></a><span class="do">## [18,] 2.607 3.643</span></span>
+<span id="cb660-67"><a href="varモデル.html#cb660-67" tabindex="-1"></a><span class="do">## [19,] 2.627 3.683</span></span>
+<span id="cb660-68"><a href="varモデル.html#cb660-68" tabindex="-1"></a><span class="do">## [20,] 2.620 3.678</span></span></code></pre></div>
+<pre><code>- 関数predict() (`vars::VAR`の出力に対して適用)
+  - n.ahead: 予測期間の長さ
+  - ci: 予測信頼区間</code></pre>
+<div class="sourceCode" id="cb662"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb662-1"><a href="varモデル.html#cb662-1" tabindex="-1"></a>pred_VAR2 <span class="ot">&lt;-</span> <span class="fu">predict</span>(est_VAR2, <span class="at">n.ahead =</span> <span class="dv">10</span>)</span>
+<span id="cb662-2"><a href="varモデル.html#cb662-2" tabindex="-1"></a><span class="fu">plot</span>(pred_VAR2)</span></code></pre></div>
+<p><img src="090-VAR_files/figure-html/VApred2_12-1.png" width="75%" /></p>
+<div class="sourceCode" id="cb663"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb663-1"><a href="varモデル.html#cb663-1" tabindex="-1"></a>pred_VAR2<span class="sc">$</span>fcst</span>
+<span id="cb663-2"><a href="varモデル.html#cb663-2" tabindex="-1"></a><span class="do">## $y1</span></span>
+<span id="cb663-3"><a href="varモデル.html#cb663-3" tabindex="-1"></a><span class="do">##             fcst     lower    upper       CI</span></span>
+<span id="cb663-4"><a href="varモデル.html#cb663-4" tabindex="-1"></a><span class="do">##  [1,] -1.6935489 -5.886138 2.499040 4.192589</span></span>
+<span id="cb663-5"><a href="varモデル.html#cb663-5" tabindex="-1"></a><span class="do">##  [2,] -1.5588289 -5.766916 2.649258 4.208087</span></span>
+<span id="cb663-6"><a href="varモデル.html#cb663-6" tabindex="-1"></a><span class="do">##  [3,] -1.4158594 -5.761805 2.930087 4.345946</span></span>
+<span id="cb663-7"><a href="varモデル.html#cb663-7" tabindex="-1"></a><span class="do">##  [4,] -0.6541053 -5.012838 3.704628 4.358733</span></span>
+<span id="cb663-8"><a href="varモデル.html#cb663-8" tabindex="-1"></a><span class="do">##  [5,] -1.3691744 -5.853357 3.115008 4.484182</span></span>
+<span id="cb663-9"><a href="varモデル.html#cb663-9" tabindex="-1"></a><span class="do">##  [6,] -0.3983955 -4.885523 4.088732 4.487127</span></span>
+<span id="cb663-10"><a href="varモデル.html#cb663-10" tabindex="-1"></a><span class="do">##  [7,] -1.4084408 -6.067917 3.251035 4.659476</span></span>
+<span id="cb663-11"><a href="varモデル.html#cb663-11" tabindex="-1"></a><span class="do">##  [8,] -0.4104564 -5.070912 4.250000 4.660456</span></span>
+<span id="cb663-12"><a href="varモデル.html#cb663-12" tabindex="-1"></a><span class="do">##  [9,] -1.4615648 -6.269351 3.346221 4.807786</span></span>
+<span id="cb663-13"><a href="varモデル.html#cb663-13" tabindex="-1"></a><span class="do">## [10,] -0.5135316 -5.326625 4.299561 4.813093</span></span>
+<span id="cb663-14"><a href="varモデル.html#cb663-14" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb663-15"><a href="varモデル.html#cb663-15" tabindex="-1"></a><span class="do">## $y2</span></span>
+<span id="cb663-16"><a href="varモデル.html#cb663-16" tabindex="-1"></a><span class="do">##            fcst      lower       upper       CI</span></span>
+<span id="cb663-17"><a href="varモデル.html#cb663-17" tabindex="-1"></a><span class="do">##  [1,] -4.659151  -6.742164 -2.57613758 2.083013</span></span>
+<span id="cb663-18"><a href="varモデル.html#cb663-18" tabindex="-1"></a><span class="do">##  [2,] -2.223532  -4.309952 -0.13711248 2.086420</span></span>
+<span id="cb663-19"><a href="varモデル.html#cb663-19" tabindex="-1"></a><span class="do">##  [3,] -4.505606  -7.922276 -1.08893531 3.416670</span></span>
+<span id="cb663-20"><a href="varモデル.html#cb663-20" tabindex="-1"></a><span class="do">##  [4,] -1.805711  -5.233098  1.62167648 3.427387</span></span>
+<span id="cb663-21"><a href="varモデル.html#cb663-21" tabindex="-1"></a><span class="do">##  [5,] -4.534908  -9.110020  0.04020335 4.575112</span></span>
+<span id="cb663-22"><a href="varモデル.html#cb663-22" tabindex="-1"></a><span class="do">##  [6,] -1.896451  -6.507997  2.71509585 4.611547</span></span>
+<span id="cb663-23"><a href="varモデル.html#cb663-23" tabindex="-1"></a><span class="do">##  [7,] -4.598833  -9.990735  0.79306982 5.391903</span></span>
+<span id="cb663-24"><a href="varモデル.html#cb663-24" tabindex="-1"></a><span class="do">##  [8,] -2.152730  -7.607556  3.30209602 5.454826</span></span>
+<span id="cb663-25"><a href="varモデル.html#cb663-25" tabindex="-1"></a><span class="do">##  [9,] -4.638479 -10.588832  1.31187382 5.950353</span></span>
+<span id="cb663-26"><a href="varモデル.html#cb663-26" tabindex="-1"></a><span class="do">## [10,] -2.429372  -8.458542  3.59979824 6.029170</span></span></code></pre></div>
+<!---
+  - dumvar: 関数ca.jo()において引数dumvarが, または, 関数VAR()において引数exogenが使われた時に得られた'vec2var'や'varest'クラスのオブジェクトに対する行列
+--->
+<ul>
+<li><strong>MTS</strong>パッケージは, 外生変数有りのVARXモデル, VMAモデル, さらには, 一般のVARMAモデルに対しても, 次数同定, モデル推定, 予測のための関数を用意.</li>
+</ul>
+
+</div>
+</div>
+</div>
+
+
+
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="garchモデル.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="バブル-生成崩壊-検出.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+  "sharing": {
+    "github": false,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": null,
+    "text": null
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": null,
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "subsection"
+  }
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

@@ -301,6 +301,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="garchモデル.html"><a href="garchモデル.html#代替的アプリーチ間の比較"><i class="fa fa-check"></i>代替的アプリーチ間の比較</a></li>
 </ul></li>
 </ul></li>
+<li class="chapter" data-level="9" data-path="varモデル.html"><a href="varモデル.html"><i class="fa fa-check"></i><b>9</b> VARモデル</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="varモデル.html"><a href="varモデル.html#varpモデルのシミュレーション"><i class="fa fa-check"></i><b>9.1</b> VAR(<span class="math inline">\(p\)</span>)モデルのシミュレーション</a>
+<ul>
+<li class="chapter" data-level="" data-path="varモデル.html"><a href="varモデル.html#パッケージmts-varsの利用"><i class="fa fa-check"></i>パッケージ<strong>MTS</strong>, <strong>vars</strong>の利用</a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="varモデル.html"><a href="varモデル.html#varpモデルの構築"><i class="fa fa-check"></i><b>9.2</b> VAR(<span class="math inline">\(p\)</span>)モデルの構築</a>
+<ul>
+<li class="chapter" data-level="" data-path="varモデル.html"><a href="varモデル.html#varpモデルの次数同定"><i class="fa fa-check"></i>VAR(<span class="math inline">\(p\)</span>)モデルの次数同定</a></li>
+<li class="chapter" data-level="" data-path="varモデル.html"><a href="varモデル.html#varpモデルの推定"><i class="fa fa-check"></i>VAR(<span class="math inline">\(p\)</span>)モデルの推定</a></li>
+<li class="chapter" data-level="" data-path="varモデル.html"><a href="varモデル.html#varpモデル予測"><i class="fa fa-check"></i>VAR(<span class="math inline">\(p\)</span>)モデル予測</a></li>
+</ul></li>
+</ul></li>
 <li class="appendix"><span><b>Appendix 参考文献</b></span></li>
 <li class="chapter" data-level="A" data-path="バブル-生成崩壊-検出.html"><a href="バブル-生成崩壊-検出.html"><i class="fa fa-check"></i><b>A</b> バブル (生成・崩壊) 検出</a>
 <ul>
@@ -639,7 +652,7 @@ unitrootTest(x, lags = 1, type = c(&quot;nc&quot;, &quot;c&quot;, &quot;ct&quot;
 ##     0.703 
 ## 
 ## Description:
-##  Wed Dec 17 12:35:55 2025 by user:</code></pre>
+##  Fri Dec 19 12:34:51 2025 by user:</code></pre>
 <div class="sourceCode" id="cb350"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb350-1"><a href="確率的トレンドと単位根検定.html#cb350-1" tabindex="-1"></a><span class="fu">unitrootTest</span>(x, <span class="at">type =</span> <span class="st">&quot;nc&quot;</span>, <span class="at">lags =</span> <span class="dv">1</span>)</span></code></pre></div>
 <pre><code>## 
 ## Title:
@@ -655,7 +668,7 @@ unitrootTest(x, lags = 1, type = c(&quot;nc&quot;, &quot;c&quot;, &quot;ct&quot;
 ##     n: 0.7506 
 ## 
 ## Description:
-##  Wed Dec 17 12:35:55 2025 by user:</code></pre>
+##  Fri Dec 19 12:34:51 2025 by user:</code></pre>
 <!--
 **自主課題**:
 二つの関数の結果を比較せよ.
@@ -690,7 +703,7 @@ MacKinnonの response surface に基づく近似は，EViews, Stataなどでも�
 ##     0.3835 
 ## 
 ## Description:
-##  Wed Dec 17 12:35:55 2025 by user:</code></pre>
+##  Fri Dec 19 12:34:51 2025 by user:</code></pre>
 <div class="sourceCode" id="cb355"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb355-1"><a href="確率的トレンドと単位根検定.html#cb355-1" tabindex="-1"></a><span class="fu">unitrootTest</span>(y, <span class="at">type =</span> <span class="st">&quot;nc&quot;</span>, <span class="at">lags =</span> <span class="dv">1</span>)</span></code></pre></div>
 <pre><code>## 
 ## Title:
@@ -706,7 +719,7 @@ MacKinnonの response surface に基づく近似は，EViews, Stataなどでも�
 ##     n: 0.522 
 ## 
 ## Description:
-##  Wed Dec 17 12:35:55 2025 by user:</code></pre>
+##  Fri Dec 19 12:34:51 2025 by user:</code></pre>
 <p>→ いずれも, 帰無仮説 (<span class="math inline">\(\phi_1=1\)</span>) を棄却せず (単位根有り).</p>
 <div class="sourceCode" id="cb357"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb357-1"><a href="確率的トレンドと単位根検定.html#cb357-1" tabindex="-1"></a><span class="fu">adfTest</span>(x, <span class="at">type =</span> <span class="st">&quot;c&quot;</span>, <span class="at">lags =</span> <span class="dv">1</span>)</span></code></pre></div>
 <pre><code>## 
@@ -722,7 +735,7 @@ MacKinnonの response surface に基づく近似は，EViews, Stataなどでも�
 ##     0.5166 
 ## 
 ## Description:
-##  Wed Dec 17 12:35:55 2025 by user:</code></pre>
+##  Fri Dec 19 12:34:51 2025 by user:</code></pre>
 <div class="sourceCode" id="cb359"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb359-1"><a href="確率的トレンドと単位根検定.html#cb359-1" tabindex="-1"></a><span class="co"># unitrootTest(x, type = &quot;c&quot;, lags = 1)</span></span>
 <span id="cb359-2"><a href="確率的トレンドと単位根検定.html#cb359-2" tabindex="-1"></a><span class="fu">adfTest</span>(y, <span class="at">type =</span> <span class="st">&quot;c&quot;</span>, <span class="at">lags =</span> <span class="dv">1</span>)</span></code></pre></div>
 <pre><code>## 
@@ -738,7 +751,7 @@ MacKinnonの response surface に基づく近似は，EViews, Stataなどでも�
 ##     0.6617 
 ## 
 ## Description:
-##  Wed Dec 17 12:35:55 2025 by user:</code></pre>
+##  Fri Dec 19 12:34:51 2025 by user:</code></pre>
 <div class="sourceCode" id="cb361"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb361-1"><a href="確率的トレンドと単位根検定.html#cb361-1" tabindex="-1"></a><span class="co"># unitrootTest(y, type = &quot;c&quot;, lags = 1)</span></span></code></pre></div>
 <div class="sourceCode" id="cb362"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb362-1"><a href="確率的トレンドと単位根検定.html#cb362-1" tabindex="-1"></a><span class="fu">adfTest</span>(x, <span class="at">type =</span> <span class="st">&quot;c&quot;</span>, <span class="at">lags =</span> <span class="dv">1</span>)</span></code></pre></div>
 <pre><code>## 
@@ -754,7 +767,7 @@ MacKinnonの response surface に基づく近似は，EViews, Stataなどでも�
 ##     0.5166 
 ## 
 ## Description:
-##  Wed Dec 17 12:35:55 2025 by user:</code></pre>
+##  Fri Dec 19 12:34:51 2025 by user:</code></pre>
 <div class="sourceCode" id="cb364"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb364-1"><a href="確率的トレンドと単位根検定.html#cb364-1" tabindex="-1"></a><span class="co"># unitrootTest(x, type = &quot;ct&quot;, lags = 1)</span></span>
 <span id="cb364-2"><a href="確率的トレンドと単位根検定.html#cb364-2" tabindex="-1"></a><span class="fu">adfTest</span>(y, <span class="at">type =</span> <span class="st">&quot;c&quot;</span>, <span class="at">lags =</span> <span class="dv">1</span>)</span></code></pre></div>
 <pre><code>## 
@@ -770,7 +783,7 @@ MacKinnonの response surface に基づく近似は，EViews, Stataなどでも�
 ##     0.6617 
 ## 
 ## Description:
-##  Wed Dec 17 12:35:55 2025 by user:</code></pre>
+##  Fri Dec 19 12:34:51 2025 by user:</code></pre>
 <div class="sourceCode" id="cb366"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb366-1"><a href="確率的トレンドと単位根検定.html#cb366-1" tabindex="-1"></a><span class="co"># unitrootTest(y, type = &quot;ct&quot;, lags = 1)</span></span></code></pre></div>
 </div>
 <div id="パッケージtseries" class="section level3 unnumbered hasAnchor">
@@ -1416,7 +1429,7 @@ ur.pp(x, type = c(&quot;Z-alpha&quot;, &quot;Z-tau&quot;), model = c(&quot;const
 ## 
 ## Coefficients:
 ##              Estimate Std. Error t value Pr(&gt;|t|)    
-## (Intercept) 24.908413   9.184758   2.712  0.00680 ** 
+## (Intercept) 24.908412   9.184758   2.712  0.00680 ** 
 ## y.l1         0.987289   0.005062 195.048  &lt; 2e-16 ***
 ## trend        0.029106   0.011051   2.634  0.00857 ** 
 ## ---
@@ -1450,7 +1463,7 @@ ur.pp(x, type = c(&quot;Z-alpha&quot;, &quot;Z-tau&quot;), model = c(&quot;const
 ## 
 ## Coefficients:
 ##              Estimate Std. Error t value Pr(&gt;|t|)    
-## (Intercept) 24.908413   9.184758   2.712  0.00680 ** 
+## (Intercept) 24.908412   9.184758   2.712  0.00680 ** 
 ## y.l1         0.987289   0.005062 195.048  &lt; 2e-16 ***
 ## trend        0.029106   0.011051   2.634  0.00857 ** 
 ## ---
@@ -1487,7 +1500,7 @@ ur.pp(x, type = c(&quot;Z-alpha&quot;, &quot;Z-tau&quot;), model = c(&quot;const
 ## 
 ## Coefficients:
 ##              Estimate Std. Error t value Pr(&gt;|t|)    
-## (Intercept) 24.908413   9.184758   2.712  0.00680 ** 
+## (Intercept) 24.908412   9.184758   2.712  0.00680 ** 
 ## y.l1         0.987289   0.005062 195.048  &lt; 2e-16 ***
 ## trend        0.029106   0.011051   2.634  0.00857 ** 
 ## ---
@@ -1528,7 +1541,7 @@ ur.pp(x, type = c(&quot;Z-alpha&quot;, &quot;Z-tau&quot;), model = c(&quot;const
 ## 
 ## Coefficients:
 ##             Estimate Std. Error t value Pr(&gt;|t|)    
-## (Intercept) 2.740813   3.688286   0.743    0.458    
+## (Intercept) 2.740814   3.688286   0.743    0.458    
 ## y.l1        0.999615   0.001934 516.776   &lt;2e-16 ***
 ## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1

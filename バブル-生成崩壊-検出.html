@@ -29,7 +29,7 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="garchモデル.html"/>
+<link rel="prev" href="varモデル.html"/>
 <link rel="next" href="長期記憶過程-1.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
@@ -301,6 +301,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="garchモデル.html"><a href="garchモデル.html#代替的アプリーチ間の比較"><i class="fa fa-check"></i>代替的アプリーチ間の比較</a></li>
 </ul></li>
 </ul></li>
+<li class="chapter" data-level="9" data-path="varモデル.html"><a href="varモデル.html"><i class="fa fa-check"></i><b>9</b> VARモデル</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="varモデル.html"><a href="varモデル.html#varpモデルのシミュレーション"><i class="fa fa-check"></i><b>9.1</b> VAR(<span class="math inline">\(p\)</span>)モデルのシミュレーション</a>
+<ul>
+<li class="chapter" data-level="" data-path="varモデル.html"><a href="varモデル.html#パッケージmts-varsの利用"><i class="fa fa-check"></i>パッケージ<strong>MTS</strong>, <strong>vars</strong>の利用</a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="varモデル.html"><a href="varモデル.html#varpモデルの構築"><i class="fa fa-check"></i><b>9.2</b> VAR(<span class="math inline">\(p\)</span>)モデルの構築</a>
+<ul>
+<li class="chapter" data-level="" data-path="varモデル.html"><a href="varモデル.html#varpモデルの次数同定"><i class="fa fa-check"></i>VAR(<span class="math inline">\(p\)</span>)モデルの次数同定</a></li>
+<li class="chapter" data-level="" data-path="varモデル.html"><a href="varモデル.html#varpモデルの推定"><i class="fa fa-check"></i>VAR(<span class="math inline">\(p\)</span>)モデルの推定</a></li>
+<li class="chapter" data-level="" data-path="varモデル.html"><a href="varモデル.html#varpモデル予測"><i class="fa fa-check"></i>VAR(<span class="math inline">\(p\)</span>)モデル予測</a></li>
+</ul></li>
+</ul></li>
 <li class="appendix"><span><b>Appendix 参考文献</b></span></li>
 <li class="chapter" data-level="A" data-path="バブル-生成崩壊-検出.html"><a href="バブル-生成崩壊-検出.html"><i class="fa fa-check"></i><b>A</b> バブル (生成・崩壊) 検出</a>
 <ul>
@@ -360,19 +373,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="バブル-生成崩壊-検出" class="section level1 hasAnchor" number="9">
+<div id="バブル-生成崩壊-検出" class="section level1 hasAnchor" number="10">
 <h1><span class="header-section-number">A</span> バブル (生成・崩壊) 検出<a href="バブル-生成崩壊-検出.html#バブル-生成崩壊-検出" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <!-- - 2023年11月17日 -->
 <ul>
 <li>論文多数. 一部の紹介.</li>
 </ul>
-<div id="検定法に関する最近のレビュー論文" class="section level2 hasAnchor" number="9.1">
+<div id="検定法に関する最近のレビュー論文" class="section level2 hasAnchor" number="10.1">
 <h2><span class="header-section-number">A.1</span> 検定法に関する最近のレビュー論文<a href="バブル-生成崩壊-検出.html#検定法に関する最近のレビュー論文" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ul>
 <li>Skrobotov, A.(2021). Testing for Explosive Bubbles: A Review, preprint. <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3779111" class="uri">https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3779111</a></li>
 </ul>
 </div>
-<div id="supreme-adf検定sadf-pwy-2011-generalized-supreme-adf-検定gsadf-psy-2015" class="section level2 hasAnchor" number="9.2">
+<div id="supreme-adf検定sadf-pwy-2011-generalized-supreme-adf-検定gsadf-psy-2015" class="section level2 hasAnchor" number="10.2">
 <h2><span class="header-section-number">A.2</span> Supreme ADF検定/SADF (PWY, 2011), Generalized supreme ADF 検定/GSADF (PSY, 2015)<a href="バブル-生成崩壊-検出.html#supreme-adf検定sadf-pwy-2011-generalized-supreme-adf-検定gsadf-psy-2015" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ul>
 <li>Phillips, P.C.B., Wu, Y., Yu, J. (2011). Explosive behavior in the 1990s Nasdaq: when did exuber- ance escalate asset values? Int. Econ. Rev. 52 (1), 201–226.</li>
@@ -391,7 +404,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 </ul>
 </div>
-<div id="数理ファイナンス-jarrow-protterら" class="section level3 hasAnchor" number="9.2.1">
+<div id="数理ファイナンス-jarrow-protterら" class="section level3 hasAnchor" number="10.2.1">
 <h3><span class="header-section-number">A.2.1</span> 数理ファイナンス (Jarrow, Protterら)<a href="バブル-生成崩壊-検出.html#数理ファイナンス-jarrow-protterら" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
 <li>Jarrow, R., Protter P., and Shimbo, K. (2007), Asset price bubbles in complete markets, in Advances in Mathematical Finance, Birkha ̈user Boston, Cambridge, MA, 97–121.</li>
@@ -400,7 +413,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Protter P. (2013) A Mathematical Theory of Financial Bubbles. In: Paris-Princeton Lectures on Mathematical Finance 2013. Lecture Notes in Mathematics, vol 2081. Springer, Cham. <a href="https://doi.org/10.1007/978-3-319-00413-6_1" class="uri">https://doi.org/10.1007/978-3-319-00413-6_1</a></li>
 </ul>
 </div>
-<div id="経済物理学-sornetteら" class="section level3 hasAnchor" number="9.2.2">
+<div id="経済物理学-sornetteら" class="section level3 hasAnchor" number="10.2.2">
 <h3><span class="header-section-number">A.2.2</span> 経済物理学 (Sornetteら)<a href="バブル-生成崩壊-検出.html#経済物理学-sornetteら" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
 <li>Johansen, A., Ledoit, O., Sornette, D. (2000). Crashes as critical points, International Journal of Theoretical and Applied Finance 3, 219–255. <a href="https://arxiv.org/pdf/cond-mat/9810071.pdf" class="uri">https://arxiv.org/pdf/cond-mat/9810071.pdf</a></li>
@@ -409,7 +422,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 </div>
 </div>
-<div id="実証分析" class="section level2 hasAnchor" number="9.3">
+<div id="実証分析" class="section level2 hasAnchor" number="10.3">
 <h2><span class="header-section-number">A.3</span> 実証分析<a href="バブル-生成崩壊-検出.html#実証分析" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div id="株式市場の例" class="section level3 unnumbered hasAnchor">
 <h3>株式市場の例<a href="バブル-生成崩壊-検出.html#株式市場の例" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -434,7 +447,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-<a href="garchモデル.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="varモデル.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 <a href="長期記憶過程-1.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>

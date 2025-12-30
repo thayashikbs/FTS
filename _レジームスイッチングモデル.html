@@ -313,14 +313,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="varモデル.html"><a href="varモデル.html#varpモデルの推定"><i class="fa fa-check"></i>VAR(<span class="math inline">\(p\)</span>)モデルの推定</a></li>
 <li class="chapter" data-level="" data-path="varモデル.html"><a href="varモデル.html#varpモデル予測"><i class="fa fa-check"></i>VAR(<span class="math inline">\(p\)</span>)モデル予測</a></li>
 </ul></li>
-<li class="chapter" data-level="9.3" data-path="varモデル.html"><a href="varモデル.html#var解析"><i class="fa fa-check"></i><b>9.3</b> VAR解析</a>
-<ul>
-<li class="chapter" data-level="" data-path="varモデル.html"><a href="varモデル.html#varp-モデルの構築-復習"><i class="fa fa-check"></i>VAR(<span class="math inline">\(p\)</span>) モデルの構築 (復習)</a></li>
-<li class="chapter" data-level="" data-path="varモデル.html"><a href="varモデル.html#グレンジャーの因果性検定"><i class="fa fa-check"></i>グレンジャーの因果性検定</a></li>
-<li class="chapter" data-level="" data-path="varモデル.html"><a href="varモデル.html#インパルス応答"><i class="fa fa-check"></i>インパルス応答</a></li>
-<li class="chapter" data-level="" data-path="varモデル.html"><a href="varモデル.html#予測誤差分散分解-forecast-error-variance-decomposition"><i class="fa fa-check"></i>予測誤差分散分解 (forecast error variance decomposition)</a></li>
-</ul></li>
-<li class="chapter" data-level="9.4" data-path="varモデル.html"><a href="varモデル.html#補足-分散共分散行列のコレスキー分解"><i class="fa fa-check"></i><b>9.4</b> 補足: 分散共分散行列のコレスキー分解</a></li>
 </ul></li>
 <li class="appendix"><span><b>Appendix 参考文献</b></span></li>
 <li class="chapter" data-level="A" data-path="バブル-生成崩壊-検出.html"><a href="バブル-生成崩壊-検出.html"><i class="fa fa-check"></i><b>A</b> バブル (生成・崩壊) 検出</a>
@@ -455,9 +447,9 @@ MSM-ARモデルを適合する関数<code>msmFit()</code>の操作例を示す.<
 <span id="cb493-12"><a href="レジームスイッチングモデル.html#cb493-12" tabindex="-1"></a><span class="do">## Regime 1 </span></span>
 <span id="cb493-13"><a href="レジームスイッチングモデル.html#cb493-13" tabindex="-1"></a><span class="do">## ---------</span></span>
 <span id="cb493-14"><a href="レジームスイッチングモデル.html#cb493-14" tabindex="-1"></a><span class="do">##                Estimate Std. Error t value  Pr(&gt;|t|)    </span></span>
-<span id="cb493-15"><a href="レジームスイッチングモデル.html#cb493-15" tabindex="-1"></a><span class="do">## (Intercept)(S)   8.6393     0.7232 11.9459 &lt; 2.2e-16 ***</span></span>
+<span id="cb493-15"><a href="レジームスイッチングモデル.html#cb493-15" tabindex="-1"></a><span class="do">## (Intercept)(S)   8.6393     0.7311 11.8169 &lt; 2.2e-16 ***</span></span>
 <span id="cb493-16"><a href="レジームスイッチングモデル.html#cb493-16" tabindex="-1"></a><span class="do">## x(S)             1.8771     0.3108  6.0396 1.545e-09 ***</span></span>
-<span id="cb493-17"><a href="レジームスイッチングモデル.html#cb493-17" tabindex="-1"></a><span class="do">## y_1(S)          -0.0569     0.0796 -0.7148    0.4747    </span></span>
+<span id="cb493-17"><a href="レジームスイッチングモデル.html#cb493-17" tabindex="-1"></a><span class="do">## y_1(S)          -0.0569     0.0805 -0.7068    0.4797    </span></span>
 <span id="cb493-18"><a href="レジームスイッチングモデル.html#cb493-18" tabindex="-1"></a><span class="do">## ---</span></span>
 <span id="cb493-19"><a href="レジームスイッチングモデル.html#cb493-19" tabindex="-1"></a><span class="do">## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</span></span>
 <span id="cb493-20"><a href="レジームスイッチングモデル.html#cb493-20" tabindex="-1"></a><span class="do">## </span></span>
@@ -466,13 +458,13 @@ MSM-ARモデルを適合する関数<code>msmFit()</code>の操作例を示す.<
 <span id="cb493-23"><a href="レジームスイッチングモデル.html#cb493-23" tabindex="-1"></a><span class="do">## </span></span>
 <span id="cb493-24"><a href="レジームスイッチングモデル.html#cb493-24" tabindex="-1"></a><span class="do">## Standardized Residuals:</span></span>
 <span id="cb493-25"><a href="レジームスイッチングモデル.html#cb493-25" tabindex="-1"></a><span class="do">##         Min          Q1         Med          Q3         Max </span></span>
-<span id="cb493-26"><a href="レジームスイッチングモデル.html#cb493-26" tabindex="-1"></a><span class="do">## -2.31102193 -0.03317755  0.01034138  0.04509105  2.85245597 </span></span>
+<span id="cb493-26"><a href="レジームスイッチングモデル.html#cb493-26" tabindex="-1"></a><span class="do">## -2.31102193 -0.03317756  0.01034139  0.04509105  2.85245598 </span></span>
 <span id="cb493-27"><a href="レジームスイッチングモデル.html#cb493-27" tabindex="-1"></a><span class="do">## </span></span>
 <span id="cb493-28"><a href="レジームスイッチングモデル.html#cb493-28" tabindex="-1"></a><span class="do">## Regime 2 </span></span>
 <span id="cb493-29"><a href="レジームスイッチングモデル.html#cb493-29" tabindex="-1"></a><span class="do">## ---------</span></span>
 <span id="cb493-30"><a href="レジームスイッチングモデル.html#cb493-30" tabindex="-1"></a><span class="do">##                Estimate Std. Error t value  Pr(&gt;|t|)    </span></span>
-<span id="cb493-31"><a href="レジームスイッチングモデル.html#cb493-31" tabindex="-1"></a><span class="do">## (Intercept)(S)   0.8417     0.3020  2.7871  0.005318 ** </span></span>
-<span id="cb493-32"><a href="レジームスイッチングモデル.html#cb493-32" tabindex="-1"></a><span class="do">## x(S)            -0.0533     0.1308 -0.4075  0.683641    </span></span>
+<span id="cb493-31"><a href="レジームスイッチングモデル.html#cb493-31" tabindex="-1"></a><span class="do">## (Intercept)(S)   0.8417     0.3033  2.7751  0.005518 ** </span></span>
+<span id="cb493-32"><a href="レジームスイッチングモデル.html#cb493-32" tabindex="-1"></a><span class="do">## x(S)            -0.0533     0.1386 -0.3846  0.700534    </span></span>
 <span id="cb493-33"><a href="レジームスイッチングモデル.html#cb493-33" tabindex="-1"></a><span class="do">## y_1(S)           0.9208     0.0306 30.0915 &lt; 2.2e-16 ***</span></span>
 <span id="cb493-34"><a href="レジームスイッチングモデル.html#cb493-34" tabindex="-1"></a><span class="do">## ---</span></span>
 <span id="cb493-35"><a href="レジームスイッチングモデル.html#cb493-35" tabindex="-1"></a><span class="do">## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</span></span>
@@ -482,12 +474,12 @@ MSM-ARモデルを適合する関数<code>msmFit()</code>の操作例を示す.<
 <span id="cb493-39"><a href="レジームスイッチングモデル.html#cb493-39" tabindex="-1"></a><span class="do">## </span></span>
 <span id="cb493-40"><a href="レジームスイッチングモデル.html#cb493-40" tabindex="-1"></a><span class="do">## Standardized Residuals:</span></span>
 <span id="cb493-41"><a href="レジームスイッチングモデル.html#cb493-41" tabindex="-1"></a><span class="do">##           Min            Q1           Med            Q3           Max </span></span>
-<span id="cb493-42"><a href="レジームスイッチングモデル.html#cb493-42" tabindex="-1"></a><span class="do">## -1.5153667154 -0.0906543230  0.0001873641  0.1656717257  1.2020898980 </span></span>
+<span id="cb493-42"><a href="レジームスイッチングモデル.html#cb493-42" tabindex="-1"></a><span class="do">## -1.5153666486 -0.0906543338  0.0001873641  0.1656717256  1.2020898988 </span></span>
 <span id="cb493-43"><a href="レジームスイッチングモデル.html#cb493-43" tabindex="-1"></a><span class="do">## </span></span>
 <span id="cb493-44"><a href="レジームスイッチングモデル.html#cb493-44" tabindex="-1"></a><span class="do">## Transition probabilities:</span></span>
 <span id="cb493-45"><a href="レジームスイッチングモデル.html#cb493-45" tabindex="-1"></a><span class="do">##            Regime 1   Regime 2</span></span>
-<span id="cb493-46"><a href="レジームスイッチングモデル.html#cb493-46" tabindex="-1"></a><span class="do">## Regime 1 0.97709116 0.01500271</span></span>
-<span id="cb493-47"><a href="レジームスイッチングモデル.html#cb493-47" tabindex="-1"></a><span class="do">## Regime 2 0.02290884 0.98499729</span></span></code></pre></div>
+<span id="cb493-46"><a href="レジームスイッチングモデル.html#cb493-46" tabindex="-1"></a><span class="do">## Regime 1 0.97709116 0.01500272</span></span>
+<span id="cb493-47"><a href="レジームスイッチングモデル.html#cb493-47" tabindex="-1"></a><span class="do">## Regime 2 0.02290884 0.98499728</span></span></code></pre></div>
 <div class="sourceCode" id="cb494"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb494-1"><a href="レジームスイッチングモデル.html#cb494-1" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>))</span>
 <span id="cb494-2"><a href="レジームスイッチングモデル.html#cb494-2" tabindex="-1"></a><span class="fu">qqnorm</span>(mod.mswm<span class="sc">@</span>Fit<span class="sc">@</span>error[, <span class="dv">1</span>]); <span class="fu">qqline</span>(mod.mswm<span class="sc">@</span>Fit<span class="sc">@</span>error[, <span class="dv">1</span>], <span class="at">col =</span> <span class="dv">2</span>); </span>
 <span id="cb494-3"><a href="レジームスイッチングモデル.html#cb494-3" tabindex="-1"></a><span class="fu">qqnorm</span>(mod.mswm<span class="sc">@</span>Fit<span class="sc">@</span>error[, <span class="dv">2</span>]); <span class="fu">qqline</span>(mod.mswm<span class="sc">@</span>Fit<span class="sc">@</span>error[, <span class="dv">2</span>],<span class="at">col =</span> <span class="dv">2</span>); </span></code></pre></div>
@@ -534,9 +526,9 @@ MSM-ARモデルを適合する関数<code>msmFit()</code>の操作例を示す.<
 <span id="cb499-13"><a href="レジームスイッチングモデル.html#cb499-13" tabindex="-1"></a><span class="do">## Regime 1 </span></span>
 <span id="cb499-14"><a href="レジームスイッチングモデル.html#cb499-14" tabindex="-1"></a><span class="do">## ---------</span></span>
 <span id="cb499-15"><a href="レジームスイッチングモデル.html#cb499-15" tabindex="-1"></a><span class="do">##                Estimate Std. Error t value Pr(&gt;|t|)    </span></span>
-<span id="cb499-16"><a href="レジームスイッチングモデル.html#cb499-16" tabindex="-1"></a><span class="do">## (Intercept)(S)   0.6801     0.0452 15.0465   &lt;2e-16 ***</span></span>
-<span id="cb499-17"><a href="レジームスイッチングモデル.html#cb499-17" tabindex="-1"></a><span class="do">## x                0.6834     0.4470  1.5289   0.1263    </span></span>
-<span id="cb499-18"><a href="レジームスイッチングモデル.html#cb499-18" tabindex="-1"></a><span class="do">## y_1(S)           0.8992     0.6075  1.4802   0.1388    </span></span>
+<span id="cb499-16"><a href="レジームスイッチングモデル.html#cb499-16" tabindex="-1"></a><span class="do">## (Intercept)(S)   0.6801     0.0450 15.1133   &lt;2e-16 ***</span></span>
+<span id="cb499-17"><a href="レジームスイッチングモデル.html#cb499-17" tabindex="-1"></a><span class="do">## x                0.6834     0.4448  1.5364   0.1244    </span></span>
+<span id="cb499-18"><a href="レジームスイッチングモデル.html#cb499-18" tabindex="-1"></a><span class="do">## y_1(S)           0.8992     0.5994  1.5002   0.1336    </span></span>
 <span id="cb499-19"><a href="レジームスイッチングモデル.html#cb499-19" tabindex="-1"></a><span class="do">## ---</span></span>
 <span id="cb499-20"><a href="レジームスイッチングモデル.html#cb499-20" tabindex="-1"></a><span class="do">## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</span></span>
 <span id="cb499-21"><a href="レジームスイッチングモデル.html#cb499-21" tabindex="-1"></a><span class="do">## </span></span>
@@ -545,14 +537,14 @@ MSM-ARモデルを適合する関数<code>msmFit()</code>の操作例を示す.<
 <span id="cb499-24"><a href="レジームスイッチングモデル.html#cb499-24" tabindex="-1"></a><span class="do">## </span></span>
 <span id="cb499-25"><a href="レジームスイッチングモデル.html#cb499-25" tabindex="-1"></a><span class="do">## Standardized Residuals:</span></span>
 <span id="cb499-26"><a href="レジームスイッチングモデル.html#cb499-26" tabindex="-1"></a><span class="do">##          Min           Q1          Med           Q3          Max </span></span>
-<span id="cb499-27"><a href="レジームスイッチングモデル.html#cb499-27" tabindex="-1"></a><span class="do">## -1.474238052 -0.199318298 -0.004289551  0.213164423  1.989968623 </span></span>
+<span id="cb499-27"><a href="レジームスイッチングモデル.html#cb499-27" tabindex="-1"></a><span class="do">## -1.474238051 -0.199318297 -0.004289551  0.213164425  1.989968623 </span></span>
 <span id="cb499-28"><a href="レジームスイッチングモデル.html#cb499-28" tabindex="-1"></a><span class="do">## </span></span>
 <span id="cb499-29"><a href="レジームスイッチングモデル.html#cb499-29" tabindex="-1"></a><span class="do">## Regime 2 </span></span>
 <span id="cb499-30"><a href="レジームスイッチングモデル.html#cb499-30" tabindex="-1"></a><span class="do">## ---------</span></span>
 <span id="cb499-31"><a href="レジームスイッチングモデル.html#cb499-31" tabindex="-1"></a><span class="do">##                Estimate Std. Error  t value Pr(&gt;|t|)    </span></span>
-<span id="cb499-32"><a href="レジームスイッチングモデル.html#cb499-32" tabindex="-1"></a><span class="do">## (Intercept)(S)   9.2524     0.0669 138.3019   &lt;2e-16 ***</span></span>
-<span id="cb499-33"><a href="レジームスイッチングモデル.html#cb499-33" tabindex="-1"></a><span class="do">## x                0.6834     0.4470   1.5289   0.1263    </span></span>
-<span id="cb499-34"><a href="レジームスイッチングモデル.html#cb499-34" tabindex="-1"></a><span class="do">## y_1(S)          -0.0649     0.0452  -1.4358   0.1511    </span></span>
+<span id="cb499-32"><a href="レジームスイッチングモデル.html#cb499-32" tabindex="-1"></a><span class="do">## (Intercept)(S)   9.2524     0.0659 140.4006   &lt;2e-16 ***</span></span>
+<span id="cb499-33"><a href="レジームスイッチングモデル.html#cb499-33" tabindex="-1"></a><span class="do">## x                0.6834     0.4448   1.5364   0.1244    </span></span>
+<span id="cb499-34"><a href="レジームスイッチングモデル.html#cb499-34" tabindex="-1"></a><span class="do">## y_1(S)          -0.0649     0.0450  -1.4422   0.1492    </span></span>
 <span id="cb499-35"><a href="レジームスイッチングモデル.html#cb499-35" tabindex="-1"></a><span class="do">## ---</span></span>
 <span id="cb499-36"><a href="レジームスイッチングモデル.html#cb499-36" tabindex="-1"></a><span class="do">## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</span></span>
 <span id="cb499-37"><a href="レジームスイッチングモデル.html#cb499-37" tabindex="-1"></a><span class="do">## </span></span>
@@ -561,7 +553,7 @@ MSM-ARモデルを適合する関数<code>msmFit()</code>の操作例を示す.<
 <span id="cb499-40"><a href="レジームスイッチングモデル.html#cb499-40" tabindex="-1"></a><span class="do">## </span></span>
 <span id="cb499-41"><a href="レジームスイッチングモデル.html#cb499-41" tabindex="-1"></a><span class="do">## Standardized Residuals:</span></span>
 <span id="cb499-42"><a href="レジームスイッチングモデル.html#cb499-42" tabindex="-1"></a><span class="do">##         Min          Q1         Med          Q3         Max </span></span>
-<span id="cb499-43"><a href="レジームスイッチングモデル.html#cb499-43" tabindex="-1"></a><span class="do">## -2.49496049 -0.05348336  0.01063642  0.07316300  2.07533940 </span></span>
+<span id="cb499-43"><a href="レジームスイッチングモデル.html#cb499-43" tabindex="-1"></a><span class="do">## -2.49496049 -0.05348336  0.01063642  0.07316299  2.07533940 </span></span>
 <span id="cb499-44"><a href="レジームスイッチングモデル.html#cb499-44" tabindex="-1"></a><span class="do">## </span></span>
 <span id="cb499-45"><a href="レジームスイッチングモデル.html#cb499-45" tabindex="-1"></a><span class="do">## Transition probabilities:</span></span>
 <span id="cb499-46"><a href="レジームスイッチングモデル.html#cb499-46" tabindex="-1"></a><span class="do">##            Regime 1  Regime 2</span></span>
@@ -578,7 +570,7 @@ MSM-ARモデルを適合する関数<code>msmFit()</code>の操作例を示す.<
 <p><strong>パッケージNHMSARのインストール</strong></p>
 <div class="sourceCode" id="cb500"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb500-1"><a href="レジームスイッチングモデル.html#cb500-1" tabindex="-1"></a><span class="co"># devtoolsパッケージをインストールしていない場合</span></span>
 <span id="cb500-2"><a href="レジームスイッチングモデル.html#cb500-2" tabindex="-1"></a><span class="co"># install.packages(&quot;devtools&quot;)</span></span>
-<span id="cb500-3"><a href="レジームスイッチングモデル.html#cb500-3" tabindex="-1"></a><span class="co"># devtools::install_github(&quot;cran/NHMSAR&quot;)</span></span>
+<span id="cb500-3"><a href="レジームスイッチングモデル.html#cb500-3" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">&quot;cran/NHMSAR&quot;</span>)</span>
 <span id="cb500-4"><a href="レジームスイッチングモデル.html#cb500-4" tabindex="-1"></a><span class="fu">library</span>(NHMSAR)</span></code></pre></div>
 <p>ここでは, 英国の株価指数FTSEの月次終値データから計算される対数収益率系列を使用する.</p>
 <div class="sourceCode" id="cb501"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb501-1"><a href="レジームスイッチングモデル.html#cb501-1" tabindex="-1"></a><span class="co"># 株価データ</span></span>
@@ -616,52 +608,42 @@ MSM-ARモデルを適合する関数<code>msmFit()</code>の操作例を示す.<
 - EMアリゴリズムにより, (非)斉次MS-ARモデルを適合</code></pre>
 <p><strong>MS-ARモデルの適合</strong></p>
 <div class="sourceCode" id="cb505"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb505-1"><a href="レジームスイッチングモデル.html#cb505-1" tabindex="-1"></a>mod_hh <span class="ot">&lt;-</span> <span class="fu">fit.MSAR</span>(data, theta_init, <span class="at">verbose =</span> <span class="cn">TRUE</span>, <span class="at">MaxIter =</span> <span class="dv">20</span>)</span>
-<span id="cb505-2"><a href="レジームスイッチングモデル.html#cb505-2" tabindex="-1"></a><span class="do">## [1] iteration        1                  loglik =       531.250884363044</span></span>
-<span id="cb505-3"><a href="レジームスイッチングモデル.html#cb505-3" tabindex="-1"></a><span class="do">## [1] iteration        2                  loglik =       601.391791319302</span></span>
-<span id="cb505-4"><a href="レジームスイッチングモデル.html#cb505-4" tabindex="-1"></a><span class="do">## [1] iteration        3                  loglik =       613.519194144599</span></span>
-<span id="cb505-5"><a href="レジームスイッチングモデル.html#cb505-5" tabindex="-1"></a><span class="do">## [1] iteration        4                  loglik =       616.990541327677</span></span>
-<span id="cb505-6"><a href="レジームスイッチングモデル.html#cb505-6" tabindex="-1"></a><span class="do">## [1] iteration        5                  loglik =       618.735694496706</span></span>
-<span id="cb505-7"><a href="レジームスイッチングモデル.html#cb505-7" tabindex="-1"></a><span class="do">## [1] iteration        6                  loglik =       619.701637272187</span></span>
-<span id="cb505-8"><a href="レジームスイッチングモデル.html#cb505-8" tabindex="-1"></a><span class="do">## [1] iteration        7                  loglik =       620.282272911788</span></span>
-<span id="cb505-9"><a href="レジームスイッチングモデル.html#cb505-9" tabindex="-1"></a><span class="do">## [1] iteration        8                  loglik =       620.674187175848</span></span>
-<span id="cb505-10"><a href="レジームスイッチングモデル.html#cb505-10" tabindex="-1"></a><span class="do">## [1] iteration        9                  loglik =       620.974717379083</span></span>
-<span id="cb505-11"><a href="レジームスイッチングモデル.html#cb505-11" tabindex="-1"></a><span class="do">## [1] iteration        10                 loglik =       621.231843022727</span></span>
-<span id="cb505-12"><a href="レジームスイッチングモデル.html#cb505-12" tabindex="-1"></a><span class="do">## [1] iteration        11                 loglik =       621.469084821359</span></span>
-<span id="cb505-13"><a href="レジームスイッチングモデル.html#cb505-13" tabindex="-1"></a><span class="do">## [1] iteration        12                 loglik =       621.697817130202</span></span>
-<span id="cb505-14"><a href="レジームスイッチングモデル.html#cb505-14" tabindex="-1"></a><span class="do">## [1] iteration        13                 loglik =       621.923372515235</span></span>
-<span id="cb505-15"><a href="レジームスイッチングモデル.html#cb505-15" tabindex="-1"></a><span class="do">## [1] iteration        14                 loglik =       622.148080637274</span></span>
-<span id="cb505-16"><a href="レジームスイッチングモデル.html#cb505-16" tabindex="-1"></a><span class="do">## [1] iteration        15                 loglik =       622.372788998954</span></span>
-<span id="cb505-17"><a href="レジームスイッチングモデル.html#cb505-17" tabindex="-1"></a><span class="do">## [1] iteration        16                 loglik =       622.597632099945</span></span>
-<span id="cb505-18"><a href="レジームスイッチングモデル.html#cb505-18" tabindex="-1"></a><span class="do">## [1] iteration        17                 loglik =       622.822430238064</span></span>
-<span id="cb505-19"><a href="レジームスイッチングモデル.html#cb505-19" tabindex="-1"></a><span class="do">## [1] iteration        18                 loglik =       623.046907814926</span></span>
-<span id="cb505-20"><a href="レジームスイッチングモデル.html#cb505-20" tabindex="-1"></a><span class="do">## [1] iteration        19                 loglik =       623.270825457865</span></span>
-<span id="cb505-21"><a href="レジームスイッチングモデル.html#cb505-21" tabindex="-1"></a><span class="do">## [1] iteration        20                 loglik =       623.494072428498</span></span></code></pre></div>
+<span id="cb505-2"><a href="レジームスイッチングモデル.html#cb505-2" tabindex="-1"></a><span class="do">## [1] iteration        1                  loglik =       427.359384869746</span></span>
+<span id="cb505-3"><a href="レジームスイッチングモデル.html#cb505-3" tabindex="-1"></a><span class="do">## [1] iteration        2                  loglik =       599.357434544203</span></span>
+<span id="cb505-4"><a href="レジームスイッチングモデル.html#cb505-4" tabindex="-1"></a><span class="do">## [1] iteration        3                  loglik =       603.097700110407</span></span>
+<span id="cb505-5"><a href="レジームスイッチングモデル.html#cb505-5" tabindex="-1"></a><span class="do">## [1] iteration        4                  loglik =       615.654861169996</span></span>
+<span id="cb505-6"><a href="レジームスイッチングモデル.html#cb505-6" tabindex="-1"></a><span class="do">## [1] iteration        5                  loglik =       630.536548687041</span></span>
+<span id="cb505-7"><a href="レジームスイッチングモデル.html#cb505-7" tabindex="-1"></a><span class="do">## [1] iteration        6                  loglik =       633.282737927781</span></span>
+<span id="cb505-8"><a href="レジームスイッチングモデル.html#cb505-8" tabindex="-1"></a><span class="do">## [1] iteration        7                  loglik =       633.650514065381</span></span>
+<span id="cb505-9"><a href="レジームスイッチングモデル.html#cb505-9" tabindex="-1"></a><span class="do">## [1] iteration      8                loglik =     633.7070393554</span></span>
+<span id="cb505-10"><a href="レジームスイッチングモデル.html#cb505-10" tabindex="-1"></a><span class="do">## [1] iteration        9                  loglik =       633.717527533701</span></span>
+<span id="cb505-11"><a href="レジームスイッチングモデル.html#cb505-11" tabindex="-1"></a><span class="do">## [1] iteration        10                 loglik =       633.719761891655</span></span></code></pre></div>
 <p><strong>推定パラメータ</strong></p>
 <div class="sourceCode" id="cb506"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb506-1"><a href="レジームスイッチングモデル.html#cb506-1" tabindex="-1"></a>mod_hh<span class="sc">$</span>theta</span>
 <span id="cb506-2"><a href="レジームスイッチングモデル.html#cb506-2" tabindex="-1"></a><span class="do">## $A</span></span>
-<span id="cb506-3"><a href="レジームスイッチングモデル.html#cb506-3" tabindex="-1"></a><span class="do">##                 A1</span></span>
-<span id="cb506-4"><a href="レジームスイッチングモデル.html#cb506-4" tabindex="-1"></a><span class="do">## Regime1 -0.2159056</span></span>
-<span id="cb506-5"><a href="レジームスイッチングモデル.html#cb506-5" tabindex="-1"></a><span class="do">## Regime2  0.1607004</span></span>
+<span id="cb506-3"><a href="レジームスイッチングモデル.html#cb506-3" tabindex="-1"></a><span class="do">##                  A1</span></span>
+<span id="cb506-4"><a href="レジームスイッチングモデル.html#cb506-4" tabindex="-1"></a><span class="do">## Regime1 -0.30455293</span></span>
+<span id="cb506-5"><a href="レジームスイッチングモデル.html#cb506-5" tabindex="-1"></a><span class="do">## Regime2  0.06113744</span></span>
 <span id="cb506-6"><a href="レジームスイッチングモデル.html#cb506-6" tabindex="-1"></a><span class="do">## </span></span>
 <span id="cb506-7"><a href="レジームスイッチングモデル.html#cb506-7" tabindex="-1"></a><span class="do">## $A0</span></span>
 <span id="cb506-8"><a href="レジームスイッチングモデル.html#cb506-8" tabindex="-1"></a><span class="do">##                 A01</span></span>
-<span id="cb506-9"><a href="レジームスイッチングモデル.html#cb506-9" tabindex="-1"></a><span class="do">## Regime1  0.01732773</span></span>
-<span id="cb506-10"><a href="レジームスイッチングモデル.html#cb506-10" tabindex="-1"></a><span class="do">## Regime2 -0.01270290</span></span>
+<span id="cb506-9"><a href="レジームスイッチングモデル.html#cb506-9" tabindex="-1"></a><span class="do">## Regime1 0.013059816</span></span>
+<span id="cb506-10"><a href="レジームスイッチングモデル.html#cb506-10" tabindex="-1"></a><span class="do">## Regime2 0.001084966</span></span>
 <span id="cb506-11"><a href="レジームスイッチングモデル.html#cb506-11" tabindex="-1"></a><span class="do">## </span></span>
 <span id="cb506-12"><a href="レジームスイッチングモデル.html#cb506-12" tabindex="-1"></a><span class="do">## $sigma</span></span>
 <span id="cb506-13"><a href="レジームスイッチングモデル.html#cb506-13" tabindex="-1"></a><span class="do">##                     </span></span>
-<span id="cb506-14"><a href="レジームスイッチングモデル.html#cb506-14" tabindex="-1"></a><span class="do">## Regime1 0.0008062034</span></span>
-<span id="cb506-15"><a href="レジームスイッチングモデル.html#cb506-15" tabindex="-1"></a><span class="do">## Regime2 0.003419702 </span></span>
+<span id="cb506-14"><a href="レジームスイッチングモデル.html#cb506-14" tabindex="-1"></a><span class="do">## Regime1 0.0004807941</span></span>
+<span id="cb506-15"><a href="レジームスイッチングモデル.html#cb506-15" tabindex="-1"></a><span class="do">## Regime2 0.002995211 </span></span>
 <span id="cb506-16"><a href="レジームスイッチングモデル.html#cb506-16" tabindex="-1"></a><span class="do">## </span></span>
 <span id="cb506-17"><a href="レジームスイッチングモデル.html#cb506-17" tabindex="-1"></a><span class="do">## $prior</span></span>
 <span id="cb506-18"><a href="レジームスイッチングモデル.html#cb506-18" tabindex="-1"></a><span class="do">##                     </span></span>
-<span id="cb506-19"><a href="レジームスイッチングモデル.html#cb506-19" tabindex="-1"></a><span class="do">## Regime1 9.999999e-01</span></span>
-<span id="cb506-20"><a href="レジームスイッチングモデル.html#cb506-20" tabindex="-1"></a><span class="do">## Regime2 8.095168e-08</span></span>
+<span id="cb506-19"><a href="レジームスイッチングモデル.html#cb506-19" tabindex="-1"></a><span class="do">## Regime1 0.9997904917</span></span>
+<span id="cb506-20"><a href="レジームスイッチングモデル.html#cb506-20" tabindex="-1"></a><span class="do">## Regime2 0.0002095083</span></span>
 <span id="cb506-21"><a href="レジームスイッチングモデル.html#cb506-21" tabindex="-1"></a><span class="do">## </span></span>
 <span id="cb506-22"><a href="レジームスイッチングモデル.html#cb506-22" tabindex="-1"></a><span class="do">## $transmat</span></span>
-<span id="cb506-23"><a href="レジームスイッチングモデル.html#cb506-23" tabindex="-1"></a><span class="do">##           Regime1   Regime2</span></span>
-<span id="cb506-24"><a href="レジームスイッチングモデル.html#cb506-24" tabindex="-1"></a><span class="do">## Regime1 0.7297241 0.2702759</span></span>
-<span id="cb506-25"><a href="レジームスイッチングモデル.html#cb506-25" tabindex="-1"></a><span class="do">## Regime2 0.4375865 0.5624135</span></span>
+<span id="cb506-23"><a href="レジームスイッチングモデル.html#cb506-23" tabindex="-1"></a><span class="do">##           Regime1    Regime2</span></span>
+<span id="cb506-24"><a href="レジームスイッチングモデル.html#cb506-24" tabindex="-1"></a><span class="do">## Regime1 0.9383838 0.06161617</span></span>
+<span id="cb506-25"><a href="レジームスイッチングモデル.html#cb506-25" tabindex="-1"></a><span class="do">## Regime2 0.0388313 0.96116870</span></span>
 <span id="cb506-26"><a href="レジームスイッチングモデル.html#cb506-26" tabindex="-1"></a><span class="do">## </span></span>
 <span id="cb506-27"><a href="レジームスイッチングモデル.html#cb506-27" tabindex="-1"></a><span class="do">## attr(,&quot;NbComp&quot;)</span></span>
 <span id="cb506-28"><a href="レジームスイッチングモデル.html#cb506-28" tabindex="-1"></a><span class="do">## [1] 1</span></span>
@@ -688,36 +670,36 @@ MSM-ARモデルを適合する関数<code>msmFit()</code>の操作例を示す.<
 <p><strong>MS-ARモデルのレジームのプロット</strong></p>
 <div class="sourceCode" id="cb507"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb507-1"><a href="レジームスイッチングモデル.html#cb507-1" tabindex="-1"></a><span class="fu">regimes.plot.MSAR</span>(mod_hh, data, <span class="at">ylab =</span> <span class="st">&quot;FTSE return&quot;</span>)</span></code></pre></div>
 <p><img src="060-MRS_files/figure-html/unnamed-chunk-8-1.png" width="75%" /></p>
-<pre><code>##   [1] NA  1  1  1  1  1  2  2  1  1  1  1  1  1  1  2  2  1  1  2  2  1  1  1  1
-##  [26]  1  2  2  1  1  1  1  1  1  2  2  2  1  1  1  1  1  1  1  2  2  1  1  1  2
-##  [51]  2  1  1  1  1  1  1  2  2  2  1  2  2  2  2  2  2  1  2  2  2  1  1  1  1
-##  [76]  2  1  1  1  1  1  1  1  2  2  1  1  2  2  1  2  2  2  2  2  1  1  1  1  1
-## [101]  1  1  1  1  1  1  1  1  1  1  2  2  2  2  2  1  1  2  2  1  1  1  1  1  1
+<pre><code>##   [1] NA  1  1  1  1  1  2  2  2  2  2  2  2  2  2  2  2  2  2  2  2  2  2  2  2
+##  [26]  2  2  2  2  2  2  2  2  2  2  2  2  2  2  2  2  2  2  2  2  2  2  2  2  2
+##  [51]  2  2  2  2  2  2  2  2  2  2  2  2  2  2  2  2  2  2  2  2  2  2  2  2  2
+##  [76]  2  2  2  2  2  2  2  2  2  2  2  2  2  2  2  2  2  2  2  2  2  2  1  1  1
+## [101]  1  1  1  1  1  1  1  1  2  2  2  2  2  2  2  2  2  2  2  1  1  1  1  1  1
 ## [126]  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1
-## [151]  1  1  1  1  2  2  1  1  2  1  1  1  1  1  2  2  2  1  1  1  1  1  1  1  1
-## [176]  1  1  1  1  1  1  2  2  1  1  1  1  1  1  1  1  1  1  1  2  2  2  1  2  2
-## [201]  2  2  2  1  1  1  1  1  1  1  2  2  2  2  2  1  2  2  2  1  1  1  1  1  1
+## [151]  1  2  2  2  2  2  2  2  2  2  2  2  2  2  2  2  2  2  2  2  2  2  2  2  2
+## [176]  2  2  2  2  2  2  2  2  2  2  2  2  2  2  2  2  2  2  2  2  2  2  2  2  2
+## [201]  2  2  2  2  2  2  2  2  2  2  2  2  2  2  2  2  2  2  2  2  2  2  2  1  1
 ## [226]  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1
-## [251]  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1
-## [276]  1  2  2  2  2  1  1  2  2  2  2  2  2  2  2  2  2  1  2  2  1  2  2  1  1
-## [301]  1  1  1  1  1  2  2  2  1  1  1  1  1  1  1  1  1  1  1  1  2  2  2  1  1
-## [326]  1  1  1  1  2  2  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1
+## [251]  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  2  2  2
+## [276]  2  2  2  2  2  2  2  2  2  2  2  2  2  2  2  2  2  2  2  2  2  2  2  2  2
+## [301]  2  2  2  2  2  2  2  2  2  2  2  2  1  1  1  1  1  1  2  2  2  2  2  2  2
+## [326]  2  2  2  2  2  2  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1
 ## [351]  1  1  1  1  1  1  1  1  1  1  1</code></pre>
 <p>–&gt; high vola (グレイ色の区間), low volaの2レジーム</p>
 <p><strong>各レジームの状態確率の推定値 (平滑化確率)</strong></p>
 <div class="sourceCode" id="cb509"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb509-1"><a href="レジームスイッチングモデル.html#cb509-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb509-2"><a href="レジームスイッチングモデル.html#cb509-2" tabindex="-1"></a>mod_hh<span class="sc">$</span>smoothedprob <span class="sc">%&gt;%</span> <span class="fu">head</span>(<span class="dv">10</span>)</span>
-<span id="cb509-3"><a href="レジームスイッチングモデル.html#cb509-3" tabindex="-1"></a><span class="do">##            [,1]         [,2]</span></span>
-<span id="cb509-4"><a href="レジームスイッチングモデル.html#cb509-4" tabindex="-1"></a><span class="do">##  [1,] 1.0000000 2.871860e-08</span></span>
-<span id="cb509-5"><a href="レジームスイッチングモデル.html#cb509-5" tabindex="-1"></a><span class="do">##  [2,] 0.8649771 1.350229e-01</span></span>
-<span id="cb509-6"><a href="レジームスイッチングモデル.html#cb509-6" tabindex="-1"></a><span class="do">##  [3,] 0.7459781 2.540219e-01</span></span>
-<span id="cb509-7"><a href="レジームスイッチングモデル.html#cb509-7" tabindex="-1"></a><span class="do">##  [4,] 0.2013900 7.986100e-01</span></span>
-<span id="cb509-8"><a href="レジームスイッチングモデル.html#cb509-8" tabindex="-1"></a><span class="do">##  [5,] 0.7105285 2.894715e-01</span></span>
-<span id="cb509-9"><a href="レジームスイッチングモデル.html#cb509-9" tabindex="-1"></a><span class="do">##  [6,] 0.6451969 3.548031e-01</span></span>
-<span id="cb509-10"><a href="レジームスイッチングモデル.html#cb509-10" tabindex="-1"></a><span class="do">##  [7,] 0.6229703 3.770297e-01</span></span>
-<span id="cb509-11"><a href="レジームスイッチングモデル.html#cb509-11" tabindex="-1"></a><span class="do">##  [8,] 0.7765023 2.234977e-01</span></span>
-<span id="cb509-12"><a href="レジームスイッチングモデル.html#cb509-12" tabindex="-1"></a><span class="do">##  [9,] 0.6916408 3.083592e-01</span></span>
-<span id="cb509-13"><a href="レジームスイッチングモデル.html#cb509-13" tabindex="-1"></a><span class="do">## [10,] 0.7325772 2.674228e-01</span></span></code></pre></div>
+<span id="cb509-3"><a href="レジームスイッチングモデル.html#cb509-3" tabindex="-1"></a><span class="do">##             [,1]         [,2]</span></span>
+<span id="cb509-4"><a href="レジームスイッチングモデル.html#cb509-4" tabindex="-1"></a><span class="do">##  [1,] 0.99987172 0.0001282819</span></span>
+<span id="cb509-5"><a href="レジームスイッチングモデル.html#cb509-5" tabindex="-1"></a><span class="do">##  [2,] 0.90334895 0.0966510491</span></span>
+<span id="cb509-6"><a href="レジームスイッチングモデル.html#cb509-6" tabindex="-1"></a><span class="do">##  [3,] 0.66842528 0.3315747173</span></span>
+<span id="cb509-7"><a href="レジームスイッチングモデル.html#cb509-7" tabindex="-1"></a><span class="do">##  [4,] 0.10257859 0.8974214066</span></span>
+<span id="cb509-8"><a href="レジームスイッチングモデル.html#cb509-8" tabindex="-1"></a><span class="do">##  [5,] 0.09516542 0.9048345760</span></span>
+<span id="cb509-9"><a href="レジームスイッチングモデル.html#cb509-9" tabindex="-1"></a><span class="do">##  [6,] 0.04786803 0.9521319652</span></span>
+<span id="cb509-10"><a href="レジームスイッチングモデル.html#cb509-10" tabindex="-1"></a><span class="do">##  [7,] 0.04662355 0.9533764488</span></span>
+<span id="cb509-11"><a href="レジームスイッチングモデル.html#cb509-11" tabindex="-1"></a><span class="do">##  [8,] 0.03918717 0.9608128316</span></span>
+<span id="cb509-12"><a href="レジームスイッチングモデル.html#cb509-12" tabindex="-1"></a><span class="do">##  [9,] 0.02860799 0.9713920054</span></span>
+<span id="cb509-13"><a href="レジームスイッチングモデル.html#cb509-13" tabindex="-1"></a><span class="do">## [10,] 0.04237943 0.9576205714</span></span></code></pre></div>
 <p>ここでは, 一番単純なケース (1変量, かつ”HH”) を扱った.
 より一般のケースについては, マニュアルを参照すること.</p>
 <ul>
@@ -726,8 +708,6 @@ MSM-ARモデルを適合する関数<code>msmFit()</code>の操作例を示す.<
 <p>但し, 上述の通り, 本パッケージは現時点ではバージョンの更新を停止し,
 CRANレポジトリからは外れてしまっていることから,
 いずれ動作しなくなる可能性があることに注意が必要である/</p>
-<p><strong>追記: 12/3/25</strong>
-GitHubから, <strong>NHMSAR</strong>が入手できなくなり, インストールできなくなった可能性.</p>
 
 </div>
 </div>

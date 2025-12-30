@@ -313,6 +313,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="varモデル.html"><a href="varモデル.html#varpモデルの推定"><i class="fa fa-check"></i>VAR(<span class="math inline">\(p\)</span>)モデルの推定</a></li>
 <li class="chapter" data-level="" data-path="varモデル.html"><a href="varモデル.html#varpモデル予測"><i class="fa fa-check"></i>VAR(<span class="math inline">\(p\)</span>)モデル予測</a></li>
 </ul></li>
+<li class="chapter" data-level="9.3" data-path="varモデル.html"><a href="varモデル.html#var解析"><i class="fa fa-check"></i><b>9.3</b> VAR解析</a>
+<ul>
+<li class="chapter" data-level="" data-path="varモデル.html"><a href="varモデル.html#varp-モデルの構築-復習"><i class="fa fa-check"></i>VAR(<span class="math inline">\(p\)</span>) モデルの構築 (復習)</a></li>
+<li class="chapter" data-level="" data-path="varモデル.html"><a href="varモデル.html#グレンジャーの因果性検定"><i class="fa fa-check"></i>グレンジャーの因果性検定</a></li>
+<li class="chapter" data-level="" data-path="varモデル.html"><a href="varモデル.html#インパルス応答"><i class="fa fa-check"></i>インパルス応答</a></li>
+<li class="chapter" data-level="" data-path="varモデル.html"><a href="varモデル.html#予測誤差分散分解-forecast-error-variance-decomposition"><i class="fa fa-check"></i>予測誤差分散分解 (forecast error variance decomposition)</a></li>
+</ul></li>
+<li class="chapter" data-level="9.4" data-path="varモデル.html"><a href="varモデル.html#補足-分散共分散行列のコレスキー分解"><i class="fa fa-check"></i><b>9.4</b> 補足: 分散共分散行列のコレスキー分解</a></li>
 </ul></li>
 <li class="appendix"><span><b>Appendix 参考文献</b></span></li>
 <li class="chapter" data-level="A" data-path="バブル-生成崩壊-検出.html"><a href="バブル-生成崩壊-検出.html"><i class="fa fa-check"></i><b>A</b> バブル (生成・崩壊) 検出</a>
@@ -743,6 +751,441 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 
 </div>
+</div>
+<div id="var解析" class="section level2 hasAnchor" number="9.3">
+<h2><span class="header-section-number">9.3</span> VAR解析<a href="varモデル.html#var解析" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>VARモデルによる変数間の動学的関係性の分析を行う方法論として,
+グレンジャー因果性分析, インパルス応答分析,
+分散分解の三つがある.</p>
+<ul>
+<li><strong>グレンジャー因果性分析</strong>: ある変数のラグ値が他の変数の予測に有用かを調べる</li>
+</ul>
+<!-- ラグ係数に対するF検定またはWald検定を実施 -->
+<!-- 係数の結合有意性を検証 -->
+<!--
+- 変数間の予測関係について, 以下の可能性を考慮：
+  - 双方向にグレンジャー因果性なし
+  - 一方向のグレンジャー因果性
+  - 双方向のグレンジャー因果性
+-->
+<ul>
+<li><strong>インパルス応答関数（IRF)</strong>:
+一変数の撹乱項に1単位のショックを与えた場合の他の変数への伝播の様子を調べる
+<!-- 複数期間にわたって追跡 -->
+<!-- 応答の信頼区間を生成 --></li>
+</ul>
+<!--
+- 直交化IRFを実行する場合, 変数を外生性の高い順に並べる
+ (結果は変数の並びに依存) -->
+<!-- 信頼できるIRFのためのVARモデルの安定性確認
+- IRFが時間とともにゼロに収束することを確認
+- 自己相関がないことを確認
+-->
+<ul>
+<li><strong>分散分解</strong>:
+各変数の予測誤差分散を各ショックからの相対的寄与の大きさに分解する</li>
+</ul>
+<!-- 異なる予測期間での分析-->
+<!-- 変数を外生性の高い順に並べる (結果は変数の並びに依存)-->
+<!-- 最初の変数は自身の瞬時的な予測誤差の100%を説明
+- 各予測期間において寄与度の合計は100%
+-->
+<p>これらの分析により, 以下について包括的な理解が得られる:
+- 変数間の動的な関係
+- ショックの伝播メカニズム
+- システム内の互いに動的に影響を与える各変数の相対的な重要性</p>
+<div id="varp-モデルの構築-復習" class="section level3 unnumbered hasAnchor">
+<h3>VAR(<span class="math inline">\(p\)</span>) モデルの構築 (復習)<a href="varモデル.html#varp-モデルの構築-復習" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>VAR解析を行うには, 事前に分析対象の多変量時系列データに対して
+前節までに解説してきたように, 適切な定常VARモデルを構築し推定することが重要である.</p>
+<p><strong>モデル特定・推定</strong>
+- 分析の目的や, 経済理論や専門知識等に基づいてモデリングに使用する変数 (内生変数) を選択
+- 変数の定常性を確認. 必要に応じて, 差分を取る, 分解する等データ加工
+- 情報量基準等を用いて適切なラグ次数を決定
+- モデルを推定
+<!-- 安定性条件と変数の定常性を確認 -->
+<!-- 仮定が満たされている場合、OLSを用いてVARモデルを推定 --></p>
+<p><strong>モデル診断</strong>
+- 残差の自己相関検定
+- 不均一分散 (ARCH効果) の確認
+- 残差の正規性検定, 等
+<!-- モデルの安定性確認 -->
+- 必要に応じて, モデルの特定・推定をやり直す</p>
+<p>以下では, 引き続き, <strong>MTS</strong>パッケージ, <strong>vars</strong>パッケージを利用する</p>
+<ul>
+<li><a href="https://www.rdocumentation.org/packages/MTS/versions/1.0" class="uri">https://www.rdocumentation.org/packages/MTS/versions/1.0</a></li>
+<li><a href="https://www.rdocumentation.org/packages/vars/versions/1.5-3" class="uri">https://www.rdocumentation.org/packages/vars/versions/1.5-3</a></li>
+</ul>
+<!-- ### VAR($p$)モデルの推定 (復習) {-} -->
+<p>以下では, シミュレーションデータを使用する</p>
+<ul>
+<li><strong>MTS</strong>パッケージの関数<code>VARsim()</code>でパスを生成</li>
+<li><strong>var</strong>パッケージの関数<code>VARselect()</code>,<code>VAR()</code>を使って, 次数同定およびモデル推定</li>
+</ul>
+<p><span class="math display">\[Y_{1,t}=1.0 + 0.6 Y_{1,t-1} + 0.1 Y_{2,t-1} + \epsilon_{1,t}\]</span>
+<span class="math display">\[Y_{2,t}=-1.0 +0.5 Y_{1,t-1} + 0.7 Y_{2,t-1} + \epsilon_{2,t}\]</span>
+<span class="math display">\[ \left[
+    \begin{array}{r}
+      \epsilon_{1,t} \\ \epsilon_{2,t}
+    \end{array}
+  \right] \sim_{\it i.i.d.} N \Big(\left[
+    \begin{array}{r}
+      0 \\ 0
+    \end{array}
+  \right], \left[
+    \begin{array}{rr}
+      4 &amp; 1 \\ 1 &amp; 1
+    \end{array}
+  \right]\Big) \]</span></p>
+<div class="sourceCode" id="cb664"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb664-1"><a href="varモデル.html#cb664-1" tabindex="-1"></a><span class="fu">library</span>(MTS)</span>
+<span id="cb664-2"><a href="varモデル.html#cb664-2" tabindex="-1"></a>nlen <span class="ot">&lt;-</span> <span class="dv">300</span></span>
+<span id="cb664-3"><a href="varモデル.html#cb664-3" tabindex="-1"></a>seed_val <span class="ot">&lt;-</span> <span class="dv">1</span></span>
+<span id="cb664-4"><a href="varモデル.html#cb664-4" tabindex="-1"></a><span class="fu">set.seed</span>(seed_val)</span>
+<span id="cb664-5"><a href="varモデル.html#cb664-5" tabindex="-1"></a>p0 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="sc">-</span><span class="dv">1</span>)          <span class="co"># Phi0 (定数項)</span></span>
+<span id="cb664-6"><a href="varモデル.html#cb664-6" tabindex="-1"></a>p_mat <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="fl">0.6</span>, <span class="fl">0.5</span>, <span class="fl">0.1</span>, <span class="fl">0.7</span>), <span class="dv">2</span>, <span class="dv">2</span>)    <span class="co"># Phi1 (ラグ1のVAR係数行列)</span></span>
+<span id="cb664-7"><a href="varモデル.html#cb664-7" tabindex="-1"></a>sig_mat <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>), <span class="dv">2</span>, <span class="dv">2</span>)      <span class="co"># イノベーションの分散共分散行列 (正値定符号)</span></span>
+<span id="cb664-8"><a href="varモデル.html#cb664-8" tabindex="-1"></a>p_mat; sig_mat</span></code></pre></div>
+<pre><code>##      [,1] [,2]
+## [1,]  0.6  0.1
+## [2,]  0.5  0.7</code></pre>
+<pre><code>##      [,1] [,2]
+## [1,]    4    1
+## [2,]    1    1</code></pre>
+<div class="sourceCode" id="cb667"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb667-1"><a href="varモデル.html#cb667-1" tabindex="-1"></a>ysim <span class="ot">&lt;-</span> <span class="fu">VARMAsim</span>(nlen, <span class="at">arlags =</span> <span class="dv">1</span>, <span class="at">cnst =</span> p0, <span class="at">phi =</span> p_mat, <span class="at">sigma =</span> sig_mat)</span>
+<span id="cb667-2"><a href="varモデル.html#cb667-2" tabindex="-1"></a>Yt <span class="ot">&lt;-</span> ysim<span class="sc">$</span>series</span>
+<span id="cb667-3"><a href="varモデル.html#cb667-3" tabindex="-1"></a><span class="fu">acf</span>(Yt)　　　<span class="co"># クロス相関</span></span></code></pre></div>
+<p><img src="092-VAR2_files/figure-html/VARsim_13-1.png" width="672" /></p>
+<div class="sourceCode" id="cb668"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb668-1"><a href="varモデル.html#cb668-1" tabindex="-1"></a><span class="fu">MTSplot</span>(Yt)　<span class="co"># 時系列プロット</span></span></code></pre></div>
+<p><img src="092-VAR2_files/figure-html/VARsim_13-2.png" width="672" /></p>
+<div id="varpモデルの次数同定-1" class="section level4 unnumbered hasAnchor">
+<h4>VAR(<span class="math inline">\(p\)</span>)モデルの次数同定<a href="varモデル.html#varpモデルの次数同定-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<ul>
+<li>関数<code>vars::VARselect()</code></li>
+</ul>
+<div class="sourceCode" id="cb669"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb669-1"><a href="varモデル.html#cb669-1" tabindex="-1"></a><span class="fu">library</span>(vars)</span></code></pre></div>
+<pre><code>## Loading required package: MASS</code></pre>
+<pre><code>## Loading required package: strucchange</code></pre>
+<pre><code>## Loading required package: zoo</code></pre>
+<pre><code>## 
+## Attaching package: &#39;zoo&#39;</code></pre>
+<pre><code>## The following objects are masked from &#39;package:base&#39;:
+## 
+##     as.Date, as.Date.numeric</code></pre>
+<pre><code>## Loading required package: sandwich</code></pre>
+<pre><code>## Loading required package: urca</code></pre>
+<pre><code>## Loading required package: lmtest</code></pre>
+<pre><code>## 
+## Attaching package: &#39;vars&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:MTS&#39;:
+## 
+##     VAR</code></pre>
+<div class="sourceCode" id="cb680"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb680-1"><a href="varモデル.html#cb680-1" tabindex="-1"></a>Yt <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">Y1 =</span> Yt[,<span class="dv">1</span>], <span class="at">Y2 =</span> Yt[,<span class="dv">2</span>])</span>
+<span id="cb680-2"><a href="varモデル.html#cb680-2" tabindex="-1"></a><span class="fu">VARselect</span>(Yt, <span class="at">lag.max =</span> <span class="dv">5</span>,  <span class="at">type =</span> <span class="st">&quot;const&quot;</span>)</span></code></pre></div>
+<pre><code>## $selection
+## AIC(n)  HQ(n)  SC(n) FPE(n) 
+##      1      1      1      1 
+## 
+## $criteria
+##               1        2        3        4        5
+## AIC(n) 1.417189 1.432965 1.454790 1.471126 1.460469
+## HQ(n)  1.447216 1.483011 1.524855 1.561208 1.570570
+## SC(n)  1.492178 1.557947 1.629765 1.696094 1.735430
+## FPE(n) 4.125512 4.191134 4.283662 4.354299 4.308277</code></pre>
+</div>
+<div id="varpモデルの推定-1" class="section level4 unnumbered hasAnchor">
+<h4>VAR(<span class="math inline">\(p\)</span>)モデルの推定<a href="varモデル.html#varpモデルの推定-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<ul>
+<li>関数<code>vars::VAR()</code></li>
+</ul>
+<div class="sourceCode" id="cb682"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb682-1"><a href="varモデル.html#cb682-1" tabindex="-1"></a>est_VAR1 <span class="ot">&lt;-</span> vars<span class="sc">::</span><span class="fu">VAR</span>(Yt, <span class="at">p =</span> <span class="dv">1</span>, <span class="at">type =</span> <span class="st">&quot;const&quot;</span>)</span>
+<span id="cb682-2"><a href="varモデル.html#cb682-2" tabindex="-1"></a><span class="fu">summary</span>(est_VAR1)</span></code></pre></div>
+<pre><code>## 
+## VAR Estimation Results:
+## ========================= 
+## Endogenous variables: Y1, Y2 
+## Deterministic variables: const 
+## Sample size: 299 
+## Log Likelihood: -1051.693 
+## Roots of the characteristic polynomial:
+## 0.8123 0.3886
+## Call:
+## vars::VAR(y = Yt, p = 1, type = &quot;const&quot;)
+## 
+## 
+## Estimation results for equation Y1: 
+## =================================== 
+## Y1 = Y1.l1 + Y2.l1 + const 
+## 
+##       Estimate Std. Error t value Pr(&gt;|t|)    
+## Y1.l1  0.50728    0.06004   8.449 1.35e-15 ***
+## Y2.l1  0.07759    0.04514   1.719   0.0866 .  
+## const  1.08864    0.17861   6.095 3.40e-09 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## 
+## Residual standard error: 2.133 on 296 degrees of freedom
+## Multiple R-Squared: 0.3322,  Adjusted R-squared: 0.3277 
+## F-statistic: 73.64 on 2 and 296 DF,  p-value: &lt; 2.2e-16 
+## 
+## 
+## Estimation results for equation Y2: 
+## =================================== 
+## Y2 = Y1.l1 + Y2.l1 + const 
+## 
+##       Estimate Std. Error t value Pr(&gt;|t|)    
+## Y1.l1  0.46669    0.03001   15.55   &lt;2e-16 ***
+## Y2.l1  0.69357    0.02256   30.74   &lt;2e-16 ***
+## const -0.97716    0.08928  -10.95   &lt;2e-16 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## 
+## Residual standard error: 1.066 on 296 degrees of freedom
+## Multiple R-Squared: 0.9054,  Adjusted R-squared: 0.9048 
+## F-statistic:  1417 on 2 and 296 DF,  p-value: &lt; 2.2e-16 
+## 
+## 
+## 
+## Covariance matrix of residuals:
+##       Y1    Y2
+## Y1 4.551 1.096
+## Y2 1.096 1.137
+## 
+## Correlation matrix of residuals:
+##       Y1    Y2
+## Y1 1.000 0.482
+## Y2 0.482 1.000</code></pre>
+<p>次に, 上で推定されたVAR(1)モデルを使用して, VARモデルによる変数間の動学的関係性の分析を行う.</p>
+</div>
+</div>
+<div id="グレンジャーの因果性検定" class="section level3 unnumbered hasAnchor">
+<h3>グレンジャーの因果性検定<a href="varモデル.html#グレンジャーの因果性検定" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<pre><code>- 関数vars::causality()
+  - x: 関数VAR()により生成された&#39;varest&#39;クラスのオブジェクト
+  - cause: cause変数 (デフォルトは入力x$yの第1列の変数) 
+  - vcov.: 推定係数の共分散行列の指定
+  - boot: 棄却点を計算する際にwildブートストラップを使用するか否か(T/F)   
+  - boot.runs: boot=TRUEの場合のブートストラップの反復数</code></pre>
+<div class="sourceCode" id="cb685"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb685-1"><a href="varモデル.html#cb685-1" tabindex="-1"></a>vars<span class="sc">::</span><span class="fu">causality</span>(est_VAR1, <span class="at">cause =</span> <span class="st">&quot;Y1&quot;</span>) </span></code></pre></div>
+<pre><code>## $Granger
+## 
+##  Granger causality H0: Y1 do not Granger-cause Y2
+## 
+## data:  VAR object est_VAR1
+## F-Test = 241.8, df1 = 1, df2 = 592, p-value &lt; 2.2e-16
+## 
+## 
+## $Instant
+## 
+##  H0: No instantaneous causality between: Y1 and Y2
+## 
+## data:  VAR object est_VAR1
+## Chi-squared = 56.374, df = 1, p-value = 5.995e-14</code></pre>
+<div class="sourceCode" id="cb687"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb687-1"><a href="varモデル.html#cb687-1" tabindex="-1"></a><span class="co"># VAR(1)の推定結果var1を用い, Y1に関するGranger因果性検定</span></span>
+<span id="cb687-2"><a href="varモデル.html#cb687-2" tabindex="-1"></a>vars<span class="sc">::</span><span class="fu">causality</span>(est_VAR1, <span class="at">cause =</span> <span class="st">&quot;Y2&quot;</span>) </span></code></pre></div>
+<pre><code>## $Granger
+## 
+##  Granger causality H0: Y2 do not Granger-cause Y1
+## 
+## data:  VAR object est_VAR1
+## F-Test = 2.9555, df1 = 1, df2 = 592, p-value = 0.08611
+## 
+## 
+## $Instant
+## 
+##  H0: No instantaneous causality between: Y2 and Y1
+## 
+## data:  VAR object est_VAR1
+## Chi-squared = 56.374, df = 1, p-value = 5.995e-14</code></pre>
+<div class="sourceCode" id="cb689"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb689-1"><a href="varモデル.html#cb689-1" tabindex="-1"></a><span class="co"># 同, Y2に関するGranger因果性検定</span></span></code></pre></div>
+</div>
+<div id="インパルス応答" class="section level3 unnumbered hasAnchor">
+<h3>インパルス応答<a href="varモデル.html#インパルス応答" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="直交インパルス応答" class="section level4 unnumbered hasAnchor">
+<h4>直交インパルス応答<a href="varモデル.html#直交インパルス応答" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<pre><code>- 関数vars::irf()
+  - x: 関数VAR()により生成された&#39;varest&#39;クラスのオブジェクト等
+  - impulse: インパルス変数 (デフォルト=全変数)    
+  - response: 応答変数 (デフォルト=全変数)
+  - n.ahead: 将来区間の長さ
+  - ortho: 直交インパルス応答か (デフォルト=T) 
+  - cumulative: 累積インパルス応答か (デフォルト=F)
+  - boot: インパルス応答係数のブートストラップ誤差バンド計算の有無 (T/F)    
+  - ci: bootstrap誤差バンドの信頼区間
+  - runs: bootstrap回数</code></pre>
+<div class="sourceCode" id="cb691"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb691-1"><a href="varモデル.html#cb691-1" tabindex="-1"></a><span class="co"># vars::irf()関数 (ortho = T (デフォルト))</span></span>
+<span id="cb691-2"><a href="varモデル.html#cb691-2" tabindex="-1"></a>ip1 <span class="ot">&lt;-</span> vars<span class="sc">::</span><span class="fu">irf</span>(est_VAR1, <span class="at">impulse =</span> <span class="fu">c</span>(<span class="st">&quot;Y1&quot;</span>), <span class="at">response =</span> <span class="fu">c</span>(<span class="st">&quot;Y1&quot;</span>, <span class="st">&quot;Y2&quot;</span>),</span>
+<span id="cb691-3"><a href="varモデル.html#cb691-3" tabindex="-1"></a>                 <span class="at">n.ahead =</span> <span class="dv">5</span>, <span class="at">boot =</span> T)</span>
+<span id="cb691-4"><a href="varモデル.html#cb691-4" tabindex="-1"></a>ip2 <span class="ot">&lt;-</span> vars<span class="sc">::</span><span class="fu">irf</span>(est_VAR1, <span class="at">impulse =</span> <span class="fu">c</span>(<span class="st">&quot;Y2&quot;</span>), <span class="at">response =</span> <span class="fu">c</span>(<span class="st">&quot;Y1&quot;</span>, <span class="st">&quot;Y2&quot;</span>),</span>
+<span id="cb691-5"><a href="varモデル.html#cb691-5" tabindex="-1"></a>                 <span class="at">n.ahead =</span> <span class="dv">5</span>, <span class="at">boot =</span> T)</span>
+<span id="cb691-6"><a href="varモデル.html#cb691-6" tabindex="-1"></a><span class="fu">plot</span>(ip1)</span></code></pre></div>
+<p><img src="092-VAR2_files/figure-html/VARirf1-1.png" width="672" /></p>
+<div class="sourceCode" id="cb692"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb692-1"><a href="varモデル.html#cb692-1" tabindex="-1"></a><span class="fu">plot</span>(ip2)</span></code></pre></div>
+<p><img src="092-VAR2_files/figure-html/VARirf1-2.png" width="672" /></p>
+<div class="sourceCode" id="cb693"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb693-1"><a href="varモデル.html#cb693-1" tabindex="-1"></a><span class="co"># 破線は信頼区間</span></span>
+<span id="cb693-2"><a href="varモデル.html#cb693-2" tabindex="-1"></a><span class="co"># ip1; ip2</span></span></code></pre></div>
+</div>
+<div id="非直交インパルス応答" class="section level4 unnumbered hasAnchor">
+<h4>非直交インパルス応答<a href="varモデル.html#非直交インパルス応答" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div class="sourceCode" id="cb694"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb694-1"><a href="varモデル.html#cb694-1" tabindex="-1"></a><span class="co"># vars::irf()関数 (ortho = F)</span></span>
+<span id="cb694-2"><a href="varモデル.html#cb694-2" tabindex="-1"></a>ip1 <span class="ot">&lt;-</span> vars<span class="sc">::</span><span class="fu">irf</span>(est_VAR1, <span class="at">impulse =</span> <span class="fu">c</span>(<span class="st">&quot;Y1&quot;</span>), <span class="at">response =</span> <span class="fu">c</span>(<span class="st">&quot;Y1&quot;</span>, <span class="st">&quot;Y2&quot;</span>), </span>
+<span id="cb694-3"><a href="varモデル.html#cb694-3" tabindex="-1"></a>                 <span class="at">ortho =</span> F, <span class="at">n.ahead =</span> <span class="dv">5</span>, <span class="at">boot =</span> T)</span>
+<span id="cb694-4"><a href="varモデル.html#cb694-4" tabindex="-1"></a>ip2 <span class="ot">&lt;-</span> vars<span class="sc">::</span><span class="fu">irf</span>(est_VAR1, <span class="at">impulse =</span> <span class="fu">c</span>(<span class="st">&quot;Y2&quot;</span>), <span class="at">response =</span> <span class="fu">c</span>(<span class="st">&quot;Y1&quot;</span>, <span class="st">&quot;Y2&quot;</span>), </span>
+<span id="cb694-5"><a href="varモデル.html#cb694-5" tabindex="-1"></a>                 <span class="at">ortho =</span> F, <span class="at">n.ahead =</span> <span class="dv">5</span>, <span class="at">boot =</span> T)</span>
+<span id="cb694-6"><a href="varモデル.html#cb694-6" tabindex="-1"></a><span class="fu">plot</span>(ip1)</span></code></pre></div>
+<p><img src="092-VAR2_files/figure-html/VARirf2-1.png" width="672" /></p>
+<div class="sourceCode" id="cb695"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb695-1"><a href="varモデル.html#cb695-1" tabindex="-1"></a><span class="fu">plot</span>(ip2)</span></code></pre></div>
+<p><img src="092-VAR2_files/figure-html/VARirf2-2.png" width="672" /></p>
+<div class="sourceCode" id="cb696"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb696-1"><a href="varモデル.html#cb696-1" tabindex="-1"></a><span class="co"># ip1; ip2</span></span></code></pre></div>
+<ul>
+<li>累積インパルス応答</li>
+</ul>
+<div class="sourceCode" id="cb697"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb697-1"><a href="varモデル.html#cb697-1" tabindex="-1"></a>ip1_cum <span class="ot">&lt;-</span> vars<span class="sc">::</span><span class="fu">irf</span>(est_VAR1, <span class="at">impulse =</span> <span class="fu">c</span>(<span class="st">&quot;Y1&quot;</span>), <span class="at">response =</span> <span class="fu">c</span>(<span class="st">&quot;Y1&quot;</span>,<span class="st">&quot;Y2&quot;</span>), </span>
+<span id="cb697-2"><a href="varモデル.html#cb697-2" tabindex="-1"></a>                     <span class="at">n.ahead =</span> <span class="dv">5</span>, <span class="at">boot =</span> <span class="cn">TRUE</span>, <span class="at">cumulative=</span>T)</span>
+<span id="cb697-3"><a href="varモデル.html#cb697-3" tabindex="-1"></a>ip2_cum <span class="ot">&lt;-</span> vars<span class="sc">::</span><span class="fu">irf</span>(est_VAR1, <span class="at">impulse =</span> <span class="fu">c</span>(<span class="st">&quot;Y2&quot;</span>), <span class="at">response =</span> <span class="fu">c</span>(<span class="st">&quot;Y2&quot;</span>,<span class="st">&quot;Y1&quot;</span>), </span>
+<span id="cb697-4"><a href="varモデル.html#cb697-4" tabindex="-1"></a>                     <span class="at">n.ahead =</span> <span class="dv">5</span>, <span class="at">boot =</span> <span class="cn">TRUE</span>, <span class="at">cumulative=</span>T)</span>
+<span id="cb697-5"><a href="varモデル.html#cb697-5" tabindex="-1"></a><span class="fu">plot</span>(ip1_cum)</span></code></pre></div>
+<p><img src="092-VAR2_files/figure-html/VARirf3-1.png" width="672" /></p>
+<div class="sourceCode" id="cb698"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb698-1"><a href="varモデル.html#cb698-1" tabindex="-1"></a><span class="fu">plot</span>(ip2_cum)</span></code></pre></div>
+<p><img src="092-VAR2_files/figure-html/VARirf3-2.png" width="672" /></p>
+</div>
+</div>
+<div id="予測誤差分散分解-forecast-error-variance-decomposition" class="section level3 unnumbered hasAnchor">
+<h3>予測誤差分散分解 (forecast error variance decomposition)<a href="varモデル.html#予測誤差分散分解-forecast-error-variance-decomposition" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<pre><code>- 関数vars::fevd()
+  - x: 関数VAR()により生成された&#39;varest&#39;クラスのオブジェクト等
+  - n.ahead: 予測区間の長さ</code></pre>
+<ul>
+<li>直交化インパルス応答関数を使い, 第<span class="math inline">\(j(=1,2)\)</span>変数の第<span class="math inline">\(k(=1,2)\)</span>変数の<span class="math inline">\(h(=1,\ldots,10)\)</span>先予測誤差分散への寄与を評価</li>
+</ul>
+<div class="sourceCode" id="cb700"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb700-1"><a href="varモデル.html#cb700-1" tabindex="-1"></a>res_fevd <span class="ot">&lt;-</span> vars<span class="sc">::</span><span class="fu">fevd</span>(est_VAR1, <span class="at">n.ahead =</span> <span class="dv">10</span>)  <span class="co"># 10期先まで評価する</span></span>
+<span id="cb700-2"><a href="varモデル.html#cb700-2" tabindex="-1"></a><span class="fu">plot</span>(res_fevd)</span></code></pre></div>
+<p><img src="092-VAR2_files/figure-html/VARfevd-1.png" width="672" /></p>
+
+</div>
+</div>
+<div id="補足-分散共分散行列のコレスキー分解" class="section level2 hasAnchor" number="9.4">
+<h2><span class="header-section-number">9.4</span> 補足: 分散共分散行列のコレスキー分解<a href="varモデル.html#補足-分散共分散行列のコレスキー分解" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>直交化インパルス応答や予測誤差分散分解では, 事前に外生性の高い順に変数を配置しておく必要がある.
+直交化する際には, VAR(<span class="math inline">\(p\)</span>)モデルの撹乱項の分散共分散行列に対してCholeskey分解が利用される.</p>
+<ul>
+<li>分散共分散行列に対するコレスキー (Choleskey) 分解の計算例
+<ul>
+<li>以下, 簡単のため, VAR(<span class="math inline">\(p\)</span>)モデルは使わない</li>
+</ul></li>
+</ul>
+<!--
+- msci日次収益率データの読み込み
+  - データ入手先: https://www.asakura.co.jp/detail.php?book_code=12792 -->
+<!-- toを指定しないと, 三市場データの長さが異なる可能性がある.
+ow, 日付を月末に揃えるなどすれば, mergeが使えるはずだが... -->
+<pre><code>## Loading required package: MASS</code></pre>
+<pre><code>## Loading required package: strucchange</code></pre>
+<pre><code>## Loading required package: zoo</code></pre>
+<pre><code>## 
+## Attaching package: &#39;zoo&#39;</code></pre>
+<pre><code>## The following objects are masked from &#39;package:base&#39;:
+## 
+##     as.Date, as.Date.numeric</code></pre>
+<pre><code>## Loading required package: sandwich</code></pre>
+<pre><code>## Loading required package: urca</code></pre>
+<pre><code>## Loading required package: lmtest</code></pre>
+<pre><code>## Loading required package: xts</code></pre>
+<pre><code>## Loading required package: TTR</code></pre>
+<pre><code>## Registered S3 method overwritten by &#39;quantmod&#39;:
+##   method            from
+##   as.zoo.data.frame zoo</code></pre>
+<pre><code>## ── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+## ✔ dplyr     1.1.4     ✔ readr     2.1.5
+## ✔ forcats   1.0.0     ✔ stringr   1.5.1
+## ✔ ggplot2   3.5.1     ✔ tibble    3.2.1
+## ✔ lubridate 1.9.3     ✔ tidyr     1.3.1
+## ✔ purrr     1.0.2     
+## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+## ✖ stringr::boundary() masks strucchange::boundary()
+## ✖ dplyr::filter()     masks stats::filter()
+## ✖ dplyr::first()      masks xts::first()
+## ✖ dplyr::lag()        masks stats::lag()
+## ✖ dplyr::last()       masks xts::last()
+## ✖ dplyr::select()     masks MASS::select()
+## ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
+<pre><code>##                     us           uk          jp
+## 1999-12-31 -0.05224485 -0.100351609  0.03147106
+## 2000-01-31 -0.02031300 -0.005743495  0.02125795
+## 2000-02-29  0.09232375  0.048174179  0.01875144
+## 2000-03-31 -0.03127991 -0.033078382 -0.12354810
+## 2000-04-30 -0.02215875  0.005044624 -0.09575560
+## 2000-05-31  0.02365163 -0.007370510  0.06395117</code></pre>
+<p><img src="094_Chol_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
+<ul>
+<li>分散共分散行列<span class="math inline">\({\bf \Sigma}\)</span>のCholeskey分解
+<span class="math display">\[ {\bf \Sigma} = {\bf P}{\bf P&#39;} \]</span>
+但し, <span class="math inline">\({\bf P}\)</span>は下三角行列.</li>
+</ul>
+<p>上で使用した米英日3か国の株価指数データ (S&amp;P500, FTSE, 日経平均)
+をここでも使用して実際にCholeskey分解を行ってみよう.</p>
+<ul>
+<li>米英日の日次収益率に対して分散共分散行列を計算 → Choleskey分解</li>
+</ul>
+<div class="sourceCode" id="cb714"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb714-1"><a href="varモデル.html#cb714-1" tabindex="-1"></a><span class="co"># アメリカ、イギリス、日本市場</span></span>
+<span id="cb714-2"><a href="varモデル.html#cb714-2" tabindex="-1"></a>usukjp <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(mkt<span class="sc">$</span>us, mkt<span class="sc">$</span>uk, mkt<span class="sc">$</span>jp) </span>
+<span id="cb714-3"><a href="varモデル.html#cb714-3" tabindex="-1"></a><span class="fu">head</span>(usukjp, <span class="dv">5</span>) </span></code></pre></div>
+<pre><code>##                     us           uk          jp
+## 1999-12-31 -0.05224485 -0.100351609  0.03147106
+## 2000-01-31 -0.02031300 -0.005743495  0.02125795
+## 2000-02-29  0.09232375  0.048174179  0.01875144
+## 2000-03-31 -0.03127991 -0.033078382 -0.12354810
+## 2000-04-30 -0.02215875  0.005044624 -0.09575560</code></pre>
+<div class="sourceCode" id="cb716"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb716-1"><a href="varモデル.html#cb716-1" tabindex="-1"></a><span class="co"># 分散共分散行列: Sigma</span></span>
+<span id="cb716-2"><a href="varモデル.html#cb716-2" tabindex="-1"></a>cov_usukjp <span class="ot">&lt;-</span> <span class="fu">cov</span>(usukjp) <span class="sc">%&gt;%</span> <span class="fu">print</span>(<span class="at">digits =</span> <span class="dv">4</span>)</span></code></pre></div>
+<pre><code>##          us       uk       jp
+## us 0.001986 0.001368 0.001585
+## uk 0.001368 0.001535 0.001193
+## jp 0.001585 0.001193 0.002964</code></pre>
+<div class="sourceCode" id="cb718"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb718-1"><a href="varモデル.html#cb718-1" tabindex="-1"></a><span class="co"># Choleskey分解: Sigma = PP&#39;</span></span>
+<span id="cb718-2"><a href="varモデル.html#cb718-2" tabindex="-1"></a>P <span class="ot">&lt;-</span> <span class="fu">chol</span>(cov_usukjp) <span class="sc">%&gt;%</span> <span class="fu">t</span>() <span class="sc">%&gt;%</span> <span class="fu">print</span>(<span class="at">digits =</span> <span class="dv">4</span>) <span class="co"># 下三角行列P</span></span></code></pre></div>
+<pre><code>##         us       uk      jp
+## us 0.04456 0.000000 0.00000
+## uk 0.03071 0.024338 0.00000
+## jp 0.03557 0.004121 0.04101</code></pre>
+<div class="sourceCode" id="cb720"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb720-1"><a href="varモデル.html#cb720-1" tabindex="-1"></a><span class="co"># Sigmaの復元 (確認用)</span></span>
+<span id="cb720-2"><a href="varモデル.html#cb720-2" tabindex="-1"></a>P <span class="sc">%*%</span> <span class="fu">t</span>(P) <span class="sc">%&gt;%</span> <span class="fu">print</span>(<span class="at">digits =</span> <span class="dv">4</span>)</span></code></pre></div>
+<pre><code>##          us       uk       jp
+## us 0.001986 0.001368 0.001585
+## uk 0.001368 0.001535 0.001193
+## jp 0.001585 0.001193 0.002964</code></pre>
+<ul>
+<li>米日英の分散共分散行列を計算 → Choleskey分解</li>
+</ul>
+<div class="sourceCode" id="cb722"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb722-1"><a href="varモデル.html#cb722-1" tabindex="-1"></a><span class="co"># アメリカ、日本, 英国市場</span></span>
+<span id="cb722-2"><a href="varモデル.html#cb722-2" tabindex="-1"></a>usjpuk <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(mkt<span class="sc">$</span>us, mkt<span class="sc">$</span>jp, mkt<span class="sc">$</span>uk) </span>
+<span id="cb722-3"><a href="varモデル.html#cb722-3" tabindex="-1"></a><span class="fu">head</span>(usjpuk, <span class="dv">5</span>) </span></code></pre></div>
+<pre><code>##                     us          jp           uk
+## 1999-12-31 -0.05224485  0.03147106 -0.100351609
+## 2000-01-31 -0.02031300  0.02125795 -0.005743495
+## 2000-02-29  0.09232375  0.01875144  0.048174179
+## 2000-03-31 -0.03127991 -0.12354810 -0.033078382
+## 2000-04-30 -0.02215875 -0.09575560  0.005044624</code></pre>
+<div class="sourceCode" id="cb724"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb724-1"><a href="varモデル.html#cb724-1" tabindex="-1"></a><span class="co"># 分散共分散行列: Sigma</span></span>
+<span id="cb724-2"><a href="varモデル.html#cb724-2" tabindex="-1"></a>cov_usjpuk <span class="ot">&lt;-</span> <span class="fu">cov</span>(usjpuk) <span class="sc">%&gt;%</span> <span class="fu">print</span>(<span class="at">digits =</span> <span class="dv">4</span>)</span></code></pre></div>
+<pre><code>##          us       jp       uk
+## us 0.001986 0.001585 0.001368
+## jp 0.001585 0.002964 0.001193
+## uk 0.001368 0.001193 0.001535</code></pre>
+<div class="sourceCode" id="cb726"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb726-1"><a href="varモデル.html#cb726-1" tabindex="-1"></a><span class="co"># Choleskey分解: Sigma = PP&#39;</span></span>
+<span id="cb726-2"><a href="varモデル.html#cb726-2" tabindex="-1"></a>P <span class="ot">&lt;-</span> <span class="fu">chol</span>(cov_usjpuk) <span class="sc">%&gt;%</span> <span class="fu">t</span>() <span class="sc">%&gt;%</span> <span class="fu">print</span>(<span class="at">digits =</span> <span class="dv">4</span>) <span class="co"># 下三角行列P</span></span></code></pre></div>
+<pre><code>##         us       jp      uk
+## us 0.04456 0.000000 0.00000
+## jp 0.03557 0.041214 0.00000
+## uk 0.03071 0.002433 0.02422</code></pre>
+<div class="sourceCode" id="cb728"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb728-1"><a href="varモデル.html#cb728-1" tabindex="-1"></a><span class="co"># Sigmaの復元 (確認用)</span></span>
+<span id="cb728-2"><a href="varモデル.html#cb728-2" tabindex="-1"></a>P <span class="sc">%*%</span> <span class="fu">t</span>(P) <span class="sc">%&gt;%</span> <span class="fu">print</span>(<span class="at">digits =</span> <span class="dv">4</span>)</span></code></pre></div>
+<pre><code>##          us       jp       uk
+## us 0.001986 0.001585 0.001368
+## jp 0.001585 0.002964 0.001193
+## uk 0.001368 0.001193 0.001535</code></pre>
+
 </div>
 </div>
 

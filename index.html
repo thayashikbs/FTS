@@ -313,6 +313,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="varモデル.html"><a href="varモデル.html#varpモデルの推定"><i class="fa fa-check"></i>VAR(<span class="math inline">\(p\)</span>)モデルの推定</a></li>
 <li class="chapter" data-level="" data-path="varモデル.html"><a href="varモデル.html#varpモデル予測"><i class="fa fa-check"></i>VAR(<span class="math inline">\(p\)</span>)モデル予測</a></li>
 </ul></li>
+<li class="chapter" data-level="9.3" data-path="varモデル.html"><a href="varモデル.html#var解析"><i class="fa fa-check"></i><b>9.3</b> VAR解析</a>
+<ul>
+<li class="chapter" data-level="" data-path="varモデル.html"><a href="varモデル.html#varp-モデルの構築-復習"><i class="fa fa-check"></i>VAR(<span class="math inline">\(p\)</span>) モデルの構築 (復習)</a></li>
+<li class="chapter" data-level="" data-path="varモデル.html"><a href="varモデル.html#グレンジャーの因果性検定"><i class="fa fa-check"></i>グレンジャーの因果性検定</a></li>
+<li class="chapter" data-level="" data-path="varモデル.html"><a href="varモデル.html#インパルス応答"><i class="fa fa-check"></i>インパルス応答</a></li>
+<li class="chapter" data-level="" data-path="varモデル.html"><a href="varモデル.html#予測誤差分散分解-forecast-error-variance-decomposition"><i class="fa fa-check"></i>予測誤差分散分解 (forecast error variance decomposition)</a></li>
+</ul></li>
+<li class="chapter" data-level="9.4" data-path="varモデル.html"><a href="varモデル.html#補足-分散共分散行列のコレスキー分解"><i class="fa fa-check"></i><b>9.4</b> 補足: 分散共分散行列のコレスキー分解</a></li>
 </ul></li>
 <li class="appendix"><span><b>Appendix 参考文献</b></span></li>
 <li class="chapter" data-level="A" data-path="バブル-生成崩壊-検出.html"><a href="バブル-生成崩壊-検出.html"><i class="fa fa-check"></i><b>A</b> バブル (生成・崩壊) 検出</a>
@@ -376,7 +384,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="header">
 <h1 class="title">金融時系列解析</h1>
 <p class="author"><em>林 高樹</em></p>
-<p class="date"><em>2025-12-19 (内容は随時更新します)</em></p>
+<p class="date"><em>2025-12-30 (内容は随時更新します)</em></p>
 </div>
 <div id="はじめに" class="section level1 hasAnchor" number="1">
 <h1><span class="header-section-number">1</span> はじめに<a href="index.html#はじめに" class="anchor-section" aria-label="Anchor link to header"></a></h1>
@@ -396,7 +404,7 @@ classoption: xelatex,ja=standard
 
 title: "金融時系列解析"
 author: "林 高樹"
-date: "2025-12-19"
+date: "2025-12-30"
 site: bookdown::bookdown_site
 output: bookdown::html_document2: default
 documentclass: bxjsbook
@@ -598,7 +606,7 @@ Figure 1.2: …
 <span id="cb9-10"><a href="index.html#cb9-10" tabindex="-1"></a></span>
 <span id="cb9-11"><a href="index.html#cb9-11" tabindex="-1"></a>today <span class="ot">&lt;-</span> <span class="fu">Sys.Date</span>()</span>
 <span id="cb9-12"><a href="index.html#cb9-12" tabindex="-1"></a>today</span>
-<span id="cb9-13"><a href="index.html#cb9-13" tabindex="-1"></a><span class="co">#&gt; [1] &quot;2025-12-19&quot;</span></span></code></pre></div>
+<span id="cb9-13"><a href="index.html#cb9-13" tabindex="-1"></a><span class="co">#&gt; [1] &quot;2025-12-30&quot;</span></span></code></pre></div>
 </div>
 <div id="posixctクラス" class="section level4 hasAnchor" number="1.4.1.2">
 <h4><span class="header-section-number">1.4.1.2</span> POSIXctクラス<a href="index.html#posixctクラス" class="anchor-section" aria-label="Anchor link to header"></a></h4>
@@ -818,7 +826,7 @@ Figure 1.2: …
 <span id="cb24-12"><a href="index.html#cb24-12" tabindex="-1"></a><span class="co">#&gt; 2020-10-06              NA</span></span>
 <span id="cb24-13"><a href="index.html#cb24-13" tabindex="-1"></a><span class="co">#&gt; 2020-10-07              NA</span></span>
 <span id="cb24-14"><a href="index.html#cb24-14" tabindex="-1"></a><span class="co">#&gt; 2020-10-08              NA</span></span>
-<span id="cb24-15"><a href="index.html#cb24-15" tabindex="-1"></a><span class="co">#&gt; 2020-10-09     0.002418847</span></span>
+<span id="cb24-15"><a href="index.html#cb24-15" tabindex="-1"></a><span class="co">#&gt; 2020-10-09     0.002418733</span></span>
 <span id="cb24-16"><a href="index.html#cb24-16" tabindex="-1"></a><span class="co">#Mizuho_ma21 &lt;- rollapply(Mizuho_ret, width = 21, mean, align = &quot;right&quot;)    # zooパッケージ内</span></span>
 <span id="cb24-17"><a href="index.html#cb24-17" tabindex="-1"></a><span class="co"># timestamp is taken from the rightmost value</span></span>
 <span id="cb24-18"><a href="index.html#cb24-18" tabindex="-1"></a></span>
@@ -1183,12 +1191,12 @@ Y_t = m_t + s_t + \epsilon_t
 <span id="cb49-2"><a href="index.html#cb49-2" tabindex="-1"></a>ap_forecast <span class="ot">&lt;-</span> <span class="fu">predict</span>(ap_ppht, dates_ft)</span>
 <span id="cb49-3"><a href="index.html#cb49-3" tabindex="-1"></a><span class="fu">tail</span>(ap_forecast[<span class="fu">c</span>(<span class="st">&#39;ds&#39;</span>, <span class="st">&#39;yhat&#39;</span>, <span class="st">&#39;yhat_lower&#39;</span>, <span class="st">&#39;yhat_upper&#39;</span>)])</span>
 <span id="cb49-4"><a href="index.html#cb49-4" tabindex="-1"></a><span class="co">#&gt;             ds     yhat yhat_lower yhat_upper</span></span>
-<span id="cb49-5"><a href="index.html#cb49-5" tabindex="-1"></a><span class="co">#&gt; 151 1961-07-01 576.3980   547.1491   604.9105</span></span>
-<span id="cb49-6"><a href="index.html#cb49-6" tabindex="-1"></a><span class="co">#&gt; 152 1961-08-01 576.8090   548.8977   605.2195</span></span>
-<span id="cb49-7"><a href="index.html#cb49-7" tabindex="-1"></a><span class="co">#&gt; 153 1961-09-01 528.3037   500.2752   556.7682</span></span>
-<span id="cb49-8"><a href="index.html#cb49-8" tabindex="-1"></a><span class="co">#&gt; 154 1961-10-01 493.0463   463.3145   520.5991</span></span>
-<span id="cb49-9"><a href="index.html#cb49-9" tabindex="-1"></a><span class="co">#&gt; 155 1961-11-01 459.2066   430.6198   487.7508</span></span>
-<span id="cb49-10"><a href="index.html#cb49-10" tabindex="-1"></a><span class="co">#&gt; 156 1961-12-01 488.5528   459.1222   517.7043</span></span>
+<span id="cb49-5"><a href="index.html#cb49-5" tabindex="-1"></a><span class="co">#&gt; 151 1961-07-01 576.3980   548.6393   603.8484</span></span>
+<span id="cb49-6"><a href="index.html#cb49-6" tabindex="-1"></a><span class="co">#&gt; 152 1961-08-01 576.8090   549.4144   603.4141</span></span>
+<span id="cb49-7"><a href="index.html#cb49-7" tabindex="-1"></a><span class="co">#&gt; 153 1961-09-01 528.3037   500.0104   558.7438</span></span>
+<span id="cb49-8"><a href="index.html#cb49-8" tabindex="-1"></a><span class="co">#&gt; 154 1961-10-01 493.0463   464.8869   521.7073</span></span>
+<span id="cb49-9"><a href="index.html#cb49-9" tabindex="-1"></a><span class="co">#&gt; 155 1961-11-01 459.2066   429.9979   487.4175</span></span>
+<span id="cb49-10"><a href="index.html#cb49-10" tabindex="-1"></a><span class="co">#&gt; 156 1961-12-01 488.5528   458.8659   517.3028</span></span>
 <span id="cb49-11"><a href="index.html#cb49-11" tabindex="-1"></a><span class="fu">str</span>(ap_forecast)</span>
 <span id="cb49-12"><a href="index.html#cb49-12" tabindex="-1"></a><span class="co">#&gt; &#39;data.frame&#39;:    156 obs. of  16 variables:</span></span>
 <span id="cb49-13"><a href="index.html#cb49-13" tabindex="-1"></a><span class="co">#&gt;  $ ds                        : POSIXct, format: &quot;1949-01-01&quot; &quot;1949-02-01&quot; ...</span></span>
@@ -1202,8 +1210,8 @@ Y_t = m_t + s_t + \epsilon_t
 <span id="cb49-21"><a href="index.html#cb49-21" tabindex="-1"></a><span class="co">#&gt;  $ multiplicative_terms      : num  0 0 0 0 0 0 0 0 0 0 ...</span></span>
 <span id="cb49-22"><a href="index.html#cb49-22" tabindex="-1"></a><span class="co">#&gt;  $ multiplicative_terms_lower: num  0 0 0 0 0 0 0 0 0 0 ...</span></span>
 <span id="cb49-23"><a href="index.html#cb49-23" tabindex="-1"></a><span class="co">#&gt;  $ multiplicative_terms_upper: num  0 0 0 0 0 0 0 0 0 0 ...</span></span>
-<span id="cb49-24"><a href="index.html#cb49-24" tabindex="-1"></a><span class="co">#&gt;  $ yhat_lower                : num  56 49.8 79.5 78.2 84.7 ...</span></span>
-<span id="cb49-25"><a href="index.html#cb49-25" tabindex="-1"></a><span class="co">#&gt;  $ yhat_upper                : num  113 107 139 138 141 ...</span></span>
+<span id="cb49-24"><a href="index.html#cb49-24" tabindex="-1"></a><span class="co">#&gt;  $ yhat_lower                : num  56.8 49.9 80 79 79.6 ...</span></span>
+<span id="cb49-25"><a href="index.html#cb49-25" tabindex="-1"></a><span class="co">#&gt;  $ yhat_upper                : num  113 107 138 135 137 ...</span></span>
 <span id="cb49-26"><a href="index.html#cb49-26" tabindex="-1"></a><span class="co">#&gt;  $ trend_lower               : num  106 108 110 113 115 ...</span></span>
 <span id="cb49-27"><a href="index.html#cb49-27" tabindex="-1"></a><span class="co">#&gt;  $ trend_upper               : num  106 108 110 113 115 ...</span></span>
 <span id="cb49-28"><a href="index.html#cb49-28" tabindex="-1"></a><span class="co">#&gt;  $ yhat                      : num  84.3 77.7 109.9 107.4 110.9 ...</span></span>

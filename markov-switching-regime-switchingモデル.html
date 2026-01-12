@@ -322,6 +322,25 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="9.4" data-path="varモデル.html"><a href="varモデル.html#補足-分散共分散行列のコレスキー分解"><i class="fa fa-check"></i><b>9.4</b> 補足: 分散共分散行列のコレスキー分解</a></li>
 </ul></li>
+<li class="chapter" data-level="10" data-path="共和分分析.html"><a href="共和分分析.html"><i class="fa fa-check"></i><b>10</b> 共和分分析</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="共和分分析.html"><a href="共和分分析.html#見せかけの回帰-再掲"><i class="fa fa-check"></i><b>10.1</b> 見せかけの回帰 (再掲)</a>
+<ul>
+<li class="chapter" data-level="" data-path="共和分分析.html"><a href="共和分分析.html#durbin-watson検定"><i class="fa fa-check"></i>Durbin-Watson検定</a></li>
+<li class="chapter" data-level="" data-path="共和分分析.html"><a href="共和分分析.html#rで実行可能な主な単位根検定法-1"><i class="fa fa-check"></i>Rで実行可能な主な単位根検定法</a></li>
+</ul></li>
+<li class="chapter" data-level="10.2" data-path="共和分分析.html"><a href="共和分分析.html#共和分分析-1"><i class="fa fa-check"></i><b>10.2</b> 共和分分析</a>
+<ul>
+<li class="chapter" data-level="" data-path="共和分分析.html"><a href="共和分分析.html#englegrangerの方法-philips-ouliaris検定"><i class="fa fa-check"></i>Engle–Grangerの方法 (Philips-Ouliaris検定)</a></li>
+<li class="chapter" data-level="" data-path="共和分分析.html"><a href="共和分分析.html#johansenの方法"><i class="fa fa-check"></i>Johansenの方法</a></li>
+</ul></li>
+<li class="chapter" data-level="10.3" data-path="共和分分析.html"><a href="共和分分析.html#誤差修正モデル-データ分析例-tsay-mts-ch5"><i class="fa fa-check"></i><b>10.3</b> 誤差修正モデル: データ分析例 (Tsay, MTS, Ch5)</a>
+<ul>
+<li class="chapter" data-level="" data-path="共和分分析.html"><a href="共和分分析.html#共和分検定"><i class="fa fa-check"></i>共和分検定</a></li>
+<li class="chapter" data-level="" data-path="共和分分析.html"><a href="共和分分析.html#johansenの方法-1"><i class="fa fa-check"></i>Johansenの方法</a></li>
+<li class="chapter" data-level="" data-path="共和分分析.html"><a href="共和分分析.html#誤差修正モデル-ecm-の推定"><i class="fa fa-check"></i>誤差修正モデル (ECM) の推定</a></li>
+</ul></li>
+</ul></li>
 <li class="appendix"><span><b>Appendix 参考文献</b></span></li>
 <li class="chapter" data-level="A" data-path="バブル-生成崩壊-検出.html"><a href="バブル-生成崩壊-検出.html"><i class="fa fa-check"></i><b>A</b> バブル (生成・崩壊) 検出</a>
 <ul>
@@ -381,13 +400,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="markov-switching-regime-switchingモデル" class="section level1 hasAnchor" number="12">
+<div id="markov-switching-regime-switchingモデル" class="section level1 hasAnchor" number="13">
 <h1><span class="header-section-number">C</span> Markov switching/ regime switchingモデル<a href="markov-switching-regime-switchingモデル.html#markov-switching-regime-switchingモデル" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <!-- - 2023年11月30日 -->
 <ul>
 <li>論文多数につき, ごく一部のみ紹介. ダウンロード可能なもの中心に紹介 (ワーキングペーパー含む)</li>
 </ul>
-<div id="理論概説-1" class="section level2 hasAnchor" number="12.1">
+<div id="理論概説-1" class="section level2 hasAnchor" number="13.1">
 <h2><span class="header-section-number">C.1</span> 理論・概説<a href="markov-switching-regime-switchingモデル.html#理論概説-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ul>
 <li><p>Hamilton, J. D. (1989). A New Approach to the Economic Analysis of Nonstationary Time Series and the Business Cycle. <em>Econometrica</em>, 57, 357–384.</p>
@@ -398,7 +417,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><a href="https://ideas.repec.org/a/eee/econom/v96y2000i1p75-111.html" class="uri">https://ideas.repec.org/a/eee/econom/v96y2000i1p75-111.html</a></p></li>
 </ul>
 </div>
-<div id="株式市場-1" class="section level2 hasAnchor" number="12.2">
+<div id="株式市場-1" class="section level2 hasAnchor" number="13.2">
 <h2><span class="header-section-number">C.2</span> 株式市場<a href="markov-switching-regime-switchingモデル.html#株式市場-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ul>
 <li><p>Lunde, A. and Timmermann, A. (2004). Duration dependence in stock prices: An analysis of bull and bear markets. <em>Journal of Business &amp; Economic Statistics</em>, 22(3), 253–273.</p>
@@ -407,7 +426,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><a href="https://www.tandfonline.com/doi/abs/10.1080/07350015.2000.10524851#aHR0cHM6Ly93d3cudGFuZGZvbmxpbmUuY29tL2RvaS9wZGYvMTAuMTA4MC8wNzM1MDAxNS4yMDAwLjEwNTI0ODUxP25lZWRBY2Nlc3M9dHJ1ZUBAQDA=" class="uri">https://www.tandfonline.com/doi/abs/10.1080/07350015.2000.10524851#aHR0cHM6Ly93d3cudGFuZGZvbmxpbmUuY29tL2RvaS9wZGYvMTAuMTA4MC8wNzM1MDAxNS4yMDAwLjEwNTI0ODUxP25lZWRBY2Nlc3M9dHJ1ZUBAQDA=</a></p></li>
 </ul>
 </div>
-<div id="金利債券市場" class="section level2 hasAnchor" number="12.3">
+<div id="金利債券市場" class="section level2 hasAnchor" number="13.3">
 <h2><span class="header-section-number">C.3</span> 金利・債券市場<a href="markov-switching-regime-switchingモデル.html#金利債券市場" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ul>
 <li><p>Ang, A. and Bekaert, G. (2002). Regime switches in interest rates. <em>Journal of Business and Economic Statistics</em> 20, 163–82.</p>
@@ -416,7 +435,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><a href="https://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.409.8573&amp;rep=rep1&amp;type=pdf" class="uri">https://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.409.8573&amp;rep=rep1&amp;type=pdf</a></p></li>
 </ul>
 </div>
-<div id="外国為替市場-1" class="section level2 hasAnchor" number="12.4">
+<div id="外国為替市場-1" class="section level2 hasAnchor" number="13.4">
 <h2><span class="header-section-number">C.4</span> 外国為替市場<a href="markov-switching-regime-switchingモデル.html#外国為替市場-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ul>
 <li><p>Dueker, Michael and Neely, Christopher J. (2007). Can Markov Switching Models Predict Excess Foreign Exchange Returns? <em>Journal of banking &amp; finance</em>, 31(2), 279-296.</p>
@@ -425,7 +444,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=637163" class="uri">https://papers.ssrn.com/sol3/papers.cfm?abstract_id=637163</a></p></li>
 </ul>
 </div>
-<div id="アセットアロケーション" class="section level2 hasAnchor" number="12.5">
+<div id="アセットアロケーション" class="section level2 hasAnchor" number="13.5">
 <h2><span class="header-section-number">C.5</span> アセット・アロケーション<a href="markov-switching-regime-switchingモデル.html#アセットアロケーション" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ul>
 <li><p>Ang, A. and Bekaert, G. (2002). International asset allocation with regime shifts. <em>Review of Financial Studies</em>, 15(4), 1137–1187.</p>

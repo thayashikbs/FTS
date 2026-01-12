@@ -84,6 +84,10 @@ varpモデルのシミュレーション
 varpモデルの構築
 var解析
 補足-分散共分散行列のコレスキー分解
+共和分分析
+見せかけの回帰-再掲
+共和分分析-1
+誤差修正モデル-データ分析例-tsay-mts-ch5
 バブル-生成崩壊-検出
 検定法に関する最近のレビュー論文
 supreme-adf検定sadf-pwy-2011-generalized-supreme-adf-検定gsadf-psy-2015
